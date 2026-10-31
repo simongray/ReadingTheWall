@@ -525,7 +525,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Fixating on the biggest holds #src("B22").
     - Ignoring small footholds. A higher foot often makes the hand intermediate unnecessary.
   ],
-  tall: [You can often skip intermediates.#ix("Tall climbers!skipping intermediates") That can leave you stretched out with no way to move your feet. A shorter climber's sequence, using the intermediates, is sometimes easier.],
+  tall: [You can often skip intermediates.#ix("Tall climbers!skipping intermediates") That can leave you stretched out with no way to move your feet. A shorter climber's sequence is sometimes easier.],
   related: ("matching", "cross-through", "deadpoint", "regrip"),
   sources: ("B22",),
 )
@@ -735,7 +735,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [From about V4, slow reaches to small holds need it where you can't turn in. Baker#ix("Baker, John") says lock-off strength matters more on steeper, harder climbs #src("B62").],
   summary: [You hold one arm bent with the shoulder pulled down. The other hand lets go and reaches slowly to the next hold. You catch it without a swing.],
   figure: "lock-off.svg",
-  caption: [Side view. The right hand is locked beside the shoulder. The feet are high. The left hand reaches for a small hold.],
+  caption: [Side view. The right hand is locked beside the shoulder, with the feet high.],
   how: [
     + First check whether #tref("hip-turn", body: [turning the hip in]) or a #tref("drop-knee") would do the job. Gresham#ix("Gresham, Neil") uses them to avoid locking off #src("B23", "B20").
     + Set your feet, as high as useful. Let your legs push you up into the lock #src("B27").

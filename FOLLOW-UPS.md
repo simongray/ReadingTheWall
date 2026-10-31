@@ -26,6 +26,8 @@ streamlining), which have the details.
   (`research/linkcheck-2.md`). One source page is gone (F37, kept with a
   note). 38 source sites blocked the automated check, mostly UKClimbing
   and theCrag behind Cloudflare, so check those in a browser.
+- **E17's title is cut short** ("Training to ... Part 3"). The page is
+  paywalled, so the full title couldn't be found.
 - **More videos:** the web-search budget ran out during research, so
   several entries have no "Watch" links. A good video for each of the
   hardest techniques would help. The template makes the QR code from the
@@ -45,9 +47,28 @@ streamlining), which have the details.
   - The Counter-kick's barn-door swing is ambiguous in a back view.
   - The thumb lock in Full crimp hides part of the index finger, which is
     true to life.
-  - The palm-press tile of the hand-position plate is cropped above a
-    sharp wrist crease, which `figtools/hand.py` draws at full wrist
-    extension.
+- The muscle-shading audit found poses that disagree with their text:
+  - In Bumping, the holding arm is bent at about 90°, but the text says to
+    keep it straight.
+  - In Pogo (a), the right arm reads as bent, although it's labelled
+    "arms straight".
+  - In Double clutch (b), the catching right arm is straight, although the
+    text says to catch with the arms slightly bent.
+  - In the arête figure (b), both arms are well bent, although the text says
+    the heel hook rests them.
+- Some muscles can't be shaded as things are:
+  - The shoe close-ups (toe hook, heel hook, bicycle, foot atlas) draw no
+    leg.
+  - In Twist lock (b), the lat that pulls the arm in lies behind the upper
+    arm.
+- The waist bend (`bend`) is only used in Drop knee, the dyno and the
+  straight-arms concept. Most poses would look less stiff with one.
+- In the hand close-ups:
+  - The half crimp's thumb still points back toward the climber.
+  - The little finger falls short of its hold in some grips, hidden
+    behind the other fingers.
+  - The fingers behind the index are one pale grey shape, which may be
+    faint on e-ink.
 - The hands chapter has no "In motion" filmstrip; it has the
   hand-position plate instead. Re-gripping a sloper or matching on a crimp
   would make a good one.
@@ -76,18 +97,14 @@ streamlining), which have the details.
 
 ## Typography
 
-- Grade headings repeat the grade: "8.2 V1 (Font 5)" has a V1 badge
-  beside it, and "3.4 V0: standing on holds" has a V0 badge. Consider
-  dropping the badge where the heading already names the grade.
-- The last few lines of the chapter 4 opening sit alone on a page, and two
-  note boxes sit alone on a page after their entries.
-  `research/typography-notes.md` describes how openings and note boxes are
-  fitted.
+- `fit-pages` measures a copy of the text without page numbers, so it can
+  think text fits when it spills by a line or two. The box in section 6.4
+  needed trimming by hand for this reason.
 
 ## Book
 
-- The first edition is 266 pages. A filmstrip or a quick-reference card
-  would add more.
+- The first edition is 266 pages, and the next is 263 so far. A filmstrip
+  or a quick-reference card would add more.
 - A one-page "on the mat" quick-reference card could be added if it fits
   the page budget. It would hold the reading checklist and the top cue
   for each category.

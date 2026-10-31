@@ -111,10 +111,12 @@ def deadpoint(path):
                    lh=lo, rh=add(lo, (0.4, -0.6)),
                    lf={"at": add(foot, (-1, -0.5)), "contact": "toe"},
                    rf={"at": foot, "contact": "edge"})
+    # the push leg drives; the holding arm bends only to let the body pass,
+    # and at the top of the rise the body weighs almost nothing
     top = Climber(None, shoulders=add(hi, (-6, -60)), view="side", lean=-24,
                   lh=lo, rh=hi,
                   lf={"at": add(foot, (-1, -0.5)), "contact": "toe"},
-                  rf={"at": foot, "contact": "edge"})
+                  rf={"at": foot, "contact": "edge"}, active=("rthigh",))
     panels = []
     for k in range(2):
         # room on the left, so the labels sit left of the hand and the hips
@@ -158,9 +160,11 @@ def hip_pump(path):
     dip = Climber((18, 142), lean=4, lh=grip(LH), rh=grip(RH),
                   lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                   knees={"l": "out", "r": "out"})
+    # the push leg lifts the hips, so the arms don't have to
     rise = _toward((12, 164), {"r": grip(T)}, lean=10, lh=grip(LH),
                      lf={"at": stand(LF), "contact": "toe", "angle": 215}, rf={"at": stand(RF), "style": "back"},
-                     elbows={"l": "down"}, knees={"l": "down", "r": "out"})
+                     elbows={"l": "down"}, knees={"l": "down", "r": "out"},
+                     active=("rthigh",))
     panels = []
     for k, (g, c) in enumerate([(start, dip), (dip, rise)]):
         f = Fig(-88, 44, 82, 300)
@@ -210,13 +214,15 @@ def dyno(path):
     sink = Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
                    lh=s, rh=add(s, (0.4, -0.6)),
                    lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
-                   rf={"at": ft, "contact": "toe"}, head=(1, 1))
+                   rf={"at": ft, "contact": "toe"}, head=(1, 1),
+                   bend=8)          # the back rounds a little in the crouch
     # arched: hips in, shoulders back, arms nearly straight; the legs are
     # nearly straight too, so the knees stay off the wall
     drive = Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
                     lh=s, rh=add(s, (0.4, -0.6)),
                     lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
-                    rf={"at": ft, "contact": "toe"}, head=(3, 0))
+                    rf={"at": ft, "contact": "toe"}, head=(3, 0), bend=-14,
+                    active=("lthigh", "rthigh", "lcalf", "rcalf"))
     catch = Climber(None, shoulders=add(tg, (-13, -56)), view="side", lean=-6,
                     lh=add(tg, (0.4, -0.6)), rh=tg,
                     lf={"at": (4, 108), "contact": "toe", "angle": 292},
@@ -268,10 +274,12 @@ def double_dyno(path):
                    lf={"at": stand(LF), "style": "back"},
                    rf={"at": stand(RF), "style": "back"},
                    knees={"l": "out", "r": "out"})
+    # slightly bent arms catch and check the swing
     catch = Climber((0, 190), lh=grip(A), rh=grip(B),
                     lf={"at": (-14, 102), "style": "back"},
                     rf={"at": (14, 100), "style": "back"},
-                    elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"})
+                    elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"},
+                    active=("lupper", "lfore", "rupper", "rfore"))
     panels = []
     for k, c in enumerate((sink, catch)):
         f = Fig(-59, 10, 59, 304)
@@ -312,18 +320,21 @@ def cutting_loose(path):
     hand = _side_grip(H, A)
     foot = _side_foot(F, A)
 
-    def hang(shoulders, lean, lf, rf):
+    def hang(shoulders, lean, lf, rf, active=None):
         return Climber(None, shoulders=add(hand, shoulders), view="side",
-                       lean=lean, lh=hand, rh=add(hand, (0.4, -0.6)), lf=lf, rf=rf)
+                       lean=lean, lh=hand, rh=add(hand, (0.4, -0.6)), lf=lf, rf=rf,
+                       active=active)
 
     on = hang((-6, -50), -12, {"at": add(foot, (-1, -1)), "contact": "toe"},
               {"at": foot, "contact": "toe"})
+    # the legs travel out freely; the stomach snaps them back at the peak
+    # and tenses again as the toes touch
     out = hang((-10, -54), 14, {"at": (-70, 50), "contact": "toe", "angle": 288},
                {"at": (-64, 47), "contact": "toe", "angle": 292})
     tuck = hang((-10, -54), 12, {"at": (-2, 84), "contact": "toe", "angle": 302},
-                {"at": (0, 83), "contact": "toe", "angle": 302})
+                {"at": (0, 83), "contact": "toe", "angle": 302}, active=("+core",))
     back = hang((-6, -50), -10, {"at": add(foot, (-1, -1)), "contact": "toe"},
-                {"at": foot, "contact": "toe"})
+                {"at": foot, "contact": "toe"}, active=("+core",))
     panels = []
     for k, (g, c) in enumerate([(on, out), (out, tuck), (tuck, back)]):
         f = Fig(-82, 40, 84, 268)
@@ -371,7 +382,8 @@ def lunge(path):
                     lf={"at": stand(LF), "contact": "toe", "angle": 210},
                     rf={"at": (42, 52), "contact": "toe", "angle": 266},
                     head=(3, 0),
-                    elbows={"l": "down"}, knees={"l": "out", "r": "down"})
+                    elbows={"l": "down"}, knees={"l": "out", "r": "down"},
+                    active=("+lthigh",))      # the left leg drives
     panels = []
     for k in range(2):
         f = Fig(-80, 12, 94, 252)
@@ -414,13 +426,16 @@ def counter_kick(path):
     opened = Climber((4, 146), turn=0.5, lean=-8, lh=(-70, 176), rh=rh,
                      lf={"at": (-56, 72), "contact": "toe", "angle": 240},
                      rf={"at": stand(RF), "style": "back"}, elbows={"l": "down"},
-                     knees={"l": "out", "r": "down"})
+                     knees={"l": "out", "r": "down"},
+                     active=("-lupper", "-lfore"))      # the left hand is off
+    # the stomach tenses as the kick stops the swing
     kicked = Climber((14, 146), lean=4, lh=None, rh=rh,
                      lf={"at": (70, 63), "contact": "toe", "angle": -10},
                      rf={"at": stand(RF), "style": "back"}, elbows={"l": "down"},
                      knees={"l": "down", "r": "down"}, allow_cross=True,
                      # behind the standing leg = nearer the viewer
-                     order=["rleg", "lleg", "larm", "torso", "rarm"])
+                     order=["rleg", "lleg", "larm", "torso", "rarm"],
+                     active=("+core",))
     panels = []
     for k in range(2):
         f = Fig(-84, 40, 96, 262)
@@ -465,10 +480,13 @@ def hip_pop(path):
                   lf={"at": (-54, 30), "contact": "toe", "angle": 250},
                   rf=back, elbows={"l": "down"}, knees={"r": "left"},
                   leg_len={"l": 0.95, "r": (0.82, 0.95)})
+    # the drop-knee leg pushes and the right hip snaps into the wall; as in
+    # a deadpoint, the holding arm bends only to let the body pass
     pop = _toward((6, 142), {"r": grip(T)}, turn=0.85, lean=10, lh=grip(L, use=180),
                     lf={"at": (-34, 50), "contact": "toe", "angle": 236},
                     rf=back, knees={"r": "left"}, elbows={"l": "down"},
-                    leg_len={"l": 0.95, "r": (0.88, 0.95)})
+                    leg_len={"l": 0.95, "r": (0.88, 0.95)},
+                    active=("rthigh", "rglute"))
     panels = []
     for k in range(2):
         f = Fig(-84, 24, 84, 268)
@@ -515,22 +533,28 @@ def latching(path):
     the right hand has caught with a slightly bent arm, the shoulder pulled
     down and both feet pressing on their holds."""
     import hand as H
-    # the close-ups use the book's one hand model at its fixed scale
+    # the close-ups use the book's one hand model at its fixed scale, each
+    # frame cutting the arm H.FOREARM_SHOWN below the wrist
     # (a) close-up: the open hand arrives a little above the lip
-    a = Fig(-10.5, -10, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
-    H.wall_profile(a, 6.5, -10, 9.5)
-    _jug_profile(a, (0, 0))
     ha = H.Hand("open", fingers={f: (18, 32, 22) for f in "imrl"}).rest_thumb()
     pa = ha.view("thumb").place("i", (1.4, 3.0), a0=98, k=0.6)
+    y0 = pa.forearm_point()[1]
+    a = Fig(-10.5, y0, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
+    H.wall_profile(a, 6.5, y0, 9.5)
+    _jug_profile(a, (0, 0))
     pa.draw(a)
     a.arrow([(4.4, 6.6), (4.4, 0.8)], kind="move")
     a.label("2–3 cm above", (-4.8, 8.4), to=(1.0, 1.8), size=7)
     # (b) close-up: fingers drop over the lip
-    b = Fig(-10.5, -10, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
-    H.wall_profile(b, 6.5, -10, 9.5)
-    _jug_profile(b, (0, 0))
-    hb = H.Hand("jug").rest_thumb()
+    hb = H.Hand("jug")
     pb = hb.view("thumb").place("i", (1.5, -1.15), a0=100, k=0.75)
+    # the thumb pad on the jug's front face, below the lip, so that the
+    # fingers hooked over the lip stay in view
+    pb.thumb_to((-0.85, -1.3), part="pad", k=0.6, facing=0)
+    y0 = pb.forearm_point()[1]
+    b = Fig(-10.5, y0, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
+    H.wall_profile(b, 6.5, y0, 9.5)
+    _jug_profile(b, (0, 0))
     pb.draw(b)
     b.label("fingers over the lip", (-4.0, 8.4), to=pb.joint("i", "dip"), size=7)
     for p in (pa, pb):
@@ -547,9 +571,12 @@ def latching(path):
     hold(c_, "jug", LO)
     hold(c_, "foot", LF)
     hold(c_, "foot", RF)
+    # the catching arm, and the lat pulling its shoulder down; the low
+    # hand only steadies
     c = Climber((0, 137), lean=2, lh=grip(LO), rh=grip(T),
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
-                elbows={"l": "down", "r": "out"}, knees={"l": "out", "r": "out"})
+                elbows={"l": "down", "r": "out"}, knees={"l": "out", "r": "out"},
+                active=("rupper", "rfore", "rlat"))
     c.draw(c_)
     c_.arrow([add(stand(LF), (0, 14)), add(stand(LF), (0, 3))], kind="force")
     c_.arrow([add(stand(RF), (0, 14)), add(stand(RF), (0, 3))], kind="force")
@@ -664,11 +691,14 @@ def pogo(path):
                    lf={"at": stand(LF), "contact": "toe", "angle": 235},
                    rf={"at": (-58, 46), "contact": "toe", "angle": 228},
                    knees={"l": "out", "r": "left"}, allow_cross=True,
-                   order=["rleg", "lleg", "torso", "larm", "rarm"])
+                   order=["rleg", "lleg", "torso", "larm", "rarm"],
+                   active=())          # hanging on straight arms
+    # the left foot pushes off while the left arm pulls
     swing = _toward((16, 154), {"r": grip(T)}, lean=4, lh=grip(LH),
                       lf={"at": stand(LF), "contact": "toe", "angle": 235},
                       rf={"at": (126, 150), "contact": "toe", "angle": -60},
-                      elbows={"l": "down"}, knees={"l": "out", "r": "up"})
+                      elbows={"l": "down"}, knees={"l": "out", "r": "up"},
+                      active=("+lthigh",))
     panels = []
     for k in range(2):
         f = Fig(-90, 30, 134, 280)
@@ -719,9 +749,11 @@ def campus_move(path):
     def tucked(shoulders, lean, lh, rh):
         c0 = Climber(None, shoulders=shoulders, view="side", lean=lean, lh=lh, rh=rh)
         P = c0.pelvis
+        # footless: the arms and body tension hold the tucked legs still
         return Climber(None, shoulders=shoulders, view="side", lean=lean, lh=lh, rh=rh,
                        lf={"at": add(P, (32, -52)), "contact": "toe", "angle": -44},
-                       rf={"at": add(P, (36, -54)), "contact": "toe", "angle": -44})
+                       rf={"at": add(P, (36, -54)), "contact": "toe", "angle": -44},
+                       active=("+core",))
 
     hang = tucked(add(h1, (-14, -54)), -6, h1, add(h1, (0.4, -0.6)))
     pop = tucked(add(h1, (-32, -24)), -18, h1, h2)
@@ -763,11 +795,13 @@ def double_clutch(path):
     start = Climber((-34, 92), lh=add(sg, (-6, 0)), rh=add(sg, (6, 0)),
                     lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                     knees={"l": "out", "r": "out"})
-    # the right hand stops visibly short of B, so (a) reads as catch 1 only
+    # the right hand stops visibly short of B, so (a) reads as catch 1 only;
+    # the left arm catches firm and slightly bent, the right is in flight
     one = _toward((24, 194), {"r": (48, 278)}, lean=-16, lh=grip(A),
                     lf={"at": (-6, 112), "style": "back"},
                     rf={"at": (30, 106), "style": "back"},
-                    elbows={"l": "down"}, knees={"l": "out", "r": "out"})
+                    elbows={"l": "down"}, knees={"l": "out", "r": "out"},
+                    active=("lupper", "lfore"))
     two = Climber((28, 194), lean=2, lh=grip(A), rh=grip(B),
                   lf={"at": (16, 110), "style": "back"},
                   rf={"at": (48, 106), "style": "back"},
@@ -821,12 +855,15 @@ def foot_catch(path):
     volume(f, vol, apex=(-70, 136))
     # the free left arm is held out to the side for balance, clear of the
     # left leg (hanging, it disappeared behind the thigh)
+    # the catching arm, the toe hook pulling back and the stomach tensing
+    # as the toe touches; the free left hand holds nothing
     c = Climber((0, 152), lean=-6, lh=(-52, 186), rh=grip(R),
                 lf={"at": (-104, 150), "contact": "toe", "angle": 98},
                 rf={"at": (22, 70), "contact": "toe", "angle": 290},
                 elbows={"l": "down"}, knees={"l": "up", "r": "out"},
                 hand_style={"l": "open"},
-                order=["rleg", "rarm", "torso", "larm", "lleg"])
+                order=["rleg", "rarm", "torso", "larm", "lleg"],
+                active=("rupper", "rfore", "lshin", "core"))
     c.draw(f)
     f.arrow([(-114, 168), (-94, 168)], kind="force")     # above the toe, off the shin
     f.arrow([(-30, 76), (-86, 84), add(c.J["lan"], (-6, -10))], kind="move")
@@ -854,10 +891,12 @@ def lache(path):
                   lf={"at": (-100, 60), "contact": "toe", "angle": 262},
                   rf={"at": (-86, 64), "contact": "toe", "angle": 290},
                   elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"})
+    # the right arm catches, slightly bent; the left hand is still on its way
     catch = _toward((28, 142), {"l": (-20, 252)}, lean=14, rh=grip(R1),
                       lf={"at": (-8, 66), "contact": "toe", "angle": 250},
                       rf={"at": (6, 60), "contact": "toe", "angle": 280},
-                      elbows={"l": "out"}, knees={"l": "out", "r": "out"})
+                      elbows={"l": "out"}, knees={"l": "out", "r": "out"},
+                      active=("rupper", "rfore"))
     f = Fig(-222, 40, 100, 282)
     wall_grid(f)
     for p in (L1, L2, R1):
@@ -896,7 +935,8 @@ def paddle_dyno(path):
                     rh=grip(F),
                     lf={"at": (64, 90), "contact": "toe", "angle": 255},
                     rf={"at": (96, 86), "contact": "toe", "angle": 285},
-                    elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"})
+                    elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"},
+                    active=("-lupper", "-lfore"))       # the left hand only taps 3
     f = Fig(-196, 24, 150, 300)
     wall_grid(f)
     hold(f, "jug", S1)
@@ -985,10 +1025,12 @@ def filmstrip_dyno(path):
               rf={"at": ft, "contact": "toe"})
     poses = [
         Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
-                lh=s, rh=s2, head=(1, 2), **on),
-        # arched: hips in, shoulders back, arms nearly straight
+                lh=s, rh=s2, head=(1, 2), bend=8, **on),
+        # arched: hips in, shoulders back, arms nearly straight; the legs
+        # drive, as in the dyno figure
         Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
-                lh=s, rh=s2, head=(3, 0), **on),
+                lh=s, rh=s2, head=(3, 0), bend=-14, **on,
+                active=("lthigh", "rthigh", "lcalf", "rcalf")),
         # legs straight, toes just off the foothold; the head tips back to
         # look up past the arms
         _toward(None, {"l": add(tg, (-2, -14)), "r": add(tg, (0, -12))},
@@ -999,10 +1041,12 @@ def filmstrip_dyno(path):
                 lh=tg2, rh=tg,
                 lf={"at": (4, 108), "contact": "toe", "angle": 292},
                 rf={"at": (8, 106), "contact": "toe", "angle": 294}),
+        # the arms, slightly bent, and the stomach hold the swing
         Climber(None, shoulders=add(tg, (-17, -58)), view="side", lean=10,
                 lh=tg2, rh=tg,
                 lf={"at": (-34, 112), "contact": "toe", "angle": 282},
-                rf={"at": (-30, 110), "contact": "toe", "angle": 284}),
+                rf={"at": (-30, 110), "contact": "toe", "angle": 284},
+                active=("+rupper", "+rfore", "+core")),
     ]
     caps = ["sink, eyes on target", "drive with the legs", "let go, reach",
             "catch with both hands", "feet off, hold the swing"]

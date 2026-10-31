@@ -474,19 +474,19 @@ A43:
   parent:
     title: "Movement Climbing"
   url:
-    value: "https://portal.movementgyms.com/harlem/n/intermediate-classes"
+    value: "https://portal.movementgyms.com/harlem/programs/intermediate-technique-series"
     date: 2026-10-30
-  note: "Class description"
+  note: "Gym course page"
 
 A44:
   type: web
   title: "Progressing from V2 to V3 Boulders"
   author: {name: "Mountain Project forum"}
-  date: 2017-09-30
+  date: 2017-09-29
   parent:
     title: "Mountain Project forum"
   url:
-    value: "https://www.mountainproject.com/forum/message/113645869"
+    value: "https://www.mountainproject.com/forum/topic/113643425/progressing-from-v2-to-v3-boulders"
     date: 2026-10-30
   note: "Forum thread"
 

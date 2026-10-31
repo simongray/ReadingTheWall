@@ -51,8 +51,6 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("cut loose", see: ("cutting-loose",))[When your feet come off the wall and swing, deliberately or not, leaving you hanging on your hands.]
 
-#gloss("dab")[Touching the floor, a spotter or a hold that isn't part of the problem. In most gyms a dab means the attempt doesn't count.]
-
 #gloss("DAV")[The German Alpine Club (Deutscher Alpenverein), which publishes climbing safety guidance and gym accident statistics.]
 
 #gloss("deadpoint", see: ("deadpoint",))[The top of a movement, when your body is momentarily weightless. Grabbing the next hold at that instant takes the least strength.]
@@ -103,11 +101,9 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("heel hook", see: ("heel-hook",))[Hooking your heel on a hold and pulling with it, as if it were a third hand.]
 
-#gloss("highball")[A boulder problem high enough that a fall could hurt even on good mats.]
-
 #gloss("hinge", see: ("barn-door",))[The line between the hand and foot that are holding you. If your weight is off to one side of it, your body rotates around it like a door.]
 
-#gloss("incut")[A hold whose gripping surface slopes back into the wall, so your fingers lock behind its lip. Incuts are easier than they look.]
+#gloss("incut")[A hold whose gripping surface slopes back into the wall, so your fingers lock behind its lip.]
 
 #gloss("intermediate", see: ("bumping",))[A small hold between two better ones, used briefly to get from one to the other.]
 
@@ -127,8 +123,6 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("lumbrical")[One of the small muscles in the palm attached to the finger tendons. It can tear when neighbouring fingers are bent very differently, as in some pockets.]
 
-#gloss("macro")[A very large hold, bigger than a normal hold but smaller than a volume, often with several ways to use it.]
-
 #gloss("mantle", see: ("mantle",))[Pressing down on a ledge or the top of a hold to push your body up above it, like climbing out of a swimming pool.]
 
 #gloss("marker hold")[A memorable hold you use to anchor your memory of a sequence ("after the blue pinch, cross through").]
@@ -137,7 +131,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("max hang")[The most extra weight you can hang from a given edge for a few seconds. Coaches use it to measure finger strength.]
 
-#gloss("MCL")[The medial collateral ligament, on the inside of the knee. Drop knees and frog positions with the knee twisted can strain it.]
+#gloss("MCL")[The medial collateral ligament, on the inside of the knee. A deep drop knee can strain it, especially when you're tired.]
 
 #gloss("meniscus")[A rubbery pad of cartilage inside the knee. Twisting on a bent knee, as in a deep drop knee, can tear it.]
 

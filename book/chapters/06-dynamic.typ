@@ -54,16 +54,16 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   #ix("Route reading!dynamic moves")
   *Look for* these signs before you climb:
   - *A gap with no holds in between.* The next hold is out of reach on straight arms from your best stance. No foothold lets you walk your feet up first.
-  - *No footholds where you need them.* Look for a blank panel or a single low foothold. Also look for a hold or volume that has grip on only some faces (#jt("dual-tex"), two textures) #src("D35").
-  - *A target made to be caught.* Setters use a big, deep hold or a pair of holds side by side. Small edges and pockets far away usually mean a deadpoint or a static move #src("D21").
-  - *A hold that only works from one direction.* You can only hold it if you arrive moving into it. Rounded holds and holds you squeeze are typical.
+  - *No footholds where you need them:* a blank panel, a single low foothold, or a hold or volume with grip on only some faces (#jt("dual-tex"), two textures) #src("D35").
+  - *A target made to be caught:* a big, deep hold or two holds side by side. Small, far-off edges and pockets usually mean a deadpoint or a static move #src("D21").
+  - *A hold you can only hold if you arrive moving into it,* such as a rounded hold or one you squeeze.
   - *Spread-out starts.* Look for start holds set wide, a #jt("four-point start") (a marked hold for each hand and foot), or a high start hold with clear floor in front #src("D35").
   - *A row of holds or volumes at the same height* #src("D31").
 
   *Symptoms* that you needed to move dynamically:
   - You reach the hold slowly but can't hold the lock-off long enough to grip it, or your fingers slide off it. Try a #tref("deadpoint").
   - The move dies halfway because you paused.
-  - Your arms tire fast on moves between decent holds. You pulled with your arms instead of pushing with your legs #src("D6").
+  - Your arms tire fast between decent holds, because you pulled with them instead of pushing with your legs #src("D6").
   - You stick the hold and the swing rips you off. You needed #tref("cutting-loose"), #tref("foot-catch") or a second hand.
 ]
 ]

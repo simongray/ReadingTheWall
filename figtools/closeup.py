@@ -30,11 +30,12 @@ def crimp_figure(path):
     angles marked."""
     panels = []
     for kind, lab in (("open", "≈40°"), ("half", "≈90°"), ("full", "over 90°")):
-        f, p = H.grip_profile(kind, x0=-12.0, y0=-8.5, y1=8.6)
+        f, p = H.grip_profile(kind, x0=-12.0, y1=8.6)
         j = p.joint("i", "pip")
         H.joint_arc(f, p, "i", "pip", 1.5, lab, at=add(j, (-2.6, 2.4)), ext=2.2)
         panels.append(f)
-    combine(panels, path, gap=3, captions=["open hand", "half crimp", "full crimp"])
+    combine(panels, path, gap=3, captions=["open hand", "half crimp", "full crimp"],
+            align="top")
 
 
 # ---------------------------------------------------------------- shoes from above

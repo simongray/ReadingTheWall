@@ -24,11 +24,10 @@
   sub: 12.6pt,      // +1: subheads, chapter labels
   badge: 15.1pt,    // +2: the grade in an entry's title band
   tech: 18.1pt,     // +3: technique names
-  section: 21.8pt,  // +4: numbered sections, and the grade beside a grade section
+  section: 21.8pt,  // +4: numbered sections
   guide: 26.1pt,    // +5: grade guides
   part-sub: 26.1pt, // +5: part titles
   chapter: 31.4pt,  // +6: chapter titles
-  guide-tab: 31.4pt,// +6: the grade beside a grade guide
   title: 45pt,      // +8: the title page
 )
 
@@ -286,19 +285,15 @@
 
 #let grade-label(g) = if g == none { "—" } else if g < 0 { "VB" } else if g >= 8 { "V8+" } else { "V" + str(g) }
 
-// The grade mark: white lining figures on a black tab. One design at four
-// sizes: in running text, in an entry's title band, beside the head of a
-// grade section and beside the head of a grade guide. It marks a heading
-// and never replaces one: the heading keeps its text in the heading
-// type. The proportions are in em, so every size is the same shape.
+// The grade mark: white lining figures on a black tab. One design at two
+// sizes: in running text and in an entry's title band. It marks an entry
+// and never replaces a heading. A section head that names a grade has no
+// tab, since it would only repeat the head. The proportions are in em, so
+// every size is the same shape.
 #let grade-tab(body, size: 9pt) = text(
   size: size, weight: 700, fill: white, number-type: "lining", tracking: 0.02em, top-edge: cap,
   box(fill: ink, inset: (x: 0.34em, y: 0.2em), radius: 0.09em, baseline: 0.2em, body),
 )
-
-// The grade of a section head as a marker: "V5 and up" becomes "V5+", the
-// form the entry badges use.
-#let grade-marker(s) = s.replace(" and up", "+").replace(" and above", "+")
 
 // The same tab in running text, its black drawn behind the figures
 // instead of around them: the figures sit on the baseline and the line
@@ -1003,17 +998,14 @@
     }))
   }
   // Sections. Every section head is a heading in the heading type, with
-  // its own text; a grade only adds a marker. A section named after a
-  // grade (Part II) starts a page and carries its grade on a tab at the
-  // right end of the head, as an entry's title band does. A grade guide
-  // (Part III) is a major division: it starts a page, its head is one
-  // step larger and its tab larger still.
+  // its own text. A section named after a grade (Part II) starts a page.
+  // A grade guide (Part III) is a major division: it starts a page, sunk
+  // by a line, and its head is one step larger.
   show heading.where(level: 2): it => {
     let lbl = it.at("label", default: none)
     let lbl = if lbl == none { "" } else { str(lbl) }
     let g = grade-head(it)
     let guide = lbl.starts-with("grade")
-    let marker = if guide and g == none { "V4–V5" } else if g != none { grade-marker(g.grade) }
     let size = if guide { fs.guide } else { fs.section }
     let head = context {
       set text(size: size)
@@ -1023,10 +1015,8 @@
     }
     if guide or (g != none and g.title != none) {
       pagebreak(weak: true)
-      if guide { entries-running.update(false) } else { entry-top.update(true) }
-      block(width: 100%, above: 0pt, below: if guide { gap(2) } else { gap(2.5) }, sticky: true,
-        grid(columns: (1fr, auto), column-gutter: 1em, align: (left + bottom, right + bottom),
-          head, grade-tab(marker, size: if guide { fs.guide-tab } else { fs.section })))
+      if guide { entries-running.update(false); v(pitch) } else { entry-top.update(true) }
+      block(width: 100%, above: 0pt, below: if guide { gap(2) } else { gap(2.5) }, sticky: true, head)
     } else {
       block(width: 100%, above: gap(2.5), below: gap(0.9), sticky: true, head)
     }

@@ -23,10 +23,12 @@ def straight_arms(path):
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
                         head=(1, 1))
         else:
-            # the head tips back, out from behind the straight arm
+            # the head tips back, out from behind the straight arm; the left
+            # thigh, behind the right, would show no dots
             c = Climber(None, shoulders=add(hand, (-38, -52)), view="side", lean=6,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
-                        head=(-6, 0))
+                        head=(-6, 0), active=("rthigh",),
+                        bend=10)        # hanging back, the back rounds
         c.draw(f)
         sh = c.J["rsh"]
         if bent:
@@ -102,7 +104,7 @@ def barn_door(path):
                         lf={"at": stand(LF), "style": "back"},
                         rf={"at": (-4, 72), "angle": -85, "contact": "toe"},
                         knees={"l": "out", "r": "right"}, elbows={"l": "down"},
-                        head=(2, 1))
+                        head=(2, 1), active=("-rupper", "-rfore"))
             c.draw(f)
             f.cog(c.cog(), plumb_to=58)
             f.cross(add(T, (0, -13)))
@@ -144,9 +146,11 @@ def balance(path):
             c.draw(f)
             f.cog(c.cog(), plumb_to=58)
         else:
+            # the left arm bends only because the hips moved: the feet
+            # carry the weight and the hands just steady it
             c = Climber((-22, 146), lean=6, lh=grip(LH), rh=grip(RH),
                         lf={"at": stand(LF)}, rf={"at": stand(RF)},
-                        knees={"r": "out"})
+                        knees={"r": "out"}, active=())
             c.draw(f)
             f.cog(c.cog(), plumb_to=58)
             f.body_arrow([(36, 160), (8, 160)], width=1.8)
@@ -179,7 +183,7 @@ def filmstrip_hips_first(path):
              rf={"at": stand(F2)}),
         dict(P=(16, 172), lean=-2, rh=grip(T),
              lf={"at": (-14, 104), "angle": 190, "contact": "ball"},
-             rf={"at": stand(F2)}),
+             rf={"at": stand(F2)}, active=("rthigh",)),
     ]
     frames = []
     for k, p in enumerate(poses):
@@ -192,6 +196,9 @@ def filmstrip_hips_first(path):
         for h in (LF, RF, F2):
             hold(f, "foot", h)
         kw = {k_: v for k_, v in p.items() if k_ != "P"}
+        # the feet carry the weight and the hands only steady it, until the
+        # right leg stands up in the last frame
+        kw.setdefault("active", ())
         c = Climber(p["P"], lh=grip(LH), elbows=out, knees=out, head=(0, 1), **kw)
         c.draw(f)
         f.cog(c.cog(), plumb_to=54)

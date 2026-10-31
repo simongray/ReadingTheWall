@@ -484,16 +484,18 @@ def smear_pose(good):
     H = slab_at(150)
     F = slab_at(64)
     hand = add(H, add(mul(wn, 5.5), mul(wd, 2.5)))
+    # on the slab the feet carry the weight; the hands only steady you, so
+    # nothing is shaded
     if good:
         foot = {"at": F, "angle": 8, "spot": "auto", "bend": 26,
                 "flat": (F, wn), "press": 1.9, "up": 1}
         c = FootClimber((16, 146), view="side", lean=10, lh=hand, rh=hand,
-                        lf=foot, rf=foot, head=(1, -2))
+                        lf=foot, rf=foot, head=(1, -2), active=())
     else:
         foot = {"at": F, "angle": -16, "spot": "auto", "flat": (F, wn),
                 "press": 0.25, "up": 1}
         c = FootClimber((40, 150), view="side", lean=28, lh=hand, rh=hand,
-                        lf=foot, rf=foot, head=(2, -1))
+                        lf=foot, rf=foot, head=(2, -1), active=())
     return c, H, F, wd, wn
 
 
@@ -571,9 +573,10 @@ def toe_pull(path):
         tip = add(F, (-2.8, 2.6))
         foot = {"at": tip, "angle": 10, "spot": "tip"}
         if good:
+            # the trunk holds the body tight from toe to hands
             c = FootClimber(None, shoulders=add(H, (-12, -55)), view="side",
                             lean=-30, lh=hand, rh=hand, lf=foot, rf=foot,
-                            head=(1, -2))
+                            head=(1, -2), active=("+core",))
             c.draw(f)
             J = c.J
             u, r = c.frame()
@@ -621,7 +624,8 @@ def heel_hook_pose():
     return FootClimber((30, 172), lh=grip(HK["LH"]), rh=grip(HK["T"]),
                        lf={"at": stand(HK["LF"]), "angle": 196},
                        rf={"at": heel, "angle": HK_FOOT, "spot": "heel", "up": 1},
-                       knees={"r": "up"}, leg_len={"r": (.85, .7)}, head=(2, 3))
+                       knees={"r": "up"}, leg_len={"r": (.85, .7)}, head=(2, 3),
+                       active=("+rham",))
 
 
 def hk_panel():
@@ -685,11 +689,12 @@ def toe_hook(path):
     hold(a, "jug", TK["TH"], use=180, size=1.2)
     hold(a, "foot", TK["RF"])
     contact = add(TK["TH"], (-7.2, -1))
+    # the hooking shin pulls the toes up; the right leg pushes
     c = FootClimber((6, 116), lean=-4, lh=(-34, 222), rh=grip(TK["RH"]),
                     lf={"at": contact, "angle": TK_FOOT, "spot": "toptoe", "up": -1},
                     rf={"at": stand(TK["RF"]), "angle": -24},
                     knees={"l": "up", "r": "out"}, leg_len={"r": .9},
-                    head=(-3, 3))
+                    head=(-3, 3), active=("+lshin", "+rthigh"))
     c.draw(a)
     a.arrow([add(grip(TK["LH0"]), (0, 7)), (-35, 214)], kind="move")
     a.arrow([add(stand(TK["RF"]), (10, 18)), add(stand(TK["RF"]), (10, 4))],
@@ -826,10 +831,11 @@ def knee_bar(path):
     V = add(touch, mul(s_dir, -3))
     W1 = add(W0, mul(wd, 72))
     f.poly([W0, V, W1], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    # the calf lifts the heel and wedges the thigh up into the volume
     c = FootClimber(pelvis, view="side", lean=lean, lh=None, rh=None,
                     rf={"at": tip, "angle": fa, "spot": "tip", "up": 1},
                     lf={"at": (-60, 50), "angle": -62, "up": 1},
-                    head=(-4, -3))
+                    head=(-4, -3), active=("+rcalf",))
     c.draw(f)
     f.label("toe digs in", (-2, 52), to=add(tip, mul(wn, 1.5)))
     # on two lines, so the label stays left of the wall line; the leader
@@ -866,7 +872,7 @@ def high_step_pose():
                        lf={"at": stand(HS["LF"]), "angle": 196},
                        rf={"at": stand(HS["HF"]), "style": "back"},
                        knees={"r": "up", "l": "out"}, leg_len={"r": .85},
-                       elbows={"r": "down"}, head=(3, -2))
+                       elbows={"r": "down"}, head=(3, -2), active=("+rthigh",))
 
 
 def high_step(path):
@@ -903,12 +909,15 @@ def rockover_poses():
                          rf={"at": stand(HS["HF"]), "style": "back"},
                          knees={"r": "right", "l": "out"}, leg_len={"r": .7},
                          elbows={"l": "down", "r": "down"}, head=(3, -1),
-                         order=["lleg", "rleg", "torso", "larm"])
+                         order=["lleg", "rleg", "torso", "larm"],
+                         active=("+rthigh",))
+    # the leg stands you up, not the arms: the hands only steady you and
+    # the right one reaches
     up = FootClimber((36, 186), lean=-8, lh=grip(HS["LH"]), rh=grip(HS["T"]),
                      lf={"at": stand(RO_LF), "style": "back"},
                      rf={"at": stand(HS["HF"]), "style": "back"},
                      knees={"r": "right", "l": "out"}, leg_len={"r": .9},
-                     elbows={"l": "down"}, head=(1, 3))
+                     elbows={"l": "down"}, head=(1, 3), active=("rthigh",))
     return across, up
 
 
@@ -958,11 +967,12 @@ def hand_foot_match(path):
         hold(f, "jug", RH)
         hold(f, "foot", RF)
         hold(f, "foot", LF)
+        press = ("+lupper", "+lfore")     # the left hand presses down
         if stage == 1:
             c = FootClimber((8, 142), lh=hand, rh=grip(RH),
                             lf={"at": stand(LF), "angle": 196},
                             rf={"at": stand(RF), "angle": -16},
-                            elbows={"l": "out"}, head=(-3, -2))
+                            elbows={"l": "out"}, head=(-3, -2), active=press)
             c.draw(f)
             f.arrow([add(hand, (-11, 24)), add(hand, (-11, 9))], kind="force")
             f.arrow([add(stand(LF), (-14, 6)), add(spot, (-2, -12))],
@@ -977,7 +987,8 @@ def hand_foot_match(path):
                             rf={"at": stand(RF), "angle": -16},
                             knees={"l": "up"}, leg_len={"l": .85},
                             elbows={"l": "in"}, head=(-3, -2),
-                            order=["rleg", "lleg", "torso", "rarm", "larm"])
+                            order=["rleg", "lleg", "torso", "rarm", "larm"],
+                            active=press)
             c.draw(f)
             f.body_arrow([add(c.pelvis, (14, -14)), add(c.pelvis, (-16, -14)),
                           add(spot, (14, 16))], width=2.2)
@@ -1066,23 +1077,27 @@ def rock_up_poses():
     # stays above the raised right knee instead of meeting it
     hk = (0.85, 0.7)
     ra = .82
+    # the heel is set on straight arms, then pulls (frames 2-3); the right
+    # leg stands up while the hands only steady and reach (frame 5)
     poses = [
         FootClimber((-6, 120), rh=grip(HR["RH"]), lf=on_lf, rf=hook(40),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .8},
                     arm_len={"r": ra}, head=(3, -1), elbows=low, **kw),
         FootClimber((2, 134), rh=grip(HR["RH"]), lf=on_lf, rf=hook(24),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .86},
-                    arm_len={"l": .9, "r": ra}, head=(3, 0), elbows=low, **kw),
+                    arm_len={"l": .9, "r": ra}, head=(3, 0), elbows=low,
+                    active=("+rham",), **kw),
         FootClimber((12, 148), rh=grip(HR["RH"]), lf=on_lf, rf=hook(4),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .94},
-                    arm_len={"l": .94, "r": ra}, head=(2, 0), elbows=low, **kw),
+                    arm_len={"l": .94, "r": ra}, head=(2, 0), elbows=low,
+                    active=("+rham",), **kw),
         FootClimber((22, 166), rh=add(HR["RH"], (-2, 6)), lf=on_lf2, rf=toe,
                     knees={"r": "right", "l": "out"}, leg_len={"r": .66},
                     head=(1, 2), elbows=low, lh=kw["lh"],
                     order=["lleg", "larm", "torso", "rleg"]),
         FootClimber((28, 192), rh=grip(HR["T"]), lf=on_lf2, rf=toe,
                     knees={"r": "right", "l": "out"}, leg_len={"r": .86},
-                    head=(1, 4), elbows=press, **kw),
+                    head=(1, 4), elbows=press, active=("rthigh",), **kw),
     ]
     poses[3].press_arm = ("r", (60, 210), add(HR["RH"], (-2, 6)))
     return poses

@@ -40,9 +40,9 @@ matter take the half steps next to the text size, headings whole steps.
 | 12.6 pt | subheads (level 4) and method steps, bold; chapter and part labels; film-strip titles; index letters |
 | 15.1 pt | the grade tab in an entry's title band |
 | 18.1 pt | technique names, bold |
-| 21.8 pt | sections, regular; the grade tab beside a grade section |
+| 21.8 pt | sections, regular |
 | 26.1 pt | grade guides; part titles |
-| 31.4 pt | chapter titles; the grade tab beside a grade guide |
+| 31.4 pt | chapter titles |
 | 45 pt | the title page |
 
 ## Page
@@ -100,13 +100,12 @@ matter take the half steps next to the text size, headings whole steps.
 ## The grade
 
 - One tab: white bold lining figures on black, proportions in em
-  (`grade-tab`). Sizes: about 9 pt in running text (`badge`), 15.1 pt in an
-  entry's title band, 21.8 pt beside a grade section, 31.4 pt beside a
-  grade guide. The QR-code numbers use the same tab at 7.2 pt.
-- The tab is a marker at the right end of the heading it marks, aligned on
-  the heading's last baseline. The heading keeps its own text in the
-  heading type. "V5 and up" is marked "V5+", the form of the entry
-  badges; "From V4 to V5" is marked "V4–V5".
+  (`grade-tab`). Sizes: about 9 pt in running text (`badge`) and 15.1 pt
+  in an entry's title band. The QR-code numbers use the same tab at 7.2 pt.
+- The tab is a marker at the right end of the title band it marks, aligned
+  on the heading's last baseline. Section heads and grade guides name
+  their grade in the heading text and have no tab, which would only
+  repeat it.
 - In tables and lists the grade is set in small caps without a tab
   (`badge-plain`).
 

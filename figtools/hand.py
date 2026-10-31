@@ -2,8 +2,13 @@
 
 The hand is a 3D model in centimetres, drawn in orthographic projection, so
 a pose looks the same from every side and every close-up shows the same
-hand at the same paper size (HAND_SCALE). Its proportions are those of an
-adult hand 19 cm long from the wrist crease to the tip of the middle finger.
+hand at the same paper size (HAND_SCALE). Its proportions are those of a
+slender adult hand 19 cm long from the wrist crease to the tip of the
+middle finger: the back of the hand a little shorter than the middle
+finger, 7.6 cm across the knuckles, the fingers tapering from 1.8 cm across
+at the index knuckle, the palm about 3.4 cm deep with the pads at its base
+standing out in front of it, and a wrist (5.4 by 3.3 cm) narrower than
+both the hand and the forearm.
 
 Hand frame (a right hand): x runs from the middle of the wrist crease toward
 the middle finger, y toward the thumb, z out of the back of the hand.
@@ -21,34 +26,40 @@ deviates toward the thumb (`dev`).
 Views (`Hand.view`):
 - "thumb": from the thumb side, the standard profile. The palm faces right
   (toward the wall in the side-view convention), the index finger is in
-  front, white, and the other fingers are drawn behind it, each its own
-  finger in a lighter grey, stepped a little aside (STAGGER) so that their
-  knuckles and tips show. tilt turns the back of the hand toward you.
-- "little": from the little-finger side, palm facing right; the thumb and
-  the fingers behind are grey.
+  front, white, and the other fingers are drawn behind it as one pale grey
+  shape, stepped a little aside (STAGGER) so that their tips show. tilt
+  turns the back of the hand toward you.
+- "little": from the little-finger side, palm facing right; the fingers
+  behind are pale grey and the thumb grey.
 - "back": the back of the hand, thumb on the left when the fingers point up.
 - "palm": the palm, thumb on the right.
 `a0` is the screen direction of the hand (wrist to knuckles) and `flip`
 mirrors the drawing (the palm then faces left in a profile).
 
 Every part is built as convex hulls of cross-section rings (a tube per
-finger segment, a rounded wedge per joint, the palm, the ball of the thumb
-and the forearm), projected and merged with the silhouette technique of
-climb.py. Nails (seen from the side, a line inside the back of the
-fingertip), joint creases, knuckle arcs on the back of a bent hand and the
-fine lines between fingers are drawn on top.
+finger segment, a rounded wedge per joint, the palm with the pad on its
+little-finger side, the ball of the thumb, the wrist and the forearm, the
+last two meeting in a waist), projected and merged with the silhouette technique of
+climb.py. The silhouette carries the grip: the only lines drawn inside it
+are the nails (seen from the side, a line inside the back of the
+fingertip) and, in back and palm views, the fine lines between fingers
+that touch.
 
 Typical use (a half crimp on an edge whose top meets the wall at WX, 0):
 
     h = Hand("half")                                   # a grip from GRIPS
     p = h.view("thumb").place("i", (WX - 0.85, 0), a0=95, k=0.85)
     h.rest_thumb()                       # or p.thumb_to(...) where it grips
+    fig = profile_frame(-12.0, y1=8.6, posed=p)    # cuts the arm below the wrist
     p.draw(fig)
     joint_arc(fig, p, "i", "pip", 1.5, "≈90°")
 
 place() puts a finger pad on a page point with the hand at a0 (or with the
 last segment pointing along `distal`); reach() and thumb_to() solve finger
-and thumb joints for a contact point; joint(), angle(), surface() and at()
+and thumb joints for a contact point, as close as they can to the pose the
+digit started in; forearm_point() is where a close-up's frame cuts the arm
+(FOREARM_SHOWN below the wrist, the same in every close-up; profile_frame
+takes the Posed hand for that); joint(), angle(), surface() and at()
 read page points back for labels and arrows. grip_profile() draws the
 standard side views of the open hand, half crimp, full crimp and thumb lock.
 """
@@ -63,7 +74,7 @@ HAND_SCALE = 2.6        # paper mm per cm, for every hand close-up in the book
 OUTLINE = 0.34          # outline weights in mm, as elsewhere in the book
 BACK_SW = 0.26          # the fingers behind the front one in a side view
 FINE = 0.20             # lines between fingers that touch
-DETAIL = 0.24           # nails and creases
+DETAIL = 0.24           # nails
 
 # ---------------------------------------------------------------- 3D vectors
 
@@ -134,57 +145,73 @@ def spin(v, axis, deg):
 
 # ---------------------------------------------------------------- anatomy
 #
-# Lengths in cm for a hand 19 cm long. The knuckle joints sit about 1.3 cm
-# inside the palm: the skin of the palm runs on to the webs between the
-# fingers (about 10.7 cm from the wrist crease), while the joint centres of
-# the middle finger are 9.35 + 4.4 + 2.8 + 2.0 + pad 0.45 = 19 cm long.
+# Lengths in cm for a slender adult hand 19 cm long. The knuckle joints sit
+# about 1.4 cm inside the palm: the skin of the palm runs on to the webs
+# between the fingers (about 10.2 cm from the wrist crease), while the joint
+# centres of the middle finger are 8.8 + 4.75 + 2.95 + 2.05 + pad 0.45 = 19
+# cm long. So the back of the hand, from the wrist crease to the knuckles,
+# is a little shorter than the middle finger, as in a real hand; a palm as
+# long as the finger, with thick fingers, reads as a mitten.
 
-MCP = {"i": (9.0, 3.0, 0.0), "m": (9.35, 1.0, 0.05), "r": (9.05, -1.0, 0.0),
-       "l": (8.35, -2.95, -0.15)}
-SEG = {"i": (4.0, 2.4, 1.9), "m": (4.4, 2.8, 2.0), "r": (4.1, 2.7, 1.9),
-       "l": (3.2, 1.9, 1.7)}
+MCP = {"i": (8.65, 2.7, 0.0), "m": (8.8, 0.9, 0.05), "r": (8.5, -0.85, 0.0),
+       "l": (7.8, -2.45, -0.15)}
+SEG = {"i": (4.3, 2.5, 1.9), "m": (4.75, 2.95, 2.05), "r": (4.5, 2.85, 2.0),
+       "l": (3.55, 2.05, 1.8)}
 PAD = {"i": 0.45, "m": 0.45, "r": 0.45, "l": 0.4}
 SPLAY = {"i": 5.0, "m": 0.0, "r": -5.0, "l": -11.0}   # relaxed, toward the thumb
-GIRTH = {"i": 1.0, "m": 1.02, "r": 0.97, "l": 0.88}
+GIRTH = {"i": 1.0, "m": 1.02, "r": 0.96, "l": 0.84}
 FINGERS = "imrl"
 NAMES = {"i": "index", "m": "middle", "r": "ring", "l": "little", "t": "thumb"}
 
 # cross-sections along each finger segment, for an index finger:
 # (fraction of the segment, half-width, back, palm side), from the bone axis.
-# Thickness in profile (back + palm side) is 1.9 cm along the first
-# segment, 1.7 along the middle one and 1.5 along the last, the pad
-# fullest under the nail.
+# The finger tapers: 1.8 cm across at the knuckle, 1.7 at the middle joint,
+# 1.5 at the end joint. Thickness in profile (back + palm side) is about
+# 1.65 cm along the first segment, 1.5 along the middle one and 1.35 along
+# the last, the pad fullest under the nail. The palm side swells at the
+# base of the finger, where it runs into the palm.
 SECTIONS = (
-    ((0.00, 1.00, 0.90, 1.40), (0.28, 0.98, 0.86, 1.06), (0.65, 0.95, 0.84, 1.06),
-     (1.00, 0.96, 0.86, 1.00)),
-    ((0.00, 0.96, 0.86, 1.00), (0.50, 0.88, 0.78, 0.96), (1.00, 0.83, 0.73, 0.90)),
-    ((0.00, 0.83, 0.73, 0.90), (0.50, 0.79, 0.64, 0.92), (0.95, 0.74, 0.56, 0.84)),
+    ((0.00, 0.90, 0.80, 1.20), (0.30, 0.88, 0.76, 0.92), (0.65, 0.86, 0.74, 0.90),
+     (1.00, 0.86, 0.76, 0.86)),
+    ((0.00, 0.86, 0.76, 0.86), (0.50, 0.80, 0.68, 0.80), (1.00, 0.76, 0.64, 0.76)),
+    ((0.00, 0.76, 0.64, 0.76), (0.50, 0.73, 0.56, 0.80), (0.95, 0.68, 0.48, 0.72)),
 )
-KNUCKLE = (0.98, 1.02, 1.33)     # the metacarpal head, round which the knuckle bends
+KNUCKLE = (0.92, 1.05, 1.5)      # the metacarpal head, round which the knuckle bends
 
-# thumb: metacarpal, proximal and distal (end joint to the tip of the pad)
-THUMB_SEG = (4.5, 3.2, 2.7)
-CMC = (1.5, 2.3, -0.9)         # base of the thumb metacarpal
-THUMB_SECTIONS = (    # 2.2 cm across, about 2.1 cm thick
-    ((0.45, 1.12, 0.95, 1.15), (1.00, 1.14, 0.98, 1.15)),
-    ((0.00, 1.14, 0.98, 1.15), (0.50, 1.08, 0.92, 1.16), (1.00, 1.10, 0.92, 1.12)),
-    ((0.00, 1.10, 0.92, 1.12), (0.40, 1.10, 0.85, 1.22), (0.80, 1.00, 0.70, 1.08)),
+# thumb: metacarpal, proximal and distal (end joint to the tip of the pad).
+# Laid alongside the index finger, its tip reaches about the base of the
+# index finger's first segment.
+THUMB_SEG = (4.3, 3.0, 2.55)
+CMC = (1.6, 2.1, -0.85)         # base of the thumb metacarpal
+THUMB_SECTIONS = (    # 1.95 cm across at its knuckle, 1.85 at the end joint
+    ((0.45, 0.97, 0.80, 0.98), (1.00, 0.98, 0.82, 0.96)),
+    ((0.00, 0.98, 0.82, 0.96), (0.50, 0.92, 0.76, 0.94), (1.00, 0.93, 0.76, 0.90)),
+    ((0.00, 0.93, 0.76, 0.90), (0.40, 0.92, 0.70, 0.98), (0.80, 0.84, 0.58, 0.88)),
 )
 
 # palm: rings across the hand (x, y centre, z centre, half-width, back, palm side)
-# In profile the back of the hand runs straight from the wrist to the
-# knuckles; the hand is about 3 cm thick at the base of the thumb and 2.4 cm
-# at the knuckles, and the ball of the thumb (thenar_solid) bulges on the
-# palm side.
-PALM_RINGS = ((-0.9, 0.3, -0.1, 2.95, 1.45, 1.85), (0.0, 0.3, 0.0, 3.0, 1.40, 1.72),
-              (1.5, 0.25, 0.0, 3.2, 1.32, 1.62), (4.0, 0.15, 0.0, 3.65, 1.22, 1.56),
-              (6.5, 0.1, 0.0, 4.0, 1.12, 1.44), (7.6, 0.05, 0.0, 4.15, 1.07, 1.38))
-WRIST = (-0.9, 0.3, -0.1)        # centre of the wrist joint
+# Seen from the back the palm widens from 5.5 cm at the wrist to 7.6 cm at
+# the knuckles. In profile the back of the hand arches a little over the
+# metacarpals, and the hand is about 3.4 cm deep across the palm and 2.8
+# cm at the knuckles. The pads at the base of the palm stand out in front
+# of it: the ball of the thumb (thenar_solid) to about 4.5 cm deep, the
+# pad on the little-finger side (HYPOTHENAR, part of the palm) to about 3.7.
+# Without them a profile is a flat board running straight into the arm.
+PALM_RINGS = ((-0.9, 0.25, -0.1, 2.7, 1.28, 2.02), (0.0, 0.15, -0.05, 2.85, 1.38, 2.0),
+              (1.8, 0.0, 0.0, 3.2, 1.55, 1.9), (4.5, 0.05, 0.0, 3.5, 1.55, 1.85),
+              (6.6, 0.1, 0.0, 3.7, 1.36, 1.7), (7.3, 0.1, 0.0, 3.8, 1.24, 1.6))
+HYPOTHENAR = ((-0.5, -1.4, -0.4, 0.95, 0.5, 1.7), (1.0, -1.7, -0.6, 1.15, 0.5, 1.55),
+              (2.8, -1.9, -0.6, 1.25, 0.5, 1.5), (4.8, -2.2, -0.5, 1.05, 0.5, 1.2))
+WRIST = (-0.9, 0.25, -0.1)        # centre of the wrist joint
+WRIST_REACH = 0.5                 # how far the wrist's own solid runs into hand and forearm
 # forearm rings: (distance from the wrist centre toward the elbow, half-width,
-# back, front)
-FOREARM = ((-0.12, 2.95, 1.45, 1.85), (1.5, 3.0, 1.5, 1.9), (5.0, 3.25, 1.7, 2.05),
-           (10.0, 3.6, 2.0, 2.35), (16.0, 3.85, 2.25, 2.55), (24.0, 4.05, 2.4, 2.7),
-           (32.0, 4.2, 2.5, 2.8))
+# back, front). The wrist is a waist, 5.4 cm across and 3.3 cm deep,
+# narrower than the palm with its pads and than the forearm, which fills
+# out to about 6.9 cm across and 4.6 cm deep 8 cm up and 7.4 by 5.5 cm 18
+# cm up.
+FOREARM = ((-0.12, 2.7, 1.28, 2.02), (1.5, 2.95, 1.42, 2.15), (4.0, 3.25, 1.62, 2.38),
+           (8.0, 3.45, 1.9, 2.7), (13.0, 3.65, 2.2, 3.05), (18.0, 3.7, 2.3, 3.25),
+           (24.0, 3.6, 2.3, 3.3), (32.0, 3.45, 2.2, 3.2))
 
 # joint ranges (degrees)
 RANGE = {"mcp": (0, 90), "pip": (0, 110), "dip": (-20, 80),
@@ -194,36 +221,43 @@ RANGE = {"mcp": (0, 90), "pip": (0, 110), "dip": (-20, 80),
 # ---------------------------------------------------------------- grips
 #
 # Finger angles (MCP, PIP, DIP) per finger, the thumb, and the wrist. Figure
-# code starts from one of these and overrides what it needs.
+# code starts from one of these and overrides what it needs. Every grip the
+# arm hangs from keeps the wrist at HANG (extended a little, not deviated),
+# so that the hand looks the same from tile to tile; only the sloper (wrist
+# dropped below the hold), the palm press and the undercling (bent back
+# 35-45 degrees, as far as a loaded wrist goes without looking broken) and
+# the wrap (palm flat on the face) set their own.
+
+HANG = (10, 0)
 
 RELAXED_THUMB = dict(ra=18, pa=22, rot=125, mcp=18, ip=18)
 
 GRIPS = {
     "relaxed": dict(f=dict(i=(18, 24, 10), m=(22, 30, 12), r=(26, 36, 14), l=(30, 40, 16)),
-                    thumb=RELAXED_THUMB, wrist=(12, 0)),
+                    thumb=RELAXED_THUMB, wrist=HANG),
     "flat": dict(f=dict(i=(0, 0, 0, 2), m=(0, 0, 0, 0), r=(0, 0, 0, -1), l=(0, 0, 0, -3)),
-                 thumb=dict(ra=40, pa=8, rot=55, mcp=4, ip=4), wrist=(0, 0)),
+                 thumb=dict(ra=28, pa=8, rot=60, mcp=8, ip=6), wrist=(0, 0)),
     "open": dict(f=dict(i=(22, 40, 38), m=(22, 40, 38), r=(24, 42, 38), l=(26, 44, 36)),
-                 thumb=RELAXED_THUMB, wrist=(10, 0)),
+                 thumb=RELAXED_THUMB, wrist=HANG),
     "half": dict(f=dict(i=(70, 95, 8), m=(70, 95, 8), r=(70, 95, 10), l=(70, 92, 12)),
-                 thumb=RELAXED_THUMB, wrist=(15, 0)),
+                 thumb=RELAXED_THUMB, wrist=HANG),
     "full": dict(f=dict(i=(35, 110, -18), m=(35, 110, -18), r=(35, 106, -16),
                         l=(38, 100, -10)),
-                 thumb=RELAXED_THUMB, wrist=(20, 0)),
+                 thumb=RELAXED_THUMB, wrist=HANG),
     "pinch": dict(f=dict(i=(40, 62, 24), m=(42, 64, 24), r=(44, 66, 26), l=(46, 66, 26)),
-                  thumb=dict(ra=22, pa=58, rot=145, mcp=10, ip=8), wrist=(10, 0)),
+                  thumb=dict(ra=22, pa=58, rot=145, mcp=10, ip=8), wrist=HANG),
     "sloper": dict(f=dict(i=(10, 22, 20), m=(10, 24, 20), r=(12, 26, 20), l=(14, 28, 20)),
-                   thumb=dict(ra=30, pa=30, rot=115, mcp=8, ip=6), wrist=(-5, 0)),
+                   thumb=dict(ra=30, pa=30, rot=115, mcp=8, ip=6), wrist=(-25, 0)),
     "pocket": dict(f=dict(i=(55, 85, 45), m=(30, 60, 25), r=(30, 60, 25), l=(25, 30, 15)),
-                   thumb=RELAXED_THUMB, wrist=(12, 0)),
-    "undercling": dict(f=dict(i=(12, 70, 30), m=(12, 72, 30), r=(14, 72, 30), l=(16, 70, 30)),
-                       thumb=dict(ra=30, pa=30, rot=115, mcp=10, ip=10), wrist=(25, 0)),
+                   thumb=RELAXED_THUMB, wrist=HANG),
+    "undercling": dict(f=dict(i=(10, 40, 20), m=(10, 42, 20), r=(12, 42, 20), l=(14, 40, 20)),
+                       thumb=dict(ra=30, pa=30, rot=115, mcp=10, ip=10), wrist=(35, 0)),
     "palm": dict(f=dict(i=(0, 6, 2, 4), m=(0, 6, 2, 1), r=(0, 6, 2, -2), l=(0, 6, 2, -6)),
-                 thumb=dict(ra=38, pa=12, rot=100, mcp=4, ip=4), wrist=(80, 0)),
+                 thumb=dict(ra=38, pa=12, rot=100, mcp=4, ip=4), wrist=(45, 0)),
     "wrap": dict(f=dict(i=(8, 85, 20), m=(8, 85, 20), r=(10, 85, 20), l=(12, 85, 20)),
-                 thumb=dict(ra=45, pa=10, rot=98, mcp=4, ip=4), wrist=(0, 0)),
+                 thumb=dict(ra=45, pa=10, rot=98, mcp=4, ip=4), wrist=(55, 0)),
     "jug": dict(f=dict(i=(35, 70, 35), m=(35, 70, 35), r=(37, 72, 35), l=(40, 72, 35)),
-                thumb=RELAXED_THUMB, wrist=(10, 0)),
+                thumb=RELAXED_THUMB, wrist=HANG),
 }
 
 
@@ -467,8 +501,8 @@ class Hand:
         finger (the index from the thumb side, the little finger from the
         other side) lies exactly in the page, so its segments show their
         true lengths. stagger: how far the fingers behind it step aside (cm,
-        one number or three, nearest first; default STAGGER), e.g. 0 for a
-        hand seen from above, where they lie hidden under the front one."""
+        one number or three, nearest first; default STAGGER, which every
+        close-up in the book uses)."""
         return Posed(self, view, a0, tilt, flip, at, front, stagger)
 
     def rest_thumb(self, along=0.4, out=1.2, palm=1.5):
@@ -565,14 +599,14 @@ class Hand:
         F1 = ch["frames"][1]
         x, y, z = ch["mcp"]
         F0 = frame_of(X, Z)
-        return ring(vadd(ch["mcp"], vmul(F1[0], reach)), F1, 0.96 * g, 0.74 * g, 1.1 * g) + \
-            ring((x - 1.6, y, z), F0, 0.96 * g, 1.0 * g, 1.45 * g) + \
-            ring((x, y, z), F0, 0.96 * g, 0.98 * g, 1.42 * g)
+        return ring(vadd(ch["mcp"], vmul(F1[0], reach)), F1, 0.86 * g, 0.72 * g, 1.05 * g) + \
+            ring((x - 1.6, y, z), F0, 0.88 * g, 1.15 * g, 1.55 * g) + \
+            ring((x, y, z), F0, 0.88 * g, 1.05 * g, 1.5 * g)
 
     def palm_solid(self):
         F0 = frame_of(X, Z)
         pts = []
-        for x, y, z, w, d, p in PALM_RINGS:
+        for x, y, z, w, d, p in PALM_RINGS + HYPOTHENAR:
             pts += ring((x, y, z), F0, w, d, p)
         for f in FINGERS:
             x, y, z = MCP[f]
@@ -591,27 +625,35 @@ class Hand:
             pts += ring(c, fr, w, d, p)
         return pts
 
-    def wrist_solid(self):
+    def wrist_solid(self, reach=WRIST_REACH):
         """The wrist joint: its cross-section swept from the forearm to the
-        hand, which rounds the bend."""
+        hand, which rounds the bend, and carried `reach` cm into each, so
+        that the waist where the two meet is one clean corner."""
         fa = self.forearm_frame()
         fh = frame_of(X, Z)
         pts = []
         for i in range(7):
             t = i / 6
             fr = frame_of(vlerp(fa[0], fh[0], t), vlerp(fa[1], fh[1], t))
-            pts += ring(WRIST, fr, 2.95, 1.45, 1.85)
+            c = vadd(WRIST, vmul(fr[0], reach * (2 * t - 1)))
+            pts += ring(c, fr, *FOREARM[0][1:])
         return pts
 
     def thenar_solid(self, th=None):
+        """The ball of the thumb: the muscles round the thumb's metacarpal,
+        pulled toward the middle of the palm, so that it fills the base of
+        the thumb without swelling it much past the thumb's own width."""
         th = th or self.thumb()
         F1 = th["frames"][0]
         F0 = frame_of(X, Z)
-        pts = ring((1.3, 1.5, -0.9), F0, 1.55, 0.6, 1.05) + \
-            ring((4.3, 1.75, -0.9), F0, 1.4, 0.5, 0.8)
-        mid = (3.5, 0.6, -1.2)
-        for s, k, w, d, p in ((0.6, 0.55, 1.25, 0.9, 1.3), (2.0, 0.6, 1.3, 0.92, 1.32),
-                              (3.4, 0.3, 1.15, 0.86, 1.1)):
+        pts = ring((-0.6, 1.0, -0.6), F0, 1.0, 0.5, 1.55) + \
+            ring((0.8, 1.2, -1.0), F0, 1.2, 0.5, 1.75) + \
+            ring((2.0, 1.35, -1.0), F0, 1.35, 0.5, 2.0) + \
+            ring((3.6, 1.45, -1.0), F0, 1.35, 0.5, 2.0) + \
+            ring((5.2, 1.5, -0.9), F0, 1.1, 0.5, 1.3)
+        mid = (3.5, 0.5, -1.1)
+        for s, k, w, d, p in ((0.6, 0.5, 1.1, 0.8, 1.25), (2.0, 0.55, 1.1, 0.8, 1.25),
+                              (3.4, 0.3, 0.98, 0.74, 1.0)):
             c = vadd(CMC, vmul(F1[0], s))
             c = vadd(c, vmul(vnorm(vsub(mid, c)), k))
             pts += ring(c, F1, w, d, p)
@@ -641,24 +683,24 @@ class Hand:
         a = vadd(th["mcp"], vmul(F2[0], 1.0))
         tw = vnorm(vsub(ix["mcp"], a))
         tw = vnorm(vsub(tw, vmul(F2[0], vdot(tw, F2[0]))))
-        T1 = vadd(a, vmul(tw, 0.85))
+        T1 = vadd(a, vmul(tw, 0.75))
         F1 = ix["frames"][1]
-        I1 = vadd(vadd(ix["mcp"], vmul(F1[0], 0.6)), vmul(F1[2], 0.85))
+        I1 = vadd(vadd(ix["mcp"], vmul(F1[0], 0.6)), vmul(F1[2], 0.78))
         m = vlerp(T1, I1, 0.5)
         ctrl = vlerp(m, CMC, 0.3)
         edge = [vadd(vmul(T1, (1 - s) ** 2), vadd(vmul(ctrl, 2 * s * (1 - s)), vmul(I1, s * s)))
                 for s in (i / 8 for i in range(9))]
-        return [vlerp(CMC, th["mcp"], 0.4), th["mcp"]] + edge + [ix["mcp"], (5.0, 2.2, -0.3)]
+        return [vlerp(CMC, th["mcp"], 0.4), th["mcp"]] + edge + [ix["mcp"], (5.0, 2.0, -0.3)]
 
     def finger_web(self, a, b):
         ca, cb = self.finger(a), self.finger(b)
         sa = 1 if MCP[b][1] > MCP[a][1] else -1
         ga, gb = GIRTH[a], GIRTH[b]
         Fa, Fb = ca["frames"][1], cb["frames"][1]
-        return [vadd(ca["mcp"], vmul(Fa[2], sa * 0.9 * ga)),
-                vadd(vadd(ca["mcp"], vmul(Fa[0], 1.25)), vmul(Fa[2], sa * 0.92 * ga)),
-                vadd(vadd(cb["mcp"], vmul(Fb[0], 1.25)), vmul(Fb[2], -sa * 0.92 * gb)),
-                vadd(cb["mcp"], vmul(Fb[2], -sa * 0.9 * gb))]
+        return [vadd(ca["mcp"], vmul(Fa[2], sa * 0.82 * ga)),
+                vadd(vadd(ca["mcp"], vmul(Fa[0], 1.25)), vmul(Fa[2], sa * 0.84 * ga)),
+                vadd(vadd(cb["mcp"], vmul(Fb[0], 1.25)), vmul(Fb[2], -sa * 0.84 * gb)),
+                vadd(cb["mcp"], vmul(Fb[2], -sa * 0.82 * gb))]
 
     # ------------------------------------------------------------ surface marks
     def nail(self, f, ch=None):
@@ -707,74 +749,6 @@ class Hand:
             loop.append(surf(s1 - (s1 - s0) * i / 6, -half))
         return loop
 
-    def creases(self, f, ch=None):
-        """Short creases on the bent side of the middle and end joints (or
-        the thumb's end joint): pairs of 3D points."""
-        out = []
-        if f == "t":
-            ch = ch or self.thumb()
-            items = [(ch["ip"], ch["frames"][1], ch["frames"][2], ch["flex"][1],
-                      THUMB_SECTIONS[2][0][1:])]
-        else:
-            ch = ch or self.finger(f)
-            F = ch["frames"]
-            g = GIRTH[f]
-            items = [(ch["pip"], F[1], F[2], ch["flex"][1],
-                      [x * g for x in SECTIONS[1][0][1:]]),
-                     (ch["dip"], F[2], F[3], ch["flex"][2],
-                      [x * g for x in SECTIONS[2][0][1:]])]
-        for c, fa, fb, fl, (w, d, p) in items:
-            if fl > 18:
-                b = vnorm(vadd(fa[1], fb[1]))
-                out.append((vadd(c, vmul(b, -p * 0.45)), vadd(c, vmul(b, -p * 0.98))))
-            elif fl < -8:
-                b = vnorm(vadd(fa[1], fb[1]))
-                out.append((vadd(c, vmul(b, d * 0.4)), vadd(c, vmul(b, d * 0.98))))
-        return out
-
-    def wrinkles(self, f, ch=None):
-        """A short arc across the back of the middle and end joints of a
-        fairly straight finger (seen from the back), as 3D points with
-        normals."""
-        ch = ch or self.finger(f)
-        F = ch["frames"]
-        g = GIRTH[f]
-        out = []
-        for j, k, half in (("pip", 1, 38), ("dip", 2, 30)):
-            if ch["flex"][k] > 35:
-                continue
-            w, d, p = (x * g for x in SECTIONS[k][0][1:])
-            A, N, L = F[k + 1]
-            arc = []
-            for i in range(7):
-                a = math.radians(-half + 2 * half * i / 6)
-                pt = vadd(ch[j], vadd(vmul(L, w * 0.98 * math.sin(a)),
-                                      vmul(N, d * 1.03 * math.cos(a))))
-                pt = vadd(pt, vmul(A, 0.1 * math.cos(a) - 0.05))
-                arc.append((pt, vnorm(vadd(vmul(L, math.sin(a) / w),
-                                           vmul(N, math.cos(a) / d)))))
-            out.append(arc)
-        return out
-
-    def knuckle_arc(self, f, ch=None):
-        """A short arc over the knuckle (the head of the metacarpal) of a
-        bent finger, where it stands out on the back of the hand, as 3D
-        points with normals; [] for a fairly straight finger."""
-        ch = ch or self.finger(f)
-        flex = ch["flex"][0]
-        if flex < 25:
-            return []
-        g = GIRTH[f]
-        w, d = KNUCKLE[0] * g, KNUCKLE[1] * g
-        A, N, L = flexed(ch["frames"][0], flex * 0.55)
-        arc = []
-        for i in range(7):
-            a = math.radians(-40 + 80 * i / 6)
-            pt = vadd(ch["mcp"], vadd(vmul(L, w * 0.85 * math.sin(a)),
-                                      vmul(N, d * 1.01 * math.cos(a))))
-            arc.append((pt, vnorm(vadd(vmul(L, math.sin(a) / w), vmul(N, math.cos(a) / d)))))
-        return [arc]
-
 
 # ---------------------------------------------------------------- views
 
@@ -805,16 +779,22 @@ RECORD = []
 CONTEXT = [""]
 # In a true side view the fingers behind the front one hide almost exactly
 # behind it. Each is drawn shifted on the page by STAGGER cm (nearest
-# first) along SHEAR_DIR, a direction in the hand frame (toward the
-# fingertips, toward the back of the hand), so that its own knuckles and
-# tip step out from behind the front finger, which keeps its true lengths.
-# Everything that reads or solves a finger (joint, angle, surface, reach,
-# on_edge, place) uses the same shift, so the pads still land on the hold
-# as drawn.
-STAGGER = (0.35, 0.65, 0.9)
+# first) along SHEAR_DIR, a direction in the hand frame (its parts toward
+# the fingertips and toward the back of the hand), so that its tip steps
+# out a little from behind the front finger, which keeps its true lengths.
+# A larger shift stacks the fingers into a thick grey band along the back
+# of the hand, which makes them look short and fat. Everything that reads
+# or solves a finger (joint, angle, surface, reach, on_edge, place) uses
+# the same shift, so the pads still land on the hold as drawn.
+STAGGER = (0.15, 0.3, 0.45)
+# A close-up shows this much forearm (cm) below the wrist joint: its frame
+# cuts the arm there (Posed.forearm_point), so that the wrist sits the same
+# way in every close-up. A long stretch of arm reads as part of the hand
+# and makes the palm look huge; a frame that cuts above the wrist hides the
+# waist that tells the hand from the arm. (The hand atlas, short of room,
+# shows a little less, the same in every tile.)
+FOREARM_SHOWN = 5.5
 SHEAR_DIR = (1.0, -0.3)
-# their fills, nearest first: the middle finger almost white, the others grey
-BACK_TONES = (PALE, LIGHT, LIGHT)
 
 
 def _extent(polys, m, n):
@@ -965,7 +945,7 @@ class Posed:
             fa, fb = F[i], F[min(i + 1, 3)]
         n = vnorm(vadd(fa[1], fb[1]))
         g = 1.0 if f == "t" else GIRTH[f]
-        h = (0.8 if side == "palm" else 0.62) * g
+        h = (0.72 if side == "palm" else 0.56) * g
         sgn = -1 if side == "palm" else 1
         return self.xy(vadd(ch[j], vmul(n, sgn * h * k)), f)
 
@@ -973,30 +953,49 @@ class Posed:
         """Page point of a hand-frame point."""
         return self.xy((x, y, z))
 
+    def forearm_point(self, s=FOREARM_SHOWN):
+        """Page point on the forearm's axis s cm below the wrist joint:
+        where a close-up's frame cuts the arm (see FOREARM_SHOWN)."""
+        u = self.hand.forearm_frame()[0]
+        return self.xy(vsub(WRIST, vmul(u, s)))
+
     # -- solving
     def reach(self, f, target, dip=None, k=0.8, lock=None):
-        """Bend finger f (its knuckle and middle joint) so that its pad lands
-        on page point `target`; dip fixes the end joint, else the current
-        one. lock=(lo, hi) limits the middle joint. Returns the miss in cm."""
+        """Bend finger f so that its pad lands on page point `target`,
+        keeping as close as it can to the pose it started in: the middle
+        joint gives most and the knuckle least. dip, if given, fixes the end
+        joint; lock=(lo, hi) limits the middle joint. Returns the miss in
+        cm.
+
+        Three joints for one point leave a degree of freedom over, which
+        goes on staying near the starting pose: a finger beside the front
+        one then bends the way the front one does, and a side view shows it
+        behind the front one instead of along the back of the hand."""
         mcp0, pip0, dip0, spl = self.hand.f[f]
-        dip = dip0 if dip is None else dip
+        free = dip is None
         lo, hi = lock or RANGE["pip"]
 
+        def joints(q):
+            return (q[0], q[1], q[2] if free else dip)
+
         def cost(q):
-            m, p = q
-            pt = self.xy(pad_point(None, f, k, finger_chain(f, m, p, dip, spl)), f)
+            m, p, d = joints(q)
+            pt = self.xy(pad_point(None, f, k, finger_chain(f, m, p, d, spl)), f)
             e = (pt[0] - target[0]) ** 2 + (pt[1] - target[1]) ** 2
-            return e + 4 * (penalty(m, *RANGE["mcp"]) + penalty(p, lo, hi)) + \
-                1e-5 * ((m - mcp0) ** 2 + (p - pip0) ** 2)
+            e += 4 * (penalty(m, *RANGE["mcp"]) + penalty(p, lo, hi) +
+                      penalty(d, *RANGE["dip"]))
+            return e + 1e-5 * (8 * (m - mcp0) ** 2 + (p - pip0) ** 2 + 2 * (d - dip0) ** 2)
         best, v = None, 1e9
         for m0, p0 in ((mcp0, pip0), (mcp0 + 20, pip0 - 20), (mcp0 - 15, pip0 + 15)):
-            q, val = nelder_mead(cost, [m0, p0], [8.0, 8.0], iters=200)
+            q0 = [m0, p0, dip0] if free else [m0, p0]
+            q, val = nelder_mead(cost, q0, [8.0] * len(q0), iters=300)
             if val < v:
                 best, v = q, val
-        m, p = best
+        m, p, d = joints(best)
         m = min(max(m, RANGE["mcp"][0]), RANGE["mcp"][1])
         p = min(max(p, lo), hi)
-        self.hand.f[f] = (m, p, dip, spl)
+        d = min(max(d, RANGE["dip"][0]), RANGE["dip"][1])
+        self.hand.f[f] = (m, p, d, spl)
         pt = self.xy(pad_point(self.hand, f, k), f)
         return length(sub(pt, target))
 
@@ -1060,18 +1059,19 @@ class Posed:
         return length(sub(self.xy(thumb_point(ch, part, k)), target))
 
     # -- drawing
-    def draw(self, fig, z=0.0, front=None, fill=WHITE, back_fill=LIGHT, ghost=False,
+    def draw(self, fig, z=0.0, front=None, fill=WHITE, back_fill=PALE, ghost=False,
              thumb_front=None, details=True, forearm=32.0, hide=(), others="copy"):
         """Draw the hand, always with its thumb. front: the finger drawn in
         front in a side view (default the view's front finger). others, in
-        a side view: which fingers to draw behind it, each as its own
-        finger with its own outline, nails and creases, the nearest almost
-        white and the others grey (BACK_TONES, or back_fill if given):
-        "copy" or "all" (the default) all of them, "none" none, or a string
-        of finger names (a pocket, where the finger in the hole is the
-        subject). thumb_front: in a back or palm
-        view, whether the thumb lies in front of the palm (default: decided
-        from its depth). hide: fingers not to draw (back and palm views)."""
+        a side view: which fingers to draw behind it, merged into one pale
+        shape (back_fill) with one outline: "copy" or "all" (the default)
+        all of them, "none" none, or a string of finger names (a pocket,
+        where the finger in the hole is the subject). From the little-finger
+        side the thumb, behind the hand, is a darker grey. thumb_front: in a
+        back or palm view, whether the thumb lies in front of the palm
+        (default: decided from its depth). hide: fingers not to draw (back
+        and palm views). details: the nails, the only lines drawn inside
+        the outline besides the lines between fingers that touch."""
         h = self.hand
         chains = {f: h.finger(f) for f in FINGERS}
         th = h.thumb()
@@ -1094,17 +1094,17 @@ class Posed:
         thumb_layer = None
         kind = self.kind
 
-        def layer(polys, fill_, sw, masks=(), marks=None, nails=()):
-            layers.append((polys, fill_, sw, masks, marks, nails))
+        def layer(polys, fill_, sw, masks=(), nails=()):
+            layers.append((polys, fill_, sw, masks, nails))
             return len(layers) - 1
 
         if kind in ("thumb", "little"):
             front = front or self.front
             main.append(P(h.knuckle_solid(front, chains[front])))
             if kind == "little":
-                thumb_layer = layer(tsol, back_fill, sw_back)
-            # the fingers behind the front one, nearest first, each its own
-            # finger, drawn from the farthest
+                thumb_layer = layer(tsol, LIGHT, sw_back)
+            # the fingers behind the front one: one shape, so that they read
+            # as the rest of the hand rather than as a stack of outlines
             near = [f for f in (FINGERS if kind == "thumb" else FINGERS[::-1]) if f != front]
             if others in ("copy", "all"):
                 behind = near
@@ -1112,21 +1112,18 @@ class Posed:
                 behind = []
             else:
                 behind = [f for f in near if f in others]
-            tones = {f: (back_fill if back_fill != LIGHT else BACK_TONES[min(i, 2)])
-                     for i, f in enumerate(behind)}
-            self._behind = {}
-            for f in behind[::-1]:
-                self._behind[f] = layer([P(h.root_solid(f, chains[f]), f)] +
-                                        [P(s, f) for s in
-                                         h.finger_solids(f, chains[f], buried=False)],
-                                        tones[f], sw_back, marks=f,
-                                        nails=[f] if details else ())
+            self._behind = {f: [P(h.root_solid(f, chains[f]), f)] +
+                            [P(s, f) for s in h.finger_solids(f, chains[f], buried=False)]
+                            for f in behind}
+            if behind:
+                self._behind_layer = layer([q for f in behind for q in self._behind[f]],
+                                           back_fill, sw_back)
             layer(main, fill, sw_out)
             front_layer = layer([P(s) for s in h.finger_solids(front, chains[front])], fill,
                                 sw_out, masks=[P(h.root_solid(front, chains[front]))],
-                                marks=front, nails=[front] if details else ())
+                                nails=[front] if details else ())
             if kind == "thumb":
-                thumb_layer = layer(tsol, fill, sw_out, masks=tmask, marks="t",
+                thumb_layer = layer(tsol, fill, sw_out, masks=tmask,
                                     nails=["t"] if details else ())
         else:
             for f in FINGERS:
@@ -1135,15 +1132,19 @@ class Posed:
             if thumb_front is None:
                 tip_d = vdot(vsub(th["tip"], (5.0, 1.0, 0.0)), self.eye)
                 thumb_front = tip_d > -0.3
-            if not thumb_front:
-                thumb_layer = layer(tsol, fill, sw_out, nails=["t"] if details else ())
             fingers = [f for f in FINGERS if f not in hide]
             allf = []
             for f in fingers:
                 allf += [P(s) for s in h.finger_solids(f, chains[f])]
             webs = [self._poly(h.finger_web(a, b)) for a, b in (("i", "m"), ("m", "r"), ("r", "l"))
                     if a not in hide and b not in hide]
-            layer(main + allf + webs, fill, sw_out)
+            # a thumb behind the hand is part of its silhouette: from the
+            # back its base runs on into the back of the hand, with no line
+            back_thumb = [] if thumb_front else tsol
+            main_layer = layer(main + allf + webs + back_thumb, fill, sw_out,
+                               nails=["t"] if details and not thumb_front else ())
+            if not thumb_front:
+                thumb_layer = main_layer
             mask = webs + [P(h.knuckle_solid(f, chains[f])) for f in fingers]
             if kind == "back":
                 mask = [P(h.palm_solid())] + mask
@@ -1152,21 +1153,20 @@ class Posed:
                 F0 = frame_of(X, Z)
                 for f in fingers:
                     x, y, zc = MCP[f]
-                    band += ring((x - 1.6, y, zc), F0, 1.05, 1.05, 1.5) + \
-                        ring((x + 0.2, y, zc), F0, 1.0, 1.0, 1.45)
+                    band += ring((x - 1.6, y, zc), F0, 0.95, 0.95, 1.36) + \
+                        ring((x + 0.2, y, zc), F0, 0.9, 0.9, 1.3)
                 mask += [P(band)] + [P(h.root_solid(f, chains[f])) for f in fingers]
             if not ghost:
                 dep = {f: vdot(chains[f]["pip"], self.eye) for f in fingers}
                 for f in sorted(fingers, key=lambda f: dep[f]):
                     layer([P(s) for s in h.finger_solids(f, chains[f])], fill, sw_fine,
-                          masks=mask, marks=f if kind == "back" else None,
-                          nails=[f] if details else ())
+                          masks=mask, nails=[f] if details else ())
             if thumb_front:
                 thumb_layer = layer(tsol, fill, sw_out, masks=tmask,
                                     nails=["t"] if details else ())
         self._record(layers, thumb_layer, th, chains, front if kind in ("thumb", "little")
                      else None, front_layer if kind in ("thumb", "little") else None, ghost)
-        for i, (polys, fill_, sw, masks, marks, nails) in enumerate(layers):
+        for i, (polys, fill_, sw, masks, nails) in enumerate(layers):
             polys = [q for q in polys if _area(q) > 0.01]
             masks = [q for q in masks if _area(q) > 0.01]
             zl = z + i * 0.01
@@ -1186,23 +1186,6 @@ class Posed:
                 vis = [self.xy(p, f) for p, n in loop if vdot(n, self.eye) > 0.2]
                 if len(vis) > 4 and _area(hull2(vis)) > 0.1:
                     self._mark_run(fig, loop + loop[:1], zl + 0.008, f)
-            if marks and kind in ("thumb", "little"):
-                for a, b in h.creases(marks, th if marks == "t" else chains[marks]):
-                    fr = (th["frames"][1] if marks == "t" else chains[marks]["frames"][1])
-                    if abs(vdot(fr[2], self.eye)) > 0.55:
-                        fig.line(self.xy(a, marks), self.xy(b, marks), z=zl + 0.008,
-                                 sw=DETAIL)
-            if marks and kind == "back":
-                for arc in h.wrinkles(marks, chains[marks]):
-                    self._mark_run(fig, arc, zl + 0.008, marks)
-        if details and kind == "back" and not ghost:
-            # knuckle arcs go on after every finger (whose layers mask the
-            # back of the hand) but under a thumb that lies in front
-            n = len(layers) - (1 if thumb_front else 0)
-            self._occ = [(q, q.dep) for L in layers[:n] for q in L[0] if hasattr(q, "dep")]
-            for f in fingers:
-                for arc in h.knuckle_arc(f, chains[f]):
-                    self._mark_run(fig, arc, z + n * 0.01 - 0.001)
 
     def _record(self, layers, thumb_layer, th, chains, front, front_layer, ghost):
         """Measure what is drawn, for tools/check_hands.py: the front
@@ -1242,10 +1225,10 @@ class Posed:
             # how much of each finger behind the front one shows: the share
             # of points just inside its outline that no nearer layer covers
             rec["behind"] = {}
-            for f, i in getattr(self, "_behind", {}).items():
-                nearer = [q for L in layers[i + 1:] for q in L[0]]
+            for f, polys in getattr(self, "_behind", {}).items():
+                nearer = [q for L in layers[self._behind_layer + 1:] for q in L[0]]
                 pts = []
-                for q in layers[i][0]:
+                for q in polys:
                     c = (sum(x for x, _ in q) / len(q), sum(y for _, y in q) / len(q))
                     pts += [add(v, mul(norm(sub(c, v)), 0.12)) for v in q[::3]]
                 vis = [not any(inside(v, q) for q in nearer) for v in pts]
@@ -1364,9 +1347,14 @@ def wall_profile(f, x, y0, y1, z=-20):
         y += f.mm(1.9)
 
 
-def profile_frame(x0=-10.0, y0=-9.0, y1=7.5, scale=HAND_SCALE):
+def profile_frame(x0=-10.0, y0=-9.0, y1=7.5, scale=HAND_SCALE, posed=None,
+                  shown=FOREARM_SHOWN):
     """A close-up frame with the wall face at x = WX, cropped at the back of
-    the wall's hatched strip."""
+    the wall's hatched strip. With a Posed hand whose forearm runs down out
+    of the frame, the bottom edge instead cuts the arm `shown` cm below the
+    wrist (y0 is then ignored)."""
+    if posed is not None:
+        y0 = posed.forearm_point(shown)[1]
     f = Fig(x0, y0, WX + 2.4 / scale + 0.01, y1, scale=scale)
     wall_profile(f, WX, y0, y1)
     return f
@@ -1439,7 +1427,7 @@ def grip_pose(kind, tilt=TILT):
     the index nail). The thumb rests unless the grip uses it. Returns the
     Posed."""
     if kind == "open":
-        h = Hand("open", wrist=(5, 0))
+        h = Hand("open")
         pad, k, a0 = (WX - 1.25, 0.72), 0.6, 100
         along, spread = 172, 0.3
     elif kind == "half":
@@ -1475,12 +1463,16 @@ def tuck_thumb(posed, kind):
         posed.thumb_to((WX - 2.5, -3.6) if kind == "open" else (WX - 3.0, -3.5), part="tip")
 
 
-def grip_profile(kind, pulley=False, z=0, **frame):
-    """A side-profile panel of a grip (see grip_pose). Returns the figure and
-    the Posed hand."""
-    f = profile_frame(**frame)
-    grip_hold(f, "open" if kind == "open" else "half" if kind == "half" else "full")
+def grip_profile(kind, pulley=False, z=0, x0=-12.0, y1=8.6, height=None, scale=HAND_SCALE,
+                 shown=FOREARM_SHOWN):
+    """A side-profile panel of a grip (see grip_pose), from x0 to the wall and
+    from where it cuts the forearm (`shown` cm below the wrist) up to y1, or
+    `height` cm up. Returns the figure and the Posed hand."""
     p = grip_pose(kind)
+    if height is not None:
+        y1 = p.forearm_point(shown)[1] + height
+    f = profile_frame(x0, y1=y1, scale=scale, posed=p, shown=shown)
+    grip_hold(f, "open" if kind == "open" else "half" if kind == "half" else "full")
     p.draw(f, z=z)
     if pulley:
         a2_pulley(f, p)
@@ -1496,7 +1488,7 @@ def a2_pulley(fig, posed, f="i", z=5):
     g = GIRTH[f]
     c0 = vadd(ch["mcp"], vmul(A, SEG[f][0] * 0.3))
     c1 = vadd(ch["mcp"], vmul(A, SEG[f][0] * 0.62))
-    q = [posed.xy(vadd(c0, vmul(N, -0.35))), posed.xy(vadd(c1, vmul(N, -0.35))),
-         posed.xy(vadd(c1, vmul(N, -0.88 * g))), posed.xy(vadd(c0, vmul(N, -1.0 * g)))]
+    q = [posed.xy(vadd(c0, vmul(N, -0.3))), posed.xy(vadd(c1, vmul(N, -0.3))),
+         posed.xy(vadd(c1, vmul(N, -0.84 * g))), posed.xy(vadd(c0, vmul(N, -0.9 * g)))]
     fig.poly(q, z=z, fill=DARK, stroke=INK, sw=0.2)
     return lerp(q[2], q[3], 0.5)

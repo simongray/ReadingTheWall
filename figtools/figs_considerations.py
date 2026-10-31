@@ -62,7 +62,8 @@ def tall_sit_start(path):
     LH, RH = (-24, HAND_Y), (24, HAND_Y)
     # seen from behind, the arms reach forward to the wall and look short;
     # in a frog the thighs go out to the sides and the shins point forward
-    # to the wall, away from us, so only the shins are shortened
+    # to the wall, away from us, so only the shins are shortened. The short
+    # arms only look bent, and the climber sits: nothing is shaded.
     REACH = {"l": 0.42, "r": 0.42}
     FROG = (1.0, 0.5)
 
@@ -79,7 +80,7 @@ def tall_sit_start(path):
                 lf={"at": stand(LF), "style": "back"},
                 rf={"at": stand(RF), "style": "back"},
                 knees={"l": "up", "r": "up"}, elbows={"l": "out", "r": "out"},
-                arm_len=REACH, leg_len={"l": FROG, "r": FROG})
+                arm_len=REACH, leg_len={"l": FROG, "r": FROG}, active=())
     c.draw(f)
     warn("sit-b", c)
     panels.append(f)
@@ -98,7 +99,7 @@ def tall_sit_start(path):
                 lf={"at": stand(LF), "style": "back"},
                 rf={"at": stand(RL), "angle": 70},
                 knees={"l": "up", "r": "up"}, elbows={"l": "out", "r": "out"},
-                arm_len=REACH, leg_len={"l": FROG})
+                arm_len=REACH, leg_len={"l": FROG}, active=())
     c.draw(f)
     f.label("leg long", (84, 44), to=add(c.J["rkn"], (4, 4)))
     warn("sit-c", c)
@@ -127,6 +128,9 @@ def fall_roll(path):
         return Climber(None, shoulders=add(hang, (-21, -58)), view="side",
                        lean=8, lh=hang, rh=hang, lf=toe, rf=toe)
 
+    # the falling climber's hands hold nothing: only the legs that absorb
+    # the landing are shaded
+
     def p_air():
         # dropping clear of the wall: the knees stay off it
         # pushed off a little, so the fall clears the climber on the wall
@@ -134,21 +138,22 @@ def fall_roll(path):
                        lh=(12, 150), rh=(14, 146),
                        lf={"at": (8, 32), "angle": -25},
                        rf={"at": (4, 29), "angle": -25}, head=(2, -1),
-                       head_tilt=30)
+                       head_tilt=30, active=())
 
     def p_land():
+        # the left thigh is hidden behind the right
         return Climber((12, 52), view="side", lean=24,
                        lh=(44, 92), rh=(46, 88),
                        lf={"at": (28, 0), "contact": "ball"},
                        rf={"at": (26, 0), "contact": "ball"}, head=(2, -1),
-                       head_tilt=20)
+                       head_tilt=20, active=("rthigh",))
 
     def p_sit():
         return Climber((6, 11), view="side", lean=-18,
                        lh=(34, 50), rh=(36, 46),
                        lf={"at": (40, 0), "contact": "heel", "angle": 30},
                        rf={"at": (38, 0), "contact": "heel", "angle": 30},
-                       head=(3, -1), head_tilt=30)
+                       head=(3, -1), head_tilt=30, active=())
 
     def p_roll():
         # rounded upper back on the mat, hips lifted, knees to the chest,
@@ -158,7 +163,7 @@ def fall_roll(path):
                        lh=add(chest, (2, 2)), rh=chest,
                        lf={"at": (18, 78), "angle": 115},
                        rf={"at": (15, 75), "angle": 115}, head=(1, 7),
-                       head_tilt=60)
+                       head_tilt=60, active=())
 
     def frame():
         f = Fig(-69, -12, 72, 274, scale=0.28)
@@ -211,7 +216,8 @@ def fall_mistakes(path):
     c = Climber((0, 94), view="side", lean=-10,
                 lh=(-70, 124), rh=(-64, 138),
                 lf={"at": (14, 0), "contact": "ball"},
-                rf={"at": (10, 0), "contact": "ball"})
+                rf={"at": (10, 0), "contact": "ball"},
+                active=())          # the flung-back hands hold nothing
     c.draw(f)
     f.cross(add(c.J["rkn"], (15, 4)), size=f.mm(1.6))
     f.label("knees locked", (-40, 58), to=add(c.J["rkn"], (-5, -1)))

@@ -14,6 +14,7 @@ Conventions used throughout the book:
 
 import math
 import os
+import random
 
 # ---------------------------------------------------------------- vectors
 
@@ -84,7 +85,6 @@ XRAY = True
 # labels, tension bands and centre-of-gravity markers stay clean on top
 XRAY_Z = 30
 XRAY_STYLE = dict(fill=None, stroke="#2a2a2a", sw=0.2, dash=(0.45, 0.55))
-
 # ---------------------------------------------------------------- pen
 # SMOOTH_PATHS draws densely sampled outlines (limbs, heads, hands) as
 # smooth Bezier curves instead of short straight pieces. HAND_DRAWN gives
@@ -353,6 +353,39 @@ class Fig:
         if opacity is not None:
             s += f' opacity="{opacity}"'
         return s
+
+    def stipple(self, outline, c, u, ra, rb, colour, focus=None, z=0):
+        """Dots inside `outline`, largest at `focus` (default `c`) and
+        shrinking to none at the ellipse round the world point `c` with
+        semi-axes `ra` along the unit vector `u` and `rb` across it. The
+        dots sit on a hexagonal grid aligned with `u`, as in a halftone, so
+        the tone fades evenly; a slight jitter, the same on every build,
+        keeps it from looking printed."""
+        poly = _Poly(outline)
+        f = c if focus is None else focus
+        v = perp(u)
+        o = dot(sub(f, c), u)            # how far the focus sits toward +u
+        step, rmax = self.mm(STIPPLE_STEP), self.mm(STIPPLE_DOT)
+        row = step * math.sqrt(3) / 2
+        rng = random.Random(f"{c[0]:.1f},{c[1]:.1f}")
+        nu, nv = int(ra / step) + 2, int(rb / row) + 2
+        d = []
+        for j in range(-nv, nv + 1):
+            for i in range(-nu, nu + 1):
+                p = add(c, add(mul(u, (i + 0.5 * (j % 2) + rng.uniform(-0.12, 0.12)) * step),
+                               mul(v, (j + rng.uniform(-0.12, 0.12)) * row)))
+                q = sub(p, f)
+                a = dot(q, u)
+                # measured from the focus to the ellipse's end on that side
+                e = math.hypot(a / max(ra - o if a > 0 else ra + o, 1e-6), dot(q, v) / rb)
+                r = rmax * math.sqrt(max(0.0, 1 - e) ** STIPPLE_FALL)
+                if r < 0.35 * rmax or not poly.has(p):
+                    continue
+                x, y = self.P(p)
+                d.append(f"M{x - r:.2f},{y:.2f}a{r:.2f},{r:.2f} 0 1,0 {2 * r:.2f},0"
+                         f"a{r:.2f},{r:.2f} 0 1,0 {-2 * r:.2f},0")
+        if d:
+            self.add(f'<path d="{"".join(d)}" fill="{colour}"/>', z)
 
     def poly(self, pts, closed=True, z=0, taper=None, _smooth=False, **st):
         """A path through `pts`. taper: draw an open line as a tapered pen
@@ -1364,21 +1397,28 @@ def J_tmp(c, s, joint):
 #
 # Each body part (torso with head, an arm, a leg) is drawn as one group:
 # the outlines of its pieces first, at twice the line width, then their
-# fills, so only the outer contour of the group shows; then inner lines
-# (hems, seams, hairline). Where a limb grows out of the torso, the limb's
-# outline is left out inside the torso near the joint (and the trouser
-# seat's outline inside its own thigh), so the shoulder and the hip read as
-# one contour; further from the joint a limb passing in front of the body
-# keeps its full outline.
+# fills, so only the outer contour of the group shows; then the shades of
+# the muscles at work, and the few inner lines: the hems of the T-shirt and
+# its sleeves, and in profile the ear. The silhouette and the fills carry
+# the rest, so there are no seams, creases, finger lines or hairline. Where
+# a limb grows out of the torso, the limb's outline is left out inside the
+# torso near the joint (and the trouser seat's outline inside its own
+# thigh), so the shoulder and the hip read as one contour; further from the
+# joint a limb passing in front of the body keeps its full outline.
 
 HAIR = "#6e6e6e"
-LINE_SW = 0.24          # inner lines: hems, seams, hairline (mm)
-FINE_SW = 0.22          # finger lines, creases, ear (mm)
+LINE_SW = 0.24          # inner lines: hems (mm)
+FINE_SW = 0.22          # the ear (mm)
 
 # radius profiles [(t, r)] along a limb segment, t = 0 at the upper joint
-SLEEVE_LEN = 0.42       # the short sleeve covers this much of the upper arm
-SLEEVE = [(0, 5.7), (0.5, 5.6), (1, 5.3)]
-UPPER_ARM = [(0, 4.8), (0.5, 4.5), (0.8, 4.0), (1, 3.6)]
+SLEEVE_LEN = 0.34       # the short sleeve covers this much of the upper arm
+SLEEVE = [(0, 5.8), (0.5, 5.5), (1, 4.9)]
+# the upper arm is not a tube: on its outer side the deltoid rounds the
+# shoulder and ends a third of the way down; on its inner side the biceps
+# (or triceps) swells below that. In a side view the inner side is the one
+# the elbow bends toward.
+UPPER_ARM_OUT = [(0, 5.4), (0.2, 5.0), (0.42, 4.0), (0.7, 3.9), (1, 3.5)]
+UPPER_ARM_IN = [(0, 4.7), (0.3, 4.0), (0.58, 4.3), (0.85, 3.8), (1, 3.5)]
 FORE_RADIAL = [(0, 3.6), (0.18, 4.2), (0.5, 3.5), (0.85, 2.7), (1, 2.5)]
 FORE_ULNAR = [(0, 3.6), (0.3, 3.8), (0.62, 3.1), (0.88, 2.6), (1, 2.5)]
 THIGH_FRONT = [(0, 8.0), (0.3, 8.1), (0.65, 7.0), (1, 5.6)]
@@ -1389,12 +1429,35 @@ THIGH_BACK_SIDE = [(0, 10.0), (0.1, 10.2), (0.24, 8.4), (0.55, 6.8), (0.85, 5.9)
 SHIN_FRONT = [(0, 5.5), (0.35, 5.0), (0.75, 4.6), (1, 4.4)]
 SHIN_BACK = [(0, 5.5), (0.25, 5.9), (0.6, 5.0), (1, 4.4)]
 HEM_ABOVE_ANKLE = 3.5   # trouser hem, measured up the shin from the ankle
-SHOULDER_R = (5.9, 5.0)  # the torso rounds each shoulder joint (across, up)
+
+# A muscle at work is stippled: dots, largest at its belly and shrinking
+# toward its ends and edges, with no outline (see Climber, `active`). Dots
+# can't be mistaken for the flat grey of the left limbs, show as well on
+# grey as on white, and print cleanly on the e-ink panel, where a gradient
+# would band. MUSCLE_DOTS is the dots' colour, keyed by the fill under them.
+MUSCLE_DOTS = {WHITE: "#4a4a4a", LEFT: "#1a1a1a"}
+STIPPLE_STEP = 0.5      # mm on paper between neighbouring dots
+STIPPLE_DOT = 0.15      # mm: the radius of the largest dot
+STIPPLE_FALL = 0.9      # how fast the dots shrink toward the edge
+# patches on the torso, seen from behind, (s, t) as for the shirt; the right
+# side, mirrored for the left. The lat runs from the armpit down and in.
+LAT_BACK = [(15.6, 41.2), (17.4, 38.2), (16.6, 32.0), (15.2, 26.0), (13.4, 20.4),
+            (10.8, 21.2), (8.8, 26.4), (9.4, 32.6), (11.8, 38.4)]
+GLUTE_BACK = ((7.6, -2.6), 4.8, 4.6)           # centre, half-width, half-height
+CORE_BACK = [(1.4, 31.0), (3.8, 29.0), (4.4, 19.0), (3.8, 9.5), (1.4, 8.0)]
+# and in profile (s forward): the abdominals
+CORE_SIDE = [(9.2, 34.0), (10.2, 27.0), (9.6, 18.0), (9.2, 10.6), (7.0, 10.6),
+             (6.8, 20.0), (7.4, 30.0)]
+SHOULDER_R = (5.6, 4.3)  # the torso rounds each shoulder joint (across, up)
 # the head is drawn this much higher than Climber.J["head"] (the skeleton's
 # neck is a little short) and at this size, for a longer neck and a smaller
 # head, as in a well-proportioned figure
 HEAD_RAISE = 2.0
 HEAD_SIZE = 0.96
+# the spine bends (Climber, `bend`) round this point, in cm above the hip
+# joints, spread over this much of it either way
+WAIST_T = 22.0
+WAIST_SPAN = 10.0
 
 # hands, in a frame with x from the wrist toward the grip (the grip point is
 # at x = 7) and y across the hand, positive on the thumb side
@@ -1402,11 +1465,8 @@ HAND_GRIP = [(0, -2.5), (2.6, -3.0), (5.4, -3.4), (7.6, -3.5), (9.8, -3.2),
              (11.4, -2.6), (12.2, -1.3), (12.4, 0.4), (12.0, 2.0), (11.0, 3.1),
              (9.0, 3.6), (8.7, 4.5), (7.4, 5.1), (5.4, 4.9), (3.4, 4.0),
              (1.4, 2.9), (0, 2.5)]
-HAND_GRIP_LINES = [[(12.15, -1.15), (10.2, -1.2)], [(12.4, 0.45), (10.3, 0.4)],
-                   [(12.05, 1.95), (10.2, 1.8)], [(8.6, 3.9), (5.8, 3.6)]]
 HAND_HANG = [(0, -2.4), (3.0, -2.9), (6.4, -3.1), (9.6, -2.6), (11.6, -1.4),
              (12.0, 0.2), (11.2, 1.8), (9.0, 2.9), (6.0, 3.4), (3.0, 3.1), (0, 2.5)]
-HAND_HANG_LINES = [[(11.9, -0.6), (9.8, -0.5)]]
 
 # head seen from behind (x to the right, y up the spine, centred on
 # Climber.J["head"]); the right half, mirrored for the left
@@ -1431,9 +1491,11 @@ EYE_SIDE = (6.6, 0.7)
 # torso seen from behind: (s, t) with s to the right, t up the spine from the
 # hip joints; right half, from the neck down to the hem (the shoulder is an
 # arc around the shoulder joint, inserted between)
-SHIRT_BACK_TOP = [(4.9, 54.2), (9.0, 53.6), (12.6, 52.4)]
-SHIRT_BACK_SIDE = [(19.6, 39.0), (18.6, 33.5), (17.4, 26.5), (16.4, 19.5),
-                   (16.2, 12.5), (16.6, 4.4)]
+# the shoulders slope down from the neck over the trapezius, and the back
+# narrows from the lats to the waist
+SHIRT_BACK_TOP = [(5.0, 54.6), (8.6, 53.6), (12.4, 51.9)]
+SHIRT_BACK_SIDE = [(18.8, 39.0), (17.9, 33.5), (16.6, 26.5), (15.4, 19.5),
+                   (15.3, 12.5), (16.2, 4.4)]
 SHIRT_BACK_HEM = [(8.0, 3.0), (0, 2.6)]
 SEAT_BACK = [(14.8, 8.0), (16.0, 3.0), (16.4, -2.0), (15.4, -5.6), (12.0, -8.2),
              (7.0, -10.2), (0.6, -11.0)]
@@ -1599,6 +1661,35 @@ def tube(p1, p2, left, right, scale=1.0, cap1=1.0, cap2=1.0, n=14):
             _cap(p1, mul(d, -1), mul(nv, -1), rr0, rl0, cap1))
 
 
+def belly(p1, p2, left, right, scale, t0, t1, w=1.0, bias=0.0, inset=0.0, peak=0.5):
+    """The outline of a muscle's shade in the segment p1 -> p2 whose radius
+    profiles are `left` and `right` (as for tube): from t0 to t1 along it,
+    `w` of the radius wide at its fullest (at `peak` of its length), its
+    middle moved `bias` of the radius toward the left side (negative: the
+    right), and kept `inset` inside the outline. It fills the limb along
+    most of its length and rounds off toward the ends, so the shade covers
+    the muscle rather than a spot on it."""
+    v = sub(p2, p1)
+    L = length(v)
+    d = mul(v, 1 / L) if L > 1e-6 else (0.0, 1.0)
+    nv = perp(d)
+    n = 18
+    lt, rt = [], []
+    for i in range(n + 1):
+        t = t0 + (t1 - t0) * i / n
+        rl, rr = _profile(left, t) * scale, _profile(right, t) * scale
+        x = i / n
+        x = 0.5 * x / peak if x < peak else 0.5 + 0.5 * (x - peak) / (1 - peak)
+        e = math.sin(math.pi * x) ** 0.4
+        c = bias * (rl if bias > 0 else rr)
+        a = min(c + w * rl * e, rl - inset)
+        b = max(c - w * rr * e, inset - rr)
+        base = add(p1, mul(d, L * t))
+        lt.append(add(base, mul(nv, a)))
+        rt.append(add(base, mul(nv, min(a, b))))
+    return lt + rt[::-1]
+
+
 def _frame_pts(o, x, y, pts, sx=1.0, sy=1.0):
     """Points (a, b) of a local frame at o with axes x and y, scaled."""
     return [add(o, add(mul(x, a * sx), mul(y, b * sy))) for a, b in pts]
@@ -1691,6 +1782,11 @@ def _draw_group(fig, z, pieces, lines, st):
         ln = dict(ln)
         pts = ln.pop("pts")
         closed = ln.pop("closed", False)
+        dots = ln.pop("dots", None)
+        if dots:
+            c, u, ra, rb, focus, colour = dots
+            fig.stipple(pts, c, u, ra, rb, colour, focus, z=z + 0.002)
+            continue
         st_ = dict(fill=None, stroke=st["stroke"], sw=LINE_SW, dash=st.get("dash"))
         st_.update(ln)
         fig.poly(pts, closed=closed, z=z + 0.002, **st_)
@@ -1706,6 +1802,10 @@ class Climber:
       shoulders=(x, y), the point between the shoulders, and pelvis=None.
     lean: spine angle from vertical in degrees; positive tips the shoulders
       to the right of the hips (in side view: toward the wall).
+    bend: degrees the spine bends at the waist, the chest, shoulders and
+      head turning further than the hips the same way as `lean` (a back view
+      bends sideways; a side view curls forward, negative arches back). The
+      hands and feet stay where they are put.
     turn: back view only, -1..1. Positive turns the right hip into the wall
       (the back then faces right and the left side comes toward you).
     lh, rh: hand positions: where the middle of the hand grips (None = the
@@ -1731,12 +1831,22 @@ class Climber:
       and forearms hidden behind the body, as dotted outlines (default: the
       module setting XRAY; see _xray_arm). hold() takes the same option for
       the parts of a hold hidden behind a hand or foot.
+    active: the muscles at work, stippled (MUSCLE_DOTS). Names
+      are a side and a muscle, e.g. "rupper", "lthigh": fore, upper (biceps
+      or triceps), lat, thigh, ham (hamstring), calf, shin (its front, for a
+      toe hook), glute; and "core".
+      By default (None) a bent arm that holds on works its upper arm and
+      forearm. A list of names replaces that; names written "+name" or
+      "-name" add to it or take from it, e.g. ("+rthigh",) for a leg that
+      drives the move or ("+lham",) for a heel hook.
 
     The climber is drawn clothed: a white T-shirt with short sleeves, and
     trousers whose left leg (and left half of the seat) is grey; the bare
     left forearm and hand are grey too. To draw an arm through an explicit
     elbow (an arm pointing into the wall), leave it out of `order` and call
-    draw_arm() after draw().
+    draw_arm() after draw(). The head is drawn with the torso; put "head" in
+    `order` to draw it on its own, e.g. last, over hands that reach past the
+    face to the wall.
     """
 
     def __init__(self, pelvis, view="back", lean=0.0, turn=0.0, lh=None,
@@ -1744,15 +1854,18 @@ class Climber:
                  arm_len=None, leg_len=None, head=(0, 0), sh_w=None,
                  hip_w=None, order=None, hand_style=None, scale=1.0,
                  shoulders=None, anatomy=True, allow_cross=False, xray=None,
-                 head_tilt=0.0):
+                 head_tilt=0.0, active=None, bend=0.0):
         self.view = view
         self.head_tilt = head_tilt
+        self.active = active
         self.lean = lean
+        self.bend = bend
         self.s = scale
         if shoulders is not None:
             # place the climber by the point between the shoulders
-            u = ang(90 - lean)
-            pelvis = sub(shoulders, mul(u, (DIM["torso"] - 1) * scale))
+            u, (uc, _) = ang(90 - lean), self.chest_frame()
+            pelvis = sub(shoulders, add(mul(u, WAIST_T * scale),
+                                        mul(uc, (DIM["torso"] - 1 - WAIST_T) * scale)))
         self.pelvis = pelvis
         self.turn = turn
         self.lh, self.rh, self.lf, self.rf = lh, rh, lf, rf
@@ -1778,38 +1891,56 @@ class Climber:
 
     # frame
     def frame(self):
-        u = ang(90 - self.lean)          # up the spine
-        r = (u[1], -u[0])                # to the climber's right / forward
+        """The frame of the hips: (up the spine, to the climber's right, or
+        forward in a side view)."""
+        u = ang(90 - self.lean)
+        r = (u[1], -u[0])
         return u, r
 
+    def chest_frame(self):
+        """The frame of the chest and shoulders: the hips' frame turned by
+        `bend` at the waist."""
+        u = ang(90 - self.lean - self.bend)
+        return u, (u[1], -u[0])
+
     def head_frame(self):
-        """The body's frame tipped by head_tilt: (up the head, its right)."""
-        u, r = self.frame()
+        """The chest's frame tipped by head_tilt: (up the head, its right)."""
+        u, r = self.chest_frame()
         a = math.radians(self.head_tilt)
         c, sn = math.cos(a), math.sin(a)
         return add(mul(u, c), mul(r, sn)), sub(mul(r, c), mul(u, sn))
 
     def local(self, s, t):
+        """The world point at (s, t) cm in the body: s to the right (or
+        forward), t up the spine from the hip joints. With `bend` the frame
+        turns round the waist, gradually over WAIST_SPAN either side of it,
+        so the flanks curve instead of breaking."""
         u, r = self.frame()
-        return add(self.pelvis, add(mul(r, s * self.s), mul(u, t * self.s)))
+        p = add(self.pelvis, add(mul(r, s * self.s), mul(u, t * self.s)))
+        if not self.bend:
+            return p
+        x = max(0.0, min(1.0, (t - WAIST_T + WAIST_SPAN) / (2 * WAIST_SPAN)))
+        waist = add(self.pelvis, mul(u, WAIST_T * self.s))
+        return add(waist, rot(sub(p, waist), -self.bend * x * x * (3 - 2 * x)))
 
     def solve(self):
         D = {k: v * self.s for k, v in DIM.items()}
         u, r = self.frame()
+        uc, rc = self.chest_frame()
         J = {}
         side = 1 if self.view == "back" else 0
         sh_off = D["sh_half"] * self.sh_w * side
         hip_off = D["hip_half"] * self.hip_w * side
-        J["sh_c"] = add(self.pelvis, mul(u, D["torso"] - 1 * self.s))
+        J["sh_c"] = self.local(0, DIM["torso"] - 1)
         if self.view == "back":
-            J["lsh"] = add(J["sh_c"], mul(r, -sh_off))
-            J["rsh"] = add(J["sh_c"], mul(r, sh_off))
+            J["lsh"] = add(J["sh_c"], mul(rc, -sh_off))
+            J["rsh"] = add(J["sh_c"], mul(rc, sh_off))
             J["lhip"] = add(self.pelvis, mul(r, -hip_off))
             J["rhip"] = add(self.pelvis, mul(r, hip_off))
         else:
-            J["lsh"] = J["rsh"] = add(J["sh_c"], mul(r, -1.5 * self.s))
+            J["lsh"] = J["rsh"] = add(J["sh_c"], mul(rc, -1.5 * self.s))
             J["lhip"] = J["rhip"] = add(self.pelvis, mul(r, 1.0 * self.s))
-        J["head"] = add(add(J["sh_c"], mul(u, D["neck"] + D["head_ry"] + 0.5)),
+        J["head"] = add(add(J["sh_c"], mul(uc, D["neck"] + D["head_ry"] + 0.5)),
                         mul(self.head_off, self.s))
         self.D = D
         self._J = J
@@ -1960,12 +2091,18 @@ class Climber:
             else:
                 order = ["lleg", "larm", "torso", "rleg", "rarm"]
         self._torso_z = z + order.index("torso") if "torso" in order else None
+        # the head goes with the torso unless `order` places it on its own,
+        # e.g. above arms that reach past the face to the wall
+        self._head_z = z + order.index("head") if "head" in order else self._torso_z
         self._arms = {"fig": fig}
         zz = z
         for name in order:
             if name == "torso":
                 _draw_group(fig, zz, *geo["torso"], line)
-                _draw_group(fig, zz + 0.01, *geo["head"], line)
+                if "head" not in order:
+                    _draw_group(fig, zz + 0.01, *geo["head"], line)
+            elif name == "head":
+                _draw_group(fig, zz, *geo["head"], line)
             elif name in geo:
                 if name.endswith("leg"):
                     # the shoe goes behind its leg, so the trouser leg
@@ -2005,9 +2142,8 @@ class Climber:
         with outline weight `sw`: the outline of the hand (of an open hand,
         the palm), leaving out where it runs into the forearm or lies under
         the other hand. The forearm is outlined too when the hand or forearm
-        lies over the torso or head and the torso is drawn above the arm:
-        an arm that only crosses the other arm or a leg keeps its plain
-        outline."""
+        lies over the torso or head and that is drawn above the arm: an arm
+        that only crosses the other arm or a leg keeps its plain outline."""
         if not self._xray_feet:
             return
         polys = [_Poly(pc["pts"]) for pc in pieces]
@@ -2028,11 +2164,12 @@ class Climber:
                     fores.append(_Poly(_outward(pc["pts"], 1.5 * d)))
         parts = {"hand"}
         tz = self._torso_z if same else None
-        if tz is not None and tz > z:
-            body = self._body_polys()
-            lower = [p for pc in pieces if pc.get("part") for p in pc["pts"]]
-            if any(b.has(p) for b in body for p in lower):
-                parts.add("fore")
+        hz = self._head_z if same else None
+        body = self._body_polys(torso=tz is not None and tz > z,
+                                head=hz is not None and hz > z)
+        lower = [p for pc in pieces if pc.get("part") for p in pc["pts"]]
+        if any(b.has(p) for b in body for p in lower):
+            parts.add("fore")
         for i, pc in enumerate(pieces):
             if pc.get("part") not in parts:
                 continue
@@ -2051,18 +2188,83 @@ class Climber:
                 if closed or sum(length(sub(b, a)) for a, b in zip(run, run[1:])) >= fig.mm(0.6):
                     fig.poly(run, closed=closed, z=XRAY_Z, **XRAY_STYLE)
 
-    def _body_polys(self):
-        """Polygons of the torso (with neck and seat) and the head."""
+    def _body_polys(self, torso=True, head=True):
+        """Polygons of the torso (with neck and seat) and of the head."""
+        if not (torso or head):
+            return []
         polys, _, _, neck, _ = self._torso_shapes()
         col = dict(l=LEFT, r=WHITE, shirt=WHITE, hair=HAIR)
-        head = self._head_geometry(col, True, _Poly(neck))[0]
-        return polys + [_Poly(pc["pts"]) for pc in head]
+        heads = self._head_geometry(col, True, _Poly(neck))[0] if head else []
+        return (polys if torso else []) + [_Poly(pc["pts"]) for pc in heads]
 
     # ---- geometry of the drawn body
+
+    def _muscles(self):
+        """The names of the muscles at work (see `active`)."""
+        J = self.J
+        auto = set()
+        for s in "lr":
+            sh, el, wr = J[s + "sh"], J[s + "el"], J[s + "wr"]
+            # a bent arm (under 130 degrees at the elbow) that holds on
+            # (a bent leg may push or just rest, and a heel may hook or just
+            # stand, so legs are shaded only where a figure says so)
+            if getattr(self, s + "h") is not None and \
+                    dot(norm(sub(sh, el)), norm(sub(wr, el))) > -0.64:
+                auto |= {s + "upper", s + "fore"}
+        if self.active is None:
+            return auto
+        names = list(self.active)
+        if names and all(n[:1] in "+-" for n in names):
+            for n in names:
+                (auto.add if n[0] == "+" else auto.discard)(n[1:])
+            return auto
+        return set(names)
+
+    def _shade(self, pts, fill, axis=None, focus=None):
+        """A line entry that stipples a muscle under `fill` within the
+        outline `pts`, or None. The dots thin out over an ellipse round the
+        shape's centre, long along `axis` (default: the shape's longest
+        direction), from `focus`, where they are densest."""
+        colour = MUSCLE_DOTS.get(fill)
+        if not colour:
+            return None
+        n = len(pts)
+        c = (sum(p[0] for p in pts) / n, sum(p[1] for p in pts) / n)
+        if axis is None:
+            sxx = sum((p[0] - c[0]) ** 2 for p in pts)
+            syy = sum((p[1] - c[1]) ** 2 for p in pts)
+            sxy = sum((p[0] - c[0]) * (p[1] - c[1]) for p in pts)
+            axis = ang(math.degrees(0.5 * math.atan2(2 * sxy, sxx - syy)))
+        v = perp(axis)
+        ra = max(abs(dot(sub(p, c), axis)) for p in pts)
+        rb = max(abs(dot(sub(p, c), v)) for p in pts)
+        if focus is not None:
+            # only along the axis: a muscle on one side of a limb is densest
+            # across its own middle
+            focus = add(c, mul(axis, dot(sub(focus, c), axis)))
+        return dict(pts=pts, dots=(c, axis, ra, rb, focus, colour))
+
+    def _belly_shade(self, p1, p2, left, right, t0, t1, fill, peak=0.5, **kw):
+        """The shade of a muscle in a limb segment (see belly), densest at
+        its fullest."""
+        pts = belly(p1, p2, left, right, self.s, t0, t1, peak=peak,
+                    inset=self._inset(), **kw)
+        d = norm(sub(p2, p1))
+        focus = lerp(p1, p2, t0 + (t1 - t0) * peak)
+        return self._shade(pts, fill, axis=d, focus=focus)
+
+    def _inset(self):
+        """How far a shade keeps inside an outline, in world units. The
+        visible half of an outline lies outside its path, so this only has
+        to cover the pen's wobble (WOBBLE) and leave a hair of white."""
+        fig = getattr(self, "_fig", None)
+        return fig.mm(0.26) if fig is not None else 0.8 * self.s
 
     def _geometry(self, col, ghost):
         J, S = self.J, self.s
         polys, shirt, seats, neck, lines = self._torso_shapes(ghost)
+        self._on = set() if ghost else self._muscles()
+        lines = self._torso_shades(col, seats) + lines
         G = {}
         thighs = {}
         for s in "lr":
@@ -2084,6 +2286,31 @@ class Climber:
                 s, J[s + "sh"], J[s + "el"], J[s + "wr"], J[s + "ha"], col, ghost,
                 polys)
         return G
+
+    def _torso_shades(self, col, seats):
+        """Line entries shading the lats, glutes and core that are at work."""
+        on, L, out = self._on, self.local, []
+        if not on:
+            return out
+        if self.view == "back":
+            sw_o = self.sh_w + 0.35 * (1 - self.sh_w)
+            hw_o = self.hip_w + 0.5 * (1 - self.hip_w)
+            for s, sg in (("l", -1), ("r", 1)):
+                if s + "lat" in on:
+                    out.append(self._shade(catmull([L(sg * x * sw_o, t) for x, t in LAT_BACK],
+                                                   k=4), col["shirt"]))
+                if s + "glute" in on:
+                    (x, t), rx, ry = GLUTE_BACK
+                    out.append(self._shade(ellipse_pts(L(sg * x * hw_o, t), rx * hw_o * self.s,
+                                                       ry * self.s, n=28), col[s]))
+            if "core" in on:
+                for sg in (-1, 1):
+                    out.append(self._shade(catmull([L(sg * x, t) for x, t in CORE_BACK],
+                                                   k=4), col["shirt"]))
+        elif "core" in on:
+            out.append(self._shade(catmull([L(x, t) for x, t in CORE_SIDE], k=4),
+                                   col["shirt"]))
+        return [o for o in out if o]
 
     def _torso_shapes(self, ghost=True):
         """(polygons for hit tests, shirt, [(side, seat half)], neck, inner
@@ -2114,8 +2341,9 @@ class Climber:
             def arc(sg):
                 sh = J["rsh" if sg > 0 else "lsh"]
                 rx, ry = SHOULDER_R
-                return [add(sh, add(mul(r, sg * rx * S * math.cos(math.radians(a))),
-                                    mul(u, ry * S * math.sin(math.radians(a)))))
+                uc, rc = self.chest_frame()
+                return [add(sh, add(mul(rc, sg * rx * S * math.cos(math.radians(a))),
+                                    mul(uc, ry * S * math.sin(math.radians(a)))))
                         for a in (100, 70, 40, 10, -20)]
 
             def flank(sg):   # from the neck down to the hem corner
@@ -2163,12 +2391,8 @@ class Climber:
             hu, _ = self.head_frame()
             neck_top = sub(self._head_centre(), mul(hu, 6 * S))
             neck = tube(neck_base, neck_top, [(0, 5.2), (1, 4.7)], [(0, 5.2), (1, 4.7)], S)
-            # the T-shirt's hem and neckline, the trousers' back seam
+            # the T-shirt's hem, the one line inside the torso
             lines.append(dict(pts=hem, sw=LINE_SW))
-            lines.append(dict(pts=chain([L(-5.1, 54.3), L(0, 53.6), L(5.1, 54.3)]),
-                              sw=LINE_SW))
-            lines.append(dict(pts=chain([L(seam, 3.0), L(seam * 0.8, -3.5), crotch]),
-                              sw=LINE_SW))
         else:
             front = [L(x, t) for x, t in SHIRT_SIDE[0:9]]
             hem = [L(x, t) for x, t in SHIRT_SIDE[8:12]]
@@ -2183,8 +2407,6 @@ class Climber:
                            add(mul(hr, -1.8 * S), mul(hu, -7.0 * S)))
             neck = tube(neck_base, neck_top, [(0, 5.0), (1, 4.5)], [(0, 5.0), (1, 4.5)], S)
             lines.append(dict(pts=hem_c, sw=LINE_SW))
-            lines.append(dict(pts=chain([L(-6.2, 53.6), L(-3.8, 54.3), L(-1.0, 54.0),
-                                         L(2.0, 53.0), L(4.4, 51.8)]), sw=LINE_SW))
         polys = [_Poly(shirt), _Poly(neck)] + [_Poly(p) for _, p in seats]
         return polys, shirt, seats, neck, lines
 
@@ -2216,9 +2438,8 @@ class Climber:
             hair = chain(H([(-x0, y0)] + big(over) + [(x0, y0)])) + chain(hl)[1:]
             pieces = [dict(pts=skull, fill=col["shirt"], hide=neck.has)]
             pieces += [dict(pts=e, fill=col["shirt"]) for e in ears]
+            # the hair's tone marks the hairline, without a line
             pieces.append(dict(pts=hair, fill=col["hair"]))
-            if not ghost:
-                lines.append(dict(pts=chain(hl), sw=LINE_SW))
         else:
             head = catmull(H(HEAD_SIDE), k=4)
 
@@ -2235,7 +2456,6 @@ class Climber:
             pieces = [dict(pts=head, fill=col["shirt"], hide=nape),
                       dict(pts=hair, fill=col["hair"])]
             if not ghost:
-                lines.append(dict(pts=chain(edge), sw=LINE_SW))
                 lines.append(dict(pts=catmull(H(EAR_SIDE), k=4), closed=True,
                                   fill=WHITE, sw=FINE_SW))
                 eye = H([EYE_SIDE])[0]
@@ -2250,7 +2470,7 @@ class Climber:
 
     def _thumb_side(self, s, v):
         """+1 if the thumb is on the left of the hand direction v."""
-        _, r = self.frame()
+        _, r = self.chest_frame()
         if self.view == "back":
             return -1 if s == "l" else 1
         return 1 if dot(perp(v), r) >= 0 else -1
@@ -2263,18 +2483,37 @@ class Climber:
         hide = _root_hide(sh, el, 1.2 * SLEEVE[0][1] * S, torso_polys)
         se = lerp(sh, el, SLEEVE_LEN)
         sleeve = tube(sh, se, SLEEVE, SLEEVE, S, cap1=0.85, cap2=0.2)
-        upper = tube(sh, el, UPPER_ARM, UPPER_ARM, S)
+        # the inner side of the upper arm: toward the body in a back view
+        # (the hips are below a hanging arm and beside a raised one), toward
+        # the bend of the elbow in a side view
+        n_up = perp(norm(sub(el, sh)))
+        if self.view == "back":
+            in_left = dot(n_up, sub(self.pelvis, sh)) > 0
+        else:
+            elbow = dot(n_up, sub(wr, el))
+            _, r = self.chest_frame()
+            in_left = elbow > 0 if abs(elbow) > 1.5 * S else dot(n_up, r) > 0
+        up_l, up_r = (UPPER_ARM_IN, UPPER_ARM_OUT) if in_left else (UPPER_ARM_OUT, UPPER_ARM_IN)
+        upper = tube(sh, el, up_l, up_r, S)
         rad, uln = FORE_RADIAL, FORE_ULNAR
-        fore = tube(el, wr, rad if th > 0 else uln, uln if th > 0 else rad, S)
+        fo_l, fo_r = (rad, uln) if th > 0 else (uln, rad)
+        fore = tube(el, wr, fo_l, fo_r, S)
         # part: which pieces the x-ray pass outlines (see _xray_arm)
         pieces = [dict(pts=upper, fill=skin, hide=hide),
                   dict(pts=fore, fill=skin, part="fore")]
         lines = []
-        fil, crease = _fillet(sh, el, wr, upper, fore, 3.2 * S, 2.4 * S, S)
+        fil, _ = _fillet(sh, el, wr, upper, fore, 3.2 * S, 2.4 * S, S)
         if fil:
             pieces.append(dict(pts=fil, fill=skin))
-            if crease and not ghost:
-                lines.append(dict(pts=crease, sw=FINE_SW))
+        on = getattr(self, "_on", set())
+        if s + "upper" in on:
+            # the belly of the biceps or triceps, below the sleeve
+            lines.append(self._belly_shade(sh, el, up_l, up_r, SLEEVE_LEN + 0.03, 0.93,
+                                           skin, peak=0.45))
+        if s + "fore" in on:
+            # the forearm's muscles lie in its upper part, its tendons below
+            lines.append(self._belly_shade(el, wr, fo_l, fo_r, 0.04, 0.8, skin, peak=0.3))
+        lines = [ln for ln in lines if ln]
         hlen = length(sub(ha, wr))
         k = hlen / 7.0 if hlen > 1e-6 else S
         y = mul(perp(v), th)
@@ -2295,13 +2534,10 @@ class Climber:
                 pieces.append(dict(pts=capsule(base, rr * S, tip, rr * 0.85 * S, n=6),
                                    fill=skin, part="finger"))
         else:
-            shape, fl = (HAND_HANG, HAND_HANG_LINES) if hanging else \
-                (HAND_GRIP, HAND_GRIP_LINES)
+            # at this size the fingers are only noise: the hand is its outline
+            shape = HAND_HANG if hanging else HAND_GRIP
             pieces.append(dict(pts=catmull(_frame_pts(wr, v, y, shape, k, S), k=3),
                                fill=skin, part="hand"))
-            if not ghost:
-                for ln in fl:
-                    lines.append(dict(pts=_frame_pts(wr, v, y, ln, k, S), sw=FINE_SW))
         pieces.append(dict(pts=sleeve, fill=col["shirt"], hide=hide))
         if not ghost:
             # the sleeve hem: the curved end of the sleeve
@@ -2349,13 +2585,28 @@ class Climber:
                     SHIN_BACK if fs else SHIN_FRONT, S, cap1=1, cap2=0.15)
         hide = _root_hide(hip, kn, R, torso_polys)
         pieces = [dict(pts=thigh, fill=fill, hide=hide), dict(pts=shin, fill=fill)]
-        lines = []
-        # a bent knee: a soft inner curve and a fold in the trousers
-        fil, fold = _fillet(hip, kn, an, thigh, shin, 4.5 * S, 3.2 * S, S)
+        # a bent knee: a soft inner curve
+        fil, _ = _fillet(hip, kn, an, thigh, shin, 4.5 * S, 3.2 * S, S)
         if fil:
             pieces.append(dict(pts=fil, fill=fill))
-            if fold:
-                lines.append(dict(pts=fold, sw=FINE_SW))
+        lines = []
+        on = getattr(self, "_on", set())
+        th_l, th_r = (THIGH_FRONT, back) if fl else (back, THIGH_FRONT)
+        sh_l, sh_r = (SHIN_FRONT, SHIN_BACK) if fs else (SHIN_BACK, SHIN_FRONT)
+        if s + "thigh" in on:
+            lines.append(self._belly_shade(hip, kn, th_l, th_r, 0.1, 0.9, fill, peak=0.4))
+        if s + "ham" in on:
+            # the back of the thigh: the side away from the front
+            lines.append(self._belly_shade(hip, kn, th_l, th_r, 0.14, 0.9, fill, peak=0.45,
+                                           w=0.6, bias=-0.4 if fl else 0.4))
+        if s + "calf" in on:
+            lines.append(self._belly_shade(kn, hem, sh_l, sh_r, 0.06, 0.62, fill, peak=0.35,
+                                           w=0.6, bias=-0.4 if fs else 0.4))
+        if s + "shin" in on:
+            # the front of the shin, which pulls the toes up in a toe hook
+            lines.append(self._belly_shade(kn, hem, sh_l, sh_r, 0.08, 0.7, fill, peak=0.4,
+                                           w=0.55, bias=0.4 if fs else -0.4))
+        lines = [ln for ln in lines if ln]
         return pieces, lines, thigh
 
     def _shoe(self, fig, s, st, z):
