@@ -206,22 +206,23 @@ The six-attempt figure comes from elite competition. In the 2019 World Cup final
 == Rest between attempts
 
 #ix("Rest between attempts", main: true)
-Rest long enough for each attempt to be a real one. Coaching sources agree on minutes, not seconds. Resting too little changes which energy system you train #src("E42").
+How long to rest depends on how hard the attempt is. Problems below your limit need a minute or so. The long rests are for attempts at your limit, on a problem you're projecting or a move you can only just do. Resting too little before those changes which energy system you train #src("E42").
 
 #{
   set par(justify: false)
   table(
     columns: (1.3fr, 1fr, auto),
     table.header(th[Situation], th[Rest], th[Source]),
-    [One hard move tried on its own (a few seconds of effort)], [About 2½ minutes after a 3-second try. The rule is 20–50 times the effort time.], [#src("E42")],
-    [A full attempt on a hard problem (about 30 seconds)], [10–15 minutes], [#src("E42")],
-    [Any physically hard problem], [At least 5 minutes], [#src("E41")],
-    [A longer problem], [10–25 minutes], [#src("E41")],
+    [Easier problems, climbed for endurance], [30–60 seconds between sets], [#src("E42")],
+    [A hard problem climbed several times in a row], [1–3 times the climbing time, e.g. about a minute after 30 seconds], [#src("E42")],
+    [One move at your limit, tried on its own (a few seconds)], [About 2½ minutes after a 3-second try. The rule is 20–50 times the effort time.], [#src("E42")],
+    [A full attempt at your limit (about 30 seconds)], [10–15 minutes], [#src("E42")],
+    [Projecting any physically hard problem], [At least 5 minutes, and 10–25 minutes for a long one], [#src("E41")],
     [What competitors actually do under a time limit], [About 2 minutes (a national event, 2010 study); about 30 seconds (2018 World Cups)], [#src("E39", "E40")],
   )
 }
 
-The competition figures describe athletes with four or five minutes per problem. They are not advice.#ix("World Cup!rest between attempts") While you rest, watch others try your problem.
+So an hour at your limit holds only about six full attempts, each made at full strength. Most sessions mix the two: a few limit attempts while you're fresh, and easier problems with short rests (this book's suggestion). The competition figures describe athletes with four or five minutes per problem. They are not advice.#ix("World Cup!rest between attempts") While you rest, watch others try your problem.
 
 == When to change the beta
 

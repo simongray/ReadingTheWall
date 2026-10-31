@@ -19,6 +19,13 @@ section as the notes of the GitHub release.
   hides them, with their hidden outline dotted. In frame 4 the right arm,
   which reaches forward to R3, is hidden by the shoulder too, and the
   crossing left arm passes in front of the right hand.
+- p. 17, Rest between attempts: the long rests (10–15 minutes after a
+  30-second try, 10–25 for a long problem) are for attempts at your limit,
+  as their sources say, but the section gave them as the rest for any
+  attempt. It now says so, adds the sources' shorter rests for easier
+  problems (30–60 seconds) and for repeats of a hard one (1–3 times the
+  climbing time), and says that a session mixes the two. The
+  troubleshooting row on p. 233 says "at your limit" too.
 - p. 69, Straight arms, common mistakes: "Hanging slack with shrugged
   shoulders" → "Sagging onto fully straight arms with slack shoulders",
   as the source says.

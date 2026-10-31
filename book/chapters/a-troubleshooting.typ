@@ -142,7 +142,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [You take many attempts and make no progress.],
   [You are tired. Your rests are too short.],
-  [Rest 5–15 minutes between full attempts. After four to six failed tries, change the sequence or stop. See Chapter 2 #src("E6", "E41", "E42").],
+  [Rest 5–15 minutes between full attempts at your limit. After four to six failed tries, change the sequence or stop. See Chapter 2 #src("E6", "E41", "E42").],
 )
 
 #heading(level: 2, numbering: none)[Reading and tactics]
