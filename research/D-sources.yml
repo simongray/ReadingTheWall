@@ -1,0 +1,520 @@
+# Sources cited in chapter 06 (Dynamic movement), keyed by dossier ID.
+# Access date for all URLs: 2026-10-30.
+
+D1:
+  type: web
+  title: "Deadpoint"
+  author: "theCrag"
+  parent:
+    title: "theCrag glossary"
+  url:
+    value: "https://www.thecrag.com/en/article/glossary/deadpoint"
+    date: 2026-10-30
+  note: "Glossary entry. Page refused automated fetch; content checked via search excerpts."
+
+D2:
+  type: web
+  title: "Dynamic Move"
+  author: "theCrag"
+  parent:
+    title: "theCrag glossary"
+  url:
+    value: "https://www.thecrag.com/en/article/glossary/dynamic-move"
+    date: 2026-10-30
+  note: "Glossary entry. Content checked via search excerpts."
+
+D3:
+  type: web
+  title: "Wolfgang Güllich"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Wolfgang_G%C3%BCllich"
+    date: 2026-10-30
+
+D4:
+  type: article
+  title: "The Art of Bouldering"
+  author: ["Gill, John"]
+  date: 1969
+  parent:
+    type: periodical
+    title: "American Alpine Journal"
+  url:
+    value: "https://publications.americanalpineclub.org/articles/12196935500/The-Art-of-Bouldering"
+    date: 2026-10-30
+
+D5:
+  type: web
+  title: "10 Things You Didn’t Know about Dynos"
+  author: "Climbing.com"
+  date: 2024-02-29
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/10-things-about-dynos/?scope=anon"
+    date: 2026-10-30
+  note: "No byline shown. Date is the last update."
+
+D6:
+  type: web
+  title: "Learn This: Master Dynos (with Tips from Sean McColl)"
+  author: "Climbing.com"
+  date: 2015-11-10
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skill/learn-this-master-dynos-with-tips-from-sean-mccoll?scope=anon"
+    date: 2026-10-30
+
+D7:
+  type: web
+  title: "Uncoordinated? Here Are Three Drills to Improve Your Dynamic Movement"
+  author: ["Larson, Josh"]
+  date: 2021-12-14
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-master-climbing-dynos?scope=anon"
+    date: 2026-10-30
+  note: "Browser title: How to Master Climbing Dynos."
+
+D8:
+  type: web
+  title: "“Skate-Style” Route-Setting: How World Cup Climbing Affects Your Local Gym"
+  author: "Climbing.com"
+  date: 2018-01-11
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/news/skate-style-route-setting-how-world-cup-climbing-affects-your-local-gym/?scope=anon"
+    date: 2026-10-30
+
+D9:
+  type: web
+  title: "WTF Is a Rose Move? Plus, 39 Other Sport Climbing Terms You’ll Hear This Olympics"
+  author: ["Samet, Matt"]
+  date: 2024-07-29
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/competition/olympics/40-climbing-terms-olympics?scope=anon"
+    date: 2026-10-30
+  note: "Olympics glossary. Date is the last update. Author named in the closing bio."
+
+D10:
+  type: web
+  title: "Struggling with Powerful Moves? Don’t Just Train Your Fingers"
+  author: ["Hammer, Juliet"]
+  date: 2025-01-23
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/hips-climbing-training?scope=anon"
+    date: 2026-10-30
+
+D11:
+  type: web
+  title: "Climb Harder with Better Footwork: Paige Claassen’s 6 Tips"
+  author: ["Claassen, Paige"]
+  date: 2019-11-12
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-improve-your-footwork-for-climbing-2/?scope=anon"
+    date: 2026-10-30
+
+D12:
+  type: web
+  title: "Five Reasons Why Climbing on Comp Routes Can Make You Better"
+  author: ["Gladish, David"]
+  date: 2022-01-17
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/five-reasons-to-try-climbing-on-comp-routes/?scope=anon"
+    date: 2026-10-30
+
+D13:
+  type: web
+  title: "Dynamic Climbing 1.0: Deadpointing"
+  author: ["Rowland, Dave"]
+  date: 2023-03-09
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/dynamic-climbing-1-0-deadpointing/"
+    date: 2026-10-30
+
+D14:
+  type: web
+  title: "What’s the Difference between Double Dynos and Deadpointing?"
+  author: ["Rowland, Dave"]
+  date: 2023-04-26
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/whats-the-difference-between-double-dynos-and-deadpointing/"
+    date: 2026-10-30
+
+D15:
+  type: web
+  title: "Learn All about the Single Dyno"
+  author: ["Rowland, Dave"]
+  date: 2023-06-29
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/learn-all-about-the-single-dyno/"
+    date: 2026-10-30
+
+D16:
+  type: web
+  title: "The Ultimate Guide to Dyno Tips and Tricks"
+  author: ["Rowland, Dave"]
+  date: 2023-07-14
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/the-ultimate-guide-to-dyno-tips-and-tricks-5/"
+    date: 2026-10-30
+
+D17:
+  type: web
+  title: "Soar through the Air with These Double Dyno Techniques"
+  author: ["Rowland, Dave"]
+  date: 2023-06-15
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/soar-through-the-air-with-these-double-dyno-techniques/"
+    date: 2026-10-30
+
+D18:
+  type: web
+  title: "Enhance Your Movement in Climbing: Dynamic Weight-Shifting"
+  author: ["Rowland, Dave"]
+  date: 2023-02-03
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/enhance-your-movement-in-climbing-dynamic-weight-shifting/"
+    date: 2026-10-30
+
+D19:
+  type: web
+  title: "Exaggerated Weight Shifting in Rock Climbing"
+  author: ["Rowland, Dave"]
+  date: 2024-01-25
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/exaggerated-weight-shifting-in-rock-climbing/"
+    date: 2026-10-30
+
+D20:
+  type: web
+  title: "Dynamics – The Art of Flight"
+  author: ["Flanagan, David"]
+  date: 2013
+  parent:
+    title: "Three Rock Books"
+  url:
+    value: "https://threerockbooks.com/dynamics-art-flight/"
+    date: 2026-10-30
+  note: "Excerpt from Bouldering Essentials: The Complete Guide to Bouldering (Three Rock Books, 2013). The excerpt page names no author; author from catalogue listings."
+
+D21:
+  type: web
+  title: "Bouldering – How to Dyno"
+  author: ["Flanagan, David"]
+  date: 2013
+  parent:
+    title: "Three Rock Books"
+  url:
+    value: "https://threerockbooks.com/bouldering-dyno/"
+    date: 2026-10-30
+  note: "Excerpt from Bouldering Essentials (Three Rock Books, 2013). The page names no author; author from catalogue listings."
+
+D22:
+  type: web
+  title: "How to Dyno!"
+  author: ["Griffith, Connor"]
+  date: 2016-08-08
+  parent:
+    title: "Friction Labs blog (Connor’s World)"
+  url:
+    value: "https://shop.frictionlabs.com/blogs/climb-your-impossible/connors-world-dynoing-basics"
+    date: 2026-10-30
+  note: "The page names the author only as Connor."
+
+D23:
+  type: web
+  title: "How to Pogo for Climbing"
+  author: ["Griffith, Connor"]
+  date: 2016-09-12
+  parent:
+    title: "Friction Labs blog (Connor’s World)"
+  url:
+    value: "https://frictionlabs.com/blogs/climb-your-impossible/connors-world-the-secret-to-pogoing"
+    date: 2026-10-30
+
+D24:
+  type: web
+  title: "Pro Tip: Use the Pogo Technique Correctly When Bouldering"
+  author: "Lacrux"
+  date: 2021-12-03
+  parent:
+    title: "Lacrux"
+  url:
+    value: "https://lacrux.com/en/bouldern/pro-tip-pogo-technique-when-bouldering-correctly/"
+    date: 2026-10-30
+  note: "Article built around a video by Tomoa Narasaki."
+
+D25:
+  type: web
+  title: "10 Tips for Comp-Style Boulder Problems"
+  author: ["Pardy, Aaron"]
+  date: 2024-01-19
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/sections/training/10-tips-for-comp-style-boulder-problems/"
+    date: 2026-10-30
+
+D26:
+  type: web
+  title: "Three Exercises to Become a More Dynamic Climber"
+  author: ["Pardy, Aaron"]
+  date: 2023-03-12
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/three-exercises-to-become-a-more-dynamic-climber/"
+    date: 2026-10-30
+
+D27:
+  type: web
+  title: "Cut Feet for Stronger Shoulders and Core"
+  author: ["Pardy, Aaron"]
+  date: 2024-01-07
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/sections/training/cut-feet-for-stronger-shoulders-and-core/"
+    date: 2026-10-30
+
+D28:
+  type: web
+  title: "Training Tuesday: Use Your Hips!"
+  author: ["Walker, Noah"]
+  date: 2020-03-03
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/training-tuesday-use-your-hips/"
+    date: 2026-10-30
+
+D30:
+  type: web
+  title: "Watch and Learn How to Dyno at the Climbing Gym"
+  author: "Gripped"
+  date: 2018-02-27
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/watch-and-learn-how-to-dyno-in-the-gym/"
+    date: 2026-10-30
+  note: "Article with embedded video featuring Ayo Sopeju."
+
+D31:
+  type: web
+  title: "Crazy 24-Move 40-Foot Paddle Dyno"
+  author: "Gripped"
+  date: 2023-04-13
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/crazy-24-move-40-foot-paddle-dyno/"
+    date: 2026-10-30
+
+D32:
+  type: web
+  title: "Routesetting Trends of 2023"
+  author: ["Stevens, Naomi", "Burgman, John"]
+  date: 2024-01-26
+  parent:
+    title: "Climbing Business Journal"
+  url:
+    value: "https://climbingbusinessjournal.com/routesetting-trends-of-2023/"
+    date: 2026-10-30
+
+D33:
+  type: web
+  title: "Competition Routesetting and the Modern Gym (Online Discussion ft. Cody Grodzki)"
+  author: "Climbing Business Journal"
+  date: 2025-03-18
+  parent:
+    title: "Climbing Business Journal"
+  url:
+    value: "https://climbingbusinessjournal.com/competition-routesetting-and-the-modern-gym-online-discussion/"
+    date: 2026-10-30
+  note: "Event announcement page."
+
+D35:
+  type: web
+  title: "How Does Comp Style Bouldering Differ from Traditional Bouldering"
+  author: "Method Climbing"
+  date: 2024-06-10
+  parent:
+    title: "Method Climbing blog"
+  url:
+    value: "https://methodclimb.com/blog/how-does-comp-style-bouldering-differ-from-traditional-bouldering"
+    date: 2026-10-30
+
+D36:
+  type: web
+  title: "Gateway to Advanced Technique"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/programs/gateway-to-advanced-technique"
+    date: 2026-10-30
+  note: "Clinic description."
+
+D38:
+  type: web
+  title: "Dynamic Movement: 12 Intensive Practice Sessions"
+  author: ["Parkinson, Louis"]
+  parent:
+    title: "Catalyst Climbing"
+  url:
+    value: "https://catalystclimbing.com/shop/p/dynamic-movement-12-intensive-practice-sessions-pdf-download"
+    date: 2026-10-30
+  note: "Shop page describing a training plan."
+
+D39:
+  type: web
+  title: "Intermediate Technique: Flags and Deadpoints"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing"
+  url:
+    value: "https://portal.movementgyms.com/baker/programs/intermediate-technique-flags-and-deadpoints"
+    date: 2026-10-30
+  note: "Class description."
+
+D40:
+  type: web
+  title: "Struggling with Big Moves?"
+  author: "Lattice Training"
+  date: 2023-04-27
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/struggling-with-big-moves"
+    date: 2026-10-30
+
+D41:
+  type: web
+  title: "How to: Train for Bouldering"
+  author: "Lattice Training"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/en/how-to-train-for-bouldering"
+    date: 2026-10-30
+
+D42:
+  type: web
+  title: "3 Ultimate Technique Tips from Will Bosi"
+  author: "Lacrux"
+  date: 2025-01-13
+  parent:
+    title: "Lacrux"
+  url:
+    value: "https://lacrux.com/en/training/3-ultimate-technique-tips-from-will-bosi-climbing-training/"
+    date: 2026-10-30
+  note: "Article built around a video by Will Bosi."
+
+D44:
+  type: article
+  title: "The art of falling: identifying the falls scenarios associated with bouldering injuries"
+  author: ["Beurienne, E.", "Bailly, N.", "Luiggi, M.", "Martha, C.", "Bruna-Rosso, C.", "Wylomanski, M.", "Behr, M.", "Dorsemaine, M."]
+  date: 2025-07-17
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 7
+  serial-number:
+    doi: "10.3389/fspor.2025.1609133"
+  url:
+    value: "https://www.frontiersin.org/articles/10.3389/fspor.2025.1609133/full"
+    date: 2026-10-30
+
+D45:
+  type: web
+  title: "Bouldering Tips for Short People"
+  author: ["Marie"]
+  parent:
+    title: "Bouldering Boss"
+  url:
+    value: "https://boulderingboss.com/bouldering-tips-for-short-people/"
+    date: 2026-10-30
+
+D46:
+  type: web
+  title: "Dynos/Dyno Training"
+  author: {name: "Rock Prodigy Training forum"}
+  date: 2016-03
+  parent:
+    title: "Rock Prodigy Training forum"
+  url:
+    value: "https://rockprodigytraining.proboards.com/thread/927/dynos-dyno-training"
+    date: 2026-10-30
+  note: "Forum thread (posts by jessebruni and iclimb2improve)."
+
+D47:
+  type: web
+  title: "Richtige Technik beim Bouldern – die sechs grundlegenden Moves"
+  author: ["Burmester, Sarah"]
+  date: 2025-08-13
+  parent:
+    title: "Outdoor-Magazin"
+  url:
+    value: "https://www.outdoor-magazin.com/klettern/richtige-technik-beim-bouldern-die-sechs-grundlegenden-moves/"
+    date: 2026-10-30
+  note: "In German."
+
+D48:
+  type: web
+  title: "Parkour/Basic Moves/Tic Tac"
+  author: "Wikibooks"
+  parent:
+    title: "Wikibooks"
+  url:
+    value: "https://en.wikibooks.org/wiki/Parkour/Basic_Moves/Tic_Tac"
+    date: 2026-10-30
+
+D51:
+  type: web
+  title: "With What Specific Techniques Are Various Bouldering Grades Associated?"
+  author: "Outdoors Codidact"
+  parent:
+    title: "Outdoors Codidact"
+  url:
+    value: "https://outdoors.codidact.com/posts/55003"
+    date: 2026-10-30
+  note: "Q&A forum. Page refused automated fetch; content checked via search excerpts only."
+
+D53:
+  type: web
+  title: "Olympic Sport Climbing Terms: Glossary of All the Terminology You Need to Know"
+  author: "NBC Olympics"
+  parent:
+    title: "NBC Olympics"
+  url:
+    value: "https://www.nbcolympics.com/news/sport-climbing-101-olympic-terminology-and-glossary"
+    date: 2026-10-30

@@ -1,0 +1,15 @@
+# Figure critic: figs_terrain (chapters 07 terrain and 02 reading)
+
+Every figure and filmstrip frame was rendered at 150–600 dpi, and the side-view knees and shins were measured against the rock with a scratch script. The build prints no warnings for this module.
+
+- **filmstrip-top-out**: frames 1–3 pushed a knee 1–3 cm into the face; the pelvis now sits 3–5 cm further out. Frame 4's left shin passed through the boulder's corner, and its head and frame 5's face were clipped at the right edge. Frame 4 is now a shared pose (`TOP_OUT_PRESS`): hips higher and further out, the left leg hanging nearly straight to its foothold, the raised right knee drawn in front of the arm (it was hidden, so the shoe on top looked detached). Frame 5 leans less. Frames are 4 units wider with a 1.6 mm gap (169 mm).
+- **top-out**: (a) redrawn at the reader's request: the shoe was drawn sole-up and the leg looked twisted. Now the heel sits on the lip at shoulder height beside the right hand, thigh out to the side, knee bent about 90° and pointing out like the toes, shin straight up, toes up and out (`flip`), elbows down. The left foot is now actually high, as the caption says. (b) uses the filmstrip's press pose with a foothold under the left toe; "palm presses" no longer touches the arm and the "on the toe" leader passes under the hands.
+- **filmstrip-worked-problem**: frame 1's arms ringed the head with the hands on it; it is now a deeper crouch with straight, shortened arms up to the start jug. The start tape was drawn over the climber; now under it. Dotted outlines of unused holds floated on the back and knees; only the holds in use show them. From frame 2 to 3 all four limbs moved; the right foot now steps up in frame 2, so three move. Frame 4's right forearm lay across the back with the hand on the head, and the right knee was clipped; the right arm now reaches diagonally up and in (shortened), the left crosses over it, and the high thigh is shortened. Window shifted so L4 and the finish hands are inside.
+- **arete**: (b) the heel-hook knee pointed down below the foot; now the knee is raised and points up and out like the toes, heel round the edge, `flip`.
+- **traverse**: the right upper arm lay across the back; now it reaches diagonally (shortened) and the left arm crosses over it (`allow_cross`).
+- **roof**: (b) the "arms straight" leader crossed the shoulder; label moved beside the arm.
+- **sit-start**: (b) "outside edge" touched the sleeve and the unused left foothold drew a dotted outline on the thigh; both fixed.
+- **dynamic-slab**: "start" sat on the ghost's knee; moved.
+- **reading-hold-orientation, reading-worked-problem, terrain-wall-angles, slab, overhang, corner, volume**: checked, no change.
+
+Doubtful: in filmstrip-worked-problem frame 4 the arms still cross at the head, because R3 is level with the head once the climber stands on the high foot. Frame 1's crouch needs strongly shortened legs (0.6/0.52). "palms and feet press out" (corner) sits across the fold line, with a halo.

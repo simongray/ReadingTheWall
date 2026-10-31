@@ -1,0 +1,802 @@
+B1:
+  type: web
+  title: "FUNdamentals of Climbing 2: Outcomes and Syllabus"
+  author: "British Mountaineering Council"
+  parent:
+    title: "BMC / Mountain Training coach education"
+  url:
+    value: "https://media-cdn.cortextech.io/IEN9/1BSdBWIjChWbTc/0cc07580-cbd4-4bdf-bffc-ca16c5586d9b.docx"
+    date: 2026-10-30
+  note: "Coaching syllabus. Course page: https://www.thebmc.co.uk/fundamentals-of-climbing-2"
+
+B2:
+  type: web
+  title: "FUNdamentals of Climbing 1: Movement. Workshop Programme"
+  author: "British Mountaineering Council"
+  date: 2015
+  url:
+    value: "https://services.thebmc.co.uk/media/files/Skills/FUNdamentals%20Docs/FUNdamentals%20of%20Climbing%201%20workshop%20programme.pdf"
+    date: 2026-10-30
+  note: "Coaching syllabus"
+
+B3:
+  type: web
+  title: "FUNdamentals of Climbing 3: Technique Development"
+  author: "British Mountaineering Council"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/bmc-fundamentals-of-climbing-3"
+    date: 2026-10-30
+  note: "Course page with entry requirements (boulder V3/f6A+). Syllabus: https://media-cdn.cortextech.io/3a3ee529-364b-4725-96a3-39130f69aa74.pdf"
+
+B4:
+  type: web
+  title: "NICAS Bouldering"
+  author: "NICAS"
+  parent:
+    title: "National Indoor Climbing Award Scheme"
+  url:
+    value: "https://nicas.co.uk/schemes/bouldering/"
+    date: 2026-10-30
+
+B5:
+  type: web
+  title: "Level 3 NIBAS"
+  author: "Depot Climbing"
+  parent:
+    title: "Depot Climbing"
+  url:
+    value: "https://portal.depotclimbing.co.uk/armley/programs/level-3-nibas"
+    date: 2026-10-30
+  note: "See also Level 4 NIBAS: https://portal.depotclimbing.co.uk/pudsey/programs/level-4-nibas"
+
+B6:
+  type: article
+  title: "A biomechanical study of equilibrium in sport rock climbing"
+  author: ["Quaine, Franck", "Martin, Luc"]
+  date: 1999-12
+  page-range: 233-239
+  parent:
+    type: periodical
+    title: "Gait & Posture"
+    volume: 10
+    issue: 3
+  serial-number:
+    doi: "10.1016/S0966-6362(99)00024-7"
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/10567755/"
+    date: 2026-10-30
+
+B7:
+  type: article
+  title: "Influence of steep gradient supporting walls in rock climbing: biomechanical analysis"
+  author: ["Noé, Frédéric", "Quaine, Franck", "Martin, Luc"]
+  date: 2001-04
+  page-range: 86-94
+  parent:
+    type: periodical
+    title: "Gait & Posture"
+    volume: 13
+    issue: 2
+  serial-number:
+    doi: "10.1016/S0966-6362(00)00098-9"
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/11240356/"
+    date: 2026-10-30
+
+B8:
+  type: article
+  title: "Climber’s muscle excitation and force distribution at different wall angles and body positions"
+  author: ["Bonelli, Eleonora", "Rampichini, Susanna", "Esposito, Fabio", "Rossi, Giulio", "Colombo, Alessandro", "Limonta, Eloisa"]
+  date: 2025
+  parent:
+    type: periodical
+    title: "European Journal of Applied Physiology"
+  serial-number:
+    doi: "10.1007/s00421-025-06047-y"
+  url:
+    value: "https://colombo.faculty.polimi.it/papers/Climbers%20muscle%20excitation%20and%20force%20distribution%20at%20different%20wall%20angles%20and%20body%20positions%20[Bonelli25b].pdf"
+    date: 2026-10-30
+
+B9:
+  type: article
+  title: "Idiosyncratic control of the center of mass in expert climbers"
+  author: ["Zampagni, M. L.", "Brigadoi, S.", "Schena, F.", "Tosi, P.", "Ivanenko, Y. P."]
+  date: 2011-10
+  page-range: 688-699
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 21
+    issue: 5
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/21917019/"
+    date: 2026-10-30
+
+B10:
+  type: web
+  title: "Notes on “The Self-Coached Climber”"
+  author: ["Brandon, Jamie"]
+  date: 2017-07-07
+  parent:
+    title: "Scattered Thoughts"
+  url:
+    value: "https://www.scattered-thoughts.net/blog/2017/07/07/notes-on-the-self-coached-climber/"
+    date: 2026-10-30
+  note: "Reader's notes on the book by Dan Hague and Douglas Hunter"
+
+B11:
+  type: web
+  title: "Fundamentals of Technique 2"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-2/"
+    date: 2026-10-30
+
+B12:
+  type: web
+  title: "Fundamentals of Technique 4"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-4/"
+    date: 2026-10-30
+
+B13:
+  type: web
+  title: "Fundamentals of Technique 5"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-5/"
+    date: 2026-10-30
+
+B14:
+  type: web
+  title: "Fundamentals of Technique 6"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-6/"
+    date: 2026-10-30
+
+B15:
+  type: web
+  title: "Twist Lock and Backstepping Technique"
+  author: ["Hörst, Eric J."]
+  date: 2012
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/twist-lock-and-backstepping-technique/"
+    date: 2026-10-30
+  note: "Same text as Fundamentals of Technique 7, https://nicros.com/?p=1520"
+
+B16:
+  type: web
+  title: "Center of Gravity Placement Part 2: Using the Twist-Lock to Optimize COG on Steep Terrain"
+  author: ["Hörst, Eric J."]
+  date: 2008
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/center-of-gravity-placement-part-2/"
+    date: 2026-10-30
+
+B17:
+  type: web
+  title: "Center of Gravity Placement Part 1"
+  author: ["Hörst, Eric J."]
+  date: 2008
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/center-of-gravity-placement-part-1/"
+    date: 2026-10-30
+
+B18:
+  type: web
+  title: "Fundamentals of Technique 8: Creative Use of the Feet"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-8/"
+    date: 2026-10-30
+
+B19:
+  type: web
+  title: "Steep Route Techniques to Climb Harder (Video Analysis)"
+  author: ["Hörst, Eric J."]
+  date: 2025-08-17
+  parent:
+    title: "Training For Climbing"
+  url:
+    value: "https://trainingforclimbing.com/steep-wall-climbing-techniques/"
+    date: 2026-10-30
+
+B20:
+  type: web
+  title: "The Trick to Pulling Harder Isn’t Actually to Pull Harder"
+  author: ["Gresham, Neil"]
+  date: 2022-08-31
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/drop-knee-climbing-technique/"
+    date: 2026-10-30
+
+B21:
+  type: web
+  title: "Learn These Techniques for Attaining the Next Level"
+  author: ["Gresham, Neil"]
+  date: 2022-08-26
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/flagging/"
+    date: 2026-10-30
+  note: "Flagging, part 2 of 3"
+
+B22:
+  type: web
+  title: "Get Better: 10 Counterintuitive Tactics to Take Your Climbing to the Next Level"
+  author: ["Gresham, Neil"]
+  date: 2022-01-31
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/five-counterintuitive-climbing-tips-for-rock-climbing/"
+    date: 2026-10-30
+
+B23:
+  type: web
+  title: "Posture in Climbing"
+  author: ["Gresham, Neil"]
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/series/neil_gresham_technique_and_training/posture_in_climbing-12297"
+    date: 2026-10-30
+  note: "Paywalled; cited from the search-result summary"
+
+B24:
+  type: web
+  title: "Struggle on Pinches? Here’s How to Build Pinch Strength"
+  author: ["Gresham, Neil"]
+  date: 2023-06-15
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/training-pinch-strength/"
+    date: 2026-10-30
+
+B25:
+  type: web
+  title: "Stop Hurting Yourself. 15 Tips for Injury-Free Bouldering"
+  author: ["Gresham, Neil"]
+  date: 2023-06-29
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/bouldering-injury-prevention/"
+    date: 2026-10-30
+
+B26:
+  type: web
+  title: "Feeling Unbalanced? Make Sure You Know How to Flag"
+  author: ["Ellison, Julie"]
+  date: 2024-04-24
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/climbing-techniques-how-to-flag/"
+    date: 2026-10-30
+  note: "Author from the Climbing.com byline page; page updated 2024"
+
+B27:
+  type: web
+  title: "Wanna Get Instantly Better at Climbing? Here’s How"
+  author: "Climbing.com"
+  date: 2022-07-21
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/get-instantly-better-at-climbing/"
+    date: 2026-10-30
+
+B28:
+  type: web
+  title: "Injury-Free Movement for Rock Climbers"
+  author: ["Vagy, Jared"]
+  date: 2016-05-05
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/injury-free-movement-for-rock-climbers/"
+    date: 2026-10-30
+
+B29:
+  type: web
+  title: "Two Blank Walls Make a Jug. Learn to Stem!"
+  author: ["Corrigan, Kevin"]
+  date: 2023-12-28
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-stem-climbing/"
+    date: 2026-10-30
+
+B30:
+  type: web
+  title: "Climbing Techniques: How to Undercling"
+  author: "Climbing.com"
+  date: 2016-04-27
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/climbing-techniques-how-to-undercling/"
+    date: 2026-10-30
+
+B31:
+  type: web
+  title: "How to Climb Slopers? Hint: It’s All about Body Position"
+  author: "Climbing.com"
+  date: 2023-07-07
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-climb-slopers-hint-its-all-about-body-position/"
+    date: 2026-10-30
+
+B32:
+  type: web
+  title: "How Kevin Jorgeson Practices Perfect Footwork"
+  author: ["Jorgeson, Kevin"]
+  date: 2022-05-23
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-improve-footwork-climbing/"
+    date: 2026-10-30
+
+B33:
+  type: web
+  title: "The Hidden Dangers of This Steep Climbing Technique"
+  author: ["Luu, Adam"]
+  date: 2026-08-29
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/the-hidden-dangers-of-a-technique-for-steep-climbing/"
+    date: 2026-10-30
+  note: "Physiotherapist; reports Lutter et al. 2020, Am J Sports Med"
+
+B34:
+  type: web
+  title: "Learn to Take Advantage of Your (Lack of) Height"
+  author: "Climbing.com"
+  date: 2023-12-25
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/technique/carlo-traversi-benefits-shorter-climber/"
+    date: 2026-10-30
+
+B35:
+  type: web
+  title: "How to Prevent the Annoying “Barn Door” in Climbing"
+  author: ["Rowland, Dave"]
+  date: 2022-10-27
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/how-to-prevent-the-annoying-barn-door-in-climbing/"
+    date: 2026-10-30
+
+B36:
+  type: web
+  title: "What Is Straight-Arming and Why Every Climber Should Do It"
+  author: ["Rowland, Dave"]
+  date: 2022-10-13
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/what-is-straight-arming-and-why-every-climber-should-do-it/"
+    date: 2026-10-30
+
+B37:
+  type: web
+  title: "Twist-Locking Series: The Basics of Back-Stepping"
+  author: ["Rowland, Dave"]
+  date: 2023-10-12
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-the-basics-of-back-stepping/"
+    date: 2026-10-30
+
+B38:
+  type: web
+  title: "Twist-Locking Series: Advanced Concepts of Back-Stepping"
+  author: ["Rowland, Dave"]
+  date: 2023-10-26
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-advanced-concepts-of-back-stepping/"
+    date: 2026-10-30
+
+B39:
+  type: web
+  title: "Twist-Locking Series: Prevent Back-Stepping Spinouts"
+  author: ["Rowland, Dave"]
+  date: 2023-11-16
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-prevent-back-stepping-spinouts/"
+    date: 2026-10-30
+
+B40:
+  type: web
+  title: "Twist-Locking Series: The Basics of Drop-Knees"
+  author: ["Rowland, Dave"]
+  date: 2023-12-01
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-the-basics-of-drop-knees/"
+    date: 2026-10-30
+
+B41:
+  type: web
+  title: "Advanced Drop-Knees Techniques"
+  author: ["Rowland, Dave"]
+  date: 2023-12-06
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-advanced-drop-knees-techniques/"
+    date: 2026-10-30
+
+B42:
+  type: web
+  title: "Twist-Locking Series: The Basics of the Reverse Flag"
+  author: ["Rowland, Dave"]
+  date: 2023-12-13
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-the-basics-of-the-reverse-flag/"
+    date: 2026-10-30
+
+B43:
+  type: web
+  title: "Twist-Locking Series: Straight-Arming and the Upper Body Twist"
+  author: ["Rowland, Dave"]
+  date: 2023-12-22
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-straight-arming-and-the-upper-body-twist/"
+    date: 2026-10-30
+
+B44:
+  type: web
+  title: "Twist-Locking Series: The Complete Guidelines"
+  author: ["Rowland, Dave"]
+  date: 2023-12-29
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/twist-locking-series-the-complete-guidelines/"
+    date: 2026-10-30
+
+B45:
+  type: web
+  title: "The “Off Foot” Is Climbing Technique #1 – Coaching w/ Dan"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/climbing-technique-off-foot"
+    date: 2026-10-30
+  note: "Article and video"
+
+B46:
+  type: web
+  title: "Fix Your Shoulder Orientation – Coaching w/ Dan #2"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/shoulder-orientation-climbing-technique-2-coaching-w/-dan"
+    date: 2026-10-30
+  note: "Article and video"
+
+B47:
+  type: web
+  title: "One Essential Tool for Progressing on Overhangs – Coaching w/ Dan #3"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/one-essential-tool-for-progressing-on-overhangs-coaching-w/-dan-pt-3"
+    date: 2026-10-30
+  note: "Article and video"
+
+B48:
+  type: web
+  title: "When “Tight to the Wall” Actually Does the Opposite – Coaching w/ Dan #4"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/body-tension-coaching-with-dan"
+    date: 2026-10-30
+  note: "Article and video"
+
+B49:
+  type: web
+  title: "Why Do Some Climbers Struggle with Crossovers? – Coaching w/ Dan #5"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/why-do-some-climbers-struggle-with-crossovers"
+    date: 2026-10-30
+  note: "Article and video"
+
+B50:
+  type: web
+  title: "Inaccurate Climbing Advice I Hear Every Day (Even from Pros!)"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/inaccurate-climbing-advice-i-hear-every-day-even-from-pros"
+    date: 2026-10-30
+  note: "Article and video; physiotherapist"
+
+B51:
+  type: web
+  title: "Are Climbers Wasting Their Time Training Core? (A Measured Argument)"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/are-climbers-wasting-their-time-training-core-a-measured-argument"
+    date: 2026-10-30
+  note: "Article and video"
+
+B52:
+  type: web
+  title: "Simple Tweaks Will Completely Transform Your Climbing – Anatomy of the Climb"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/simple-tweaks-will-completely-transform-your-climbing-anatomy-of-the-climb"
+    date: 2026-10-30
+  note: "Article and video"
+
+B53:
+  type: web
+  title: "Why Does No One Teach This Climbing Technique? [Scorpion]"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/scorpion-skill-why-does-no-one-teach-this-climbing-technique"
+    date: 2026-10-30
+  note: "Article and video"
+
+B54:
+  type: web
+  title: "Climbing Moves, Holds, & Technique: The Beginner’s Guide"
+  author: ["Markey, Danaan"]
+  date: 2022-01-12
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/climbing-moves-holds-and-technique"
+    date: 2026-10-30
+
+B55:
+  type: web
+  title: "The Fundamentals of Bouldering Footwork"
+  author: ["Beale, Alex"]
+  date: 2017-10-13
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/bouldering-footwork-fundamentals"
+    date: 2026-10-30
+
+B56:
+  type: web
+  title: "10 Techniques for Climbing Overhangs"
+  author: ["de Bruijn, Bonnie"]
+  date: 2020-05-09
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/10-techniques-for-climbing-overhangs/"
+    date: 2026-10-30
+
+B57:
+  type: web
+  title: "A Comprehensive Guide to Climbing Technique"
+  author: ["Walker, Noah"]
+  date: 2021-02-11
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/a-comprehensive-guide-to-climbing-technique/"
+    date: 2026-10-30
+
+B58:
+  type: web
+  title: "Correct Your Footwork Bad Habits with Climbing Pro Dave MacLeod"
+  author: ["Pardy, Aaron"]
+  date: 2023-05-04
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/correct-your-footwork-bad-habits-with-climbing-pro-dave-macleod/"
+    date: 2026-10-30
+
+B59:
+  type: web
+  title: "Flagging Technique Guide"
+  author: ["Dondanville, Teddy"]
+  date: 2022-09-15
+  parent:
+    title: "Climbing House"
+  url:
+    value: "https://climbinghouse.com/flagging-technique-guide/"
+    date: 2026-10-30
+
+B60:
+  type: web
+  title: "Climbing Technique: Outside Edge, Flag and Drop Knee"
+  author: ["Martin, Jason D."]
+  date: 2015-11-24
+  parent:
+    title: "American Alpine Institute blog"
+  url:
+    value: "https://www.alpineinstitute.com/climbing-technique-outside-edge-flag-and-drop-knee/"
+    date: 2026-10-30
+
+B61:
+  type: web
+  title: "Technique: Frogging"
+  author: ["Martin, Jason D."]
+  date: 2022-06-24
+  parent:
+    title: "American Alpine Institute blog"
+  url:
+    value: "https://www.alpineinstitute.com/technique-frogging/"
+    date: 2026-10-30
+  note: "Embeds Neil Gresham's Climbing Masterclass video on frogging"
+
+B62:
+  type: web
+  title: "Face Climbing Principles... The Basics"
+  author: ["Baker, John"]
+  date: 2021-08-11
+  parent:
+    title: "Substack"
+  url:
+    value: "https://johnbaker.substack.com/p/face-climbing-principles-the-basics"
+    date: 2026-10-30
+
+B63:
+  type: web
+  title: "Intermediate Technique Series"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing"
+  url:
+    value: "https://portal.movementgyms.com/harlem/n/intermediate-classes"
+    date: 2026-10-30
+  note: "Class listing"
+
+B64:
+  type: web
+  title: "Gateway to Advanced Technique"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/programs/gateway-to-advanced-technique"
+    date: 2026-10-30
+  note: "Clinic listing"
+
+B65:
+  type: web
+  title: "7 More Moves Every Climber Should Know"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/7-more-moves-every-climber-should-know"
+    date: 2026-10-30
+
+B66:
+  type: web
+  title: "Does Ape Index Matter in Climbing?"
+  author: ["Randall, Tom"]
+  date: 2026-08-27
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/does-ape-index-matter-in-climbing-lattice-training"
+    date: 2026-10-30
+
+B67:
+  type: web
+  title: "Backstepping Properly – How to Drive Upwards"
+  author: {name: "UKClimbing forum"}
+  parent:
+    title: "UKClimbing forum"
+  url:
+    value: "https://www.ukclimbing.com/forums/starting_out/backstepping_properly_-_how_to_drive_upwards-684874"
+    date: 2026-10-30
+  note: "Forum thread; cited from the search-result summary"
+
+B68:
+  type: web
+  title: "Good Technique = Bent Arms on Vertical Rock?!"
+  author: {name: "UKClimbing forum"}
+  parent:
+    title: "UKClimbing forum"
+  url:
+    value: "https://www.ukclimbing.com/forums/rock_talk/good_technique__bent_arms_on_vertical_rock-453722"
+    date: 2026-10-30
+  note: "Forum thread; cited from the search-result summary"
+
+B69:
+  type: web
+  title: "Fundamentals of Technique 3"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-3/"
+    date: 2026-10-30
+
+B70:
+  type: web
+  title: "5 Climbing Techniques and How to Use Them"
+  author: "Movement Climbing"
+  date: 2025-02-01
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/5-climbing-techniques-and-how-to-use-them"
+    date: 2026-10-30
+
+B71:
+  type: web
+  title: "So Many Climbers Refuse to Do What This Short Girl Does... And It Holds Them Back"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/so-many-climbers-refuse-to-climb-this-way-and-it-kills-their-progress"
+    date: 2026-10-30
+  note: "Article and video"

@@ -1,0 +1,4 @@
+# Figure review: figs_cover (title page)
+
+- **cover**: the old cover used scale 0.42 (larger climber than the rest of the book). Its right arm folded back across the waist, a ghost and arrows cluttered it, and nothing showed the wall was steep. Redrawn at the default scale as a 125 × 99 mm scene. A climber in a drop knee (left knee dropped on a foothold on a big volume, right leg pushing, left hip and shoulder turned in) reaches for a pinch on a hexagonal volume, with more volumes and scattered holds. The wall's bolt grid and panel seams are drawn in mild perspective (seams converging downward) to suggest an overhang seen from the mats, above a kicker and mat. No annotations. No warnings.
+- Doubtful: the perspective applies to the grid only; volumes and holds are flat, which is a deliberate simplification.

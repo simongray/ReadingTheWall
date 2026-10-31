@@ -1,0 +1,473 @@
+F1:
+  type: web
+  title: "Finger Strength for Climbers Increases, in Relation to Grade"
+  author: ["Torr, Ollie"]
+  date: 2026-07-13
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/lattice_data_finger_strength_grades"
+    date: 2026-10-30
+  note: "Data analysis of 6,000+ tested climbers"
+
+F2:
+  type: web
+  title: "How Long Does It Take to Climb V12?"
+  author: ["Torr, Ollie"]
+  date: 2026-07-29
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/how-long-does-it-take-to-climb-v12"
+    date: 2026-10-30
+  note: "Data analysis, about 65,000 climbers"
+
+F3:
+  type: web
+  title: "Climbing at an Elite Standard: How Much Time Does It Take?"
+  author: ["Torr, Ollie"]
+  date: 2026-05-27
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/climbing-at-an-elite-standard-how-much-time-does-it-take"
+    date: 2026-10-30
+
+F5:
+  type: web
+  title: "Is Pull-Up Training a Waste of Time for Climbers?"
+  author: ["Torr, Ollie"]
+  date: 2026-08-13
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/pull-ups-dimishing-returns"
+    date: 2026-10-30
+
+F6:
+  type: web
+  title: "Why Do We Train Half Crimp?"
+  author: ["Torr, Ollie"]
+  date: 2026-05-14
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/why-do-we-train-half-crimp"
+    date: 2026-10-30
+
+F9:
+  type: video
+  title: "How to Overcome a Plateau in Climbing"
+  author: "Lattice Training"
+  date: 2023-10-30
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/how-to-overcome-a-plateau-in-climbing"
+    date: 2026-10-30
+  note: "Video with Lattice coach Josh, and article"
+
+F10:
+  type: web
+  title: "BMI and Climbing Part 2, Elite Climbers"
+  author: "Lattice Training"
+  date: 2017-10-09
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/bmi-and-climbing-part-2-elite-climbers"
+    date: 2026-10-30
+
+F11:
+  type: web
+  title: "Research Discussion: Movement Economy"
+  author: "Lattice Training"
+  date: 2018-12-07
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/research-discussion-movement-economy"
+    date: 2026-10-30
+
+F12:
+  type: web
+  title: "Testosterone, Ageing & Climbing Performance"
+  author: "Lattice Training"
+  date: 2022-05-12
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/testosterone-the-effects-of-ageing-and-exercise"
+    date: 2026-10-30
+
+F13:
+  type: web
+  title: "Sending V8 at 51: A LatticePlan Success Story"
+  author: ["Bonangelino, Lucas"]
+  date: 2026-08-04
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/sending-v8-at-51-a-latticeplan-success-story"
+    date: 2026-10-30
+
+F14:
+  type: web
+  title: "Review: Lattice Testing and Training Rung"
+  author: "Climbing.com"
+  date: 2019-01-16
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/gear/review-lattice-testing-and-training-rung/"
+    date: 2026-10-30
+  note: "Author not named. Quotes Lattice's Tom Randall"
+
+F15:
+  type: web
+  title: "Approximating Lattice’s Finger Strength Dataset"
+  author: ["peterbeal"]
+  date: 2024-03-14
+  parent:
+    title: "UKBouldering forum"
+  url:
+    value: "https://ukbouldering.com/board/index.php/topic,33968.msg691070.html"
+    date: 2026-10-30
+  note: "Forum post reconstructing Lattice data (male climbers, partly extrapolated)"
+
+F16:
+  type: article
+  title: "Anthropometry and performance characteristics of recreational advanced to elite female rock climbers"
+  author: ["Giles, David", "Barnes, Kimberly", "Taylor, Nicola", "Chidley, Corinna", "Chidley, Joel", "Mitchell, James", "Torr, Oliver", "Gibson-Smith, Edward", "España-Romero, Vanesa"]
+  date: 2021
+  page-range: 48-56
+  parent:
+    type: periodical
+    title: "Journal of Sports Sciences"
+    volume: 39
+    issue: 1
+  serial-number:
+    doi: "10.1080/02640414.2020.1804784"
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/32808569/"
+    date: 2026-10-30
+  note: "55 female climbers. Repository copy: https://shura.shu.ac.uk/33188/"
+
+F17:
+  type: article
+  title: "Hand–arm strength and endurance as predictors of climbing performance"
+  author: ["Baláš, Jiří"]
+  date: 2012
+  page-range: 16-25
+  parent:
+    type: periodical
+    title: "European Journal of Sport Science"
+    volume: 12
+    issue: 1
+  serial-number:
+    doi: "10.1080/17461391.2010.546431"
+  url:
+    value: "https://lida.sport-iat.de/ta/Record/4056114"
+    date: 2026-10-30
+  note: "Further co-authors not listed here. Abstract read via search summary only"
+
+F18:
+  type: article
+  title: "Differences in Upper-Body Peak Force and Rate of Force Development in Male Intermediate, Advanced, and Elite Sport Climbers"
+  author: ["Vereide, V.", "Andersen, V.", "Hermans, E.", "Kalland, J.", "Saeterbakken, A. H.", "Stien, N."]
+  date: 2022
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 4
+  serial-number:
+    doi: "10.3389/fspor.2022.888061"
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9274001"
+    date: 2026-10-30
+  note: "Article 888061"
+
+F19:
+  type: article
+  title: "Comparative grading scales, statistical analyses, climber descriptors and ability grouping: International Rock Climbing Research Association position statement"
+  author: ["Draper, Nick"]
+  date: 2015
+  page-range: 88-94
+  parent:
+    type: periodical
+    title: "Sports Technology"
+    volume: 8
+    issue: 3-4
+  serial-number:
+    doi: "10.1080/19346182.2015.1107081"
+  note: "Further co-authors not listed here"
+
+F22:
+  type: web
+  title: "International Climbing Grades"
+  author: "Mountain Project"
+  parent:
+    title: "Mountain Project"
+  url:
+    value: "https://www.mountainproject.com/international-climbing-grades"
+    date: 2026-10-30
+
+F23:
+  type: web
+  title: "Grade (Climbing)"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Grade_(climbing)"
+    date: 2026-10-30
+
+F24:
+  type: web
+  title: "Bouldering Grades: The Complete Guide"
+  author: ["Beale, Alex"]
+  date: 2021-09-16
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/bouldering-grades"
+    date: 2026-10-30
+
+F25:
+  type: web
+  title: "Grade Conversion: Font, V-Scale & IRCRA"
+  author: ["Luther, Jan"]
+  date: 2026-05-12
+  parent:
+    title: "Boulder Trainer blog"
+  url:
+    value: "https://boulder-trainer.com/blog/climbing-grade-conversion/"
+    date: 2026-10-30
+
+F26:
+  type: web
+  title: "Indoor Climbing Grades Explained"
+  author: "British Mountaineering Council"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/en/indoor-climbing-grades-explained"
+    date: 2026-10-30
+
+F27:
+  type: web
+  title: "How to Understand Bouldering Levels and Climbing Grades at Any Gym"
+  author: ["Fischl, Jack"]
+  date: 2025-08-29
+  parent:
+    title: "Bouldering Project blog"
+  url:
+    value: "https://boulderingproject.com/blog/understand-climbing-grades-at-any-gym"
+    date: 2026-10-30
+
+F28:
+  type: web
+  title: "NICAS Bouldering"
+  author: "NICAS"
+  parent:
+    title: "National Indoor Climbing Award Scheme"
+  url:
+    value: "https://nicas.co.uk/schemes/bouldering/"
+    date: 2026-10-30
+  note: "Coaching scheme: level descriptions"
+
+F32:
+  type: web
+  title: "Indoor Boulder-Check 1 und 2 (Boulderschein)"
+  author: "Deutscher Alpenverein"
+  date: 2026
+  parent:
+    title: "alpenverein.de"
+  url:
+    value: "https://www.alpenverein.de/artikel/boulderschein_fc291e2e-f167-4505-9875-d141f21132ec"
+    date: 2026-10-30
+  note: "In German"
+
+F33:
+  type: web
+  title: "Climbing Clinics"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/n/climbing-clinics"
+    date: 2026-10-30
+  note: "Gym course listing"
+
+F34:
+  type: web
+  title: "Gateway to Advanced Technique"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/programs/gateway-to-advanced-technique"
+    date: 2026-10-30
+  note: "Gym course page"
+
+F35:
+  type: web
+  title: "Intermediate Technique Series"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing"
+  url:
+    value: "https://portal.movementgyms.com/harlem/programs/intermediate-technique-series"
+    date: 2026-10-30
+  note: "Gym course page"
+
+F36:
+  type: web
+  title: "Intermediate Movement Clinic"
+  author: "River Rock Climbing"
+  date: 2026
+  parent:
+    title: "River Rock Climbing"
+  url:
+    value: "https://riverrockclimbing.com/event/advanced-movement-11/"
+    date: 2026-10-30
+  note: "Gym course page"
+
+F37:
+  type: web
+  title: "Louis Parkinson Coaching Workshops"
+  author: "The Castle Climbing Centre"
+  date: 2026
+  parent:
+    title: "The Castle Climbing Centre"
+  url:
+    value: "https://www.castle-climbing.co.uk/events/louis-parkinson-coaching-workshops"
+    date: 2026-10-30
+  note: "Event page; read via search listing, page later removed (404 on 2026-10-30). No longer cited in the text"
+
+F38:
+  type: web
+  title: "Next Level: This Is How You Crack the 7th Degree"
+  author: "Lacrux"
+  date: 2024-02-24
+  parent:
+    title: "Lacrux"
+  url:
+    value: "https://lacrux.com/en/training/next-level-this-is-how-you-crack-the-7th-degree/"
+    date: 2026-10-30
+  note: "Article introducing a video by Louis Parkinson"
+
+F39:
+  type: web
+  title: "One Essential Tool for Progressing on Overhangs – Coaching w/ Dan #3"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/one-essential-tool-for-progressing-on-overhangs-coaching-w/-dan-pt-3"
+    date: 2026-10-30
+  note: "Video with show notes"
+
+F40:
+  type: web
+  title: "When “Tight to the Wall” Actually Does the Opposite – Coaching w/ Dan #4"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/body-tension-coaching-with-dan"
+    date: 2026-10-30
+  note: "Video with show notes"
+
+F41:
+  type: web
+  title: "The “Off Foot” Is Climbing Technique #1 – Coaching w/ Dan"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/climbing-technique-off-foot"
+    date: 2026-10-30
+  note: "Video with show notes"
+
+F42:
+  type: web
+  title: "How to Coach Yourself and Actually Improve (4-Step Checklist)"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/coach-yourself-climbing-4-steps"
+    date: 2026-10-30
+  note: "Video with show notes"
+
+F43:
+  type: web
+  title: "Training Plateaus Suck. Here’s How to Break Yours"
+  author: "Climbing.com"
+  date: 2022-04-11
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/break-through-training-plateau/"
+    date: 2026-10-30
+  note: "Author not named"
+
+F44:
+  type: web
+  title: "Progressing from V2 to V3 Boulders"
+  author: {name: "Mountain Project forum"}
+  date: 2017-09-29
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/113643437"
+    date: 2026-10-30
+  note: "Forum thread"
+
+F45:
+  type: web
+  title: "Bouldering – Reaching for the Next Level"
+  author: {name: "Mountain Project forum"}
+  date: 2017-06
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/113169909"
+    date: 2026-10-30
+  note: "Forum thread"
+
+F46:
+  type: web
+  title: "Tips for Moving from V5 to V6 (Indoors!)"
+  author: ["Metzgar, Eric"]
+  date: 2024-09-16
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/126916094"
+    date: 2026-10-30
+  note: "Forum thread; author and date are the original post's"
+
+F47:
+  type: web
+  title: "What Grade Were You Able to Climb after 1 Yr"
+  author: {name: "Mountain Project forum"}
+  date: 2023-11-15
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/125340907"
+    date: 2026-10-30
+  note: "Forum thread; date is that of the earliest reply seen, original post undated"
+
+F48:
+  type: web
+  title: "How Long Does It Take to Move Up through Bouldering Grades?"
+  author: ["Marie"]
+  parent:
+    title: "Bouldering Boss"
+  url:
+    value: "https://boulderingboss.com/how-long-does-it-take-to-move-up-through-bouldering-grades/"
+    date: 2026-10-30
+  note: "Blog post based on personal observation"

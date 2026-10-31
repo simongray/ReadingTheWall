@@ -1,0 +1,534 @@
+# Sources for chapter 3, Feet and legs (dossier research/A-feet.md).
+# Access date for every web page: 2026-10-30.
+
+A1:
+  type: web
+  title: "10 Terms to Understand Climbing Footwork"
+  author: "Gripped"
+  date: 2023-05-26
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/profiles/10-terms-to-understand-climbing-footwork/"
+    date: 2026-10-30
+
+A2:
+  type: web
+  title: "Rock Climbing Footwork: The Basics"
+  author: ["Dunne, Aiden"]
+  date: 2023-05-30
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/rock-climbing-footwork-the-basics"
+    date: 2026-10-30
+
+A3:
+  type: web
+  title: "7 Simple Drills to Improve Your Footwork"
+  author: ["Anderson, Mike", "Anderson, Mark"]
+  date: 2021-07-03
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/trainning/training-7-simple-drills-to-improve-footwork-and-technique/?scope=anon"
+    date: 2026-10-30
+
+A4:
+  type: web
+  title: "Climb Harder with Better Footwork: Paige Claassen’s 6 Tips"
+  author: ["Claassen, Paige"]
+  date: 2019-11-12
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-improve-your-footwork-for-climbing-2/?scope=anon"
+    date: 2026-10-30
+
+A5:
+  type: web
+  title: "Whispers of Wisdom"
+  author: "Climbing.com"
+  date: 2012-06-15
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/whispers-of-wisdom/?scope=anon"
+    date: 2026-10-30
+
+A6:
+  type: web
+  title: "Quit Floundering: Turn Your Feet into Precision Instruments with These 10 Tips"
+  author: ["Gresham, Neil"]
+  date: 2022-04-05
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/quit-floundering-turn-your-feet-into-precision-instruments-with-these-10-tips/?scope=anon"
+    date: 2026-10-30
+  note: "Tips credited to Neil Gresham; no byline on the page"
+
+A7:
+  type: web
+  title: "Top 10 Technique Tips for Indoor Climbing"
+  author: ["Gresham, Neil"]
+  date: 2020-03-10
+  parent:
+    title: "Climber"
+  url:
+    value: "https://www.climber.co.uk/indoor/indoor-climbing/top-1-technique-tips-for-indoor-climbing/"
+    date: 2026-10-30
+
+A8:
+  type: web
+  title: "Learn the Secrets of Heel Hooks (for Beginners to Intermediates)"
+  author: "Climbing.com"
+  date: 2022-04-27
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/rock-climbing-how-to-heel-hook/?scope=anon"
+    date: 2026-10-30
+  note: "Tips credited to Neil Gresham"
+
+A9:
+  type: web
+  title: "Heel Hooking Isn’t as Easy as You Think. Here’s How to Nail It"
+  author: "Climbing.com"
+  date: 2022-11-21
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-heel-hook/?scope=anon"
+    date: 2026-10-30
+
+A10:
+  type: web
+  title: "Five Tips to Up Your Heel-Hooking Game"
+  author: "Climbing.com"
+  date: 2022-03-21
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/gym-climbing/five-tips-to-up-your-heel-hooking-game/?scope=anon"
+    date: 2026-10-30
+
+A11:
+  type: web
+  title: "Injury Prevention Quick Tip: Preventing a Hamstring Strain"
+  author: "Climbing.com"
+  date: 2019-01-04
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/preventing-a-hamstring-strain/?scope=anon"
+    date: 2026-10-30
+  note: "No byline. Demonstrations by Sasha DiGiulian; Dr Jared Vagy is named only in the page's course promotion"
+
+A12:
+  type: web
+  title: "Unlock the Secret Power of Toe Hooks to Elevate Your Climbing"
+  author: ["Gresham, Neil"]
+  date: 2022-05-13
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/rock-climbing-technique-foot-toe-hooks-tips/?scope=anon"
+    date: 2026-10-30
+
+A13:
+  type: web
+  title: "How to Toe Hook: The Most Misunderstood Climbing Technique"
+  author: ["Hampton, Kris"]
+  date: 2025-06-09
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://www.powercompanyclimbing.com/blog/how-to-toe-hook"
+    date: 2026-10-30
+
+A14:
+  type: web
+  title: "How to Toe-Hook for Climbing"
+  author: "Friction Labs"
+  date: 2017-04-26
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://shop.frictionlabs.com/blogs/climb-your-impossible/how-it-works-the-toehook"
+    date: 2026-10-30
+
+A15:
+  type: web
+  title: "Develop Fantastic Footwork with Heel-Hook and Toe-Hook Technique"
+  author: ["Hanes, Lucie"]
+  date: 2023-09-18
+  parent:
+    title: "Training For Climbing"
+  url:
+    value: "https://trainingforclimbing.com/develop-fantastic-footwork-with-heel-hook-and-toe-hook-technique/"
+    date: 2026-10-30
+
+A16:
+  type: web
+  title: "Climb Harder by Mastering Kneebars. Heather Weidner’s Advice for Success"
+  author: ["Weidner, Heather"]
+  date: 2021-11-15
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/climbing-techniques-better-kneebars?scope=anon"
+    date: 2026-10-30
+
+A17:
+  type: web
+  title: "How It Works: The Kneebar"
+  author: "Friction Labs"
+  date: 2017-02-06
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://shop.frictionlabs.com/blogs/climb-your-impossible/how-it-works-the-kneebar"
+    date: 2026-10-30
+
+A18:
+  type: web
+  title: "Knee Bars: The Coolest Move in Climbing"
+  author: ["Rowland, Dave"]
+  date: 2023-09-19
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/knee-bars-the-coolest-move-in-climbing/"
+    date: 2026-10-30
+
+A19:
+  type: web
+  title: "10 Techniques for Climbing Overhangs"
+  author: ["de Bruijn, Bonnie"]
+  date: 2020-05-09
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/10-techniques-for-climbing-overhangs/"
+    date: 2026-10-30
+
+A20:
+  type: web
+  title: "Climbing Techniques Part 2: 7 More Moves Every Climber Should Know"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/7-more-moves-every-climber-should-know"
+    date: 2026-10-30
+
+A21:
+  type: web
+  title: "Climbing Moves, Holds, & Technique: The Beginner’s Guide"
+  author: ["Markey, Danaan"]
+  date: 2022-01-12
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/climbing-moves-holds-and-technique"
+    date: 2026-10-30
+
+A22:
+  type: web
+  title: "Correct Your Footwork Bad Habits with Climbing Pro Dave MacLeod"
+  author: ["Pardy, Aaron"]
+  date: 2023-05-04
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/correct-your-footwork-bad-habits-with-climbing-pro-dave-macleod/"
+    date: 2026-10-30
+  note: "Describes two videos by Dave MacLeod"
+
+A23:
+  type: web
+  title: "Enhance Your Climbing with This Essential Skill: Foot Switching"
+  author: ["Rowland, Dave"]
+  date: 2022-12-15
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/enhance-your-climbing-with-this-essential-skill-foot-switching/"
+    date: 2026-10-30
+
+A24:
+  type: web
+  title: "Five Fun Drills to Improve Your Climbing Footwork"
+  author: ["Pardy, Aaron"]
+  date: 2023-03-31
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/five-fun-drills-to-improve-your-climbing-footwork/"
+    date: 2026-10-30
+
+A25:
+  type: web
+  title: "Basics of Footwork"
+  author: "Sportrock"
+  date: 2017-08-18
+  parent:
+    title: "Sportrock blog"
+  url:
+    value: "https://www.sportrock.com/post/basics-of-footwork"
+    date: 2026-10-30
+
+A26:
+  type: web
+  title: "Intermediate Climbing Footwork in 60 Seconds"
+  author: "Sportrock"
+  date: 2017-09-18
+  parent:
+    title: "Sportrock blog"
+  url:
+    value: "https://sportrock.com/post/intermediate-footwork-in-60-seconds"
+    date: 2026-10-30
+
+A27:
+  type: web
+  title: "Tritt- und Fußtechnik: Die Schlüssel zum Erfolg beim Klettern und Bouldern"
+  author: "Bergfreunde"
+  date: 2019-04-23
+  parent:
+    title: "Bergfreunde blog"
+  url:
+    value: "https://www.berg-freunde.ch/blog/klettertechnik-stehen/"
+    date: 2026-10-30
+  note: "In German"
+
+A28:
+  type: web
+  title: "Die richtige Fußtechnik beim Klettern und Bouldern"
+  author: ["Michalski, Melanie"]
+  date: 2022-12-02
+  parent:
+    title: "Bergzeit Magazin"
+  url:
+    value: "https://www.bergzeit.de/magazin/fusstechnik-klettern-bouldern/"
+    date: 2026-10-30
+  note: "In German"
+
+A29:
+  type: web
+  title: "Fit für den Tritt"
+  author: ["Stöhr, Ralph"]
+  date: 2010-10-06
+  parent:
+    title: "Outdoor-Magazin"
+  url:
+    value: "https://www.outdoor-magazin.com/klettern/fit-fuer-den-tritt/"
+    date: 2026-10-30
+  note: "In German"
+
+A30:
+  type: web
+  title: "What Is Smearing? A Simple Guide to This Climbing Technique"
+  author: ["Rowland, Dave"]
+  date: 2022-12-29
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/what-is-smearing-a-simple-guide-to-this-climbing-technique/"
+    date: 2026-10-30
+
+A31:
+  type: web
+  title: "A Quick Climbing Tutorial on High Stepping"
+  author: ["Rowland, Dave"]
+  date: 2023-03-30
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/a-quick-climbing-tutorial-on-high-stepping/"
+    date: 2026-10-30
+
+A32:
+  type: web
+  title: "Mastering Foot Sequencing in Climbing"
+  author: ["Rowland, Dave"]
+  date: 2024-01-19
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/mastering-foot-sequencing-in-climbing/"
+    date: 2026-10-30
+
+A33:
+  type: web
+  title: "Climbing Technique: Footwork"
+  author: "VDiff Climbing"
+  parent:
+    title: "VDiff Climbing"
+  url:
+    value: "https://www.vdiffclimbing.com/sport-technique-footwork/"
+    date: 2026-10-30
+  note: "From the book Sport Climbing Basics"
+
+A34:
+  type: web
+  title: "Climbing Technique: Movement"
+  author: "VDiff Climbing"
+  parent:
+    title: "VDiff Climbing"
+  url:
+    value: "https://www.vdiffclimbing.com/sport-technique-movement/"
+    date: 2026-10-30
+
+A35:
+  type: web
+  title: "Improve Climbing Footwork with “Target Practice”"
+  author: ["Hörst, Eric J."]
+  date: 2023-07-13
+  parent:
+    title: "Training For Climbing"
+  url:
+    value: "https://trainingforclimbing.com/improve-climbing-footwork-with-target-practice/"
+    date: 2026-10-30
+  note: "First published October 2019"
+
+A36:
+  type: web
+  title: "Center of Gravity Placement Part 1"
+  author: ["Hörst, Eric J."]
+  date: 2008
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/center-of-gravity-placement-part-1/"
+    date: 2026-10-30
+
+A37:
+  type: web
+  title: "Technique Tips – Article 1: Overhangs"
+  author: "Rock+Run"
+  date: 2020-11-02
+  parent:
+    title: "Rock+Run blog (The Flash)"
+  url:
+    value: "https://rockrun.com/blogs/the-flash-rock-run-blog/technique-tips-article-1-overhangs-training-and-skills"
+    date: 2026-10-30
+
+A38:
+  type: web
+  title: "How to Climb Overhangs"
+  author: "ClimbFit"
+  date: 2021
+  parent:
+    title: "ClimbFit"
+  url:
+    value: "https://www.climbfit.com.au/how-to-climb-overhangs/"
+    date: 2026-10-30
+
+A39:
+  type: web
+  title: "4 Climbing Tips to Stop Cutting Feet!"
+  author: ["Dubyk, Favia"]
+  date: 2026-01-12
+  parent:
+    title: "Melanin Basecamp"
+  url:
+    value: "https://www.melaninbasecamp.com/trip-reports/2026/1/12/4-tips-to-stop-cutting-feet"
+    date: 2026-10-30
+
+A40:
+  type: web
+  title: "Body Tension Techniques for Boulderers"
+  author: ["Hampton, Kris"]
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://www.powercompanyclimbing.com/blog/body-tension-techniques-bouldering"
+    date: 2026-10-30
+
+A41:
+  type: web
+  title: "Glossary of Climbing Terms"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Glossary_of_climbing_terms"
+    date: 2026-10-30
+
+A42:
+  type: web
+  title: "Gateway to Advanced Technique"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/programs/gateway-to-advanced-technique"
+    date: 2026-10-30
+  note: "Clinic description"
+
+A43:
+  type: web
+  title: "Intermediate Technique Series"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing"
+  url:
+    value: "https://portal.movementgyms.com/harlem/n/intermediate-classes"
+    date: 2026-10-30
+  note: "Class description"
+
+A44:
+  type: web
+  title: "Progressing from V2 to V3 Boulders"
+  author: {name: "Mountain Project forum"}
+  date: 2017-09-30
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/113645869"
+    date: 2026-10-30
+  note: "Forum thread"
+
+A45:
+  type: web
+  title: "Technical Heel Hooks"
+  author: {name: "Mountain Project forum"}
+  date: 2016-12-24
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/112416828"
+    date: 2026-10-30
+  note: "Forum thread"
+
+A46:
+  type: web
+  title: "NICAS Bouldering Scheme Overview"
+  author: "NICAS"
+  parent:
+    title: "National Indoor Climbing Award Scheme"
+  url:
+    value: "https://www.nicas.co.uk/brand_central/nicas-bouldering-scheme-overview/"
+    date: 2026-10-30
+
+A48:
+  type: book
+  title: "The Climbing Bible"
+  author: ["Mobråten, Martin", "Christophersen, Stian"]
+  publisher: "Vertebrate Publishing"
+  url:
+    value: "https://www.adventurebooks.com/cdn/shop/files/The_Climbing_Bible_Issuu.pdf"
+    date: 2026-10-30
+  note: "Only the contents pages of the publisher's sample were checked"
+
+A50:
+  type: web
+  title: "Climbing Technique: Outside Edge, Flag and Drop Knee"
+  author: ["Martin, Jason D."]
+  date: 2015-11-24
+  parent:
+    title: "American Alpine Institute blog"
+  url:
+    value: "https://www.alpineinstitute.com/climbing-technique-outside-edge-flag-and-drop-knee/"
+    date: 2026-10-30

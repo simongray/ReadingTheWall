@@ -1,0 +1,633 @@
+E1:
+  type: web
+  title: "Technique Tips – Article 2: Slabs"
+  author: ["Westlake, Dave"]
+  date: 2020-11-03
+  parent:
+    title: "Rock+Run blog (The Flash)"
+  url:
+    value: "https://rockrun.com/blogs/the-flash-rock-run-blog/technique-tips-article-2-slabs-training-and-skills"
+    date: 2026-10-30
+E2:
+  type: web
+  title: "Technique Tips – Article 3: Aretes"
+  author: ["Westlake, Dave"]
+  date: 2020-11-03
+  parent:
+    title: "Rock+Run blog (The Flash)"
+  url:
+    value: "https://rockrun.com/blogs/the-flash-rock-run-blog/technique-tips-article-3-aretes-training-and-skills"
+    date: 2026-10-30
+E3:
+  type: web
+  title: "What Is Slab Climbing? + 7 Slab Climbing Technique Tips"
+  author: "Climber News"
+  date: 2021-09-22
+  parent:
+    title: "Climber News"
+  url:
+    value: "https://climbernews.com/what-is-slab-climbing-slab-climbing-technique/"
+    date: 2026-10-30
+E4:
+  type: web
+  title: "Bouldering Tip: Why Are Slab Holds So Hard to Grasp? (Zach Richardson)"
+  author: ["Ross, Caleb J."]
+  date: 2025-05-30
+  parent:
+    title: "Send Help Climbing"
+  url:
+    value: "https://sendhelpclimbing.substack.com/p/bouldering-tip-why-are-slab-holds"
+    date: 2026-10-30
+E5:
+  type: web
+  title: "10 Tips for Comp-Style Boulder Problems"
+  author: ["Pardy, Aaron"]
+  date: 2024-01-19
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/sections/training/10-tips-for-comp-style-boulder-problems/"
+    date: 2026-10-30
+E6:
+  type: article
+  title: "Time Management Strategies of Rock Climbers in World Cup Bouldering Finals"
+  author: ["Mckellar, Ben J.", "Coates, Alexandra M.", "Cohen, Jeremy N.", "Burr, Jamie F."]
+  date: 2023
+  page-range: 165-174
+  serial-number:
+    doi: "10.5114/jhk/159652"
+  parent:
+    type: periodical
+    title: "Journal of Human Kinetics"
+    volume: 86
+  url:
+    value: "https://jhk.termedia.pl/pdf-160302-87614"
+    date: 2026-10-30
+E7:
+  type: web
+  title: "10 Techniques for Climbing Overhangs"
+  author: ["de Bruijn, Bonnie"]
+  date: 2020-05-09
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/10-techniques-for-climbing-overhangs/"
+    date: 2026-10-30
+E8:
+  type: web
+  title: "How to Climb Overhangs"
+  author: "ClimbFit"
+  date: 2021
+  parent:
+    title: "ClimbFit"
+  url:
+    value: "https://www.climbfit.com.au/how-to-climb-overhangs/"
+    date: 2026-10-30
+E9:
+  type: web
+  title: "Fundamentals of Technique 7: Twist Lock and Backstep on Steep Terrain"
+  author: ["Hörst, Eric J."]
+  date: 2007
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fundamentals-of-technique-7/"
+    date: 2026-10-30
+E10:
+  type: web
+  title: "What Every Climber Needs to Know about Balance"
+  author: ["Rowland, Dave"]
+  date: 2022-09-22
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/what-every-climber-needs-to-know-about-balance/"
+    date: 2026-10-30
+E11:
+  type: web
+  title: "Top 10 Technique Tips for Indoor Climbing"
+  author: ["Gresham, Neil"]
+  date: 2020-03-10
+  parent:
+    title: "Climber"
+  url:
+    value: "https://www.climber.co.uk/indoor/indoor-climbing/top-1-technique-tips-for-indoor-climbing/"
+    date: 2026-10-30
+E12:
+  type: web
+  title: "Climbing Technique: Outside Edge, Flag and Drop Knee"
+  author: ["Martin, Jason D."]
+  date: 2015-11-24
+  parent:
+    title: "American Alpine Institute blog"
+  url:
+    value: "https://www.alpineinstitute.com/climbing-technique-outside-edge-flag-and-drop-knee/"
+    date: 2026-10-30
+E13:
+  type: web
+  title: "Technique – Heel Hooking"
+  author: ["Gresham, Neil"]
+  date: 2018
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/skills/series/neil_gresham_technique_and_training/technique_-_heel_hooking-11327"
+    date: 2026-10-30
+  note: "Paywalled; consulted through search-result excerpts"
+E14:
+  type: web
+  title: "Bouldering Skills: Topping Out"
+  author: "UKClimbing"
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/skills/bouldering_skills_topping_out-6849"
+    date: 2026-10-30
+  note: "Paywalled; consulted through search-result excerpts"
+E15:
+  type: web
+  title: "Technique – Use of the Toe"
+  author: ["Gresham, Neil"]
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=10957"
+    date: 2026-10-30
+  note: "Paywalled; consulted through search-result excerpts"
+E16:
+  type: web
+  title: "Neil Gresham Technique and Training (Article Series)"
+  author: ["Gresham, Neil"]
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/skills/series/neil_gresham_technique_and_training/"
+    date: 2026-10-30
+  note: "Paywalled; consulted through search-result excerpts"
+E17:
+  type: web
+  title: "Training to ... Part 3"
+  author: "UKClimbing"
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=3924"
+    date: 2026-10-30
+  note: "Paywalled; full title not seen; consulted through search-result excerpts"
+E18:
+  type: web
+  title: "10 Tips for How to Climb Volumes"
+  author: ["de Bruijn, Bonnie"]
+  date: 2019-01-10
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/10-tips-for-how-to-climb-volumes/"
+    date: 2026-10-30
+E19:
+  type: web
+  title: "Volumes: The New Dimensions of Indoor Climbing"
+  author: ["Walton, Cole"]
+  date: 2017-03-17
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/volumes-the-new-dimensions-of-indoor-climbing"
+    date: 2026-10-30
+E20:
+  type: web
+  title: "Climbing Techniques Part 2: 7 More Moves Every Climber Should Know"
+  author: "Movement Climbing"
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/7-more-moves-every-climber-should-know"
+    date: 2026-10-30
+E21:
+  type: web
+  title: "5 Climbing Techniques and How to Use Them"
+  author: "Movement Climbing"
+  date: 2025-02-01
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/5-climbing-techniques-and-how-to-use-them"
+    date: 2026-10-30
+E22:
+  type: web
+  title: "How to Mantle (Climbing Technique)"
+  author: ["Petkova, Petya"]
+  date: 2022-10-08
+  parent:
+    title: "Climbing House"
+  url:
+    value: "https://climbinghouse.com/how-to-mantle-technique/"
+    date: 2026-10-30
+E23:
+  type: web
+  title: "Climbing Techniques: How to Mantel"
+  author: "La Fabrique Verticale"
+  date: 2021-05-12
+  parent:
+    title: "La Fabrique Verticale"
+  url:
+    value: "https://lafabriqueverticale.com/en/climbing-techniques-how-to-mantel/"
+    date: 2026-10-30
+E24:
+  type: web
+  title: "Rock Climbing Techniques: The Skills That Will See You Moving up the Grades"
+  author: ["Foxfield, Alex"]
+  date: 2022-12-08
+  parent:
+    title: "Advnture"
+  url:
+    value: "https://advnture.com/features/rock-climbing-techniques"
+    date: 2026-10-30
+E25:
+  type: web
+  title: "Traverse (Climbing)"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Traverse_(climbing)"
+    date: 2026-10-30
+E26:
+  type: web
+  title: "Question about Sit Starts"
+  author: {name: "Mountain Project forum"}
+  date: 2020-09-27
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/119641656"
+    date: 2026-10-30
+  note: "Forum thread"
+E27:
+  type: web
+  title: "Top Olympian Tomoa Narasaki Teaches Coordination"
+  author: ["Walker, Noah"]
+  date: 2021-05-18
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/top-olympian-tomoa-narasaki-teaches-coordination/"
+    date: 2026-10-30
+E29:
+  type: web
+  title: "Get to Grips with Route Reading"
+  author: "British Mountaineering Council"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://www.thebmc.co.uk/en/get-to-grips-with-route-reading"
+    date: 2026-10-30
+E30:
+  type: web
+  title: "Route Reading: How to Guide"
+  author: ["Gresham, Neil"]
+  date: 2020-10-09
+  parent:
+    title: "Rock+Run blog (The Flash)"
+  url:
+    value: "https://rockrun.com/blogs/the-flash-rock-run-blog/route-reading-how-to-guide"
+    date: 2026-10-30
+E31:
+  type: web
+  title: "6 Ways to Read Climbing Gym Routes"
+  author: "Friction Labs"
+  date: 2016-03-02
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://shop.frictionlabs.com/blogs/climb-your-impossible/6-ways-to-read-climbing-gym-routes"
+    date: 2026-10-30
+E32:
+  type: web
+  title: "Why You Should Try Route Reading (If You Don’t Already!)"
+  author: ["Ergun, Erin"]
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/why-you-should-try-route-reading-if-you-dont-already"
+    date: 2026-10-30
+E33:
+  type: web
+  title: "12 Tips to a Successful Bouldering Strategy"
+  author: "La Fabrique Verticale"
+  date: 2021-03-31
+  parent:
+    title: "La Fabrique Verticale"
+  url:
+    value: "https://lafabriqueverticale.com/en/12-tips-to-a-successful-bouldering-strategy/"
+    date: 2026-10-30
+E34:
+  type: article
+  title: "Efficacy of pre-ascent climbing route visual inspection in indoor sport climbing"
+  author: ["Sanchez, X.", "Lambert, P.", "Jones, G.", "Llewellyn, D. J."]
+  date: 2012
+  page-range: 67-72
+  serial-number:
+    doi: "10.1111/j.1600-0838.2010.01151.x"
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 22
+  url:
+    value: "https://coachsci.sdsu.edu/csa/vol185/sanchez1.htm"
+    date: 2026-10-30
+E35:
+  type: article
+  title: "Identification of Parameters That Predict Sport Climbing Performance"
+  author: ["Sanchez, X.", "Torregrossa, M.", "Woodman, T.", "Jones, G.", "Llewellyn, D. J."]
+  date: 2019
+  serial-number:
+    doi: "10.3389/fpsyg.2019.01294"
+  parent:
+    type: periodical
+    title: "Frontiers in Psychology"
+    volume: 10
+  url:
+    value: "https://frontiersin.org/articles/10.3389/fpsyg.2019.01294/full"
+    date: 2026-10-30
+E36:
+  type: article
+  title: "When affordances climb into your mind: advantages of motor simulation in a memory task performed by novice and expert rock climbers"
+  author: ["Pezzulo, G.", "Barca, L.", "Bocconi, A. L.", "Borghi, A. M."]
+  date: 2010
+  page-range: 68-73
+  serial-number:
+    doi: "10.1016/j.bandc.2010.03.002"
+  parent:
+    type: periodical
+    title: "Brain and Cognition"
+    volume: 73
+  url:
+    value: "https://iris.cnr.it/handle/20.500.14243/50351"
+    date: 2026-10-30
+E37:
+  type: article
+  title: "Problem difficulty and expertise modulate planning performance in a virtual embodied task"
+  author: ["Moretti, R.", "Gordon, J.", "Maselli, A.", "Pezzulo, G."]
+  date: 2025
+  serial-number:
+    doi: "10.1152/jn.00236.2025"
+  parent:
+    type: periodical
+    title: "Journal of Neurophysiology"
+  url:
+    value: "https://www.ischool.berkeley.edu/research/publications/2025/problem-difficulty-and-expertise-modulate-planning-performance-virtual"
+    date: 2026-10-30
+E38:
+  type: article
+  title: "Visual Perception in Expert Athletes: The Case of Rock Climbers"
+  author: ["Marcen-Cinca, Noel", "Sanchez, Xavier", "Otin, Sofia", "Cimarras-Otal, Cristina", "Bataller-Cervero, Ana Vanessa"]
+  date: 2022
+  serial-number:
+    doi: "10.3389/fpsyg.2022.903518"
+  parent:
+    type: periodical
+    title: "Frontiers in Psychology"
+    volume: 13
+  url:
+    value: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.903518/pdf"
+    date: 2026-10-30
+E39:
+  type: article
+  title: "A time motion analysis of bouldering style competitive rock climbing"
+  author: ["White, D. J.", "Olsen, P. D."]
+  date: 2010
+  page-range: 1356-1360
+  serial-number:
+    doi: "10.1519/JSC.0b013e3181cf75bd"
+  parent:
+    type: periodical
+    title: "Journal of Strength and Conditioning Research"
+    volume: 24
+    issue: 5
+  url:
+    value: "https://www.sponet.de/sponet/Record/4055899?lng=en"
+    date: 2026-10-30
+  note: "Abstract only"
+E40:
+  type: article
+  title: "The Load Structure in International Competitive Climbing"
+  author: ["Winkler, M.", "Künzell, S.", "Augste, C."]
+  date: 2022
+  serial-number:
+    doi: "10.3389/fspor.2022.790336"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 4
+  url:
+    value: "https://www.frontiersin.org/articles/10.3389/fspor.2022.790336/full"
+    date: 2026-10-30
+E41:
+  type: web
+  title: "Climbing at Your Limit: Tactics"
+  author: ["Chapman, Greg"]
+  date: 2018-10-09
+  parent:
+    title: "Rock+Run blog (The Flash)"
+  url:
+    value: "https://rockrun.com/nl/blogs/the-flash-rock-run-blog/climbing-at-your-limit-tactics-training-and-skills"
+    date: 2026-10-30
+E42:
+  type: web
+  title: "Using the Attempt Timer: Endurance, Power Endurance & Limit Sessions"
+  author: ["Hammer, Juliet"]
+  date: 2021-09-02
+  parent:
+    title: "KAYA blog"
+  url:
+    value: "https://kayaclimb.com/blog/kaya-attempt-timer-and-session-intensity"
+    date: 2026-10-30
+E43:
+  type: web
+  title: "6 Mindset Tips for Successful Projecting"
+  author: ["Broadhurst, Matt"]
+  date: 2023-10-07
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/6-mindset-tips-for-successful-projecting"
+    date: 2026-10-30
+E44:
+  type: web
+  title: "11 Simple Projecting Tips for Rock Climbing"
+  author: ["Mirsky, Dan"]
+  date: 2018-04-10
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://www.frictionlabs.com/blogs/climb-your-impossible/11-simple-tips-on-projecting"
+    date: 2026-10-30
+E45:
+  type: web
+  title: "Projecting a Climb"
+  author: ["Martin, Jason D."]
+  date: 2020-10-09
+  parent:
+    title: "American Alpine Institute blog"
+  url:
+    value: "https://www.alpineinstitute.com/projecting-a-climb/"
+    date: 2026-10-30
+E46:
+  type: web
+  title: "Ask a Setter: Avoid These Common Mistakes"
+  author: ["Anderson, Louie"]
+  date: 2021-07-23
+  parent:
+    title: "Climbing Business Journal"
+  url:
+    value: "https://www.climbingbusinessjournal.com/ask-a-setter-avoid-these-common-mistakes/"
+    date: 2026-10-30
+E47:
+  type: web
+  title: "Route Setting: How to Build Gym Favorites and Avoid Common Mistakes"
+  author: "La Fabrique Verticale"
+  date: 2020-01-08
+  parent:
+    title: "La Fabrique Verticale"
+  url:
+    value: "https://lafabriqueverticale.com/en/route-setting-how-to-avoid-common-mistakes/"
+    date: 2026-10-30
+E48:
+  type: web
+  title: "Gym Route Setting?"
+  author: {name: "Mountain Project forum"}
+  date: 2017-01-06
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/112433997"
+    date: 2026-10-30
+  note: "Forum thread"
+E49:
+  type: web
+  title: "Making Moves: Top Tips for Routesetters"
+  author: "UKClimbing"
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=7406"
+    date: 2026-10-30
+  note: "Paywalled; consulted through search-result excerpts"
+E50:
+  type: web
+  title: "Route Setting"
+  author: "River Rock Climbing"
+  parent:
+    title: "River Rock Climbing"
+  url:
+    value: "https://riverrockclimbing.com/about-the-gym/route-setting/"
+    date: 2026-10-30
+E51:
+  type: web
+  title: "How Do Climbing Grades Work?"
+  author: ["Rowland, Dave"]
+  date: 2024-08-23
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/how-do-climbing-grades-work/"
+    date: 2026-10-30
+E52:
+  type: web
+  title: "How to Routeset & Grade Routes in Gyms Far from Outdoor Climbing?"
+  author: ["Safford, Jesse"]
+  date: 2024-02-05
+  parent:
+    title: "Climbing Wall Association blog"
+  url:
+    value: "https://cwapro.org/blog/how-to-routeset-and-grade-routes-in-gyms-far-from-outdoor-climbing"
+    date: 2026-10-30
+E53:
+  type: web
+  title: "How to Train Consistently When Every Gym Grades Differently"
+  author: ["Hart, Tim"]
+  date: 2026-10-29
+  parent:
+    title: "Training For Climbing"
+  url:
+    value: "https://trainingforclimbing.com/climbing-gym-grade-variance-and-training-system/"
+    date: 2026-10-30
+  note: "Blog analysis. The byline shows Eric Hörst; the author bio and copyright line name Tim Hart, founder of IndoorClimbingGym.com"
+E54:
+  type: web
+  title: "The Nuances of Climbing Gym Gradings"
+  author: "Boulder Movement"
+  date: 2025-05-06
+  parent:
+    title: "Boulder Movement"
+  url:
+    value: "https://bouldermovement.substack.com/p/the-nuances-of-climbing-grades"
+    date: 2026-10-30
+  note: "Quotes head route setter Mike Taret"
+E55:
+  type: web
+  title: "Indoor Climbing Grades Explained"
+  author: "British Mountaineering Council"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/en/indoor-climbing-grades-explained"
+    date: 2026-10-30
+E56:
+  type: web
+  title: "How to Understand Bouldering Levels and Climbing Grades at Any Gym"
+  author: ["Fischl, Jack"]
+  date: 2025-08-29
+  parent:
+    title: "Bouldering Project blog"
+  url:
+    value: "https://boulderingproject.com/blog/understand-climbing-grades-at-any-gym"
+    date: 2026-10-30
+E57:
+  type: web
+  title: "Understanding Rock Climbing Grades"
+  author: ["de Bruijn, Bonnie"]
+  date: 2023-03-30
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/profiles/lets-talk-about-grades/"
+    date: 2026-10-30
+E58:
+  type: web
+  title: "Bouldering Grades: The Complete Guide"
+  author: ["Beale, Alex"]
+  date: 2021-09-16
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/bouldering-grades"
+    date: 2026-10-30
+E63:
+  type: article
+  title: "Comparative grading scales, statistical analyses, climber descriptors and ability grouping: International Rock Climbing Research Association position statement"
+  author: ["Draper, N.", "Giles, D."]
+  date: 2015
+  page-range: 88-94
+  serial-number:
+    doi: "10.1080/19346182.2015.1107081"
+  parent:
+    type: periodical
+    title: "Sports Technology"
+    volume: 8
+    issue: "3-4"
+  url:
+    value: "https://hal.archives-ouvertes.fr/hal-03545405"
+    date: 2026-10-30
+  note: "About two dozen further co-authors; full text not accessed"
+E65:
+  type: web
+  title: "Beginner’s Guide to Bouldering: What It Is & How to Get Started"
+  author: ["Kuelthau, Willis"]
+  date: 2022-08-02
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/what-is-bouldering"
+    date: 2026-10-30

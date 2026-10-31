@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: >-
+  To cite the book, use the preferred citation and name the edition and the
+  commit you read; both are printed on the back of the title page. Edited by
+  Simon Gray; written and illustrated with Claude (Anthropic), under the
+  editor's direction.
+title: "Reading the Wall: A technique handbook for indoor bouldering"
+authors:
+  - family-names: Gray
+    given-names: Simon
+version: edition-1
+date-released: 2026-10-31
+license: CC-BY-SA-4.0
+url: "https://github.com/simongray/ReadingTheWall"
+repository-code: "https://github.com/simongray/ReadingTheWall"
+keywords:
+  - bouldering
+  - climbing technique
+  - route reading
+preferred-citation:
+  type: book
+  title: "Reading the Wall: A technique handbook for indoor bouldering"
+  authors:
+    - family-names: Gray
+      given-names: Simon
+  editors:
+    - family-names: Gray
+      given-names: Simon
+  edition: "First edition"
+  year: 2026
+  url: "https://github.com/simongray/ReadingTheWall"
+  notes: "Edited by Simon Gray; written and illustrated with Claude (Anthropic), under the editor's direction."

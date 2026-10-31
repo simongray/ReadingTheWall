@@ -1,0 +1,612 @@
+# Sources cited in chapter 05 (Hands and holds), keyed by dossier ID.
+# Access date for all URLs: 2026-10-30.
+
+C1:
+  type: web
+  title: "4 Grip Techniques for Milking the Most out of Handholds"
+  author: ["Gresham, Neil"]
+  date: 2022-05-10
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/master-these-4-grip-techniques-for-safe-efficient-and-successful-sending?scope=anon"
+    date: 2026-10-30
+
+C2:
+  type: web
+  title: "Training and Technique for Climbing’s Most Diabolical Holds: Slopers"
+  author: ["Gresham, Neil"]
+  date: 2022-07-07
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/training-climbing-slopers-technique?scope=anon"
+    date: 2026-10-30
+
+C3:
+  type: web
+  title: "How to Climb Slopers"
+  author: "Climbing.com"
+  date: 2022-03-08
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-to-climb-practice-slopers?scope=anon"
+    date: 2026-10-30
+  note: "No byline shown. Draws on JP Whitehead and Meagan Martin."
+
+C4:
+  type: web
+  title: "Climbing Techniques: How to Undercling"
+  author: "Climbing.com"
+  date: 2016-04-27
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/climbing-techniques-how-to-undercling/"
+    date: 2026-10-30
+  note: "No byline shown. Tips from Mayan Smith-Gobat. First printed July 2015."
+
+C5:
+  type: web
+  title: "Climbing Techniques: How to Mantel"
+  author: "Climbing.com"
+  date: 2016-05-27
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/.amp/skills/climbing-techniques-how-to-mantel?scope=anon"
+    date: 2026-10-30
+  note: "No byline shown. Tips from Chris Schulte."
+
+C6:
+  type: web
+  title: "Topouts Are Hard to Train in Gyms. But You Still Need to Master Them"
+  author: ["Flanagan, David"]
+  date: 2022-06-21
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/learn-this-master-topouts?scope=anon"
+    date: 2026-10-30
+  note: "Excerpt from Bouldering Essentials. First published on Climbing.com in 2014."
+
+C7:
+  type: web
+  title: "Thumbs Up!"
+  author: "Climbing.com"
+  date: 2012-06-15
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/thumbs-up-2/?scope=anon"
+    date: 2026-10-30
+  note: "No byline shown."
+
+C8:
+  type: web
+  title: "Should You Train Full Crimped?"
+  author: ["Feehally, Ned"]
+  date: 2022-01-31
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/should-you-train-full-crimped/?scope=anon"
+    date: 2026-10-30
+  note: "Excerpt from Beastmaking, chapter 8."
+
+C9:
+  type: web
+  title: "How to Avoid Climbing Finger Injuries According to a Physio"
+  author: "Climbing.com"
+  date: 2026-07-27
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/training/how-to-avoid-climbing-finger-injuries-according-to-a-physio/?scope=anon"
+    date: 2026-10-30
+  note: "No byline shown. Draws on Jared Vagy, The Resilient Climber. Date as shown on the page."
+
+C10:
+  type: web
+  title: "Grip Positions and the Two Forms of Full-Crimp"
+  author: ["Walker, Noah"]
+  date: 2021-01-19
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/grip-positions-and-the-two-forms-of-full-crimping/"
+    date: 2026-10-30
+
+C11:
+  type: web
+  title: "10 Tips for How to Climb Volumes"
+  author: ["de Bruijn, Bonnie"]
+  date: 2019-01-10
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/10-tips-for-how-to-climb-volumes/"
+    date: 2026-10-30
+
+C12:
+  type: web
+  title: "Protect Your Lumbricals While Pulling Pockets"
+  author: ["Pardy, Aaron"]
+  date: 2024-03-12
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/indoor-climbing/protect-your-lumbricals-while-pulling-pockets/"
+    date: 2026-10-30
+
+C14:
+  type: web
+  title: "Ultimate A2 Pulley Injury Recovery Guide (PT’s Full Protocol)"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/ultimate-a2-pulley-injury-recovery-guide"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 167. Year not shown."
+
+C15:
+  type: web
+  title: "A4 Pulley Injuries in Rock Climbers (Causes, Risks, & Recovery)"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/a4-pulley-injuries-in-rock-climbers"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 150. Year not shown."
+
+C16:
+  type: web
+  title: "How to Fix Lumbrical Shift Syndrome from Rock Climbing (2025)"
+  author: ["Hooper, Jason"]
+  date: 2025
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/how-to-fix-lumbrical-shift-syndrome-in-rock-climbers-2025"
+    date: 2026-10-30
+
+C17:
+  type: web
+  title: "This Routine Can Save So Many Climbers from Injury – Take It from a PT"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/pocket-training-lumbricals"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 155 on pocket and lumbrical training. Year not shown."
+
+C18:
+  type: web
+  title: "A Radical Shift in How You Take Holds – Coaching w/ Dan #6"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/a-radical-shift-in-how-you-grab-holds"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 168. Year not shown."
+
+C19:
+  type: web
+  title: "When “Tight to the Wall” Actually Does the Opposite – Coaching w/ Dan #4"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/body-tension-coaching-with-dan"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 164. Year not shown."
+
+C20:
+  type: web
+  title: "Why Is Everyone Talking about This New Grip Training Method?"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/new-grip-training-talon-crimp"
+    date: 2026-10-30
+  note: "Companion page to Hooper's Beta episode 169. Year not shown."
+
+C21:
+  type: web
+  title: "Why Do We Train Half Crimp?"
+  author: ["Torr, Ollie"]
+  date: 2026-05-14
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/why-do-we-train-half-crimp/"
+    date: 2026-10-30
+
+C23:
+  type: article
+  title: "Estimation of finger muscle tendon tensions and pulley forces during specific sport-climbing grip techniques"
+  author: ["Vigouroux, Laurent", "Quaine, Franck", "Labarre-Vila, Annick", "Moutet, François"]
+  date: 2006
+  parent:
+    type: periodical
+    title: "Journal of Biomechanics"
+    volume: 39
+    issue: 14
+  page-range: "2583-2592"
+  serial-number:
+    doi: "10.1016/j.jbiomech.2005.08.027"
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/16225880/"
+    date: 2026-10-30
+  note: "Abstract checked: A2 pulley force about 36 times lower in the slope grip than in the crimp. Newton figures as reported by Hooper's Beta (C14)."
+
+C24:
+  type: article
+  title: "The Thumb During the Crimp Grip"
+  author: ["Quaine, Franck", "Vigouroux, Laurent", "Paclet, Florent", "Colloud, Floren"]
+  date: 2011
+  parent:
+    type: periodical
+    title: "International Journal of Sports Medicine"
+    volume: 32
+    issue: 1
+  page-range: "49-53"
+  serial-number:
+    doi: "10.1055/s-0030-1267230"
+  url:
+    value: "https://thieme-connect.de/products/ejournals/html/10.1055/s-0030-1267230"
+    date: 2026-10-30
+  note: "Abstract checked via search excerpts; the publisher page refused automated fetch."
+
+C25:
+  type: article
+  title: "Sport climbing from a medical point of view"
+  author: ["Schweizer, Andreas"]
+  date: 2012
+  parent:
+    type: periodical
+    title: "Swiss Medical Weekly"
+  serial-number:
+    doi: "10.4414/smw.2012.13688"
+  url:
+    value: "https://smw.ch/index.php/smw/article/download/1599/2083?inline=1"
+    date: 2026-10-30
+
+C26:
+  type: article
+  title: "Closed flexor pulley injuries: A literature review and current practice"
+  author: ["Bosco, F.", "Giustra, F.", "Lusso, A.", "Faccenda, C.", "Artiaco, S.", "Massè, A."]
+  date: 2022
+  parent:
+    type: periodical
+    title: "Journal of Orthopaedics"
+    volume: 34
+  page-range: "246-249"
+  serial-number:
+    doi: "10.1016/j.jor.2022.09.002"
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9483560"
+    date: 2026-10-30
+
+C27:
+  type: article
+  title: "Finger Flexor Pulley Injuries in Rock Climbers"
+  author: ["Miro, Paulo H.", "vanSonnenberg, E.", "Sabb, D. M.", "Schöffl, Volker"]
+  date: 2021
+  parent:
+    type: periodical
+    title: "Wilderness & Environmental Medicine"
+  serial-number:
+    doi: "10.1016/j.wem.2021.01.011"
+  url:
+    value: "https://cris.fau.de/publications/259581666"
+    date: 2026-10-30
+
+C28:
+  type: article
+  title: "Motion Analysis of the Wrist and Finger Joints in Sport Climbing"
+  author: ["Fischer, Gabriella", "Schneeberger, Micha", "Petter, Stefan Andreas", "Scheibler, Anne-Gita", "Wolf, Peter", "Calcagni, Maurizio", "Schweizer, Andreas", "Reissner, Lisa"]
+  date: 2024
+  parent:
+    type: periodical
+    title: "Bioengineering"
+    volume: 11
+    issue: 4
+  serial-number:
+    doi: "10.3390/bioengineering11040370"
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11048272/"
+    date: 2026-10-30
+
+C29:
+  type: article
+  title: "Effect of hold sloper angle and hold depth on maximal finger force capacity of rock climbers"
+  author: ["Amca, Arif Mithat", "Arıtan, Serdar"]
+  date: 2015
+  parent:
+    type: proceedings
+    title: "33rd International Conference on Biomechanics in Sports, Poitiers"
+  page-range: "761-763"
+  url:
+    value: "https://ojs.ub.uni-konstanz.de/cpa/article/view/6511/5876"
+    date: 2026-10-30
+
+C30:
+  type: article
+  title: "Effect of the grip position on maximal fingertip force during a rock climbing gripping exercise"
+  author: ["Göb, Stephan", "Matros, Patrick", "Schöberl, Michael", "Götz, Theresa"]
+  date: 2021-11-25
+  parent:
+    title: "SportRxiv"
+  url:
+    value: "https://sportrxiv.org/index.php/server/preprint/view/91"
+    date: 2026-10-30
+  note: "Preprint, not peer reviewed."
+
+C31:
+  type: article
+  title: "The Influence of Pinch Holds’ Width on the Mechanics and Muscular Activity Characteristics of the Pinch Technique for Advanced Climbers"
+  author: ["Hao, Weiya", "Huang, Yaohan", "Li, Shangxiao", "Peng, Yuting"]
+  date: 2025
+  parent:
+    type: proceedings
+    title: "ISBS Proceedings Archive"
+    volume: 43
+    issue: 1
+  url:
+    value: "https://commons.nmu.edu/isbs/vol43/iss1/31/"
+    date: 2026-10-30
+
+C32:
+  type: article
+  title: "Pathomechanics of lumbrical and flexor digitorum profundus muscle tears in climbers: A cadaveric model"
+  author: ["Carnicero, Núria", "Ferreres Claramunt, Àngel", "del Valle Jou, Montserrat", "Casado, Aroa", "Rodríguez-Baeza, Alfonso"]
+  date: 2024
+  parent:
+    type: periodical
+    title: "Journal of Biomechanics"
+    volume: 171
+  serial-number:
+    doi: "10.1016/j.jbiomech.2024.112196"
+  url:
+    value: "https://ddd.uab.cat/pub/artpub/2024/300071/JouBio_a2024v171p112196.pdf"
+    date: 2026-10-30
+
+C33:
+  type: article
+  title: "Lumbrical muscle tear – Systematic analysis of a rapidly increasing injury"
+  author: ["Lutter, Christoph", "Schweizer, Andreas", "Schöffl, Volker", "Hotfiel, Thilo", "Römer, Frank", "Bayer, Thomas"]
+  date: 2018
+  parent:
+    type: proceedings
+    title: "Deutscher Kongress für Orthopädie und Unfallchirurgie (DKOU 2018)"
+  url:
+    value: "https://www.egms.de/static/en/meetings/dkou2018/18dkou730.shtml"
+    date: 2026-10-30
+  note: "Meeting abstract."
+
+C34:
+  type: web
+  title: "Climbing Moves, Holds, & Technique: The Beginner’s Guide"
+  author: ["Markey, Danaan"]
+  date: 2022-01-12
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/climbing-moves-holds-and-technique"
+    date: 2026-10-30
+
+C35:
+  type: web
+  title: "Handholds – Improve Your Climbing Technique"
+  author: "VDiff Climbing"
+  parent:
+    title: "VDiff Climbing"
+  url:
+    value: "https://www.vdiffclimbing.com/sport-technique-handholds/"
+    date: 2026-10-30
+  note: "No date shown."
+
+C36:
+  type: web
+  title: "Climbing Technique: Movement"
+  author: "VDiff Climbing"
+  parent:
+    title: "VDiff Climbing"
+  url:
+    value: "https://www.vdiffclimbing.com/sport-technique-movement/"
+    date: 2026-10-30
+  note: "No date shown."
+
+C37:
+  type: web
+  title: "Climbing Technique Part 2 – Types of Handholds"
+  author: ["Felix"]
+  date: 2023-01-25
+  parent:
+    title: "Alpinetrek blog"
+  url:
+    value: "https://www.alpinetrek.co.uk/blog/climbing-technique-part-2-types-of-handholds/"
+    date: 2026-10-30
+
+C38:
+  type: web
+  title: "Training for Pinches"
+  author: ["Martin, Buster"]
+  date: 2026-08-30
+  parent:
+    title: "Moon Climbing"
+  url:
+    value: "https://eu.moonclimbing.com/News/post/training-for-pinches-by-buster-martin"
+    date: 2026-10-30
+
+C39:
+  type: web
+  title: "How It Works: The Mantle"
+  author: "Friction Labs"
+  date: 2017-01-17
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://frictionlabs.com/blogs/climb-your-impossible/how-it-works-the-mantle"
+    date: 2026-10-30
+
+C40:
+  type: web
+  title: "5 Climbing Techniques and How to Use Them"
+  author: "Movement Climbing"
+  date: 2025-02-01
+  parent:
+    title: "Movement Climbing blog"
+  url:
+    value: "https://blog.movementgyms.com/5-climbing-techniques-and-how-to-use-them"
+    date: 2026-10-30
+
+C41:
+  type: web
+  title: "Rock Climbing Techniques: The Skills That Will See You Moving up the Grades"
+  author: ["Foxfield, Alex"]
+  date: 2022-12-08
+  parent:
+    title: "Advnture"
+  url:
+    value: "https://advnture.com/features/rock-climbing-techniques"
+    date: 2026-10-30
+
+C42:
+  type: web
+  title: "Praxis Griffarten"
+  author: {name: "Zentralstelle für Schulsport und Bewegungsförderung"}
+  url:
+    value: "https://zfs.bildung.hessen.de/klettern/wwl4cnb8xu/technik/greifen/2_griffarten.pdf"
+    date: 2026-10-30
+  note: "German school teaching unit on grips and load direction. Cites the DAV instructor handbook and ÖAV Kletterspiele. No date shown."
+
+C43:
+  type: web
+  title: "Handarbeit: Griffpositionen beim Klettern"
+  author: "Bergwelten"
+  date: 2023-09-19
+  parent:
+    title: "Bergwelten"
+  url:
+    value: "https://www.bergwelten.com/a/griffpositionen-klettern"
+    date: 2026-10-30
+  note: "Summarises The Climbing Bible (Kletterbibel) by Martin Mobråten and Stian Christophersen."
+
+C44:
+  type: web
+  title: "NICAS Bouldering"
+  author: "NICAS"
+  parent:
+    title: "National Indoor Climbing Award Scheme"
+  url:
+    value: "https://nicas.co.uk/schemes/bouldering/"
+    date: 2026-10-30
+  note: "Scheme overview. No date shown."
+
+C46:
+  type: web
+  title: "Gateway to Advanced Technique"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://portal.touchstoneclimbing.com/la/programs/gateway-to-advanced-technique"
+    date: 2026-10-30
+  note: "Clinic description for climbers bouldering V5–V6."
+
+C47:
+  type: web
+  title: "Trouble Getting past V3s"
+  author: {name: "Mountain Project forum"}
+  date: 2016-03-13
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/111696217"
+    date: 2026-10-30
+  note: "Forum thread. The original poster could flash most V3s but not start V4s."
+
+C48:
+  type: web
+  title: "How Long Does It Take to Move Up through Bouldering Grades?"
+  author: ["Marie"]
+  parent:
+    title: "Bouldering Boss"
+  url:
+    value: "https://boulderingboss.com/how-long-does-it-take-to-move-up-through-bouldering-grades/"
+    date: 2026-10-30
+  note: "No date shown."
+
+C49:
+  type: web
+  title: "Dual Texture"
+  author: "Rockcity Climbing Holds"
+  parent:
+    title: "Rockcity Climbing Holds"
+  url:
+    value: "https://rockcityclimbingholds.com/volumes/dual-texture/"
+    date: 2026-10-30
+  note: "Manufacturer page on a volume finish."
+
+C50:
+  type: web
+  title: "Hoppers 2 Dual"
+  author: "Anatomic"
+  parent:
+    title: "Anatomic shop"
+  url:
+    value: "https://shop.anatomic.sk/en/produkt/hoppers-2-dual-2/"
+    date: 2026-10-30
+  note: "Manufacturer product page. Content checked via search excerpts."
+
+C51:
+  type: web
+  title: "Handholds and Grip Technique – Part 1"
+  author: ["Gresham, Neil"]
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=11848"
+    date: 2026-10-30
+  note: "Paywalled; content checked via search excerpts of parts 1 and 3."
+
+C52:
+  type: web
+  title: "Neil Gresham Technique and Training"
+  author: ["Gresham, Neil"]
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=12172"
+    date: 2026-10-30
+  note: "Paywalled; quote taken from a search excerpt."
+
+C56:
+  type: web
+  title: "How to Use the Nine Basic Types of Climbing Handholds"
+  author: "Atomik Climbing Holds"
+  parent:
+    title: "Atomik Climbing Holds"
+  url:
+    value: "https://atomikclimbingholds.com/how-to-use-the-nine-basic-types-of-climbing-handholds"
+    date: 2026-10-30
+  note: "Manufacturer blog. Refused automated fetch; content checked via search excerpts."
+
+C57:
+  type: web
+  title: "Gaston"
+  author: "theCrag"
+  parent:
+    title: "theCrag glossary"
+  url:
+    value: "https://www.thecrag.com/en/article/glossary/gaston"
+    date: 2026-10-30
+  note: "Glossary entry. Refused automated fetch; content checked via search excerpts."

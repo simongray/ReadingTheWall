@@ -1,0 +1,11 @@
+# Built files: regenerate with ./build.sh
+/Bouldering Technique Handbook.pdf
+book/figures/*.svg
+book/src-map.typ
+__pycache__/
+.DS_Store
+# Local copies of published editions; the PDFs live in GitHub releases
+/editions/
+
+# The reader's private companion repository (github.com/simongray/Bouldering-private)
+/private/

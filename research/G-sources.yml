@@ -1,0 +1,812 @@
+G1:
+  type: web
+  title: "Does Ape Index Matter in Climbing?"
+  author: ["Randall, Tom"]
+  date: 2026-08-27
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/does-ape-index-matter-in-climbing-lattice-training"
+    date: 2026-10-30
+  note: "Analysis of Lattice client data"
+
+G2:
+  type: web
+  title: "Tall vs. Short: How Height Impacts Your Climbing"
+  author: ["Ondra, Adam"]
+  date: 2025-01-06
+  parent:
+    title: "adamondra.com"
+  url:
+    value: "https://www.adamondra.com/tall-vs-short-how-height-impacts-your-climbing/"
+    date: 2026-10-30
+
+G3:
+  type: web
+  title: "Research Review: Trainable Strength and Endurance, Not Body Type, Predict Sport Climbing Performance"
+  author: ["Shaul, Rob"]
+  date: 2026-01-21
+  parent:
+    title: "Mountain Tactical Institute"
+  url:
+    value: "https://mtntactical.com/knowledge/research-review-trainable-strength-and-endurance-not-body-type-predict-sport-climbing-performance/"
+    date: 2026-10-30
+  note: "Review of Mermier, Janot, Parker and Swan (2000), Br J Sports Med 34:359–366"
+
+G4:
+  type: article
+  title: "Determinant factors in climbing ability: Influence of strength, anthropometry, and neuromuscular fatigue"
+  author: ["Laffaye, Guillaume", "Levernier, Guillaume", "Collin, Jean-Marc"]
+  date: 2016
+  page-range: "1151-1159"
+  serial-number:
+    doi: "10.1111/sms.12558"
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 26
+    issue: 10
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/26453999"
+    date: 2026-10-30
+
+G5:
+  type: web
+  title: "Ape Index and Performance: Does It Really Matter to Climb Strong?"
+  author: "La Fabrique Verticale"
+  date: 2024-02-07
+  parent:
+    title: "La Fabrique Verticale"
+  url:
+    value: "https://lafabriqueverticale.com/en/ape-index-climb-strong/"
+    date: 2026-10-30
+  note: "Summarises Ozimek et al., Somatic Profile of the Elite Boulderers in Poland, J Strength Cond Res"
+
+G6:
+  type: web
+  title: "Ape Index"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Ape_index"
+    date: 2026-10-30
+
+G7:
+  type: thread
+  title: "Does Being Taller Make Climbing Easier? Answering This Question with Data!"
+  author: {name: "Mountain Project forum"}
+  date: 2024
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/200228943"
+    date: 2026-10-30
+
+G8:
+  type: thread
+  title: "Grades, Information-Gathering, and Leading near Your Limit as a Short/Tall/Non-“Average” Climber"
+  author: {name: "Mountain Project forum"}
+  date: 2019
+  parent:
+    title: "Mountain Project forum"
+  url:
+    value: "https://www.mountainproject.com/forum/message/117444360"
+    date: 2026-10-30
+
+G9:
+  type: article
+  title: "Mechanisms of Acute Knee Injuries in Bouldering and Rock Climbing Athletes"
+  author: ["Lutter, Christoph", "Tischer, Thomas", "Cooper, Carrie", "Frank, Luisa", "Hotfiel, Thilo", "Lenz, Robert", "Schöffl, Volker"]
+  date: 2020
+  page-range: "730-738"
+  serial-number:
+    doi: "10.1177/0363546519899931"
+  parent:
+    type: periodical
+    title: "The American Journal of Sports Medicine"
+    volume: 48
+    issue: 3
+  url:
+    value: "https://open.fau.de/server/api/core/bitstreams/67f2939f-4225-4b83-9df1-75d9ba4feb44/content"
+    date: 2026-10-30
+
+G10:
+  type: report
+  title: "Access Book No. 6: Indoor and Outdoor Bouldering"
+  author: "Petzl"
+  date: 2023
+  url:
+    value: "https://www.mountain-training.org/media/de4l1n51/accessbook-6-bouldering-2024_en.pdf"
+    date: 2026-10-30
+  note: "Technique booklet, hosted by Mountain Training"
+
+G11:
+  type: web
+  title: "Bouldern indoor: 5 DAV-Empfehlungen"
+  author: "Deutscher Alpenverein"
+  parent:
+    title: "alpenverein.de"
+  url:
+    value: "https://www.alpenverein.de/artikel/bouldern-indoor-5-dav-empfehlungen_402d77e9-ab58-4992-a11c-01ad237601d7"
+    date: 2026-10-30
+
+G12:
+  type: report
+  title: "Kletterhallenunfallstatistik 2025"
+  author: ["DAV Sicherheitsforschung", "KLEVER", "VKÖ"]
+  date: 2026
+  url:
+    value: "https://www.alpenverein.de/files/kletterhallen-unfallstatistik_2025_dav_klever_vkao.pdf"
+    date: 2026-10-30
+  note: "Climbing gym accident statistics, Germany and Austria"
+
+G13:
+  type: web
+  title: "Climbing Gym Accident Statistics 2025: The Most Frequent Causes and Injuries"
+  author: "Lacrux"
+  date: 2026-08-22
+  parent:
+    title: "Lacrux"
+  url:
+    value: "https://www.lacrux.com/en/klettern/Climbing-gym-accident-statistics-2025%3A-the-most-frequent-causes-and-injuries/"
+    date: 2026-10-30
+
+G14:
+  type: article
+  title: "The art of falling: identifying the falls scenarios associated with bouldering injuries"
+  author: ["Beurienne, E.", "Bailly, N.", "Luiggi, M.", "Martha, C.", "Bruna-Rosso, C.", "Wylomanski, M.", "Behr, M.", "Dorsemaine, M."]
+  date: 2025
+  serial-number:
+    doi: "10.3389/fspor.2025.1609133"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 7
+  url:
+    value: "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2025.1609133/full"
+    date: 2026-10-30
+
+G15:
+  type: article
+  title: "Characteristics of bouldering injuries based on 430 patients presented to an urban emergency department"
+  author: ["Müller, M.", "Heck, J.", "Pflüger, P.", "Greve, F.", "Biberthaler, P.", "Crönlein, M."]
+  date: 2022
+  page-range: "1394-1400"
+  serial-number:
+    doi: "10.1016/j.injury.2022.02.003"
+  parent:
+    type: periodical
+    title: "Injury"
+    volume: 53
+    issue: 4
+  url:
+    value: "https://mediatum.ub.tum.de/1688232"
+    date: 2026-10-30
+  note: "Level-1 trauma centre, Technical University of Munich. Figures from the abstract (Europe PMC)"
+
+G17:
+  type: article
+  title: "Incidence and Risk Factors for Upper Extremity Climbing Injuries in Indoor Climbers"
+  author: ["van Middelkoop, Marienke", "Bruens, M.", "Coert, J. H.", "Selles, R. W.", "Verhagen, Evert", "Bierma-Zeinstra, Sita", "Koes, Bart"]
+  date: 2015
+  page-range: "837-842"
+  serial-number:
+    doi: "10.1055/s-0035-1547224"
+  parent:
+    type: periodical
+    title: "International Journal of Sports Medicine"
+    volume: 36
+    issue: 10
+  url:
+    value: "https://repub.eur.nl/pub/79626"
+    date: 2026-10-30
+
+G18:
+  type: chapter
+  title: "Climbing in Older Athletes"
+  author: ["Lutter, Christoph", "Schöffl, Volker"]
+  date: 2022
+  serial-number:
+    doi: "10.1007/978-3-030-72184-8_15"
+  parent:
+    type: book
+    title: "Climbing Medicine"
+    publisher: "Springer"
+  url:
+    value: "https://cris.fau.de/publications/332668848"
+    date: 2026-10-30
+
+G19:
+  type: article
+  title: "Prevalence and Risk Factors of Upper Extremity Injuries in Indoor Bouldering: A Cross-Sectional Study"
+  author: ["Mena, L.", "Zanesco, L.", "Assunção, J. H.", "Checchia, C.", "Gracitelli, M.", "Malavolta, E. A."]
+  date: 2024
+  serial-number:
+    doi: "10.7759/cureus.69729"
+  parent:
+    type: periodical
+    title: "Cureus"
+    volume: 16
+    issue: 9
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11490268/"
+    date: 2026-10-30
+
+G20:
+  type: article
+  title: "Injuries in bouldering: a prospective study"
+  author: ["Josephsen, Gary", "Shinneman, Scott", "Tamayo-Sarver, Joshua", "Josephsen, Kathy", "Boulware, David", "Hunt, Michael", "Pham, Hoang"]
+  date: 2007
+  page-range: "271-280"
+  serial-number:
+    doi: "10.1580/06-WEME-OR-071R1.1"
+  parent:
+    type: periodical
+    title: "Wilderness & Environmental Medicine"
+    volume: 18
+    issue: 4
+  url:
+    value: "https://experts.umn.edu/en/publications/injuries-in-bouldering-a-prospective-study/"
+    date: 2026-10-30
+
+G21:
+  type: article
+  title: "Analyzing Injury Patterns in Climbing: A Comprehensive Study of Risk Factors"
+  author: ["Kovářová, M.", "Pyszko, P.", "Kikalová, K."]
+  date: 2024
+  serial-number:
+    doi: "10.3390/sports12020061"
+  parent:
+    type: periodical
+    title: "Sports"
+    volume: 12
+    issue: 2
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10892067/"
+    date: 2026-10-30
+
+G22:
+  type: article
+  title: "Current sex and age patterns of rock climbing-related injuries treated in emergency departments"
+  author: ["Madsen, A.", "Pezzullo, L.", "Nixon, R. M.", "Vincent, K. R.", "Vincent, H. K."]
+  date: 2025
+  serial-number:
+    doi: "10.3389/fspor.2025.1555169"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 7
+  url:
+    value: "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2025.1555169/full"
+    date: 2026-10-30
+
+G23:
+  type: article
+  title: "From mechanical loading to collagen synthesis, structural changes and function in human tendon"
+  author: ["Kjaer, Michael", "Langberg, Henning", "Heinemeier, Katja", "Bayer, Monika L.", "Hansen, Mette", "Holm, Lars", "Doessing, Simon", "Kongsgaard, Mads", "Krogsgaard, Michael R.", "Magnusson, S. Peter"]
+  date: 2009
+  page-range: "500-510"
+  serial-number:
+    doi: "10.1111/j.1600-0838.2009.00986.x"
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 19
+    issue: 4
+  url:
+    value: "https://research.regionh.dk/da/publications/from-mechanical-loading-to-collagen-synthesis-structural-changes-/"
+    date: 2026-10-30
+
+G24:
+  type: article
+  title: "The impact of loading, unloading, ageing and injury on the human tendon"
+  author: ["Magnusson, S. Peter", "Kjaer, Michael"]
+  date: 2019
+  page-range: "1283-1298"
+  serial-number:
+    doi: "10.1113/JP275450"
+  parent:
+    type: periodical
+    title: "The Journal of Physiology"
+    volume: 597
+    issue: 5
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6395417"
+    date: 2026-10-30
+
+G25:
+  type: article
+  title: "Long term evolution of soft tissue response in the fingers of high-level sport climbers: A cross-sectional 10 year follow-up study"
+  author: ["Fröhlich, S.", "Schweizer, A.", "Reissner, L.", "Pastor, T.", "Spörri, J."]
+  date: 2021
+  page-range: "173-179"
+  serial-number:
+    doi: "10.1016/j.ptsp.2021.09.006"
+  parent:
+    type: periodical
+    title: "Physical Therapy in Sport"
+    volume: 52
+  url:
+    value: "https://lida.sport-iat.de/dav/Record/4083000"
+    date: 2026-10-30
+
+G26:
+  type: web
+  title: "The Beginner Climber’s Training Guide"
+  author: "Lattice Training"
+  date: 2022-06-06
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/the-beginners-guide"
+    date: 2026-10-30
+
+G27:
+  type: web
+  title: "Abrahangs: Why So Divisive, and Do They Actually Work?"
+  author: ["Torr, Ollie"]
+  date: 2026-09-30
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/abrahangs-why-so-divisive-and-do-they-actually-work"
+    date: 2026-10-30
+
+G28:
+  type: article
+  title: "Effects of Different Loading Programs on Finger Strength in Rock Climbers"
+  author: ["Gilmore, Natalie K.", "Klimek, Peter", "Abrahamsson, Emil", "Baar, Keith"]
+  date: 2024
+  serial-number:
+    doi: "10.1186/s40798-024-00793-7"
+  parent:
+    type: periodical
+    title: "Sports Medicine - Open"
+    volume: 10
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11576708/"
+    date: 2026-10-30
+
+G29:
+  type: article
+  title: "Effects of Different Hangboard Training Intensities on Finger Grip Strength, Stamina, and Endurance"
+  author: ["Devise, Maxime", "Lechaptois, Clément", "Berton, Eric", "Vigouroux, Laurent"]
+  date: 2022
+  serial-number:
+    doi: "10.3389/fspor.2022.862782"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 4
+  url:
+    value: "https://www.frontiersin.org/articles/10.3389/fspor.2022.862782/full"
+    date: 2026-10-30
+
+G30:
+  type: web
+  title: "Are You Ready to Start Hangboarding?"
+  author: "Climbing.com"
+  date: 2021-10-26
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/are-you-ready-to-start-hangboarding/?scope=anon"
+    date: 2026-10-30
+
+G31:
+  type: web
+  title: "How to Fingerboard"
+  author: ["Feehally, Ned"]
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/cy/how-to-fingerboard"
+    date: 2026-10-30
+  note: "Includes an expert Q&A with Dave MacLeod"
+
+G34:
+  type: web
+  title: "Fingerboard Training Part #3 of 4"
+  author: ["Hörst, Eric J."]
+  date: 2011
+  parent:
+    title: "Nicros Training Center"
+  url:
+    value: "https://nicros.com/training/training-articles/fingerboard-training-part-3-of-4/"
+    date: 2026-10-30
+
+G35:
+  type: web
+  title: "4 Ways to Improve Recovery: Training over 40"
+  author: ["Randall, Tom"]
+  date: 2023-04-13
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://www.latticetraining.com/blog/4-ways-to-improve-recovery-training-over-40"
+    date: 2026-10-30
+
+G36:
+  type: web
+  title: "Comeback Fitness for Climbers over 40"
+  author: ["Gann, Randall"]
+  date: 2023-07-21
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/training-climbing-over-40-aging-plan/?scope=anon"
+    date: 2026-10-30
+
+G37:
+  type: web
+  title: "The Ultimate Climbing Warm-Up & Cool Down"
+  author: ["Markey, Danaan"]
+  date: 2022-01-12
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/climbing-warm-up-and-cool-down"
+    date: 2026-10-30
+
+G38:
+  type: web
+  title: "Bouldering Basics"
+  author: "VDiff Climbing"
+  parent:
+    title: "VDiff Climbing"
+  url:
+    value: "https://www.vdiffclimbing.com/boulder-basics/"
+    date: 2026-10-30
+
+G39:
+  type: article
+  title: "Acute effect of different warm-up methods on isometric muscle endurance of the finger flexors and climbing performance in sport climbers"
+  author: ["Yu, Joo-In", "Liu, Peng", "Seo, Tae-Beom"]
+  date: 2022
+  page-range: "340-348"
+  serial-number:
+    doi: "10.24985/kjss.2022.33.3.340"
+  parent:
+    type: periodical
+    title: "Korean Journal of Sport Science"
+    volume: 33
+    issue: 3
+  url:
+    value: "https://kjss.sports.re.kr/assets/pdf/107/journal-33-3-340.pdf"
+    date: 2026-10-30
+  note: "Nine sport climbers. Article in Korean with English abstract"
+
+G40:
+  type: article
+  title: "Prevalence of amenorrhea in elite female competitive climbers"
+  author: ["Joubert, Lanae", "Warme, Anna", "Larson, Audrey", "Grønhaug, Gudmund", "Michael, Marisa", "Schöffl, Volker", "Burtscher, Eva", "Meyer, Nanna"]
+  date: 2022
+  serial-number:
+    doi: "10.3389/fspor.2022.895588"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 4
+  url:
+    value: "https://www.frontiersin.org/articles/10.3389/fspor.2022.895588/full"
+    date: 2026-10-30
+
+G41:
+  type: article
+  title: "Assessment of Dietary Intake and Eating Attitudes in Recreational and Competitive Adolescent Rock Climbers: A Pilot Study"
+  author: ["Michael, Marisa K.", "Joubert, Lanae", "Witard, Oliver C."]
+  date: 2019
+  serial-number:
+    doi: "10.3389/fnut.2019.00064"
+  parent:
+    type: periodical
+    title: "Frontiers in Nutrition"
+    volume: 6
+  url:
+    value: "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2019.00064/full"
+    date: 2026-10-30
+
+G43:
+  type: article
+  title: "Coordination in Climbing: Effect of Skill, Practice and Constraints Manipulation"
+  author: ["Orth, Dominic", "Davids, Keith", "Seifert, Ludovic"]
+  date: 2016
+  page-range: "255-268"
+  serial-number:
+    doi: "10.1007/s40279-015-0417-5"
+  parent:
+    type: periodical
+    title: "Sports Medicine"
+    volume: 46
+    issue: 2
+  url:
+    value: "https://nutrition-evidence.com/article/247846/coordination-in-climbing-effect-of-skill-practice-and-constraints-manipulation"
+    date: 2026-10-30
+
+G44:
+  type: article
+  title: "Environmental design shapes perceptual-motor exploration, learning, and transfer in climbing"
+  author: ["Seifert, Ludovic", "Boulanger, Jérémie", "Orth, Dominic", "Davids, Keith"]
+  date: 2015
+  serial-number:
+    doi: "10.3389/fpsyg.2015.01819"
+  parent:
+    type: periodical
+    title: "Frontiers in Psychology"
+    volume: 6
+  url:
+    value: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.01819/full"
+    date: 2026-10-30
+
+G45:
+  type: article
+  title: "Behavioral repertoire influences the rate and nature of learning in climbing: Implications for individualized learning design in preparation for extreme sports participation"
+  author: ["Orth, Dominic", "Davids, Keith", "Chow, Jia-Yi", "Brymer, Eric", "Seifert, Ludovic"]
+  date: 2018
+  serial-number:
+    doi: "10.3389/fpsyg.2018.00949"
+  parent:
+    type: periodical
+    title: "Frontiers in Psychology"
+    volume: 9
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6006010"
+    date: 2026-10-30
+
+G46:
+  type: article
+  title: "Climbing skill and complexity of climbing wall design: assessment of jerk as a novel indicator of performance fluency"
+  author: ["Seifert, Ludovic", "Orth, Dominic", "Boulanger, Jérémie", "Dovgalecs, Vladislavs", "Hérault, Romain", "Davids, Keith"]
+  date: 2014
+  page-range: "619-625"
+  serial-number:
+    doi: "10.1123/JAB.2014-0052"
+  parent:
+    type: periodical
+    title: "Journal of Applied Biomechanics"
+    volume: 30
+  url:
+    value: "https://doi.org/10.1123/JAB.2014-0052"
+    date: 2026-10-30
+  note: "Cited via later papers by the same group"
+
+G47:
+  type: article
+  title: "Inexperienced sport climbers might perceive and utilize new opportunities for action by merely observing a model"
+  author: ["Boschker, M. S. J.", "Bakker, F. C."]
+  date: 2002
+  page-range: "3-9"
+  serial-number:
+    doi: "10.2466/pms.2002.95.1.3"
+  parent:
+    type: periodical
+    title: "Perceptual and Motor Skills"
+    volume: 95
+    issue: 1
+  url:
+    value: "https://doi.org/10.2466/pms.2002.95.1.3"
+    date: 2026-10-30
+  note: "Cited via Seifert et al. (2015)"
+
+G48:
+  type: article
+  title: "Efficacy of pre-ascent climbing route visual inspection in indoor sport climbing"
+  author: ["Sanchez, Xavier", "Lambert, Ph.", "Jones, G.", "Llewellyn, D. J."]
+  date: 2012
+  page-range: "67-72"
+  serial-number:
+    doi: "10.1111/j.1600-0838.2010.01151.x"
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 22
+  url:
+    value: "https://doi.org/10.1111/j.1600-0838.2010.01151.x"
+    date: 2026-10-30
+  note: "Cited via Seifert et al. (2015)"
+
+G49:
+  type: article
+  title: "The role of anxiety in perceiving and realizing affordances"
+  author: ["Pijpers, J. R.", "Oudejans, R. R. D.", "Bakker, F. C.", "Beek, P. J."]
+  date: 2006
+  page-range: "131-161"
+  serial-number:
+    doi: "10.1207/s15326969eco1803_1"
+  parent:
+    type: periodical
+    title: "Ecological Psychology"
+    volume: 18
+  url:
+    value: "https://doi.org/10.1207/s15326969eco1803_1"
+    date: 2026-10-30
+  note: "Cited via Seifert et al. (2015) and Orth et al. (2018)"
+
+G50:
+  type: web
+  title: "Practice (Learning Method)"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Practice_(learning_method)"
+    date: 2026-10-30
+  note: "Summarises Ericsson, Krampe and Tesch-Römer (1993) and Macnamara et al. (2014, 2016)"
+
+G51:
+  type: web
+  title: "Motor Learning"
+  author: "Wikipedia"
+  parent:
+    title: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Motor_learning"
+    date: 2026-10-30
+
+G52:
+  type: article
+  title: "Attentional focus and motor learning: a review of 15 years"
+  author: ["Wulf, Gabriele"]
+  date: 2013
+  page-range: "77-104"
+  serial-number:
+    doi: "10.1080/1750984X.2012.723728"
+  parent:
+    type: periodical
+    title: "International Review of Sport and Exercise Psychology"
+    volume: 6
+    issue: 1
+  url:
+    value: "https://doi.org/10.1080/1750984X.2012.723728"
+    date: 2026-10-30
+  note: "Title, journal, volume and pages checked against the Crossref record; abstract not accessed"
+
+G53:
+  type: web
+  title: "10 Drills to Improve Your Bouldering Footwork"
+  author: ["Beale, Alex"]
+  date: 2020-10-26
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/bouldering-footwork-drills"
+    date: 2026-10-30
+
+G54:
+  type: web
+  title: "ARCing and CARCing. Can Something So Simple Actually Help You Improve at Climbing?"
+  author: ["Torr, Ollie"]
+  date: 2026-10-14
+  parent:
+    title: "Lattice Training blog"
+  url:
+    value: "https://latticetraining.com/blog/arcing-and-carcing-can-something-so-simple-actually-help-you-improve-at-climbing"
+    date: 2026-10-30
+
+G55:
+  type: web
+  title: "Richtig abspringen beim Bouldern"
+  author: ["Michalski, Melanie"]
+  date: 2021-05-13
+  parent:
+    title: "Bergzeit Magazin"
+  url:
+    value: "https://www.bergzeit.de/magazin/bouldern-richtig-abspringen/"
+    date: 2026-10-30
+
+G56:
+  type: web
+  title: "Kurskonzeption Bouldering Basics"
+  author: {name: "DAV Kletter- und Boulderzentrum Schwaben (rockerei)"}
+  date: 2024
+  url:
+    value: "https://rockerei-stuttgart.de/wp-content/uploads/2023/11/2024.08-Kurskonzeption-Bouldering-Basics.pdf"
+    date: 2026-10-30
+  note: "Beginner course plan"
+
+G57:
+  type: web
+  title: "Richtig Fallen: Die neue Fallschule fürs Bouldern"
+  author: ["Tanner, Robert", "Schäffler, Klaus", "Matros, Patrick"]
+  date: 2017-08-10
+  parent:
+    title: "Outdoor-Magazin"
+  url:
+    value: "https://www.outdoor-magazin.com/klettern/die-neue-fallschule-fuers-bouldern/"
+    date: 2026-10-30
+
+G58:
+  type: web
+  title: "Boulder-Video-Guide: So vermeidet ihr die häufigsten Fehler"
+  author: "Die Techniker"
+  date: 2023-04-27
+  parent:
+    title: "tk.de"
+  url:
+    value: "https://www.tk.de/techniker/gesundheit-foerdern/sport-und-bewegung/sportarten-nach-kategorien/bouldern/boulder-video-guide-haeufige-fehler-2110892"
+    date: 2026-10-30
+
+G59:
+  type: web
+  title: "3 Tips for Safer Bouldering Falls"
+  author: "Climbing.com"
+  date: 2017-11-22
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/.amp/skills/3-tips-for-safer-bouldering-falls/?scope=anon"
+    date: 2026-10-30
+  note: "Featuring Nina Williams"
+
+G60:
+  type: web
+  title: "How to Fall Bouldering: 3 Techniques to Reduce Injury"
+  author: ["Clarke, Julia"]
+  date: 2022-04-02
+  parent:
+    title: "Advnture"
+  url:
+    value: "https://www.advnture.com/how-to/fall-bouldering"
+    date: 2026-10-30
+
+G61:
+  type: web
+  title: "Perspectives on Spotting"
+  author: "Climbing Wall Association"
+  date: 2019-08-05
+  parent:
+    title: "Climbing Wall Association blog"
+  url:
+    value: "https://www.cwapro.org/blog/perspectives-on-spotting"
+    date: 2026-10-30
+  note: "Reprinted from the Lines newsletter, July 2013"
+
+G62:
+  type: web
+  title: "Climbing Wall Safety Resources"
+  author: "British Mountaineering Council"
+  parent:
+    title: "British Mountaineering Council"
+  url:
+    value: "https://thebmc.co.uk/climbing-wall-safety-resources"
+    date: 2026-10-30
+
+G63:
+  type: web
+  title: "15 Easy Climbing Stretches (with Videos!)"
+  author: ["Markey, Danaan"]
+  date: 2022-01-12
+  parent:
+    title: "99Boulders"
+  url:
+    value: "https://www.99boulders.com/climbing-stretches"
+    date: 2026-10-30
+
+G64:
+  type: web
+  title: "When “Tight to the Wall” Actually Does the Opposite – Coaching w/ Dan #4"
+  author: ["Hooper, Jason"]
+  parent:
+    title: "Hooper’s Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/body-tension-coaching-with-dan"
+    date: 2026-10-30
+
+G65:
+  type: article
+  title: "2023 International Olympic Committee’s (IOC) consensus statement on Relative Energy Deficiency in Sport (REDs)"
+  author: ["Mountjoy, Margo", "Ackerman, Kathryn E.", "Bailey, David M.", "Burke, Louise M."]
+  date: 2023
+  page-range: "1073-1097"
+  serial-number:
+    doi: "10.1136/bjsports-2023-106994"
+  parent:
+    type: periodical
+    title: "British Journal of Sports Medicine"
+    volume: 57
+    issue: 17
+  url:
+    value: "https://doi.org/10.1136/bjsports-2023-106994"
+    date: 2026-10-30
+  note: "Abstract checked via Europe PMC. Further co-authors not listed here"
