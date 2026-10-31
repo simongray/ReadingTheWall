@@ -34,26 +34,11 @@ def _short(make, side, target):
     is valid and the gap to the hold shows the missing reach."""
     c = make(target)
     sh = c.J[side + "sh"]
-    reach = (DIM["upper_arm"] + DIM["forearm"] + DIM["hand"]) * c.arm_len[side]
+    reach = c.reach(side)
     d = sub(target, sh)
     if length(d) <= reach - 0.5:
         return c
     return make(add(sh, mul(norm(d), reach - 0.5)))
-
-
-def _arm(f, c, s, elbow, hand, z):
-    """Draw climber `c`'s arm on side `s` ("l"/"r") through an explicit
-    `elbow` to `hand`, for a forearm that points into the wall (the library
-    keeps both arm segments at full length). Leave the arm out of the
-    climber's `order` and call this after drawing it. Segment lengths are
-    checked: the upper arm may shorten to 0.8, the forearm further."""
-    D = c.D
-    sh = c.J[s + "sh"]
-    up = length(sub(elbow, sh)) / D["upper_arm"]
-    fo = length(sub(hand, elbow)) / (D["forearm"] + D["hand"])
-    if not (0.75 <= up <= 1.0 and fo <= 1.0):
-        print(f"_arm: upper arm {up:.2f}, forearm {fo:.2f} of full length")
-    c.draw_arm(f, s, elbow, hand, z)
 
 
 def _back(x0, y0, x1, y1):
@@ -170,12 +155,14 @@ def frog(path):
         hand = add(H, (-3.5, 2))
         foot = add(F, (-2.5, 2.5))
         if k == 0:
-            # knees to the wall: the hips stay out
-            c = Climber((-18, 132), view="side", lean=8, lh=hand, rh=hand,
+            # knees to the wall: the hips stay out and the chest curls in
+            # over the knees toward the hands
+            c = Climber((-18, 132), view="side", lean=4, bend=8, lh=hand, rh=hand,
                         lf={"at": foot}, rf={"at": foot})
             f.cross(add(c.pelvis, (-30, -2)))
         else:
-            c = Climber((8, 128), view="side", lean=-3, lh=hand, rh=hand,
+            # the hips in, the chest back off them
+            c = Climber((8, 128), view="side", lean=0, bend=-6, lh=hand, rh=hand,
                         lf={"at": foot}, rf={"at": foot},
                         leg_len={"l": (0.62, 0.9), "r": (0.62, 0.9)})
         c.draw(f)
@@ -200,11 +187,12 @@ SIDE_T = (12, 244)
 SIDE_P = (58, 154)      # pelvis of the turned climber
 
 
-def _turned(pelvis=SIDE_P, lh=None, a=SIDE_A, turn=-0.85, lean=-33, **kw):
+def _turned(pelvis=SIDE_P, lh=None, a=SIDE_A, turn=-0.85, lean=-28, bend=-10, **kw):
     """The hip-turned climber of the backstep family: left foot on its
     outside edge on `a`, left hip to the wall, right arm long, hips over
-    the left heel."""
-    return Climber(pelvis, turn=turn, lean=lean, lh=lh, rh=grip(SIDE_RH, use=0),
+    the left heel. The hips stand over the heel and the chest leans on
+    toward the reach, so the side under the long right arm stretches."""
+    return Climber(pelvis, turn=turn, lean=lean, bend=bend, lh=lh, rh=grip(SIDE_RH, use=0),
                    lf={"at": stand(a), "angle": -8}, rf={"at": stand(SIDE_B)},
                    knees={"l": "right", "r": "out"}, elbows={"r": "down"},
                    leg_len={"l": 0.9}, head=(3, 1), **kw)   # head clear of the reaching arm
@@ -228,8 +216,9 @@ def hip_turn(path):
         f = _back(-34, 50, 140, 276)
         _side_holds(f)
         if k == 0:
+            # the chest leans on toward the reach, as in (b)
             c = _short(lambda h: Climber(
-                (74, 146), lean=-24, lh=h, rh=grip(SIDE_RH, use=0),
+                (74, 146), lean=-20, bend=-8, lh=h, rh=grip(SIDE_RH, use=0),
                 lf={"at": stand(SIDE_A), "style": "back"}, rf={"at": stand(SIDE_B)},
                 knees={"l": "out", "r": "out"}, elbows={"r": "down"},
                 head=(3, 1)), "l", grip(SIDE_T))
@@ -276,12 +265,14 @@ def backstep(path):
             f.label("hips over heel", (36, 70), to=(c.cog()[0], 80))
             _plan(f, (116, 196), -55)
         else:
-            # the hips spin out: the arm stretches toward the hold, short
-            sh = _turned((48, 146), a=A, turn=-0.3, lean=-16).J["lsh"]
+            # the hips spin out: the arm stretches toward the hold, short.
+            # The chest sags away from the right hand that holds the spin
+            kw = dict(a=A, turn=-0.3, lean=-12, bend=-8)
+            sh = _turned((48, 146), **kw).J["lsh"]
             tg = grip(SIDE_T)
             # the right arm holds the spin; the reaching arm is relaxed
-            c = _turned((48, 146), sub(tg, mul(norm(sub(tg, sh)), 24)), a=A,
-                        turn=-0.3, lean=-16, active=("-lupper", "-lfore"))
+            c = _turned((48, 146), sub(tg, mul(norm(sub(tg, sh)), 24)),
+                        active=("-lupper", "-lfore"), **kw)
             c.draw(f)
             f.cross(add(SIDE_T, (-1, -11)))
             f.label("foot behind", (4, 66), to=add(stand(A), (-14, -3)))
@@ -316,8 +307,10 @@ def drop_knee(path):
         hold(f, "foot", LF)
         hold(f, "foot", RF)
         if k == 0:
+            # the chest tips toward the sidepull as in (b): the reaching side
+            # stretches, and still falls short
             c = _short(lambda h: Climber(
-                (-14, 116), lh=grip(L, use=180), rh=h,
+                (-14, 116), bend=-8, lh=grip(L, use=180), rh=h,
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
                 knees={"l": "out", "r": "up"}, elbows={"l": "down"},
                 head=(2, 1)), "r", grip(T))
@@ -373,8 +366,9 @@ def flag(path):
         hold(f, "foot", RF)
         _hinge(f, add(grip(LH), (0, -6)), stand(RF), ext=12)
         if k == 0:
+            # the chest leans on into the reach, out past the hinge
             c = _short(lambda h: Climber(
-                (8, 150), turn=-0.35, lean=8, lh=grip(LH), rh=h,
+                (8, 150), turn=-0.35, lean=4, bend=8, lh=grip(LH), rh=h,
                 rf={"at": stand(RF), "style": "back"},
                 lf={"at": (-44, 74), "angle": -110, "contact": "toe"},
                 knees={"r": "out", "l": "left"}, head=(2, 1)),
@@ -385,7 +379,8 @@ def flag(path):
             f.label("hinge", (-56, 262), to=(-11, 238))
             f.cross(add(T, (0, -13)))
         else:
-            c = Climber((-4, 154), lean=8, lh=grip(LH), rh=grip(T),
+            # the chest bends right, against the flagged leg out left
+            c = Climber((-4, 154), lean=4, bend=8, lh=grip(LH), rh=grip(T),
                         rf={"at": stand(RF), "style": "back"},
                         lf={"at": (-88, 90), "angle": 200, "contact": "edge"},
                         knees={"l": "up", "r": "out"}, head=(2, 1),
@@ -412,7 +407,8 @@ def back_flag(path):
     hold(f, "jug", T)
     hold(f, "foot", LF)
     _hinge(f, add(grip(LH, use=180), (0, -6)), stand(LF), ext=12)
-    c = _back_flagger(LH, LF, T)
+    # the chest bends right, against the leg crossed out to the left
+    c = _back_flagger(LH, LF, T, lean=3, bend=10)
     c.draw(f)
     f.cog(c.cog(), plumb_to=58)
     f.label("hinge", (-74, 250), to=(-39, 236))
@@ -421,10 +417,10 @@ def back_flag(path):
     f.save(path)
 
 
-def _back_flagger(LH, LF, T):
+def _back_flagger(LH, LF, T, lean=8, bend=0.0):
     """The back-flag climber: standing on the left foot (pointing into the
     wall) under the left hand; the right leg drawn over the left one."""
-    return Climber((-30, 156), lean=8, turn=0.2, lh=grip(LH, use=180),
+    return Climber((-30, 156), lean=lean, bend=bend, turn=0.2, lh=grip(LH, use=180),
                    rh=grip(T), lf={"at": stand(LF), "style": "back"},
                    rf={"at": (-70, 62), "angle": 200, "contact": "edge"},
                    knees={"l": "out", "r": "down"}, leg_len={"l": .95},
@@ -451,7 +447,8 @@ def inside_flag(path):
         hold(f, "jug", T)
         hold(f, "foot", LF, size=1.4)
         if k == 0:
-            c = Climber((4, 122), lh=grip(LH), rh=grip(S),
+            # the chest settles left, over the foot that will stand you up
+            c = Climber((4, 122), bend=-6, lh=grip(LH), rh=grip(S),
                         lf={"at": stand(LF, size=1.4)},
                         rf={"at": (54, 64), "angle": 10, "contact": "ball"},
                         knees={"l": "out", "r": "out"}, elbows={"l": "down"},
@@ -460,7 +457,8 @@ def inside_flag(path):
             f.body_arrow([(-72, 72), (-72, 120)])
             f.text("stand up", (-72, 62), size=7.5)
         else:
-            c = Climber((2, 148), lean=4, turn=0.7, lh=grip(LH), rh=grip(T),
+            # the chest bends right, against the leg pressed out to the left
+            c = Climber((2, 148), lean=-1, bend=10, turn=0.7, lh=grip(LH), rh=grip(T),
                         lf={"at": stand(LF, size=1.4)},
                         rf={"at": (-66, 76), "angle": 200, "contact": "edge"},
                         knees={"l": "out", "r": "left"}, elbows={"l": "down"},
@@ -485,7 +483,8 @@ def twist_lock(path):
     half turned, shoulders still square. (b) Locked: the legs have pushed the
     body up, the left hip and left shoulder are turned in, the right elbow
     is down at the ribs and the left hand reaches high. The right forearm
-    points into the wall, so the arm is drawn a little foreshortened."""
+    points into the wall, so the arm is drawn a little foreshortened. (c)
+    The lock of (b) from the side, where that forearm shows its length."""
     RH = (61, 194)      # sidepull, faces right
     S = (-40, 200)
     T = (26, 262)
@@ -505,25 +504,27 @@ def twist_lock(path):
                   elbows={"r": "down", "l": "down"}, arm_len={"r": 0.88},
                   leg_len={"l": 0.9}, head=(-2, 1))
         if k == 0:
-            c = Climber((6, 138), turn=-0.45, sh_w=1.0, lean=-18, lh=grip(S), **kw)
+            # hanging off the straight arm, the chest sags away from it
+            c = Climber((6, 138), turn=-0.45, sh_w=1.0, lean=-14, bend=-8,
+                        lh=grip(S), **kw)
             c.draw(f)
             f.label("arm straight", (100, 150), to=lerp(c.J["rsh"], c.J["rha"], .6))
             _plan(f, (-30, 88), -25, spin=-25, label=None)
         else:
             # the locked arm works (its lat, which pulls it down, is hidden
-            # behind the upper arm); the reaching arm is relaxed
-            c = Climber((48, 162), turn=-0.95, lean=-8, lh=grip(T),
-                        order=["lleg", "larm", "torso", "rleg"],
+            # behind the upper arm); the reaching arm is relaxed. The elbow
+            # is down by the ribs and the forearm points into the wall, so
+            # the forearm shows a little more than half its length. The
+            # right side shortens as the elbow pulls down; the left
+            # stretches into the reach
+            kw["arm_len"] = {"r": (0.95, 0.6)}
+            c = Climber((48, 162), turn=-0.95, lean=-13, bend=10, lh=grip(T),
+                        order=["lleg", "larm", "torso", "rleg", "rarm"],
                         active=("rupper", "rfore"), **kw)
             c.draw(f)
-            # locked arm: elbow down by the ribs, forearm into the wall. The
-            # elbow sits straight under the shoulder at almost full upper-arm
-            # length, so the forearm shows a little more than half its
-            # length (an elbow higher and further out left only a stub)
-            _arm(f, c, "r", add(c.J["rsh"], (0, -29)), grip(RH, use=0), z=4)
             f.arrow([add(stand(A), (-20, -8)), add(stand(A), (-6, -8))], kind="force")
             f.arrow([add(stand(B), (20, -8)), add(stand(B), (6, -8))], kind="force")
-            f.label("elbow to ribs", (74, 166), to=add(c.J["rsh"], (1, -28)), size=6.5)
+            f.label("elbow to ribs", (74, 166), to=add(c.J["rel"], (-1, 1)), size=6.5)
             f.label("shoulder in", (-8, 222), to=add(c.J["lsh"], (2, 0)))
             f.label("feet squeeze", (80, 56))
             _plan(f, (-30, 88), -65, spin=-40, label=None)
@@ -532,8 +533,33 @@ def twist_lock(path):
         f.text("hips from above", (-30, 69), size=6.5)
         _warn(f"twist-lock {k}", c)
         panels.append(f)
-    combine(panels, path, gap=6, labels=["a", "b"],
-            captions=["set: arm straight", "lock: hip, then shoulder"])
+    panels.append(_twist_lock_side(RH, T, A, B))
+    combine(panels, path, gap=6, labels=["a", "b", "c"],
+            captions=["set: arm straight", "lock: hip, then shoulder",
+                      "forearm into wall"])
+
+
+def _twist_lock_side(RH, T, A, B, W=30):
+    """(c) of the twist lock: (b) seen from its right side, the holds at
+    the same heights. The forearm that (b) shows short points into the
+    wall at its full length; the elbow is down at the ribs and the hips
+    are in at the wall."""
+    f = Fig(W - 80, 50, W + 10, 276)
+    at = wall_side(f, W, 50, 276)
+    for kind, h in (("jug", RH), ("jug", T), ("foot", A), ("foot", B)):
+        hold_side(f, kind, at(h[1]))
+    # both knees point along the wall, toward the viewer (the left one
+    # backstepped, the right one out), so the thighs are foreshortened.
+    # The hips press in and the chest arches back off them
+    c = Climber((W - 18, 162), view="side", lean=-6, bend=-10,
+                lh=add(at(T[1]), (-3.5, 2)), rh=add(at(RH[1]), (-3.5, 2)),
+                lf={"at": add(at(A[1]), (-2.5, 2.5))},
+                rf={"at": add(at(B[1]), (-2.5, 2.5))},
+                leg_len={"l": (0.8, 1.0), "r": (0.62, 1.0)},
+                active=("rupper", "rfore"))
+    c.draw(f)
+    _warn("twist-lock c", c)
+    return f
 
 
 # ---------------------------------------------------------------- lock-off
@@ -577,19 +603,33 @@ def layback(path):
     W = 36
     wall_side(f, W, 34, 182, angle=0)
     fx = W - 9
-    f.poly([(fx, 48), (fx + 4, 48), (fx + 4, 176), (fx, 172)], z=-6, fill=DARK,
-           stroke=INK, sw=0.3)
-    H1, H2 = (fx + 1.5, 150), (fx + 1.5, 134)
-    F1, F2 = (fx - 1, 80), (fx - 1, 62)
-    c = Climber((-62, 94), view="side", lean=40, lh=H1, rh=H2,
+    # the flake grows out of the wall at its foot, with the crack behind it
+    # (where the fingers hook) opening upward
+    flake = [(W, 40), (fx, 54), (fx, 172), (fx + 2.5, 176), (fx + 4, 172),
+             (fx + 4, 62), (W, 50)]
+    f.poly(flake, z=-6, fill=DARK, stroke=INK, sw=0.3)
+    if XRAY:
+        # dotted where the hands and feet cover it, as on a hold
+        f.poly(flake, z=XRAY_Z, **XRAY_STYLE)
+    H1, H2 = (fx + 3, 158), (fx + 3, 144)
+    F1, F2 = (fx - 1, 86), (fx - 1, 68)
+    # the hips hang out off straight arms, the hands above the shoulders;
+    # the chest lifts and the head looks up at the hands, so the body
+    # leans off the arms instead of hunching over them. The near arm takes
+    # the upper hold, so the arm in front is the straight one
+    c = Climber(None, shoulders=(-31, 136), view="side", lean=46, bend=-16,
+                head=(-1, 1), head_tilt=-10, lh=H2, rh=H1,
                 lf={"at": F1, "contact": "ball", "angle": 72},
-                rf={"at": F2, "contact": "ball", "angle": 66}, head=(1, 1),
+                rf={"at": F2, "contact": "ball", "angle": 66},
                 active=("lthigh", "rthigh"))   # the feet push in; the arms hang straight
     c.draw(f)
-    f.arrow([(fx - 4, 164), (fx - 26, 164)], kind="force")
-    f.arrow([(fx - 26, 42), (fx - 4, 42)], kind="force")
-    f.label("hands pull out", (-50, 170), to=(fx - 26, 165))
-    f.label("feet push in", (-50, 40), to=(fx - 26, 42))
+    # each arrow beside its contacts: the pull just above the hands, the
+    # push just below the feet
+    pull, push = H1[1] + 10, F2[1] - 16
+    f.arrow([(fx - 2, pull), (fx - 26, pull)], kind="force")
+    f.arrow([(fx - 26, push), (fx - 2, push)], kind="force")
+    f.label("hands pull out", (-50, pull + 6), to=(fx - 26, pull + 1))
+    f.label("feet push in", (-50, push - 8), to=(fx - 26, push))
     _warn("layback", c)
     f.save(path)
 
@@ -617,7 +657,8 @@ def stemming(path):
     T = (26, 246)
     hold(f, "jug", T)
     LF, RF = (-60, 82), (58, 94)
-    c = Climber((-2, 140), lh=(-68, 156), rh=grip(T),
+    # the chest tips over the pressing palm; the reaching side stretches
+    c = Climber((-2, 140), bend=-6, lh=(-68, 156), rh=grip(T),
                 lf={"at": LF, "angle": 165, "contact": "ball"},
                 rf={"at": RF, "angle": 15, "contact": "ball"},
                 knees={"l": "out", "r": "out"}, elbows={"l": "out"},
@@ -650,7 +691,7 @@ def cross_through(path):
     the shoulder on and look as if it grew out of the neck."""
     LH = (-17.2, 193)
     S = (34, 212)
-    T = (-31, 218.2)
+    T = (-44, 216)
     RF = (12, 62)
     f = _back(-88, 44, 84, 262)
     hold(f, "jug", LH, use=180, size=0.85)
@@ -659,7 +700,10 @@ def cross_through(path):
     hold(f, "foot", RF)
     # the left elbow points back from the wall in the lock-off, so the arm
     # is drawn a little foreshortened
-    c = Climber((16, 138), turn=0.7, lean=-12, lh=grip(LH, use=180, size=0.85),
+    # fully turned, so the shoulders narrow and the right hand crosses
+    # well past the left; the chest leans on after the crossing arm
+    c = Climber((12, 138), turn=1.0, lean=-12, bend=-8,
+                lh=grip(LH, use=180, size=0.85),
                 rh=grip(T, size=0.85),
                 lf={"at": (-62, 96), "angle": 190, "contact": "edge"},
                 rf={"at": stand(RF), "angle": 180},
@@ -667,7 +711,7 @@ def cross_through(path):
                 arm_len={"l": 0.85}, head=(-2, -2), allow_cross=True,
                 active=("+llat",))   # the locked-off arm pulls in with the back
     c.draw(f)
-    f.arrow([add(S, (-4, 10)), (8, 250), (-26, 240)], kind="move")
+    f.arrow([add(S, (-4, 10)), (4, 250), (-34, 232)], kind="move")
     f.label("off foot on wall", (-84, 62), to=(-64, 92), anchor="start")
     f.label("hip rolls in", (26, 112), to=add(c.J["rhip"], (2, 0)), anchor="start")
     f.label("start", (56, 186), to=add(S, (4, -4)))
@@ -829,7 +873,9 @@ def pre_loading(path):
         hand = add(H, (-3.5, 2))
         foot = add(F, (-2.5, 2.5))
         if k == 0:
-            c = Climber(None, shoulders=add(hand, (-18, -32)), view="side", lean=-8,
+            # pulled in tight, the chest curled to the wall over the knees
+            c = Climber(None, shoulders=add(hand, (-18, -32)), view="side",
+                        lean=-16, bend=8,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
                         elbows={"l": "down", "r": "down"},
                         knees={"l": "up", "r": "up"})
@@ -837,7 +883,10 @@ def pre_loading(path):
             f.arrow([add(foot, (-2, -4)), add(foot, (-12, -16))], kind="move")
             f.label("feet unweighted", (-56, 56), to=add(foot, (-6, -6)))
         else:
-            c = Climber(None, shoulders=add(hand, (-33, -55)), view="side", lean=10,
+            # sunk before the drive: the hips sit back and the chest curls
+            # in over them
+            c = Climber(None, shoulders=add(hand, (-33, -55)), view="side",
+                        lean=0, bend=10,
                         lh=hand, rh=hand, lf={"at": foot, "angle": 20},
                         rf={"at": foot, "angle": 20}, head=(-6, 0),
                         active=("rthigh",))   # the loaded legs will drive
@@ -887,7 +936,7 @@ def bumping(path):
     """Back view: the right hand went from its start hold to a small
     intermediate (1), then straight on to the jug (2). The left hand and
     the feet stayed put."""
-    LH = (-50, 224)
+    LH = (-57, 241)    # high enough that the holding arm hangs straight
     S = (40, 170)
     I = (70, 212)
     T = (34, 250)
@@ -901,7 +950,9 @@ def bumping(path):
     hold(f, "jug", T)
     hold(f, "foot", LF)
     hold(f, "foot", RF)
-    c = Climber((-2, 147), lean=4, lh=grip(LH), rh=grip(T),
+    # the body hangs off the straight left arm, its chest swung on after
+    # the moving right hand
+    c = Climber((-2, 147), lean=3, bend=5, lh=grip(LH), rh=grip(T),
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
                 knees={"l": "out", "r": "out"}, elbows={"l": "down"},
                 head=(2, 2))
@@ -944,10 +995,12 @@ def filmstrip_drop_knee(path):
         dict(P=(-8, 125), rh=grip(S), rf={"at": stand(RF0)},
              knees={"l": "out", "r": "out"}),
         dict(P=(-4, 128), rh=grip(S), rf=toe, knees={"l": "out", "r": "up"}),
-        dict(P=(2, 136), lean=-6, rh=grip(S), **drop),
-        dict(P=(2, 138), lean=-4, rh=grip(T), **drop),
+        # with the knee dropped the chest tips toward the sidepull, as in
+        # the drop-knee figure, and the reaching side stretches
+        dict(P=(2, 136), lean=-6, bend=-10, rh=grip(S), **drop),
+        dict(P=(2, 138), lean=-4, bend=-10, rh=grip(T), **drop),
         # the knee turns up toward the wall: the thigh is foreshortened
-        dict(P=(4, 142), turn=0.3, lean=-4, rh=grip(T), rf=toe,
+        dict(P=(4, 142), turn=0.3, lean=-4, bend=-6, rh=grip(T), rf=toe,
              knees={"l": "out", "r": "up"}, leg_len={"r": (0.8, 1.0)}),
     ]
     frames = []

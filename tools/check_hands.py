@@ -25,8 +25,8 @@ FIGURES = [("hands-hold-angle", F.hold_angle_fig), ("open-hand", F.open_hand_fig
            ("half-crimp", F.half_crimp_fig), ("full-crimp", F.full_crimp_fig),
            ("pinch", F.pinch_fig), ("sloper", F.sloper_fig), ("pocket", F.pocket_fig),
            ("thumb-catch", F.thumb_catch_fig), ("wrap", F.wrap_fig), ("regrip", F.regrip_fig),
-           ("hand-atlas", F.hand_atlas_fig), ("latching", figs_dynamic.latching),
-           ("grip-crimps", closeup.crimp_figure)]
+           ("hand-atlas", F.hand_atlas_fig), ("filmstrip-sloper", F.filmstrip_sloper),
+           ("latching", figs_dynamic.latching), ("grip-crimps", closeup.crimp_figure)]
 TOL = 0.02          # cm
 MIN_THUMB = 0.25    # share of the thumb's two segments that must show
 

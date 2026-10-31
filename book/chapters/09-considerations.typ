@@ -22,7 +22,7 @@ Not every study agrees. Elite Polish boulderers differed from non-climbers most 
 
 ==== Where height helps and where it hurts
 
-Height helps most on easy problems.#ix("Tall climbers!where height helps") You can skip #jt("intermediate", body: [intermediates]) (small holds between two good ones) and reach moves that shorter climbers have to jump. On forums, tall climbers report that this advantage fades around V3–V5 #src("G7", "G8"). That is anecdote, but a common one.
+Height helps most on easy problems.#ix("Tall climbers!where height helps") You can skip #jt("intermediate", body: [intermediates]) (small holds between two good ones) and reach moves that shorter climbers have to jump. On forums, climbers report that this advantage fades at intermediate grades, by about V6 #src("G7", "G8"). That is anecdote, but a common one.
 
 From V4 on, expect these problems to feel harder than their grade:#ix("Tall climbers!problems that feel hard")
 
@@ -30,7 +30,7 @@ From V4 on, expect these problems to feel harder than their grade:#ix("Tall clim
 - *Sit starts.* Long thighs put your knees in your chest and your bum far from the wall (@fig-cons-sit a). See #tref("sit-start").
 - *High feet.* A foot at waist height needs your knee fully bent and your hip deeply folded. That position can hurt your knee (see the box below).
 - *Steep walls.* Your hips hang further from the holds than a short climber's. When your feet come off, more weight swings further out.
-- *Big jumps.* Tall climbers report that their hips sag away from the wall on a #tref("dyno") #src("G8").
+- *Big moves with cut feet.* Forum climbers say tall climbers find the swing harder to hold #src("G7", "G8").
 
 ==== How to climb tall
 
@@ -82,7 +82,7 @@ At V3–V5, technique and finger strength hold you back far more than a few kilo
 
 #notebox[Don't diet for grades][
 #ix("RED-S", main: true)#ix("Eating disorders")
-#jt("RED-S") (relative energy deficiency in sport) is what happens when you eat too little for the training you do. In women, one sign is missed periods#ix("Women climbers") #src("G40"). In a survey of 114 elite female competition climbers, 15.8% (18 women) had lost their periods. 17 of the 114 reported a current eating disorder or disordered eating. About half of the women who had lost their periods had cut their food. Their #jt("BMI")#ix("BMI") (weight divided by height squared) did not show it: only 4 of those 18 had a BMI under 18 #src("G40"). The authors describe a climbing culture that values thinness #src("G40"). Even among teenage gym climbers, 82% ate less than their estimated needs #src("G41").
+#jt("RED-S") (relative energy deficiency in sport) is what happens when you eat too little for the training you do. In women, one sign is missed periods#ix("Women climbers") #src("G40"). In a survey of 114 elite female competition climbers, 15.8% (18 women) had lost their periods. 17 of the 114 said they currently had an eating disorder. About half of the women who had lost their periods had cut their food. Their #jt("BMI")#ix("BMI") (weight divided by height squared) did not show it: only 4 of those 18 had a BMI under 18 #src("G40"). The authors describe a climbing culture that values thinness #src("G40"). Even among teenage gym climbers, 82% ate less than their estimated needs #src("G41").
 
 If you want to lose fat for your health, do it slowly. Don't cut food on climbing days. Eat carbohydrate and protein around your sessions. Ask a doctor or a registered dietitian, not a forum. See a doctor if food fills your thoughts, if you feel guilty eating, or if your energy drops. Frequent illness, injuries that don't heal and a mood that follows the scales are warning signs too. RED-S affects men as well as women #src("G65").
 ]
@@ -182,12 +182,12 @@ Film from behind, 3–4 m back, or from the side on steep walls. Watch after two
 + Did you swing off like a door (#tref("barn-door"))?
 + Could you hear your feet land?
 
-#ix("Flashing")Reading a problem before you climb it helps you climb it #src("G48", "G44"). Repeating a problem makes you smoother; new problems make you explore #src("G43", "G44"). So do both in every session (this book's suggestion):
+#ix("Flashing")Reading a problem before you climb it means fewer and shorter stops #src("E34", "G44"). Repeating a problem makes you smoother; new problems make you explore #src("G43", "G44"). So do both in every session (this book's suggestion):
 
 - *Flash block.* Try 3–5 new problems you might #jt("flash") (climb first try). Read each one for a minute or two with the method in Chapter 2. Then climb and compare. A German Alpine Club gym uses this "discuss, climb, compare" exercise in its beginner course #src("G56").
 - *Repeat block.* Repeat 2–3 problems you've recently done. Aim for fewer pauses, no foot readjustments and silent feet.
 
-*Watch others.* #ix("Watching others") Novice climbers can pick up new ways to use holds just by watching a skilled climber #src("G47"). Watch where their hips go and which way they face before each move.
+*Watch others.* #ix("Watching others") Novice climbers can pick up new ways to use holds just by watching a video of a skilled climber #src("G47"). Watch where their hips go and which way they face before each move.
 
 ==== Drills
 #ix("Drills")
@@ -204,7 +204,7 @@ Do drills on problems two or three grades below your best #src("G53"). One sessi
   [No-hands slab], [Climb an easy slab holding tennis balls, or with no hands #src("G53").], [#tref("slab"), #tref("smearing")],
   [Climb down], [Climb each warm-up problem back down. It trains hand and foot coordination in reverse #src("G55", "G53").], [#tref("lock-off"), #tref("foot-swap")],
   [Leg traverse], [Traverse 9–12 m. Push with your legs and keep your arms straight #src("G53").], [#tref("traverse"), #tref("straight-arms")],
-  [Hover hands], [Before you grab the next hold, hold your hand still in front of it for 2 seconds. If you can't, your hips are wrong. Fix your feet or hips first. (A common coaching drill; no source found.)], [#tref("hip-turn"), #tref("flag")],
+  [Hover hands], [Before you grab the next hold, hold your hand still in front of it for about 3 seconds. If you can't, your hips are wrong. Fix your feet or hips first #src("G66").], [#tref("hip-turn"), #tref("flag")],
   [New beta], [Climb a problem you've done with three different #jt("beta", body: [betas]) (sequences of moves): square on, side on, then with different feet #src("G44", "G45").], [#tref("backstep"), #tref("drop-knee"), #tref("frog")],
   [Banned hold], [Repeat a problem you've done with one key foothold banned.], [#tref("flag"), #tref("smearing")],
 )

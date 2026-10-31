@@ -67,7 +67,7 @@ def rot(v, deg):
 INK = "#000000"
 DARK = "#555555"     # holds (on the e-ink panel's 16 greys)
 MID = "#8c8c8c"
-LEFT = "#a6a6a6"     # climber's left limbs
+LEFT = "#aaaaaa"     # climber's left limbs (on the panel's 16 greys)
 LIGHT = "#cccccc"    # (on the e-ink panel's 16 greys)
 PALE = "#ececec"
 WHITE = "#ffffff"
@@ -1201,12 +1201,18 @@ def _round(pts, sharp, k=0.38, n=5):
     return out
 
 
-def hold_side(fig, kind, pos, angle=0, size=1.0, z=-5, xray=None):
+def hold_side(fig, kind, pos, angle=0, size=1.0, z=-5, xray=None, frame=None):
     """A hold in side profile on a wall whose surface passes through `pos`.
     The wall is to the right; `angle` is the wall overhang angle. Drawn as
-    hold() draws a hold face-on: a dark body, its grabbed surface light."""
-    d = norm((-math.tan(math.radians(angle)), 1))   # up the wall
-    n = (-d[1], d[0])                                # out of the wall (left)
+    hold() draws a hold face-on: a dark body, its grabbed surface light.
+    `frame` replaces `angle` with the unit vectors (out of the wall, up the
+    wall), e.g. ((0, -1), (-1, 0)) for a jug on a ceiling, its lip facing
+    left."""
+    if frame:
+        n, d = frame
+    else:
+        d = norm((-math.tan(math.radians(angle)), 1))   # up the wall
+        n = (-d[1], d[0])                                # out of the wall (left)
     s = size
     shape, sharp, run, side, bands = HOLD_PROFILES[kind]
 
@@ -1435,9 +1441,11 @@ HEM_ABOVE_ANKLE = 3.5   # trouser hem, measured up the shin from the ankle
 # can't be mistaken for the flat grey of the left limbs, show as well on
 # grey as on white, and print cleanly on the e-ink panel, where a gradient
 # would band. MUSCLE_DOTS is the dots' colour, keyed by the fill under them.
-MUSCLE_DOTS = {WHITE: "#4a4a4a", LEFT: "#1a1a1a"}
-STIPPLE_STEP = 0.5      # mm on paper between neighbouring dots
-STIPPLE_DOT = 0.15      # mm: the radius of the largest dot
+# The dots are large and sparse enough to stay dots on the panel at 197 dpi
+# (research/eink-report.md); smaller ones blur into a faint grey.
+MUSCLE_DOTS = {WHITE: "#444444", LEFT: "#111111"}
+STIPPLE_STEP = 0.6      # mm on paper between neighbouring dots
+STIPPLE_DOT = 0.19      # mm: the radius of the largest dot
 STIPPLE_FALL = 0.9      # how fast the dots shrink toward the edge
 # patches on the torso, seen from behind, (s, t) as for the shirt; the right
 # side, mirrored for the left. The lat runs from the armpit down and in.
@@ -1814,14 +1822,14 @@ class Climber:
       (inside edge on the hold). A dict allows: at, angle (heel-to-toe
       direction in degrees), contact ("edge" default | "toe" | "ball" |
       "heel"), style ("profile" | "back" for a foot pointing into the wall),
-      flip (True turns the top of the shoe away from the hip, for feet
-      hooked above the hip that would otherwise be drawn sole-up).
+      flip (True turns the top of the shoe away from the knee, which it
+      otherwise faces).
     elbows, knees: dicts {"l": mode, "r": mode}, mode one of
       out | in | up | down | left | right. In side view the joints bend
       anatomically and these are ignored, unless anatomy=False.
     arm_len, leg_len: per-limb length factors for foreshortening,
-      e.g. {"l": 0.9}. A leg factor may be a (thigh, shin) pair, e.g.
-      {"r": (1.0, 0.8)} to shorten only the shin.
+      e.g. {"l": 0.9}. A factor may be a pair for the two segments, e.g.
+      {"r": (1.0, 0.8)} to shorten only the shin, or only the forearm.
     head: offset of the head centre from its neutral position (look toward
       a hold by nudging it). Keep it within a few cm: the neck stretches.
     head_tilt: degrees to tip the head, and the neck with it. Positive tips
@@ -1882,12 +1890,22 @@ class Climber:
         self.sh_w = sh_w if sh_w is not None else (1 if view == "back" else 0)
         self.hip_w = hip_w if hip_w is not None else (1 if view == "back" else 0)
         if view == "back" and turn and sh_w is None:
-            self.sh_w = max(0.5, k)
+            self.sh_w = k
         if view == "back" and turn and hip_w is None:
-            self.hip_w = max(0.45, k)
+            self.hip_w = max(0.4, k)
         self.order = order
         self.hand_style = hand_style or {}
         self.solve()
+
+    def arm_factors(self, s):
+        """The (upper arm, forearm) length factors of arm `s`."""
+        f = self.arm_len[s]
+        return f if isinstance(f, tuple) else (f, f)
+
+    def reach(self, s):
+        """How far hand `s` reaches from its shoulder to the grip, in cm."""
+        fu, ff = self.arm_factors(s)
+        return self.D["upper_arm"] * fu + (self.D["forearm"] + self.D["hand"]) * ff
 
     # frame
     def frame(self):
@@ -1950,8 +1968,9 @@ class Climber:
             # arms: solve to the grip point, then step back to the wrist
             target = getattr(self, s + "h")
             sh = J[s + "sh"]
-            la = D["upper_arm"] * self.arm_len[s]
-            lf = (D["forearm"] + D["hand"]) * self.arm_len[s]
+            fu, ff = self.arm_factors(s)
+            la = D["upper_arm"] * fu
+            lf = (D["forearm"] + D["hand"]) * ff
             if target is None:
                 target = add(sh, (sign * 6 * self.s, -(la + lf) * 0.97))
             if side_anat:
@@ -1961,7 +1980,7 @@ class Climber:
                              self.pelvis, r)
             J[s + "el"], J[s + "ha"] = ik(sh, target, la, lf, ch)
             fv = norm(sub(J[s + "ha"], J[s + "el"]))
-            J[s + "wr"] = sub(J[s + "ha"], mul(fv, D["hand"] * self.arm_len[s]))
+            J[s + "wr"] = sub(J[s + "ha"], mul(fv, D["hand"] * ff))
             # legs
             ft = getattr(self, s + "f")
             hip = J[s + "hip"]
@@ -1999,15 +2018,24 @@ class Climber:
 
     def _solve_leg(self, s, ft, hip, r, side_anat, D):
         J = self._J
-        sign = -1 if s == "l" else 1
         d = ang(ft["angle"])
         n = perp(d)
         if dot(n, sub(hip, ft["at"])) < 0:
             n = mul(n, -1)
-        if ft.get("flip"):
-            # the top of the shoe faces away from the hip, e.g. a foot
-            # hooked above the hip
+        self._place_leg(s, ft, d, n, hip, r, side_anat, D)
+        # the top of the shoe faces the shin. Facing the hip is only a first
+        # guess, wrong for a foot at or above the hip, so check the knee
+        if dot(n, norm(sub(J[s + "kn"], J[s + "an"]))) < -0.2:
             n = mul(n, -1)
+            self._place_leg(s, ft, d, n, hip, r, side_anat, D)
+        if ft.get("flip"):
+            self._place_leg(s, ft, d, mul(n, -1), hip, r, side_anat, D)
+
+    def _place_leg(self, s, ft, d, n, hip, r, side_anat, D):
+        """Put the shoe on its contact point with its top toward `n`, and
+        solve the knee and ankle of leg `s` from `hip` to it."""
+        J = self._J
+        sign = -1 if s == "l" else 1
         sc = self.s
         if ft["style"] == "back":
             ankle = add(ft["at"], (0, 8 * sc))
@@ -2122,8 +2150,19 @@ class Climber:
         `elbow` to the grip point `hand`, in the climber's style. For an arm
         that points into the wall, whose upper arm and forearm shorten by
         different amounts: leave the arm out of `order`, draw the climber,
-        then call this."""
+        then call this. The segments are checked as warn() checks a solved
+        arm: the upper arm may shorten to 0.6 (pointing well out of the
+        wall), the forearm further, and neither may stretch."""
         J = self.J
+        up = length(sub(elbow, J[s + "sh"])) / self.D["upper_arm"]
+        fo = length(sub(hand, elbow)) / (self.D["forearm"] + self.D["hand"])
+        if not ghost and not (0.6 <= up <= 1.01 and fo <= 1.01):
+            import inspect
+            caller = next((f"{os.path.basename(fr.filename)}:{fr.function}"
+                           for fr in inspect.stack()[1:]
+                           if not fr.filename.endswith("climb.py")), "figure")
+            print(f"{caller}: arm {s} drawn with its upper arm {up:.2f} and its "
+                  f"forearm {fo:.2f} of their full length")
         v = norm(sub(hand, elbow))
         wr = sub(hand, mul(v, min(self.D["hand"], length(sub(hand, elbow)) * 0.4)))
         col = (dict(l=WHITE, r=WHITE, shirt=WHITE) if ghost else

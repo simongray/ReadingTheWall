@@ -1,5 +1,7 @@
 #import "../template.typ": *
 
+#include "a-card.typ"
+
 #include "a-troubleshooting.typ"
 
 #include "a-glossary.typ"

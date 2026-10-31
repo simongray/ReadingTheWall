@@ -60,13 +60,15 @@ def hips_in(path):
         hand = add(H, (-3.5, 2))
         foot = add(F, (-2.5, 2.5))
         if good:
-            c = Climber(None, shoulders=add(hand, (-38, -50)), view="side", lean=-40,
+            # the hips press in and the lower back arches a little
+            c = Climber(None, shoulders=add(hand, (-38, -50)), view="side", lean=-36,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
-                        head=(1, 1))
+                        head=(1, 1), bend=-8)
         else:
-            c = Climber(None, shoulders=add(hand, (-30, -58)), view="side", lean=12,
+            # the hips sag out and the back rounds
+            c = Climber(None, shoulders=add(hand, (-30, -58)), view="side", lean=8,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
-                        head=(-7, 0))
+                        head=(-7, 0), bend=8)
         c.draw(f)
         g = c.cog()
         f.cog(g, plumb_to=50)
@@ -98,8 +100,10 @@ def barn_door(path):
         hold(f, "foot", LF)
         fb._hinge(f, add(grip(LH, use=180), (0, -6)), stand(LF), ext=12)
         if not fixed:
-            # the right hand has just let go: it never gets to the hold
-            c = Climber((-16, 154), turn=-0.35, lean=8, lh=grip(LH, use=180),
+            # the right hand has just let go: it never gets to the hold.
+            # The body sags right, away from the one hand that holds, the
+            # left side stretched
+            c = Climber((-16, 154), turn=-0.35, lean=4, bend=8, lh=grip(LH, use=180),
                         rh=add(grip(T), (-8, -28)),
                         lf={"at": stand(LF), "style": "back"},
                         rf={"at": (-4, 72), "angle": -85, "contact": "toe"},
@@ -147,8 +151,10 @@ def balance(path):
             f.cog(c.cog(), plumb_to=58)
         else:
             # the left arm bends only because the hips moved: the feet
-            # carry the weight and the hands just steady it
-            c = Climber((-22, 146), lean=6, lh=grip(LH), rh=grip(RH),
+            # carry the weight and the hands just steady it. The free right
+            # hip drops and the chest bends back over the left hip, so the
+            # shoulders stay level
+            c = Climber((-22, 146), lean=10, bend=-8, lh=grip(LH), rh=grip(RH),
                         lf={"at": stand(LF)}, rf={"at": stand(RF)},
                         knees={"r": "out"}, active=())
             c.draw(f)
@@ -171,17 +177,19 @@ def filmstrip_hips_first(path):
     new foot. (5) Stand up on it; only now the right hand goes up."""
     LH, RH, T = (-24, 244), (24, 244), (38, 280)
     LF, RF, F2 = (-24, 60), (24, 64), (26, 92)
-    # every knee bends out, the way its toes point
+    # every knee bends out, the way its toes point. With the hips over one
+    # foot the free hip drops and the chest bends back over the standing
+    # hip, as in the balance figure; reaching up, the right side stretches
     out = {"l": "out", "r": "out"}
     poses = [
         dict(P=(0, 142), rh=grip(RH), lf={"at": stand(LF)}, rf={"at": stand(RF)}),
-        dict(P=(-14, 146), lean=4, rh=grip(RH), lf={"at": stand(LF)},
+        dict(P=(-14, 146), lean=8, bend=-6, rh=grip(RH), lf={"at": stand(LF)},
              rf={"at": stand(RF)}),
-        dict(P=(-14, 146), lean=4, rh=grip(RH), lf={"at": stand(LF)},
+        dict(P=(-14, 146), lean=8, bend=-6, rh=grip(RH), lf={"at": stand(LF)},
              rf={"at": stand(F2)}),
-        dict(P=(12, 150), lean=-4, rh=grip(RH), lf={"at": stand(LF)},
+        dict(P=(12, 150), lean=-8, bend=6, rh=grip(RH), lf={"at": stand(LF)},
              rf={"at": stand(F2)}),
-        dict(P=(16, 172), lean=-2, rh=grip(T),
+        dict(P=(16, 172), lean=1, bend=-6, rh=grip(T),
              lf={"at": (-14, 104), "angle": 190, "contact": "ball"},
              rf={"at": stand(F2)}, active=("rthigh",)),
     ]

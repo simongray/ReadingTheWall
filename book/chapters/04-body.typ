@@ -366,7 +366,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - *Symptom:* your elbows point out sideways #src("B28").
   ],
   errors: [
-    - Hanging slack with shrugged shoulders. It strains the shoulder#ix("Injuries!shoulder") #src("B23", "B50").
+    - Sagging onto fully straight arms with slack shoulders. It strains the shoulder#ix("Injuries!shoulder") #src("B23", "B50").
     - Sinking low on a vertical wall. It moves weight from your feet to your fingers #src("B8"). Stand tall there and accept a slightly bent arm.
   ],
   tall: [On overhangs, long arms put your weight far from the wall unless you turn a hip in#ix("Tall climbers!overhangs") #src("B28").],
@@ -493,6 +493,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ],
   tall: [Rowland's#ix("Rowland, Dave") "knee height or higher" means your own knee.#ix("Tall climbers!backsteps") Footholds that look high to others may be perfect backsteps for you #src("B38").],
   related: ("hip-turn", "drop-knee", "twist-lock", "back-flag", "edging"),
+  watch: (("Mani the Monkey", "Technique Training for Beginners: Back Step VS Flag", "https://www.youtube.com/watch?v=F5g9YtcnDqw"),),
   sources: ("B15", "B32", "B37", "B38", "B39", "B44"),
 )
 
@@ -562,6 +563,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Pushing gastons apart on a steep wall for long. It strains the shoulders#ix("Injuries!shoulder") #src("B14").
   ],
   related: ("layback", "stemming", "compression", "drop-knee", "body-tension"),
+  watch: (("Movement for Climbers", "(Climbing Analysis) | The Importance of Using Counterpressure", "https://www.youtube.com/watch?v=MKtOjjd3XGQ"),),
   sources: ("B14", "B20", "B29", "B30", "B31", "B56", "B70"),
 )
 
@@ -687,6 +689,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ],
   tall: [On a wide drop knee, let your knee pass inside your elbow #src("B20"). Long thighs make deep drops awkward in tight spaces.#ix("Tall climbers!drop knee") A half drop gives most of the lock with less load on the knee.],
   related: ("backstep", "twist-lock", "hip-turn", "stemming", "barn-door"),
+  watch: (("Movement for Climbers", "What the Heck is a Drop Knee?", "https://www.youtube.com/watch?v=U0v9xxqEjfY"),),
   sources: ("B1", "B19", "B20", "B33", "B39", "B40", "B41", "B43", "B44", "B64", "G9"),
 )
 
@@ -769,7 +772,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Hörst#ix("Hörst, Eric") starts it on boulders about 20° overhanging, then moves steeper #src("B15"). The full twist of hips and shoulders pays from about V4.],
   summary: [You add a turn of the shoulders to a #tref("backstep") or #tref("drop-knee"). The reaching-side hip and shoulder turn to the wall. The holding arm pulls down to your ribs. Your body locks, so the free hand reaches with little effort #src("B15", "B43").],
   figure: "twist-lock.svg",
-  caption: [(a) Set: right arm straight, left foot backstepped, hips half turned. (b) Locked. The left hip and shoulder turn in. The right elbow comes to the ribs. The left hand reaches high.],
+  caption: [(a) Set: right arm straight, left foot backstepped, hips half turned. (b) Locked. The left hip and shoulder turn in. The right elbow comes to the ribs. The left hand reaches high. (c) The lock from the side. The right forearm points into the wall.],
   how: [
     + Set your feet. Backstep if the foothold is on #jt("the line"). Drop a knee if it is behind the line #src("B38", "B40").
     + Put your right foot on a foothold out to the right, or flag it #src("B37").
@@ -794,6 +797,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ],
   tall: [A long torso turns through a bigger arc. The shoulder turn gives you more reach than it gives a shorter climber.],
   related: ("backstep", "drop-knee", "hip-turn", "lock-off"),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "6 Neil Greshams Masterclass - Twistlock", "https://www.youtube.com/watch?v=v4TnitXGxkM"),),
   sources: ("B15", "B16", "B37", "B38", "B40", "B43", "B44"),
 )
 
@@ -831,5 +835,6 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ],
   tall: [Wide spans are more comfortable at your height, but arm span barely predicts grade#ix("Ape index!and grade") #src("B66"). The squeeze and the footwork matter more.],
   related: ("opposition", "body-tension", "bicycle", "volume", "pinch"),
+  watch: (("Climbing Tech Tips", "Climbing Movement: 16. Opposition vs. Compression | Climbing Tech Tips", "https://www.youtube.com/watch?v=ar06kKAHmuA"),),
   sources: ("B24", "B25", "B31", "B45", "B56", "B63", "B66"),
 )

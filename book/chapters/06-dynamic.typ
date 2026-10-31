@@ -1,7 +1,8 @@
 #import "../template.typ": *
 
 = Dynamic movement
-#fit-pages[
+// the page breaks cost this text more than its estimate allows
+#fit-pages(k: 0.35)[
 
 A dynamic move uses #jt("momentum") (the speed your body carries) to reach a hold. Your legs and hips throw your body. Your hand arrives while you are still moving. This chapter runs from the small #ix("Deadpoint")deadpoint that saves your arms on a V3 to the jumps of #jt("comp style", body: [comp-style]) setting. #ix("Comp-style setting")Comp style means problems set like competition boulders, with runs, jumps and big shapes.
 
@@ -27,7 +28,7 @@ Otherwise, try the move dynamically first. Strictly, the move is a deadpoint whi
 
 Throw a ball straight up. At the top it stops for an instant before it falls. Your hips do the same when you throw them up the wall. At that instant you weigh almost nothing. A hold you grab then takes the least load #src("D1", "D13"). Grabbing at that instant is the deadpoint.
 
-Wolfgang Güllich#ix("Güllich, Wolfgang") studied the idea in the 1980s #src("D3"). But John Gill#ix("Gill, John") used the word in print in 1969, for a hand reaching a hold "at the high deadpoint of the swing" #src("D4"). #ix("Deadpoint!origin of the term")
+By 1987, Wolfgang Güllich#ix("Güllich, Wolfgang") was studying how to use the deadpoint #src("D3"). But John Gill#ix("Gill, John") used the word in print in 1969, for a hand reaching a hold "at the high deadpoint of the swing" #src("D4"). #ix("Deadpoint!origin of the term")
 
 == Power comes from the legs and hips
 
@@ -136,6 +137,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - Pulling with your arms during the pump. Keep them straight.
   ],
   related: ("deadpoint", "dyno", "pogo", "hip-pop", "straight-arms"),
+  watch: (("Movement for Climbers", "How the Pros Generate So Much Power", "https://www.youtube.com/watch?v=Nw4jPNl89qs"),),
   sources: ("D16", "D18", "D19", "D21", "D22"),
 )
 
@@ -182,7 +184,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   grade-note: [It arrives with one-handed throws and #tref("sidepull") catches at V4–V5 (judgement). The sources describe swing control but not this name.],
   summary: [You catch a hold with one hand and your body starts to swing open. Kick your free leg across against the swing. Then let it settle into a #tref("back-flag").],
   figure: "counter-kick.svg",
-  caption: [(a) After a right-hand catch, the body swings open around the right arm. (b) Kicking the left leg across stops the swing.],
+  caption: [(a) After a right-hand catch, the body swings open around the right arm like a door. (b) Kicking the left leg across stops the swing and turns the body back to the wall. The insets show the body from above.],
   how: [
     + Before you throw, work out which way you will swing. After a right-hand catch out to the right, you usually swing open to the left.
     + As your hand closes, kick your free leg across behind your standing leg.
@@ -233,6 +235,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   tall: [Long legs swing harder. That helps you get your feet back on, but it makes the swing harder to stop, so tuck your knees early. Under a low #tref("roof", body: [roof]), check that your feet won't hit the mats.],
   related: ("latching", "campus-move", "foot-catch", "counter-kick", "body-tension", "overhang"),
+  watch: (("Mercedes Pollmeier of Modus Athletica", "How to Control The Swing In Climbing Movement | Tip Tuesday", "https://www.youtube.com/watch?v=SUtyz4H-QEg"),),
   sources: ("D6", "D11", "D21", "D25", "D27", "D40"),
 )
 
@@ -375,6 +378,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   tall: [You can often reach a single hold slowly with a drop knee or a #tref("flag"). If that means a hard lock-off on a steep wall, throw instead. The throw costs less #src("D13").],
   related: ("deadpoint", "dyno", "counter-kick", "hip-pop", "latching"),
+  watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
   sources: ("D4", "D5", "D7", "D13", "D15", "D21"),
 )
 
@@ -501,11 +505,13 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   tall: [Your span helps on holds set wide apart. On short gaps, sink less #src("D20").],
   related: ("dyno", "double-clutch", "paddle-dyno", "latching"),
+  watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
   sources: ("D7", "D14", "D17", "D20", "D21"),
 )
 
 #technique(
   key: "foot-catch",
+  k: 0.1,
   name: "Jumping to a foothold",
   aliases: ("dynamic toe catch", "toe-hook catch", "foot catch"),
   category: "dynamic",
@@ -513,7 +519,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   grade-note: [Common on competition-style problems, often as the first move #src("D25", "D35"). Expect it from about V5 (judgement).],
   summary: [During or after a dynamic move, you throw a foot out. Your toe hooks or stands on a hold or the edge of a volume. That stops the swing or sets up the next move #src("D7", "D35").],
   figure: "foot-catch.svg",
-  caption: [The right hand has caught the hold and the body swings right. The left toe hooks the volume and stops the swing.],
+  caption: [(a) The right hand has caught the hold and the body swings right. The left toe hooks the far side of the volume and stops the swing. (b) Close-up from behind: the top of the toes presses on the far side of the volume, and the leg pulls towards the body.],
   how: [
     + Plan the foot before you move. Decide which foot, which hold and whether to hook or stand.
     + As your hand catches, throw the foot along the line of the swing towards its target.
@@ -530,6 +536,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - Throwing the foot late, after the swing has started.
   ],
   related: ("toe-hook", "cutting-loose", "counter-kick", "latching", "volume"),
+  watch: (("Bouldering Bobat", "How to Dyno || Intermediate Climbing Techniques || ToeHook catch", "https://www.youtube.com/watch?v=66m8HVOBqdo"),),
   sources: ("D7", "D11", "D25", "D35"),
 )
 
@@ -558,6 +565,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   tall: [A long body is a long pendulum, so your swing is slower. Wait a moment longer before letting go than a shorter climber would.],
   related: ("paddle-dyno", "cutting-loose", "latching"),
+  watch: (("Felix Jockenhövel", "How to master the Lache Dyno", "https://www.youtube.com/watch?v=dXUallpyVBE"),),
   sources: ("D9", "D21", "D27", "D32"),
 )
 
@@ -602,7 +610,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("tac",),
   category: "dynamic",
   grade: 5,
-  grade-note: [A competition-style move from about V5. We found it defined only in parkour sources #src("D48"). Its climbing use is unverified.],
+  grade-note: [A competition-style move from about V5. Climbing writers describe "wall runs" and other parkour-style moves in competition boulders #src("D7"), but we found the name tic-tac only in parkour sources #src("D48").],
   summary: [A move from #jt("parkour") (running, jumping and swinging over obstacles). You step a foot onto a wall, an #jt("arête") (an outside corner of the wall) or a volume. You push off it to send your body up or sideways to a hold.],
   figure: "tic-tac.svg",
   caption: [The left foot pushes off the volume's face. The body flies right towards the hold.],
@@ -615,10 +623,10 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   when: [
     - *Look for* a corner, arête or #tref("volume", body: [volume]) beside the run-up. It gives you a step but no foothold you could stand on.
     - *Look for* a start hold you can only reach by stepping off a side wall.
-    - *Symptom:* your foot slips off the wall. You stood too upright against it.
+    - *Symptom:* your foot slips off the wall. Lean further away from it and step quickly #src("D48").
   ],
   related: ("run-and-jump", "jump-start", "volume", "corner"),
-  sources: ("D48",),
+  sources: ("D7", "D48"),
 )
 
 #technique(

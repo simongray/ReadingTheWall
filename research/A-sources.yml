@@ -406,7 +406,7 @@ A36:
 A37:
   type: web
   title: "Technique Tips – Article 1: Overhangs"
-  author: "Rock+Run"
+  author: ["Westlake, Dave"]
   date: 2020-11-02
   parent:
     title: "Rock+Run blog (The Flash)"

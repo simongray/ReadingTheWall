@@ -39,7 +39,7 @@ Lab tests show how fast small sloping holds get worse#ix("Studies!edge depth and
 
 So a small hold that slopes is worse than a small flat one or a big sloping one.
 
-#ix("Dual texture") The same hold can be positive or negative. It depends on how the #jt("setter") (the person who designs the problems) bolted it on. Some modern holds and #jt("volume", body: [volumes]) (big hollow shapes bolted to the wall) have two finishes. A grippy texture marks where you should hold. A smooth finish marks where you shouldn't. This is called #jt("dual texture") #src("C49"). Read the grippy patch as an instruction. The smooth part can turn a big hold into a hard one #src("C50").
+#ix("Dual texture") The same hold can be positive or negative. It depends on how the #jt("setter") (the person who designs the problems) bolted it on. Some modern holds and #jt("volume", body: [volumes]) (big hollow shapes bolted to the wall) have two finishes. A grippy texture marks where you should hold. A smooth finish marks where you shouldn't. This is called #jt("dual texture") #src("C49"). Read the grippy patch as an instruction. The smooth part can turn a big, easy hold into one that needs precise movement #src("C50").
 
 == Contact strength and grip endurance
 
@@ -327,6 +327,7 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
   ],
   tall: [Big hands help on wide pinches#ix("Hand size") #src("C37"). They don't help on narrow ones.],
   related: ("sidepull", "compression", "wrap", "thumb-catch"),
+  watch: (("Lattice Training", "A Deep Dive into EVERY Climbing Grip Type", "https://www.youtube.com/watch?v=HBa-ilEp4Os&t=1317s"),),
   sources: ("C11", "C31", "C34", "C35", "C36", "C37", "C38", "C42", "C43"),
 )
 
@@ -346,8 +347,8 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
     + Aim at a small mark, such as a screw hole: "aim small, miss small" #src("C18").
     + Aim with your head. Put your nose where your balanced body needs to be. A fumbled hand then has time to correct #src("C18").
     + Move your fingers one at a time while your weight is on your feet or the other hand.
-    + Change grip as your body moves past the hold, e.g. from an #tref("open-hand") to a #tref("pinch") #src("C51").
-    + To make room for a #tref("matching", body: [match]), take the hold with fewer fingers, on one side. Swap fingers across one at a time.
+    + On a long run of edges, switch between #tref("half-crimp") and #tref("open-hand"). The change rests your fingers #src("C51").
+    + To make room for a #tref("matching", body: [match]), take the hold with fewer fingers, on one side, or pinch it #src("C58"). Swap fingers across one at a time.
   ],
   when: [
     - *Look for* big holds and #jt("volume", body: [volumes]) (big hollow shapes bolted to the wall) with one good spot.
@@ -362,8 +363,11 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
     - Forgetting the lower hand. Climbers watch the reaching hand and lose the holding one #src("C42").
   ],
   related: ("matching", "half-crimp", "thumb-catch", "sloper"),
-  sources: ("C2", "C11", "C15", "C18", "C38", "C42", "C49", "C51"),
+  watch: (("Hooper's Beta", "A Radical Shift in How You Take Holds － Coaching w/ Dan #6", "https://www.youtube.com/watch?v=_E4G3tv55Cw"),),
+  sources: ("C2", "C11", "C15", "C18", "C38", "C42", "C49", "C51", "C58"),
 )
+
+#filmstrip("filmstrip-sloper.svg", [Re-gripping a sloper], [Watch the palm: it comes onto the hold only after the finger pads have dragged over the top. Then the thumb finds a spot underneath and the wrist drops below the hold.])
 
 #technique(
   key: "sloper",
@@ -434,6 +438,7 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
   ],
   tall: [Big hands reach further round a feature.],
   related: ("pinch", "compression", "arete", "volume"),
+  watch: (("Lattice Training", "A Deep Dive into EVERY Climbing Grip Type", "https://www.youtube.com/watch?v=HBa-ilEp4Os&t=2163s"),),
   sources: ("C3", "C11", "C34", "C37"),
 )
 
@@ -503,6 +508,7 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
   ],
   tall: [Large fingers fit fewer fingers into a pocket#ix("Hand size") #src("C37"). That pushes you into two-finger pockets and monos. Keep the outside fingers parallel there.],
   related: ("open-hand", "half-crimp", "regrip"),
+  watch: (("Hooper's Beta", "What No One Tells You About Climbing On Pockets (Pocket Injury)", "https://www.youtube.com/watch?v=3dd_STU3ps8"),),
   sources: ("C12", "C16", "C17", "C25", "C32", "C33", "C35", "C37", "C42"),
 )
 

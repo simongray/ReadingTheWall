@@ -13,6 +13,7 @@ def edge_side(fig, top=(0, 0), depth=1.6, height=2.2, z=-5, wall_x=None):
     pts = [(wx, y - height), (x + 0.3, y - height * 0.75), (x, y - 0.25),
            (x + 0.2, y), (wx, y + 0.05)]
     fig.poly(pts, z=z, fill=DARK, stroke=INK, sw=0.35)
+    H.xray_outline(fig, pts)
 
 
 def wall_strip(fig, x, y0, y1, z=-10):
@@ -87,8 +88,9 @@ def foot_edges_figure(path):
         while x < 15:
             f.line((x, 3.5), (x + 1.4, 6), z=-9, sw=0.18, stroke=MID)
             x += 1.2
-        f.poly([(-8, 3.5), (8, 3.5), (7.4, 0.8), (-7.4, 0.8)], z=-5, fill=DARK,
-               stroke=INK, sw=0.35)
+        hold = [(-8, 3.5), (8, 3.5), (7.4, 0.8), (-7.4, 0.8)]
+        f.poly(hold, z=-5, fill=DARK, stroke=INK, sw=0.35)
+        H.xray_outline(f, hold)
         if kind == "inside":
             # right foot turned out: big-toe side on the hold
             shoe_top(f, (-13.5, -3.6), 4, medial=+1)

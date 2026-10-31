@@ -53,7 +53,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
     + Where there are no handholds, press a flat palm on each wall at chest height. See #tref("palming") #src("E20").
     + To move up, shift your hips over one foot. Step the other foot up a short way; big steps collapse the position. Repeat on the other side (judgement).
     + If only one wall has holds, #tref("layback", body: [layback]) the edge of the corner. Walk your feet up the blank wall.
-    + Spread your feet wide to rest. Sometimes you can let go with both hands#ix("Resting on the wall") #src("E17").
+    + Spread your feet wide to rest. Often you can let go with both hands#ix("Resting on the wall") #src("E17").
   ],
   when: [
     - *Look for* two wall panels that meet at an angle, with footholds or blank faces on both sides.
@@ -249,6 +249,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   tall: [Your span lets you hold a face hold and the arête at once, which makes the opposition stronger. A long body also swings further. Set the heel hook early.],
   related: ("layback", "heel-hook", "barn-door", "opposition", "pinch", "flag", "corner"),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "26  Neil Greshams Masterclass - Aretes", "https://www.youtube.com/watch?v=juMNJz7Wn6g"),),
   sources: ("E2", "E17", "E24"),
 )
 
@@ -287,6 +288,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   tall: [Your reach lets you climb stretched out with low feet. Resist it. Bring your feet up and keep your hips under you.],
   related: ("hip-turn", "backstep", "drop-knee", "twist-lock", "straight-arms", "toe-pull", "toe-hook", "heel-hook", "body-tension", "roof"),
+  watch: (("Mani the Monkey", "How to Climb Overhangs: Techniques + Skills", "https://www.youtube.com/watch?v=FPrdTd7tMdc"),),
   sources: ("E7", "E8", "E9", "E11", "E12"),
 )
 
@@ -322,6 +324,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   tall: [Long legs reach foot hooks further from your hands. Keeping a long body flat costs more tension. Bring your feet in closer when you can.],
   related: ("toe-hook", "bicycle", "heel-hook", "knee-bar", "cutting-loose", "body-tension", "campus-move", "overhang", "top-out"),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "19  Neil Greshams Masterclass - Roofs", "https://www.youtube.com/watch?v=LNdQDLokHRY"),),
   sources: ("E5", "E7", "E13", "E15", "E20", "A12"),
 )
 

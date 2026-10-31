@@ -21,7 +21,7 @@ Good readers do not guess better. They have a method. They compare what they rea
 
 The practical point: you can't read a move you have never felt. Every new move you learn on the wall makes you a better reader.
 
-== The method, step by step
+== The method, step by step <reading-method>
 
 Run these steps at the bottom of every problem you want to climb first try. On a warm-up, steps 1 to 3 are enough.
 

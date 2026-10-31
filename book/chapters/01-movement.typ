@@ -78,7 +78,7 @@ A #jt("static")#ix("Static movement", main: true) move is one you could stop at 
 
 On steep ground your trunk connects your hands to your feet. If your trunk is slack, your feet swing off when you move a hand, however good the footholds are. #tref("body-tension") is the skill of pulling your feet into the wall with the muscles of your trunk, hips and legs #src("B71"). Your body then acts as one rigid piece between the holds. The physiotherapist Jason Hooper#ix("Hooper, Jason") argues that this is mostly technique and coordination, not raw #jt("core") strength#ix("Core!strength vs. technique") #src("B51"). Tension is why good climbers can stand on tiny footholds on an overhang. It is also why #tref("heel-hook", body: [heel hooks]) and #tref("toe-hook", body: [toe hooks]) work: they pull your body in rather than push it.
 
-== Three questions for every move
+== Three questions for every move <three-questions>
 
 #keypoint[
   + *Where is my weight?* Can I get my hips over a foot, or closer to the wall?

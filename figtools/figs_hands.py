@@ -29,7 +29,7 @@ def warn(name, *climbers):
             if DEBUG and "hand" in w:
                 s = w[0]
                 t = getattr(c, s + "h")
-                reach = (c.D["upper_arm"] + c.D["forearm"] + c.D["hand"]) * c.arm_len[s]
+                reach = c.reach(s)
                 print("   shoulder", tuple(round(v, 1) for v in c.J[s + "sh"]), "target", t,
                       "dist", round(length(sub(t, c.J[s + "sh"])), 1), "reach", reach)
 
@@ -158,6 +158,7 @@ def pocket_profile(safe, labels=True, x0=-14.5, y1=5.5, height=None, shown=H.FOR
     blk = [(WX, 4.0), (WX - 3.0, 3.5), (WX - 3.9, 2.0), (WX - 3.9, -1.6),
            (WX - 3.2, -3.8), (WX, -4.4)]
     f.smooth(blk, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.5)
+    H.xray_outline(f, blk, 0.5)
     cav = [(WX - 4.2, 1.75), (WX - 1.2, 1.85), (WX - 0.55, 0.85), (WX - 1.1, -0.15),
            (WX - 4.2, -0.2)]
     f.smooth(cav, z=-4.9, fill=PALE, stroke=INK, sw=0.3, tension=0.5)
@@ -196,9 +197,11 @@ def face_edge(f, c, w, h, rounded=False, z=-5):
     """A horizontal edge seen face-on (a long bar), centred on c."""
     x, y = c
     r = h * (0.5 if rounded else 0.25)
-    f.smooth([(x - w / 2 + r, y + h / 2), (x + w / 2 - r, y + h / 2),
-              (x + w / 2, y), (x + w / 2 - r, y - h / 2), (x - w / 2 + r, y - h / 2),
-              (x - w / 2, y)], z=z, fill=DARK, stroke=INK, sw=0.35, tension=0.5)
+    pts = [(x - w / 2 + r, y + h / 2), (x + w / 2 - r, y + h / 2),
+           (x + w / 2, y), (x + w / 2 - r, y - h / 2), (x - w / 2 + r, y - h / 2),
+           (x - w / 2, y)]
+    f.smooth(pts, z=z, fill=DARK, stroke=INK, sw=0.35, tension=0.5)
+    H.xray_outline(f, pts, 0.5)
     f.line((x - w / 2 + r, y + h * 0.3), (x + w / 2 - r, y + h * 0.3), z=z + 0.1,
            sw=0.55, stroke=WHITE)
 
@@ -239,7 +242,8 @@ def pinch_panel(kind, labels=True, x1=8.2, top=1.3, y0=None, scale=CLOSE,
         h = Hand("pinch", fingers={f_: (55, 35, 10) for f_ in "imrl"})
         cf, ct = (1.5, -2.4), (-1.5, -4.1)
         p = h.view("thumb", tilt=TILT, flip=True).place("i", cf, a0=25, k=0.65)
-        on_edge(p, cf, k=0.65, dx=0.0)
+        # the shorter fingers land further out along the face
+        on_edge(p, cf, k=0.65, dx=0.0, slide=[(1.5, -0.3), (1.5, -4.4)])
         p.thumb_to(ct, part="pad", k=0.6, facing=0)
         nf, nt = (1, 0), (-1, 0)
     elif kind == "wide":
@@ -247,7 +251,7 @@ def pinch_panel(kind, labels=True, x1=8.2, top=1.3, y0=None, scale=CLOSE,
         h = Hand("pinch", fingers={f_: (55, 15, 0) for f_ in "imrl"})
         cf, ct = (3.0, -2.2), (-3.0, -3.8)
         p = h.view("thumb", tilt=TILT, flip=True).place("i", cf, a0=20, k=0.65)
-        on_edge(p, cf, k=0.65, dx=0.0)
+        on_edge(p, cf, k=0.65, dx=0.0, slide=[(3.0, -0.3), (3.0, -4.4)])
         p.thumb_to(ct, part="pad", k=0.6, facing=0)
         nf, nt = (1, 0), (-1, 0)
     else:
@@ -262,7 +266,7 @@ def pinch_panel(kind, labels=True, x1=8.2, top=1.3, y0=None, scale=CLOSE,
         cf = add(apex, mul(rf, 5.4))
         h = Hand("pinch", fingers={f_: (20, 25, 8) for f_ in "imrl"})
         p = h.view("thumb", tilt=TILT, flip=True).place("i", cf, a0=20, k=0.6)
-        on_edge(p, cf, k=0.6, dx=0.0)
+        on_edge(p, cf, k=0.6, dx=0.0, slide=[add(apex, mul(rf, 0.4)), add(apex, mul(rf, 10.0))])
         p.thumb_to(ct, part="pad", k=0.55,
                    facing=math.degrees(math.atan2(-nt[1], -nt[0])))
     cut = p.forearm_point(shown)
@@ -273,13 +277,15 @@ def pinch_panel(kind, labels=True, x1=8.2, top=1.3, y0=None, scale=CLOSE,
     f = Fig(x0, cut[1] - 2.0 if y0 is None else y0, x1, top, scale=scale)
     wall_top(f, 0.0, x0, x1, depth=top)
     if kind == "narrow":
-        f.poly([(-1.5, 0), (-1.5, -4.6), (1.5, -4.6), (1.5, 0)], z=-5, fill=DARK,
-               stroke=INK, sw=0.35)
+        hold = [(-1.5, 0), (-1.5, -4.6), (1.5, -4.6), (1.5, 0)]
+        f.poly(hold, z=-5, fill=DARK, stroke=INK, sw=0.35)
     elif kind == "wide":
-        f.poly([(-3, 0), (-3, -4.6), (3, -4.6), (3, 0)], z=-5, fill=DARK,
-               stroke=INK, sw=0.35)
+        hold = [(-3, 0), (-3, -4.6), (3, -4.6), (3, 0)]
+        f.poly(hold, z=-5, fill=DARK, stroke=INK, sw=0.35)
     else:
-        f.poly([(-8.0, 0), apex, (8.0, 0)], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+        hold = [(-8.0, 0), apex, (8.0, 0)]
+        f.poly(hold, z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    H.xray_outline(f, hold)
     p.draw(f, z=0)
     inward(f, cf, nf)
     inward(f, ct, nt)
@@ -334,7 +340,8 @@ def thumb_catch_fig(path):
     on_up = add(ridge, mul(up, 2.2))
     h = Hand("open", fingers={f_: (25, 30, 10) for f_ in "imrl"})
     p = h.view("thumb", tilt=TILT).place("i", on_up, a0=110, k=0.6)
-    on_edge(p, on_up, k=0.6, along=math.degrees(math.atan2(up[1], up[0])), spread=0.3)
+    on_edge(p, on_up, k=0.6, along=math.degrees(math.atan2(up[1], up[0])), spread=0.3,
+            slide=[add(ridge, mul(up, 0.3)), (WX, 5.0)])
     press = add(ridge, mul(lo, 4.0))
     out = rot(lo, -90)
     p.thumb_to(add(press, mul(out, 0.05)), part="pad", k=0.6,
@@ -426,7 +433,7 @@ def hold_angle_fig(path):
         h = Hand("half", fingers={f_: (45, 90, 8) for f_ in "imrl"})
         p = h.view("thumb", tilt=TILT).place("i", pt, distal=a3, k=0.85)
         on_edge(p, pt, k=0.85, along=180 + slope, spread=0.3)
-        H.tuck_thumb(p, "half")      # clear of the finger and the edge
+        H.tuck_thumb(p, "half")      # against the index finger, as in a half crimp
         # the figure is about the edges, so it stops just below the wrist
         f = profile_frame(-9.6, y1=7.6, posed=p, shown=1.0)
         edge_profile(f, WX, 0, depth=3.2, height=3.6, slope=slope)
@@ -442,6 +449,99 @@ def hold_angle_fig(path):
         hwarn("hold angle", p)
         panels.append(f)
     combine(panels, path, gap=3, captions=[c for _, c, _, _ in specs], align="top")
+
+
+# ---------------------------------------------------------------- filmstrip
+
+# The filmstrip's hands are drawn at the hand atlas's size, so that five
+# frames fit the page width.
+FILM = CLOSE * 0.73
+
+
+def _clearance(p, surf, poly):
+    """How far the Posed hand p keeps clear of a hold (outline polyline
+    surf, closed polygon poly), in cm, negative where it cuts in: its palm,
+    its fingers, its forearm and wrist."""
+    def gap(q):
+        d = H.nearest(surf, q)[0] ** 0.5
+        return -d if H.inside(q, poly) else d
+    h = p.hand
+    palm = min(gap(p.xy(q)) for q in h.palm_solid()[::2] + h.thenar_solid()[::2])
+    fingers = min(gap(p.xy(q, f)) for f in "imrl" for s in h.finger_solids(f)[:6]
+                  for q in s[::3])
+    arm = min(gap(p.xy(q)) for q in h.forearm_solid(14)[::2] + h.wrist_solid()[::2])
+    return palm, fingers, arm
+
+
+def filmstrip_sloper(path):
+    """'In motion' strip: re-gripping a dome sloper, seen from the thumb
+    side as the other close-ups are. The fingertips catch the front of the
+    dome with the palm off it; the pads drag over the top; the palm comes
+    on; the thumb finds a spot under the hold; the wrist drops below it and
+    the arm hangs. The dome is the one the last frames' hand drapes over
+    (dome_under, as in the sloper close-up), so it is the same in every
+    frame; in the first two the hand is turned about the index finger's pad
+    until its palm stands off the dome by `gap` cm without the fingers or
+    the arm cutting into it."""
+    def hand(s, fingers=None, a0=None, gap=None, wrist=(0, 0), thumb=None):
+        """The hand with the index finger's pad s cm along the dome's
+        surface, turned to a0 or fitted to stand `gap` cm off it."""
+        pad, u = H.point_along(surf, s)
+
+        def at(a0):
+            h = Hand("sloper", fingers=fingers, wrist=wrist)
+            return h.view("thumb", tilt=TILT).place("i", pad, a0=a0, k=0.55)
+        if a0 is None:
+            def miss(a0):
+                palm, fing, arm = _clearance(at(a0), surf, poly)
+                return (palm - gap) ** 2 + 10 * (min(fing + 0.02, 0) ** 2 +
+                                                 min(arm - 0.3, 0) ** 2)
+            a0 = min(range(20, 131, 3), key=miss)
+            a0 = min((a0 + 0.5 * i for i in range(-4, 5)), key=miss)
+        p = at(a0)
+        on_edge(p, pad, k=0.55, along=math.degrees(math.atan2(-u[1], -u[0])), spread=0.32,
+                slide=surf)
+        if thumb == "tuck":
+            # against the index finger, clear of the dome
+            H.tuck_thumb(p, "half")
+        elif thumb is None:
+            p.hand.rest_thumb()
+        else:
+            # the pad pressing up on the dome's underside
+            tp, tu = H.point_along(surf, thumb)
+            p.thumb_to(tp, part="pad", k=0.6, facing=math.degrees(math.atan2(tu[0], -tu[1])))
+        return p
+    # the last frames: the hand draped as in the hand atlas's sloper
+    last = Hand("sloper").view("thumb", tilt=TILT).place("i", (WX - 1.7, 4.0), distal=15,
+                                                         k=0.55)
+    # its top rounded off where it meets the wall, which the hand no longer
+    # covers in the first frames
+    dome = [(WX, 4.7), (WX - 0.6, 4.55)] + dome_under(last)[2:]
+    surf = H.outline(dome, 0.55)
+    poly = surf + [(WX + 1, dome[-1][1]), (WX + 1, dome[0][1])]
+    s_last = H.nearest(surf, (WX - 1.7, 4.0))[1]
+    poses = [hand(5.4, {f: (35, 65, 35) for f in "imrl"}, gap=1.2, wrist=(15, 0),
+                  thumb="tuck"),
+             hand(3.6, {f: (22, 40, 28) for f in "imrl"}, gap=0.6, wrist=(10, 0),
+                  thumb="tuck"),
+             hand(s_last, a0=last.a0),
+             hand(s_last, a0=last.a0, thumb=16.5),
+             hand(s_last, a0=last.a0, thumb=16.5, wrist=(-25, 0))]
+    frames = []
+    for i, p in enumerate(poses):
+        x1 = WX + 2.4 / FILM + 0.01
+        f = Fig(x1 - 31.3 / FILM, -17.4, x1, 7.6, scale=FILM)
+        H.wall_profile(f, WX, f.y0, f.y1)
+        f.smooth(dome, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
+        H.xray_outline(f, dome, 0.55)
+        p.draw(f, z=0)
+        if i == 4:
+            f.arrow([(0.6, -7.6), (0.6, -11.4)], kind="force")
+        hwarn(f"filmstrip-sloper {i + 1}", p)
+        frames.append(f)
+    filmstrip(frames, path, captions=[
+        "catch with the fingertips", "drag the pads over", "bring the palm on",
+        "find a thumb spot below", "wrist below, hang low"])
 
 
 # ---------------------------------------------------------------- climber figures
@@ -467,7 +567,8 @@ def jug_fig(path):
             c.draw(f)
             f.label("arms bent", (58, 196), to=c.J["rel"])
         else:
-            kw = dict(shoulders=(6, 154), lean=-6, lh=g, lf={"at": stand(LF)},
+            # the body sags off the one holding arm
+            kw = dict(shoulders=(6, 154), lean=-6, bend=8, lh=g, lf={"at": stand(LF)},
                       rf={"at": stand(RF)}, leg_len={"l": .95, "r": .95})
             rsh = Climber(None, **kw).J["rsh"]
             hang = add(rsh, mul(ang(-68), 64.5))     # arm hangs straight, a little out
@@ -513,7 +614,8 @@ def sidepull_fig(path):
         else:
             # the left arm hangs straight and the right hand has only just
             # reached the jug: the left leg, pushing left, does the work
-            c = Climber((38, 120), lean=-10, lh=g, rh=grip(T),
+            # the body bows away from the sidepull
+            c = Climber((38, 120), lean=-14, bend=8, lh=g, rh=grip(T),
                         lf={"at": stand(LF)}, rf={"at": stand(RF)},
                         elbows={"l": "down", "r": "out"},
                         leg_len={"l": 1.0, "r": .95}, active=("lthigh",))
@@ -527,6 +629,33 @@ def sidepull_fig(path):
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
             captions=["under the hold: barn door", "body right of it, leaning away"])
+
+
+def _gaston_plan(f, at, s=0.7):
+    """A small top-down inset of a gaston with the right hand, centred on
+    the shoulders at `at`, `s` units per cm: the wall at the top, the
+    elbow out to the side and the forearm coming back to the hold, which
+    the hand pushes away from the body."""
+    def P(x, y):
+        return add(at, (x * s, y * s))
+    wall = 24
+    f.line(P(-24, wall), P(62, wall), sw=0.6, z=70)
+    k = -24
+    while k < 62:
+        f.line(P(k, wall), add(P(k, wall), (2, 3)), sw=0.18, stroke=MID, z=70)
+        k += 4
+    f.poly([P(30, wall), P(38, wall), P(37, wall - 3.5), P(31, wall - 3.5)], z=70,
+           fill=DARK, stroke=INK, sw=0.25)
+    shoulders = [P(22 * math.cos(math.radians(t)), 9 * math.sin(math.radians(t)))
+                 for t in range(0, 360, 20)]
+    f.smooth(shoulders, z=70, fill=WHITE, stroke=INK, sw=0.3)
+    f.circle(P(0, 1), 7.5 * s, z=71, fill=HAIR, stroke=INK, sw=0.25)
+    # the arm, shoulder to elbow to hand, as a white limb with an outline
+    arm = [P(19, 0), P(43, 1), P(34, wall - 3.5)]
+    f.poly(arm, closed=False, sw=2.8, stroke=INK, z=71)
+    f.poly(arm, closed=False, sw=2.1, stroke=WHITE, z=72)
+    f.arrow([P(48, 10), P(63, 10)], kind="force", z=73)
+    f.text("from above", P(14, -17), size=6.5)
 
 
 def gaston_fig(path):
@@ -543,7 +672,7 @@ def gaston_fig(path):
             hold(f, "jug", T)
             hold(f, "foot", LF)
             hold(f, "foot", RF)
-            c = Climber((40, 116), lean=-14, lh=g, rh=grip(T),
+            c = Climber((40, 116), lean=-18, bend=8, lh=g, rh=grip(T),
                         lf={"at": stand(LF)}, rf={"at": stand(RF)},
                         elbows={"l": "down"}, leg_len={"l": .95, "r": .9})
             c.draw(f)
@@ -573,6 +702,9 @@ def gaston_fig(path):
             f.label("thumb down", (-8, 232), to=add(g, (1.8, -6.5)))
             f.arrow([add(stand(LF), (-2, 6)), add(stand(LF), (-20, 6))], kind="force")
             f.label("body left of it", (-30, 40), size=7.5)
+            # from behind, the forearm points into the wall and shows only
+            # as a stub, so an inset shows the arm from above
+            _gaston_plan(f, (36, 42))
         f.cog(c.cog(), plumb_to=52)
         warn("gaston", c)
         panels.append(f)
@@ -628,6 +760,26 @@ def undercling_fig(path):
             captions=["hold above the head", "feet up, hold at the waist"])
 
 
+def dome_under(p, R=lambda q: q):
+    """The points of a dome sloper (drawn with tension 0.55) on a wall at
+    x = WX, turned by R with the wall, whose front follows the palm side of
+    the Posed hand p a hair inside it: the hand draped over it."""
+    h = p.hand
+    hand_side = []
+    ch = h.finger("i")
+    A3, N3, _ = ch["frames"][3]
+    for s in (1.7, 1.2, 0.6):
+        hand_side.append(p.xy(H.vadd(H.vadd(ch["dip"], H.vmul(A3, s)), H.vmul(N3, -0.68))))
+    for j, k in (("dip", 2), ("pip", 1)):
+        F = ch["frames"]
+        n = H.vnorm(H.vadd(F[k][1], F[k + 1][1]))
+        hand_side.append(p.xy(H.vadd(ch[j], H.vmul(n, -0.7))))
+    A1, N1, _ = ch["frames"][1]
+    hand_side.append(p.xy(H.vadd(H.vadd(ch["mcp"], H.vmul(A1, 1.6)), H.vmul(N1, -0.9))))
+    hand_side += [p.at(7.4, 2.8, -1.4), p.at(4.9, 2.6, -1.55)]
+    return [R((WX, 4.9))] + hand_side + [R((WX - 3.0, -5.6)), R((WX, -6.9))]
+
+
 def sloper_closeup(angle=20, scale=CLOSE, labels=True, x1=5.4, y1=9.0, distal=-15,
                    shown=H.FOREARM_SHOWN, size=None):
     """An open hand draped over a dome sloper on a wall overhanging by
@@ -650,21 +802,9 @@ def sloper_closeup(angle=20, scale=CLOSE, labels=True, x1=5.4, y1=9.0, distal=-1
     f = Fig(x1 - size[0] if size else cut[0] - 3.0, cut[1], x1, y1, scale=scale)
     x_at = lambda y: R((WX, 0))[0] - (y - R((WX, 0))[1]) * math.tan(math.radians(angle))
     wall_side(f, x_at(f.y0), f.y0, y1, angle=angle)
-    # the dome follows the palm side of the hand, a hair inside it
-    hand_side = []
-    ch = h.finger("i")
-    A3, N3, _ = ch["frames"][3]
-    for s in (1.7, 1.2, 0.6):
-        hand_side.append(p.xy(H.vadd(H.vadd(ch["dip"], H.vmul(A3, s)), H.vmul(N3, -0.68))))
-    for j, k in (("dip", 2), ("pip", 1)):
-        F = ch["frames"]
-        n = H.vnorm(H.vadd(F[k][1], F[k + 1][1]))
-        hand_side.append(p.xy(H.vadd(ch[j], H.vmul(n, -0.7))))
-    A1, N1, _ = ch["frames"][1]
-    hand_side.append(p.xy(H.vadd(H.vadd(ch["mcp"], H.vmul(A1, 1.6)), H.vmul(N1, -0.9))))
-    hand_side += [p.at(7.4, 2.8, -1.4), p.at(4.9, 2.6, -1.55)]
-    dome = [R((WX, 4.9))] + hand_side + [R((WX - 3.0, -5.6)), R((WX, -6.9))]
+    dome = dome_under(p, R)
     f.smooth(dome, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
+    H.xray_outline(f, dome, 0.55)
     h.rest_thumb()
     p.draw(f, z=0)
     f.arrow([(0.6, -6.3), (0.6, max(-10.2, f.y0 + 0.5))], kind="force")
@@ -738,7 +878,8 @@ def palming_fig(path):
     hold(f, "foot", RF0)
     hold(f, "foot", RF1)
     palm = (34, 140)
-    c = Climber((-8, 124), lean=-8, lh=grip(T), rh=palm,
+    # the right side shortens over the pressing palm
+    c = Climber((-8, 124), lean=-8, bend=6, lh=grip(T), rh=palm,
                 lf={"at": stand(LF)}, rf={"at": stand(RF0)},
                 elbows={"r": "down", "l": "out"}, hand_style={"r": "open"},
                 leg_len={"l": .95, "r": .9})
@@ -762,7 +903,7 @@ def mantle_fig(path):
         f.poly([(WX, TOP), (70, TOP), (70, TOP - f.mm(2.4)), (WX, TOP - f.mm(2.4))],
                z=-21, fill=PALE, stroke=None)
         f.line((WX, TOP), (70, TOP), z=-19, sw=0.6)
-        Fh, Fl = at(TOP - 82), at(TOP - 150)
+        Fh, Fl = at(TOP - 92), at(TOP - 150)
         hold_side(f, "foot", Fh)
         hold_side(f, "foot", Fl)
         foot_h = add(Fh, (-2.5, 2.5))
@@ -770,9 +911,10 @@ def mantle_fig(path):
         lip = (WX + 1, TOP + 1.5)
         if k == 0:
             # the arms pull, though not yet bent far enough for the default
-            # (the left arm is hidden behind the right)
-            c = Climber((-26, 114), view="side", lean=20, lh=lip, rh=lip,
-                        lf={"at": foot_l}, rf={"at": foot_h, "flip": True},
+            # (the left arm is hidden behind the right). The hips stay back
+            # and the chest upright, so the high knee has room
+            c = Climber((-20, 118), view="side", lean=6, lh=lip, rh=lip,
+                        lf={"at": foot_l}, rf={"at": foot_h},
                         leg_len={"r": 0.85}, active=("+rupper", "+rfore"))
             c.draw(f)
         elif k == 1:
@@ -780,10 +922,10 @@ def mantle_fig(path):
             flat_palm(f, palm)
             # shoulders over the lip and above the palm, so the bent elbow
             # points up and back, as the caption says
-            c = Climber(None, shoulders=(33, 227), view="side", lean=34, lh=lip,
+            c = Climber(None, shoulders=(33, 227), view="side", lean=30, bend=8, lh=lip,
                         rh=add(palm, (-1, 3)),
                         lf={"at": (6, 88), "angle": -40}, rf={"at": foot_h},
-                        leg_len={"r": 0.65})
+                        leg_len={"r": 0.8})
             c.draw(f)
             f.arrow([add(palm, (1, 16)), add(palm, (1, 5))], kind="force")
             f.label("palm flat, elbow up", (-34, 268), to=c.J["rel"])
@@ -795,7 +937,7 @@ def mantle_fig(path):
             flat_palm(f, palm2, z=-1)
             # shoulders over the hands, hips close to the lip, so the
             # weight is over the hands and the high foot
-            c = Climber((13, 226), view="side", lean=40,
+            c = Climber((13, 226), view="side", lean=34, bend=10,
                         lh=add(palm2, (-1, 3)), rh=add(palm, (-1, 3)),
                         lf={"at": (WX - 3, 150), "angle": -50, "contact": "ball"},
                         rf={"at": (WX + 13, TOP + 1), "angle": 0, "contact": "ball"},
@@ -840,7 +982,7 @@ def volume_mantle_fig(path):
             reach_to = add(sh, mul(norm(sub(add(T, (-4, -2)), sh)), 60))
             # the palm presses and the legs rock over onto the high foot
             # (the left thigh is hidden behind the right)
-            c = Climber((-8, 164), view="side", lean=5, lh=palm, rh=reach_to,
+            c = Climber((-8, 164), view="side", lean=1, bend=8, lh=palm, rh=reach_to,
                         lf={"at": foot_h}, rf={"at": foot_h},
                         leg_len={"l": 0.85, "r": 0.85}, active=("+rthigh",))
             c.draw(f)
@@ -925,6 +1067,7 @@ def atlas_jug():
            (WX - 7.2, 1.85), (WX - 6.4, 1.6), (WX - 5.6, 0.3), (WX - 2.8, -0.3),
            (WX, 0.4)]
     f.smooth(jug, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.35)
+    H.xray_outline(f, jug, 0.35)
     p.draw(f, z=0)
     pull(f, WX - 1.4, -5.6)
     hwarn("atlas jug", p)
@@ -936,16 +1079,20 @@ def atlas_undercling():
     mirrored, so the palm faces up and the wall stays on the right. The
     fingers curl up round the flake's edge, the wrist bends back a little
     and the forearm hangs down and a little out from below the hand."""
-    h = Hand("undercling")
-    pad = (WX - 2.6, -1.95)
-    p = h.view("thumb", tilt=TILT, flip=True).place("i", pad, a0=40, k=0.9)
-    on_edge(p, pad, k=0.9, along=166, spread=0.3)
+    flake = [(WX, -2.4), (WX - 5.6, -1.0), (WX - 6.8, 0.0), (WX - 6.0, 0.6),
+             (WX - 3.0, 0.5), (WX, 1.6)]
+    # the fingers curled enough for the little finger to reach the flake
+    # too, the hand far enough from the wall for the knuckles to clear it
+    h = Hand("undercling", fingers={f_: (18, 50, 25) for f_ in "imrl"})
+    under = H.outline(flake, 0.4)
+    pad = H.snap(under, (WX - 3.8, -1.6))
+    p = h.view("thumb", tilt=TILT, flip=True).place("i", pad, a0=30, k=0.9)
+    on_edge(p, pad, k=0.9, along=166, spread=0.3, slide=under)
     h.rest_thumb()
     f = profile_frame(tile_x0(), y1=top_of(p, None, TILE_H, ATLAS_ARM), posed=p,
                       shown=ATLAS_ARM)
-    flake = [(WX, -2.4), (WX - 5.6, -1.0), (WX - 6.8, 0.0), (WX - 6.0, 0.6),
-             (WX - 3.0, 0.5), (WX, 1.6)]
     f.smooth(flake, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.4)
+    H.xray_outline(f, flake, 0.4)
     p.draw(f, z=0)
     # the pull, up into the flake beside the thumb
     f.arrow([(WX - 6.2, -4.7), (WX - 6.2, -1.6)], kind="force")
@@ -958,8 +1105,7 @@ def atlas_palm():
     (GRIPS "palm") so that the forearm comes in from the lower left and
     pushes into the face. The hand slides along the face until the tile's
     left edge, ATLAS_ARM below the wrist, is where it cuts the arm; at a
-    51-degree face that leaves the fingertips just below the face's top and
-    the whole hand inside the tile."""
+    51-degree face that leaves the fingertips just below the face's top."""
     slope = 51
     u = ang(slope)
     top = (WX, 6.4)                    # where the face meets the wall
@@ -970,18 +1116,22 @@ def atlas_palm():
     def pose(d):
         pad = sub(top, mul(u, d))
         p = h.view("thumb", tilt=TILT).place("i", pad, distal=slope, k=0.6)
-        on_edge(p, pad, k=0.6, along=slope + 180, spread=0.35)
+        # the longer fingers lie on the face too, their tips short of its top
+        on_edge(p, pad, k=0.6, along=slope + 180, spread=0.35, room=(1.0 - d, 8.0))
         return p
     d = 1.8
     p = pose(d)
     d -= (x0 - p.forearm_point(ATLAS_ARM)[0]) / u[0]
     p = pose(d)
     cut = p.forearm_point(ATLAS_ARM)
-    y0 = cut[1] - 2.45             # just under the arm's palm side at the cut
+    # high enough for the fingertips; the arm's palm side leaves through
+    # the bottom edge, just inside the corner
+    y0 = cut[1] - 1.55
     f = profile_frame(x0, y0, y0 + TILE_H)
     low = sub(top, mul(u, 30))
-    f.poly([add(top, (0, 4)), top, low, (WX, low[1])], z=-12, fill=LIGHT, stroke=INK,
-           sw=0.35)
+    face = [add(top, (0, 4)), top, low, (WX, low[1])]
+    f.poly(face, z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    H.xray_outline(f, face)
     p.draw(f, z=0)
     c = p.at(5.0, 1.5, -1.8)
     f.arrow([add(c, mul(n, 4.2)), add(c, mul(n, 0.6))], kind="force", z=50)
@@ -1067,6 +1217,7 @@ def build(out):
     wrap_fig(out + "/wrap.svg")
     regrip_fig(out + "/regrip.svg")
     hand_atlas_fig(out + "/hand-atlas.svg")
+    filmstrip_sloper(out + "/filmstrip-sloper.svg")
 
 
 if __name__ == "__main__":

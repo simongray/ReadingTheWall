@@ -21,8 +21,8 @@
   #v(6mm)
   #orn-rule(width: 34mm, size: 12pt)
   #v(7mm)
-  #block(width: 82%, text(size: 14pt, style: "italic")[
-    Named techniques from A to Z: how to do them, how to tell when a problem is asking for them, and what to focus on at every grade from VB to V8+.
+  #block(width: 82%, text(size: 14pt, style: "italic", hyphenate: false)[
+    Learn to read a problem from the ground\ and work out the techniques you need to climb it.
   ])
   #v(1fr)
   #image("../figures/cover.svg")
@@ -68,6 +68,8 @@
     line(length: 18mm, stroke: 0.5pt + ink)
     v(0.5em)
     [Set in Iowan Old Style, with its small capitals and old-style figures. The ornaments are climbing holds, one for each chapter and part, drawn like those in the illustrations, which were made in Python. Typeset~with~Typst.]
+    v(0.5em)
+    [The pelican on the cover is a play on Simon Willison's test of language models, which asks them to draw a pelican riding a bicycle.]
   })
 ]
 
@@ -93,7 +95,7 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 
 *Part IV* covers your body (being tall, heavier, or starting as an adult), how technique is best learned, and how to fall safely.
 
-The *appendices* hold a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the sources and the index.
+The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the sources and the index.
 
 == Anatomy of a technique entry
 

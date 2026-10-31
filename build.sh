@@ -10,7 +10,7 @@ if git rev-parse --git-dir >/dev/null 2>&1 && git rev-parse HEAD >/dev/null 2>&1
   commit="$(git rev-parse --short HEAD)"
   [ -n "$(git status --porcelain)" ] && commit="$commit-dirty"
 fi
-typst compile --root . \
-  --input edition=draft --input date="$(date +%Y-%m-%d)" --input commit="$commit" \
-  book/main.typ "Bouldering Technique Handbook.pdf"
+set -- --input edition=draft --input date="$(date +%Y-%m-%d)" --input commit="$commit"
+typst compile --root . "$@" book/main.typ "Bouldering Technique Handbook.pdf"
 echo "wrote Bouldering Technique Handbook.pdf (draft, $commit)"
+python3 tools/check_fit.py "$@"

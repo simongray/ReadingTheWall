@@ -49,9 +49,11 @@ def tall_sit_start(path):
     hold_side(f, "jug", at(HAND_Y))
     hold_side(f, "foot", at(FOOT_Y))
     hand = add(at(HAND_Y), (-4, 3))
-    foot = add(at(FOOT_Y), (-2.5, 2.2))
-    c = Climber((2, 14), view="side", lean=-7, lh=hand, rh=hand,
-                lf={"at": foot}, rf={"at": foot}, head=(-3, -2))
+    # the back rounds over the jammed knees; the hips tip back with it,
+    # which keeps the hip fold within its limit with the heels fairly low
+    foot = {"at": add(at(FOOT_Y), (-2.5, 2.2)), "angle": 50}
+    c = Climber((2, 14), view="side", lean=-12, bend=10, lh=hand, rh=hand,
+                lf=foot, rf=foot, head=(-3, -2))
     c.draw(f)
     bum = c.local(-12, -4)
     f.arrow([(bum[0] + 18, 5), (WX - 1, 5)], kind="path")
@@ -133,23 +135,26 @@ def fall_roll(path):
 
     def p_air():
         # dropping clear of the wall: the knees stay off it
-        # pushed off a little, so the fall clears the climber on the wall
-        return Climber((-4, 106), view="side", lean=6,
+        # pushed off a little, so the fall clears the climber on the wall;
+        # the back already rounds a little as the head looks down
+        return Climber((-4, 106), view="side", lean=2, bend=8,
                        lh=(12, 150), rh=(14, 146),
                        lf={"at": (8, 32), "angle": -25},
                        rf={"at": (4, 29), "angle": -25}, head=(2, -1),
                        head_tilt=30, active=())
 
     def p_land():
-        # the left thigh is hidden behind the right
-        return Climber((12, 52), view="side", lean=24,
+        # the left thigh is hidden behind the right; the back rounds over
+        # the bending knees
+        return Climber((12, 52), view="side", lean=19, bend=10,
                        lh=(44, 92), rh=(46, 88),
                        lf={"at": (28, 0), "contact": "ball"},
                        rf={"at": (26, 0), "contact": "ball"}, head=(2, -1),
                        head_tilt=20, active=("rthigh",))
 
     def p_sit():
-        return Climber((6, 11), view="side", lean=-18,
+        # sitting back, the back rounds, ready to roll
+        return Climber((6, 11), view="side", lean=-24, bend=12,
                        lh=(34, 50), rh=(36, 46),
                        lf={"at": (40, 0), "contact": "heel", "angle": 30},
                        rf={"at": (38, 0), "contact": "heel", "angle": 30},
@@ -158,8 +163,9 @@ def fall_roll(path):
     def p_roll():
         # rounded upper back on the mat, hips lifted, knees to the chest,
         # chin tucked so the head stays off the mat, arms crossed
-        chest = Climber((12, 28), view="side", lean=-110).local(15, 32)
-        return Climber((12, 28), view="side", lean=-110,
+        chest = Climber((12, 28), view="side", lean=-116,
+                        bend=12).local(15, 32)
+        return Climber((12, 28), view="side", lean=-116, bend=12,
                        lh=add(chest, (2, 2)), rh=chest,
                        lf={"at": (18, 78), "angle": 115},
                        rf={"at": (15, 75), "angle": 115}, head=(1, 7),

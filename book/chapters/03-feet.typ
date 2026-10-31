@@ -479,6 +479,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Trying to fix it with more sit-ups and trunk exercises#ix("Core!training"). Practise tension on the wall instead #src("A40").
   ],
   related: ("toe-hook", "edging", "body-tension", "overhang", "cutting-loose"),
+  watch: (("Paradigm Climbing", "The Secret to NEVER Cutting Feet - Toe Screwing", "https://www.youtube.com/watch?v=GPKXFotN5lc"),),
   sources: ("A6", "A7", "A24", "A37", "A38", "A39", "A40"),
 )
 
@@ -551,6 +552,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - *Check:* if your pushing foot is just above a toe hook, you are already doing a bicycle #src("A14").
   ],
   related: ("toe-hook", "toe-pull", "compression", "roof"),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "15  Neil Greshams Masterclass - Bicycling", "https://www.youtube.com/watch?v=NDxhEPPrGt4"),),
   sources: ("A1", "A12", "A14", "A19", "A21", "A25", "A41"),
 )
 
@@ -579,6 +581,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Trying it without a #jt("spotter")#ix("Spotting") (a friend who guides your fall onto the mat) #src("A8").
   ],
   related: ("heel-hook", "toe-hook", "knee-bar", "volume"),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "14 Neil Greshams Masterclass - T&T Heel toe", "https://www.youtube.com/watch?v=gv2BVT2nLv4"),),
   sources: ("A1", "A8", "A12", "A33"),
 )
 

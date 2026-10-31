@@ -569,6 +569,39 @@
   [#figure(img, caption: caption, kind: image, supplement: [Figure]) #if lbl != none { label(lbl) }]
 }
 
+// ------------------------------------------------------------ fitting to pages
+
+// How many pages `body(k)`, set from `y` on the current page, takes: its
+// height is measured and a line a page is added for what page breaks cost
+// (widowed lines, blocks moved whole). It is only an estimate, since a
+// measurement isn't broken into pages, so build.sh checks it against the
+// layout with tools/check_fit.py.
+#let page-estimate(y, body) = k => {
+  let page-h = 297mm - margin-top - margin-bottom
+  let avail = 297mm - margin-bottom - y
+  let h = measure(block(width: 210mm - 2 * margin-x, probe(body(k)))).height
+  let h = h + pitch * calc.ceil(h / page-h)
+  if h <= avail { 1 } else { 1 + calc.ceil((h - avail) / page-h) }
+}
+
+// The space factor for a text and the pages it is estimated to take with
+// it: `k` if it is given, else the most space (six tenths, a third or a
+// tenth of it) with which the text comes to fewer `pages` than at full
+// space, or full space if none does.
+#let fit-space(pages, k) = {
+  if k != auto { return (k, pages(k)) }
+  let n = pages(1)
+  for k in (0.6, 0.35, 0.1) {
+    if n > 1 and pages(k) < n { return (k, pages(k)) }
+  }
+  (1, n)
+}
+
+// Markers round a fitted text (`what` is an entry's key), for
+// tools/check_fit.py.
+#let fit-start(what, est) = [#metadata((what: what, est: est))<fit-start>]
+#let fit-end = [#metadata(none)<fit-end>]
+
 // ------------------------------------------------------------ technique entry
 
 #let technique(
@@ -589,6 +622,8 @@
   related: (),
   watch: (),
   sources: (),
+  // the space factor, when the one chosen to save a page spills anyway
+  k: auto,
 ) = {
   // `aliases: ("one name")` is a string, not an array: accept both
   let aliases = if type(aliases) == str { (aliases,) } else { aliases }
@@ -733,20 +768,13 @@
   entries-running.update(true)
   context {
     // An entry is set with tighter spaces when that saves it a page, i.e.
-    // when it would otherwise spill a little onto a page of its own: the
-    // most space (six tenths, a third or a tenth of it) that does. Its
-    // height is measured each way; a line a page is added for what page
-    // breaks cost (widowed lines, blocks moved whole).
-    let page-h = 297mm - margin-top - margin-bottom
-    let avail = 297mm - margin-bottom - here().position().y
-    let pages(k) = {
-      let h = measure(block(width: 210mm - 2 * margin-x, probe(entry(k, false)))).height
-      let h = h + pitch * calc.ceil(h / page-h)
-      if h <= avail { 1 } else { 1 + calc.ceil((h - avail) / page-h) }
-    }
-    let n = pages(1)
-    let k = if n == 1 { 1 } else if pages(0.6) < n { 0.6 } else if pages(0.35) < n { 0.35 } else if pages(0.1) < n { 0.1 } else { 1 }
-    block(breakable: true, above: 0pt, below: 0pt, width: 100%, entry(k, true) + [#metadata("end")<entry-end>])
+    // when it would otherwise spill a little onto a page of its own (see
+    // `fit-space`), or with the spaces its `k` asks for.
+    let pages = page-estimate(here().position().y, k => entry(k, false))
+    let (k, est) = fit-space(pages, k)
+    fit-start(key, est)
+    block(breakable: true, above: 0pt, below: 0pt, width: 100%, entry(k, true))
+    fit-end
   }
 }
 
@@ -767,18 +795,14 @@
 // A stretch of running text that starts at a fixed place (a grade guide
 // under its head, a chapter's opening sections) and ends where a new page
 // begins. Like an entry, it is set with tighter space when that saves it
-// a page of a few lines: #fit-pages[...].
-#let fit-pages(body) = context {
-  let page-h = 297mm - margin-top - margin-bottom
-  let avail = 297mm - margin-bottom - here().position().y
-  let pages(k) = {
-    let h = measure(block(width: 210mm - 2 * margin-x, probe(spaced(k, body)))).height
-    let h = h + pitch * calc.ceil(h / page-h)
-    if h <= avail { 1 } else { 1 + calc.ceil((h - avail) / page-h) }
-  }
-  let n = pages(1)
-  let k = if n == 1 { 1 } else if pages(0.6) < n { 0.6 } else if pages(0.35) < n { 0.35 } else if pages(0.1) < n { 0.1 } else { 1 }
+// a page of a few lines (#fit-pages[...]), or with the space `k` asks for
+// (#fit-pages(k: 0.35)[...]).
+#let fit-pages(k: auto, body) = context {
+  let pages = page-estimate(here().position().y, k => spaced(k, body))
+  let (k, est) = fit-space(pages, k)
+  fit-start(none, est)
   spaced(k, body)
+  fit-end
 }
 
 // ------------------------------------------------------------ generated tables

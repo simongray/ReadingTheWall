@@ -589,23 +589,6 @@ G47:
     date: 2026-10-30
   note: "Cited via Seifert et al. (2015)"
 
-G48:
-  type: article
-  title: "Efficacy of pre-ascent climbing route visual inspection in indoor sport climbing"
-  author: ["Sanchez, Xavier", "Lambert, Ph.", "Jones, G.", "Llewellyn, D. J."]
-  date: 2012
-  page-range: "67-72"
-  serial-number:
-    doi: "10.1111/j.1600-0838.2010.01151.x"
-  parent:
-    type: periodical
-    title: "Scandinavian Journal of Medicine & Science in Sports"
-    volume: 22
-  url:
-    value: "https://doi.org/10.1111/j.1600-0838.2010.01151.x"
-    date: 2026-10-30
-  note: "Cited via Seifert et al. (2015)"
-
 G49:
   type: article
   title: "The role of anxiety in perceiving and realizing affordances"
@@ -810,3 +793,14 @@ G65:
     value: "https://doi.org/10.1136/bjsports-2023-106994"
     date: 2026-10-30
   note: "Abstract checked via Europe PMC. Further co-authors not listed here"
+
+G66:
+  type: web
+  title: "Train Climbing Route Speed, Movement Cadence and Technique"
+  author: ["Vagy, Jared"]
+  date: 2023-03-29
+  parent:
+    title: "The Climbing Doctor"
+  url:
+    value: "https://theclimbingdoctor.com/train-climbing-route-speed-movement-cadence-and-technique/"
+    date: 2026-10-31

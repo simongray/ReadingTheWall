@@ -140,13 +140,7 @@ ROOF_Y = 232
 def roof_hold(f, x, facing=-1, y=ROOF_Y, z=-5):
     """A jug hanging from a ceiling at height y, seen from the side, its
     incut lip facing left (facing=-1) or right (+1)."""
-    shape = [(0, -4), (5, -3.5), (8, 0), (7.5, 3.5), (5.5, 2.0), (3, 1.5),
-             (0, 3)]
-    pts = [(x - facing * -yy, y - xx) for xx, yy in shape]
-    f.poly(pts, z=z, fill=DARK, stroke=INK, sw=0.3)
-    if XRAY:
-        # the part under the fingers shows through, as on hold_side()
-        f.poly(pts, z=XRAY_Z, **XRAY_STYLE)
+    hold_side(f, "jug", (x, y), z=z, frame=((0, -1), (facing, 0)))
 
 
 def roof_room(f, x0, x1, back=None):
@@ -253,8 +247,10 @@ def hold_orientation(path):
     hold(f, "jug", J)
     for p in (LF, RF):
         hold(f, "foot", p)
-    # both arms hang nearly straight: leaning away, the skeleton holds
-    c = Climber((-6, 118), lean=-12, lh=grip(J), rh=grip(S, use=0),
+    # both arms hang nearly straight: leaning away, the skeleton holds.
+    # The body bows away from the sidepull: the hips lean out to the left
+    # and the chest bends back toward the hold
+    c = Climber((-6, 118), lean=-16, bend=8, lh=grip(J), rh=grip(S, use=0),
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
                 elbows={"l": "out", "r": "down"}, head=(-1, 0), active=())
     c.draw(f)
@@ -273,7 +269,8 @@ def hold_orientation(path):
     hold(f, "jug", J)
     for p in (LF, RF):
         hold(f, "foot", p)
-    c = Climber((2, 122), lean=2, lh=grip(J), rh=grip(U, use=270),
+    # the right side bends over the undercling, the left stretches up
+    c = Climber((2, 122), lean=-1, bend=6, lh=grip(J), rh=grip(U, use=270),
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
                 elbows={"l": "out", "r": "down"}, head=(1, 0))
     c.draw(f)
@@ -293,7 +290,9 @@ def hold_orientation(path):
     hold(f, "jug", J)
     for p in (LF, RF):
         hold(f, "foot", p)
-    c = Climber((-2, 118), lh=grip(J), rh=add(grip(G, use=180), (0, -4)),
+    # the chest bends a little toward the gaston, staying close to it
+    c = Climber((-2, 118), lean=-2, bend=6, lh=grip(J),
+                rh=add(grip(G, use=180), (0, -4)),
                 lf={"at": stand(LF)}, rf={"at": stand(RF)},
                 elbows={"l": "out", "r": "out"}, head=(1, 0))
     c.draw(f)
@@ -456,8 +455,9 @@ def dynamic_slab(path):
     S2 = (104, 270)
     hold(f, "sloper", S1, size=0.8)
     hold(f, "sloper", S2, size=0.8)
-    # start (ghost): crouched on volume A, left hand on its sloper
-    g = Climber((-82, 140), lean=6, lh=grip(S1, kind="sloper"),
+    # start (ghost): crouched on volume A, left hand on its sloper, the
+    # chest bending right, toward the jump
+    g = Climber((-82, 140), lean=2, bend=8, lh=grip(S1, kind="sloper"),
                 rh=(-40, 158), lf={"at": (-108, 72)}, rf={"at": (-62, 72)},
                 elbows={"r": "down"})
     g.draw(f, ghost=True)
@@ -465,8 +465,10 @@ def dynamic_slab(path):
     # sloper, left foot set on B's left facet
     RFt = (86, 94)
     LFt = (46, 90)
-    # the open left hand only balances
-    c = Climber((76, 172), lean=6, lh=(32, 196), rh=grip(S2, kind="sloper"),
+    # the open left hand only balances; the right side stretches up to the
+    # sloper, so the chest bends back left over the hips, which sink a
+    # little so the right arm stays nearly straight
+    c = Climber((76, 170), lean=10, bend=-8, lh=(32, 196), rh=grip(S2, kind="sloper"),
                 lf={"at": LFt}, rf={"at": RFt, "angle": 0},
                 elbows={"l": "down"}, knees={"l": "out", "r": "out"},
                 hand_style={"l": "open"}, head=(2, 1),
@@ -611,11 +613,12 @@ def arete(path):
             # arms, the fingers wrapped round the edge; the toes press on
             # two small footholds on the side face (seen obliquely, so
             # narrower). The legs push and do the work; the arms hang on
-            # the edge nearly straight
+            # the edge nearly straight. Between them the back rounds, the
+            # chest curling toward the edge
             LF, RF = (E + 15, 50), (E + 17, 76)
             for p in (LF, RF):
                 hold(f, "foot", sub(p, (0, 2.2)), w=5.5)
-            c = Climber((-6, 112), turn=-0.85, lean=-14,
+            c = Climber((-6, 112), turn=-0.85, lean=-18, bend=8,
                         lh=(E - 1, 164), rh=(E - 1, 194),
                         lf={"at": LF, "angle": 30, "contact": "ball"},
                         rf={"at": RF, "angle": 30, "contact": "ball"},
@@ -629,7 +632,7 @@ def arete(path):
             # left of the edge: the side face is too narrow for it
             f.label("feet push right", (4, 36), size=7.5)
         else:
-            J = (-32, 206)
+            J = (-36, 217)
             LF = (-18, 60)
             hold(f, "jug", J)
             hold(f, "foot", LF)
@@ -637,14 +640,15 @@ def arete(path):
             hold(f, "foot", (-54, 42))
             # the heel round the edge just below hip height: the knee
             # raised and pointing up and out like the toes, the shin coming
-            # down to the ankle on top of the shoe. The shoe is the right
-            # way up (its top faces the hip, so no "flip": the foot is not
-            # above the hip), heel on the side face, toes pulled up and
-            # out. The thigh and shin point partly toward the wall, so
-            # they are a little shortened
+            # down to the ankle on top of the shoe. The top of the shoe faces
+            # the knee, heel on the side face, toes pulled up and out. The
+            # thigh and shin point partly toward the wall, so they are a
+            # little shortened. The hook rests the arms, so they hang nearly
+            # straight; it hikes the right hip, and the right side bends
+            # over it
             heel = (E + 6, 100)
-            c = Climber((0, 114), turn=0.3, lean=-6, lh=grip(J),
-                        rh=(E - 1, 194), lf={"at": stand(LF)},
+            c = Climber((0, 114), turn=0.3, lean=-9, bend=6, lh=grip(J),
+                        rh=(E - 1, 220), lf={"at": stand(LF)},
                         rf={"at": heel, "angle": 35, "contact": "heel"},
                         leg_len={"r": (0.85, 0.85)},
                         elbows={"r": "down"}, knees={"r": "up"}, head=(2, 1),
@@ -757,9 +761,9 @@ def volume_fig(path):
 # pressing out at the lip of a vertical wall (lip at x=40, y=200), right
 # foot on top beside the hands. Its knee points out to the side, toward
 # us, so that leg is foreshortened and drawn in front of the arm. The
-# straight arms press, so they work. Shared by the top-out figure and its
-# filmstrip.
-TOP_OUT_PRESS = dict(pelvis=(16, 232), lean=48, lh=(64, 202), rh=(58, 202),
+# straight arms press, so they work. The chest curls over the hands.
+# Shared by the top-out figure and its filmstrip.
+TOP_OUT_PRESS = dict(pelvis=(16, 232), lean=42, bend=12, lh=(64, 202), rh=(58, 202),
                      leg_len={"r": 0.85},
                      rf={"at": (46, 201), "contact": "ball", "angle": -10},
                      order=["lleg", "larm", "torso", "rarm", "rleg"],
@@ -781,18 +785,20 @@ def top_out(path):
     # heel onto a lip: the thigh rises from the hip, the knee bends a
     # little and points down and out, and the shin reaches up and out to
     # the heel, which sits on the edge of the top with the toes pointing
-    # out and up (sole down: "flip" keeps the top of the shoe facing away
-    # from the hip). The shin points a little into the wall, so it is a
+    # out and up. The shin comes toward us, so the sole is down although
+    # the knee is below the heel: "flip" turns the top of the shoe away
+    # from the knee. The shin points a little into the wall, so it is a
     # little shortened. The heel is well outside the right hand, so the
     # arm and leg stay apart. The hands grip the lip at shoulder height,
     # elbows down; the forearms point into the wall, so the arms are
     # shortened. The left foot is high: a frog leg whose knee points out
     # and a little toward the wall, so its thigh is shortened. The arms
-    # and the heel pull together.
+    # and the heel pull together; the heel hikes the right hip, and the
+    # right side bends over it to keep the shoulders level.
     LF = (-38, 112)
     HEEL = (66, LIP + 1)
     hold(a, "foot", LF)
-    c = Climber((2, 156), lean=-6, lh=(-44, LIP + 4), rh=(34, LIP + 4),
+    c = Climber((2, 156), lean=-10, bend=8, lh=(-44, LIP + 4), rh=(34, LIP + 4),
                 lf={"at": stand(LF)},
                 rf={"at": HEEL, "contact": "heel", "angle": 32, "flip": True},
                 knees={"l": "out", "r": "down"},
@@ -842,8 +848,9 @@ def traverse(path):
     # the left arm reaches across under the chin (hidden by the head, which
     # tips left out of its way) and over the right arm at forehead height
     # to C. Drawn in that order: right arm, left arm, then the body over
-    # both arms' roots
-    c = Climber((18, 116), lean=4, turn=-0.7, lh=grip(C), rh=grip(B),
+    # both arms' roots. The chest bends right, toward the crossing reach,
+    # the left side stretched
+    c = Climber((18, 116), lean=1, bend=6, turn=-0.7, lh=grip(C), rh=grip(B),
                 lf={"at": (78, 56), "angle": -20, "contact": "ball"},
                 rf={"at": stand(RF)},
                 order=["lleg", "rarm", "larm", "torso", "rleg"],
@@ -879,8 +886,9 @@ def sit_start(path):
             # left foot on its inside edge out to the side, ready to push.
             # Both shins point toward the wall, so they are shortened. The
             # outside-edge leg takes a share of the first pull, and the
-            # right arm hangs nearly straight
-            c = Climber((-8, 15), turn=0.8, lean=-4, lh=grip(L), rh=grip(R),
+            # right arm hangs nearly straight, its side stretched: the
+            # chest bends left over the level hips
+            c = Climber((-8, 15), turn=0.8, lean=0, bend=-8, lh=grip(L), rh=grip(R),
                         lf={"at": stand(LF)},
                         rf={"at": stand(RF), "angle": 180},
                         knees={"l": "up", "r": "up"},
@@ -938,15 +946,17 @@ def filmstrip_top_out(path):
     # the pelvis sits far enough from the face that the knees, which bend
     # toward the wall, stay clear of it
     poses = [
-        # 1 hang on straight arms, feet high
-        dict(pelvis=(-12, 130), lean=-4, lh=lip, rh=lip,
+        # 1 hang on straight arms, feet high: the back rounds
+        dict(pelvis=(-12, 130), lean=-8, bend=8, lh=lip, rh=lip,
              lf=toe(FA, -30), rf=toe(FB, -35)),
-        # 2 pull and walk the feet up until the chest is at the lip
-        dict(pelvis=(-9, 164), lean=30, lh=lip, rh=lip,
+        # 2 pull and walk the feet up until the chest is at the lip, the
+        # chest curling toward it
+        dict(pelvis=(-9, 164), lean=25, bend=10, lh=lip, rh=lip,
              lf=toe(FB), rf=toe(FC)),
         # 3 right hand flipped to a palm on top, elbow up (the arm turns
-        # out of the side-view plane, so the joints are set by hand)
-        dict(pelvis=(-11, 202), lean=40, lh=lip, rh=(48, TOP + 2),
+        # out of the side-view plane, so the joints are set by hand); the
+        # chest curls over the lip
+        dict(pelvis=(-11, 202), lean=35, bend=10, lh=lip, rh=(48, TOP + 2),
              lf=toe(FC), rf=smear(146, -40), anatomy=False,
              elbows={"l": "down", "r": "up"},
              knees={"l": "right", "r": "right"}),
@@ -954,8 +964,8 @@ def filmstrip_top_out(path):
         # (TOP_OUT_PRESS); the left leg hangs nearly straight to its
         # foothold, so its knee stays off the lip
         dict(TOP_OUT_PRESS, lf=toe(FC, -35)),
-        # 5 rock over the right foot and stand up
-        dict(pelvis=(36, 284), lean=26, lf=smear(190, -50),
+        # 5 rock over the right foot and stand up, the chest still over it
+        dict(pelvis=(36, 284), lean=22, bend=8, lf=smear(190, -50),
              rf={"at": (56, TOP + 1), "contact": "ball", "angle": 0},
              active=("+rthigh",)),
     ]
@@ -1009,13 +1019,17 @@ def filmstrip_worked_problem(path):
         # from it, the left hip turned in. Both holds are near shoulder
         # height, so both arms reach forward to the wall and are shortened;
         # the right elbow hangs below the sidepull. The left foot rolls
-        # from its toe on to its inside edge as the climber stands
-        dict(pelvis=(27, 124), lean=-6, turn=-0.7, lh=wp_grip("S"),
+        # from its toe on to its inside edge as the climber stands. As in
+        # the sidepull of the hold-orientation figure, the body bows away
+        # from R1, the chest bending back toward it
+        dict(pelvis=(27, 124), lean=-9, bend=6, turn=-0.7, lh=wp_grip("S"),
              rh=wp_grip("R1"), lf=stand_(LF0), rf=stand_(RF1),
              arm_len={"l": 0.7, "r": 0.8}, elbows={"l": "out", "r": "down"},
              used={"S", "R1", LF0, RF1}),
-        # 3 left hand to L2, right hand to R3 on a straight arm; left foot up
-        dict(pelvis=(28, 130), lean=-8, lh=wp_grip("L2"), rh=wp_grip("R3"),
+        # 3 left hand to L2, right hand to R3 on a straight arm; left foot
+        # up. Resting on R3, the body sags left away from it, the right
+        # side stretched
+        dict(pelvis=(28, 130), lean=-4, bend=-8, lh=wp_grip("L2"), rh=wp_grip("R3"),
              lf=stand_(LF1), rf=stand_(RF1), used={"L2", "R3", LF1, RF1}),
         # 4 stand up on the high right foot, left hand crosses to L4. R3 is
         # level with the face here, so the left hip starts to turn in
@@ -1023,8 +1037,9 @@ def filmstrip_worked_problem(path):
         # right hand holds R3 beside the face, the arm pointing into the
         # wall and so drawn short, its hand behind the head; the crossing
         # left arm passes between the face and the wall. The high knee goes
-        # toward the wall, so that shin is shortened too
-        dict(pelvis=(36, 178), lean=4, turn=-0.5, lh=wp_grip("L4"),
+        # toward the wall, so that shin is shortened too. The chest bends
+        # right, toward the cross, the left side stretched
+        dict(pelvis=(36, 178), lean=0, bend=6, turn=-0.5, lh=wp_grip("L4"),
              rh=wp_grip("R3"), lf=stand_(LF1), rf=stand_(WP_HRF),
              allow_cross=True, head=(-10, -4), head_tilt=-30,
              elbows={"l": "up", "r": "down"}, arm_len={"r": 0.45},
@@ -1035,8 +1050,9 @@ def filmstrip_worked_problem(path):
         # R5 between the arms, the right arm reaches up from its own
         # shoulder with the elbow out, and the left arm still crosses in
         # front of the chest to L4 (hidden by the turned torso). The
-        # arrow shows the left hand's last move, from L4 to the finish
-        dict(pelvis=(34, 214), lean=8, turn=-0.6, lh=wp_grip("L4"),
+        # arrow shows the left hand's last move, from L4 to the finish.
+        # The slapping side stretches: the chest bends back left
+        dict(pelvis=(34, 214), lean=12, bend=-8, turn=-0.6, lh=wp_grip("L4"),
              rh=wp_grip("R5"), lf=stand_(LF2, 180), rf=stand_(WP_HRF),
              allow_cross=True, elbows={"l": "down", "r": "out"},
              used={"R5", "L4", LF2, WP_HRF},

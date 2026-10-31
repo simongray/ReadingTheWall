@@ -260,9 +260,9 @@ C24:
   serial-number:
     doi: "10.1055/s-0030-1267230"
   url:
-    value: "https://thieme-connect.de/products/ejournals/html/10.1055/s-0030-1267230"
+    value: "https://thieme-connect.de/products/ejournals/abstract/10.1055/s-0030-1267230"
     date: 2026-10-30
-  note: "Abstract checked via search excerpts; the publisher page refused automated fetch."
+  note: "Abstract checked on the publisher's page."
 
 C25:
   type: article
@@ -571,23 +571,23 @@ C51:
   type: web
   title: "Handholds and Grip Technique – Part 1"
   author: ["Gresham, Neil"]
+  date: 2019-03-27
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/page.php?id=11848"
     date: 2026-10-30
-  note: "Paywalled; content checked via search excerpts of parts 1 and 3."
 
 C52:
   type: web
-  title: "Neil Gresham Technique and Training"
+  title: "Using Undercuts and Sidepulls"
   author: ["Gresham, Neil"]
+  date: 2019-08-08
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/page.php?id=12172"
     date: 2026-10-30
-  note: "Paywalled; quote taken from a search excerpt."
 
 C56:
   type: web
@@ -596,9 +596,9 @@ C56:
   parent:
     title: "Atomik Climbing Holds"
   url:
-    value: "https://atomikclimbingholds.com/how-to-use-the-nine-basic-types-of-climbing-handholds"
+    value: "https://web.archive.org/web/20250818012022/https://www.atomikclimbingholds.com/how-to-use-the-nine-basic-types-of-climbing-handholds"
     date: 2026-10-30
-  note: "Manufacturer blog. Refused automated fetch; content checked via search excerpts."
+  note: "Manufacturer blog. The live page has since been rewritten without the palming section, so this is the Wayback copy of 18 August 2025."
 
 C57:
   type: web
@@ -610,3 +610,14 @@ C57:
     value: "https://www.thecrag.com/en/article/glossary/gaston"
     date: 2026-10-30
   note: "Glossary entry. Refused automated fetch; content checked via search excerpts."
+
+C58:
+  type: web
+  title: "Handholds and Grip Technique – Part 3"
+  author: ["Gresham, Neil"]
+  date: 2019-06-05
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/page.php?id=12008"
+    date: 2026-10-31

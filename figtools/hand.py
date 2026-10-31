@@ -26,11 +26,12 @@ deviates toward the thumb (`dev`).
 Views (`Hand.view`):
 - "thumb": from the thumb side, the standard profile. The palm faces right
   (toward the wall in the side-view convention), the index finger is in
-  front, white, and the other fingers are drawn behind it as one pale grey
-  shape, stepped a little aside (STAGGER) so that their tips show. tilt
-  turns the back of the hand toward you.
+  front, white, and the other fingers are drawn behind it, each with its
+  own outline in a grey one step darker than the finger in front of it
+  (BACK_FILLS), stepped a little aside (STAGGER) so that their tips show.
+  tilt turns the back of the hand toward you.
 - "little": from the little-finger side, palm facing right; the fingers
-  behind are pale grey and the thumb grey.
+  behind are grey as from the thumb side, and the thumb is grey too.
 - "back": the back of the hand, thumb on the left when the fingers point up.
 - "palm": the palm, thumb on the right.
 `a0` is the screen direction of the hand (wrist to knuckles) and `flip`
@@ -57,11 +58,14 @@ Typical use (a half crimp on an edge whose top meets the wall at WX, 0):
 place() puts a finger pad on a page point with the hand at a0 (or with the
 last segment pointing along `distal`); reach() and thumb_to() solve finger
 and thumb joints for a contact point, as close as they can to the pose the
-digit started in; forearm_point() is where a close-up's frame cuts the arm
-(FOREARM_SHOWN below the wrist, the same in every close-up; profile_frame
-takes the Posed hand for that); joint(), angle(), surface() and at()
-read page points back for labels and arrows. grip_profile() draws the
-standard side views of the open hand, half crimp, full crimp and thumb lock.
+digit started in; on_edge() sets the other fingers on the same hold, a
+short finger sliding along the hold's surface (a polyline, e.g. from
+outline()) to where it reaches it; forearm_point() is where a close-up's
+frame cuts the arm (FOREARM_SHOWN below the wrist, the same in every
+close-up; profile_frame takes the Posed hand for that); joint(), angle(),
+surface() and at() read page points back for labels and arrows.
+grip_profile() draws the standard side views of the open hand, half crimp,
+full crimp and thumb lock.
 """
 
 import math
@@ -73,6 +77,9 @@ HAND_SCALE = 2.6        # paper mm per cm, for every hand close-up in the book
 
 OUTLINE = 0.34          # outline weights in mm, as elsewhere in the book
 BACK_SW = 0.26          # the fingers behind the front one in a side view
+# their greys, nearest first: one step apart on the e-ink panel's 16 greys
+# (#000000, #111111, ... #ffffff), so that each finger reads on its own
+BACK_FILLS = ("#dddddd", "#cccccc", "#bbbbbb")
 FINE = 0.20             # lines between fingers that touch
 DETAIL = 0.24           # nails
 
@@ -795,6 +802,12 @@ STAGGER = (0.15, 0.3, 0.45)
 # shows a little less, the same in every tile.)
 FOREARM_SHOWN = 5.5
 SHEAR_DIR = (1.0, -0.3)
+# A finger set on a hold (on_edge) that can reach its spot only by bending
+# more than SLIDE_BEND degrees (summed over its three joints) away from the
+# grip slides along the hold's surface instead, each cm of sliding costing
+# as much as SLIDE_COST of bending (see Posed.reach).
+SLIDE_BEND = 45.0
+SLIDE_COST = 0.004
 
 
 def _extent(polys, m, n):
@@ -960,12 +973,20 @@ class Posed:
         return self.xy(vsub(WRIST, vmul(u, s)))
 
     # -- solving
-    def reach(self, f, target, dip=None, k=0.8, lock=None):
+    def reach(self, f, target, dip=None, k=0.8, lock=None, slide=None, room=None):
         """Bend finger f so that its pad lands on page point `target`,
         keeping as close as it can to the pose it started in: the middle
         joint gives most and the knuckle least. dip, if given, fixes the end
         joint; lock=(lo, hi) limits the middle joint. Returns the miss in
         cm.
+
+        slide: the hold's surface near the target, as a page direction
+        (degrees; a straight face) or a page polyline (a curved one). The
+        pad then lands on that surface wherever the finger meets it nearest
+        its starting pose and the target, and within `room` (cm along the
+        surface from the target) if given: a short finger lands nearer the
+        palm instead of straightening to reach. The miss is then its
+        distance from that stretch of surface.
 
         Three joints for one point leave a degree of freedom over, which
         goes on staying near the starting pose: a finger beside the front
@@ -974,6 +995,18 @@ class Posed:
         mcp0, pip0, dip0, spl = self.hand.f[f]
         free = dip is None
         lo, hi = lock or RANGE["pip"]
+        line = _surface(slide, target) if slide is not None else None
+        s0 = nearest(line, target)[1] if line else 0.0
+
+        def off(pt):
+            """Squared miss of page point pt, and how far along the surface
+            from the target it lies."""
+            if line is None:
+                d = sub(pt, target)
+                return d[0] ** 2 + d[1] ** 2, 0.0
+            d2, s = nearest(line, pt)
+            a = s - s0
+            return d2 + (penalty(a, *room) if room else 0.0), a
 
         def joints(q):
             return (q[0], q[1], q[2] if free else dip)
@@ -981,7 +1014,8 @@ class Posed:
         def cost(q):
             m, p, d = joints(q)
             pt = self.xy(pad_point(None, f, k, finger_chain(f, m, p, d, spl)), f)
-            e = (pt[0] - target[0]) ** 2 + (pt[1] - target[1]) ** 2
+            e, a = off(pt)
+            e = 4 * e + SLIDE_COST * a * a if line else e
             e += 4 * (penalty(m, *RANGE["mcp"]) + penalty(p, lo, hi) +
                       penalty(d, *RANGE["dip"]))
             return e + 1e-5 * (8 * (m - mcp0) ** 2 + (p - pip0) ** 2 + 2 * (d - dip0) ** 2)
@@ -997,7 +1031,7 @@ class Posed:
         d = min(max(d, RANGE["dip"][0]), RANGE["dip"][1])
         self.hand.f[f] = (m, p, d, spl)
         pt = self.xy(pad_point(self.hand, f, k), f)
-        return length(sub(pt, target))
+        return math.sqrt(off(pt)[0])
 
     def thumb_to(self, target, part="pad", depth=None, keep=(), k=0.65, prefer=None,
                  weight=1.0, facing=None):
@@ -1059,14 +1093,15 @@ class Posed:
         return length(sub(self.xy(thumb_point(ch, part, k)), target))
 
     # -- drawing
-    def draw(self, fig, z=0.0, front=None, fill=WHITE, back_fill=PALE, ghost=False,
+    def draw(self, fig, z=0.0, front=None, fill=WHITE, back_fill=None, ghost=False,
              thumb_front=None, details=True, forearm=32.0, hide=(), others="copy"):
         """Draw the hand, always with its thumb. front: the finger drawn in
         front in a side view (default the view's front finger). others, in
-        a side view: which fingers to draw behind it, merged into one pale
-        shape (back_fill) with one outline: "copy" or "all" (the default)
-        all of them, "none" none, or a string of finger names (a pocket,
-        where the finger in the hole is the subject). From the little-finger
+        a side view: which fingers to draw behind it, each in its own grey
+        (back_fill: one grey, or three, nearest first; default BACK_FILLS)
+        with its own outline: "copy" or "all" (the default) all of them,
+        "none" none, or a string of finger names (a pocket, where the
+        finger in the hole is the subject). From the little-finger
         side the thumb, behind the hand, is a darker grey. thumb_front: in a
         back or palm view, whether the thumb lies in front of the palm
         (default: decided from its depth). hide: fingers not to draw (back
@@ -1103,8 +1138,9 @@ class Posed:
             main.append(P(h.knuckle_solid(front, chains[front])))
             if kind == "little":
                 thumb_layer = layer(tsol, LIGHT, sw_back)
-            # the fingers behind the front one: one shape, so that they read
-            # as the rest of the hand rather than as a stack of outlines
+            # the fingers behind the front one, farthest first, each with
+            # its own outline and a grey one step darker than the finger in
+            # front of it (BACK_FILLS), so that they read as fingers
             near = [f for f in (FINGERS if kind == "thumb" else FINGERS[::-1]) if f != front]
             if others in ("copy", "all"):
                 behind = near
@@ -1115,9 +1151,13 @@ class Posed:
             self._behind = {f: [P(h.root_solid(f, chains[f]), f)] +
                             [P(s, f) for s in h.finger_solids(f, chains[f], buried=False)]
                             for f in behind}
-            if behind:
-                self._behind_layer = layer([q for f in behind for q in self._behind[f]],
-                                           back_fill, sw_back)
+            fills = back_fill or BACK_FILLS
+            if isinstance(fills, str):
+                fills = (fills,) * 3
+            self._behind_layer = {}
+            for f in reversed(behind):
+                self._behind_layer[f] = layer(self._behind[f], fill if ghost else
+                                              fills[near.index(f)], sw_back)
             layer(main, fill, sw_out)
             front_layer = layer([P(s) for s in h.finger_solids(front, chains[front])], fill,
                                 sw_out, masks=[P(h.root_solid(front, chains[front]))],
@@ -1226,7 +1266,7 @@ class Posed:
             # of points just inside its outline that no nearer layer covers
             rec["behind"] = {}
             for f, polys in getattr(self, "_behind", {}).items():
-                nearer = [q for L in layers[self._behind_layer + 1:] for q in L[0]]
+                nearer = [q for L in layers[self._behind_layer[f] + 1:] for q in L[0]]
                 pts = []
                 for q in polys:
                     c = (sum(x for x, _ in q) / len(q), sum(y for _, y in q) / len(q))
@@ -1265,6 +1305,48 @@ class Posed:
                 run = []
         if len(run) > 1:
             fig.poly(run, closed=False, z=z, sw=DETAIL, fill=None)
+
+
+def _surface(slide, at):
+    """A hold's surface as a page polyline: `slide` itself, or a straight
+    line through `at` in page direction `slide` (degrees)."""
+    if isinstance(slide, (int, float)):
+        u = ang(slide)
+        return [add(at, mul(u, -40.0)), add(at, mul(u, 40.0))]
+    return list(slide)
+
+
+def nearest(line, p):
+    """Squared distance from page point p to polyline `line`, and the arc
+    length along the line to the point nearest p."""
+    best, s_best, s = 1e18, 0.0, 0.0
+    for a, b in zip(line, line[1:]):
+        ab = sub(b, a)
+        L2 = dot(ab, ab)
+        L = math.sqrt(L2)
+        t = min(max(dot(sub(p, a), ab) / L2, 0.0), 1.0) if L2 else 0.0
+        q = add(a, mul(ab, t))
+        d2 = (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
+        if d2 < best:
+            best, s_best = d2, s + t * L
+        s += L
+    return best, s_best
+
+
+def snap(line, p):
+    """The point of polyline `line` nearest page point p."""
+    return point_along(line, nearest(line, p)[1])[0]
+
+
+def point_along(line, s):
+    """The point arc length s along polyline `line` (clamped to its ends)
+    and the line's direction there."""
+    for a, b in zip(line, line[1:]):
+        L = length(sub(b, a))
+        if s <= L or b is line[-1]:
+            u = norm(sub(b, a))
+            return add(a, mul(u, min(max(s, 0.0), L))), u
+        s -= L
 
 
 def pad_point(hand, f, k=0.8, ch=None):
@@ -1360,29 +1442,56 @@ def profile_frame(x0=-10.0, y0=-9.0, y1=7.5, scale=HAND_SCALE, posed=None,
     return f
 
 
+def outline(pts, tension):
+    """The closed curve Fig.smooth draws through pts, as a page polyline
+    from the first point round to the last (leaving out the stretch back to
+    the first): a hold's surface for on_edge."""
+    k = 8
+    return Fig(0, 0, 1, 1)._smooth_pts(pts, True, tension, k)[:(len(pts) - 1) * k + 1]
+
+
+def xray_outline(f, pts, tension=None):
+    """The outline of a hold through `pts`, which shows dotted where a hand
+    or shoe covers it (see XRAY): smooth with `tension`, else straight."""
+    if not XRAY:
+        return
+    if tension is None:
+        f.poly(pts, z=XRAY_Z, **XRAY_STYLE)
+    else:
+        f.smooth(pts, z=XRAY_Z, tension=tension, **XRAY_STYLE)
+
+
+def edge_pts(wx, top, depth=2.0, height=2.6, slope=0.0, round_r=0.35):
+    """The points edge_profile draws its edge through."""
+    t = math.tan(math.radians(slope))
+    front_top = (wx - depth, top - depth * t)
+    return [(wx, top + 0.05), front_top,
+            (wx - depth - round_r * 0.4, front_top[1] - round_r),
+            (wx - depth * 0.85, top - height * 0.75), (wx, top - height)]
+
+
 def edge_profile(f, wx, top, depth=2.0, height=2.6, slope=0.0, round_r=0.35, z=-5):
     """An edge sticking out of a wall face at x=wx, seen from the side.
     `slope` tilts the top (degrees): positive slopes down and away from the
     wall, negative is incut. Returns the front corner of the top."""
-    t = math.tan(math.radians(slope))
-    front_top = (wx - depth, top - depth * t)
-    pts = [(wx, top + 0.05), front_top,
-           (wx - depth - round_r * 0.4, front_top[1] - round_r),
-           (wx - depth * 0.85, top - height * 0.75), (wx, top - height)]
+    pts = edge_pts(wx, top, depth, height, slope, round_r)
     f.smooth(pts, z=z, fill=DARK, stroke=INK, sw=0.35, tension=0.35)
-    if XRAY:     # where the hand covers the edge, its outline shows dotted
-        f.smooth(pts, z=XRAY_Z, tension=0.35, **XRAY_STYLE)
-    return front_top
+    xray_outline(f, pts, 0.35)
+    return pts[1]
+
+
+def lip_pts(wx, top, depth=2.6, height=4.0):
+    """The points rounded_lip draws its edge through."""
+    return [(wx, top + 0.05), (wx - depth * 0.45, top), (wx - depth * 0.85, top - 0.35),
+            (wx - depth, top - 1.2), (wx - depth * 0.92, top - 2.2),
+            (wx - depth * 0.55, top - height * 0.8), (wx, top - height)]
 
 
 def rounded_lip(f, wx, top, depth=2.6, height=4.0, z=-5):
     """A rounded edge (the front corner is a large radius)."""
-    pts = [(wx, top + 0.05), (wx - depth * 0.45, top), (wx - depth * 0.85, top - 0.35),
-           (wx - depth, top - 1.2), (wx - depth * 0.92, top - 2.2),
-           (wx - depth * 0.55, top - height * 0.8), (wx, top - height)]
+    pts = lip_pts(wx, top, depth, height)
     f.smooth(pts, z=z, fill=DARK, stroke=INK, sw=0.35, tension=0.8)
-    if XRAY:
-        f.smooth(pts, z=XRAY_Z, tension=0.8, **XRAY_STYLE)
+    xray_outline(f, pts, 0.8)
 
 
 # ---------------------------------------------------------------- standard grips in profile
@@ -1396,28 +1505,58 @@ def nail_point(hand, f="i", k=0.45, out=0.9):
     return vadd(vlerp(ch["dip"], ch["tip"], k), vmul(ch["frames"][3][1], out))
 
 
-def on_edge(posed, at, fingers="mrl", k=0.8, dx=0.25, along=None, spread=None):
+def on_edge(posed, at, fingers="mrl", k=0.8, dx=0.25, along=None, spread=None, slide=None,
+            room=None):
     """Bend the fingers so that their pads also sit on the hold at page
     point `at` (an edge running into the page), each `dx` cm further along
     page x. With `spread`, they fan out along the hold's surface instead,
     each `spread` cm further than the one before it in page direction
-    `along` (degrees), so that every fingertip shows beside the first."""
+    `along` (degrees), so that every fingertip shows beside the first.
+
+    A finger that can't reach its spot, or reaches it only by bending far
+    from the grip (the little finger, mostly: it is the shortest), slides
+    along the hold's surface instead (Posed.reach): `slide` is that
+    surface, a page direction (default `along`) or a page polyline, and
+    `room` the range in cm along it from `at` that the hold covers. On a
+    polyline the fingers' spots also fan out along it, `spread` cm apart
+    the way `along` points."""
+    s = slide if slide is not None else along if spread is not None else None
+    line = _surface(s, at) if s is not None else None
+    if line and spread is not None and not isinstance(s, (int, float)):
+        s_at = nearest(line, at)[1]
+        sgn = 1 if dot(point_along(line, s_at)[1], ang(along or 0.0)) >= 0 else -1
     for i, f in enumerate(fingers):
         if spread is None:
-            posed.reach(f, add(at, (dx, 0)), k=k)
+            t = add(at, (dx, 0))
+        elif line and not isinstance(s, (int, float)):
+            t = point_along(line, s_at + sgn * spread * (i + 1))[0]
         else:
-            posed.reach(f, add(at, mul(ang(along or 0.0), spread * (i + 1))), k=k)
+            t = add(at, mul(ang(along or 0.0), spread * (i + 1)))
+        f0 = posed.hand.f[f]
+        miss = posed.reach(f, t, k=k)
+        bent = sum(abs(a - b) for a, b in zip(f0[:3], posed.hand.f[f][:3]))
+        if line and (miss > 0.05 or bent > SLIDE_BEND):
+            posed.hand.f[f] = f0
+            a = nearest(line, t)[1] - nearest(line, at)[1]
+            posed.reach(f, t, k=k, slide=line, room=room and (room[0] - a, room[1] - a))
+
+
+# the holds of the profile grips, on a wall at x = WX with their tops at y = 0
+GRIP_HOLD = {"open": (lip_pts, rounded_lip, 0.8, dict(depth=2.6, height=4.2)),
+             "half": (edge_pts, edge_profile, 0.35, dict(depth=2.0, height=2.6)),
+             "full": (edge_pts, edge_profile, 0.35, dict(depth=0.8, height=2.0, slope=-12))}
 
 
 def grip_hold(fig, kind):
     """The hold for a profile grip on a wall at x = WX, its top at y = 0: a
     rounded edge ('open'), a flat edge ('half') or a small incut edge."""
-    if kind == "open":
-        rounded_lip(fig, WX, 0, depth=2.6, height=4.2)
-    elif kind == "half":
-        edge_profile(fig, WX, 0, depth=1.5, height=2.4)
-    else:
-        edge_profile(fig, WX, 0, depth=0.8, height=2.0, slope=-12)
+    GRIP_HOLD[kind][1](fig, WX, 0, **GRIP_HOLD[kind][3])
+
+
+def grip_surface(kind):
+    """The surface of grip_hold's hold, as a page polyline (see on_edge)."""
+    pts, _, tension, kw = GRIP_HOLD[kind]
+    return outline(pts(WX, 0, **kw), tension)
 
 
 def grip_pose(kind, tilt=TILT):
@@ -1426,39 +1565,46 @@ def grip_pose(kind, tilt=TILT):
     (half crimp), 'full' (full crimp) or 'lock' (full crimp, the thumb over
     the index nail). The thumb rests unless the grip uses it. Returns the
     Posed."""
+    hold = kind if kind in ("open", "half") else "full"
+    surf = grip_surface(hold)
     if kind == "open":
         h = Hand("open")
-        pad, k, a0 = (WX - 1.25, 0.72), 0.6, 100
-        along, spread = 172, 0.3
+        pad, k, a0 = snap(surf, (WX - 1.25, 0.0)), 0.6, 100
+        along, spread, room = 172, 0.4, (-0.8, 2.6)
     elif kind == "half":
         h = Hand("half")
         pad, k, a0 = (WX - 0.85, 0.0), 0.85, 95
-        along, spread = 180, 0.3
+        along, spread, room = 180, 0.36, (-0.6, 1.1)
     else:
         h = Hand("full", fingers={"i": (45, 105, -18)} if kind == "lock" else None)
-        pad, k, a0 = (WX - 0.55, 0.1), 0.9, 95
-        along, spread = 168, 0.22
+        pad, k, a0 = snap(surf, (WX - 0.55, 0.1)), 0.9, 95
+        along, spread, room = 168, 0.08, (-0.3, 0.24)
     p = h.view("thumb", tilt=tilt).place("i", pad, a0=a0, k=k)
-    # the other fingers on the same hold, fanned out toward its front
-    on_edge(p, pad, k=k, along=along, spread=spread)
+    # the other fingers on the same hold, fanned out toward its front so
+    # that their tips show beside the index finger's
+    on_edge(p, pad, k=k, along=along, spread=spread, slide=surf, room=room)
     if kind == "lock":
         n = nail_point(h)
         # the pad near the thumb tip, so the tip ends at the wall, not in it
         p.thumb_to(p.xy(n), part="pad", k=0.8, depth=p.depth(n))
     else:
-        # the thumb rests low and back along the palm side, clear of the
-        # index finger, the angle arcs and the edge these views exist to show
+        # the thumb rests clear of the middle and end joints, the angle
+        # arcs and the edge, which these views exist to show
         tuck_thumb(p, kind)
     return p
 
 
 def tuck_thumb(posed, kind):
     """Rest the thumb of a drag ('open'), half crimp ('half') or full crimp
-    ('full') profile low and back along the palm side, so that the whole
-    index finger and the edge stay in view."""
+    ('full') profile clear of the index finger's middle and end joints and
+    of the edge. In a half crimp it rests against the index finger, its pad
+    on the palm side of the first segment near the knuckle, pointing along
+    it; in the others it hangs low along the palm side."""
     if kind == "half":
-        posed.thumb_to((WX - 5.0, 1.0), part="tip", weight=8,
-                       prefer=dict(pa=15, ra=55, mcp=50, ip=60))
+        ch = posed.hand.finger("i")
+        A1, N1, L1 = ch["frames"][1]
+        pt = vadd(vadd(vlerp(ch["mcp"], ch["pip"], 0.15), vmul(L1, 0.6)), vmul(N1, -0.8))
+        posed.thumb_to(posed.xy(pt), part="pad", k=0.7, depth=posed.depth(pt))
     else:
         posed.thumb_to((WX - 2.5, -3.6) if kind == "open" else (WX - 3.0, -3.5), part="tip")
 

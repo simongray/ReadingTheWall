@@ -127,53 +127,53 @@ E13:
   type: web
   title: "Technique – Heel Hooking"
   author: ["Gresham, Neil"]
-  date: 2018
+  date: 2018-10-12
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/skills/series/neil_gresham_technique_and_training/technique_-_heel_hooking-11327"
     date: 2026-10-30
-  note: "Paywalled; consulted through search-result excerpts"
 E14:
   type: web
   title: "Bouldering Skills: Topping Out"
-  author: "UKClimbing"
+  author: ["Flanagan, Dave"]
+  date: 2014-11-14
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/skills/bouldering_skills_topping_out-6849"
     date: 2026-10-30
-  note: "Paywalled; consulted through search-result excerpts"
 E15:
+  type: web
+  title: "Toe-Hooking and Clamping"
+  author: ["Gresham, Neil"]
+  date: 2019-01-07
+  parent:
+    title: "UKClimbing"
+  url:
+    value: "https://www.ukclimbing.com/articles/skills/series/neil_gresham_technique_and_training/toe-hooking_and_clamping-11552"
+    date: 2026-10-30
+E16:
   type: web
   title: "Technique – Use of the Toe"
   author: ["Gresham, Neil"]
+  date: 2018-06-28
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/page.php?id=10957"
     date: 2026-10-30
-  note: "Paywalled; consulted through search-result excerpts"
-E16:
-  type: web
-  title: "Neil Gresham Technique and Training (Article Series)"
-  author: ["Gresham, Neil"]
-  parent:
-    title: "UKClimbing"
-  url:
-    value: "https://www.ukclimbing.com/articles/skills/series/neil_gresham_technique_and_training/"
-    date: 2026-10-30
-  note: "Paywalled; consulted through search-result excerpts"
 E17:
   type: web
-  title: "Training to ... Part 3"
-  author: "UKClimbing"
+  title: "Training to Become a Better Climber – Part 3"
+  author: ["Phillips, Robbie"]
+  date: 2011-07-21
   parent:
     title: "UKClimbing"
   url:
-    value: "https://www.ukclimbing.com/articles/page.php?id=3924"
+    value: "https://www.ukclimbing.com/articles/skills/series/become_a_better_climber/training_to_part_3-3924"
     date: 2026-10-30
-  note: "Paywalled; full title not seen; consulted through search-result excerpts"
+  note: "Full title from the Wayback copy of 29 January 2013"
 E18:
   type: web
   title: "10 Tips for How to Climb Volumes"
@@ -363,7 +363,7 @@ E36:
     title: "Brain and Cognition"
     volume: 73
   url:
-    value: "https://iris.cnr.it/handle/20.500.14243/50351"
+    value: "https://doi.org/10.1016/j.bandc.2010.03.002"
     date: 2026-10-30
 E37:
   type: article
@@ -507,13 +507,13 @@ E48:
 E49:
   type: web
   title: "Making Moves: Top Tips for Routesetters"
-  author: "UKClimbing"
+  author: ["McMullan, Nate"]
+  date: 2015-06-10
   parent:
     title: "UKClimbing"
   url:
     value: "https://www.ukclimbing.com/articles/page.php?id=7406"
     date: 2026-10-30
-  note: "Paywalled; consulted through search-result excerpts"
 E50:
   type: web
   title: "Route Setting"
