@@ -14,23 +14,66 @@ section as the notes of the GitHub release.
 
 ### Errata
 <!-- - p. 37, Heel hook, step 3: "pull with the quads" → "pull with the hamstrings". -->
-- p. 11, "Climbing the worked problem", frames 1 and 4: the arms were drawn
+
+### Added
+
+### Changed
+
+### Removed
+
+## Second edition (edition-2)
+
+The second edition corrects the first edition's mistakes, listed below and
+in the book's new appendix "Corrections to the first edition". Every figure
+is redrawn: the climber has a more natural shape, the muscles at work are
+stippled, the hands have an adult's proportions, and every pose was checked
+against photographs of its technique. It also adds a one-page summary to
+use between attempts, an "In motion" filmstrip for the hands chapter and
+21 more videos.
+
+### Errata
+- p. 11, Climbing the worked problem, frames 1 and 4: the arms were drawn
   over the head, although the hands are on the wall beyond it. The head now
-  hides them, with their hidden outline dotted. In frame 4 the right arm,
-  which reaches forward to R3, is hidden by the shoulder too, and the
-  crossing left arm passes in front of the right hand.
+  hides them. In frame 4 the right arm is hidden by the shoulder too, and
+  the crossing left arm passes in front of the right hand.
 - p. 17, Rest between attempts: the long rests (10–15 minutes after a
-  30-second try, 10–25 for a long problem) are for attempts at your limit,
-  as their sources say, but the section gave them as the rest for any
-  attempt. It now says so, adds the sources' shorter rests for easier
-  problems (30–60 seconds) and for repeats of a hard one (1–3 times the
-  climbing time), and says that a session mixes the two. The
-  troubleshooting row on p. 233 says "at your limit" too.
+  30-second try, 10–25 for a long problem) were given as the rest for any
+  attempt, though their sources give them for attempts at your limit. The
+  section now says so, adds the sources' short rests for easier problems
+  (30–60 seconds) and for repeats of a hard one (1–3 times the climbing
+  time), and says that a session mixes the two. The troubleshooting row on
+  p. 233 says "at your limit" too.
+- pp. 42–43, Heel hook (b, c) and the heel hook filmstrip: at hip height
+  the toes point out to the side and only a little up, the foot pointed.
+  They were drawn 30–40° up, as for a high heel.
+- p. 51, Knee bar: the body hangs back from the locked knee instead of
+  sitting upright on the thigh.
+- p. 61, Stemming: the legs are wide and only a little bent, as the text
+  says, instead of a squat.
 - p. 69, Straight arms, common mistakes: "Hanging slack with shrugged
-  shoulders" → "Sagging onto fully straight arms with slack shoulders",
-  as the source says.
+  shoulders" → "Sagging onto fully straight arms with slack shoulders", as
+  the source says.
+- p. 77, Bumping: the text says to keep the holding arm straight, but it
+  was drawn bent at about 90°.
+- pp. 85–86, Drop knee and its filmstrip: the dropped foot points out
+  along the wall, rolled onto its outside edge with the sole facing up, on
+  a foothold at hip height as the text says. It was drawn pointing down, on
+  a foothold at knee height.
 - p. 98, dual texture: "The smooth part can turn a big hold into a hard
   one" → "…a big, easy hold into one that needs precise movement".
+- pp. 104, 164 and 217: a foot at or above the hip was drawn sole up, in
+  Mantle (frame 1), Pogo and the sit start for tall climbers (a). The top
+  of a shoe now always faces the shin.
+- p. 110, Half crimp: the half crimp was drawn as a claw. The base knuckles
+  were bent 70°, so they sat above the edge and the fingers hooked down
+  over it. In a half crimp the hand hangs below the edge, the first finger
+  segments rise almost in line with the back of the hand, and the middle
+  and end segments lie on the edge, pointing into the wall. Its thumb
+  pointed back toward the climber; it now rests beside the index finger,
+  as the text says. The same half crimp is redrawn on p. 60 (Matching),
+  p. 97 (positive and negative holds), p. 98 (the hand positions plate) and
+  p. 114 (Re-gripping). The open hand, half crimp and full crimp now match
+  photographs taken from the thumb side.
 - p. 114, Re-gripping, how to do it: the step "Change grip as your body
   moves past the hold" had no support in its source. It now says to switch
   between half crimp and open hand on a long run of edges to rest the
@@ -38,12 +81,35 @@ section as the notes of the GitHub release.
 - p. 130, where "deadpoint" comes from: "Güllich studied the idea in the
   1980s" → "By 1987, Güllich was studying how to use the deadpoint", the
   date its source gives.
+- pp. 143 and 150, the dyno: the captions say "eyes on target" during the
+  sink, but the head faced the wall. It now tips back to look at the
+  target.
+- p. 148, Latching (b): the fingers behind the index hung in front of the
+  jug. They now hook into it.
+- p. 154, Campus move (a): the text says the arms are slightly bent, but
+  they were bent to about 120°.
+- p. 156, Double clutch (b): the text says to catch with the arms slightly
+  bent, but the catching arm was straight.
+- p. 164, Pogo (a): the arms were bent, under the label "arms straight".
 - p. 165, Tic-tac: the grade note now cites coverage of parkour-style moves
   in competition boulders. The symptom "You stood too upright against it"
   → "Lean further away from it and step quickly", as its source says.
-- p. 171, Corners: "Sometimes you can let go with both hands" → "Often…",
-  as the source says.
-- pp. 216–224, Part IV, corrected to what the sources say:
+- pp. 169 and 184, overhangs: the body was close to a plank, the arms bent
+  under the label "arms straight". The feet are now high and the knees
+  bent, with straight arms and the hips close.
+- p. 171, Corners: the figure showed a deep squat; it now shows a bridge,
+  the legs wide and the arms nearly straight. In the text, "Sometimes you
+  can let go with both hands" → "Often…", as the source says.
+- p. 173, Traverse: the flagging leg read as an inside flag. It is now
+  drawn behind the standing leg, as its label says.
+- p. 182, Arêtes (b): the text says the heel hook rests the arms, but they
+  were drawn well bent.
+- p. 186, Roofs: the summary said your body "hangs nearly flat". It now
+  says "you hang underneath it", since in photographs the climber pikes at
+  the hips, the feet pulled up to the roof.
+- p. 188, Sit starts: the arms were bent into a W. They are now nearly
+  straight to the start holds.
+- pp. 216–224, Part IV: these passages now say what their sources say.
   - Tall climbers: forum climbers say the advantage of height fades by
     about V6, not around V3–V5. "Big jumps … hips sag away from the wall on
     a dyno" → "Big moves with cut feet": tall climbers find the swing
@@ -55,22 +121,22 @@ section as the notes of the GitHub release.
   - Novices learned from watching a video of a skilled climber.
   - The hover-hands drill holds the hand still for about 3 seconds, not 2,
     and now has a source.
-- Sources: titles, authors and dates corrected for several UKClimbing
-  articles, which could only be read as search excerpts before. Two
-  citations now point at the Gresham articles that make their claims
-  ("Toe-Hooking and Clamping" and "Technique – Use of the Toe"). E17's
-  full title is "Training to Become a Better Climber – Part 3". A paper
-  listed twice is listed once.
+- p. 217, the sit start for tall climbers (c): the long leg's shoe sank
+  into the mat. It now stands on its foothold.
+- p. 235, glossary, incut: dropped "Incuts are easier than they look",
+  which nothing in the book supports.
 - p. 236, glossary, MCL: "Drop knees and frog positions with the knee
   twisted can strain it" → "A deep drop knee can strain it, especially when
   you're tired". The book names only the drop knee as a risk to the MCL.
-- p. 235, glossary, incut: dropped "Incuts are easier than they look",
-  which nothing in the book supports.
-- pp. 245 and 250, sources: Movement's "Intermediate Technique Series" (71
-  and 242) and the Mountain Project thread "Progressing from V2 to V3
-  Boulders" (68 and 247) were each listed twice. Each is now listed once,
-  and the thread is cited by its own address rather than by single posts.
-  Some source numbers change as a result.
+- pp. 243–253, sources: titles, authors and dates are corrected for
+  several UKClimbing articles, which could only be read as search excerpts
+  before. Two citations now point at the Gresham articles that make their
+  claims ("Toe-Hooking and Clamping" and "Technique – Use of the Toe").
+  E17's full title is "Training to Become a Better Climber – Part 3".
+  Movement's "Intermediate Technique Series", the Mountain Project thread
+  "Progressing from V2 to V3 Boulders" and a paper on route preview were
+  each listed twice; each is now listed once, so some source numbers
+  change.
 
 ### Added
 - p. 116, Hands and holds: an "In motion" filmstrip before the Sloper
@@ -80,6 +146,9 @@ section as the notes of the GitHub release.
   attempts. It comes before the troubleshooting table (p. 230) and holds
   the reading steps, the three questions, one thing from each technique
   chapter and what to do when a problem doesn't go.
+- Appendices: "Corrections to the first edition", the errata above, with
+  the first edition's page numbers. tools/errata.py builds it from this
+  file, so the list is written once.
 - Videos (Watch links and QR codes) for 21 more entries, among them most
   of the hardest techniques: Bicycle, Heel–toe cam, Pulling with the toes,
   Drop knee, Twist lock, Compression, Backstep, Opposition, Pocket, Pinch,
@@ -101,22 +170,12 @@ section as the notes of the GitHub release.
   - The torso bends at the waist wherever a body would, e.g. sideways when
     it hangs off one arm, and forward over the knee in a rockover or over
     the hands in a mantle.
-  - The top of a shoe faces the shin. A foot at or above the hip used to be
-    drawn sole up, e.g. in Pogo (b) (p. 164), Mantle (frame 1, p. 104) and
-    the sit start (a) on p. 217.
 - Muscles at work are stippled, in every figure where the text or labels
   say they do the work: e.g. a bent arm that pulls or presses, a leg that
   stands up or drives, the hamstring in a heel hook, the shin in a toe hook
   and the core in body tension. Straight arms, resting poses and falls have
   none. The dots are large and sparse enough to stay dots on an e-ink
   screen, and the climber's grey limbs are one of its 16 greys.
-- Four figures now show what their text says:
-  - p. 77, Bumping: the holding arm hangs straight.
-  - p. 164, Pogo (a): the arms are straight, as the label says. In (b) the
-    swinging foot leads with the heel.
-  - p. 156, Double clutch (b): both arms catch slightly bent.
-  - p. 182, Arêtes (b): the arms hang nearly straight, since the heel hook
-    rests them.
 - p. 63, Crossing hands: the right hand crosses about 25 cm past the left,
   not 10.
 - p. 65, Layback: the flake grows out of the wall with the crack behind
@@ -124,9 +183,10 @@ section as the notes of the GitHub release.
   cover it. The body hangs off straight arms with the chest lifted.
 - p. 92, Twist lock: a third panel shows the lock from the side, with the
   right forearm pointing into the wall. The caption says so.
-- p. 119, Gaston (b): an inset shows the arm from above, with the elbow
-  out and the hand pushing the hold away, since from behind the forearm
-  shows only as a stub.
+- p. 119, Gaston (b): the elbow is out to the side and below the hand, as
+  in photographs, so the forearm rises to the hold instead of pointing into
+  the wall, where it showed only as a stub. An inset shows the arm from
+  above, with the hand pushing the hold away.
 - p. 139, Counter-kick: an inset in each panel shows the swing from above,
   in place of the arc over the head. The caption says so.
 - p. 160, Jumping to a foothold: a close-up (b) shows the top of the toes
@@ -140,14 +200,14 @@ section as the notes of the GitHub release.
   - Every close-up shows the same hand at the same scale, with the same
     short stretch of forearm.
   - p. 98: the hand positions plate (figure 10) is now two rows of five.
-  - The half crimp's thumb rests beside the index finger, as the text
-    says, instead of pointing back toward the climber.
   - The little finger reaches its hold in every grip.
   - The fingers behind the index are each drawn on their own, in three
     greys, so they stay apart on an e-ink screen.
   - A hold is dotted where the hand covers it, as in the other figures.
-  - p. 148, Latching (b): the fingers behind the index hook into the jug
-    too, instead of hanging in front of it.
+  - The full crimp is drawn as it is usually climbed and photographed,
+    with the thumb locked over the index fingernail (pp. 98 and 110).
+    p. 125, Full crimp: the figure is one panel, the thumb locked, with the
+    A2 pulley labelled like the joints instead of drawn as a dark block.
 - Grade sections (Part II) and grade guides (Part III) no longer have a
   grade tab beside their heading, since the heading already names the
   grade. Grade guides start a line lower instead.
@@ -159,8 +219,8 @@ section as the notes of the GitHub release.
 - p. 131, box "Is this move meant to be dynamic?": four bullets are
   shorter, so the box fits on one page and its last bullet no longer sits
   alone on p. 132. Every page from there on moves up by one more.
-- With the filmstrip and the card added, the book is 265 pages, one fewer
-  than the first edition.
+- With the filmstrip, the card and the corrections added, the book is 268
+  pages, two more than the first edition.
 
 ### Removed
 - pp. 235–236, glossary: "dab", "highball" and "macro", which the book

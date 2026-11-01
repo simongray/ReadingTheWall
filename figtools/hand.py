@@ -246,10 +246,15 @@ GRIPS = {
                  thumb=dict(ra=28, pa=8, rot=60, mcp=8, ip=6), wrist=(0, 0)),
     "open": dict(f=dict(i=(22, 40, 38), m=(22, 40, 38), r=(24, 42, 38), l=(26, 44, 36)),
                  thumb=RELAXED_THUMB, wrist=HANG),
-    "half": dict(f=dict(i=(70, 95, 8), m=(70, 95, 8), r=(70, 95, 10), l=(70, 92, 12)),
+    # the crimps hang the hand below the edge: the first segments rise from
+    # knuckles below it, the middle joints bend over it and the end segments
+    # lie on it, pointing into the wall (with the knuckles bent far, the
+    # fingers hook down over the edge like a claw). The angles match
+    # photographs of each grip seen from the thumb side
+    "half": dict(f=dict(i=(20, 85, 0), m=(20, 87, 0), r=(23, 87, 1), l=(25, 85, 3)),
                  thumb=RELAXED_THUMB, wrist=HANG),
-    "full": dict(f=dict(i=(35, 110, -18), m=(35, 110, -18), r=(35, 106, -16),
-                        l=(38, 100, -10)),
+    "full": dict(f=dict(i=(40, 98, -20), m=(40, 98, -20), r=(40, 95, -18),
+                        l=(43, 90, -12)),
                  thumb=RELAXED_THUMB, wrist=HANG),
     "pinch": dict(f=dict(i=(40, 62, 24), m=(42, 64, 24), r=(44, 66, 26), l=(46, 66, 26)),
                   thumb=dict(ra=22, pa=58, rot=145, mcp=10, ip=8), wrist=HANG),
@@ -1573,10 +1578,12 @@ def grip_pose(kind, tilt=TILT):
         along, spread, room = 172, 0.4, (-0.8, 2.6)
     elif kind == "half":
         h = Hand("half")
-        pad, k, a0 = (WX - 0.85, 0.0), 0.85, 95
+        # the middle and end segments flat on the edge, as in photographs,
+        # far enough out on it that the forearm hangs clear of the wall
+        pad, k, a0 = (WX - 1.3, 0.0), 0.85, 103
         along, spread, room = 180, 0.36, (-0.6, 1.1)
     else:
-        h = Hand("full", fingers={"i": (45, 105, -18)} if kind == "lock" else None)
+        h = Hand("full", fingers={"i": (45, 95, -20)} if kind == "lock" else None)
         pad, k, a0 = snap(surf, (WX - 0.55, 0.1)), 0.9, 95
         along, spread, room = 168, 0.08, (-0.3, 0.24)
     p = h.view("thumb", tilt=tilt).place("i", pad, a0=a0, k=k)
@@ -1597,19 +1604,19 @@ def grip_pose(kind, tilt=TILT):
 def tuck_thumb(posed, kind):
     """Rest the thumb of a drag ('open'), half crimp ('half') or full crimp
     ('full') profile clear of the index finger's middle and end joints and
-    of the edge. In a half crimp it rests against the index finger, its pad
+    of the edge. In the crimps it rests against the index finger, its pad
     on the palm side of the first segment near the knuckle, pointing along
-    it; in the others it hangs low along the palm side."""
-    if kind == "half":
+    it; in the drag it hangs low along the palm side."""
+    if kind in ("half", "full"):
         ch = posed.hand.finger("i")
         A1, N1, L1 = ch["frames"][1]
         pt = vadd(vadd(vlerp(ch["mcp"], ch["pip"], 0.15), vmul(L1, 0.6)), vmul(N1, -0.8))
         posed.thumb_to(posed.xy(pt), part="pad", k=0.7, depth=posed.depth(pt))
     else:
-        posed.thumb_to((WX - 2.5, -3.6) if kind == "open" else (WX - 3.0, -3.5), part="tip")
+        posed.thumb_to((WX - 2.5, -3.6), part="tip")
 
 
-def grip_profile(kind, pulley=False, z=0, x0=-12.0, y1=8.6, height=None, scale=HAND_SCALE,
+def grip_profile(kind, z=0, x0=-12.0, y1=8.6, height=None, scale=HAND_SCALE,
                  shown=FOREARM_SHOWN):
     """A side-profile panel of a grip (see grip_pose), from x0 to the wall and
     from where it cuts the forearm (`shown` cm below the wrist) up to y1, or
@@ -1620,21 +1627,13 @@ def grip_profile(kind, pulley=False, z=0, x0=-12.0, y1=8.6, height=None, scale=H
     f = profile_frame(x0, y1=y1, scale=scale, posed=p, shown=shown)
     grip_hold(f, "open" if kind == "open" else "half" if kind == "half" else "full")
     p.draw(f, z=z)
-    if pulley:
-        a2_pulley(f, p)
     return f, p
 
 
-def a2_pulley(fig, posed, f="i", z=5):
-    """Mark the A2 pulley: a dark band on the palm side of the finger's
-    first segment."""
-    h = posed.hand
-    ch = h.finger(f)
+def a2_point(posed, f="i"):
+    """Where the A2 pulley lies, for a label: on the palm side of the
+    finger's first segment, a little short of its middle."""
+    ch = posed.hand.finger(f)
     A, N, L = ch["frames"][1]
-    g = GIRTH[f]
-    c0 = vadd(ch["mcp"], vmul(A, SEG[f][0] * 0.3))
-    c1 = vadd(ch["mcp"], vmul(A, SEG[f][0] * 0.62))
-    q = [posed.xy(vadd(c0, vmul(N, -0.3))), posed.xy(vadd(c1, vmul(N, -0.3))),
-         posed.xy(vadd(c1, vmul(N, -0.84 * g))), posed.xy(vadd(c0, vmul(N, -0.9 * g)))]
-    fig.poly(q, z=z, fill=DARK, stroke=INK, sw=0.2)
-    return lerp(q[2], q[3], 0.5)
+    c = vadd(ch["mcp"], vmul(A, SEG[f][0] * 0.45))
+    return posed.xy(vadd(c, vmul(N, -0.75 * GIRTH[f])))

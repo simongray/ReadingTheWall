@@ -220,7 +220,9 @@ def dyno(path):
                    lh=s, rh=add(s, (0.4, -0.6)),
                    lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
                    rf={"at": ft, "contact": "toe"}, head=(1, 1),
-                   bend=8)          # the back rounds a little in the crouch
+                   # the back rounds a little in the crouch; the head tips
+                   # back to look up at the target, as in video of the sink
+                   bend=8, head_tilt=-25)
     # arched: hips in, shoulders back, arms nearly straight; the legs are
     # nearly straight too, so the knees stay off the wall
     drive = Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
@@ -818,13 +820,14 @@ def campus_move(path):
                        rf={"at": add(P, (36, -54)), "contact": "toe", "angle": -44},
                        bend=bend, active=("+core",))
 
-    # the tuck rounds the back a little; the pop drives the hips toward
-    # the wall and arches it a little
-    hang = tucked(add(h1, (-14, -54)), -8, h1, add(h1, (0.4, -0.6)), bend=6)
+    # as in photographs of boulder campusing: the arms only slightly bent,
+    # the chest open rather than curled over the tucked knees; the pop
+    # drives the hips toward the wall and arches the back a little
+    hang = tucked(add(h1, (-11, -60)), -6, h1, add(h1, (0.4, -0.6)), bend=0)
     pop = tucked(add(h1, (-32, -24)), -16, h1, h2, bend=-4)
     panels = []
     for k, c in enumerate((hang, pop)):
-        f = Fig(-50, 84, 130, 300)
+        f = Fig(-50, 66, 130, 292)
         wall_side(f, x0, 120, 300, angle=A)
         hold_side(f, "jug", H1, angle=A)
         hold_side(f, "jug", H2, angle=A)
@@ -1115,7 +1118,7 @@ def filmstrip_dyno(path):
               rf={"at": ft, "contact": "toe"})
     poses = [
         Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
-                lh=s, rh=s2, head=(1, 2), bend=8, **on),
+                lh=s, rh=s2, head=(1, 2), bend=8, head_tilt=-25, **on),
         # arched: hips in, shoulders back, arms nearly straight; the legs
         # drive, as in the dyno figure
         Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,

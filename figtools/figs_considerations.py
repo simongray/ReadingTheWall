@@ -89,17 +89,19 @@ def tall_sit_start(path):
 
     # (c) back view: left foot on the start foothold, right foot low and far
     # out, so the right leg stays long
-    f = Fig(-74, -10, 112, 106)
+    f = Fig(-74, -10, 120, 106)
     wall_grid(f, y0=12)
     ground(f, 0)
     for h in (LH, RH):
         hold(f, "jug", h)
-    RL = (100, 4)
+    RL = (102, 7)
     hold(f, "foot", LF)
     hold(f, "foot", RL)
     c = Climber((2, 15), lean=-3, lh=grip(LH), rh=grip(RH),
                 lf={"at": stand(LF), "style": "back"},
-                rf={"at": stand(RL), "angle": 70},
+                # the long leg's shoe stands on the low hold in profile,
+                # toes out, clear of the mat
+                rf={"at": stand(RL), "angle": 8},
                 knees={"l": "up", "r": "up"}, elbows={"l": "out", "r": "out"},
                 arm_len=REACH, leg_len={"l": FROG}, active=())
     c.draw(f)

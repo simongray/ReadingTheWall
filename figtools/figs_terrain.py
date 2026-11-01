@@ -105,20 +105,23 @@ def vertical_scene(f, x=28, y0=30, y1=250):
     return c, foot
 
 
-def overhang_scene(f, good=True, x=52, y0=20, y1=250, angle=30):
+def overhang_scene(f, good=True, x=106, y0=20, y1=250, angle=30):
     """A side-view 30-degree overhang. good: feet up, toes pulling, hips in,
     arms straight; bad: low feet, stretched out. Returns (climber, foot)."""
     at = wall_side(f, x, y0, y1, angle=angle)
     H = at(222)
-    F = at(55) if good else at(34)
+    F = at(108) if good else at(34)
     hold_side(f, "jug", H, angle=angle)
     hold_side(f, "foot", F, angle=angle)
     hand = off(H, angle, 3.5, 2)
     foot = off(F, angle, 1.6, 2.4)
     if good:
-        # body tension: the toes pull in and keep the feet on
-        c = Climber(None, shoulders=add(hand, (-6, -61)), view="side",
-                    lean=-30, lh=hand, rh=hand, head=(1, 1),
+        # as in photographs of overhangs from the side: the feet high with
+        # the knees well bent, the arms straight, the trunk hanging nearly
+        # upright below the hands and the hips in close; body tension and
+        # the toes pulling in keep the feet on
+        c = Climber(None, shoulders=add(hand, (-24, -58)), view="side",
+                    lean=-20, bend=-8, lh=hand, rh=hand, head=(1, 1),
                     lf={"at": foot, "contact": "toe", "angle": -10},
                     rf={"at": foot, "contact": "toe", "angle": -10},
                     active=("+core",))
@@ -319,7 +322,7 @@ WP_HANDS = {
     "F": ("jug", (72, 330), 90),
 }
 WP_HRF = (70, 128)                    # the high right foot
-WP_FEET = [(-32, 34), (24, 28), (-14, 82), (40, 74), (-36, 122), WP_HRF,
+WP_FEET = [(-30, 34), (24, 28), (-14, 82), (40, 74), (-36, 122), WP_HRF,
            (12, 166), (98, 196)]
 
 
@@ -397,7 +400,8 @@ def wall_angles(path):
     panels.append(f)
 
     # overhang, 30 degrees: feet up, the weight hangs behind them
-    f = Fig(-96, 30, 50, 258)
+    # the scene sits right of centre: the hanging body needs the room
+    f = Fig(-62, 30, 84, 258)
     c, foot = overhang_scene(f, True)
     f.cog(c.cog(), plumb_to=foot[1] - 10)
     warn("angles-overhang", c)
@@ -488,19 +492,21 @@ def overhang(path):
     """Side view, 30 degree overhang: stretched with low feet vs feet up."""
     panels = []
     for good in (False, True):
-        f = Fig(-96, 20, 50, 250)
+        # (b) sits further left on the wall: its body hangs out from
+        # the hands while (a) lies along the wall down to the low foot
+        f = Fig(-62, 20, 84, 250) if good else Fig(-42, 20, 104, 250)
         c, foot = overhang_scene(f, good)
         if good:
             f.arrow([add(foot, (-18, -16)), add(foot, (-4, -7))], kind="force")
-            f.label("toes pull in", (-30, 40), to=add(foot, (-4, -3)))
-            f.label("arms straight", (-30, 238),
+            f.label("toes pull in", (16, 70), to=add(foot, (-4, -3)))
+            f.label("arms straight", (24, 238),
                     to=lerp(c.J["rsh"], c.J["rha"], 0.45))
             f.cog(c.cog(), plumb_to=foot[1] - 12)
         else:
             f.arrow([add(foot, (-6, -2)), add(foot, (-26, 4)), add(foot, (-40, 20))],
                     kind="move")
             f.cross(add(foot, (2, -9)))
-            f.label("feet cut loose", (-62, 56), size=7.5)
+            f.label("feet cut loose", (-8, 56), size=7.5)
             f.cog(c.cog(), plumb_to=26)
         warn("overhang", c)
         panels.append(f)
@@ -675,16 +681,19 @@ def corner(path):
     for p in ((-66, 82), (64, 90)):
         hold(f, "foot", p)
     # palms and feet press out, but the legs carry the weight and the arms
-    # can rest, so only the legs pressing apart are shaded
-    c = Climber((0, 140), lh=(-72, 164), rh=(72, 168),
+    # can rest, so only the legs pressing apart are shaded. As in
+    # photographs of stemming from behind, the legs spread wide with the
+    # knees only partly bent, and the arms reach out to the sides nearly
+    # straight, the palms a little below the shoulders
+    c = Climber((0, 162), lh=(-78, 190), rh=(78, 194),
                 lf={"at": stand((-66, 82)), "angle": 180},
                 rf={"at": stand((64, 90)), "angle": 0},
                 elbows={"l": "down", "r": "down"},
                 hand_style={"l": "open", "r": "open"},
                 active=("lthigh", "rthigh"))
     c.draw(f)
-    f.arrow([(-70, 184), (-90, 184)], kind="force")
-    f.arrow([(70, 188), (90, 188)], kind="force")
+    f.arrow([(-76, 210), (-92, 210)], kind="force")
+    f.arrow([(76, 214), (92, 214)], kind="force")
     f.arrow([(-74, 98), (-90, 98)], kind="force")
     f.arrow([(72, 106), (88, 106)], kind="force")
     f.cog(c.cog(), plumb_to=45)
@@ -849,11 +858,14 @@ def traverse(path):
     # tips left out of its way) and over the right arm at forehead height
     # to C. Drawn in that order: right arm, left arm, then the body over
     # both arms' roots. The chest bends right, toward the crossing reach,
-    # the left side stretched
+    # the left side stretched. The flagging left leg passes behind the
+    # standing right leg, on the side away from the wall, so from behind it
+    # is drawn over it, as in photographs of back flags (and the back-flag
+    # figure); under it, it read as an inside flag
     c = Climber((18, 116), lean=1, bend=6, turn=-0.7, lh=grip(C), rh=grip(B),
                 lf={"at": (78, 56), "angle": -20, "contact": "ball"},
                 rf={"at": stand(RF)},
-                order=["lleg", "rarm", "larm", "torso", "rleg"],
+                order=["rleg", "lleg", "rarm", "larm", "torso"],
                 elbows={"l": "down", "r": "out"}, knees={"l": "up", "r": "out"},
                 head=(-5, -1), allow_cross=True)
     c.draw(f)
@@ -867,7 +879,9 @@ def traverse(path):
 def sit_start(path):
     """Back view on the mat: frog vs hips turned with the outside edge."""
     panels = []
-    L, R = (-24, 106), (22, 112)
+    # start holds high enough that the seated climber reaches them on
+    # nearly straight arms, as in photographs of sit starts from behind
+    L, R = (-25, 114), (23, 118)
     # both feet on footholds just above the mat, a little lower than the
     # hips that sit on it, so the shoes stand the right way up
     LF, RF = (-64, 8), (24, 12)
@@ -999,7 +1013,7 @@ def filmstrip_worked_problem(path):
 
     S = WP_HANDS["S"][1]
     stand_ = lambda p, a=None: {"at": stand(p), **({} if a is None else {"angle": a})}
-    LF0, RF0, LF1, RF1, LF2 = (-32, 34), (24, 28), (-14, 82), (40, 74), (12, 166)
+    LF0, RF0, LF1, RF1, LF2 = (-30, 34), (24, 28), (-14, 82), (40, 74), (12, 166)
     poses = [
         # 1 low start, both hands on the start jug on straight arms. The
         # arms reach forward and up to the wall past the face, so the head
@@ -1008,7 +1022,7 @@ def filmstrip_worked_problem(path):
         dict(pelvis=(7, 65), lh=add(wp_grip("S"), (-6, 0)),
              rh=add(wp_grip("S"), (6, 0)), arm_len={"l": 0.72, "r": 0.72},
              elbows={"l": "out", "r": "out"},
-             lf={"at": (-28, 36), "style": "back"}, rf=stand_(RF0),
+             lf={"at": (-26, 36), "style": "back"}, rf=stand_(RF0),
              leg_len={"l": (0.6, 0.52), "r": (0.66, 0.56)},
              order=["lleg", "rleg", "torso", "larm", "rarm", "head"],
              used={"S", LF0, RF0}),

@@ -287,31 +287,44 @@ def backstep(path):
 # ---------------------------------------------------------------- drop knee
 
 
+def _dropped_foot(at, angle=-10):
+    """The foot of a dropped knee, as photographs from behind show it: rolled
+    onto its outside edge with the sole facing up and back, the toes along
+    the wall away from the body and the heel up by the shin. The shoe's top
+    faces down and the outside of its toe box rests on the hold `at`, so
+    the contact point on the sole sits the toe box's depth above it."""
+    d = ang(angle)
+    down = perp(d) if perp(d)[1] < 0 else mul(perp(d), -1)
+    return {"at": sub(stand(at), mul(down, 6.7)), "angle": angle}
+
+
 def drop_knee(path):
     """Back view, steep wall. Left hand on a sidepull facing left (pulled to
-    the right), right foot on a high foothold out right, left foot low and
-    wide. (a) Square on, right foot on its inside edge with the knee up: the
-    right hand falls short. (b) Right knee dropped down and in, the foot on
-    its outside edge, the right hip turned in; both feet push apart and the
-    right hand reaches. The dropped thigh points into the wall, so it is
-    drawn a little foreshortened."""
+    the right), right foot on a high foothold out right at hip height (the
+    text puts it between waist and shoulder), left foot low and wide. (a)
+    Square on, the right toe on the hold with the knee up: the right hand
+    falls short. (b) Right knee dropped, the foot rolled onto its
+    outside edge, the right hip turned in; both feet push apart and the
+    right hand reaches. The thigh and shin lie along the wall, so they are
+    drawn full length."""
     L = (-70, 172)    # left sidepull, gripping edge faces left
     T = (28, 236)
-    LF = (-62, 56)
-    RF = (50, 88)
+    LF = (-66, 52)    # low and wide, so the push leg in (b) is nearly straight
+    RF = (76, 130)
     panels = []
     for k in range(2):
-        f = _back(-92, 40, 92, 252)
+        f = _back(-92, 40, 100, 252)
         hold(f, "jug", L, use=180)
         hold(f, "jug", T)
         hold(f, "foot", LF)
         hold(f, "foot", RF)
         if k == 0:
             # the chest tips toward the sidepull as in (b): the reaching side
-            # stretches, and still falls short
+            # stretches, and still falls short. The high toe points into
+            # the wall (seen heel-on), as the how-to places it
             c = _short(lambda h: Climber(
-                (-14, 116), bend=-8, lh=grip(L, use=180), rh=h,
-                lf={"at": stand(LF)}, rf={"at": stand(RF)},
+                (-8, 118), bend=-8, lh=grip(L, use=180), rh=h,
+                lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                 knees={"l": "out", "r": "up"}, elbows={"l": "down"},
                 head=(2, 1)), "r", grip(T))
             c.draw(f)
@@ -319,20 +332,20 @@ def drop_knee(path):
             f.label("knee up", (72, 160), to=add(c.J["rkn"], (3, 2)))
             _plan(f, (-62, 224), 0)
         else:
-            # the dropped foot is on its outside edge with the heel up and
-            # the toes into the wall: drawn pointing down, sole facing out
+            # as in photographs of drop knees from behind: the thigh runs
+            # down and out along the wall to a knee below both the hip and
+            # the foot, and the shin rises to the foot
             c = Climber((0, 134), turn=0.85, lean=-4, lh=grip(L, use=180),
-                        rh=grip(T), lf={"at": stand(LF)},
-                        rf={"at": stand(RF), "angle": 268},
-                        knees={"l": "out", "r": "left"}, elbows={"l": "down"},
-                        leg_len={"r": (0.85, 1.0)}, head=(2, 1),
+                        rh=grip(T), lf={"at": stand(LF)}, rf=_dropped_foot(RF),
+                        knees={"l": "out", "r": "down"}, elbows={"l": "down"},
+                        head=(2, 1),
                         bend=-12,   # hips upright, chest bent: the reaching side stretches
                         active=("lthigh",))   # the push leg works; the arms unload
             c.draw(f)
             f.arrow([add(stand(LF), (-8, 14)), add(stand(LF), (-26, 14))],
                     kind="force")
-            f.arrow([add(stand(RF), (8, 8)), add(stand(RF), (24, 8))], kind="force")
-            f.label("knee down and in", (56, 62), to=add(c.J["rkn"], (2, -3)))
+            f.arrow([add(stand(RF), (-2, -12)), add(stand(RF), (16, -12))], kind="force")
+            f.label("knee points down", (56, 62), to=add(c.J["rkn"], (2, -3)))
             f.label("right hip in", (66, 168), to=add(c.J["rhip"], (3, 2)))
             _plan(f, (-62, 224), 55, spin=55)
         _warn(f"drop-knee {k}", c)
@@ -654,21 +667,25 @@ def stemming(path):
     f.line((0, 58), (X1, Y0), sw=0.3, z=-30, stroke=MID)
     wall_grid(f, x1=-4, y0=Y0)
     wall_grid(f, x0=4, y0=Y0)
-    T = (26, 246)
+    T = (30, 252)
     hold(f, "jug", T)
-    LF, RF = (-60, 82), (58, 94)
+    # wide, the legs only a little bent, as in photographs of stems from
+    # behind (and "higher and wider than feels natural")
+    LF, RF = (-80, 96), (78, 102)
+    LH = (-70, 166)
     # the chest tips over the pressing palm; the reaching side stretches
-    c = Climber((-2, 140), bend=-6, lh=(-68, 156), rh=grip(T),
+    c = Climber((-2, 154), bend=-6, lh=LH, rh=grip(T),
                 lf={"at": LF, "angle": 165, "contact": "ball"},
                 rf={"at": RF, "angle": 15, "contact": "ball"},
                 knees={"l": "out", "r": "out"}, elbows={"l": "out"},
                 hand_style={"l": "open"}, head=(2, 1),
                 active=("+lthigh", "+rthigh"))   # the legs push apart
     c.draw(f)
-    f.arrow([(-74, 92), (-94, 92)], kind="force")
-    f.arrow([(72, 104), (93, 104)], kind="force")
-    f.arrow([(-78, 166), (-94, 166)], kind="force")
-    f.label("palm presses", (-62, 216), to=(-70, 160))
+    # under the shoes and beside the palm
+    f.arrow([add(LF, (2, -12)), add(LF, (-14, -12))], kind="force")
+    f.arrow([add(RF, (-2, -12)), add(RF, (14, -12))], kind="force")
+    f.arrow([add(LH, (-10, -2)), add(LH, (-25, -2))], kind="force")
+    f.label("palm presses", (-62, 222), to=add(LH, (-2, 4)))
     f.label("feet push apart", (0, 40))
     _warn("stemming", c)
     f.save(path)
@@ -974,22 +991,25 @@ def filmstrip_drop_knee(path):
     """In motion: a drop knee into a long reach, back view, five frames.
     Left hand on a sidepull facing left; the right hand starts on a hold
     at chest height; the target is up and right. (1) Square on, both feet
-    low: the target is out of reach. (2) The right foot steps up to a hold
-    at hip height, on its outside edge. (3) The right knee drops down and
-    in, the right hip turns to the wall and the hips rise. (4) The right
-    hand reaches the target. (5) The knee turns back up before standing."""
+    low: the target is out of reach. (2) The right toe steps up to a hold
+    at hip height, the knee up. (3) The right knee drops, the foot rolls
+    onto its outside edge and the right hip turns to the wall. (4) The hips
+    rise and the right hand reaches the target. (5) The knee turns back up
+    before standing.
+
+    The high foothold sits a little above the hips (the text puts it
+    between waist and shoulder), as in the drop-knee figure, so the frames
+    are wider than in the other filmstrips and drawn a little smaller."""
     L = (-34, 226)      # sidepull, faces left
     S = (34, 196)
-    T = (22, 242)
-    LF, RF0, RF = (-36, 46), (14, 46), (44, 84)
+    T = (14, 236)
+    LF, RF0, RF = (-36, 46), (14, 46), (56, 148)
     # the toe on the hold, pointing at the wall (seen heel-on)
     toe = {"at": stand(RF), "style": "back"}
-    # dropped: the foot rolls onto its outside edge, the heel lifts and
-    # the toes point into the wall, drawn pointing down with the sole
-    # facing out; the thigh points down and into the wall (foreshortened).
-    # The straight left leg pushes out and raises the hips
-    drop = dict(turn=0.85, rf={"at": stand(RF), "angle": 268},
-                knees={"l": "out", "r": "left"}, leg_len={"r": (0.82, 1.0)},
+    # dropped, as in the drop-knee figure: the thigh and shin lie along the
+    # wall, the knee below the hip and the foot, the foot rolled onto its
+    # outside edge with the sole up. The straight left leg pushes out
+    drop = dict(turn=0.85, rf=_dropped_foot(RF), knees={"l": "out", "r": "down"},
                 active=("+lthigh",))
     poses = [
         dict(P=(-8, 125), rh=grip(S), rf={"at": stand(RF0)},
@@ -997,15 +1017,15 @@ def filmstrip_drop_knee(path):
         dict(P=(-4, 128), rh=grip(S), rf=toe, knees={"l": "out", "r": "up"}),
         # with the knee dropped the chest tips toward the sidepull, as in
         # the drop-knee figure, and the reaching side stretches
-        dict(P=(2, 136), lean=-6, bend=-10, rh=grip(S), **drop),
-        dict(P=(2, 138), lean=-4, bend=-10, rh=grip(T), **drop),
+        dict(P=(-8, 132), lean=-6, bend=-10, rh=grip(S), **drop),
+        dict(P=(-8, 134), lean=-4, bend=-10, rh=grip(T), **drop),
         # the knee turns up toward the wall: the thigh is foreshortened
         dict(P=(4, 142), turn=0.3, lean=-4, bend=-6, rh=grip(T), rf=toe,
              knees={"l": "out", "r": "up"}, leg_len={"r": (0.8, 1.0)}),
     ]
     frames = []
     for k, p in enumerate(poses):
-        f = Fig(-54, 38, 58, 258, scale=0.28)
+        f = Fig(-56, 38, 64, 258, scale=0.26)
         wall_grid(f)
         hold(f, "jug", L, use=180)
         hold(f, "jug", S, xray=False if k == 4 else None)   # empty, behind the arm
@@ -1020,18 +1040,20 @@ def filmstrip_drop_knee(path):
             f.arrow([add(grip(S), (2, 10)), add(T, (0, -18))], kind="move")
             f.cross(add(T, (0, -12)))
         elif k == 1:
-            f.arrow([add(stand(RF0), (8, 8)), (34, 62), add(RF, (0, -8))],
+            f.arrow([add(stand(RF0), (8, 8)), (44, 84), add(RF, (0, -10))],
                     kind="move")
         elif k == 2:
-            # beside the thigh: the knee drops down and in
+            # below the thigh: the knee drops
             hp, kn = c.J["rhip"], c.J["rkn"]
-            f.arrow([add(lerp(hp, kn, 0.1), (14, 0)), add(lerp(hp, kn, 0.75), (14, 0))],
+            off = mul(perp(norm(sub(kn, hp))), -11)
+            f.arrow([add(lerp(hp, kn, 0.25), off), add(lerp(hp, kn, 0.85), off)],
                     kind="move")
         elif k == 3:
             f.arrow([add(S, (8, 8)), add(T, (8, -10))], kind="move")
         else:
             kn = c.J["rkn"]
-            f.arrow([add(kn, (-11, -30)), add(kn, (-11, -12))], kind="move")
+            # below the shin, clear of the hips: the knee turns back up
+            f.arrow([add(kn, (14, -46)), add(kn, (14, -26))], kind="move")
         _warn(f"filmstrip-drop-knee {k + 1}", c)
         frames.append(f)
     filmstrip(frames, path, captions=["square on: short",

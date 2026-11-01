@@ -16,7 +16,6 @@ import tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "figtools"))
 
-import closeup  # noqa: E402
 import figs_dynamic  # noqa: E402
 import figs_hands as F  # noqa: E402
 import hand as H  # noqa: E402
@@ -26,7 +25,7 @@ FIGURES = [("hands-hold-angle", F.hold_angle_fig), ("open-hand", F.open_hand_fig
            ("pinch", F.pinch_fig), ("sloper", F.sloper_fig), ("pocket", F.pocket_fig),
            ("thumb-catch", F.thumb_catch_fig), ("wrap", F.wrap_fig), ("regrip", F.regrip_fig),
            ("hand-atlas", F.hand_atlas_fig), ("filmstrip-sloper", F.filmstrip_sloper),
-           ("latching", figs_dynamic.latching), ("grip-crimps", closeup.crimp_figure)]
+           ("latching", figs_dynamic.latching)]
 TOL = 0.02          # cm
 MIN_THUMB = 0.25    # share of the thumb's two segments that must show
 

@@ -31,12 +31,20 @@ streamlining), which have the details.
 
 ## Figures
 
-- These figure doubts remain (the details are in `research/figpolish.md`,
-  `research/figcritic-*.md` and `research/figreview-*.md`):
-  - In Drop knee, the foot is drawn pointing down, which is a drawing
-    convention rather than a literal view.
-  - The Layback reads better, but with flat feet high on a vertical flake
-    the body still folds at the hips, so it looks partly like a crouch.
+- Every figure was checked against photographs and video in this revision
+  (`research/photo-check-*.md`). These doubts remain:
+  - The references were thin for Bicycle, Heel–toe cam, Front-pointing,
+    Pivoting, Pogo, Tic-tac, Cutting loose and a few generic back-view
+    stances. Better photos or video stills may show more to fix.
+  - In High step and Rockover the high foot is drawn end-on, though photos
+    show it turned out about 45°.
+  - In the Knee bar the free leg hangs, where the text describes a tripod
+    with that foot on the wall. Photos show both.
+  - In the Traverse, the turn that lets the arm cross works against a true
+    back flag in 3D; only the drawing order makes it read as one.
+  - The Stemming text says the fingers point down or away from the corner,
+    as its source says, but several photos show them up for a palm at
+    shoulder height.
   - Twist lock (c) is a side view, which can't show the twist of the torso,
     since the drawing library has no front view. The "hips from above"
     inset in (b) shows the turn instead.
@@ -54,8 +62,11 @@ streamlining), which have the details.
   - `turn` narrows the shoulders, so a back view can't show the reach that
     a hip turn gains.
   - The anatomy checks for back views are heuristics, since the
-    projection hides the true angles.
+    projection hides the true angles. The check that a knee points the
+    same way as its toes can't tell a deep drop knee from a broken pose;
+    a per-leg exemption, like `allow_cross`, would allow one.
 
 ## Book
 
-- The first edition is 266 pages, and the next is 265 so far.
+- The second edition is 268 pages, two more than the first: the
+  corrections appendix takes three.

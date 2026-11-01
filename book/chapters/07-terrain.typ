@@ -299,7 +299,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 4,
   grade-note: [Roofs on low grades usually have big holds and big footholds. Once the footholds face down or sideways, around V4–V5, your feet must hook to stay on (judgement).],
-  summary: [On a roof your body hangs nearly flat and the footholds face down. Feet that push swing off. Keep them on by pulling with your toes and heels. Then hook a heel over the #jt("lip") (the edge where the roof ends) to get over it #src("E7", "E15", "E13").],
+  summary: [On a roof you hang underneath it and the footholds face down. Feet that push swing off. Keep them on by pulling with your toes and heels. Then hook a heel over the #jt("lip") (the edge where the roof ends) to get over it #src("E7", "E15", "E13").],
   figure: "roof.svg",
   caption: [(a) Feet pushing on a down-facing hold swing off. (b) Arms straight and toes pulling on the hold: the feet stay on.],
   how: [

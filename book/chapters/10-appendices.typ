@@ -14,6 +14,8 @@ Every technique in this book, with the names you may hear for it. Aliases point 
 
 #include "a-grades.typ"
 
+#include "a-errata.typ"
+
 #heading(level: 1, numbering: none)[Sources] <sources>
 
 Sources are numbered in the order they are first cited. Web pages were accessed in October 2026. Where a claim rests on a coach's or a gym's advice rather than on a study, the text says so.

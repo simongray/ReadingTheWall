@@ -5,6 +5,7 @@ set -e
 cd "$(dirname "$0")"
 python3 figtools/build_all.py
 python3 tools/merge_sources.py
+python3 tools/errata.py
 commit="uncommitted"
 if git rev-parse --git-dir >/dev/null 2>&1 && git rev-parse HEAD >/dev/null 2>&1; then
   commit="$(git rev-parse --short HEAD)"

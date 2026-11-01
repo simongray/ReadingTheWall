@@ -8,8 +8,8 @@ title: "Reading the Wall: A technique handbook for indoor bouldering"
 authors:
   - family-names: Gray
     given-names: Simon
-version: edition-1
-date-released: 2026-10-31
+version: edition-2
+date-released: 2026-11-01
 license: CC-BY-SA-4.0
 url: "https://github.com/simongray/ReadingTheWall"
 repository-code: "https://github.com/simongray/ReadingTheWall"
@@ -26,7 +26,7 @@ preferred-citation:
   editors:
     - family-names: Gray
       given-names: Simon
-  edition: "First edition"
+  edition: "Second edition"
   year: 2026
   url: "https://github.com/simongray/ReadingTheWall"
   notes: "Edited by Simon Gray; written and illustrated with Claude (Anthropic), under the editor's direction."

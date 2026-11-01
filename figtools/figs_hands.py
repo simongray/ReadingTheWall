@@ -114,7 +114,8 @@ def half_crimp_fig(path):
     a, p = grip_profile("half", **GRIP_FRAME)
     pip_arc(a, p, "≈90°")
     label_lines(a, ["end joint", "straight"], (-9.2, 1.6), to=p.joint("i", "dip"))
-    b, pb = grip_profile("full", **GRIP_FRAME)
+    # the full crimp as it is usually climbed, the thumb locked over the nail
+    b, pb = grip_profile("lock", **GRIP_FRAME)
     pip_arc(b, pb, "over 90°")
     label_lines(b, ["end joint", "bent back"], (-9.2, 1.6), to=pb.joint("i", "dip"))
     hwarn("half crimp", p, pb)
@@ -123,18 +124,19 @@ def half_crimp_fig(path):
 
 
 def full_crimp_fig(path):
-    a, p = grip_profile("full", **GRIP_FRAME)
-    pip_arc(a, p, "over 90°")
+    """The full crimp from the side as it is usually climbed, the thumb
+    locked over the index fingernail: the middle joint past 90 degrees, the
+    end joint bent back and the A2 pulley, which the grip loads most."""
+    a, p = grip_profile("lock", **GRIP_FRAME)
+    # the angle to the left of the joint, leaving the top for the thumb
+    pip_arc(a, p, "over 90°", at=add(p.joint("i", "pip"), (-5.2, 1.0)))
     label_lines(a, ["end joint", "bent back"], (-9.2, 1.6), to=p.joint("i", "dip"))
-    a2 = H.a2_pulley(a, p)
-    a.label("A2 pulley", (-9.2, -4.4), to=a2)
-    b, pb = grip_profile("lock", **GRIP_FRAME)
-    th = pb.hand.thumb()
-    b.label("thumb over the nail", (-4.0, 7.6), to=pb.xy(H.thumb_point(th, "nail", 0.55)),
+    a.label("A2 pulley", (-9.2, -4.4), to=H.a2_point(p))
+    th = p.hand.thumb()
+    a.label("thumb over the nail", (-4.0, 7.6), to=p.xy(H.thumb_point(th, "nail", 0.55)),
             anchor="middle")
-    hwarn("full crimp", p, pb)
-    combine([a, b], path, gap=4, labels=["a", "b"], align="top",
-            captions=["full crimp, side view", "thumb lock"])
+    hwarn("full crimp", p)
+    a.save(path)
 
 
 def pocket_profile(safe, labels=True, x0=-14.5, y1=5.5, height=None, shown=H.FOREARM_SHOWN):
@@ -423,15 +425,17 @@ def hold_angle_fig(path):
     """Concept: incut, flat and sloping edges in profile, each pulled
     straight down by a half-crimping finger."""
     panels = []
-    specs = ((-20, "positive (incut)", -52, "lip locks it"),
-             (0, "flat", -60, "friction and curl"),
-             (30, "negative (sloping)", -40, "slides off"))
-    for slope, cap, a3, note in specs:
+    # the same half crimp on each edge, the forearm hanging straight down:
+    # only the edge changes
+    specs = ((-20, "positive (incut)", "lip locks it"),
+             (0, "flat", "friction and curl"),
+             (30, "negative (sloping)", "slides off"))
+    for slope, cap, note in specs:
         t = math.tan(math.radians(slope))
         cx = WX - 1.3
         pt = (cx, -(WX - cx) * t)
-        h = Hand("half", fingers={f_: (45, 90, 8) for f_ in "imrl"})
-        p = h.view("thumb", tilt=TILT).place("i", pt, distal=a3, k=0.85)
+        h = Hand("half", fingers={f_: (15, 90, 8) for f_ in "imrl"})
+        p = h.view("thumb", tilt=TILT).place("i", pt, distal=-10, k=0.85)
         on_edge(p, pt, k=0.85, along=180 + slope, spread=0.3)
         H.tuck_thumb(p, "half")      # against the index finger, as in a half crimp
         # the figure is about the edges, so it stops just below the wrist
@@ -448,7 +452,7 @@ def hold_angle_fig(path):
         f.text(note, (-2.6, 6.7), size=7)
         hwarn("hold angle", p)
         panels.append(f)
-    combine(panels, path, gap=3, captions=[c for _, c, _, _ in specs], align="top")
+    combine(panels, path, gap=3, captions=[c for _, c, _ in specs], align="top")
 
 
 # ---------------------------------------------------------------- filmstrip
@@ -679,9 +683,9 @@ def gaston_fig(path):
             f.arrow([add(g, (8, -12)), add(g, (26, -12))], kind="force")
             f.label("body right of it", (40, 40), size=7.5)
         else:
-            # right hand in front of the right shoulder, thumb down, elbow
-            # out to the side at about hand height; the forearm points into
-            # the wall, so it looks short from behind
+            # right hand in front of the right shoulder, thumb down, the
+            # elbow out to the side and below the hand, so the forearm rises
+            # to the hold, as in photographs of gastons from behind
             T = (-66, 222)
             LF, RF = (-56, 72), (2, 62)
             hold(f, "jug", T)
@@ -695,7 +699,7 @@ def gaston_fig(path):
                         order=["lleg", "rleg", "torso", "larm"],
                         active=("+rupper", "+rfore", "+lthigh"))
             c.draw(f)
-            el = (13, 159)
+            el = (6, 147)
             c.draw_arm(f, "r", el, g, z=4)
             f.arrow([add(g, (5, 12)), add(g, (24, 12))], kind="force")
             f.label("elbow out", (50, 142), to=add(el, (2, -2)))

@@ -104,7 +104,7 @@ The PDFs aren't committed: each one is attached to its release, and
 ## How to cite
 
 Gray, S. (ed.) (2026). *Reading the Wall: A technique handbook for indoor
-bouldering*. First edition. https://github.com/simongray/ReadingTheWall
+bouldering*. Second edition. https://github.com/simongray/ReadingTheWall
 
 To pin down the exact text, add the commit printed on the back of the
 title page of your copy; the book's own colophon gives the full citation

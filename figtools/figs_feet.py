@@ -616,7 +616,10 @@ def reach_toward(c, side, target, k=0.99):
 
 
 HK = dict(LH=(-42, 196), T=(60, 278), HH=(84, 168), LF=(-14, 76), RF=(28, 44))
-HK_FOOT = 30                     # heel-to-toe direction of the hooked foot
+# heel-to-toe direction of the hooked foot. A heel at hip height points
+# the toes out to the side, only a little up, and the foot is pointed
+# (ankle about 120), as in photographs of side heel hooks from behind
+HK_FOOT = 14
 HEEL_ON = (-3, 5.4)              # the heel on a jug's lip, relative to the jug
 
 
@@ -808,15 +811,18 @@ def knee_bar(path):
     def at(h):
         return (WX - t * (h - 30), h)
 
-    f = Fig(-142, 40, 62, 214)
+    # the frame sits left of the wall's foot, to fit the body hanging back
+    f = Fig(-165, 40, 39, 214)
     wall_side(f, WX, 30, 214, angle=ang_w)
     F = at(96)
     hold_side(f, "foot", F, angle=ang_w, size=1.3)
     tip = add(F, add(mul(wn, 3.0), mul(wd, 2.2)))
-    # the shin runs close along the wall and the thigh falls gently away
-    # from the knee, so the lower thigh sits under a face that sticks
-    # straight out of the wall: the underside of a big volume
-    fa, shin_deg, thigh_deg, lean = 20, 140, 205, -18
+    # the shin runs close along the wall and the thigh falls away from the
+    # knee, so the lower thigh sits under a face that sticks straight out
+    # of the wall: the underside of a big volume. With the hands off, the
+    # body hangs back from the locked thigh, the face turned up, as in
+    # photographs of knee-bar rests; it does not sit up over the hips
+    fa, shin_deg, thigh_deg, lean = 20, 140, 215, -48
     # build the leg backwards from the toe: ankle, knee, hip
     d = ang(fa)
     o = sub(ANKLE, SPOT["tip"])
@@ -839,10 +845,10 @@ def knee_bar(path):
     W1 = add(W0, mul(wd, 72))
     f.poly([W0, V, W1], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
     # the calf lifts the heel and wedges the thigh up into the volume; the
-    # resting back slumps a little
-    c = FootClimber(pelvis, view="side", lean=lean, bend=6, lh=None, rh=None,
+    # free leg hangs below it
+    c = FootClimber(pelvis, view="side", lean=lean, lh=None, rh=None,
                     rf={"at": tip, "angle": fa, "spot": "tip", "up": 1},
-                    lf={"at": (-60, 50), "angle": -62, "up": 1},
+                    lf={"at": (-60, 54), "angle": -48, "up": 1},
                     head=(-4, -3), active=("+rcalf",))
     c.draw(f)
     f.label("toe digs in", (-2, 52), to=add(tip, mul(wn, 1.5)))
@@ -852,7 +858,7 @@ def knee_bar(path):
     f.text("thigh above", (-115, 203), size=7.5)
     f.label("the knee", (-115, 194), anchor="middle",
             to=add(add(K, mul(th, 15)), mul(nrm, 6.2)))
-    f.label("hand free", (-100, 52), to=add(c.J["rha"], (0, -3)))
+    f.label("hand free", (-96, 47), to=add(c.J["rha"], (0, -3)))
     check("knee-bar", c)
     f.save(path)
 
@@ -1063,8 +1069,9 @@ HR = dict(LH=(-24, 226), RH=(60, 180), T=(36, 290), HH=(44, 110), LF=(-4, 56),
 def rock_up_poses():
     """Heel hook rock-up, back view: heel on a hip-high hold, pull, hips over
     the heel, roll onto the toe, stand and reach. The hooked foot turns
-    from toes-out to level as the hips rise; once the hips are over it the
-    knee points into the wall, so that leg is foreshortened (as is the left
+    from toes out, the foot pointed, to level and a little down as the hips
+    rise above it; once the hips are over it the knee points into the
+    wall, so that leg is foreshortened (as is the left
     leg while its knee points out from the wall). While the body rises on
     the bent left arm, its elbow points back and down, out of the wall, so
     that arm is shortened a little; it keeps the elbow inside the frame.
@@ -1081,6 +1088,10 @@ def rock_up_poses():
 
     def hook(a):
         return {"at": heel, "angle": a, "spot": "heel", "up": 1}
+    # the hook is set at hip height with the toes out, only a little up,
+    # and the foot pointed, as in the heel-hook figure; the pull and the
+    # rock-over then level the foot (the ankle flexes as the knee comes
+    # over it)
     # the hooking shin points out from the wall toward us, the thigh less so.
     # The right hand's hold is out to the side at shoulder height, so that
     # arm points into the wall and is shortened a little; its elbow then
@@ -1094,14 +1105,14 @@ def rock_up_poses():
     # for it, so the arms stay straight. The bend goes as the hips come up
     # over the heel
     poses = [
-        FootClimber((-8, 118), rh=grip(HR["RH"]), lf=on_lf, rf=hook(40),
+        FootClimber((-8, 118), rh=grip(HR["RH"]), lf=on_lf, rf=hook(16),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .8},
                     arm_len={"r": ra}, head=(3, -1), elbows=low, bend=8, **kw),
-        FootClimber((2, 134), rh=grip(HR["RH"]), lf=on_lf, rf=hook(24),
+        FootClimber((2, 134), rh=grip(HR["RH"]), lf=on_lf, rf=hook(-2),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .86},
                     arm_len={"l": .9, "r": ra}, head=(3, 0), elbows=low,
                     bend=5, active=("+rham",), **kw),
-        FootClimber((12, 148), rh=grip(HR["RH"]), lf=on_lf, rf=hook(4),
+        FootClimber((12, 148), rh=grip(HR["RH"]), lf=on_lf, rf=hook(-4),
                     knees={"r": "up", "l": "out"}, leg_len={"r": hk, "l": .94},
                     arm_len={"l": .94, "r": ra}, head=(2, 0), elbows=low,
                     active=("+rham",), **kw),

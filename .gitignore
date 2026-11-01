@@ -2,6 +2,7 @@
 /Bouldering Technique Handbook.pdf
 book/figures/*.svg
 book/src-map.typ
+book/errata.json
 __pycache__/
 .DS_Store
 # Local copies of published editions; the PDFs live in GitHub releases

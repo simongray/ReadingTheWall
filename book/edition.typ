@@ -13,6 +13,12 @@
   str(n) + suffix
 }
 
+// The edition's date as a datetime, or none when no date is passed.
+#let edition-day = if edition-date == "" { none } else {
+  let d = edition-date.split("-").map(int)
+  datetime(year: d.at(0), month: d.at(1), day: d.at(2))
+}
+
 // "First edition" style label, or "Draft" for unreleased builds.
 #let edition-label = if edition == "draft" { "Draft" } else {
   let words = ("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth")

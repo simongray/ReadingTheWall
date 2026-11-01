@@ -29,7 +29,7 @@
   #v(1fr)
   #text(size: 11pt, sc(tracking: 0.12em)[Edited by Simon Gray])
   #v(2.5mm)
-  #text(size: 10.5pt, style: "italic")[October 2026]
+  #text(size: 10.5pt, style: "italic", (if edition-day == none { datetime.today() } else { edition-day }).display("[month repr:long] [year]"))
 ]
 
 // ------------------------------------------------------------ colophon
@@ -38,9 +38,8 @@
 #page(header: none, footer: none, margin: (x: 31mm, top: 30mm, bottom: 26mm))[
   #set par(justify: false, first-line-indent: 0pt, leading: 0.82em, spacing: 0.82em)
   #set text(size: fs.note, hyphenate: false)
-  #let shown-date = if edition-date == "" { none } else {
-    let d = edition-date.split("-").map(int)
-    datetime(year: d.at(0), month: d.at(1), day: d.at(2)).display("[day padding:none] [month repr:long] [year]")
+  #let shown-date = if edition-day == none { none } else {
+    edition-day.display("[day padding:none] [month repr:long] [year]")
   }
   #let year = if edition-date == "" { str(datetime.today().year()) } else { edition-date.slice(0, 4) }
   #v(1fr)
@@ -95,7 +94,7 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 
 *Part IV* covers your body (being tall, heavier, or starting as an adult), how technique is best learned, and how to fall safely.
 
-The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the sources and the index.
+The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the corrections to the previous edition, the sources and the index.
 
 == Anatomy of a technique entry
 

@@ -23,6 +23,7 @@ if [ -z "$(printf '%s' "$notes" | tr -d '[:space:]')" ]; then
 fi
 python3 figtools/build_all.py
 python3 tools/merge_sources.py
+python3 tools/errata.py "$n"
 if [ -n "$(git status --porcelain)" ]; then
   echo "the build changed tracked files; commit them first"; exit 1
 fi

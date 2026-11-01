@@ -554,7 +554,7 @@ Technique cuts both demands. A hold loaded in its own direction needs less squee
   grade-note: [From V5, holds get "smaller and crimpier" #src("C48"). Some tiny edges then hold only a full crimp.],
   summary: [The middle joints bend past 90° and the end joints bend backwards. The thumb often locks over the index fingernail. It is the most secure grip on tiny edges. It also puts the most load on the finger #jt("pulley", body: [pulleys]) (the bands that hold the tendons to the bone) #src("C1", "C9", "C25").],
   figure: "full-crimp.svg",
-  caption: [(a) Full crimp from the side. The end joint bends back. The load on the A2 pulley peaks. (b) The thumb locks over the index fingernail.],
+  caption: [Full crimp from the side, the thumb locked over the index fingernail. The middle joint bends past 90° and the end joint bends back. The load on the A2 pulley peaks.],
   how: [
     + Put your fingertips on the edge. Lift your knuckles until the middle joints bend past 90°. The end joints bend back.
     + Lock your thumb over the index fingernail #src("C1", "C9"). It adds force without loading the other fingers more #src("C24").
