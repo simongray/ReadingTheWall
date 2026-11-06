@@ -239,7 +239,7 @@
 
   // Print layout that HTML export would drop along with its content.
   show columns: it => tag("div", attrs: (class: "columns", "data-count": str(it.count)), it.body)
-  show align: it => it.body
+  show align: it => if it.alignment == right { cls("div", "flush-end", it.body) } else { it.body }
   show pad: it => it.body
   show place: it => it.body
   show grid: it => it.children.map(c => c.body).join([ ])
