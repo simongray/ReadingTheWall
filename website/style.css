@@ -355,6 +355,7 @@
 @layer text {
   p + p { text-indent: 1.5em; }   /* as in print: an indent marks a paragraph, space a boundary */
   li > p + p, td > p + p { text-indent: 0; margin-block-start: .4rlh; }
+  .flush-end { text-align: end; }
 
   .sec, .sub, .step, .opening h1, .guide-head h1, .book-title { font-weight: 400; }
 

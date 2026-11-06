@@ -1073,7 +1073,9 @@ class Book:
     def check_print_words(self):
         """Report text that still talks about print, for wording.json."""
         for page in self.pages:
-            if page.path in ("corrections/", "sources/"):
+            # The corrections and sources are about the printed book, and the site
+            # doesn't reword the editor's signed foreword.
+            if page.path in ("corrections/", "sources/", "foreword/"):
                 continue
             for node in page.body.select("p", "li", "td", "dd", "figcaption"):
                 text = clean(node.text())
