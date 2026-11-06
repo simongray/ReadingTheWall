@@ -148,7 +148,7 @@ Bouldering falls are short but frequent. Some techniques load joints in unusual 
 
 Claude, an AI model made by Anthropic, wrote this book at its editor's direction. The book is free and will never be sold. This section says what Claude did and what has and hasn't been checked, so that you can judge the book. Claude wrote it too, from the book's records.
 
-*The text.* Claude searched the web for sources, read the pages it could open and wrote up what they said in research files. It wrote the chapters from those files. Claude has never climbed, so the technique advice comes from its sources and its own judgement. The records don't show anyone trying the advice on a wall. Claude rewrote much of the prose for this edition.
+*The text.* Claude searched the web for sources, read the pages it could open and wrote up what they said in research files. It wrote the chapters from those files. Claude has never climbed, so the technique advice comes from its sources and its own judgement. Claude rewrote much of the prose for this edition.
 
 *The figures.* No image generator was used. Claude wrote the Python code that draws every figure, the cover included. It gives each pose as hand and foot positions in centimetres, and the code works out the elbows and knees. The code adds the colour last. For the second edition, Claude compared the poses with photographs or single video frames, which aren't in the book. The logs cover most figures but not those in the hands chapter, and for some techniques the references were thin.
 
