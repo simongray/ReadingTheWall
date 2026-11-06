@@ -317,34 +317,62 @@
 
 #let grade-label(g) = if g == none { "—" } else if g < 0 { "VB" } else if g >= 8 { "V8+" } else { "V" + str(g) }
 
-// The grade mark: white lining figures on a black tab. One design at two
+// Each grade's tab colour, from V0 up, as on the walls at Boulders, the Danish
+// gym chain. It publishes no V grades, so the table comes from Simon, who climbs
+// there. The tabs darken as the grade rises, so on a monochrome screen a tab's
+// tone still says how hard the grade is. Light tabs take black figures and an
+// outline; dark ones take white figures. Each colour holds its panel level like
+// the figures' colours (figtools/paint.py).
+#let tab-green = (fill: rgb("#a2dea2"), figures: ink, stroke: 0.4pt + ink)
+#let grade-tabs = (
+  tab-green,                                                  // V0
+  tab-green,                                                  // V1
+  (fill: rgb("#d7be2e"), figures: ink, stroke: 0.4pt + ink),  // V2, yellow
+  (fill: rgb("#e98421"), figures: ink, stroke: 0.4pt + ink),  // V3, orange
+  (fill: rgb("#3b69ae"), figures: white, stroke: none),       // V4, blue
+  (fill: rgb("#58328a"), figures: white, stroke: none),       // V5, purple
+  (fill: rgb("#6b211b"), figures: white, stroke: none),       // V6, red
+  (fill: ink, figures: white, stroke: none),                  // V7 and up, black
+)
+#let grade-tab-look(g) = if g == none { (fill: ink, figures: white, stroke: none) } else {
+  grade-tabs.at(calc.clamp(g, 0, grade-tabs.len() - 1))
+}
+
+// The grade mark: lining figures on a coloured tab. One design at two
 // sizes: in running text and in an entry's title band. It marks an entry
 // and never replaces a heading. A section head that names a grade has no
 // tab, since it would only repeat the head. The proportions are in em, so
-// every size is the same shape.
-#let grade-tab(body, size: 9pt) = text(
-  size: size, weight: 700, fill: white, number-type: "lining", tracking: 0.02em, top-edge: cap,
-  box(fill: ink, inset: (x: 0.34em, y: 0.2em), radius: 0.09em, baseline: 0.2em, body),
-)
+// every size is the same shape. Without a grade `g` the tab is black, as on
+// the numbers beside the QR codes.
+#let grade-tab(body, size: 9pt, g: none) = {
+  let look = grade-tab-look(g)
+  text(
+    size: size, weight: 700, fill: look.figures, number-type: "lining", tracking: 0.02em, top-edge: cap,
+    box(fill: look.fill, stroke: look.stroke, inset: (x: 0.34em, y: 0.2em), radius: 0.09em, baseline: 0.2em, body),
+  )
+}
 
-// The same tab in running text, its black drawn behind the figures
+// The same tab in running text, its colour drawn behind the figures
 // instead of around them: the figures sit on the baseline and the line
 // keeps its height, as the tab takes no more room than the figures do.
-#let grade-tab-inline(body, size: 9pt) = text(
-  size: size, weight: 700, fill: white, number-type: "lining", tracking: 0.02em, top-edge: cap,
-  context {
-    let figs = [#h(0.34em)#body#h(0.34em)]
-    let w = measure(figs).width
-    box(width: w, {
-      place(top + left, dy: -0.2em, rect(width: w, height: 1.1em, fill: ink, radius: 0.09em, stroke: none))
-      figs
-    })
-  },
-)
+#let grade-tab-inline(body, size: 9pt, g: none) = {
+  let look = grade-tab-look(g)
+  text(
+    size: size, weight: 700, fill: look.figures, number-type: "lining", tracking: 0.02em, top-edge: cap,
+    context {
+      let figs = [#h(0.34em)#body#h(0.34em)]
+      let w = measure(figs).width
+      box(width: w, {
+        place(top + left, dy: -0.2em, rect(width: w, height: 1.1em, fill: look.fill, radius: 0.09em, stroke: look.stroke))
+        figs
+      })
+    },
+  )
+}
 
 // The grade badge of a technique in running text: the grade where it
 // starts to matter.
-#let badge(g, size: 9pt) = grade-tab-inline(grade-label(g) + "+", size: size)
+#let badge(g, size: 9pt) = grade-tab-inline(grade-label(g) + "+", size: size, g: g)
 
 // The grade in tables and lists: small caps, no tab.
 #let badge-plain(g) = text(number-type: "lining", sc(grade-label(g), tracking: 0.03em))
@@ -810,7 +838,7 @@
       grid(columns: (1fr, auto), column-gutter: 1em, align: (left + bottom, right + bottom),
         if live [#heading(level: 3, name)#label("tech-" + key)#metadata(meta)#label("tech-meta-" + key)#ix(name, main: true)]
         else { text(size: fs.tech, weight: 700, name) },
-        navlink(label("grade-" + str(calc.min(calc.max(grade, 0), 8))), grade-tab(grade-label(grade) + "+", size: fs.badge)),
+        navlink(label("grade-" + str(calc.min(calc.max(grade, 0), 8))), grade-tab(grade-label(grade) + "+", size: fs.badge, g: grade)),
       )
       if aliases.len() > 0 or category != none {
         set par(justify: false)

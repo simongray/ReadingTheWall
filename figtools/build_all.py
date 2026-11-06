@@ -1,8 +1,9 @@
 """Regenerate every figure in book/figures.
 
 Each figure module defines build(out_dir). Modules named figs_*.py are
-found automatically. Run from anywhere:
-    python3 figtools/build_all.py
+found automatically. paint.py then adds the colours. Run from anywhere:
+    python3 figtools/build_all.py [--grey]
+With --grey the figures stay in grey, as they were drawn.
 """
 import glob
 import importlib
@@ -27,3 +28,5 @@ for name in sorted(set(MODULES + found)):
         print(f"FAILED {name}: {type(e).__name__}: {e}")
 if failed:
     sys.exit(1)
+if "--grey" not in sys.argv:
+    importlib.import_module("paint").paint_all(OUT)

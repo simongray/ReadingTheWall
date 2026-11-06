@@ -720,7 +720,7 @@ ORN_VPAD = 0.3       # mm of paper the drawing needs above and below
 def one(kind, size, use=90, **kw):
     """An ornament of a single hold at (0, 0)."""
     def draw(f):
-        hold(f, kind, (0, 0), use=use, size=size, xray=False, **kw)
+        hold(f, kind, (0, 0), use=use, size=size, xray=False, shadow=False, **kw)
         return hold_outline(kind, (0, 0), use=use, size=size,
                            variant=kw.get("variant"), mirror=kw.get("mirror"))
     return draw
@@ -734,7 +734,7 @@ def grades(f):
                           ("crimp", 0.9, "chip")):
         W = HOLD_SIZE[kind][0] * size * (0.7 if v == "chip" else 1.0)
         p = (x + W / 2, 0)
-        hold(f, kind, p, size=size, variant=v, mirror=False, xray=False,
+        hold(f, kind, p, size=size, variant=v, mirror=False, xray=False, shadow=False,
              chalk=True)
         pts += hold_outline(kind, p, size=size, variant=v, mirror=False)
         x += W + 4.2
@@ -744,7 +744,7 @@ def grades(f):
 def volume_orn(f):
     """A small volume with its bolt."""
     out = [(-9.5, -5.6), (9.5, -5.6), (1.2, 6.4)]
-    volume(f, out, apex=(0.9, -1.4), bolt=True)
+    volume(f, out, apex=(0.9, -1.4), bolt=True, shadow=False)
     return out
 
 

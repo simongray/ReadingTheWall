@@ -151,6 +151,12 @@ Style conventions (already built into the library — keep them):
   a white lip on the grabbed surface (`use=` angle: 90 normal, 270
   undercling, 0/180 sidepull or gaston — the lip faces the way the
   grabbed surface faces, so you pull the opposite way).
+- Draw and judge every figure in grey: `figtools/paint.py` colours holds, block
+  arrows and muscle dots at the end of a build, and an entry's holds follow its
+  grade. Draw holds with `hold()` or `DARK` and an outline, and volumes with
+  `volume()`, `volume_side()` or `VOLUME` and an outline, so that they get their
+  surface. Never name a colour in a caption or in the text, since most readers
+  can't see it. `COLOUR.md` has the reasons.
 - Dashed arrow = movement; bold arrow = force; `turn` = rotation; `cog` =
   centre of gravity with plumb line; `ghost=True` = earlier position;
   `step(n)` = move order; `cross` = mistake.
