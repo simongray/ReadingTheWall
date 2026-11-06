@@ -123,7 +123,7 @@ climbing source uses the first, and sources disagree on the second.
 **Learning earlier than the badge.** The badge says where you start to need a
 technique. Where you should start learning it earlier, say so at the start of
 the grade note in plain words, e.g. "Learn it from V2 on big holds." Do this
-for at least dyno (V2), double-dyno (V3), lunge (V3), run-and-jump (V3),
+for at least dyno (V2), double-dyno (V2, as the first dyno), lunge (V3), run-and-jump (V3),
 precise-footwork and straight-arms (first session), and deep versus partial
 drop knees. Keep the warning against habitual full crimping where V1–V2
 readers will see it (in half-crimp).
@@ -204,8 +204,9 @@ Use it. These are the changes, by file:
 These settle them for the editors. Simon can overrule any of them later.
 - Item 3: keep "small to nil", the authors' own summary, over "close to zero".
 - Item 8: drop the superlatives about weight loss, as the wording there does.
-- Item 9: "one physiotherapist warns" replaces "coaches warn", since it is one
-  source. "Hang on your skeleton" stays as the coaches' figure of speech, in the
+- Item 9: the shoulder warning names its two sources, the coach Neil Gresham
+  (B23, read in `factcheck-3.md`) and one physiotherapist (B50), in place of
+  "coaches warn". "Hang on your skeleton" stays as the coaches' figure of speech, in the
   chapter 1 heading and as an alias. Chapter 1 gives the physiotherapist's
   correction once. Elsewhere, reword a line only if it states as mechanism that
   the bones take the load in place of the muscles.

@@ -226,6 +226,7 @@
   "bail": "Bailing",
   "campus": "Campus move",
   "circuit": "Circuits",
+  "corner": "Corners",
   "cut loose": "Cutting loose and swing control",
   "flag": "Side flag",
   "match": "Matching hands",

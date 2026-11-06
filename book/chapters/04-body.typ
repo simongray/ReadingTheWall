@@ -117,7 +117,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Your elbows point out sideways #src("B28").
   ],
   errors: [
-    - Sagging onto fully straight arms with slack shoulders. One physiotherapist warns that this is a risky habit, and says he has seen it contribute to a shoulder#ix("Injuries!shoulder") dislocation. We found no study that measures it #src("B50").
+    - Sagging onto fully straight arms with slack shoulders. The coach Neil Gresham says this strains the shoulders #src("B23"). One physiotherapist calls it a risky habit, and says he has seen it contribute to a shoulder#ix("Injuries!shoulder") dislocation #src("B50"). We found no study that measures it.
     - Sinking low on a vertical wall. It moves weight from your feet to your fingers #src("B8"). Stand tall there and accept a slightly bent arm.
   ],
   related: ("pre-loading", "hip-turn", "twist-lock", "lock-off"),

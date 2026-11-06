@@ -595,8 +595,8 @@ is gone and "early" is marked as this book's suggestion. **Simon needs to confir
 
 > - Sagging onto fully straight arms with slack shoulders. One physiotherapist warns that this is a risky habit, and says he has seen it contribute to a shoulder#ix("Injuries!shoulder") dislocation. We found no study that measures it #src("B50").
 
-B23 has never been read for this claim, so it is gone from the citation. The brief says "coaches warn";
-one source doesn't carry the plural. **Simon needs to confirm this.**
+This pass couldn't read B23, but `factcheck-3.md` read it in full and records that it supports this warning.
+The chapter therefore cites both: the coach Neil Gresham (B23) and the physiotherapist (B50).
 
 **Other lines that repeat what this item corrects (not in the brief)**
 - Forearm claim: the caption at `05-hands.typ:64`. Say "biceps and shoulder muscles work to hold you there".
