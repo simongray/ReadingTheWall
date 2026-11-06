@@ -143,13 +143,15 @@ A technique you merge into another keeps its address: add its old key to
 ## How to cite
 
 Gray, S. (ed.) (2026). *Reading the Wall: A technique handbook for indoor
-bouldering*. Second edition. https://github.com/simongray/ReadingTheWall
+bouldering*. Written by Claude (Anthropic). Second edition.
+https://github.com/simongray/ReadingTheWall
 
 To pin down the exact text, add the commit printed on the back of the
 title page of your copy; the book's own colophon gives the full citation
-with it. GitHub's "Cite this repository" button shows the same citation, taken
-from `CITATION.cff`. The book is edited by Simon Gray and was written and
-illustrated with Claude (Anthropic) under the editor's direction.
+with it. GitHub's "Cite this repository" button builds its citation from
+`CITATION.cff`, which names the editor and Claude. The book is edited by Simon
+Gray and written by Claude (Anthropic). Claude also wrote the code that draws
+the figures and builds the website.
 
 ## License
 

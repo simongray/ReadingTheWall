@@ -2,7 +2,7 @@
 
 #show: book.with(
   title: "Reading the Wall",
-  author: "Prepared for Simon Gray with Claude",
+  author: "Edited by Simon Gray; written by Claude (Anthropic)",
 )
 
 // ------------------------------------------------------------ front matter
