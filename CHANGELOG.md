@@ -22,7 +22,7 @@ section as the notes of the GitHub release.
 - The figures have colour: holds in the colour of the entry's grade, red muscle
   dots, amber block arrows and the cover's pelican in its real colours. On a
   monochrome e-reader the colour leaves the figures' greys as they were, apart from
-  the muscle dots on the left limbs, which are a little lighter.
+  V2 holds and the muscle dots on the left limbs, which are lighter.
 - Holds and volumes have a rough surface and more depth: a grain and a shadow on
   the wall, with a lit rim and a dark crescent on holds and facets that follow the
   light on volumes. This shows on every screen.

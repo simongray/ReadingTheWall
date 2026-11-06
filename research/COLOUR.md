@@ -9,7 +9,8 @@ they are. The values live in `paint.py`.
 
 - **A colour keeps its grey.** Each colour lands on the same panel level as
   the grey it replaces, under every sum a device might use to turn colour into
-  grey. The build fails if one drifts.
+  grey. The build fails if one drifts. Yellow holds keep a lighter grey of their
+  own, as explained below.
 - **One problem, one colour, and the colour says the grade.** On a real wall a
   problem is one colour and the wall as a whole has many. So a figure's holds
   share one colour. In a technique entry the colour follows the entry's grade, as
@@ -57,9 +58,14 @@ they are. The values live in `paint.py`.
 arrows on #cccccc, and each hue has a lightness where it's at its strongest. In
 the calculations for this page, blues and violets kept the most colour at the
 holds' darkness and teal kept the least, while amber stayed strong at the arrows'
-lightness. Yellow and orange turn olive and brown at the holds' darkness, so
-their rim, chalk and grain keep their full colour, where other holds mix with
-white.
+lightness. Orange turns brown at the holds' darkness, so its rim, chalk and grain
+keep their full colour, where other holds mix with white.
+
+**Yellow holds are the one exception to keeping a grey.** At the holds' darkness
+yellow turns olive, which doesn't read as yellow at all. So yellow holds sit on
+#aaaaaa with shades of their own, and a monochrome screen shows them lighter than
+other holds. Simon chose this after seeing both versions. It suits the grade tabs,
+which also get lighter the easier the grade.
 
 **Muted colours, because the sums disagree about strong ones.** The PDF engines
 weight red, green and blue at about 0.30, 0.59 and 0.11, and Android at 0.213,
@@ -120,12 +126,14 @@ device.
 ## How it was checked
 
 Each figure was rendered in grey and in colour, sent through the sums and reduced
-to the panel's 16 levels. This changed under 0.1% of the pixels by one level and
-none by two. The whole book changed under 0.01% by one level and none by two, on
-the same number of pages, through the conversions in Poppler, PDFium and MuPDF
-with colour management on or off. So in these engines the two colour spaces don't
-pull the builds apart. The changes are probably anti-aliased edges, though nobody
-looked at them one by one. No real device has seen the figures yet.
+to the panel's 16 levels. In figures without yellow holds this changed under 0.1%
+of the pixels by one level and none by two, and only figures with yellow holds
+changed by more. Before yellow holds became lighter, the whole book changed under
+0.01% by one level and none by two, on the same number of pages, through the
+conversions in Poppler, PDFium and MuPDF with colour management on or off. So in
+these engines the two colour spaces don't pull the builds apart. The changes are
+probably anti-aliased edges, though nobody looked at them one by one. No real
+device has seen the figures yet.
 
 ## Sources
 

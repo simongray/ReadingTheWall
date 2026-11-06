@@ -3,7 +3,8 @@
 The book is read mostly on a monochrome e-reader, so each colour here keeps
 the panel grey of the shape it paints. That holds under each of the sums a
 device might use to turn colour into grey, and the build fails if a colour
-drifts. A monochrome reader sees the grey drawing and loses nothing.
+drifts. A monochrome reader sees the grey drawing and loses nothing. Yellow
+holds are the one exception, as yellow can't stay yellow at the holds' darkness.
 
 On a real wall one problem is one colour, and the wall as a whole has many.
 So a figure's holds share one colour. In a technique entry the colour follows
@@ -34,28 +35,35 @@ AMBER = "#f2c55f"
 MUSCLE_RED = "#9c3d30"
 MUSCLE_PINK = "#ffb5ac"
 
-# Hold colours, all on the panel's #555555. Each comes with the shades drawn on
-# it, for the climb.py greys HOLD_MID, HOLD_LIGHT, HOLD_PALE and HOLD_DEEP. Chalk
-# and light are white on top of the colour, so the first three are the colour
-# mixed with white (in Oklab, which keeps its hue) until it reaches the panel
-# level. The last is the same hue in shadow. Yellow and orange lose most of
-# their hue at this darkness, and white would take the rest. So their shades
-# keep their colour, which leaves real yellow and orange in the rim and the grain.
+# Hold colours, on the panel's #555555 except for yellow. Each comes with the
+# shades drawn on it, for the climb.py greys HOLD_MID, HOLD_LIGHT, HOLD_PALE and
+# HOLD_DEEP. Chalk and light are white on top of the colour, so the first three
+# are the colour mixed with white (in Oklab, which keeps its hue) until it reaches
+# the panel level. The last is the same hue in shadow. Orange loses most of its
+# hue at this darkness, and white would take the rest, so its shades keep their
+# colour, which leaves real orange in the rim and the grain.
 FOREST = ("#346841", "#74977b", "#c3d2c6", "#e6ede7", "#1a4325")
-MUSTARD = ("#6a5b00", "#a48e07", "#e8ce4a", "#f7ecb7", "#453a00")
 RUST = ("#944600", "#d7732b", "#ffb88e", "#ffe1d0", "#5d2a00")
 DENIM = ("#325a94", "#7390b9", "#c3cfe2", "#e6ecf3", "#173765")
 VIOLET = ("#654496", "#9480ba", "#d1c9e3", "#ede9f4", "#43286a")
 BRICK = ("#9c3d30", "#bf7a6e", "#e6c5bf", "#f5e8e6", "#6b2117")
 TEAL = ("#266666", "#6e9695", "#c1d2d1", "#e6edec", "#0e4242")
 RASPBERRY = ("#953a63", "#b8748f", "#e3c3ce", "#f4e8ec", "#671e41")
-HOLDS = (FOREST, RASPBERRY, DENIM, MUSTARD, BRICK, TEAL, VIOLET, RUST)
 HOLD_GREYS = (DARK, HOLD_MID, HOLD_LIGHT, HOLD_PALE, HOLD_DEEP)
+
+# Yellow turns olive at the holds' darkness, which doesn't read as yellow at all.
+# So yellow holds are lighter, and each shade holds a grey of its own instead. On
+# a monochrome screen they show lighter than other holds, which suits the grade
+# tabs, as those get lighter the easier the grade.
+YELLOW = ("#c6ad25", "#e9ce3d", "#f4de73", "#fcefb2", "#927e00")
+YELLOW_GREYS = ("#aaaaaa", "#cccccc", "#dddddd", "#eeeeee", "#777777")
+
+HOLDS = (FOREST, RASPBERRY, DENIM, YELLOW, BRICK, TEAL, VIOLET, RUST)
 
 # A figure in a technique entry takes the hold colour of the entry's grade, from
 # V0 up, as in the circuits at Boulders (see grade-tabs in book/template.typ).
 # Its black holds stay as drawn, in grey.
-BY_GRADE = (FOREST, FOREST, MUSTARD, RUST, DENIM, VIOLET, BRICK, HOLD_GREYS)
+BY_GRADE = (FOREST, FOREST, YELLOW, RUST, DENIM, VIOLET, BRICK, HOLD_GREYS)
 
 # A figure with no known grade takes a colour that doesn't claim one, as these
 # two aren't among the circuits' colours.
@@ -85,7 +93,7 @@ COVER = {
     "#5c5c5c": "#7e5239",  # lines on the toes
 }
 COVER_HOLDS = (DENIM, DENIM, DENIM, DENIM,
-               RUST, FOREST, TEAL, BRICK, VIOLET, MUSTARD)
+               RUST, FOREST, TEAL, BRICK, VIOLET, YELLOW)
 
 
 def figure_grades(chapters):
@@ -163,13 +171,18 @@ def paint(svg, name, grade=None):
     return _holds(svg, _hold_colour(name, grade))
 
 
+def hold_greys(hold):
+    """The greys that the colour and shades of `hold` have to match."""
+    return YELLOW_GREYS if hold is YELLOW else HOLD_GREYS
+
+
 def _pairs():
     """Every colour with the grey it has to match."""
     yield AMBER, BLOCK_ARROW
     yield MUSCLE_RED, MUSCLE_DOTS[WHITE]
     yield MUSCLE_PINK, MUSCLE_BAND
     for hold in HOLDS:
-        yield from zip(hold, HOLD_GREYS)
+        yield from zip(hold, hold_greys(hold))
     for grey, colour in COVER.items():
         yield colour, grey
 

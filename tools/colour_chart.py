@@ -98,10 +98,10 @@ def _unpaint(svg):
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "colour-chart.pdf")
     p = paint
-    holds = (("forest", p.FOREST), ("mustard", p.MUSTARD), ("rust", p.RUST),
+    holds = (("forest", p.FOREST), ("yellow", p.YELLOW), ("rust", p.RUST),
              ("denim", p.DENIM), ("violet", p.VIOLET), ("brick", p.BRICK),
              ("teal", p.TEAL), ("raspberry", p.RASPBERRY))
-    rows = [(title, [(h[i], p.HOLD_GREYS[i], n) for n, h in holds])
+    rows = [(title, [(h[i], p.hold_greys(h)[i], n) for n, h in holds])
             for i, title in enumerate(("Holds", "Shades on holds: lit rim and grain",
                                        "Shades on holds: chalk",
                                        "Shades on holds: the palest",
