@@ -313,9 +313,9 @@ def wall_right(f, x, y0, y1):
 
 
 def tension_line(f, pts, z=35):
-    """A broad grey band: the chain of muscles held tight."""
+    """A broad band: the chain of muscles held tight."""
     f.add(f'<path d="{f.smooth_d(pts, closed=False)}" fill="none" '
-          f'stroke="{LIGHT}" stroke-width="{f.mm(2.2):.2f}" '
+          f'stroke="{MUSCLE_BAND}" stroke-width="{f.mm(2.2):.2f}" '
           f'stroke-linecap="round" opacity="0.85"/>', z)
 
 
@@ -395,7 +395,7 @@ def pocket_hold(f):
     hole = [(-11.6, lo), (mid, lo - 0.3), (P["back"] - 0.5, lo + 0.9),
             (P["back"], (lo + hi) / 2), (P["back"] - 0.5, hi - 0.9),
             (mid, hi + 0.2), (-11.6, hi)]
-    f.smooth(hole, closed=True, z=-5, fill=PALE, stroke=INK, sw=0.3, tension=0.5)
+    f.smooth(hole, closed=True, z=-5, fill=HOLD_PALE, stroke=INK, sw=0.3, tension=0.5)
     # hide the cavity outline across the open mouth
     f.line((-11.55, lo + 0.2), (-11.55, hi - 0.2), z=-4.9, sw=1.1, stroke=WHITE)
 
@@ -843,7 +843,7 @@ def knee_bar(path):
     # almost vertically back to the wall, clear of the face and chest
     V = add(touch, mul(s_dir, -3))
     W1 = add(W0, mul(wd, 72))
-    f.poly([W0, V, W1], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    f.poly([W0, V, W1], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     # the calf lifts the heel and wedges the thigh up into the volume; the
     # free leg hangs below it
     c = FootClimber(pelvis, view="side", lean=lean, lh=None, rh=None,
@@ -1281,7 +1281,7 @@ def atlas_smear_volume():
     nf = perp(u)                                # out of the face (up-left)
     base = (-40, -34)
     top = add(base, mul(u, 69))
-    f.poly([base, top, (14, top[1]), (14, base[1])], z=-12, fill=LIGHT,
+    f.poly([base, top, (14, top[1]), (14, base[1])], z=-12, fill=VOLUME,
            stroke=INK, sw=0.35)
     cpt = add(base, mul(u, 44))
     shoe_side(f, cpt, 14, spot="auto", bend=14, flat=(cpt, nf), press=1.6,
@@ -1381,7 +1381,7 @@ def atlas_knee_bar():
     Vt = add(V, mul(d, 30))
     k_top = cross(sub(F, Vt), d) / cross(s_dir, d)
     W1 = add(Vt, mul(s_dir, k_top + 6))
-    f.poly([W0, V, Vt, W1], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    f.poly([W0, V, Vt, W1], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     # the thigh pushes up into the volume: the arrow sits on the volume side
     # of the contact, not across the thigh
     f.arrow([add(cpt, mul(nrm, 2.5)), add(cpt, mul(nrm, 12))], kind="force")

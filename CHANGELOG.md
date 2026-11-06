@@ -19,6 +19,16 @@ section as the notes of the GitHub release.
 
 ### Changed
 
+- The figures have colour: holds in the colour of the entry's grade, red muscle
+  dots, amber block arrows and the cover's pelican in its real colours. On a
+  monochrome e-reader the colour leaves the figures' greys as they were, apart from
+  V2 holds and the muscle dots on the left limbs, which are lighter.
+- Holds and volumes have a rough surface and more depth: a grain and a shadow on
+  the wall, with a lit rim and a dark crescent on holds and facets that follow the
+  light on volumes. This shows on every screen.
+- The grade tabs are coloured like the circuits at Boulders, a Danish gym chain,
+  and darken as the grade rises, which also shows on a monochrome screen.
+
 ### Removed
 
 ## Second edition (edition-2)

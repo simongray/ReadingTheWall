@@ -163,8 +163,8 @@ def pocket_profile(safe, labels=True, x0=-14.5, y1=5.5, height=None, shown=H.FOR
     H.xray_outline(f, blk, 0.5)
     cav = [(WX - 4.2, 1.75), (WX - 1.2, 1.85), (WX - 0.55, 0.85), (WX - 1.1, -0.15),
            (WX - 4.2, -0.2)]
-    f.smooth(cav, z=-4.9, fill=PALE, stroke=INK, sw=0.3, tension=0.5)
-    f.line((WX - 3.92, 1.7), (WX - 3.92, -0.15), z=-4.8, sw=0.6, stroke=PALE)
+    f.smooth(cav, z=-4.9, fill=HOLD_PALE, stroke=INK, sw=0.3, tension=0.5)
+    f.line((WX - 3.92, 1.7), (WX - 3.92, -0.15), z=-4.8, sw=0.6, stroke=HOLD_PALE)
     p.draw(f, z=0, others="r")
     if safe:
         if labels:
@@ -286,7 +286,7 @@ def pinch_panel(kind, labels=True, x1=8.2, top=1.3, y0=None, scale=CLOSE,
         f.poly(hold, z=-5, fill=DARK, stroke=INK, sw=0.35)
     else:
         hold = [(-8.0, 0), apex, (8.0, 0)]
-        f.poly(hold, z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+        f.poly(hold, z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     H.xray_outline(f, hold)
     p.draw(f, z=0)
     inward(f, cf, nf)
@@ -349,7 +349,7 @@ def thumb_catch_fig(path):
     p.thumb_to(add(press, mul(out, 0.05)), part="pad", k=0.6,
                facing=math.degrees(math.atan2(-out[1], -out[0])))
     b = profile_frame(-13.5, y1=6.0, posed=p)
-    b.poly([(WX, 5.0), ridge, (WX, b.y0)], z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    b.poly([(WX, 5.0), ridge, (WX, b.y0)], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     p.draw(b, z=0)
     b.arrow([add(press, mul(out, 4.4)), add(press, mul(out, 1.9))], kind="force")
     # the leader runs under the force arrow to the thumb, not through it
@@ -1134,7 +1134,7 @@ def atlas_palm():
     f = profile_frame(x0, y0, y0 + TILE_H)
     low = sub(top, mul(u, 30))
     face = [add(top, (0, 4)), top, low, (WX, low[1])]
-    f.poly(face, z=-12, fill=LIGHT, stroke=INK, sw=0.35)
+    f.poly(face, z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     H.xray_outline(f, face)
     p.draw(f, z=0)
     c = p.at(5.0, 1.5, -1.8)

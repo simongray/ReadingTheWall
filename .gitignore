@@ -1,5 +1,6 @@
 # Built files: regenerate with ./build.sh
 /Bouldering Technique Handbook.pdf
+/colour-chart.pdf
 book/figures/*.svg
 book/src-map.typ
 book/errata.json

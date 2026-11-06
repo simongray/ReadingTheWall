@@ -46,3 +46,5 @@ Gyms in the US grade boulders on the #jt("V-scale"). Gyms in the UK use the V-sc
 
 #ix("Circuits", main: true)
 Some walls group problems into #jt("circuit", body: [circuits]) instead of grading each one: sets marked by one hold or tag colour, covering one grade or spanning two or three. The British Mountaineering Council's example has purple for V0–V2 and yellow for V3–V5 #src("F26"). Treat a circuit as a range. In a V3–V5 circuit, the problem you can't do may be the V5, and the one you #jt("flash") (climb first go) may be the V3. Chapter 2 explains how to calibrate yourself in a new gym.
+
+This book's grade tabs borrow their colours from the circuits at Boulders, a Danish gym chain, and an entry's holds take the same colour as its tab. On a greyscale screen the tabs darken as the grade rises instead. Your gym's colours will differ.

@@ -1,4 +1,4 @@
-"""Grayscale SVG illustrations of climbers, holds and movement.
+"""SVG illustrations of climbers, holds and movement, drawn in greys.
 
 World units are centimetres on the wall, y pointing up. A figure maps world
 units to paper at a fixed scale, so line weights and text sizes, which are
@@ -9,7 +9,10 @@ Conventions used throughout the book:
 - side view: the wall is on the right, the climber faces right
 - the climber's LEFT limbs are shaded grey, the RIGHT limbs are white
   (trouser legs and bare arms; the T-shirt, sleeves included, is white)
-- holds are dark grey resin; the light (white) surface is the one you grab
+- holds are dark resin; the light (white) surface is the one you grab
+
+Every figure is a grey drawing first. paint.py adds the colour at the end of
+a build, so draw and judge a figure in grey.
 """
 
 import math
@@ -72,6 +75,17 @@ LIGHT = "#cccccc"    # (on the e-ink panel's 16 greys)
 PALE = "#ececec"
 WHITE = "#ffffff"
 GHOST_LINE = "#777777"   # ghost outlines: one panel level darker than MID
+
+# Greys that only one role uses, so that paint.py can find that role in a
+# finished SVG and colour it. DARK works the same way for holds, and the
+# HOLD_ greys are the shades drawn on a hold. Each sits on the same panel level
+# as the grey the role used to share with other shapes.
+BLOCK_ARROW = "#cbcbcb"
+HOLD_DEEP = "#343434"
+VOLUME = "#cdcdcd"       # marks a volume that a figure draws itself, for its surface
+HOLD_MID = "#8d8d8d"
+HOLD_LIGHT = "#cecece"
+HOLD_PALE = "#ebebeb"
 
 # Label text: the book's serif (book/template.typ), so figure labels match
 # the captions.
@@ -398,6 +412,10 @@ class Fig:
             self._ribbon(pts, z, st, _smooth)
             return
         self.add(f'<path d="{self._path_d(pts, closed, _smooth)}" {self.style(**st)}/>', z)
+        if st.get("stroke") and st.get("fill") == DARK:
+            _surface(self, pts, z, _smooth, st)
+        elif st.get("stroke") and st.get("fill") == VOLUME:
+            _surface(self, pts, z, _smooth, st, light=VOLUME_LIT, dark=VOLUME_SHADE)
 
     def smooth(self, pts, closed=True, z=0, tension=1.0, **st):
         if not self._pen() or len(pts) < 3:
@@ -524,7 +542,7 @@ class Fig:
                 p = pts[len(pts) // 2]
             self.text(label, add(p, label_off), size=size, z=z + 5)
 
-    def body_arrow(self, pts, width=2.0, z=45, fill=LIGHT, label=None,
+    def body_arrow(self, pts, width=2.0, z=45, fill=BLOCK_ARROW, label=None,
                    size=7.5, label_off=(0, 0)):
         """A broad block arrow along `pts` (2+ points, curved through them),
         for movement of the whole body or the hips. `width` is in mm."""
@@ -664,7 +682,7 @@ def wall_back(fig, x0, y0, x1, y1, z=-30):
 #
 # Holds are drawn like resin gym holds, with the figures' pen: a dark body
 # (DARK, outlined in INK), the surface you grab light (WHITE where fingers
-# or toes go, LIGHT and MID where a rounded top turns away from the light),
+# or toes go, HOLD_LIGHT and HOLD_MID where a rounded top turns away from the light),
 # the shadow inside an incut or a pocket in INK, a bolt (a light washer
 # round a dark socket) or screws where a real hold has them, and on a large
 # hold a stroke of shading or texture. A detail too small to read on paper
@@ -761,13 +779,13 @@ def _facets(outline, apex, shades):
 _MACRO = [(-1.0, 0.25), (-0.15, 1.0), (0.85, 0.62), (0.8, -0.72), (-0.55, -0.9)]
 _MACRO_APEX = (0.0, 0.15)
 _MACRO_FILLS, _MACRO_RIDGES = _facets(_MACRO, _MACRO_APEX,
-                                      [LIGHT, WHITE, MID, DARK, MID])
+                                      [HOLD_LIGHT, WHITE, HOLD_MID, DARK, HOLD_MID])
 _CHIP = [(-1.0, 0.25), (-0.3, 1.0), (0.75, 0.8), (0.95, -0.35), (-0.4, -0.95)]
 _CHIP_FILLS, _CHIP_RIDGES = _facets(_CHIP, (0.0, 0.32),
-                                    [LIGHT, WHITE, MID, DARK, DARK])
+                                    [HOLD_LIGHT, WHITE, HOLD_MID, DARK, DARK])
 _FCHIP = [(-1.0, 0.15), (-0.35, 1.0), (0.8, 0.75), (0.95, -0.45), (-0.45, -0.9)]
 _FCHIP_FILLS, _FCHIP_RIDGES = _facets(_FCHIP, (0.1, 0.3),
-                                      [WHITE, WHITE, MID, DARK, MID])
+                                      [WHITE, WHITE, HOLD_MID, DARK, HOLD_MID])
 
 
 def _bar(top, bot, x_end=1.0, n=7):
@@ -796,7 +814,7 @@ HOLD_VARIANTS = {
                       (0.5, -0.75), (0.0, -0.92), (-0.5, -0.75), (-0.85, -0.2)],
              fills=[(WHITE, _above(lambda x: 0.24 - 0.12 * (1 - x * x))),
                     (INK, _arc(0, 0.75, 0.62, 0.17), 1.3)],
-             strokes=[(MID, [(-0.74, -0.02), (-0.6, -0.42), (-0.3, -0.66)])],
+             strokes=[(HOLD_MID, [(-0.74, -0.02), (-0.6, -0.42), (-0.3, -0.66)])],
              bolts=[(0.0, -0.4)]),
         # a horn: one end of the lip rises into a horn to wrap
         dict(name="horn", mirror=True,
@@ -808,8 +826,8 @@ HOLD_VARIANTS = {
              fills=[(WHITE, _curve(lambda x: 0.22 + 0.06 * x, -1.6, 0.4, 8) +
                      [(0.5, 0.42), (0.62, 0.72), (0.7, 1.0), (0.74, 1.9),
                       (-1.6, 1.9)])],
-             strokes=[(MID, [(-0.8, -0.3), (-0.5, -0.62), (-0.12, -0.74)]),
-                      (MID, [(0.82, 1.0), (0.8, 0.6), (0.7, 0.1)])],
+             strokes=[(HOLD_MID, [(-0.8, -0.3), (-0.5, -0.62), (-0.12, -0.74)]),
+                      (HOLD_MID, [(0.82, 1.0), (0.8, 0.6), (0.7, 0.1)])],
              bolts=[(-0.22, -0.34)]),
         # a long flat incut: a flat chalked top over the shadow of its lip
         dict(name="flat", size=(1.12, 0.82),
@@ -819,7 +837,7 @@ HOLD_VARIANTS = {
                       (-0.95, -0.15)],
              fills=[(WHITE, _above(lambda x: 0.4)),
                     (INK, _between(lambda x: 0.4, lambda x: 0.22), 1.6)],
-             strokes=[(MID, [(-0.82, -0.05), (-0.6, -0.55), (-0.25, -0.75)])],
+             strokes=[(HOLD_MID, [(-0.82, -0.05), (-0.6, -0.55), (-0.25, -0.75)])],
              bolts=[(0.0, -0.4)], screws=[(-0.74, -0.2), (0.74, -0.2)]),
     ],
     "crimp": [
@@ -841,7 +859,7 @@ HOLD_VARIANTS = {
         dict(name="fin", size=(0.85, 1.05),
              outline=[(0.0, 1.0), (0.48, 0.66), (0.66, 0.0), (0.5, -0.66),
                       (0.0, -1.0), (-0.5, -0.66), (-0.66, 0.0), (-0.48, 0.66)],
-             fills=[(LIGHT, [(-1.9, -1.9), (0.0, -1.9), (0.06, 0.0), (0.0, 1.9),
+             fills=[(HOLD_LIGHT, [(-1.9, -1.9), (0.0, -1.9), (0.06, 0.0), (0.0, 1.9),
                              (-1.9, 1.9)]),
                     (WHITE, [(-1.9, -1.9), (-0.42, -1.9), (-0.36, 0.0),
                              (-0.42, 1.9), (-1.9, 1.9)])],
@@ -852,7 +870,7 @@ HOLD_VARIANTS = {
              outline=[(-1.0, 0.82), (-0.85, 1.0), (0.85, 1.0), (1.0, 0.82),
                       (1.0, -0.82), (0.85, -1.0), (-0.85, -1.0), (-1.0, -0.82)],
              fills=[(WHITE, [(-1.9, -1.9), (-0.5, -1.9), (-0.5, 1.9), (-1.9, 1.9)]),
-                    (LIGHT, [(1.9, -1.9), (0.55, -1.9), (0.55, 1.9), (1.9, 1.9)])],
+                    (HOLD_LIGHT, [(1.9, -1.9), (0.55, -1.9), (0.55, 1.9), (1.9, 1.9)])],
              bolts=[(0.0, 0.0)]),
         # a tufa: a knobbly rib
         dict(name="tufa", size=(0.9, 1.08), mirror=True,
@@ -860,11 +878,11 @@ HOLD_VARIANTS = {
                       [(-0.3, 1.0), (0.3, 0.98)] +
                       _wavy(0.66, 0.6, 0.9, -0.9, 0.1, ph=1.7) +
                       [(0.25, -1.0), (-0.3, -1.0)]),
-             fills=[(LIGHT, [(-1.9, -1.9), (-0.22, -1.9), (-0.3, 0.0),
+             fills=[(HOLD_LIGHT, [(-1.9, -1.9), (-0.22, -1.9), (-0.3, 0.0),
                              (-0.2, 1.9), (-1.9, 1.9)])],
-             strokes=[(MID, [(-0.1, 0.55), (0.35, 0.5)]),
-                      (MID, [(-0.05, 0.0), (0.4, 0.05)]),
-                      (MID, [(-0.12, -0.5), (0.3, -0.55)])]),
+             strokes=[(HOLD_MID, [(-0.1, 0.55), (0.35, 0.5)]),
+                      (HOLD_MID, [(-0.05, 0.0), (0.4, 0.05)]),
+                      (HOLD_MID, [(-0.12, -0.5), (0.3, -0.55)])]),
     ],
     "sloper": [
         # a round dome, lit on its rounded top
@@ -872,8 +890,8 @@ HOLD_VARIANTS = {
              outline=[(1.0, 0.05), (0.82, 0.62), (0.4, 0.95), (0.0, 1.0),
                       (-0.4, 0.95), (-0.82, 0.62), (-1.0, 0.05), (-0.85, -0.55),
                       (-0.45, -0.88), (0.0, -0.95), (0.45, -0.88), (0.85, -0.55)],
-             fills=[(MID, _arc(-0.04, 0.42, 0.96, 0.74)),
-                    (LIGHT, _arc(-0.08, 0.6, 0.7, 0.46)),
+             fills=[(HOLD_MID, _arc(-0.04, 0.42, 0.96, 0.74)),
+                    (HOLD_LIGHT, _arc(-0.08, 0.6, 0.7, 0.46)),
                     (WHITE, _arc(-0.12, 0.74, 0.4, 0.22))],
              bolts=[(0.06, -0.52)]),
         # a long rounded rail
@@ -881,8 +899,8 @@ HOLD_VARIANTS = {
              outline=[(-1.0, 0.0), (-0.95, 0.6), (-0.75, 0.95), (0.0, 1.0),
                       (0.75, 0.95), (0.95, 0.6), (1.0, 0.0), (0.95, -0.6),
                       (0.75, -0.95), (0.0, -1.0), (-0.75, -0.95), (-0.95, -0.6)],
-             fills=[(MID, _above(lambda x: -0.18 + 0.25 * x ** 4)),
-                    (LIGHT, _above(lambda x: 0.22 + 0.25 * x ** 4)),
+             fills=[(HOLD_MID, _above(lambda x: -0.18 + 0.25 * x ** 4)),
+                    (HOLD_LIGHT, _above(lambda x: 0.22 + 0.25 * x ** 4)),
                     (WHITE, _above(lambda x: 0.6 + 0.2 * x ** 4))],
              bolts=[(-0.3, -0.52)], screws=[(0.62, -0.5)]),
         # a lumpy blob with two rounded lobes
@@ -890,10 +908,10 @@ HOLD_VARIANTS = {
              outline=[(-1.0, -0.05), (-0.95, 0.5), (-0.68, 0.88), (-0.3, 0.88),
                       (0.0, 0.66), (0.3, 0.94), (0.72, 0.96), (0.98, 0.55),
                       (0.95, -0.25), (0.6, -0.82), (0.0, -0.95), (-0.6, -0.8)],
-             fills=[(MID, _arc(-0.52, 0.36, 0.55, 0.6)),
-                    (MID, _arc(0.52, 0.42, 0.55, 0.6)),
-                    (LIGHT, _arc(-0.54, 0.58, 0.36, 0.32)),
-                    (LIGHT, _arc(0.52, 0.64, 0.38, 0.32)),
+             fills=[(HOLD_MID, _arc(-0.52, 0.36, 0.55, 0.6)),
+                    (HOLD_MID, _arc(0.52, 0.42, 0.55, 0.6)),
+                    (HOLD_LIGHT, _arc(-0.54, 0.58, 0.36, 0.32)),
+                    (HOLD_LIGHT, _arc(0.52, 0.64, 0.38, 0.32)),
                     (WHITE, _arc(-0.56, 0.72, 0.2, 0.13)),
                     (WHITE, _arc(0.5, 0.78, 0.22, 0.13))],
              bolts=[(0.02, -0.45)]),
@@ -956,8 +974,8 @@ HOLD_VARIANTS = {
              outline=[(-1.0, 0.0), (-0.9, 0.62), (-0.5, 0.95), (0.1, 1.0),
                       (0.68, 0.9), (0.98, 0.45), (0.96, -0.3), (0.6, -0.86),
                       (0.0, -1.0), (-0.62, -0.86), (-0.94, -0.48)],
-             fills=[(MID, _arc(-0.04, 0.34, 0.98, 0.78)),
-                    (LIGHT, _arc(-0.08, 0.56, 0.74, 0.5)),
+             fills=[(HOLD_MID, _arc(-0.04, 0.34, 0.98, 0.78)),
+                    (HOLD_LIGHT, _arc(-0.08, 0.56, 0.74, 0.5)),
                     (WHITE, _arc(-0.14, 0.72, 0.44, 0.24))],
              bolts=[(0.0, -0.5)], screws=[(-0.7, -0.28), (0.7, -0.3)]),
     ],
@@ -1024,6 +1042,130 @@ def _body(g):
     return "".join(s for _, _, s in sorted(g.items))
 
 
+# The surface of holds and volumes. They are rough as sandpaper and stand out
+# from the wall in light from above. So a shape has a lit rim along its upper
+# edge, a dark crescent along its lower edge, a shadow on the wall and a grain of
+# light and dark specks, more of each where that tone falls. Dots show the grain
+# because they print cleanly on the e-ink panel, where a gradient would band.
+# Shapes too small to carry any of this stay flat. A faceted volume shows its
+# form through its facets, so it only takes the grain and the shadow.
+VOLUME_LIT = "#eeeeee"      # the lit rim and light grain of a volume
+VOLUME_SHADE = "#999999"    # the dark crescent and dark grain of a volume
+ROCK_MIN = 2.4          # mm: a shape's smaller side, below which it stays flat
+ROCK_RIM = 0.07         # the lit rim's depth, as a share of that side
+ROCK_SHADE = 0.15       # the dark crescent's depth, as a share of that side
+ROCK_LIMITS = (0.3, 1.6)    # mm: the smallest and largest depth of either
+ROCK_SHADOW = "#dddddd"     # the shadow on the wall
+GRAIN_MIN = 3.0         # mm: a hold's smaller side, below which it has no grain
+GRAIN_STEP = 0.62       # mm on paper between neighbouring grains
+GRAIN_DOT = 0.14        # mm: the radius of the largest grain
+
+
+def _rock_depth(fig, side, share):
+    lo, hi = ROCK_LIMITS
+    return max(fig.mm(lo), min(share * side, fig.mm(hi)))
+
+
+def _side(outline):
+    return min(max(p[0] for p in outline) - min(p[0] for p in outline),
+               max(p[1] for p in outline) - min(p[1] for p in outline))
+
+
+def _rock(fig, g, outline, shape, light=HOLD_MID, dark=HOLD_DEEP):
+    """Draw the surface of a hold or volume into the layer `g`, which is clipped
+    to `outline`, in the greys `light` and `dark`. `shape` returns the path
+    through a list of points."""
+    side = _side(outline)
+    if side * fig.scale < ROCK_MIN:
+        return
+    d = shape(outline)
+    for grey, share, sign in ((light, ROCK_RIM, -1), (dark, ROCK_SHADE, 1)):
+        a = sign * _rock_depth(fig, side, share)
+        # The two paths overlap except along one edge, and the even-odd rule
+        # fills only what they don't share. Past the other edge the clip cuts it.
+        moved = shape([(x, y + a) for x, y in outline])
+        g.add(f'<path d="{d}{moved}" fill="{grey}" fill-rule="evenodd"/>', 0)
+    if side * fig.scale >= GRAIN_MIN:
+        _grain(fig, g, outline, light, dark)
+
+
+def _grain(fig, g, outline, light, dark):
+    """Add sandpaper grain to the layer `g`: specks of `light` mostly high on the
+    shape and of `dark` mostly low, the same on every build and in every frame
+    of a filmstrip."""
+    poly = _Poly(outline)
+    x0, y0, x1, y1 = poly.box
+    step, rmax = fig.mm(GRAIN_STEP), fig.mm(GRAIN_DOT)
+    rng = random.Random(f"{x0:.1f},{y0:.1f}")
+    dots = {light: [], dark: []}
+    y = y0
+    while y < y1:
+        x = x0
+        while x < x1:
+            p = (x + rng.uniform(-0.4, 0.4) * step, y + rng.uniform(-0.4, 0.4) * step)
+            high = (p[1] - y0) / (y1 - y0)
+            roll = rng.random()
+            r = rmax * rng.uniform(0.7, 1.0)
+            grey = (light if roll < 0.12 + 0.28 * high else
+                    dark if roll > 0.88 - 0.28 * (1 - high) else None)
+            if grey and poly.has(p):
+                px, py = fig.P(p)
+                dots[grey].append(f"M{px - r:.2f},{py:.2f}a{r:.2f},{r:.2f} 0 1,0 {2 * r:.2f},0"
+                                  f"a{r:.2f},{r:.2f} 0 1,0 {-2 * r:.2f},0")
+            x += step
+        y += step
+    for grey, d in dots.items():
+        if d:
+            g.add(f'<path d="{"".join(d)}" fill="{grey}"/>', 0)
+
+
+def _surface(fig, pts, z, smooth, st, light=HOLD_MID, dark=HOLD_DEEP):
+    """Add the surface to a hold or volume that a figure draws itself, as an
+    outlined shape filled with DARK or VOLUME, and draw its outline again over
+    the grain."""
+    def shape(q):
+        return fig._path_d(q, True, smooth)
+    g = _layer(fig)
+    _rock(fig, g, pts, shape, light, dark)
+    if g.items:
+        _clipped(fig, shape(pts), _body(g), z + 0.001)
+        fig.add(f'<path d="{shape(pts)}" {fig.style(**dict(st, fill=None))}/>', z + 0.002)
+
+
+def _panel_grey(value):
+    """The grey nearest to `value` (0 to 255) among the panel's 16."""
+    v = min(255, max(0, round(value / 17) * 17))
+    return f"#{v:02x}{v:02x}{v:02x}"
+
+
+def _facet_grain(fig, pts, shade, z):
+    """Add grain to the facet `pts` of a volume, in specks a little lighter and
+    darker than its grey `shade`, and draw its outline again over them."""
+    if _side(pts) * fig.scale >= GRAIN_MIN:
+        grey = int(shade[1:3], 16)
+        g = _layer(fig)
+        _grain(fig, g, pts, _panel_grey(grey + 34), _panel_grey(grey - 51))
+        _clipped(fig, fig._path_d(pts, True), _body(g), z)
+        fig.poly(pts, z=z + 0.001, stroke=INK, sw=0.25)
+
+
+def _facet_shade(a, b, apex):
+    """The grey of a volume's facet between the edge a-b and its apex, lighter
+    the more it faces the light from the upper left."""
+    faces = dot(norm(sub(lerp(a, b, 0.5), apex)), norm((-0.5, 1)))
+    return ("#bbbbbb", "#cccccc", "#dddddd", "#eeeeee")[min(3, int((faces + 1) * 2))]
+
+
+def _cast_shadow(fig, outline, angular, z):
+    """The shadow a hold or volume seen face-on throws down the wall below it."""
+    side = _side(outline)
+    if side * fig.scale >= ROCK_MIN:
+        a = _rock_depth(fig, side, ROCK_SHADE)
+        moved = [(x + 0.5 * a, y - a) for x, y in outline]
+        fig.add(f'<path d="{_shape_d(fig, moved, angular)}" '
+                f'{fig.style(fill=ROCK_SHADOW, stroke=None)}/>', z - 0.01)
+
+
 def _frame(kind, pos, use, size, w, h, variant, mirror):
     """A hold's variant and the map T from its unit frame to the wall."""
     v, flip = _pick(kind, pos, variant, mirror)
@@ -1059,7 +1201,8 @@ def _rubber():
 
 
 def hold(fig, kind, pos, use=90, size=1.0, z=-5, lip=True, w=None, h=None,
-         xray=None, variant=None, mirror=None, chalk=False, rubber=False):
+         xray=None, variant=None, mirror=None, chalk=False, rubber=False,
+         shadow=True):
     """Draw a hold seen face-on. `use` is the direction (degrees) the grabbed
     surface faces: 90 is a normal downward-pull hold (jug, edge), 270 an
     undercling, 0 or 180 a sidepull or gaston. `variant` picks a shape of
@@ -1067,20 +1210,23 @@ def hold(fig, kind, pos, use=90, size=1.0, z=-5, lip=True, w=None, h=None,
     `mirror` mirrors an asymmetric shape. chalk: chalk rubbed from the
     grabbing surface onto the body; rubber: shoe rubber smeared on a
     foothold. lip=False leaves out the light grabbing surface and the other
-    details."""
+    details. shadow=False leaves out the shadow on the wall."""
     v, T, W, H = _frame(kind, pos, use, size, w, h, variant, mirror)
     pw, ph = W * fig.scale, H * fig.scale
     angular = v.get("angular", False)
     outline = T(v["outline"])
     d = _shape_d(fig, outline, angular)
+    if shadow:
+        _cast_shadow(fig, outline, angular, z)
     fig.add(f'<path d="{d}" {fig.style(fill=DARK, stroke=None)}/>', z)
     g = _layer(fig)
     if lip:
+        _rock(fig, g, outline, lambda q: _shape_d(fig, q, angular))
         for item in v.get("fills", ()):
             if len(item) > 2 and ph < item[2]:
                 continue
             if chalk and item[0] == WHITE:
-                g.poly(T(_chalked(item[1])), fill=LIGHT, stroke=None)
+                g.poly(T(_chalked(item[1])), fill=HOLD_LIGHT, stroke=None)
             g.poly(T(item[1]), fill=item[0], stroke=None)
         if rubber and ph >= 1.5:
             for r in _rubber():
@@ -1092,7 +1238,7 @@ def hold(fig, kind, pos, use=90, size=1.0, z=-5, lip=True, w=None, h=None,
         if top and pw >= 3.5:
             r = fig.mm(0.09)
             for p in _stipple(top, step=max(0.12, fig.mm(0.55) * 2 / W)):
-                g.circle(T([p])[0], r, fill=MID, stroke=None)
+                g.circle(T([p])[0], r, fill=HOLD_MID, stroke=None)
         if pw >= 7.0:
             for col, ln in v.get("strokes", ()):
                 g.poly(T(ln), closed=False, stroke=col, sw=0.22)
@@ -1141,22 +1287,30 @@ def wall_grid(fig, step=20, z=-40, x0=None, x1=None, y0=None, y1=None):
         x += step
 
 
-def volume(fig, outline, apex=None, z=-12, shades=None, hatch=False, bolt=False):
+def volume(fig, outline, apex=None, z=-12, shades=None, hatch=False, bolt=False,
+           shadow=True):
     """A volume seen face-on: an outline polygon, optionally split into facets
-    meeting at `apex` (a point inside the outline) to suggest 3D. bolt: the
-    bolt that holds it to the wall, at the apex, as on a hold."""
+    meeting at `apex` (a point inside the outline) to suggest 3D. Each facet takes
+    its grey from `shades`, or else from how far it faces the light. bolt: the
+    bolt that holds it to the wall, at the apex, as on a hold. shadow=False leaves
+    out the shadow on the wall."""
+    if shadow:
+        _cast_shadow(fig, outline, True, z)
     fig.poly(outline, z=z, fill=PALE, stroke=INK, sw=0.35)
-    if apex is not None:
+    if apex is None:
+        _facet_grain(fig, outline, PALE, z + 0.01)
+    else:
         n = len(outline)
-        shades = shades or [PALE, LIGHT, "#bbbbbb", "#dddddd", "#cccccc"]
         for i in range(n):
             a, b = outline[i], outline[(i + 1) % n]
-            fig.poly([a, b, apex], z=z + 0.1, fill=shades[i % len(shades)],
-                     stroke=INK, sw=0.25)
+            shade = shades[i % len(shades)] if shades else _facet_shade(a, b, apex)
+            fig.poly([a, b, apex], z=z + 0.1, fill=shade, stroke=INK, sw=0.25)
+            _facet_grain(fig, [a, b, apex], shade, z + 0.11)
         if bolt:
             g = _layer(fig)
             r = max(fig.mm(0.42), 1.4)
-            g.circle(apex, r, fill=DARK, stroke=None)
+            # a metal bolt, a touch off DARK so that it doesn't take a hold's colour
+            g.circle(apex, r, fill="#565656", stroke=None)
             g.circle(apex, r * 0.62, fill=LIGHT, stroke=None)
             g.circle(apex, r * 0.26, fill=INK, stroke=None)
             fig.add(_body(g), z + 0.2)
@@ -1175,7 +1329,7 @@ HOLD_PROFILES = {
     "crimp": ([(0, -2), (2.2, -1.5), (2.4, 0.6), (0, 1.0)], (0, 3), (2, 3),
               -1, [(WHITE, 0.6)]),
     "sloper": ([(0, -7), (4, -6), (6.5, -2), (6, 2), (3, 5), (0, 6)], (0, 5),
-               (2, 3, 4, 5), -1, [(MID, 3.2), (LIGHT, 2.0), (WHITE, 0.9)]),
+               (2, 3, 4, 5), -1, [(HOLD_MID, 3.2), (HOLD_LIGHT, 2.0), (WHITE, 0.9)]),
     "foot": ([(0, -2.5), (3, -2), (3.4, 0.5), (0, 1.2)], (0, 3), (2, 3), -1,
              [(WHITE, 0.6)]),
     "edge": ([(0, -3), (3.5, -2.5), (3.8, 0.3), (0, 0.8)], (0, 3), (2, 3), -1,
@@ -1224,6 +1378,7 @@ def hold_side(fig, kind, pos, angle=0, size=1.0, z=-5, xray=None, frame=None):
     fig.add(f'<path d="{dd}" {fig.style(fill=DARK, stroke=None)}/>', z)
     edge = [T(shape[i]) for i in run]
     g = _layer(fig)
+    _rock(fig, g, pts, lambda q: fig._path_d(q, True))
     for shade, depth in bands:
         t = max(depth * s, fig.mm(0.3) * depth / bands[-1][1])
         g.poly(edge + [add(p, mul(d, side * t)) for p in edge[::-1]],
@@ -1243,7 +1398,7 @@ def volume_side(fig, pos, w, h, angle=0, top=0.5, z=-12):
     p0 = pos
     p1 = add(pos, mul(d, h))
     p2 = add(add(pos, mul(d, h * top)), mul(n, w))
-    fig.poly([p0, p2, p1], z=z, fill=LIGHT, stroke=INK, sw=0.35)
+    fig.poly([p0, p2, p1], z=z, fill=VOLUME, stroke=INK, sw=0.35)
     return p0, p2, p1
 
 
@@ -1440,10 +1595,12 @@ HEM_ABOVE_ANKLE = 3.5   # trouser hem, measured up the shin from the ankle
 # toward its ends and edges, with no outline (see Climber, `active`). Dots
 # can't be mistaken for the flat grey of the left limbs, show as well on
 # grey as on white, and print cleanly on the e-ink panel, where a gradient
-# would band. MUSCLE_DOTS is the dots' colour, keyed by the fill under them.
+# would band. MUSCLE_DOTS is the dots' colour, keyed by the fill under them, and
+# paint.py turns this grey red. It's dark enough to show on the left limbs' grey.
 # The dots are large and sparse enough to stay dots on the panel at 197 dpi
 # (research/eink-report.md); smaller ones blur into a faint grey.
-MUSCLE_DOTS = {WHITE: "#444444", LEFT: "#111111"}
+MUSCLE_DOTS = {WHITE: "#545454", LEFT: "#545454"}
+MUSCLE_BAND = "#cacaca"     # the band over a chain of muscles held tight
 STIPPLE_STEP = 0.6      # mm on paper between neighbouring dots
 STIPPLE_DOT = 0.19      # mm: the radius of the largest dot
 STIPPLE_FALL = 0.9      # how fast the dots shrink toward the edge

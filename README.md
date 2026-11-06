@@ -104,10 +104,12 @@ A technique you merge into another keeps its address: add its old key to
 | `figtools/hand.py` | The anatomical hand model used for every hand close-up, with thumb-side, little-finger-side, back and palm views and grip presets |
 | `figtools/closeup.py` | Helpers for shoes seen from above and small edges in profile, used by `figs_feet.py` |
 | `figtools/figs_*.py`, `legend.py` | The figures for each chapter; each module defines `build(out)` |
-| `figtools/build_all.py` | Runs `legend.py` and every `figs_*.py` module, which it finds by name |
+| `figtools/paint.py` | Colours the finished figures, keeping each shape's panel grey; `research/COLOUR.md` has the reasons |
+| `figtools/build_all.py` | Runs `legend.py` and every `figs_*.py` module, which it finds by name, then `paint.py` |
 | `tools/merge_sources.py` | Finds duplicate sources across the research source lists and writes `book/src-map.typ` |
 | `tools/add_gloss.py` | Adds glossary entries and keeps the glossary sorted |
 | `tools/contact_sheet.py` | Renders all the figures of a module into labelled contact sheets for checking |
+| `tools/colour_chart.py` | Makes a test chart for checking the figures' colours on a real e-reader |
 | `tools/check_hands.py` | Checks every hand close-up against the hand model: segment lengths in side views, and how much of the thumb shows |
 | `tools/check_alt.py` | Checks `book/figure-alt.toml`, the drawings' text descriptions: lists figures with no description, descriptions whose figure is gone, and figures that have changed since they were described |
 | `research/*.md` (letters A–G) | The research dossiers the chapters were written from, each with its full source list |
