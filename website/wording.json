@@ -1,0 +1,14 @@
+[
+  {"find": "Everything is linked. On an e-reader, tap to jump:",
+   "replace": "Everything is linked:"},
+  {"find": "The header of every page links to the contents",
+   "replace": "The top of every page links to the contents"},
+  {"find": "The chapter name in the header leads to the start of the chapter.",
+   "replace": "The chapter name beside them leads to the start of the chapter."},
+  {"find": "The PDF’s bookmarks list every chapter and every technique.",
+   "replace": "Search finds any word in the book: press / or use Search at the top of the page. Hover over a technique, a dotted word or a source number to see what it leads to. On a touch screen, the first tap shows it."},
+  {"find": "The right column lists techniques to try, with page numbers; try the first one first.",
+   "replace": "The right column lists techniques to try; try the first one first."},
+  {"find": "(see the back of the title page)",
+   "replace": "(see the colophon)"}
+]
