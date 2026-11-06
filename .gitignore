@@ -10,3 +10,6 @@ __pycache__/
 
 # The reader's private companion repository (github.com/simongray/Bouldering-private)
 /private/
+
+# The web edition: regenerate with ./build-site.sh
+/site/

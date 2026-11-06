@@ -51,6 +51,43 @@ exact source.
 The PDFs aren't committed: each one is attached to its release, and
 `editions/` only keeps local copies.
 
+## Web edition
+
+The same sources also build a website, with one page for each chapter, grade
+guide and technique:
+
+```sh
+./build-site.sh                  # the working tree
+./build-site.sh --ref edition-2  # a published edition, from its tag
+./build-site.sh --serve          # build it, then serve it on localhost
+```
+
+It needs `python3` and `typst`, like the PDF, and writes to `site/`, which
+isn't in git. Add `--base-url https://…` when you build a site to publish, since
+canonical links, the sitemap and the picture for shared links need its address.
+A draft asks search engines not to index it.
+
+Nothing in `book/` changes for the website, so edits to the book reach it without
+extra work. `website/build.py` copies the book to a temporary folder, runs the
+same generators as `build.sh` and puts `website/template.typ` in place of
+`book/template.typ`. Typst's HTML export then compiles the chapters to one long
+semantic HTML file, which `website/book.py` splits where print starts a new page.
+Typst still marks its HTML export as experimental, and the site was last built
+with Typst 0.15. In dark mode the browser loads a second copy of each figure, which
+`website/dark.py` makes from the first, so a redrawn figure needs no extra work.
+
+The build tells you when a later edition needs something from `website/`:
+
+- **A new field on `technique`** appears under a plain label until you add it to
+  `website/template.typ`.
+- **A new macro in `book/template.typ`** keeps its text but loses its look until
+  you add it to `website/template.typ`.
+- **A sentence that only makes sense in print**, such as one about page numbers,
+  gets reported. Add its web wording to `website/wording.json`.
+
+A technique you merge into another keeps its address: add its old key to
+`book/key-alias.typ` as usual, and its old page forwards to the new one.
+
 ## Layout
 
 | Path | What it is |
@@ -80,6 +117,7 @@ The PDFs aren't committed: each one is attached to its release, and
 | `FOLLOW-UPS.md` | Open questions and ideas for a later revision |
 | `CHANGELOG.md` | Errata and changes between editions |
 | `release.sh` | Publishes an edition: tags it, stamps the PDF and publishes it as a GitHub release |
+| `build-site.sh`, `website/` | Builds the web edition: its Typst template, the page generator, the stylesheet and the script |
 | `editions/` | Local copies of the published PDFs (not in git) |
 
 ## Common edits
@@ -122,5 +160,5 @@ PDFs.
 
 The code that builds it is licensed under the
 [GNU GPL, version 3](https://www.gnu.org/licenses/gpl-3.0.html)
-(`LICENSE`). This covers `figtools/`, `tools/`, the Typst template and the
-other `book/*.typ` support files, and the build and release scripts.
+(`LICENSE`). This covers `figtools/`, `tools/`, `website/`, the Typst template
+and the other `book/*.typ` support files, and the build and release scripts.
