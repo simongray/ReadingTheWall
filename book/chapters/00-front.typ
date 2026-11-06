@@ -84,15 +84,15 @@
 
 I am no expert climber. I have been climbing for slightly under a year. I am in my late thirties and took up indoor bouldering to exercise once or twice a week. I have two children and not really enough time to attend classes regularly or to treat this as a serious sport.
 
-I do want to get better, though, and I want to do things the right way. Technique is my main weakness: I am no good at reading the wall and working out what needs to be done.
+But I do want to get better and I want to do things the right way. Technique is my main weakness: I am no good at reading the wall and working out what needs to be done.
 
-I bought some decent books, but they didn't give me what I wanted, which was clear instructions for specific situations. They spend a lot of time on gear, exercises and the climbing mindset, and too little on technique. What I needed was a climbing instructor in book form.
+I bought some decent books but they didn't give me what I wanted: clear instructions for what to do in specific situations. They spend a lot of time on gear, exercises and the climbing mindset and too little on technique. What I needed was a climbing instructor in book form.
 
-I also watched a lot of YouTube videos. These are better, and they are great for showing a specific technique, but it's hard to look something up in a video quickly.
+I also watched a lot of YouTube videos. These are better and they are great for showing specific techniques. But it's hard to look something up in a video quickly.
 
-So I thought: why not try a fun experiment and point frontier AI agents at the problem? Claude, Anthropic's AI model, read far more about climbing technique than I ever could and wrote this book to an outline of my own design. It is made for looking things up on an e-reader, specifically my Onyx Boox Max, and written with brevity in mind: short sentences and no fluff.
+So I thought: why not try a fun experiment and point frontier AI agents at the problem? Anthropic's AI model Claude read far more about climbing technique than I ever could and wrote this book to an outline of my own design. It is made for looking things up on an e-reader (specifically my Onyx Boox Max) and written with brevity in mind: short sentences and no fluff.
 
-So this book was written by an AI and edited by a novice. It isn't really a climbing instructor, so treat it as a starting point, and ask a coach if something feels wrong. Many of its claims cite their sources right there on the page, so you can check them, and "How this book was made" says what has and hasn't been checked. The book is free and always will be. I hope you get some use out of it.
+That is what this book is: written by an AI and edited by a novice. It isn't really a climbing instructor. Treat it as a starting point and ask a coach if something feels wrong. Many of its claims cite their sources right there on the page so you can check them. "How this book was made" says what has and hasn't been checked. The book is free and always will be. I hope you get some use out of it.
 
 #align(right)[Simon Gray \ 6~November 2026]
 
