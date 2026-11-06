@@ -3,6 +3,9 @@
 # what the drawing shows, and `drawn` holds the first 12 hex digits of the
 # SVG's SHA-256 when it was described. Run tools/check_alt.py to find the
 # figures that have changed since.
+#
+# Keep each description to one short sentence on what the drawing illustrates.
+# Don't mention colours or tones, since the text must also apply in greyscale.
 
 ["arete.svg"]
 alt = "A climber from behind at an arête, first laybacking its edge, then with a heel hooked round it."
