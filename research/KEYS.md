@@ -16,6 +16,7 @@ The display names are suggestions; the owner chooses the final name.
 | edging | Edging (inside and outside edge) |
 | front-pointing | Front-pointing (toeing) |
 | smearing | Smearing |
+| pivoting | Pivoting |
 | foot-swap | Foot swap (foot match) |
 | high-step | High step |
 | rockover | Rockover |
@@ -31,6 +32,7 @@ The display names are suggestions; the owner chooses the final name.
 
 | key | name |
 |---|---|
+| weight-shift | Weight shift |
 | straight-arms | Straight arms |
 | frog | Frog position (square on) |
 | hip-turn | Turning the hip in |
@@ -68,7 +70,7 @@ The display names are suggestions; the owner chooses the final name.
 | undercling | Undercling |
 | palming | Palming (pressing) |
 | mantle | Mantle |
-| thumb-catch | Thumb catch (thumb press) |
+| thumb-catch | Using the thumb |
 | wrap | Wrapping |
 | regrip | Re-gripping and adjusting |
 
@@ -85,18 +87,17 @@ The display names are suggestions; the owner chooses the final name.
 | cutting-loose | Cutting loose and swing control |
 | campus-move | Campus move |
 | run-and-jump | Run-and-jump |
-| paddle-dyno | Paddle dyno |
-| double-clutch | Double clutch |
-| tic-tac | Tic-tac |
 | jump-start | Jump start |
 | foot-catch | Jumping to a foothold |
-| lache | Lache |
 | latching | Latching |
-| counter-kick | Counter-kick |
-| hip-pop | Hip pop |
+| comp-moves | Competition set pieces |
 
 (Falling and bailing safely is covered in chapter `09-considerations`, not
 as a technique entry.)
+
+The merged keys `corner`, `volume-mantle`, `hip-pop`, `counter-kick`, `lache`,
+`paddle-dyno`, `tic-tac` and `double-clutch` are not entries. They still work in
+`#tref` and `related:`, because `book/key-alias.typ` maps them to their hosts.
 
 ## Terrain — chapter `07-terrain`, owner E, category `terrain`
 
@@ -107,7 +108,6 @@ as a technique entry.)
 | overhang | Overhangs |
 | roof | Roofs |
 | arete | Arêtes |
-| corner | Corners (dihedrals) |
 | volume | Volumes |
 | top-out | Top-outs |
 | traverse | Traverses |

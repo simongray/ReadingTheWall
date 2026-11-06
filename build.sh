@@ -15,3 +15,4 @@ set -- --input edition=draft --input date="$(date +%Y-%m-%d)" --input commit="$c
 typst compile --root . "$@" book/main.typ "Bouldering Technique Handbook.pdf"
 echo "wrote Bouldering Technique Handbook.pdf (draft, $commit)"
 python3 tools/check_fit.py "$@"
+python3 tools/check_order.py

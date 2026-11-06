@@ -1,0 +1,30 @@
+# Revision log: 09-considerations
+
+- Opening: now describes tall, small and heavier readers and adult starters.
+- 9.1 Climbing tall, What height does and doesn't predict: items 1 and 2 wording for Mermier (G3, now the paper) and Laffaye (G4); the Polish boulderers differ "among other measures" (G5). No exact personal measurement found in this section, so nothing to reword.
+- 9.1 Where height helps: joined two sentences in the scrunchy bullet.
+- 9.1 Knee box: item 7 caveat (clinic data, no denominator), placed after the percentages so that "So in a deep drop knee" still follows the mechanism.
+- 9.1 Mobility: item 1 wording, "1.8% of the differences in score" and "gives no sign that it adds grades".
+- 9.2 Climbing small: new, from H-small section 2, in the form of Climbing tall. Added a paragraph on the clash between the forum claim (fades by about V6) and Lattice (whatever the grade): different things, both weak, labelled judgement. "Setter" is glossed here, its new first use; `H14` is written as `G68`; sit starts and knee bars link to their entries.
+- 9.3 Why weight matters: joined the vertical and steep sentences.
+- 9.3 Footwork first: item 14 wording in step 3.
+- 9.3 Does weight cost you grades?: item 8 wording, without the superlatives. "Body mass index" is spelled out, so the box keeps its gloss of BMI and stays unchanged.
+- 9.3 Don't diet for grades: unchanged.
+- 9.4 Tendons and pulleys: joined the opening pair and the timing sentence.
+- 9.4 The injuries that actually happen: rewrote the opening without "Two pictures emerge". Table header now repeats if the table splits.
+- 9.4 Warming up: table header now repeats if the table splits.
+- 9.4 When finger training makes sense: item 6 wording for G28, with a new paragraph after it; indexed Abrahamsson. Keypoint says the dose is the book's caution and the gentle group logged at least three a week.
+- 9.4 Recovery and rest: joined the opening pair.
+- 9.5 What skill looks like: unchanged.
+- 9.5 Principles to try: renamed; item 3 wording, keeping "small to nil"; joined one sentence in each of the first two bullets.
+- 9.5 Video, flashing and repeating: "means fewer and shorter stops" is now "can mean", to match E34 as corrected in chapter 2.
+- 9.5 Drills: table ordered from beginner to stronger with a Level column (V0 to V3, this book's suggestion), and a repeating header. Within a row, the techniques trained now run by grade.
+- 9.5 A ladder for any technique: new, three steps and a self-test, labelled this book's suggestion.
+- 9.6 How to land: dropped the second gloss of tendons.
+- 9.6 Climb down rather than jump: joined the tall sentence.
+- 9.6 Bailing from dynos: dropped the gloss of setters, which moved to 9.2.
+- 9.6 Mats, Spotting, Practise falling: unchanged.
+- Index: no "Short climbers" term in this file. New terms: Small climbers (main), Small climbers!how to climb, Drills!ladder for any technique, Abrahamsson, Emil.
+- Measurements in running text now use non-breaking spaces.
+- Words: 5237 before, 6751 after. It grew because of the evidence wording, the new section and the ladder.
+- After review (6922 words): sourced and relabelled the clash paragraph (H7); named the study and section behind "the study above" and "the studies above"; dropped "the price of a grade"; moved the evidence out of Footwork first step 3 into a paragraph after the list; reshaped stacked sentences in G3, the weight section and G28, with bold run-ins in the weight section; restored HEAD's sentences at Why weight matters and "The real issue is timing"; glossed tendon glides and replaced "crimp" with "edge" and "cut feet" with plain words; fixed the knee box's last sentence and "tip of your shoe"; pointed Climbing small to the knee box and gave the finger reason for not snatching (C25); in Drills, Leg traverse is V0 and no longer says straight arms on any wall, New beta is V2, Climb down also trains precise footwork, No-hands slab says stay low, and problems below your best fall back on the gym's easiest; the ladder now carries the entries' warnings and the self-test bars high-load moves when tired. Rejected: the #jt("crimp") gloss (plain "edge" needs none); "No study has tested them" in the ladder (no search was made, so "not a tested method"); "No source says how short counts as small" (D45 names a height, so "no shared figure"); "rupture a pulley (Chapter 6)" in Climbing small (pulley is glossed later, in 9.4, so "injure a finger" with C25); "that is when they hurt you" (only the deep drop knee has a source on tiredness, so "riskier then"); the coach's reason on G58 (the dossier does say tip of the toe, but "front" is still true and matches the entry, so the change stands).

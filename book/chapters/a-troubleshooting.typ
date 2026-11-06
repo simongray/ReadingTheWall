@@ -22,7 +22,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #ttable(
   [You swing off like a door when you let go with one hand.],
   [A #tref("barn-door", show-page: false). Your hand and foot on one side form a hinge. Nothing stops the swing.],
-  [Flag the free leg: #tref("flag"), #tref("inside-flag"). Or turn in with a #tref("drop-knee") or #tref("backstep"). Or take the hold with the other hand #src("E8", "E11", "E12").],
+  [Flag the free leg: #tref("flag"), #tref("back-flag"), #tref("inside-flag"). Or turn in: #tref("drop-knee"), #tref("backstep"). Or use your other hand #src("E8", "E11", "E12").],
 
   [Your body sways after a jump, or your hips zig-zag on steep ground.],
   [You lose tension as you catch the hold.],
@@ -62,7 +62,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #ttable(
   [The next hold on steep ground is a few centimetres too far.],
   [Your hips face the wall square on.],
-  [Turn the reaching-side hip in: #tref("hip-turn"), #tref("backstep"), #tref("twist-lock"), #tref("drop-knee") #src("E9", "E11").],
+  [Turn the reaching-side hip in: #tref("hip-turn"), #tref("backstep"), #tref("drop-knee"), #tref("twist-lock") #src("E9", "E11").],
 
   [You can touch the next hold but can't hold it.],
   [You arrive off balance or too late.],
@@ -126,23 +126,23 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #ttable(
   [Your arms tire in a corner with footholds on both walls.],
   [You aren't pushing into both walls.],
-  [Spread your feet across the corner and press: #tref("corner"), #tref("stemming"). Rest with no hands where you can #src("E17", "E20").],
+  [Spread your feet across the corner and press: #tref("stemming"). Rest with no hands where you can #src("E17", "E20").],
 
   [Traverses feel slow and #jt("pump", body: [pumpy]).],
   [You shuffle your hands and swap feet twice.],
-  [Cross through. Flag instead of swapping feet: #tref("traverse"), #tref("cross-through"), #tref("back-flag") #src("E11", "E25").],
+  [Cross through. Flag instead of swapping feet: #tref("traverse"), #tref("cross-through"), #tref("flag"), #tref("back-flag") #src("E11", "E25").],
 )
 
 #heading(level: 2, numbering: none)[Endurance]
 
 #ttable(
   [You get #jt("pump", body: [pumped])#ix("Pump!on every problem") (forearms swollen and weak) on every problem.],
-  [You climb with bent arms and your hips away from the wall. You stop on the wall to re-read.],
+  [Coaches blame bent arms and hips away from the wall. You also stop on the wall to re-read.],
   [Hang on #tref("straight-arms"). Bring the hips in. Read the problem first so you stop less. #jt("shake out", body: [Shake out]) at rests #src("E7", "E8", "E10", "E34").],
 
   [You take many attempts and make no progress.],
   [You are tired. Your rests are too short.],
-  [Rest 5–15 minutes between full attempts at your limit. After four to six failed tries, change the sequence or stop. See Chapter 2 #src("E6", "E41", "E42").],
+  [Rest 10–15 minutes between full attempts at your limit. After four to six failed tries, change the sequence or stop (judgement). See Chapter 2 #src("E41", "E42").],
 )
 
 #heading(level: 2, numbering: none)[Reading and tactics]

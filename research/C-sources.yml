@@ -269,9 +269,11 @@ C25:
   title: "Sport climbing from a medical point of view"
   author: ["Schweizer, Andreas"]
   date: 2012
+  page-range: "w13688"
   parent:
     type: periodical
     title: "Swiss Medical Weekly"
+    volume: 142
   serial-number:
     doi: "10.4414/smw.2012.13688"
   url:

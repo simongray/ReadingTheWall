@@ -24,6 +24,8 @@ Sources are numbered in the order they are first cited. Web pages were accessed 
 // it is left out of the entries: each URL keeps its value, not its date.
 #let source-list(letter) = {
   let data = yaml("../../research/" + letter + "-sources.yml")
+  // a file with no sources yet parses as none, or as an empty mapping
+  if data == none { data = (:) }
   for (k, e) in data {
     if type(e) == dictionary and type(e.at("url", default: none)) == dictionary {
       e.url = e.url.value
@@ -37,7 +39,7 @@ Sources are numbered in the order they are first cited. Web pages were accessed 
   set text(size: fs.index)
   set par(justify: false, leading: 0.72em, spacing: 0.95em, first-line-indent: 0pt)
   bibliography(
-    ("A", "B", "C", "D", "E", "F", "G").map(source-list),
+    ("A", "B", "C", "D", "E", "F", "G", "H").map(source-list),
     title: none,
     style: "springer-lecture-notes-in-computer-science",
   )

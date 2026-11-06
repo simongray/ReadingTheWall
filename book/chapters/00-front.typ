@@ -78,7 +78,7 @@
 
 #heading(level: 1, numbering: none, outlined: true)[How to use this book]
 
-This is a technique book, not a training book. It assumes you already climb. You know the V-scale and can get up most V2s and V3s. Strength alone no longer explains why some problems go and others don't.
+This is a technique book, not a training book. It assumes you already climb. You know the V-scale and can get up most V2s and V3s. Strength alone no longer explains why some problems go and others don't. If you're newer than that, the V0–V2 entries and guides are for you too. This book was written for one tall adult climber and now has a few notes for small climbers.
 
 The book names the movements good climbers use and says how to do each one. Above all, it shows you how to recognise when a problem calls for one.
 
@@ -90,9 +90,9 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 
 *Part II* is the catalogue, with one chapter per category: feet and legs, body positioning, hands and holds, dynamic movement, and terrain. Each chapter opens with a table that ranks its techniques by grade, and the entries follow in that order.
 
-*Part III* has a guide for every grade from VB to V8+. Each guide says what indoor problems at that grade look like, which techniques become necessary and what to focus on. The step from V4 to V5 gets extra space.
+*Part III* has a guide for every grade from VB to V8+. Each guide says what indoor problems at that grade look like, which techniques start to matter and what to focus on. The step from V4 to V5 gets extra space.
 
-*Part IV* covers your body (being tall, heavier, or starting as an adult), how technique is best learned, and how to fall safely.
+*Part IV* covers your body (being tall, small or heavier, or starting as an adult), how to learn technique, and how to fall safely.
 
 The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the corrections to the previous edition, the sources and the index.
 
@@ -102,11 +102,11 @@ The *appendices* start with "On the mat", the book on one page to look at betwee
 // foot of a page
 #block(sticky: true)[Every entry has the same parts:]
 
-- *Name and grade badge.* The badge, such as #badge(3), marks the grade where the technique starts to *matter* on indoor problems. Below that grade you can usually get away without it. Above it, more and more problems are set so that you need it. The grade is a judgement based on coaching syllabi and coaches' advice, and gyms vary.
+- *Name and grade badge.* The badge, such as #badge(3), marks the grade where the technique starts to *matter* on indoor problems. Below that grade you can usually get away without it. Above it, more and more problems are set so that you need it. The grade is a judgement based on coaches' advice, technique clinics and climbers' reports, and gyms vary. If you should start learning the technique earlier, the #sc(tracking: 0.08em)[Grade] note says when.
 - *Also called.* Other names you will hear. All of them are in the A–Z list and the index.
 - *How to do it.* Numbered, concrete steps: which limb goes where, and why.
-- *When to use it — reading the wall.* The grey box. "Look for" lines describe what you can see on the wall before you climb. "Symptom" lines describe what goes wrong when you needed the technique and didn't use it.
-- *Common mistakes*, a note for *tall climbers* where there is something specific to say, *related* techniques, videos to *watch*, and *sources*.
+- *When to use it — reading the wall.* The grey box has two groups. "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
+- *Common mistakes*, notes for *tall climbers* and *small climbers* where there is something specific to say, *related* techniques, videos to *watch*, and *sources*.
 - *Referenced from.* Every place in the book that mentions the technique, so you can jump back to it.
 
 == Finding your way around

@@ -1,11 +1,13 @@
 """The icons of a technique entry's asides.
 
-Three asides recur in nearly every technique entry, and each has a small
-icon beside its label, drawn with the figures' own code so that it belongs
-to the book's drawings as the hold ornaments do (figs_cover.py):
+The asides that recur in technique entries each have a small icon beside
+their label, drawn with the figures' own code so that it belongs to the
+book's drawings as the hold ornaments do (figs_cover.py):
 
 - tall: the "Tall climbers" note. The mannequin standing, with a height
   mark beside it: a dimension line, as the figures measure a distance.
+- small: the "Small climbers" note. A shorter mannequin with a shorter
+  height mark, stretching up to a jug out of its reach.
 - reading: the "When to use it — reading the wall" box. The mannequin's
   head looking up at a hold along a dotted line of sight, as the figures
   draw a look: reading the wall is looking for the holds that call for
@@ -85,13 +87,8 @@ def _points(pieces):
 # ---------------------------------------------------------------- the icons
 
 
-def tall(f):
-    """The mannequin standing, seen from behind like the climbers in the
-    figures, with a dimension line from the floor to the top of its head."""
-    c = Climber((0, 96), view="back", xray=False,
-                lh=(-34, 64), rh=(34, 64), elbows={"l": "down", "r": "down"},
-                lf={"at": (-10, 0), "style": "back"},
-                rf={"at": (10, 0), "style": "back"})
+def _standing(f, c):
+    """Draw climber c as one shape and return its points and its head's."""
     geo = c._geometry(COL, False)
     pieces = []
     for name in ("lleg", "rleg", "torso", "head", "larm", "rarm"):
@@ -101,8 +98,12 @@ def tall(f):
         pieces += ps
     shoes = [_shoe_outline(c, s) for s in "lr"]
     _mannequin(f, pieces, shoes=shoes)
-    pts = _points(pieces) + [p for s in shoes for p in s]
-    top = max(p[1] for p in pts)
+    return _points(pieces) + [p for s in shoes for p in s], _points(geo["head"][0])
+
+
+def _height_mark(f, pts, top):
+    """The dimension line from the floor to `top`, beside the points pts,
+    and the floor under them. Returns the points of its left end."""
     bot = min(p[1] for p in pts)
     x = min(p[0] for p in pts) - f.mm(1.1)
     t = f.mm(0.6)
@@ -111,7 +112,35 @@ def tall(f):
     mid = (top + bot) / 2
     for end in (top, bot):
         f.arrow([(x, mid), (x, end)], kind="path", head=0.9)
-    return pts + [(x - t, top), (x - t, bot)]
+    return [(x - t, top), (x - t, bot)]
+
+
+def tall(f):
+    """The mannequin standing, seen from behind like the climbers in the
+    figures, with a dimension line from the floor to the top of its head."""
+    c = Climber((0, 96), view="back", xray=False,
+                lh=(-34, 64), rh=(34, 64), elbows={"l": "down", "r": "down"},
+                lf={"at": (-10, 0), "style": "back"},
+                rf={"at": (10, 0), "style": "back"})
+    pts, _ = _standing(f, c)
+    return pts + _height_mark(f, pts, max(p[1] for p in pts))
+
+
+def small(f):
+    """The same mannequin about two thirds the height, with its height mark
+    just as tall as it is. One arm stretches up to a jug out of its reach."""
+    s = 0.68
+    hand = (22 * s, 198 * s)
+    c = Climber((0, 96 * s), view="back", xray=False, scale=s,
+                lh=(-34 * s, 64 * s), rh=hand,
+                elbows={"l": "down", "r": "out"},
+                lf={"at": (-10 * s, 0), "style": "back"},
+                rf={"at": (10 * s, 0), "style": "back"})
+    pts, head = _standing(f, c)
+    mark = _height_mark(f, pts, max(p[1] for p in head))
+    A = add(hand, (6, 27))
+    hold(f, "jug", A, size=2.5, variant="bucket", chalk=True, xray=False)
+    return pts + mark + hold_outline("jug", A, size=2.5, variant="bucket")
 
 
 def reading(f):
@@ -168,6 +197,8 @@ def mistakes(f):
 ICONS = {
     "tall": (0.0365, tall,
              "Tall climbers: a standing climber and a height mark"),
+    "small": (0.0365, small,
+              "Small climbers: a short height mark and a jug out of reach"),
     "reading": (0.145, reading,
                 "When to use it — reading the wall: a look at a hold"),
     "mistakes": (0.18, mistakes,

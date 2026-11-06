@@ -1,0 +1,399 @@
+# Sources for small climbers (dossier research/H-small.md).
+# H1–H4, H6–H11, H13–H15, H27 and H28 are cited in the paste-ready text. The others back
+# the "Evidence in reserve" section and the notes for editors.
+# H12 is the same source as B71 and H14 the same as G68. tools/merge_sources.py maps them.
+
+H1:
+  type: web
+  title: "Coming up Short? These Five Tips Will Extend Your Reach"
+  author: ["Osius, Alison"]
+  date: 2022-02-17
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/advice-for-shorter-climbers/"
+    date: 2026-11-06
+  note: "First published in Rock and Ice, 2016. Reports Lynn Hill's advice on intermediates from an online interview."
+
+H2:
+  type: web
+  title: "Shorty Beta: Hacks for Short Climbers to Maximize Their Reach"
+  author: ["Hanes, Lucie"]
+  date: 2023-08-21
+  parent:
+    title: "Training For Climbing"
+  url:
+    value: "https://trainingforclimbing.com/shorty-beta-hacks-for-short-climbers-to-maximize-their-reach/"
+    date: 2026-11-06
+
+H3:
+  type: web
+  title: "Are You Actually \"Too Short\" For That Climb?"
+  author: ["Samet, Matt"]
+  date: 2022-09-16
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/skills/how-short-climbers-can-do-reachy-moves/"
+    date: 2026-11-06
+
+H4:
+  type: web
+  title: "13 Hacks for Short Climbers, From Creative Moves to Gear"
+  author: ["Silver, Maya"]
+  date: 2026-07-08
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/gear/13-tips-for-short-climbers-from-creative-moves-to-gear/"
+    date: 2026-11-06
+  note: "The page labels this date \"Updated\" and shows no earlier one, so it may first have appeared before then."
+
+H5:
+  type: web
+  title: "Why \"I'm Too Short\" Isn't a Worthwhile Excuse"
+  author: ["Lambert, Katie"]
+  date: 2023-05-30
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/culture-climbing/does-height-matter-climbing/"
+    date: 2026-11-06
+  note: "First published 2019. Gives Lattice's finger-strength figure as 2.5% per 10 cm."
+
+H6:
+  type: web
+  title: "Neely Quinn: Training for Short Climbers"
+  author: ["Quinn, Neely"]
+  date: 2019-06-06
+  parent:
+    title: "TrainingBeta"
+  url:
+    value: "https://www.trainingbeta.com/short-climber-training/"
+    date: 2026-11-06
+
+H7:
+  type: web
+  title: "TBP 091 :: Tom Randall and Ollie Torr on Their Training Research"
+  author: ["Quinn, Neely", "Randall, Tom", "Torr, Ollie"]
+  date: 2017-10-05
+  parent:
+    title: "TrainingBeta Podcast"
+  url:
+    value: "https://www.trainingbeta.com/media/tom-ollie/"
+    date: 2026-11-06
+  note: "Read the transcript only. It prints 2.5% \"per centimeters\", but its own example (5% for 20 cm) and H5 show the figure is per 10 cm. H28 is Lattice's written post on height, which doesn't give this figure."
+
+H8:
+  type: web
+  title: "Sending Tips for Short Climbers"
+  author: ["Pillai, Jasmin"]
+  date: 2023-05-03
+  parent:
+    title: "GoodBETA"
+  url:
+    value: "https://goodbeta.co.za/sending-tips-for-short-climbers/"
+    date: 2026-11-06
+
+H9:
+  type: web
+  title: "Climbing holds just out of reach? Learn how to stretch every last inch"
+  author: ["Demeis-Ortiz, Ren"]
+  date: 2021-08-25
+  parent:
+    title: "Movement Climbing + Fitness blog"
+  url:
+    value: "https://blog.movementgyms.com/climbing-holds-just-out-of-reach-learn-how-to-stretch-every-last-inch"
+    date: 2026-11-06
+
+H10:
+  type: web
+  title: "How Do Climbing Gym Setters Approach the Challenge of Setting Fair Climbs for All Heights?"
+  author: ["Pardy, Aaron"]
+  date: 2026-05-30
+  parent:
+    title: "Gripped Magazine"
+  url:
+    value: "https://gripped.com/indoor-climbing/how-do-climbing-gym-setters-approach-the-challenge-of-setting-fair-climbs-for-all-heights/"
+    date: 2026-11-06
+  note: "Interviews head setters Max Summerlee and Karlo King."
+
+H11:
+  type: web
+  title: "Does Height Matter in Climbing? This Video Is the Best Argument You'll Ever See."
+  author: ["Walsh, Anthony"]
+  date: 2025-04-17
+  parent:
+    title: "Climbing.com"
+  url:
+    value: "https://www.climbing.com/culture-climbing/why-climbing-is-harder-for-short-people/"
+    date: 2026-11-06
+  note: "Read the article text; the embedded video was not watched. Its \"2023 study\" of competition heights is H20, a blog post."
+
+H12:
+  type: web
+  title: "So Many Climbers REFUSE to Do What This Short Girl Does... And It Holds Them Back"
+  author: ["Hooper, Jason"]
+  date: 2022-09-05
+  parent:
+    title: "Hooper's Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/so-many-climbers-refuse-to-climb-this-way-and-it-kills-their-progress"
+    date: 2026-11-06
+  note: "Same source as B71. Read the written notes for the video; the video was not watched. Kept in reserve only, for the remark on a fully stretched arm and the shoulder."
+
+H13:
+  type: article
+  title: "Relative Contributions of Handgrip and Individual Finger Strength on Climbing Performance in a Bouldering Competition"
+  author: ["Stefan, Riley R.", "Camic, Clayton L.", "Miles, Garrett F.", "Kovacs, Attila J.", "Jagim, Andrew R.", "Hill, Christopher M."]
+  date: 2022
+  page-range: "768-773"
+  serial-number:
+    doi: "10.1123/ijspp.2021-0422"
+  parent:
+    type: periodical
+    title: "International Journal of Sports Physiology and Performance"
+    volume: 17
+    issue: 5
+  url:
+    value: "https://europepmc.org/article/MED/35235904"
+    date: 2026-11-06
+  note: "Read the abstract only."
+
+H14:
+  type: article
+  title: "Sport climbing performance determinants and functional testing methods: A systematic review"
+  author: ["Faggian, Sara", "Borasio, Nicola", "Vecchiato, Marco", "Gatterer, Hannes", "Burtscher, Martin", "Battista, Francesca", "Brunner, Hannes", "Quinto, Giulia", "Duregon, Federica", "Ermolao, Andrea", "Neunhaeuserer, Daniel"]
+  date: 2025
+  page-range: "100974"
+  serial-number:
+    doi: "10.1016/j.jshs.2024.100974"
+  parent:
+    type: periodical
+    title: "Journal of Sport and Health Science"
+    volume: 14
+  url:
+    value: "https://europepmc.org/article/MED/39216626"
+    date: 2026-11-06
+  note: "Same source as G68. Read the abstract and the section on anthropometric characteristics."
+
+H15:
+  type: web
+  title: "Tall or short: what's better for climbing hard?"
+  author: "Tomek"
+  date: 2023-10-22
+  parent:
+    title: "can't sleep 'cause I'm THINKING about CLIMBING"
+  url:
+    value: "https://www.thinkingclimbing.com/2023/10/tall-vs-short-whos-got-it-easier-in.html"
+    date: 2026-11-06
+  note: "Personal blog, not peer reviewed; the author gives only a first name. Read the sections on technique and data."
+
+H16:
+  type: article
+  title: "Investigation of grip force, normal force, contact area, hand size, and handle size for cylindrical handles"
+  author: ["Seo, Na Jin", "Armstrong, Thomas J."]
+  date: 2008
+  page-range: "734-744"
+  serial-number:
+    doi: "10.1518/001872008x354192"
+  parent:
+    type: periodical
+    title: "Human Factors"
+    volume: 50
+    issue: 5
+  url:
+    value: "https://europepmc.org/article/MED/19110833"
+    date: 2026-11-06
+  note: "Read the abstract only; the full-text request failed. A study of tool handles, not climbing holds."
+
+H17:
+  type: article
+  title: "Climbing performance in males: the importance of climbing-specific finger strength"
+  author: ["Buraas, B. F.", "Brobakken, M. F.", "Wang, E."]
+  date: 2025
+  page-range: "2823-2830"
+  serial-number:
+    doi: "10.1007/s00421-025-05802-5"
+  parent:
+    type: periodical
+    title: "European Journal of Applied Physiology"
+    volume: 125
+    issue: 10
+  url:
+    value: "https://europepmc.org/article/MED/40325204"
+    date: 2026-11-06
+  note: "Read the abstract and parts of the results."
+
+H18:
+  type: article
+  title: "Morphology of male world cup and elite bouldering athletes"
+  author: ["Draga, Pawel", "Trybek, Paulina", "Baran, Paulina", "Pandurevic, Dominik", "Sutor, Alexander", "Grønhaug, Gudmund"]
+  date: 2025
+  page-range: "1588414"
+  serial-number:
+    doi: "10.3389/fspor.2025.1588414"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 7
+  url:
+    value: "https://europepmc.org/article/MED/40575465"
+    date: 2026-11-06
+  note: "Read the abstract and the passages on body height and upper-limb proportions."
+
+H19:
+  type: article
+  title: "Somatic Profile of the Elite Boulderers in Poland"
+  author: ["Ozimek, Mariusz", "Krawczyk, Marcin", "Zadarko, Emilian", "Barabasz, Zbigniew", "Ambroży, Tadeusz", "Stanula, Arkadiusz", "Mucha, Dawid K.", "Jurczak, Adam", "Mucha, Dariusz"]
+  date: 2017
+  page-range: "963-970"
+  serial-number:
+    doi: "10.1519/jsc.0000000000001673"
+  parent:
+    type: periodical
+    title: "Journal of Strength and Conditioning Research"
+    volume: 31
+    issue: 4
+  url:
+    value: "https://europepmc.org/article/MED/28328714"
+    date: 2026-11-06
+  note: "Read the abstract only. G5 is a blog summary of this paper. It calls arm span and lean mass the biggest difference, which the abstract doesn't say."
+
+H20:
+  type: web
+  title: "What is the average height of the best competition climbers?"
+  author: "Tomek"
+  date: 2023-12-29
+  parent:
+    title: "can't sleep 'cause I'm THINKING about CLIMBING"
+  url:
+    value: "https://www.thinkingclimbing.com/2023/12/what-is-average-height-of-best.html"
+    date: 2026-11-06
+  note: "Personal blog, not peer reviewed. Heights come from IFSC profiles, and many ranked athletes list none. One listed height (198 cm) is known to be wrong."
+
+H21:
+  type: web
+  title: "Breaking Beta | What are the Anthropometric and Performance Characteristics of Modern Female Climbers?"
+  author: ["Hampton, Kris"]
+  date: 2022-08-24
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://www.powercompanyclimbing.com/blog/breakingbeta/characteristics-female-climbers"
+    date: 2026-11-06
+  note: "Read the transcript of the podcast, which discusses Giles et al. (2021), J Sports Sci 39:48–56. Read that paper's abstract only; the no-difference result for height comes from the hosts' reading of it."
+
+H22:
+  type: article
+  title: "Handle grip span for optimising finger-specific force capability as a function of hand size"
+  author: ["Lee, Soo-Jin", "Kong, Yong-Ku", "Lowe, Brian D.", "Song, Seongho"]
+  date: 2009
+  page-range: "601-608"
+  serial-number:
+    doi: "10.1080/00140130802422481"
+  parent:
+    type: periodical
+    title: "Ergonomics"
+    volume: 52
+    issue: 5
+  url:
+    value: "https://europepmc.org/article/MED/19424925"
+    date: 2026-11-06
+  note: "Read the abstract only. A study of tool handles, not climbing holds."
+
+H23:
+  type: article
+  title: "Muscle strength testing: use of normalisation for body size"
+  author: ["Jaric, Slobodan"]
+  date: 2002
+  page-range: "615-631"
+  serial-number:
+    doi: "10.2165/00007256-200232100-00002"
+  parent:
+    type: periodical
+    title: "Sports Medicine"
+    volume: 32
+    issue: 10
+  url:
+    value: "https://europepmc.org/article/MED/12141882"
+    date: 2026-11-06
+  note: "Read the abstract only. Not about climbing."
+
+H24:
+  type: article
+  title: "Anthropometry of young competitive sport rock climbers"
+  author: ["Watts, P. B.", "Joubert, L. M.", "Lish, A. K.", "Mast, J. D.", "Wilkins, B."]
+  date: 2003
+  page-range: "420-424"
+  serial-number:
+    doi: "10.1136/bjsm.37.5.420"
+  parent:
+    type: periodical
+    title: "British Journal of Sports Medicine"
+    volume: 37
+    issue: 5
+  url:
+    value: "https://europepmc.org/article/MED/14514533"
+    date: 2026-11-06
+  note: "Read the abstract only; the full-text requests failed."
+
+H25:
+  type: article
+  title: "Effect of hold depth and grip technique on maximal finger forces in rock climbing"
+  author: ["Amca, Arif Mithat", "Vigouroux, Laurent", "Aritan, Serdar", "Berton, Eric"]
+  date: 2012
+  page-range: "669-677"
+  serial-number:
+    doi: "10.1080/02640414.2012.658845"
+  parent:
+    type: periodical
+    title: "Journal of Sports Sciences"
+    volume: 30
+    issue: 7
+  url:
+    value: "https://europepmc.org/article/MED/22339482"
+    date: 2026-11-06
+  note: "Read the abstract only. The study did not test finger size."
+
+H26:
+  type: web
+  title: "Route Setting to Prevent Climbing Injury"
+  author: "The Climbing Doctor"
+  date: 2017-05-08
+  parent:
+    title: "The Climbing Doctor"
+  url:
+    value: "https://theclimbingdoctor.com/route-setting-to-prevent-climbing-injury/"
+    date: 2026-11-06
+  note: "Interview with route setter Chris Danielson. The page's metadata credits \"Guest Post\", and its text says The Climbing Doctor conducted the interview."
+
+H27:
+  type: article
+  title: "Evaluation of Influencing Factors on the Maximum Climbing Specific Holding Time: An Inferential Statistics and Machine Learning Approach"
+  author: ["Dindorf, Carlo", "Bartaguiz, Eva", "Dully, Jonas", "Sprenger, Max", "Merk, Anna", "Becker, Stephan", "Fröhlich, Michael", "Ludwig, Oliver"]
+  date: 2022
+  page-range: "95"
+  serial-number:
+    doi: "10.3390/jfmk7040095"
+  parent:
+    type: periodical
+    title: "Journal of Functional Morphology and Kinesiology"
+    volume: 7
+    issue: 4
+  url:
+    value: "https://europepmc.org/article/MED/36412757"
+    date: 2026-11-06
+  note: "Read the full text. 48 subjects hung from a 4 cm fingerboard crimp, and 10 of them had climbing experience."
+
+H28:
+  type: web
+  title: "Height in Climbing"
+  author: ["Knowles, Remus"]
+  date: 2017-08-10
+  parent:
+    title: "Lattice Training"
+  url:
+    value: "https://web.archive.org/web/20210730013606/https://latticetraining.com/2017/08/10/height-in-climbing/"
+    date: 2026-11-06
+  note: "Read an archived copy from the Wayback Machine, because the live page returns 404. It covers a max-moves circuit and gives neither the 2.5% figure nor the 500 climbers."

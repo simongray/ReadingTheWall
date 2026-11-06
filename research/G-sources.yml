@@ -22,16 +22,22 @@ G2:
     date: 2026-10-30
 
 G3:
-  type: web
-  title: "Research Review: Trainable Strength and Endurance, Not Body Type, Predict Sport Climbing Performance"
-  author: ["Shaul, Rob"]
-  date: 2026-01-21
+  type: article
+  title: "Physiological and anthropometric determinants of sport climbing performance"
+  author: ["Mermier, Christine M.", "Janot, Jeffrey M.", "Parker, Daryl L.", "Swan, Jacob G."]
+  date: 2000
+  page-range: "359-365"
+  serial-number:
+    doi: "10.1136/bjsm.34.5.359"
   parent:
-    title: "Mountain Tactical Institute"
+    type: periodical
+    title: "British Journal of Sports Medicine"
+    volume: 34
+    issue: 5
   url:
-    value: "https://mtntactical.com/knowledge/research-review-trainable-strength-and-endurance-not-body-type-predict-sport-climbing-performance/"
-    date: 2026-10-30
-  note: "Review of Mermier, Janot, Parker and Swan (2000), Br J Sports Med 34:359–366"
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1756253/"
+    date: 2026-11-06
+  note: "Abstract read; the full-text PDF could not be opened. A published discussion follows on p. 366"
 
 G4:
   type: article
@@ -60,7 +66,7 @@ G5:
   url:
     value: "https://lafabriqueverticale.com/en/ape-index-climb-strong/"
     date: 2026-10-30
-  note: "Summarises Ozimek et al., Somatic Profile of the Elite Boulderers in Poland, J Strength Cond Res"
+  note: "Summarises Ozimek et al., Somatic Profile of the Elite Boulderers in Poland, J Strength Cond Res 31(4):963-970, 2017: 10 climbers against 165 untrained students. Paper's abstract read via Europe PMC"
 
 G6:
   type: web
@@ -222,6 +228,7 @@ G19:
   title: "Prevalence and Risk Factors of Upper Extremity Injuries in Indoor Bouldering: A Cross-Sectional Study"
   author: ["Mena, L.", "Zanesco, L.", "Assunção, J. H.", "Checchia, C.", "Gracitelli, M.", "Malavolta, E. A."]
   date: 2024
+  page-range: "e69729"
   serial-number:
     doi: "10.7759/cureus.69729"
   parent:
@@ -358,12 +365,14 @@ G28:
   title: "Effects of Different Loading Programs on Finger Strength in Rock Climbers"
   author: ["Gilmore, Natalie K.", "Klimek, Peter", "Abrahamsson, Emil", "Baar, Keith"]
   date: 2024
+  page-range: "125"
   serial-number:
     doi: "10.1186/s40798-024-00793-7"
   parent:
     type: periodical
     title: "Sports Medicine - Open"
     volume: 10
+    issue: 1
   url:
     value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11576708/"
     date: 2026-10-30
@@ -643,7 +652,7 @@ G52:
   url:
     value: "https://doi.org/10.1080/1750984X.2012.723728"
     date: 2026-10-30
-  note: "Title, journal, volume and pages checked against the Crossref record; abstract not accessed"
+  note: "Title, journal, volume and pages checked against the Crossref record. A 2024 re-analysis that corrects for publication bias disputes the external-focus advantage: see G67"
 
 G53:
   type: web
@@ -804,3 +813,144 @@ G66:
   url:
     value: "https://theclimbingdoctor.com/train-climbing-route-speed-movement-cadence-and-technique/"
     date: 2026-10-31
+
+G67:
+  type: article
+  title: "Reporting bias, not external focus: A robust Bayesian meta-analysis and systematic review of the external focus of attention literature"
+  author: ["McKay, Brad", "Corson, Abbey E.", "Seedu, Jeswende", "De Faveri, Celeste S.", "Hasan, Hibaa", "Arnold, Kristen", "Adams, Faith C.", "Carter, Michael J."]
+  date: 2024
+  page-range: "1347-1362"
+  serial-number:
+    doi: "10.1037/bul0000451"
+  parent:
+    type: periodical
+    title: "Psychological Bulletin"
+    volume: 150
+    issue: 11
+  url:
+    value: "https://doi.org/10.1037/bul0000451"
+    date: 2026-11-06
+  note: "Abstract read via Europe PMC. Preprint: https://doi.org/10.51224/srxiv.304"
+
+G68:
+  type: article
+  title: "Sport climbing performance determinants and functional testing methods: A systematic review"
+  author: ["Faggian, Sara", "Borasio, Nicola", "Vecchiato, Marco", "Gatterer, Hannes", "Burtscher, Martin", "Battista, Francesca", "Brunner, Hannes", "Quinto, Giulia", "Duregon, Federica", "Ermolao, Andrea", "Neunhaeuserer, Daniel"]
+  date: 2025
+  page-range: "100974"
+  serial-number:
+    doi: "10.1016/j.jshs.2024.100974"
+  parent:
+    type: periodical
+    title: "Journal of Sport and Health Science"
+    volume: 14
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11904605/"
+    date: 2026-11-06
+  note: "Full text read via Europe PMC. Published online in 2024"
+
+G69:
+  type: article
+  title: "Determinants for success in climbing: A systematic review"
+  author: ["Saul, Dominik", "Steinmetz, Gino", "Lehmann, Wolfgang", "Schilling, Arndt F."]
+  date: 2019
+  page-range: "91-100"
+  serial-number:
+    doi: "10.1016/j.jesf.2019.04.002"
+  parent:
+    type: periodical
+    title: "Journal of Exercise Science & Fitness"
+    volume: 17
+    issue: 3
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6527913/"
+    date: 2026-11-06
+  note: "Full text read via Europe PMC"
+
+G70:
+  type: article
+  title: "Nutrition knowledge, weight loss practices, and supplement use in senior competition climbers"
+  author: ["Gibson-Smith, Edward", "Storey, Ryan", "Michael, Marisa", "Ranchordas, Mayur"]
+  date: 2024
+  page-range: "1277623"
+  serial-number:
+    doi: "10.3389/fnut.2023.1277623"
+  parent:
+    type: periodical
+    title: "Frontiers in Nutrition"
+    volume: 10
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10827858/"
+    date: 2026-11-06
+  note: "Full text read via Europe PMC. Survey of 50 climbers; cited for its statement on the lack of weight-loss trials. A corrigendum (10.3389/fnut.2024.1452189) fixes figure order only"
+
+G71:
+  type: article
+  title: "Neuromechanics of finger hangs with arm lock-offs: analyzing joint moments and muscle activations to improve practice guidelines for climbing"
+  author: ["Exel, Juliana", "Deimel, David", "Koller, Willi", "Werle, Cäcilia", "Baca, Arnold", "Maffiodo, Daniela", "Sesana, Raffaella", "Colombo, Alessandro", "Kainz, Hans"]
+  date: 2023
+  page-range: "1251089"
+  serial-number:
+    doi: "10.3389/fspor.2023.1251089"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 5
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10623130/"
+    date: 2026-11-06
+  note: "Full text read via Europe PMC"
+
+G72:
+  type: article
+  title: "The influence of the crimp and slope grip position on the finger pulley system"
+  author: ["Schöffl, I.", "Oppelt, K.", "Jüngert, J.", "Schweizer, A.", "Neuhuber, W.", "Schöffl, V."]
+  date: 2009
+  page-range: "2183-2187"
+  serial-number:
+    doi: "10.1016/j.jbiomech.2009.04.049"
+  parent:
+    type: periodical
+    title: "Journal of Biomechanics"
+    volume: 42
+    issue: 13
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/19665129/"
+    date: 2026-11-06
+  note: "Abstract read via Europe PMC. Study on 21 cadaver fingers"
+
+G73:
+  type: article
+  title: "Lean and mean? Associations of level of performance, chronic injuries and BMI in sport climbing"
+  author: ["Grønhaug, Gudmund"]
+  date: 2019
+  page-range: "e000437"
+  serial-number:
+    doi: "10.1136/bmjsem-2018-000437"
+  parent:
+    type: periodical
+    title: "BMJ Open Sport & Exercise Medicine"
+    volume: 5
+    issue: 1
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6326274/"
+    date: 2026-11-06
+  note: "Full text read via Europe PMC. Web survey of 667 climbers"
+
+G74:
+  type: article
+  title: "Rock climbing injury rates and associated risk factors in a general climbing population"
+  author: ["Backe, S.", "Ericson, L.", "Janson, S.", "Timpka, T."]
+  date: 2009
+  page-range: "850-856"
+  serial-number:
+    doi: "10.1111/j.1600-0838.2008.00851.x"
+  parent:
+    type: periodical
+    title: "Scandinavian Journal of Medicine & Science in Sports"
+    volume: 19
+    issue: 6
+  url:
+    value: "https://pubmed.ncbi.nlm.nih.gov/19508652/"
+    date: 2026-11-06
+  note: "Abstract read via Europe PMC. Self-reported survey of Swedish Climbing Association members"

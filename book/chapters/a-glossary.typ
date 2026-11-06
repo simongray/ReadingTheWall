@@ -37,13 +37,17 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("collagen")[The protein that tendons, ligaments and pulleys are made of. It adapts to training more slowly than muscle.]
 
-#gloss("comp style")[Setting inspired by competitions: big volumes, jumps, run-and-jump starts and coordination moves on modern holds.]
+#gloss("comp style", see: ("comp-moves",))[Setting inspired by competitions: big volumes, jumps, run-and-jump starts and coordination moves on modern holds.]
 
 #gloss("contact strength")[How hard you can grab a hold in the first split second, e.g. as you catch it at the end of a dynamic move.]
 
-#gloss("coordination move")[A move that needs several limbs timed together, often with a jump or a run. Also called a coordination dyno.]
+#gloss("coordination move", see: ("run-and-jump", "comp-moves"))[A move that needs several limbs timed together, often with a jump or a run. Also called a coordination dyno.]
 
 #gloss("core", see: ("body-tension",))[The muscles around your trunk (abdominals, back and hips) that connect your hands to your feet.]
+
+#gloss("corner", see: ("stemming",))[Two wall panels that meet at an inside angle, like the corner of a room. Also called a dihedral or an open book.]
+
+#gloss("counter-kick", see: ("cutting-loose",))[Kicking your free leg across to stop your body swinging open after a one-handed catch.]
 
 #gloss("crimp", see: ("half-crimp", "full-crimp"))[A small edge you hold on your fingertips. Also the grip itself: crimping means holding with your finger joints bent sharply.]
 
@@ -53,9 +57,11 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("DAV")[The German Alpine Club (Deutscher Alpenverein), which publishes climbing safety guidance and gym accident statistics.]
 
-#gloss("deadpoint", see: ("deadpoint",))[The top of a movement, when your body is momentarily weightless. Grabbing the next hold at that instant takes the least strength.]
+#gloss("deadpoint", see: ("deadpoint",))[The top of a movement, when you have stopped rising and feel light. Grabbing the next hold at that instant gives you a moment to latch before your weight pulls on your grip.]
 
 #gloss("deliberate practice")[Practice aimed at a specific weakness, with feedback, rather than just climbing more.]
+
+#gloss("double clutch", see: ("comp-moves",))[A loose name for a leap that lands your hands on two different holds in quick succession.]
 
 #gloss("downclimb")[Climbing back down instead of jumping off. It is the safest way off a problem.]
 
@@ -71,7 +77,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("edge", see: ("edging",))[A flat-topped hold with a squarish lip, gripped with the fingertips; also, standing on a foothold with the edge of your shoe.]
 
-#gloss("external focus")[Attending to the effect of a movement (e.g. "push the wall away") rather than to your body. It usually helps learning.]
+#gloss("external focus")[Attending to the effect of a movement (e.g. "push the wall away") rather than to your body. Studies disagree on how much it helps, so treat it as something to try.]
 
 #gloss("feature")[A large shape bolted to the wall to imitate rock, such as a bulge or a fin. Unlike holds, features usually count for every problem.]
 
@@ -103,6 +109,8 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("hinge", see: ("barn-door",))[The line between the hand and foot that are holding you. If your weight is off to one side of it, your body rotates around it like a door.]
 
+#gloss("hip pop", see: ("deadpoint",))[A deadpoint thrown from a backstep or a drop knee. Turning your hip to the wall adds reach.]
+
 #gloss("incut")[A hold whose gripping surface slopes back into the wall, so your fingers lock behind its lip.]
 
 #gloss("intermediate", see: ("bumping",))[A small hold between two better ones, used briefly to get from one to the other.]
@@ -110,6 +118,8 @@ Plain definitions of the slang and technical words used in this book. Technique 
 #gloss("jerk")[How abruptly your body speeds up or slows down. Smooth movement keeps it low and spares your fingers.]
 
 #gloss("jug", see: ("jug",))[A large hold you can wrap your whole hand around, like a jug handle.]
+
+#gloss("lache", see: ("comp-moves",))[A move from parkour: you hang and swing, let go at the end of the swing and catch a far hold.]
 
 #gloss("LCL")[The lateral collateral ligament, on the outside of the knee. Hard heel hooks that twist the knee load it.]
 
@@ -145,9 +155,11 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("onsight")[Sending a problem on your first attempt without watching anyone or getting any beta.]
 
-#gloss("open hand", see: ("open-hand",))[Gripping with your fingers only slightly bent, letting the hold sit in the first finger joints. It is the safest grip for the fingers.]
+#gloss("open hand", see: ("open-hand",))[Gripping with your fingers only slightly bent, letting the hold sit in the first finger joints. It puts far less load on your finger pulleys than a crimp.]
 
 #gloss("overhang", see: ("overhang",))[A wall that leans out over you, steeper than vertical. Also called steep ground.]
+
+#gloss("paddle dyno", see: ("comp-moves",))[A jump followed by quick taps along a row of poor holds, without stopping until you catch the last one.]
 
 #gloss("palmar plate")[A thick ligament on the palm side of each finger joint. It can be strained by crimping or by forcing a finger straight.]
 
@@ -223,6 +235,8 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("the line")[The vertical line straight down from the hold your holding hand pulls on. Feet placed on it, or just past it away from your reach, keep you from rotating.]
 
+#gloss("tic-tac", see: ("comp-moves",))[A parkour name for stepping a foot onto a wall, an arête or a volume and pushing off it towards a hold.]
+
 #gloss("top out", see: ("top-out",))[Finishing a problem by climbing onto the top of the wall or boulder instead of holding a finishing hold.]
 
 #gloss("training board")[A standard steep wall with a fixed grid of holds, such as the MoonBoard, Kilter Board or Tension Board, with problems shared through an app.]
@@ -232,6 +246,8 @@ Plain definitions of the slang and technical words used in this book. Technique 
 #gloss("variable practice")[Practising a movement with small changes each time (different holds, angles or beta) so it transfers to new problems.]
 
 #gloss("volume", see: ("volume",))[A big hollow shape bolted to the wall, usually a pyramid or wedge. You can stand on it, press it or grip its edges.]
+
+#gloss("volume mantle", see: ("mantle",))[A mantle onto the top of a volume. You usually can't stop and rest there, so you press and keep moving.]
 
 #gloss("V-scale")[The American boulder grading scale, from VB (beginner) and V0 upward. V5 is roughly Font 6C.]
 

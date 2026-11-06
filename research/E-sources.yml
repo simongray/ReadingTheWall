@@ -333,6 +333,7 @@ E34:
     type: periodical
     title: "Scandinavian Journal of Medicine & Science in Sports"
     volume: 22
+    issue: 1
   url:
     value: "https://coachsci.sdsu.edu/csa/vol185/sanchez1.htm"
     date: 2026-10-30
@@ -414,6 +415,7 @@ E40:
   title: "The Load Structure in International Competitive Climbing"
   author: ["Winkler, M.", "Künzell, S.", "Augste, C."]
   date: 2022
+  page-range: "790336"
   serial-number:
     doi: "10.3389/fspor.2022.790336"
   parent:
@@ -421,8 +423,8 @@ E40:
     title: "Frontiers in Sports and Active Living"
     volume: 4
   url:
-    value: "https://www.frontiersin.org/articles/10.3389/fspor.2022.790336/full"
-    date: 2026-10-30
+    value: "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2022.790336/full"
+    date: 2026-11-06
 E41:
   type: web
   title: "Climbing at Your Limit: Tactics"

@@ -28,7 +28,7 @@ The book on one page, for between attempts. @reading-method has the full method.
 #colbreak()
 
 #remember[Three questions for every move][
-  + *Where is my weight?* Can I get my hips over a foot, or closer to the wall?
+  + *Where is my weight?* Can I get my hips over a foot, or closer to a steep wall?
   + *Which way do these holds pull?* Where must my body be for each hold to work?
   + *What stops me rotating?* If I let go with one hand, what holds me in?
 ]

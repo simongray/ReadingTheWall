@@ -1,0 +1,16 @@
+# Appendices and front matter changes for the third revision
+
+- **Glossary, wording:** deadpoint and external focus use the wording of evidence items 12 and 3. Open hand now says it "puts the least load on your finger pulleys", as its entry does, in place of "the safest grip".
+- **Glossary, merged entries:** new one-line terms for corner, counter-kick, double clutch, hip pop, lache, paddle dyno, tic-tac and volume mantle, each with `see:` pointing at the entry that holds it. Comp style now points at Competition set pieces, and coordination move at Run-and-jump and Competition set pieces. All 8 names are also in the A–Z and the index (checked in the compiled draft). The index splits one of them into "corner" and "Corners" until `book/template.typ` gets `"corner": "Corners"` in `ix-merge`.
+- **Troubleshooting, Reach and steep ground:** drop knee (now V3) comes before twist lock (V4).
+- **Troubleshooting, Corners and traverses:** one link to Stemming, because the old `corner` key would have printed Stemming twice.
+- **Troubleshooting, Endurance:** the four-to-six rule is labelled (judgement) and no longer cites E6, per the flag in evidence item 5. The rest is 10–15 minutes, as chapter 2 gives for a full attempt at your limit.
+- **Other troubleshooting tables:** checked against the new badges and the merged entries, unchanged.
+- **On the mat:** checked against chapters 1 and 2 and the keypoint on attempts, unchanged. Still one page.
+- **Grade conversion:** checked against chapters 2 and 8 and the glossary (Font equivalents, circuits, calibrating in a new gym), unchanged.
+- **How to use this book, opening:** says who the book is for, at the end of the first paragraph.
+- **How to use this book, Part IV:** adds being small, and says "how to learn technique", because chapter 9 now offers "Principles to try".
+- **How to use this book, entry anatomy:** the badge bullet adds the Grade note, and bases the grade on coaches' advice, technique clinics and climbers' reports, since no coaching syllabus ties techniques to grades (chapter 8 and evidence item 15). The reading box is described by its "Look for" and "Symptoms" groups, and the notes cover tall and small climbers.
+- **After review:** put back HEAD's try-first order in the Feet rows and the big-volume row, because no badge move caused those changes and the dossier (`research/E-reading.md`, rows 2, 3 and 13) gives HEAD's order; applied the rest figure, the coordination move link, the front matter wording and the glosses for hip pop and volume mantle. Rejected: backstep before drop knee in the door row (same badge, dossier's order, no fault), and "at least 5 on any hard problem" in the Endurance row (Chapter 2 is cited there and the shorter line is as clear). Not mine to change: the `ix-merge` line in `book/template.typ`, and the HEAD aliases dropped in chapters 5 and 6 (mantling onto a volume; throw from a backstep or drop knee; counter-swing kick; paddle; tac).
+
+Words (`wc -w`, markup included): glossary 2226 → 2430, because of the eight new terms and the longer evidence wording. Troubleshooting 1290 → 1289. Card 340 and grade conversion 369, unchanged. Front matter 1291 → 1329, because of the sentences on who the book is for and on the Grade note.
