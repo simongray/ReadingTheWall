@@ -14,6 +14,11 @@ section as the notes of the GitHub release.
 
 ### Errata
 <!-- - p. 37, Heel hook, step 3: "pull with the quads" → "pull with the hamstrings". -->
+- p. 4, Straight arms, figure: "arm hangs on bones" and "straight arms: skeleton
+  holds you" gave as the mechanism what the text corrects, since you always hang
+  on your skeleton → "elbow muscles rest" and "straight arms: muscles work less".
+- p. 97, Jug, figure: "bent arms: forearms pump" went beyond the evidence, which
+  supports only the upper arm and shoulder → "bent arms: biceps work".
 
 ### Added
 

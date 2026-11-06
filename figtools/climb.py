@@ -1590,6 +1590,7 @@ THIGH_BACK_SIDE = [(0, 10.0), (0.1, 10.2), (0.24, 8.4), (0.55, 6.8), (0.85, 5.9)
 SHIN_FRONT = [(0, 5.5), (0.35, 5.0), (0.75, 4.6), (1, 4.4)]
 SHIN_BACK = [(0, 5.5), (0.25, 5.9), (0.6, 5.0), (1, 4.4)]
 HEM_ABOVE_ANKLE = 3.5   # trouser hem, measured up the shin from the ankle
+BACK_ANKLE_MIN = 33     # the lowest shin-to-foot angle that passes in a back view
 
 # A muscle at work is stippled: dots, largest at its belly and shrinking
 # toward its ends and edges, with no outline (see Climber, `active`). Dots
@@ -2293,6 +2294,9 @@ class Climber:
                     # the shoe goes behind its leg, so the trouser leg
                     # covers the top of the shoe
                     self._shoe(fig, name[0], shoe_st, zz - 0.02)
+                    if self.view == "back" and "torso" in order and \
+                            order.index(name) > order.index("torso"):
+                        geo[name] = (self._front_thigh(name[0], geo[name][0]), geo[name][1])
                 _draw_group(fig, zz, *geo[name], line)
                 if name.endswith("arm"):
                     self._arms[name[0]] = (zz, geo[name][0])
@@ -2483,6 +2487,70 @@ class Climber:
                 polys)
         return G
 
+    def _under_hem(self, p):
+        """Point `p`, moved straight down the body if it's above the T-shirt's
+        hem, whose height across the back is SHIRT_BACK_HEM's."""
+        u, r = self.frame()
+        q = sub(p, self.pelvis)
+        t = dot(q, u) / self.s
+        x = abs(dot(q, r)) / self.s / (self.hip_w + 0.5 * (1 - self.hip_w))
+        (x0, t0), (x1, t1) = (SHIRT_BACK_HEM[1], SHIRT_BACK_HEM[0]) if x < SHIRT_BACK_HEM[0][0] \
+            else (SHIRT_BACK_HEM[0], SHIRT_BACK_SIDE[-1])
+        hem = t0 + (t1 - t0) * min(1.0, (x - x0) / (x1 - x0)) - 0.4
+        return sub(p, mul(u, (t - hem) * self.s)) if t > hem else p
+
+    def _front_thigh(self, s, pieces):
+        """The pieces of a leg drawn over the torso in a back view. Whole, the
+        hidden root of its thigh would show across the seam as a torn edge. So
+        the root stops at the seam, and below the hem the outline stops at its
+        own half of the seat, with which it is one shape. A thigh whose outline
+        comes out across the seam meets the other half along one straight line,
+        from just under the hem to where that outline comes out."""
+        thigh = pieces[0]
+        hip, kn = self.J[s + "hip"], self.J[s + "kn"]
+        u, _ = self.frame()
+        own = _Poly(dict(self._torso_shapes()[2])[s])
+        # (not all the way along the thigh: a foreshortened one keeps its knee)
+        d, reach = norm(sub(kn, hip)), 0.6 * length(sub(kn, hip))
+        hide = lambda p: thigh["hide"](p) or (
+            dot(sub(p, hip), d) < reach and own.has(p) and
+            dot(sub(p, self.pelvis), u) / self.s < 3)
+        runs = _runs(thigh["pts"], hide)
+        if not runs or runs[0][1]:
+            return pieces
+        visible = [p for run, _ in runs for p in run]
+        top, crotch = self._seam
+        seam = sub(crotch, top)
+        sg = 1 if s == "l" else -1      # the sign of cross() across the seam
+        across = lambda p: sg * cross(seam, sub(p, top))
+        ends = [visible[0], visible[-1]]
+        over = [e for e in ends if across(e) > 0]
+        root = []       # the thigh on its own side of the seam
+        pts = thigh["pts"]
+        for a, b in zip(pts, pts[1:] + pts[:1]):
+            if across(a) <= 0:
+                root.append(a)
+            if (across(a) <= 0) != (across(b) <= 0):
+                root.append(lerp(a, b, across(a) / (across(a) - across(b))))
+        root = [self._under_hem(p) if thigh["hide"](p) else p for p in root]
+        out = [dict(pts=pts, hide=hide), dict(pts=visible, fill=thigh["fill"], stroke=False)]
+        if root:
+            out.append(dict(pts=root, fill=thigh["fill"], stroke=False))
+        # where the outline stops well short of the hem, the same edge runs on to it
+        for a, b in zip(pts, pts[1:] + pts[:1]):
+            for e, h in ((a, b), (b, a)):
+                on_hem = self._under_hem(h)
+                if not hide(e) and thigh["hide"](h) and across(e) <= 0 and \
+                        5 * self.s < length(sub(on_hem, e)) < 14 * self.s:
+                    out.append(dict(pts=[e, on_hem]))
+        if over:
+            # the seat's top is at t = 9.5, the crotch at t = -10, the hem at 2.6
+            under_hem = lerp(top, crotch, 8.0 / 19.5)
+            ends.sort(key=lambda e: length(sub(e, under_hem)))
+            gusset = [under_hem] + ends + ([crotch] if len(over) == 2 else [])
+            out.append(dict(pts=gusset, fill=thigh["fill"], stroke=False))
+        return out + pieces[1:]
+
     def _torso_shades(self, col, seats):
         """Line entries shading the lats, glutes and core that are at work."""
         on, L, out = self._on, self.local, []
@@ -2566,8 +2634,11 @@ class Climber:
                 # only a thigh that hangs mostly downward cuts the seat; a
                 # raised or sideways thigh leaves the buttock's round curve
                 down = -dot(d, u) > 0.64
+                # a thigh that has crossed the seam (crossed legs, or narrow
+                # hips turned side on) would fold this half over the other
                 if down and dot(sub(m, self.pelvis), u) / S < -4 and \
-                        dot(sub(m, hip), mul(r, sg)) <= 0:
+                        dot(sub(m, hip), mul(r, sg)) <= 0 and \
+                        dot(sub(m, crotch), mul(r, sg)) > 0:
                     inner[s] = m
             if len(inner) == 2:
                 # the crotch sits between the two inner thighs
@@ -2583,6 +2654,7 @@ class Climber:
                 # right half, so no hairline gap shows between the fills
                 k = 0.4 * S if s == "l" else 0.0
                 seats.append((s, outer + [add(crotch, mul(r, k)), add(top, mul(r, k))]))
+            self._seam = (top, crotch)
             neck_base = L(0, 50)
             hu, _ = self.head_frame()
             neck_top = sub(self._head_centre(), mul(hu, 6 * S))
@@ -2913,6 +2985,12 @@ class Climber:
             if knee < 50:
                 out.append(f"{s} knee folded to {knee:.0f} deg in back view "
                            f"(looks broken below ~50; shorten leg_len or move the foot)")
+            # the shin and the foot as drawn: a foot turned toward the viewer
+            # foreshortens this angle, so it may pass 45 where a side view can't
+            ankle = inner(kn, an, add(an, ft["d"]))
+            if ft["style"] == "profile" and ft["contact"] != "heel" and ankle < BACK_ANKLE_MIN:
+                out.append(f"{s} ankle {ankle:.0f} deg in back view (looks broken below "
+                           f"~{BACK_ANKLE_MIN}; tilt the foot's `angle` or move the hips)")
             # a bent knee should point roughly the way the toes point
             if ft["style"] == "profile" and knee < 150:
                 mid = lerp(hip, an, 0.5)
@@ -2959,13 +3037,14 @@ def capsule(p1, r1, p2, r2, n=14):
 # ---------------------------------------------------------------- panels
 
 
-def combine(figs, path, gap=4.0, labels=None, captions=None, align="bottom"):
+def combine(figs, path, gap=4.0, labels=None, captions=None, align="bottom", margin=0.0):
     """Lay out several figures side by side in one SVG, with optional
-    panel letters and captions under each panel (sizes in mm)."""
+    panel letters and captions under each panel, and `margin` of white to the
+    right of the last (sizes in mm)."""
     sizes = [((f.x1 - f.x0) * f.scale, (f.y1 - f.y0) * f.scale) for f in figs]
     cap_h = 5.0 if captions else 0.0
     lab_h = 0.0
-    W = sum(w for w, _ in sizes) + gap * (len(figs) - 1)
+    W = sum(w for w, _ in sizes) + gap * (len(figs) - 1) + margin
     H = max(h for _, h in sizes) + cap_h + lab_h
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.2f}mm" '
            f'height="{H:.2f}mm" viewBox="0 0 {W:.2f} {H:.2f}">']

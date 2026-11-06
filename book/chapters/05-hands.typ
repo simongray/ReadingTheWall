@@ -172,7 +172,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   grade-note: [It matters from V2, when edges get rounded. In Lattice's#ix("Lattice Training") tests at V1–V4, climbers added 22.5 kg in open hand and 14.5 kg in half crimp.#ix("Finger strength!open hand and half crimp") They were different climbers, so this only hints at a natural strength #src("C21").],
   summary: [You hang your finger pads over the hold with the joints only slightly bent. Skin friction and the long finger tendons do the work. It is the cheapest grip and puts far less load on your finger #jt("pulley", body: [pulleys]) than a crimp #src("C1", "C14").],
   figure: "open-hand.svg",
-  caption: [(a) Drag on a rounded edge: the pad drapes over and the joints are barely bent. (b) Three-finger drag seen from behind, with the little finger off.],
+  caption: [(a) Drag on a rounded edge: the pad drapes over and the middle joint bends about 40°. (b) Three-finger drag seen from behind, with the little finger off.],
   how: [
     + Lay your finger pads over the #jt("lip") (the front of the hold). The end joint hooks over it #src("C1").
     + Keep the middle joint only slightly bent. Measured open-hand grips average about 40° there #src("C28").
@@ -433,7 +433,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   grade-note: [Arêtes and big round holds become common on gym problems around V3.],
   summary: [You wrap your whole hand, palm included, round a rounded feature, such as an #tref("arete", body: [arête]), the ridge of a #jt("volume") or a big round hold. Palm and thumb press against the fingers, so skin grips over a large area.],
   figure: "wrap.svg",
-  caption: [An arête seen from above. Palm and thumb press on one face. The fingers wrap round the edge. Both squeeze towards it.],
+  caption: [An arête seen at an angle. Palm and thumb press on one face. The fingers wrap round the edge. Both squeeze towards it.],
   how: [
     + Put your palm on the near face. Wrap your fingers round onto the far face #src("C11", "C34").
     + On horns (holds that stick out like a spike) and edges, press with the heel of the hand to spare the fingers #src("C37").

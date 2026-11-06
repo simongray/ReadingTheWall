@@ -16,6 +16,9 @@ fix it until it passes every check below.
   `combine`). Don't edit it; write any helper you need in the module you
   own. If the library itself is the problem, describe the bug or the
   feature you need (with a minimal example) in your final reply.
+- `figtools/hand.py` and `figtools/closeup.py`: the hand and the shoes for the
+  close-ups. `figtools/plan.py`: the climber seen from above, for the plan views
+  and insets.
 - `figtools/figs_<chapter>.py`: the figure modules you own.
 - `book/chapters/<chapter>.typ`: the text each figure illustrates. Read
   the entry (summary, how-to steps, when-to-use, caption) before judging

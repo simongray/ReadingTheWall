@@ -10,7 +10,8 @@ import math
 
 import climb
 from climb import *
-from closeup import SHOE_TOP, SHOE_TOP_TIP, edge_side
+from closeup import SHOE_TOP, SHOE_TOP_BIG_TOE, SHOE_TOP_TIP, edge_side, shoe_top
+from hand import inside
 
 SHOE_COL = "#262626"
 SHOE_SHAPE = climb.SHOE          # side-profile outline (heel at x=0, sole at y=0)
@@ -31,6 +32,7 @@ ANKLE = (3.5, 9.0)
 BALL = (15.5, 2.0)              # big-toe joint: the forefoot bends here
 
 GHOST = dict(fill=WHITE, stroke=MID, sw=0.3, dash=(0.9, 0.7))
+HOLD_UNDER = dict(XRAY_STYLE, stroke=WHITE)
 
 
 # ---------------------------------------------------------------- helpers
@@ -248,34 +250,6 @@ def shoe_side(f, at, deg, spot="toe", up=1, z=0, ghost=False, shin=None,
     return P
 
 
-def shoe_top(f, heel, deg, medial=+1, z=0, ghost=False):
-    """A shoe seen from above (from closeup.py), optionally as a ghost."""
-    d = ang(deg)
-    n = perp(d)
-
-    def P(x, y):
-        return add(heel, add(mul(d, x), mul(n, y * medial)))
-
-    pts = [P(x, y) for x, y in SHOE_TOP]
-    if ghost:
-        f.smooth(pts, z=z, tension=0.7, **GHOST)
-        return P
-    f.smooth(pts, z=z, fill="#5a5a5a", stroke=INK, sw=0.35, tension=0.7)
-    # black toe rand over the toe box, its back edge curving behind the toes
-    rand = [P(x, y) for x, y in SHOE_TOP if x >= 21.5]
-    rp = [P(21.2, 3.75)] + rand + [P(20.8, -3.85), P(19.6, -1.2), P(19.8, 1.6)]
-    f.smooth(rp, z=z + 0.05, fill=INK, stroke=INK, sw=0.3, tension=0.7)
-    # one velcro strap across the instep, slanting back to the outside
-    f.poly([P(10.4, 3.6), P(13.4, 3.95), P(12.2, -4.1), P(9.2, -3.6)],
-           z=z + 0.1, fill=MID, stroke=INK, sw=0.25)
-    # the ankle in the heel cup
-    f.smooth([P(x, y) for x, y in [(2.2, 0), (3.0, 1.6), (4.8, 1.9), (6.6, 1.3),
-                                   (7.0, -0.2), (6.0, -1.6), (4.0, -1.8),
-                                   (2.7, -1.3)]],
-             z=z + 0.1, fill=LIGHT, stroke=INK, sw=0.3, tension=0.7)
-    return P
-
-
 def shoe_top_against(f, x, wall_y, deg, medial=+1, gap=0.2, **kw):
     """Draw a top-view shoe pointing at `deg` whose toe end is at `x` and
     whose nearest point to the wall (the face at height `wall_y`) sits just
@@ -327,12 +301,46 @@ def sight(f, a, b, z=55):
 # ---------------------------------------------------------------- edging
 
 
-def plan_panel(x0=-17, x1=17, y0=-26, y1=6, hold_w=16, depth=2.7, scale=1.0):
+# A foothold's depth in plan, as HOLD_PROFILES["edge"]. At 45 degrees to the wall the
+# big-toe joint sits just on it, with the rubber's contact (EDGE_ON) ahead of the joint.
+PLAN_DEPTH = 3.8
+
+
+def plan_hold(f, cx, wall_y, w=16, depth=PLAN_DEPTH):
+    """A foothold from above, on the wall face at `wall_y`. Returns its free edges
+    from one end of the wall line to the other, for hold_under_shoe."""
+    h = w / 2
+    a, b = (cx - h, wall_y), (cx + h, wall_y)
+    edges = [a, (cx - h + 0.6, wall_y - depth), (cx + h - 0.6, wall_y - depth), b]
+    f.poly(edges, z=-5, fill=DARK, stroke=INK, sw=0.35)
+    return edges
+
+
+def hold_under_shoe(f, edges, P):
+    """Dot the hold's edges where the shoe with point function `P` covers them. The
+    dots pass under the leg, which stands above the hold. Light dots, since a dark
+    line can't be seen on the rubber."""
+    shoe = catmull([P(*q) for q in SHOE_TOP], k=8)
+    runs, run = [], []
+    for a, b in zip(edges, edges[1:]):
+        n = max(1, int(length(sub(b, a)) / 0.2))
+        for i in range(n + 1):
+            p = lerp(a, b, i / n)
+            if inside(p, shoe):
+                run.append(p)
+            elif run:
+                runs.append(run)
+                run = []
+    for run in runs + [run]:
+        if len(run) > 1:
+            f.poly(run, closed=False, z=0.035, **HOLD_UNDER)
+
+
+def plan_panel(x0=-17, x1=17, y0=-26, y1=6, hold_w=16, depth=PLAN_DEPTH, scale=1.0,
+               hold_x=0):
     f = Fig(x0, y0, x1, y1, scale=scale)
     wall_top(f, x0, x1, 3.5)
-    f.poly([(-hold_w / 2, 3.5), (hold_w / 2, 3.5), (hold_w / 2 - 0.6, 3.5 - depth),
-            (-hold_w / 2 + 0.6, 3.5 - depth)], z=-5, fill=DARK, stroke=INK, sw=0.35)
-    return f
+    return f, plan_hold(f, hold_x, 3.5, hold_w, depth)
 
 
 def place_top(tip, deg, medial):
@@ -342,19 +350,41 @@ def place_top(tip, deg, medial):
     return sub(tip, add(mul(d, SHOE_TOP_TIP[0]), mul(n, SHOE_TOP_TIP[1])))
 
 
+# Where the rubber sits on the hold, on the shoe's outline, in shoe coordinates.
+# Inside edge: the front of the big-toe side. Outside edge: the toe line just ahead
+# of the little toe.
+EDGE_ON = {"inside": (21.6, 3.75), "outside": (21.1, -3.3)}
+EDGE_DEG = {"inside": 45, "outside": 135}   # 45 degrees to the wall, either way
+# An outside edge's toe line lies along the wall, so that shoe stands a little off
+# it, which keeps the contact mark on the hold and off the wall line.
+EDGE_GAP = {"inside": 0.2, "outside": 1.1}
+
+
 def edging(path):
     kw = dict(x0=-17.5, x1=17.5, y0=-22, y1=6, scale=0.7)
-    # (a) inside edge: right foot turned out about 40 degrees to the wall
-    a = plan_panel(**kw)
-    shoe_top_against(a, 5.0, 3.5, 40)
-    a.label("big-toe side", (-1, -18.5), to=(2.8, 1.6), size=7)
+    # (a) inside edge: right foot turned out, big-toe side on the hold
+    a, hold = plan_panel(hold_x=5, **kw)
+    P, _ = shoe_top_against(a, 9.0, 3.5, EDGE_DEG["inside"], gap=EDGE_GAP["inside"])
+    hold_under_shoe(a, hold, P)
+    on = P(*EDGE_ON["inside"])
+    touch(a, on)
+    a.label("big-toe", (-16.3, -1.2), size=7, anchor="start")
+    a.label("side", (-16.3, -5.5), size=7, anchor="start")
+    a.line((-5.4, -1.6), on, z=59, sw=0.22)
     # (b) outside edge: right foot turned in, little-toe side on the hold
-    b = plan_panel(**kw)
-    shoe_top_against(b, -5.0, 3.5, 140)
-    b.label("little-toe side", (1, -18.5), to=(-2.8, 1.6), size=7)
-    # (c) wrong: arch on the hold, ankle against the wall
-    c = plan_panel(**kw)
-    shoe_top_against(c, 12.5, 3.5, 0)
+    b, hold = plan_panel(hold_x=-9, **kw)
+    P, _ = shoe_top_against(b, -13.5, 3.5, EDGE_DEG["outside"], gap=EDGE_GAP["outside"])
+    hold_under_shoe(b, hold, P)
+    on = P(*EDGE_ON["outside"])
+    touch(b, on)
+    b.label("little-toe", (16.3, -1.2), size=7, anchor="end")
+    b.label("side", (16.3, -5.5), size=7, anchor="end")
+    b.line((2.2, -0.4), on, z=59, sw=0.22)
+    # (c) wrong: arch on the hold, ankle against the wall. The toe joints are past
+    # the hold, which is the same hold as in (a) and (b).
+    c, hold = plan_panel(**kw)
+    P, _ = shoe_top_against(c, 15.5, 3.5, 0)
+    hold_under_shoe(c, hold, P)
     c.cross((0, -9))
     c.label("arch on the hold", (0, -16), size=7)
     combine([a, b, c], path, gap=3, captions=["inside edge", "outside edge",
@@ -362,16 +392,19 @@ def edging(path):
 
 
 def pivoting(path):
-    f = plan_panel(x0=-24, x1=24, y0=-23, y1=6, hold_w=14, depth=3.4, scale=1.2)
-    c = (0.0, -0.35)                       # the toe end stays here
-    for deg, ghost in ((40, True), (140, False)):
-        d = ang(deg)
-        n = perp(d)
-        # put shoe point (21.5, 0) (front, centre line) on c
-        heel = sub(c, mul(d, 21.5))
-        shoe_top(f, heel, deg, medial=+1, ghost=ghost, z=2 if not ghost else 0)
-    f.turn(c, 17.5, 222, 318)
-    f.label("toe stays put", (9.1, 0.4), to=(2.6, -0.9), size=7)
+    f, _ = plan_panel(x0=-24, x1=24, y0=-23, y1=6, hold_w=14, depth=4.0, scale=1.2)
+    c = (0.0, 0.2)                         # the big toe stays here
+    for deg, ghost in ((EDGE_DEG["inside"], GHOST), (EDGE_DEG["outside"], None)):
+        d, n = ang(deg), perp(ang(deg))
+        heel = sub(c, add(mul(d, SHOE_TOP_BIG_TOE[0]), mul(n, SHOE_TOP_BIG_TOE[1])))
+        P = shoe_top(f, heel, deg, ghost=ghost, z=2 if not ghost else 0)
+        if ghost:   # its toe end goes under the other shoe: show it through
+            f.smooth([P(*q) for q in SHOE_TOP], z=4, tension=0.7,
+                     **dict(GHOST, fill=None))
+    f.turn(c, 17.5, 244, 304)
+    touch(f, c)
+    f.label("big toe", (-8, 1.0), to=c, size=7)
+    f.label("stays put", (-8, -1.5), size=7, anchor="end")
     f.label("heel swings", (0, -20.5), size=7)
     f.save(path)
 
@@ -816,7 +849,7 @@ def knee_bar(path):
     wall_side(f, WX, 30, 214, angle=ang_w)
     F = at(96)
     hold_side(f, "foot", F, angle=ang_w, size=1.3)
-    tip = add(F, add(mul(wn, 3.0), mul(wd, 2.2)))
+    tip = add(F, add(mul(wn, 3.0), mul(wd, 1.0)))     # on top of the foothold
     # the shin runs close along the wall and the thigh falls away from the
     # knee, so the lower thigh sits under a face that sticks straight out
     # of the wall: the underside of a big volume. With the hands off, the
@@ -904,7 +937,7 @@ def high_step(path):
     d.draw(b)
     b.arrow([add(stand(HS["RF"]), (10, 8)), add(stand(HS["HF"]), (10, -10))],
             kind="move")
-    b.label("knee out", (80, 146), to=add(d.J["rkn"], (6, -2)))
+    b.label("knee out", (59, 146), to=add(d.J["rkn"], (6, -2)))
     check("high-step", c, d)
     combine([a, b], path, gap=6, labels=["a", "b"],
             captions=["feet low: too short", "high step, knee out"])
@@ -1198,7 +1231,7 @@ def grid(rows, path, gap=5.0, row_gap=3.0, captions=None):
         fh.write("\n".join(out) + "\n")
 
 
-AT = 0.48                       # paper mm per cm in every atlas tile
+AT = 0.48                       # paper mm per cm in the side-view atlas tiles
 TILE = (-62, -34, 34, 40)       # world frame of a tile (x0, y0, x1, y1)
 
 
@@ -1222,20 +1255,36 @@ def wall_line(f, angle, through=(0, 0)):
     return d, n
 
 
+def bent_leg(f, ankle, shin_deg, thigh_deg, z=0.2):
+    """A leg with its knee in the tile: the shin up from `ankle` and the thigh on
+    from the knee, drawn long so the tile's edge cuts it off. Returns the knee."""
+    sv = ang(shin_deg)
+    K = add(ankle, mul(sv, DIM["shin"]))
+    far = add(K, mul(ang(thigh_deg), 40))
+    leg = dict(fill=WHITE, stroke=INK, sw=0.35)
+    f.poly(capsule(far, 6.6, K, 5.0), z=z, **leg)
+    f.poly(capsule(K, 5.0, ankle, 3.6), z=z + 0.05, **leg)
+    cuf = add(ankle, mul(sv, 2.4))           # cuff where the shin enters the shoe
+    f.line(add(cuf, mul(perp(sv), 3.9)), add(cuf, mul(perp(sv), -3.9)), z=z + 0.06,
+           sw=0.3)
+    return K
+
+
 def atlas_toe_edge():
+    """The front of the sole on a small ledge that sticks straight out, its
+    top facing up, the heel a little raised, as in the front-pointing entry."""
     f = tile()
     wall_line(f, 0, (0, 0))
     y = -8
-    edge_side(f, top=(-3.4, y), depth=3.4, height=3.0, wall_x=0)
-    tip = (-3.0, y + 0.25)
-    shoe_side(f, tip, -8, spot="tip", shin=102, shin_len=45,
-              name="atlas toe edge")
-    f.arrow([(-8, y + 21), (-8, y + 8.5)], kind="force")
-    touch(f, tip)
+    hold_side(f, "edge", (0, y), size=1.3)
+    on = (-2.2, y + 0.75)
+    shoe_side(f, on, -8, spot="toe", shin=102, shin_len=45, name="atlas toe edge")
+    f.arrow([(-4.5, y + 19), (-4.5, y + 6.2)], kind="force")
+    touch(f, on)
     return f
 
 
-def atlas_edge_top(inside):
+def atlas_edge_top(edge):
     """Seen from above, wall along the top as in the edging figure: the
     right foot on an edge. Drawn at twice the side views' scale, since a
     shoe from above has no leg to fill the tile."""
@@ -1243,14 +1292,11 @@ def atlas_edge_top(inside):
     f = Fig(*[v / k for v in TILE], scale=AT * k)
     cx, wy = (f.x0 + f.x1) / 2, 12.0
     wall_top(f, f.x0, f.x1, wy)
-    f.poly([(cx - 8, wy), (cx + 8, wy), (cx + 7.4, wy - 2.7), (cx - 7.4, wy - 2.7)],
-           z=-5, fill=DARK, stroke=INK, sw=0.35)
-    if inside:
-        deg, tip = 40, (cx + 5.0, wy)      # toes turned out
-    else:
-        deg, tip = 140, (cx - 5.0, wy)     # toes across the body
-    P, contact = shoe_top_against(f, tip[0], wy, deg)
-    touch(f, contact)
+    hold = plan_hold(f, cx, wy)
+    tip = cx + 5.0 if edge == "inside" else cx - 5.0    # toes out, or across the body
+    P, _ = shoe_top_against(f, tip, wy, EDGE_DEG[edge], gap=EDGE_GAP[edge])
+    hold_under_shoe(f, hold, P)
+    touch(f, P(*EDGE_ON[edge]))
     return f
 
 
@@ -1293,17 +1339,21 @@ def atlas_smear_volume():
 
 
 def atlas_heel_hook():
-    """Heel over a jug above you on a vertical wall, sole against the wall,
-    toes up; the leg pulls the heel down and out toward the body."""
+    """The back of the heel hooked over a jug above you on a vertical wall,
+    the foot 14 degrees off the wall, toes up. The knee is bent and the hips stay
+    close to the wall below the hold, so the leg pulls the heel down and in towards
+    the bum, and the heel rubber presses on the lip."""
     f = tile()
     wall_line(f, 0, (0, 0))
-    hold_side(f, "jug", (0, 2))
-    heel = (-4.4, 6.0)
-    shoe_side(f, heel, 98, spot="heel", up=1, shin=226, shin_len=80,
-              name="atlas heel hook")
-    # the pull along the shin, drawn beside it (below), not on it
-    f.arrow([(-9, -4), (-21, -15)], kind="force")
-    touch(f, heel)
+    hold_side(f, "jug", (0, 2), size=1.15)
+    on = (-7.2, 5.2)
+    deg, shin_deg, thigh_deg = 104, 222, 292
+    P = shoe_side(f, on, deg, spot="heelback", up=1)
+    bent_leg(f, P(*ANKLE), shin_deg, thigh_deg)
+    check_shoe("atlas heel hook", deg, shin_deg)
+    # the pull towards the bum, drawn below the shin, not on it
+    f.arrow([(-11, -5), (-15, -18)], kind="force")
+    touch(f, on)
     return f
 
 
@@ -1317,8 +1367,9 @@ def atlas_toe_hook():
     def H(x, y):
         return add(o, add(mul(n, x), mul(d, y)))
     shelf(f, H, k=1.4)
-    under = H(7.0, -3.75 * 1.4)
-    shoe_side(f, under, 16, spot="top", up=1, shin=118, shin_len=50,
+    under = H(7.4, -3.75 * 1.4 - 1.0)
+    # the ankle bent up towards the shin, as the entry says
+    shoe_side(f, under, 28, spot="top", up=1, shin=110, shin_len=50,
               name="atlas toe hook")
     f.arrow([add(under, (2, -22)), add(under, (2, -9))], kind="force")
     touch(f, under)
@@ -1355,21 +1406,13 @@ def atlas_knee_bar():
     F = (24, -16)                # far enough right that the thigh shows
     d, n = wall_line(f, ang_w, F)
     hold_side(f, "foot", F, angle=ang_w, size=1.3)
-    tip = add(F, add(mul(n, 3.0), mul(d, 2.2)))
+    tip = add(F, add(mul(n, 3.0), mul(d, 1.0)))       # on top of the foothold
     fa, shin_deg, thigh_deg = 20, 150, 230
     dd = ang(fa)
     o = sub(ANKLE, SPOT["tip"])
     ankle = add(tip, add(mul(dd, o[0]), mul(perp(dd), o[1])))
-    K = add(ankle, mul(ang(shin_deg), DIM["shin"]))
+    K = bent_leg(f, ankle, shin_deg, thigh_deg)
     hipdir = ang(thigh_deg)
-    far = add(K, mul(hipdir, 40))
-    leg = dict(fill=WHITE, stroke=INK, sw=0.35)
-    f.poly(capsule(far, 6.6, K, 5.0), z=0.2, **leg)
-    f.poly(capsule(K, 5.0, ankle, 3.6), z=0.25, **leg)
-    sv = ang(shin_deg)                         # cuff where the shin enters
-    cuf = add(ankle, mul(sv, 2.4))
-    f.line(add(cuf, mul(perp(sv), 3.9)), add(cuf, mul(perp(sv), -3.9)), z=0.26,
-           sw=0.3)
     shoe_side(f, tip, fa, spot="tip", up=1)
     check_shoe("atlas knee bar", fa, shin_deg)
     nrm = ang(thigh_deg - 90)
@@ -1394,7 +1437,7 @@ def atlas_knee_bar():
 
 
 def foot_atlas(path):
-    rows = [[atlas_toe_edge(), atlas_edge_top(True), atlas_edge_top(False)],
+    rows = [[atlas_toe_edge(), atlas_edge_top("inside"), atlas_edge_top("outside")],
             [atlas_smear_wall(), atlas_smear_volume(), atlas_heel_hook()],
             [atlas_toe_hook(), atlas_cam(), atlas_knee_bar()]]
     grid(rows, path, captions=[

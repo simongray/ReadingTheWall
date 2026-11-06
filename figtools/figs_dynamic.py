@@ -5,6 +5,7 @@ import math
 import os
 
 from climb import *
+import plan
 
 
 def _inner(a, b, c):
@@ -425,40 +426,6 @@ def lunge(path):
 # ---------------------------------------------------------------- counter-kick
 
 
-def _door_plan(f, at, deg, back=False, w=44, label="from above"):
-    """A top-down inset of the body as a barn door hinged on its right side
-    (the right hand and foot), after figs_body's _door: the wall along the
-    top, the hinge a black dot, the body a flat ellipse. It swings open by
-    `deg` degrees, its left side coming off the wall (dashed: square to the
-    wall; solid: open; a turn arrow from one to the other). With back=True
-    the body swings back from open (dashed) to the wall (solid)."""
-    x, y = at
-    f.line((x - w / 2, y + 6), (x + w / 2, y + 6), sw=0.6, z=70)
-    k = x - w / 2
-    while k < x + w / 2:
-        f.line((k, y + 6), (k + 2, y + 9), sw=0.18, stroke=MID, z=70)
-        k += 2.2
-    hinge = (x + w / 2 - 6, y + 3)
-    k = w / 40
-
-    def body(a):
-        return [add(hinge, rot((-(6 + 13 + 13 * math.cos(math.radians(t))) * k,
-                                4.5 * k * math.sin(math.radians(t))), a))
-                for t in range(0, 360, 20)]
-    a0, a1 = (deg, 0) if back else (0, deg)
-    f.smooth(body(a0), z=70, fill=WHITE, stroke=MID, sw=0.3, dash=(0.9, 0.7))
-    f.smooth(body(a1), z=70.5, fill=WHITE, stroke=INK, sw=0.3)
-    f.circle(hinge, 1.6, z=71, fill=INK, stroke=None)
-    # the arc runs from just off the start position to just short of the
-    # end, outside the body's free end
-    t0 = 180 + (a0 - 4 if a0 else 8)
-    t1 = 180 + (a1 - 4 if a1 else 8)
-    arc = [add(hinge, mul(ang(t0 + (t1 - t0) * i / 8), 33 * k)) for i in range(9)]
-    f.arrow(arc, kind="turn", z=72, head=1.5)
-    if label:
-        f.text(label, (x, y - 28 * k), size=6.5)
-
-
 def counter_kick(path):
     """Back view, two frames. (a) The right hand has just caught a sidepull
     up and right; the left hand and left foot are off, and the body swings
@@ -484,7 +451,7 @@ def counter_kick(path):
                      rf={"at": stand(RF), "style": "back"}, elbows={"l": "down"},
                      knees={"l": "down", "r": "down"}, allow_cross=True, bend=-8,
                      # behind the standing leg = nearer the viewer
-                     order=["rleg", "lleg", "larm", "torso", "rarm"],
+                     order=["rleg", "torso", "lleg", "larm", "rarm"],
                      active=("+core",))
     panels = []
     for k in range(2):
@@ -497,7 +464,7 @@ def counter_kick(path):
             f.line(add(rh, (4, 14)), add(stand(RF), (6, -18)), sw=0.45,
                    dash=(2.2, 1.2), z=60)
             f.label("hinge", (76, 250), to=add(rh, (4, 10)))
-            _door_plan(f, (-46, 238), 40, w=52)
+            plan.door(f, (-38, 241), "r", span=(52, 66))
             _warn("counter-kick a", opened)
         else:
             # only the kicking leg as a ghost: the hips barely move
@@ -506,7 +473,8 @@ def counter_kick(path):
             f.arrow([add(opened.J["lan"], (-2, -14)), (12, 58), add(kicked.J["lan"], (12, -10))],
                     kind="move")
             f.label("kick across behind", (-38, 48))
-            _door_plan(f, (-46, 238), 40, back=True, w=52)
+            plan.door(f, (-38, 241), "r", back=True, span=(52, 66),
+                      legs={"l": dict(heel=(56, 20), deg=4)})
             _warn("counter-kick b", kicked)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -517,29 +485,30 @@ def counter_kick(path):
 
 
 def hip_pop(path):
-    """Back view, two frames. (a) Left hand on a sidepull, right foot
-    backstepped on its outside edge, left leg flagged, hips sagging back
+    """Back view, two frames. (a) Left hand on a sidepull, right foot on its
+    outside edge in a partial drop knee, left leg flagged, hips sagging back
     from the wall, right arm hanging ready. (b) The right hip snaps into the wall and up, and the
-    right hand throws to the hold up and right. The backstepped foot is
-    drawn as in the drop knee: on its outside edge, heel up, toes into the
-    wall (pointing down), with the knee turned in below it."""
-    L = (-46, 204)
+    right hand throws to the hold up and right. The foot is drawn as in the
+    drop knee: on its outside edge, heel up, toes into the wall (pointing
+    down). The knee turns in but stays level with the foot, since step 1 warns
+    against snapping off a deep drop."""
+    L = (-49, 223)
     T = (38, 250)
-    RF = (52, 70)
+    RF = (62, 62)
     back = {"at": stand(RF), "angle": 268}
     # hanging off the straight left arm, the left side stretches and the
     # hips sag away from the hold
-    sag = Climber((-12, 96), turn=0.55, lean=-6, lh=grip(L, use=180), rh=None,
-                  lf={"at": (-54, 30), "contact": "toe", "angle": 250},
+    sag = Climber((-12, 116), turn=0.55, lean=-6, lh=grip(L, use=180), rh=None,
+                  lf={"at": (-54, 46), "contact": "toe", "angle": 250},
                   rf=back, elbows={"l": "down"}, knees={"r": "left"},
-                  leg_len={"l": 0.95, "r": (0.82, 0.95)}, bend=8)
+                  leg_len={"l": 0.95}, bend=8)
     # the drop-knee leg pushes and the right hip snaps into the wall; as in
     # a deadpoint, the holding arm bends only to let the body pass. The
     # throwing side stretches.
-    pop = _toward((6, 142), {"r": grip(T)}, turn=0.85, lean=14, lh=grip(L, use=180),
+    pop = _toward((1, 142), {"r": grip(T)}, turn=0.85, lean=14, lh=grip(L, use=180),
                     lf={"at": (-34, 50), "contact": "toe", "angle": 236},
                     rf=back, knees={"r": "left"}, elbows={"l": "down"},
-                    leg_len={"l": 0.95, "r": (0.88, 0.95)}, bend=-8,
+                    leg_len={"l": 0.95, "r": (0.95, 1.0)}, bend=-18,
                     active=("rthigh", "rglute"))
     panels = []
     for k in range(2):
@@ -550,9 +519,9 @@ def hip_pop(path):
         hold(f, "foot", RF)
         if k == 0:
             sag.draw(f)
-            f.label("drop knee", (66, 44), to=add(sag.J["rkn"], (4, -3)))
-            f.label("arm straight", (-56, 240), to=sag.J["lel"])
-            f.label("hips sag", (-60, 130), to=add(sag.pelvis, (-8, 2)))
+            f.label("partial drop knee", (7, 50), to=add(sag.J["rkn"], (2, -3)), anchor="start")
+            f.label("arm straight", (-16, 209), to=lerp(sag.J["lel"], sag.J["lwr"], 0.3))
+            f.label("hips sag", (-43, 152), to=add(sag.pelvis, (-8, 2)))
             _warn("hip-pop a", sag)
         else:
             sag.draw(f, ghost=True)
@@ -600,7 +569,7 @@ def latching(path):
     _jug_profile(a, (0, 0))
     pa.draw(a)
     a.arrow([(4.4, 6.6), (4.4, 0.8)], kind="move")
-    a.label("2–3 cm above", (-4.8, 8.4), to=(1.0, 1.8), size=7)
+    a.label("2–3 cm above", (-4.6, 8.0), to=(1.0, 1.8), size=7)
     # (b) close-up: fingers drop over the lip
     hb = H.Hand("jug")
     pb = hb.view("thumb").place("i", (1.5, -1.15), a0=100, k=0.75)
@@ -676,7 +645,7 @@ def jump_start(path):
         if k == 0:
             crouch.draw(f)
             f.label("arms back", (-38, 150), to=add(crouch.J["lel"], (-1, 2)))
-            f.label("quarter squat", (-30, 30), to=crouch.J["lkn"])
+            f.label("quarter squat", (-29, 46), to=crouch.J["lkn"], anchor="middle")
             f.label("out of reach", (-18, 242), to=add(S, (-5, 0)))
             _warn("jump-start a", crouch)
         else:
@@ -953,17 +922,19 @@ def foot_catch(path):
     # the top of the toes pressing on the far side, the leg pulling back
     shin = sub(c.J["lkn"], c.J["lan"])
     sdeg = math.degrees(math.atan2(shin[1], shin[0]))
-    k = Fig(-28, -30, 20, 22, scale=0.62)
+    k = Fig(-12.5, -30, 17.76, 30, scale=0.62)
     # the volume's lower left corner, up and right of the toes as the hold
     # is in the toe hook figure, with the shin passing below it
-    volume(k, [(-5.5, -4), (30, -9), (30, 30), (-3.5, 30)], apex=(16, 12))
+    volume(k, [(-5.5, -4), (30, -9), (30, 19), (-3.9, 19)], apex=(12, 6))
     shoe_side(k, (-6.2, -1), 98, spot="toptoe", up=-1, shin=sdeg, shin_len=50,
               shin_fill=LEFT, name="foot-catch close-up")
     k.arrow([(2, -22), (17, -22)], kind="force")
     k.text("leg pulls", (9, -26.5), size=7)
-    k.label("top of the toes", (-12, 18), to=(-7, 0.5), size=7)
-    combine([f, k], path, gap=4, labels=["a", "b"],
-            captions=["toe hooks, swing stops", "toes behind the edge"])
+    k.label("top of the toes", (-12.2, 25), to=(-7, 0.5), size=7, anchor="start")
+    # a figure this wide hangs 11 mm into the page margin beside the steps
+    # (template.typ's overhang), so the margin here keeps panel (b) in the column
+    combine([f, k], path, gap=4, labels=["a", "b"], margin=11,
+            captions=["toe hooks, swing stops", "behind the edge"])
 
 
 # ---------------------------------------------------------------- lache
@@ -1064,8 +1035,8 @@ def tic_tac(path):
     the jug with the left arm thrown up beside it (solid). The ghost and the
     climber stand apart, so neither covers the other; the displacement
     from one to the other shows the redirect, so there is no arrow to cross
-    a limb. The label sits on the volume, clear of both bodies. The volume
-    gives a step but no foothold to stand on."""
+    a limb. The label sits beside the volume, clear of both bodies. The
+    volume gives a step but no foothold to stand on."""
     T = (62, 246)
     vol = [(-118, 16), (-34, 16), (-44, 104), (-108, 112)]
     apex = (-64, 58)
@@ -1086,9 +1057,7 @@ def tic_tac(path):
                   elbows={"l": "out"}, knees={"l": "out", "r": "out"})
     push.draw(f, ghost=True)
     fly.draw(f, z=5)
-    # low in the volume's bottom facet, clear of its edge lines
-    f.label("push, don’t kick", (-74, 21), to=add(plant, (-1, 0)),
-            anchor="middle", size=7)
+    f.label("push, don’t kick", (-28, 28), to=add(plant, (-1, 0)))
     _warn("tic-tac", push, fly)
     f.save(path)
 
