@@ -601,7 +601,8 @@ section as the notes of the GitHub release.
   crowded labels have moved. Grid dots cut by a line or label are gone.
 - The hands in the close-ups are redrawn as smooth outlines in the climbers'
   style, with corrected proportions and no extra joint at the base of the thumb.
-  The twist lock, hip pop and heel hook figures get small fixes.
+  The twist lock, hip pop and heel hook figures get small fixes, and the
+  top-out shows its palms flat on the top.
 
 ### Removed
 

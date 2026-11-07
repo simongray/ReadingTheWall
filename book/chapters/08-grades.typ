@@ -86,7 +86,7 @@ Walls are mostly vertical or slightly overhanging. Jugs give way to #jt("incut")
 
 ==== Techniques that start to matter
 
-Use #tref("edging") on the outside of the shoe as well as the inside. Use #tref("smearing") where there is no foothold. Pull a #tref("sidepull", body: [sidepull]) towards you. A #tref("high-step", body: [high step]) needs a #tref("rockover", body: [rockover]) to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching", inner: true)). Others ask you to turn both knees out so your hips come in (#tref("frog", inner: true)). In a corner or between two #tref("volume", body: [volumes]) (big bolted-on shapes), push your feet out against both sides (#tref("stemming", inner: true)).
+Use #tref("edging", body: [edging]) on the outside of the shoe as well as the inside. Use #tref("smearing", body: [smearing]) where there is no foothold. Pull a #tref("sidepull", body: [sidepull]) towards you. A #tref("high-step", body: [high step]) needs a #tref("rockover", body: [rockover]) to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching", inner: true)). Others ask you to turn both knees out so your hips come in (#tref("frog", inner: true)). In a corner or between two #tref("volume", body: [volumes]) (big bolted-on shapes), push your feet out against both sides (#tref("stemming", inner: true)).
 
 #grade-techniques(1)
 
@@ -221,7 +221,7 @@ Expect overhangs of 30–45°, or vertical walls with poor feet. #jt("crimp", bo
 
 ==== Techniques that start to matter
 
-The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. Add the #tref("toe-hook", body: [toe hook]) to stop a swing and to keep your feet on a #tref("roof", body: [roof]). Squeezing between two holds becomes a technique of its own (#tref("compression", inner: true)). Gyms start to set the #tref("lunge", body: [one-handed dyno]) and the #tref("dyno", body: [dyno]) here, so you need #tref("latching") to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. The #tref("run-and-jump", body: [run-and-jump]) appears on problems set in a competition style. Your hands meet the #tref("pocket", body: [pocket]). On rounded holds the thumb starts to help (#tref("thumb-catch", inner: true)). By now, momentum is a normal tool, not a last resort.
+The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. Add the #tref("toe-hook", body: [toe hook]) to stop a swing and to keep your feet on a #tref("roof", body: [roof]). Squeezing between two holds becomes a technique of its own (#tref("compression", inner: true)). Gyms start to set the #tref("lunge", body: [one-handed dyno]) and the #tref("dyno", body: [dyno]) here, so you need #tref("latching", body: [latching]) to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. The #tref("run-and-jump", body: [run-and-jump]) appears on problems set in a competition style. Your hands meet the #tref("pocket", body: [pocket]). On rounded holds the thumb starts to help (#tref("thumb-catch", inner: true)). By now, momentum is a normal tool, not a last resort.
 
 #grade-techniques(4)
 

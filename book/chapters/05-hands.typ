@@ -435,7 +435,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   grade-note: [Arêtes and big round holds become common on gym problems around V3.],
   summary: [You wrap your whole hand, palm included, round a rounded feature, such as an #tref("arete", body: [arête]), the ridge of a #jt("volume") or a big round hold. Palm and thumb press against the fingers, so skin grips over a large area.],
   figure: "wrap.svg",
-  caption: [An arête seen at an angle. Palm and thumb press on one face. The fingers wrap round the edge. Both squeeze towards it.],
+  caption: [The arête's two faces opened out flat. Palm and thumb press on one face. The fingers wrap round the edge onto the other. Both squeeze towards it.],
   how: [
     + Put your palm on the near face. Wrap your fingers round onto the far face #src("C11", "C34").
     + On horns (holds that stick out like a spike) and edges, press with the heel of the hand to spare the fingers #src("C37").

@@ -1,6 +1,7 @@
 """Figures for the terrain chapter (07) and the reading chapter (02)."""
 
 from climb import *
+from figs_hands import flat_palm
 import plan
 
 
@@ -366,7 +367,7 @@ def reading_problem(path):
     f.label("finish: match", (16, 336), to=(66, 334))
     # hand order tags beside their holds
     tags = {"R1": (72, 180), "L2": (-22, 212), "R3": (60, 243),
-            "L4": (100, 266), "R5": (19, 304), "F": (96, 330)}
+            "L4": (98, 266), "R5": (19, 304), "F": (96, 330)}
     for name, p in tags.items():
         tag(f, "L6" if name == "F" else name, p)
     # moves as dashed arrows
@@ -786,13 +787,21 @@ def volume_fig(path):
 # pressing out at the lip of a vertical wall (lip at x=40, y=200), right
 # foot on top beside the hands. Its knee points out to the side, toward
 # us, so that leg is foreshortened and drawn in front of the arm. The
-# straight arms press, so they work. The chest curls over the hands.
+# straight arms press, so they work. The chest curls over the hands, which
+# sit ahead of the shoe so their flat palms show (press_palms).
 # Shared by the top-out figure and its filmstrip.
-TOP_OUT_PRESS = dict(pelvis=(16, 232), lean=42, bend=12, lh=(64, 202), rh=(58, 202),
+TOP_OUT_PRESS = dict(pelvis=(16, 232), lean=45, bend=12, lh=(73, 203), rh=(67, 203),
                      leg_len={"r": 0.85},
                      rf={"at": (46, 201), "contact": "ball", "angle": -10},
                      order=["lleg", "larm", "torso", "rarm", "rleg"],
                      active=("+lupper", "+lfore", "+rupper", "+rfore"))
+
+
+def press_palms(f, p, top=200):
+    """Flat palms on the top under a pose's hands, set as in Mantle: the
+    hand point 1 cm behind its palm and just above it."""
+    flat_palm(f, (p["lh"][0] + 1, top), fill=LEFT, z=1.5)
+    flat_palm(f, (p["rh"][0] + 1, top), z=3.5)
 
 
 def top_out(path):
@@ -844,10 +853,11 @@ def top_out(path):
     # and the right leg rocks over
     hold_side(b, "foot", (40, 124))
     p = dict(TOP_OUT_PRESS, active=TOP_OUT_PRESS["active"] + ("+rthigh",))
+    press_palms(b, p, LIP)
     d = Climber(p.pop("pelvis"), view="side", head=(1, 0),
                 lf={"at": (38.6, 126.2), "contact": "toe", "angle": -35}, **p)
     d.draw(b)
-    b.arrow([(74, 228), (74, 207)], kind="force")
+    b.arrow([(71, 228), (71, 207)], kind="force")
     b.label("palm presses", (98, 250), size=7.5)
     b.label("on the toe", (86, 166), to=(45, LIP + 1.5))
     warn("top-out-b", d)
@@ -989,7 +999,7 @@ def filmstrip_top_out(path):
         # 3 right hand flipped to a palm on top, elbow up (the arm turns
         # out of the side-view plane, so the joints are set by hand); the
         # chest curls over the lip
-        dict(pelvis=(-11, 202), lean=35, bend=10, lh=lip, rh=(48, TOP + 2),
+        dict(pelvis=(-11, 202), lean=35, bend=10, lh=lip, rh=(48, TOP + 3),
              lf=toe(FC), rf=smear(146, -40), anatomy=False,
              elbows={"l": "down", "r": "up"},
              knees={"l": "right", "r": "right"}),
@@ -1005,6 +1015,10 @@ def filmstrip_top_out(path):
     frames = []
     for i, p in enumerate(poses):
         f = frame()
+        if i == 2:
+            flat_palm(f, (49, TOP))         # the flipped hand's palm
+        elif i == 3:
+            press_palms(f, p, TOP)
         c = Climber(p.pop("pelvis"), view="side", head=(1, 0), **p)
         c.draw(f)
         warn(f"filmstrip-top-out {i + 1}", c)
