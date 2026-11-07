@@ -24,7 +24,7 @@ section as the notes of the GitHub release.
   your skeleton. The saving comes from using fewer muscles and using them less
   hard.
 - p. 4, Straight arms: "That is why coaches teach Straight arms from the start"
-  read a coach-training syllabus that gives no timing → "So learn Straight arms
+  read a coach-training syllabus that gives no timing → "So learn straight arms
   early (this book's suggestion)". The UK's coach training lists them as a way
   to find a rest.
 - p. 4, Straight arms: straightening your arms "reduces that load", as if
