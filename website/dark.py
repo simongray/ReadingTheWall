@@ -12,6 +12,7 @@ volumes, the pelican. Only what is drawn straight on the paper changes:
 - The paper itself goes dark: the frames of a film strip, the halos behind labels, and
   earlier positions, which are white on paper only so that they look see-through.
 - The wall's pale band and the grid of dots go quieter, and shoes get lighter.
+- The shadow a hold throws on the wall goes darker than the page. Left pale, it glows.
 - Black lines and text blend with what's behind them ("difference"), so they are light
   on the dark page and stay dark where they cross a white limb.
 
@@ -20,14 +21,21 @@ each piece alone would cancel the overlaps out and leave the line dashed.
 
 A coloured hold is left as it was drawn, lines included. Blending a black line over a
 colour gives the opposite colour, e.g. a pink outline on a teal hold.
+
+So are the fine dashes that show what a hand or a shoe hides. They run around the whole
+shape, on top of its black outline, and blending would make them white dashes there.
 """
 import re
+from itertools import groupby
 
-PAGE = "#171614"            # the dark page, --paper in style.css
+PAGE = "#171614"           # the dark page, --paper in style.css
 DOTS = "#5c5a55"            # the grid of dots on the wall
 WALL = "#34322d"            # the pale band beside a wall seen from the side
 SHOE = "#4d4b45"            # would vanish into the page in its own near-black
-BLACK = {"#000000", "#2a2a2a"}
+SHADOW = "#0b0a09"          # a hold's shadow on the wall
+CAST_SHADOW = "#dddddd"     # ROCK_SHADOW in figtools/climb.py
+XRAY_LINE = "#2a2a2a"       # XRAY_STYLE in figtools/climb.py
+BLACK = {"#000000", XRAY_LINE}
 WHITE = "#ffffff"
 GHOST_LINES = {"#777777", "#8c8c8c"}
 LIGHT_ON_DARK = "#ffffff"   # what "difference" turns into its opposite
@@ -36,6 +44,7 @@ STYLE = "<style>.m{mix-blend-mode:difference}</style>"
 TOKEN = re.compile(r"<[^>]+>|[^<]+")
 GREY = re.compile(r"#([0-9a-fA-F]{2})\1\1")
 SHAPE = re.compile(r"<(path|circle|ellipse|polygon|polyline|rect|line)\b[^>]*/>")
+GROUP = re.compile(r"</?g\b")
 
 
 def attr(tag, name):
@@ -55,15 +64,45 @@ def ghost_outline(tag):
     return attr(tag, "stroke") in GHOST_LINES and attr(tag, "stroke-dasharray") is not None
 
 
+def kind(tag):
+    fill, stroke = attr(tag, "fill"), attr(tag, "stroke")
+    if fill == "none" and stroke in BLACK and attr(tag, "stroke-dasharray") is None:
+        return "line"
+    return "fill" if fill != "none" and stroke is None else "other"
+
+
+def limb_outlines(shapes):
+    """The paths of the limbs' outlines. A limb is a run of thick black lines with the
+    same shapes filled on top, so that only the outer half of each line shows."""
+    outlines = set()
+    runs = [(k, list(group)) for k, group in groupby(shapes, kind)]
+    for (first, lines), (second, fills) in zip(runs, runs[1:]):
+        if first == "line" and second == "fill":
+            filled = {attr(tag, "d") for tag in fills}
+            widths = {attr(tag, "stroke-width") for tag in lines if attr(tag, "d") in filled}
+            outlines |= {attr(tag, "d") for tag in lines if attr(tag, "stroke-width") in widths}
+    return outlines
+
+
 class DarkCopy:
     """The copy being written, with a blended group open while lines are coming."""
 
-    def __init__(self):
+    def __init__(self, outlines):
         self.parts = []
         self.blending = False
+        self.outlines = outlines
         self.holds = set()      # the paths of coloured holds
         self.ghost_lines = 0    # dashed outlines of an earlier position, just drawn
         self.ghost_fills = 0    # the white pieces still to come for those outlines
+        self.clipped = 0        # how deep we are inside a clipped group
+
+    def group(self, token):
+        """Copy a group's tag, noting whether it starts or ends a clipped group."""
+        if token.startswith("</g"):
+            self.clipped = max(self.clipped - 1, 0)
+        elif self.clipped or "clip-path" in token:
+            self.clipped += 1
+        self.plain(token)
 
     def plain(self, *parts):
         self.stop_blending()
@@ -98,10 +137,14 @@ class DarkCopy:
         fill, stroke, path = attr(tag, "fill"), attr(tag, "stroke"), attr(tag, "d")
         if self.is_ghost(tag, fill, stroke):
             self.plain(with_attr(tag, "fill", PAGE))
+        elif fill == "none" and stroke == XRAY_LINE and attr(tag, "stroke-dasharray") is not None:
+            self.plain(tag)
+        elif fill == CAST_SHADOW and stroke is None and not self.clipped:
+            self.plain(with_attr(tag, "fill", SHADOW))
         elif coloured(fill):
             self.holds.add(path)
             self.plain(tag)
-        elif fill == "none" and path and path in self.holds:
+        elif fill == "none" and path and (path in self.holds or path in self.outlines):
             self.plain(tag)
         elif fill in BLACK:
             tag = with_attr(tag, "stroke", LIGHT_ON_DARK) if stroke in BLACK else tag
@@ -155,8 +198,8 @@ class DarkCopy:
 
 def dark_copy(svg):
     """The dark version of the SVG text `svg`."""
-    copy = DarkCopy()
     tokens = TOKEN.findall(svg)
+    copy = DarkCopy(limb_outlines([t for t in tokens if SHAPE.fullmatch(t)]))
     i = 0
     while i < len(tokens):
         token = tokens[i]
@@ -169,6 +212,8 @@ def dark_copy(svg):
             i = end
         elif SHAPE.fullmatch(token):
             copy.shape(token)
+        elif GROUP.match(token):
+            copy.group(token)
         elif token.startswith("<") or token.strip():
             copy.plain(token)
         else:
