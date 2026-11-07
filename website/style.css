@@ -388,6 +388,8 @@
   /* A narrow column is hyphenated, as print's is. */
   @container main (width < 34rem) {
     p, li, dd { hyphens: auto; hyphenate-limit-chars: 7 3 3; }
+    /* titles and terms in a list are scanned, so they break whole as heads do */
+    :is(.contents, .chapter-list, .ix-list, .az) li { hyphens: manual; }
   }
 }
 
@@ -952,11 +954,15 @@
   .c-chapters, .c-sections { margin: 0; padding: 0; list-style: none; }
   .c-chapters > li { margin-block: .8rem; }
 
+  /* A title that wraps goes on under itself, not under its number: the number
+     floats in the margin, where the link's underline doesn't reach it. */
   .c-chapter {
+    display: block;
     font-size: var(--fs-lead);
     font-weight: 700;
 
-    .num { display: inline-block; min-inline-size: 1.5em; font-variant-numeric: lining-nums; }
+    &:has(.num) { padding-inline-start: 1.5em; }
+    .num { float: inline-start; min-inline-size: 1.5em; margin-inline: -1.5em 0; font-variant-numeric: lining-nums; }
   }
 
   .c-sections {
@@ -964,7 +970,8 @@
     font-variant-numeric: lining-nums;
 
     > li { margin-block: .22rem; }
-    .num { display: inline-block; min-inline-size: 2.6em; }
+    > li > a { display: block; padding-inline-start: 2.6em; }
+    .num { float: inline-start; min-inline-size: 2.6em; margin-inline: -2.6em 0; }
   }
 
   .c-entries {
