@@ -102,7 +102,7 @@ A technique you merge into another keeps its address: add its old key to
 | `book/edition.typ` | Reads the edition, date and commit that `build.sh` and `release.sh` pass to Typst |
 | `figtools/climb.py` | The drawing library: a clothed mannequin climber (back and side views, anatomical joint limits, `warn()` pose checks), holds, volumes, walls, arrows, block arrows, labels, dotted outlines of hidden parts (`XRAY`), multi-panel figures (`combine`) and film strips (`filmstrip`) |
 | `figtools/authored.py` | The hands in every close-up, written point by point as outlines and drawn with the climbers' smoothing and pen, and the figures most of them appear in |
-| `figtools/hand.py` | The frames, edges and walls of the hand close-ups, and the older anatomical hand model, which no figure draws now |
+| `figtools/hand.py` | The frames, edges and walls of the hand close-ups |
 | `figtools/closeup.py` | Helpers for shoes seen from above and small edges in profile, used by `figs_feet.py` |
 | `figtools/figs_*.py`, `legend.py` | The figures for each chapter; each module defines `build(out)` |
 | `figtools/paint.py` | Colours the finished figures, keeping each shape's panel grey; `research/COLOUR.md` has the reasons |

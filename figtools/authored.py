@@ -12,6 +12,11 @@ to wrist crease 9.1. From the back: knuckles 8.5, wrist 6.2-6.6, forearm 6.9-7.2
 to webs 9.9-10.9, middle finger 7.4 from its web, thumb 5 from its web. There is
 no view tilt: a tilt adds palm and no finger.
 
+Side views have the wall on the right, as in the climber side views, and show the
+hand from the thumb side (the pocket from the little-finger side). Back views look at
+the wall, so the back of the hand faces you. Pinches are seen from above, with the wall
+at the top.
+
 A hand is a dict:
   outline   closed loops of control points: the silhouette, then any gaps in it.
             A third value in a point breaks the curve there: 1 for a corner, KEEP in a

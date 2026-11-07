@@ -24,7 +24,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "figtools"))
 
 import climb  # noqa: E402
-import hand as H  # noqa: E402
 import authored as A  # noqa: E402
 from climb import sub, dot, perp, norm as unit  # noqa: E402
 
@@ -254,12 +253,12 @@ def read(f, hand, items):
 
 def record():
     """Build every figure. Returns each drawn hand with the figure and paper scale it landed
-    on, how many hands came from the old model, and the weights the climbers are drawn at."""
-    names, drawn, model, solid, ghost = {}, [], [], [], []
+    on, and the weights the climbers are drawn at."""
+    names, drawn, solid, ghost = {}, [], [], []
     for name, v in vars(A).items():
         if isinstance(v, dict) and "outline" in v and not name.startswith("_"):
             names.setdefault(id(v), name)
-    draw, moved, posed, climber = A.draw_hand, A.moved, H.Posed.draw, climb.Climber.draw
+    draw, moved, climber = A.draw_hand, A.moved, climb.Climber.draw
 
     def spy(f, hand, *a, **k):
         n = len(f.items)
@@ -269,10 +268,6 @@ def record():
     def spy_moved(hand, *a, **k):
         return dict(moved(hand, *a, **k), name=hand.get("name") or names.get(id(hand)))
 
-    def spy_posed(self, *a, **k):
-        model.append(1)
-        return posed(self, *a, **k)
-
     def spy_climber(self, f, *a, **k):
         n = len(f.items)
         out = climber(self, f, *a, **k)
@@ -281,7 +276,7 @@ def record():
             if m:
                 (ghost if climb.GHOST_LINE in svg else solid).append(round(float(m.group(1)) * f.scale, 2))
         return out
-    A.draw_hand, A.moved, H.Posed.draw, climb.Climber.draw = spy, spy_moved, spy_posed, spy_climber
+    A.draw_hand, A.moved, climb.Climber.draw = spy, spy_moved, spy_climber
     with tempfile.TemporaryDirectory() as out, contextlib.redirect_stdout(io.StringIO()):
         for p in sorted(glob.glob(os.path.join(ROOT, "figtools", "figs_*.py"))):
             importlib.import_module(os.path.basename(p)[:-3]).build(out)
@@ -296,7 +291,7 @@ def record():
                 break
     # a climber's outline is drawn at twice its weight, and its fill hides half
     weights = dict(outline=statistics.mode(solid) / 2, ghost=statistics.mode(ghost) / 2, hem=climb.LINE_SW)
-    return drawn, len(model), weights
+    return drawn, weights
 
 
 # ---------------------------------------------------------------- measuring
@@ -489,7 +484,7 @@ def check(d, climbers):
 
 
 def main():
-    drawn, model, climbers = record()
+    drawn, climbers = record()
     bad = 0
     for d in drawn:
         rows = check(d, climbers)
@@ -500,9 +495,6 @@ def main():
             if not ok:
                 bad += 1
                 print(f"check_hands: {d['name']} in {d['figure']}: {k} {v:.2f}, range {lo:.2f}-{hi:.2f}")
-    if model:
-        bad += 1
-        print(f"check_hands: {model} hand(s) drawn by the old model in hand.py, which this can't measure")
     what = (f"{len(drawn)} drawings of {len({d['name'] for d in drawn})} hands "
             f"in {len({d['figure'] for d in drawn})} figures")
     print(f"check_hands: {what}: {bad} out of range" if bad else f"check_hands: {what} all in range")

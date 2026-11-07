@@ -720,8 +720,8 @@ MATCH_TOP = 0.0          # top of the edge
 
 
 def _face_edge(f, c, w, h, z=-5):
-    """A short edge seen face-on (as figs_hands.face_edge), with its hidden
-    outline dotted where the hands cover it."""
+    """A short edge seen face-on, with its hidden outline dotted where the
+    hands cover it."""
     x, y = c
     r = h * 0.25
     pts = [(x - w / 2 + r, y + h / 2), (x + w / 2 - r, y + h / 2), (x + w / 2, y),
