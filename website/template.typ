@@ -28,7 +28,6 @@
 #let kgap(n, k) = 0pt
 #let list-after-label(body, k: 1) = body
 #let float-figure(body, clearance: 0pt) = body
-#let caption-text(body) = body
 #let wide-image(file) = image(file)
 #let fit-start(what, est) = none
 #let fit-end = none
@@ -129,19 +128,33 @@
 
 // ------------------------------------------------------------ figures
 
+// An edition whose print template has `numbered-caption` numbers every drawing on
+// the one sequence that Typst's figures count, so that any of them can be cited:
+// "Figure 37". A drawing here steps the same counter at the same place, so the
+// number is the same as in print. An edition without it numbers only its figures.
+#let drawings = counter(figure.where(kind: image))
+#let numbers-drawings = "numbered-caption" in dictionary(print-book)
+#let drawing-caption(caption) = if numbers-drawings {
+  drawings.step()
+  tag("figcaption", {
+    sc[Figure #context drawings.display()]
+    if caption != none { " "; caption }
+  })
+} else if caption != none { tag("figcaption", caption) }
+
 #let filmstrip(file, title, caption) = cls("figure", "filmstrip", {
   cls("div", "filmstrip-head", { section-label[In motion]; " "; cls("span", "filmstrip-title", title) })
   image("figures/" + file)
-  tag("figcaption", caption)
+  drawing-caption(caption)
 })
 
-// A figure in an entry. It has no number in print either, and build.py decides
-// by its width whether it goes beside the steps.
+// A drawing in an entry, a part of one or a problem. build.py decides by its width
+// whether it goes beside the steps.
 #let entry-figure(file, caption, wide) = tag("figure", attrs: (
   class: "entry-fig", "data-wide": if wide { "1" } else { "0" },
 ), {
   image("figures/" + file)
-  if caption != none { tag("figcaption", caption) }
+  drawing-caption(caption)
 })
 
 // A problem of "Eight problems to read". There is no page to turn here, so the
