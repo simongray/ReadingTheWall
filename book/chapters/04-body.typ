@@ -307,7 +307,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Try it from V1, on easy problems that lean towards you (this book's suggestion). You need it on your first overhangs. Gresham#ix("Gresham, Neil") says low- to intermediate-level climbers struggle there because they keep their hips square#ix("Overhangs!hip position") #src("B22"). Rowland#ix("Rowland, Dave") twists on walls overhanging 10° or more #src("B44").],
   summary: [You turn your pelvis so the hip on your reaching side touches or nearly touches the wall, while your chest turns towards the holding hand. The turn lifts your reaching shoulder, so your hand goes higher on a straight arm #src("B19", "B43").],
   figure: "hip-turn.svg",
-  caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the hips from above.],
+  caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the body from above.],
   how: [
     + Hold with your right hand on a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) you can lean off #src("B38"). A right-hand sidepull faces right. You hang to its left.
     + Put your left foot on its #tref("edging", body: [outside edge]) (the little-toe side) on a foothold below your right hand #src("B37").
@@ -557,7 +557,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Learn a partial drop knee from V2 on big holds, but leave deep ones until a move needs them (this book's suggestion). Deep drop knees are rare below elite level #src("B33"). Steep V3s use a partial one. On steep V4s a drop knee is often the intended move. The UK's coach training lists the drop knee #src("B1"), while a US gym teaches it at V5–V6 #src("B64").],
   summary: [You turn the knee of your reaching-side leg down and inward, so the thigh turns towards the wall. Both feet push apart against two footholds. That pins your hips to the wall and lifts the reaching shoulder #src("B19", "B41").],
   figure: "drop-knee.svg",
-  caption: [(a) Square on, the right hand falls short. (b) Right knee dropped. The right hip turns in. Both feet push apart. The hand reaches. The insets show the hips from above.],
+  caption: [(a) Square on, the right hand falls short. (b) Right knee dropped. The right hip turns in. Both feet push apart. The hand reaches. The insets show the body from above.],
   how: [
     + Find two footholds, one each side #src("B20"). The high one, for the reaching-side foot, sits between waist and shoulder height. The other sits wide and low #src("B41").
     + Place the foot that won't pivot first if you can #src("B20").

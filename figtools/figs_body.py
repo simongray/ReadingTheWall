@@ -173,7 +173,7 @@ def hip_turn(path):
             f.label("hips square", (14, 126), to=add(c.pelvis, (-8, -2)))
             # the left hand reaches up the wall, just short of the hold
             plan.top(f, c, (8, 78), s=0.55, hips=28, chest=46, off={"lha": 8},
-                     span=(-70, 58), label="hips from above", name="hip-turn a")
+                     span=(-70, 58), name="hip-turn a")
         else:
             c = _turned(lh=grip(SIDE_T))
             c.draw(f)
@@ -183,7 +183,7 @@ def hip_turn(path):
             f.label("outside edge", (104, 56), to=add(stand(SIDE_A), (2, -1)))
             # the head looks back at the right hand, as the steps say
             plan.top(f, c, (14, 86), **_TURNED_TOP, spin=("pelvis", 40, -20, -60),
-                     label="hips from above", name="hip-turn b")
+                     name="hip-turn b")
         _warn(f"hip-turn {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -213,8 +213,7 @@ def backstep(path):
             c.draw(f)
             f.cog(c.cog(), plumb_to=78)
             f.label("hips over heel", (36, 70), to=(c.cog()[0], 80))
-            plan.top(f, c, (112, 283), **_TURNED_TOP, label="hips from above",
-                     name="backstep a")
+            plan.top(f, c, (112, 283), **_TURNED_TOP, name="backstep a")
         else:
             # the hips spin out: the arm stretches toward the hold, short.
             # The chest sags away from the right hand that holds the spin.
@@ -289,7 +288,7 @@ def drop_knee(path):
             f.label("knee up", (72, 160), to=add(c.J["rkn"], (3, 2)))
             # the right hand reaches up the wall, short of the hold
             plan.top(f, c, (-48, 222), s=0.55, hips=28, chest=46, off={"rha": 6},
-                     span=(-70, 92), label="hips from above", label_at=(-58, 199),
+                     span=(-70, 92), label_at=(-58, 199),
                      name="drop-knee a")
         else:
             # as in photographs of drop knees from behind: the thigh runs
@@ -310,7 +309,7 @@ def drop_knee(path):
             # the thigh and shin lie along the wall, as drawn full length, so the
             # dropped knee is close to it
             plan.top(f, c, (-42, 226), s=0.55, hips=16, chest=36, off={"rkn": 10},
-                     span=(-70, 76), spin=("pelvis", 28, -60, -22), label="hips from above",
+                     span=(-70, 76), spin=("pelvis", 28, -60, -22),
                      label_at=(-58, 199), name="drop-knee b")
         _warn(f"drop-knee {k}", c)
         panels.append(f)
@@ -450,8 +449,7 @@ def inside_flag(path):
             f.label("between leg", (-64, 52), to=lerp(c.J["rkn"], c.J["ran"], 0.45), anchor="middle")
             f.label("limbs straight", (46, 168), to=lerp(c.J["rel"], c.J["rha"], .4), anchor="middle")
             plan.top(f, c, (-46, 226), s=0.55, hips=16, chest=36, span=(-74, 44),
-                     spin=("pelvis", 27, -8, 30), label="hips from above",
-                     name="inside-flag b")
+                     spin=("pelvis", 27, -8, 30), name="inside-flag b")
         _warn(f"inside-flag {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
