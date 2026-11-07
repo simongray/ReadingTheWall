@@ -501,7 +501,7 @@ def hip_pop(path):
     sag = Climber((-12, 116), turn=0.55, lean=-6, lh=grip(L, use=180), rh=None,
                   lf={"at": (-54, 46), "contact": "toe", "angle": 250},
                   rf=back, elbows={"l": "down"}, knees={"r": "left"},
-                  leg_len={"l": 0.95}, bend=8)
+                  leg_len={"l": 0.95}, bend=8, tuck=("r",))
     # the drop-knee leg pushes and the right hip snaps into the wall; as in
     # a deadpoint, the holding arm bends only to let the body pass. The
     # throwing side stretches.

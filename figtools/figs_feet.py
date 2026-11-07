@@ -1156,7 +1156,7 @@ def rock_up_poses():
         FootClimber((28, 192), rh=grip(HR["T"]), lf=on_lf2, rf=toe,
                     knees={"r": "right", "l": "out"}, leg_len={"r": .86},
                     head=(1, 4), elbows=press, bend=-6, active=("rthigh",),
-                    **kw),
+                    tuck=("l",), **kw),
     ]
     poses[3].press_arm = ("r", (60, 210), add(HR["RH"], (-2, 6)))
     return poses

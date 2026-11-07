@@ -2007,6 +2007,10 @@ class Climber:
       forearm. A list of names replaces that; names written "+name" or
       "-name" add to it or take from it, e.g. ("+rthigh",) for a leg that
       drives the move or ("+lham",) for a heel hook.
+    tuck: the arms ("l", "r") whose root stays under the T-shirt's shoulder.
+      An upper arm that hangs close to the side can have the root of its
+      sleeve run along the shoulder just outside the T-shirt's line, which
+      doubles that line into a heavy stroke; this takes it back inside.
 
     The climber is drawn clothed: a white T-shirt with short sleeves, and
     trousers whose left leg (and left half of the seat) is grey; the bare
@@ -2022,8 +2026,9 @@ class Climber:
                  arm_len=None, leg_len=None, head=(0, 0), sh_w=None,
                  hip_w=None, order=None, hand_style=None, scale=1.0,
                  shoulders=None, anatomy=True, allow_cross=False, xray=None,
-                 head_tilt=0.0, active=None, bend=0.0):
+                 head_tilt=0.0, active=None, bend=0.0, tuck=()):
         self.view = view
+        self.tuck = tuck
         self.head_tilt = head_tilt
         self.active = active
         self.lean = lean
@@ -2752,7 +2757,9 @@ class Climber:
         th = self._thumb_side(s, v)
         hide = _root_hide(sh, el, 1.2 * SLEEVE[0][1] * S, torso_polys)
         se = lerp(sh, el, SLEEVE_LEN)
-        sleeve = tube(sh, se, SLEEVE, SLEEVE, S, cap1=0.85, cap2=0.2)
+        # (see tuck) a shallower root stays under the T-shirt's shoulder
+        tucked = s in self.tuck
+        sleeve = tube(sh, se, SLEEVE, SLEEVE, S, cap1=0.6 if tucked else 0.85, cap2=0.2)
         # the inner side of the upper arm: toward the body in a back view
         # (the hips are below a hanging arm and beside a raised one), toward
         # the bend of the elbow in a side view
@@ -2764,7 +2771,7 @@ class Climber:
             _, r = self.chest_frame()
             in_left = elbow > 0 if abs(elbow) > 1.5 * S else dot(n_up, r) > 0
         up_l, up_r = (UPPER_ARM_IN, UPPER_ARM_OUT) if in_left else (UPPER_ARM_OUT, UPPER_ARM_IN)
-        upper = tube(sh, el, up_l, up_r, S)
+        upper = tube(sh, el, up_l, up_r, S, cap1=0.5 if tucked else 1.0)
         rad, uln = FORE_RADIAL, FORE_ULNAR
         fo_l, fo_r = (rad, uln) if th > 0 else (uln, rad)
         fore = tube(el, wr, fo_l, fo_r, S)

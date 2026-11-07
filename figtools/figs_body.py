@@ -545,6 +545,10 @@ def _twist_lock_side(RH, T, A, B, W=30):
                 lf={"at": add(at(A[1]), (-2.5, 2.5))},
                 rf={"at": add(at(B[1]), (-2.5, 2.5))},
                 leg_len={"l": (0.8, 1.0), "r": (0.62, 1.0)},
+                # the chest arches back, but the head stays nearly level and
+                # back from the raised arm, so the jaw slopes and the chin
+                # doesn't run into the arm's line
+                head=(-2, 0), head_tilt=12,
                 active=("rupper", "rfore"))
     c.draw(f)
     _warn("twist-lock c", c)
@@ -755,13 +759,15 @@ def matching(path):
 
 
 def compression(path):
-    """Back view. A big volume at head height: its left face faces left, its
-    right face faces right. The palms press those faces inward, elbows down,
-    as in a hug; the feet squeeze a lower volume the same way. All four
+    """Back view. A big volume at head height, the Y of reading 7. It stands
+    about 45 cm off the wall on a base 60 cm wide, so its left face faces left
+    and its right face faces right: a wider, shallower one would face out at
+    you, with nothing to squeeze. The palms press those faces inward, elbows
+    down, as in a hug; the feet squeeze a lower volume the same way. All four
     force arrows point inward."""
     f = Fig(-92, 42, 92, 246)
     wall_grid(f)
-    volume(f, [(-62, 176), (-44, 238), (44, 238), (62, 176), (40, 148), (-40, 148)],
+    volume(f, [(-30, 176), (-24, 238), (24, 238), (30, 176), (20, 148), (-20, 148)],
            apex=(0, 200))
     V, TOP = (-34, 66), (0, 104)       # the lower volume's left corner and top
     volume(f, [V, TOP, (34, 66), (0, 50)], apex=(0, 70))
@@ -772,15 +778,18 @@ def compression(path):
     e = norm(sub(V, TOP))
     down_face = math.degrees(math.atan2(e[1], e[0]))
     P = lerp(V, TOP, 0.35)
-    c = Climber((0, 134), lh=(-54, 196), rh=(54, 196),
+    # the shoulders stand well off the wall and the palms close to it, so the
+    # arms point partly at the viewer and are drawn shortened
+    c = Climber((0, 130), lh=(-25, 198), rh=(25, 198),
                 lf={"at": P, "angle": down_face, "contact": "ball"},
                 rf={"at": (-P[0], P[1]), "angle": 180 - down_face, "contact": "ball"},
                 knees={"l": "out", "r": "out"}, elbows={"l": "down", "r": "down"},
+                arm_len={"l": (.6, .9), "r": (.6, .9)},
                 hand_style={"l": "open", "r": "open"},
                 active=("+llat", "+rlat"))   # a hug: the back squeezes too
     c.draw(f)
     for sg in (-1, 1):
-        f.arrow([(sg * 86, 194), (sg * 65, 194)], kind="force")
+        f.arrow([(sg * 58, 196), (sg * 38, 196)], kind="force")
         # square to the face, stopping short of the toe
         f.arrow([(sg * 52, 93.5), (sg * 36, 81.5)], kind="force")
     _warn("compression", c)

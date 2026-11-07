@@ -420,7 +420,7 @@ def volumes(out):
     f.save(out + "/reading-v5-volumes.svg")
 
     f = volumes_wall(used=("A",))
-    # the pose in compression() in figs_body.py, on narrower volumes. The shoulders
+    # the pose in compression() in figs_body.py, on the same volumes. The shoulders
     # stand well off the wall and the palms close to it, so the arms point partly
     # at the viewer.
     edge = norm(sub(VOLUME_X[0], VOLUME_X[1]))
