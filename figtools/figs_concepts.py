@@ -5,9 +5,9 @@ import figs_body as fb
 
 
 def straight_arms(path):
-    """Side view on a 20 degree overhang, same holds in both panels: (a) bent
-    arms hold the body up; (b) straight arms hang on the bones while the
-    bent legs push."""
+    """Side view on a 20 degree overhang, same holds in both panels: (a) on
+    bent arms the arm muscles hold the body up; (b) on straight arms the elbow
+    muscles rest while the bent legs push."""
     panels = []
     for bent in (True, False):
         f = Fig(-104, 50, 66, 236)
@@ -19,30 +19,33 @@ def straight_arms(path):
         hand = add(H, (-3.5, 2))
         foot = add(F, (-2.5, 2.5))
         if bent:
+            # dots on the upper arm only: the evidence behind this figure
+            # shows the biceps and shoulder working harder, not the forearm
             c = Climber(None, shoulders=add(hand, (-34, -32)), view="side", lean=-4,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
-                        head=(1, 1))
+                        head=(1, 1), active=("rupper",))
         else:
-            # the head tips back, out from behind the straight arm; the left
-            # thigh, behind the right, would show no dots
+            # the head tips back, out from behind the straight arm, and stays
+            # up off the shoulder: this is no shrugged hang. The left thigh,
+            # behind the right, would show no dots
             c = Climber(None, shoulders=add(hand, (-38, -52)), view="side", lean=6,
                         lh=hand, rh=hand, lf={"at": foot}, rf={"at": foot},
-                        head=(-6, 0), active=("rthigh",),
+                        head=(-8, 5), active=("rthigh",),
                         bend=10)        # hanging back, the back rounds
         c.draw(f)
         sh = c.J["rsh"]
         if bent:
-            # the leader ends on the upper arm, where the biceps is, not
-            # on the elbow joint
-            f.label("biceps working", (-82, 150), to=lerp(sh, c.J["rel"], 0.7))
+            # the leader ends on the upper arm, where the biceps is, not on
+            # the elbow joint, and comes down between face and forearm
+            f.label("biceps working", (-16, 225), to=lerp(sh, c.J["rel"], 0.7), anchor="end")
         else:
-            f.label("arm hangs on bones", (-40, 228), to=lerp(sh, c.J["rha"], 0.45))
+            f.label("elbow muscles rest", (-22, 206), to=lerp(sh, c.J["rha"], 0.5), anchor="end")
             f.label("legs push", (-70, 66), to=c.J["rkn"])
         for w in c.warn():
             print("straight-arms:", w)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
-            captions=["bent arms: muscles hold you", "straight arms: skeleton holds you"])
+            captions=["bent arms: arm muscles work", "straight arms: muscles work less"])
 
 
 def hips_in(path):
@@ -118,7 +121,7 @@ def barn_door(path):
             c = fb._back_flagger(LH, LF, T)
             c.draw(f)
             f.cog(c.cog(), plumb_to=58)
-            f.label("right leg behind", (36, 74),
+            f.label("right leg behind", (14, 70),
                     to=add(lerp(c.J["rkn"], c.J["ran"], 0.3), (2, 0)))
         for w in c.warn():
             print("barn-door:", w)
@@ -188,7 +191,7 @@ def filmstrip_hips_first(path):
         dict(P=(-14, 146), lean=8, bend=-6, rh=grip(RH), lf={"at": stand(LF)},
              rf={"at": stand(F2)}),
         dict(P=(12, 150), lean=-8, bend=6, rh=grip(RH), lf={"at": stand(LF)},
-             rf={"at": stand(F2)}),
+             rf={"at": stand(F2), "angle": -10}, leg_len={"r": 0.92}),
         dict(P=(16, 172), lean=1, bend=-6, rh=grip(T),
              lf={"at": (-14, 104), "angle": 190, "contact": "ball"},
              rf={"at": stand(F2)}, active=("rthigh",)),

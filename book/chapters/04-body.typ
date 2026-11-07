@@ -250,7 +250,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Corners and pairs of volumes appear on easy problems, where they mostly help you rest and save effort (judgement). The UK's coach training lists bridging as an opposition technique #src("B1").],
   summary: [You push your feet outward against two surfaces that face each other, such as the walls of a corner. The push presses your shoes onto them, so friction holds you without good holds #src("B29"). Your legs carry the weight, so your arms can rest.],
   figure: "stemming.svg",
-  caption: [Back view into a corner. Each foot pushes into its own wall. The left palm presses the left wall.],
+  caption: [Back view between two volumes. Each foot pushes into its own volume. The left palm presses the left one.],
   how: [
     + Put one foot on each surface: the two walls of a corner, two #tref("volume", body: [volumes]), or a volume and the wall.
     + Place your feet higher and wider than feels natural #src("B29").

@@ -114,3 +114,16 @@ panels the thumb now rests low and back along the palm side
 in these, 22 % in the thumb lock, kept as it is). Close-up holds now draw
 their dotted hidden outline where the hand covers them, as climb.py's holds
 do.
+
+Fourth pass, from the critics' findings on the third edition's model. In
+`hand.py` back-view thumbs got their own outline, joints with an arc lost their
+creases, the wrist softened, and `xray_end()` draws the end segment under a
+locked thumb as a dotted outline. `check_hands.py` now fails a thumb drawn under
+70% of its length or with two joints at straining limits, and it checks matching.
+The close-ups changed are wrap (tilt 32, pitch 15, the arête runs on under the
+fingers as a hidden line), the atlas tiles, pocket, hold angle, thumb catch,
+pinch, the filmstrip and the drag.
+
+Still doubtful: the gaston's elbow follows step 3 ("about level with your hand"),
+which an earlier comment's photographs may contradict; a small kink remains in the
+pocket thumb; the fingers on crimps stay grey.

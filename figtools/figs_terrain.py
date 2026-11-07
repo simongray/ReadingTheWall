@@ -1,6 +1,7 @@
 """Figures for the terrain chapter (07) and the reading chapter (02)."""
 
 from climb import *
+import plan
 
 
 # ---------------------------------------------------------------- helpers
@@ -250,7 +251,7 @@ def hold_orientation(path):
     hold(f, "jug", J)
     for p in (LF, RF):
         hold(f, "foot", p)
-    # both arms hang nearly straight: leaning away, the skeleton holds.
+    # both arms hang nearly straight: leaning away, the elbow muscles rest.
     # The body bows away from the sidepull: the hips lean out to the left
     # and the chest bends back toward the hold
     c = Climber((-6, 118), lean=-16, bend=8, lh=grip(J), rh=grip(S, use=0),
@@ -273,8 +274,8 @@ def hold_orientation(path):
     for p in (LF, RF):
         hold(f, "foot", p)
     # the right side bends over the undercling, the left stretches up
-    c = Climber((2, 122), lean=-1, bend=6, lh=grip(J), rh=grip(U, use=270),
-                lf={"at": stand(LF)}, rf={"at": stand(RF)},
+    c = Climber((2, 126), lean=-1, bend=6, lh=grip(J), rh=grip(U, use=270),
+                lf={"at": stand(LF), "angle": 190}, rf={"at": stand(RF), "angle": -20},
                 elbows={"l": "out", "r": "down"}, head=(1, 0))
     c.draw(f)
     f.arrow([(62, 128), (62, 152)], kind="force")
@@ -639,7 +640,7 @@ def arete(path):
             f.label("feet push right", (4, 36), size=7.5)
         else:
             J = (-36, 217)
-            LF = (-18, 60)
+            LF = (-18, 56)
             hold(f, "jug", J)
             hold(f, "foot", LF)
             hold(f, "crimp", (-56, 150))
@@ -654,7 +655,7 @@ def arete(path):
             # over it
             heel = (E + 6, 100)
             c = Climber((0, 114), turn=0.3, lean=-9, bend=6, lh=grip(J),
-                        rh=(E - 1, 220), lf={"at": stand(LF)},
+                        rh=(E - 1, 220), lf={"at": stand(LF), "angle": 205},
                         rf={"at": heel, "angle": 35, "contact": "heel"},
                         leg_len={"r": (0.85, 0.85)},
                         elbows={"r": "down"}, knees={"r": "up"}, head=(2, 1),
@@ -697,27 +698,33 @@ def corner(path):
     f.arrow([(-74, 98), (-90, 98)], kind="force")
     f.arrow([(72, 106), (88, 106)], kind="force")
     f.cog(c.cog(), plumb_to=45)
-    # two lines on the left wall: one line is wider than a wall and would
-    # cross the fold line
-    f.label("palms and feet", (-52, 236), size=7.5)
-    f.label("press out", (-52, 226), size=7.5)
+    # two lines on the left wall, under the arm and clear of the head: one
+    # line is wider than a wall and would cross the fold line
+    f.label("palms and feet", (-56, 173), size=7.5)
+    f.label("press out", (-56, 163), size=7.5)
     warn("corner", c)
 
-    # plan view from above: the climber stands inside the corner
+    # from above: the climber faces into the corner, and the palms and feet push at
+    # right angles to each wall
     g = Fig(-72, 0, 72, 130)
-    t = 6
-    for sgn in (-1, 1):
-        g.poly([(0, 116), (sgn * 70, 46), (sgn * (70 + t * .7), 46 + t * .7),
-                (0, 116 + t)], z=-10, fill=PALE, stroke=INK, sw=0.45)
-    g.poly([(-20, 48), (-14, 56), (0, 58), (14, 56), (20, 48), (14, 42),
-            (0, 40), (-14, 42)], z=5, fill=WHITE, stroke=INK, sw=0.35)
-    g.circle((0, 52), 7.5, z=6, fill="#6e6e6e", stroke=INK, sw=0.3)
-    for sgn in (-1, 1):
-        a = (sgn * 14, 54)
-        b = (sgn * 36, 80)
-        g.line(a, b, sw=1.4, z=4)
-        g.arrow([b, (sgn * 44, 88)], kind="force")
-    g.label("faces into the corner", (0, 22), size=7)
+    fold = 85                       # cm from the pelvis to where the walls meet
+    view = plan.View((0, 55), 0.74)
+    apex = view.P((0, fold))
+    plan.wall(g, view.P((-92, fold - 92)), apex, depth=3.5)
+    plan.wall(g, apex, view.P((92, fold - 92)), depth=3.5)
+    arms, legs = {}, {}
+    for side, sgn in (("l", -1), ("r", 1)):
+        into, along = norm((sgn, 1)), norm((sgn, -1))   # into the wall, and away from the fold
+        palm, toe = (sgn * 70, fold - 70), (sgn * 62, fold - 62)
+        arms[side] = dict(hand=sub(palm, mul(into, 3)),
+                          flat=add(sub(palm, mul(into, 1.6)), mul(along, 17)))
+        legs[side] = dict(heel=sub(toe, mul(into, 25.2)), deg=90 - sgn * 45,
+                          knee=(sgn * 46, 18))
+        for p in (add(palm, mul(along, 8)), toe):
+            c = view.P(p)
+            g.arrow([add(c, mul(into, 7.5)), add(c, mul(into, 19))], kind="force")
+    plan.climber(g, view, lean=(0, -20), arms=arms, legs=legs)
+    g.label("faces into the corner", (0, 16), size=7)
     combine([f, g], path, gap=6, labels=["a", "b"],
             captions=["bridged across the corner", "from above"])
 
@@ -755,12 +762,11 @@ def volume_fig(path):
         c.draw(f)
         if good:
             f.cog(c.cog(), plumb_to=foot[1] + 3)
-            f.label("far edge", (-30, 70), to=add(foot, (-2, -3)))
         else:
             f.cog(c.cog(), plumb_to=foot[1] - 4)
             f.arrow([add(foot, (-4, -3)), add(foot, (-30, -13))], kind="move")
-            f.cross(add(foot, (-36, -16)))
-            f.label("too close to the wall", (-53, 50), size=7.5, anchor="start")
+            # beside the heel: the mistake is this foot, not the far edge
+            f.cross(add(foot, (-27, 8)))
         warn("volume", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -1022,7 +1028,8 @@ def filmstrip_worked_problem(path):
         dict(pelvis=(7, 65), lh=add(wp_grip("S"), (-6, 0)),
              rh=add(wp_grip("S"), (6, 0)), arm_len={"l": 0.72, "r": 0.72},
              elbows={"l": "out", "r": "out"},
-             lf={"at": (-26, 36), "style": "back"}, rf=stand_(RF0),
+             lf={"at": (-26, 36), "style": "back"},
+             rf={"at": stand(RF0), "style": "back"},
              leg_len={"l": (0.6, 0.52), "r": (0.66, 0.56)},
              order=["lleg", "rleg", "torso", "larm", "rarm", "head"],
              used={"S", LF0, RF0}),
@@ -1035,16 +1042,17 @@ def filmstrip_worked_problem(path):
         # the right elbow hangs below the sidepull. The left foot rolls
         # from its toe on to its inside edge as the climber stands. As in
         # the sidepull of the hold-orientation figure, the body bows away
-        # from R1, the chest bending back toward it
-        dict(pelvis=(27, 124), lean=-9, bend=6, turn=-0.7, lh=wp_grip("S"),
-             rh=wp_grip("R1"), lf=stand_(LF0), rf=stand_(RF1),
+        # from R1, the chest bending back toward it. The high foot stands
+        # on its toe, heel up, which keeps the ankle in its range
+        dict(pelvis=(24, 128), lean=-9, bend=6, turn=-0.7, lh=wp_grip("S"),
+             rh=wp_grip("R1"), lf=stand_(LF0), rf=stand_(RF1, -24),
              arm_len={"l": 0.7, "r": 0.8}, elbows={"l": "out", "r": "down"},
              used={"S", "R1", LF0, RF1}),
         # 3 left hand to L2, right hand to R3 on a straight arm; left foot
         # up. Resting on R3, the body sags left away from it, the right
         # side stretched
         dict(pelvis=(28, 130), lean=-4, bend=-8, lh=wp_grip("L2"), rh=wp_grip("R3"),
-             lf=stand_(LF1), rf=stand_(RF1), used={"L2", "R3", LF1, RF1}),
+             lf=stand_(LF1), rf=stand_(RF1, -30), used={"L2", "R3", LF1, RF1}),
         # 4 stand up on the high right foot, left hand crosses to L4. R3 is
         # level with the face here, so the left hip starts to turn in
         # (on to frame 5's turn) and the head tips left, clear of R3. The
@@ -1066,8 +1074,8 @@ def filmstrip_worked_problem(path):
         # front of the chest to L4 (hidden by the turned torso). The
         # arrow shows the left hand's last move, from L4 to the finish.
         # The slapping side stretches: the chest bends back left
-        dict(pelvis=(34, 214), lean=12, bend=-8, turn=-0.6, lh=wp_grip("L4"),
-             rh=wp_grip("R5"), lf=stand_(LF2, 180), rf=stand_(WP_HRF),
+        dict(pelvis=(34, 218), lean=12, bend=-8, turn=-0.6, lh=wp_grip("L4"),
+             rh=wp_grip("R5"), lf=stand_(LF2, 200), rf=stand_(WP_HRF),
              allow_cross=True, elbows={"l": "down", "r": "out"},
              used={"R5", "L4", LF2, WP_HRF},
              arrow=[(79, 271), (80, 296), (75, 321)]),
