@@ -715,9 +715,11 @@ def corner(path):
     warn("corner", c)
 
     # from above: the climber faces into the corner, and the palms and feet push at
-    # right angles to each wall
+    # right angles to each wall. The hands and feet are as far out to the sides as
+    # in (a), and the fold is as far away as puts the palms level with the
+    # shoulders, as the arms reach out nearly straight
     g = Fig(-72, 0, 72, 130)
-    fold = 85                       # cm from the pelvis to where the walls meet
+    fold = 66                       # cm from the pelvis to where the walls meet
     view = plan.View((0, 55), 0.74)
     apex = view.P((0, fold))
     plan.wall(g, view.P((-92, fold - 92)), apex, depth=3.5)
@@ -725,14 +727,19 @@ def corner(path):
     arms, legs = {}, {}
     for side, sgn in (("l", -1), ("r", 1)):
         into, along = norm((sgn, 1)), norm((sgn, -1))   # into the wall, and away from the fold
-        palm, toe = (sgn * 70, fold - 70), (sgn * 62, fold - 62)
+        px = c.J[side + "ha"][0] - c.pelvis[0]
+        palm = (px, fold - abs(px))
+        # the shoe points into the wall, its ankle where (a) has it
+        ax = c.J[side + "an"][0] - c.pelvis[0]
+        toe_x = ax + sgn * 18 * math.cos(math.radians(45))
+        toe = (toe_x, fold - abs(toe_x))
         arms[side] = dict(hand=sub(palm, mul(into, 3)),
                           flat=add(sub(palm, mul(into, 1.6)), mul(along, 17)))
-        legs[side] = dict(heel=sub(toe, mul(into, 25.2)), deg=90 - sgn * 45,
-                          knee=(sgn * 46, 18))
+        legs[side] = dict(ankle=sub(toe, mul(into, 18.2)), deg=90 - sgn * 45,
+                          knee=(c.J[side + "kn"][0] - c.pelvis[0], 4))
         for p in (add(palm, mul(along, 8)), toe):
-            c = view.P(p)
-            g.arrow([add(c, mul(into, 7.5)), add(c, mul(into, 19))], kind="force")
+            q = view.P(p)
+            g.arrow([add(q, mul(into, 7.5)), add(q, mul(into, 19))], kind="force")
     plan.climber(g, view, lean=(0, -20), arms=arms, legs=legs)
     g.label("faces into the corner", (0, 16), size=7)
     combine([f, g], path, gap=6, labels=["a", "b"],

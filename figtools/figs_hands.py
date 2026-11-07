@@ -139,16 +139,18 @@ def sidepull_fig(path):
             captions=["under the hold: barn door", "body right of it, leaning away"])
 
 
-def _gaston_plan(f):
-    """A small top-down inset of a gaston with the right hand: the wall at the
-    top, the elbow out to the side and the forearm coming back to the hold,
-    which the hand pushes away from the body."""
-    view = plan.View((28, 54), 0.5)
-    plan.wall(f, view.P((-22, 34)), view.P((62, 34)))
-    plan.hold_on(f, view, (34, 34), w=13, d=4)
-    plan.climber(f, view, -10, lean=(4, -18), arms={"r": dict(hand=(32, 27), elbow=(40, -6))})
-    f.arrow([view.P((44, 16)), view.P((64, 16))], kind="force", z=73)
-    f.text("from above", (38, 33), size=plan.INSET_LABEL)
+def _gaston_plan(f, c, g, el):
+    """A top-down inset of the gaston climber `c`: the wall at the top, the right
+    elbow out to the side and the forearm coming back to the hold `g`, which the
+    hand pushes away from the body. From behind the forearm is a stub, so it
+    points into the wall: the elbow is as far from it as the forearm is long."""
+    fore = length(sub(g, el))
+    back = math.sqrt(max(0.0, (DIM["forearm"] + DIM["hand"]) ** 2 - fore ** 2))
+    view, P = plan.top(f, c, (40, 62), s=0.55, hips=20, chest=38, span=(-36, 50),
+                       joints={"rha": g, "rel": el}, off={"rel": plan.HAND_OFF_WALL + back},
+                       name="gaston b")
+    f.arrow([view.P(add(P["rha"], (14, -18))), view.P(add(P["rha"], (32, -18)))],
+            kind="force", z=73)
 
 
 def gaston_fig(path):
@@ -197,7 +199,7 @@ def gaston_fig(path):
             f.label("body left of it", (-30, 34), size=7.5)
             # from behind, the forearm points into the wall and shows only
             # as a stub, so an inset shows the arm from above
-            _gaston_plan(f)
+            _gaston_plan(f, c, g, el)
         f.cog(c.cog(), plumb_to=52)
         warn("gaston", c)
         panels.append(f)

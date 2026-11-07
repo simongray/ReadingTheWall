@@ -434,11 +434,11 @@ def counter_kick(path):
     """Back view, two frames. (a) The right hand has just caught a sidepull
     up and right; the left hand and left foot are off, and the body swings
     open to the left about the line through the right hand and right foot.
-    (b) The left leg kicks across behind the right leg, straight and close
-    to the wall, and squares the body back to the wall. A back view can't
+    (b) The left leg kicks across behind the right leg, so further from the
+    wall than it, and squares the body back to the wall. A back view can't
     show which way the body turns, so each frame has a "from above" inset
-    of the body as a door on that hinge: swinging open in (a), back to the
-    wall in (b)."""
+    worked out from its climber: swinging open in (a), back to the wall
+    in (b)."""
     R = (40, 238)
     RF = (30, 64)
     rh = grip(R, use=0)
@@ -449,8 +449,8 @@ def counter_kick(path):
                      knees={"l": "out", "r": "down"}, bend=-6,
                      active=("-lupper", "-lfore"))      # the left hand is off
     # the stomach tenses as the kick stops the swing; the chest leans left
-    # against the leg kicked right. The left foot ends in a back flag: below the
-    # right foot, its edge pressed on the wall, on no hold (as in Barn door b)
+    # against the leg kicked right. The left foot ends low, right of the right
+    # foot and on no hold; the inset puts it behind the standing leg, off the wall
     kicked = Climber((14, 146), lean=8, lh=None, rh=rh,
                      lf={"at": (62, 57), "contact": "edge", "angle": -20},
                      rf={"at": stand(RF), "style": "back"}, elbows={"l": "down"},
@@ -461,7 +461,7 @@ def counter_kick(path):
     panels = []
     for k in range(2):
         # room at the top for the view from above
-        f = Fig(-84, 40, 96, 280)
+        f = Fig(-84, 40, 96, 296)
         wall_grid(f)
         hold(f, "jug", R, use=0)
         hold(f, "foot", RF)
@@ -470,10 +470,11 @@ def counter_kick(path):
             f.line(add(rh, (4, 14)), add(stand(RF), (6, -18)), sw=0.45,
                    dash=(2.2, 1.2), z=60)
             f.label("hinge", (76, 250), to=add(rh, (4, 10)))
-            # the left arm flung out, level with the shoulders (the left leg would
-            # lie under it)
-            plan.from_back(f, opened, (-6, 272), "r", s=0.56, span=(12, 116),
-                           label_at=(26, -10))
+            # the left arm flung out, level with its shoulder, and the left foot off
+            # the wall, under its hip, both swinging away from the wall
+            plan.top(f, opened, (-14, 278), s=0.56, hips=22, chest=40,
+                     off={"lha": 52, "lan": 34}, span=(-80, 56),
+                     spin=("rha", 132, 186, 204), label_at=(42, 278), name="counter-kick a")
             _warn("counter-kick a", opened)
         else:
             # only the kicking leg as a ghost: the hips barely move
@@ -483,13 +484,12 @@ def counter_kick(path):
                     kind="move")
             # under the kick's path, in the clear
             f.label("kick across behind", (-8, 45), to=(-4, 60), anchor="middle")
-            # square to the wall again: the left arm hangs, and the left leg
-            # crosses under the body to press the wall right of the right foot
-            # back square to the wall: the left arm hangs out of sight. The right foot
-            # stands at the wall under the hand, pointing in. The left leg crosses
-            # behind it, so further from the wall, its foot off the wall
-            plan.from_back(f, kicked, (-6, 272), "r", s=0.56, swing="back", span=(46, 56),
-                           legs={"r": (21, 90), "l": (44, -10)}, label_at=(-44, -36))
+            # square to the wall again: the left arm hangs out of sight. The left
+            # leg crosses behind the standing leg, so further from the wall, its
+            # foot off the wall
+            plan.top(f, kicked, (-14, 278), s=0.56, hips=22, chest=40, off={"lan": 44},
+                     span=(-56, 56), spin=("rha", 75, 204, 182), label_at=(-64, 264),
+                     name="counter-kick b")
             _warn("counter-kick b", kicked)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],

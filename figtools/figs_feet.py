@@ -321,13 +321,6 @@ def wall_right(f, x, y0, y1):
         y += f.mm(2.0)
 
 
-def tension_line(f, pts, z=35):
-    """A broad band: the chain of muscles held tight."""
-    f.add(f'<path d="{f.smooth_d(pts, closed=False)}" fill="none" '
-          f'stroke="{MUSCLE_BAND}" stroke-width="{f.mm(2.2):.2f}" '
-          f'stroke-linecap="round" opacity="0.85"/>', z)
-
-
 def sight(f, a, b, z=55):
     """A dotted line of sight."""
     f.line(a, b, z=z, sw=0.3, dash=(0.25, 0.9))
@@ -647,15 +640,6 @@ def toe_pull(path):
                             lean=-30, lh=hand, rh=hand, lf=foot, rf=foot,
                             head=(1, -2), active=("+core",))
             c.draw(f)
-            J = c.J
-            u, r = c.frame()
-            band = [add(J["ran"], (-4, -3)),
-                    add(lerp(J["ran"], J["rkn"], 0.5), mul(perp(norm(sub(J["rkn"], J["ran"]))), -6)),
-                    add(J["rkn"], (-3, -7)), add(c.pelvis, add(mul(r, -10), (0, -3))),
-                    c.local(-13, 26), add(J["rsh"], mul(r, -9)),
-                    add(lerp(J["rsh"], J["rha"], 0.55), mul(r, -7)),
-                    add(J["rha"], (-6, 4))]
-            tension_line(f, band, z=-2)
             f.label("hips in", (-96, 66), to=add(c.pelvis, (-8, -8)))
         else:
             # slack: the back rounds and the hips sag out from the hands

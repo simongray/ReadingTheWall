@@ -850,7 +850,17 @@
   show regex("\([a-z0-9]\) "): it => it.text.replace(" ", "\u{a0}")
   body
 }
-#let caption-text(body) = text(size: fs.caption, style: "italic", tie-marks(ragged(par(leading: 0.72em, body))))
+// Every drawing is numbered, on the one sequence that Typst's figures count, so any of
+// them can be cited: "Figure 37". The drawings of entries and film strips aren't Typst
+// figures, so they step the counter themselves. Their number leads the caption in small
+// caps, as a figure's does, or stands alone under a drawing with no caption.
+#let drawings = counter(figure.where(kind: image))
+#let numbered-caption(body) = {
+  drawings.step()
+  let number = sc(tracking: 0.05em)[Figure #context drawings.display()]
+  text(size: fs.caption, tie-marks(ragged(par(leading: 0.72em,
+    if body == none { number } else [#number#h(0.5em)#emph(body)]))))
+}
 
 // A figure in the running text stays where the text puts it, whole, with a line
 // of space around it.
@@ -865,7 +875,7 @@
     wide-image("figures/" + file)
     v(caption-gap)
     // (the inner block shrinks to its text, which centres as a whole under the strip)
-    align(center, block(above: 0pt, width: 88%, align(center, block(align(left, caption-text(caption))))))
+    align(center, block(above: 0pt, width: 88%, align(center, block(align(left, numbered-caption(caption))))))
   })
   context if entries-running.get() {
     pagebreak(weak: true)
@@ -933,10 +943,8 @@
 #let sits-beside(file, wide) = not (wide or fig-width(file) > 92mm)
 #let side-figure-block(file, caption) = block(breakable: false, {
   image(file)
-  if caption != none {
-    v(caption-gap)
-    block(above: 0pt, width: calc.max(fig-width(file) - overhang, 48mm), caption-text(caption))
-  }
+  v(caption-gap)
+  block(above: 0pt, width: calc.max(fig-width(file) - overhang, 48mm), numbered-caption(caption))
 })
 // A narrow figure beside the steps, hanging into the right margin when it is wide.
 // The steps are ragged here, since a narrow justified column opens rivers. The column
@@ -987,10 +995,8 @@
 }
 #let wide-figure-block(file, caption) = block(width: 100%, breakable: false, {
   wide-image(file)
-  if caption != none {
-    v(caption-gap)
-    align(center, block(above: 0pt, width: calc.min(calc.max(fig-width(file), 60mm), 125mm), align(left, caption-text(caption))))
-  }
+  v(caption-gap)
+  align(center, block(above: 0pt, width: calc.min(calc.max(fig-width(file), 60mm), 125mm), align(left, numbered-caption(caption))))
 })
 
 // ------------------------------------------------------------ worked readings

@@ -139,10 +139,8 @@ def _turned(pelvis=SIDE_P, lh=None, a=SIDE_A, turn=-0.85, lean=-28, bend=-10, fo
                    leg_len={"l": 0.9}, head=(3, 1), **kw)   # head clear of the reaching arm
 
 
-# from above: the left foot on its outside edge along the wall, the hips over
-# its heel, the right foot on its inside edge
-_TURNED_LEGS = {"l": dict(heel=(-3, 10), deg=10, knee=(22, -2)),
-                "r": dict(heel=(28, 10), deg=2, knee=(38, 1))}
+# from above: the left hip in, so the pelvis close to the wall
+_TURNED_TOP = dict(s=0.55, hips=16, chest=36, span=(-56, 56))
 
 
 def _side_holds(f, a=SIDE_A):
@@ -160,7 +158,8 @@ def hip_turn(path):
     left hip to the wall, right arm long: the hand reaches."""
     panels = []
     for k in range(2):
-        f = _back(-34, 50, 140, 276)
+        # room at the foot for the view from above
+        f = _back(-34, 44, 140, 276)
         _side_holds(f)
         if k == 0:
             # the chest leans on toward the reach, as in (b)
@@ -172,10 +171,9 @@ def hip_turn(path):
             c.draw(f)
             f.cross(add(SIDE_T, (-3, -12)))
             f.label("hips square", (14, 126), to=add(c.pelvis, (-8, -2)))
-            plan.hips(f, (5, 78), 0, head=20, to_wall=28, lean=(-8, -22), span=(-46, 60),
-                      label_y=54.5,
-                      legs={"l": dict(heel=(-1, 2), deg=90, knee=(-34, 11), xray=False),
-                            "r": dict(heel=(26, 22), deg=2, knee=(38, 13))})
+            # the left hand reaches up the wall, just short of the hold
+            plan.top(f, c, (8, 78), s=0.55, hips=28, chest=46, off={"lha": 8},
+                     span=(-70, 58), label="hips from above", name="hip-turn a")
         else:
             c = _turned(lh=grip(SIDE_T))
             c.draw(f)
@@ -184,8 +182,8 @@ def hip_turn(path):
             f.label("left hip in", (20, 146), to=add(c.pelvis, (-7, -3)))
             f.label("outside edge", (104, 56), to=add(stand(SIDE_A), (2, -1)))
             # the head looks back at the right hand, as the steps say
-            plan.hips(f, (3, 85.2), -55, chest=-30, head=-60, to_wall=16, lean=(-12, -22),
-                      span=(-46, 60), spin=(36, 190, 160), label_y=54.5, legs=_TURNED_LEGS)
+            plan.top(f, c, (14, 86), **_TURNED_TOP, spin=("pelvis", 40, -20, -60),
+                     label="hips from above", name="hip-turn b")
         _warn(f"hip-turn {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -204,9 +202,9 @@ def backstep(path):
     panels = []
     for k in range(2):
         A = SIDE_A if k == 0 else (36, 84)
-        # a little wider than the hip-turn frame, so the inset's label
-        # clears the line
-        f = _back(-34, 50, 146, 276)
+        # a little wider than the hip-turn frame, and taller, for the view from
+        # above at the top right
+        f = _back(-34, 50, 146, 296)
         f.line((line_x, 234), (line_x, 70), sw=0.35, dash=(1.0, 1.0), z=-1)
         f.text("the line", (line_x, 62), size=7)
         _side_holds(f, A)
@@ -215,8 +213,8 @@ def backstep(path):
             c.draw(f)
             f.cog(c.cog(), plumb_to=78)
             f.label("hips over heel", (36, 70), to=(c.cog()[0], 80))
-            plan.hips(f, (112, 218), -55, chest=-30, head=-60, to_wall=16, lean=(-12, -22),
-                      s=0.55, span=(-34, 56), legs=_TURNED_LEGS, label_y=188)
+            plan.top(f, c, (112, 283), **_TURNED_TOP, label="hips from above",
+                     name="backstep a")
         else:
             # the hips spin out: the arm stretches toward the hold, short.
             # The chest sags away from the right hand that holds the spin.
@@ -231,11 +229,11 @@ def backstep(path):
             c.draw(f)
             f.cross(add(SIDE_T, (-1, -11)))
             f.label("foot behind", (4, 66), to=add(stand(A), (-14, -3)))
-            plan.hips(f, (112, 211.4), -15, chest=-8, head=15, to_wall=28, lean=(-10, -22),
-                      s=0.55, span=(-34, 56), spin=(28, 150, 195), label="hips turn out",
-                      label_y=188,
-                      legs={"l": dict(heel=(-28, 22), deg=-2, knee=(0, 8)),
-                            "r": dict(heel=(28, 22), deg=2, knee=(38, 12))})
+            # the hips turn out, away from the wall; the relaxed left hand is short
+            # of its hold and off the wall
+            plan.top(f, c, (112, 277), s=0.55, hips=26, chest=44, off={"lha": 14},
+                     span=(-40, 56), spin=("pelvis", 30, 150, 195), label="hips turn out",
+                     name="backstep b")
         _warn(f"backstep {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -289,10 +287,10 @@ def drop_knee(path):
             c.draw(f)
             f.cross(add(T, (-11, -7)))
             f.label("knee up", (72, 160), to=add(c.J["rkn"], (3, 2)))
-            plan.hips(f, (-52, 219.6), 0, head=-20, to_wall=28, lean=(-3, -22), s=0.55,
-                      span=(-56, 56), label_y=196.5, label_dx=-4,
-                      legs={"l": dict(heel=(-28, 22), deg=178, knee=(-36, 12)),
-                            "r": dict(heel=(40, 2), deg=90, knee=(36, 10))})
+            # the right hand reaches up the wall, short of the hold
+            plan.top(f, c, (-48, 222), s=0.55, hips=28, chest=46, off={"rha": 6},
+                     span=(-70, 92), label="hips from above", label_at=(-58, 199),
+                     name="drop-knee a")
         else:
             # as in photographs of drop knees from behind: the thigh runs
             # down and out along the wall to a knee below both the hip and
@@ -309,10 +307,11 @@ def drop_knee(path):
             f.arrow([add(stand(RF), (-2, -12)), add(stand(RF), (16, -12))], kind="force")
             f.label("knee points down", (56, 62), to=add(c.J["rkn"], (2, -3)))
             f.label("right hip in", (41, 168), to=add(c.J["rhip"], (3, 2)))
-            plan.hips(f, (-52, 226.2), 55, chest=30, head=-10, to_wall=16, lean=(-8, -22), s=0.55,
-                      span=(-56, 56), spin=(28, -60, -22), label_y=196.5, label_dx=-4,
-                      legs={"l": dict(heel=(-28, 10), deg=178),
-                            "r": dict(heel=(26, 10), deg=2, knee=(32, 10))})
+            # the thigh and shin lie along the wall, as drawn full length, so the
+            # dropped knee is close to it
+            plan.top(f, c, (-42, 226), s=0.55, hips=16, chest=36, off={"rkn": 10},
+                     span=(-70, 76), spin=("pelvis", 28, -60, -22), label="hips from above",
+                     label_at=(-58, 199), name="drop-knee b")
         _warn(f"drop-knee {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -338,7 +337,8 @@ def flag(path):
     T = (52, 250)
     panels = []
     for k in range(2):
-        f = _back(-100, 50, 92, 276)
+        # (a) is wider, for the view from above
+        f = _back(-100, 50, 112 if k == 0 else 92, 276)
         hold(f, "jug", LH)
         hold(f, "jug", T)
         hold(f, "foot", RF)
@@ -352,8 +352,11 @@ def flag(path):
                         knees={"r": "out", "l": "left"}, head=(2, 1), active=("-rupper", "-rfore"))
             c.draw(f)
             f.cog(c.cog(), plumb_to=66)
-            plan.from_back(f, c, (48, 165), "l", s=0.56, reach=8, span=(8, 48),
-                           label_at=(4, -49))
+            # the right hand reaches up the wall, short of the hold; the left leg hangs
+            # out to the side, under its hip
+            plan.top(f, c, (80, 118), s=0.56, hips=22, chest=40,
+                     off={"rha": 8, "lan": 26, "lkn": 24}, span=(-36, 52),
+                     spin=("lha", 62, -62, -88), label_at=(94, 140), name="flag a")
             f.label("hinge", (-56, 262), to=(-11, 238))
             f.cross(add(T, (0, -13)))
         else:
@@ -446,10 +449,9 @@ def inside_flag(path):
             f.text("and wall", (-64, 52 - f.pt(9.5)), size=7.5)
             f.label("between leg", (-64, 52), to=lerp(c.J["rkn"], c.J["ran"], 0.45), anchor="middle")
             f.label("limbs straight", (46, 168), to=lerp(c.J["rel"], c.J["rha"], .4), anchor="middle")
-            plan.hips(f, (-46, 232), 45, chest=25, to_wall=16, lean=(4, -22), span=(-74, 24),
-                      spin=(27, -8, 30), label_y=205,
-                      legs={"l": dict(heel=(4, 11), deg=175, knee=(-10, 0)),
-                            "r": dict(heel=(-45, 10), deg=182, knee=(-30, 8))})
+            plan.top(f, c, (-46, 226), s=0.55, hips=16, chest=36, span=(-74, 44),
+                     spin=("pelvis", 27, -8, 30), label="hips from above",
+                     name="inside-flag b")
         _warn(f"inside-flag {k}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -472,6 +474,8 @@ def twist_lock(path):
     T = (26, 262)
     A = (60, 74)
     B = (100, 86)       # a little higher, so the right thigh clears the left knee
+    W = 30
+    side_panel, side = _twist_lock_side(RH, T, A, B, W)
     panels = []
     for k in range(2):
         # wide enough on the left for the left elbow in (a)
@@ -491,10 +495,9 @@ def twist_lock(path):
                         lh=grip(S), **kw)
             c.draw(f)
             f.label("arm straight", (100, 150), to=lerp(c.J["rsh"], c.J["rha"], .6))
-            plan.hips(f, (-34, 89), -28, chest=-5, head=30, to_wall=24, lean=(-14, -22),
-                      span=(-42, 52), spin=(29, 200, 160), label="from above", label_y=62,
-                      legs={"l": dict(heel=(-6, 18), deg=2, knee=(14, 8)),
-                            "r": dict(heel=(24, 18), deg=2, knee=(36, 8))})
+            plan.top(f, c, (-22, 90), s=0.55, hips=24, chest=42, span=(-50, 66),
+                     spin=("pelvis", 30, -15, -50), label_at=(-30, 62),
+                     name="twist-lock a")
         else:
             # the locked arm works (its lat, which pulls it down, is hidden
             # behind the upper arm); the reaching arm is relaxed. The elbow
@@ -515,13 +518,13 @@ def twist_lock(path):
             f.label("shoulder in", (-8, 222), to=add(c.J["lsh"], (2, 0)))
             f.label("feet squeeze", (83, 62))
             # the chin comes round to the right shoulder, as the steps say
-            plan.hips(f, (-34, 93.8), -65, chest=-55, head=-115, to_wall=16, lean=(-6, -22),
-                      span=(-42, 52), spin=(29, 195, 160), label="from above", label_y=62,
-                      legs={"l": dict(heel=(-6, 10), deg=2, knee=(14, 4)),
-                            "r": dict(heel=(24, 10), deg=2, knee=(34, 2))})
+            # the depths are the side view's in (c)
+            plan.top(f, c, (-30, 96), s=0.55, hips=W - side.pelvis[0],
+                     chest=W - side.J["sh_c"][0], span=(-50, 56),
+                     spin=("pelvis", 32, -10, -50), name="twist-lock b")
         _warn(f"twist-lock {k}", c)
         panels.append(f)
-    panels.append(_twist_lock_side(RH, T, A, B))
+    panels.append(side_panel)
     combine(panels, path, gap=6, labels=["a", "b", "c"],
             captions=["set: arm straight", "lock: hip, then shoulder",
                       "forearm into wall"])
@@ -531,7 +534,7 @@ def _twist_lock_side(RH, T, A, B, W=30):
     """(c) of the twist lock: (b) seen from its right side, the holds at
     the same heights. The forearm that (b) shows short points into the
     wall at its full length; the elbow is down at the ribs and the hips
-    are in at the wall."""
+    are in at the wall. Returns the panel and its climber."""
     f = Fig(W - 80, 50, W + 10, 276)
     at = wall_side(f, W, 50, 276)
     for kind, h in (("jug", RH), ("jug", T), ("foot", A), ("foot", B)):
@@ -551,7 +554,7 @@ def _twist_lock_side(RH, T, A, B, W=30):
                 active=("rupper", "rfore"))
     c.draw(f)
     _warn("twist-lock c", c)
-    return f
+    return f, c
 
 
 # ---------------------------------------------------------------- lock-off

@@ -437,7 +437,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   grade-note: [Needed once problems move onto steep walls with small footholds, around V3–V4. Gresham's rule is that on steep walls you pull with your feet rather than push #src("A7").],
   summary: [On a steep wall you drive the toe onto the foothold and pull back on it, with your whole body tight. Your feet then stay on and keep carrying weight.],
   figure: "toe-pull.svg",
-  caption: [Side view of a 35° overhang. (a) Standing passively with the hips out: the foot pops off. (b) Hips in, body tight from toe to hands (shaded band), toe drilled onto the hold.],
+  caption: [Side view of a 35° overhang. (a) Standing passively with the hips out: the foot pops off. (b) Hips in, body tight from toe to hands, toe drilled onto the hold.],
   how: [
     + Place the toe precisely on the best part of the hold. Don't slap the wall with the ball of the foot #src("A38").
     + Tighten your #jt("hamstring", body: [hamstrings]) (the muscles at the back of the thigh), buttocks, belly and lower back together. Drive the toe onto the hold, as if you were drilling it in #src("A6").

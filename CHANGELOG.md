@@ -561,13 +561,15 @@ section as the notes of the GitHub release.
 - The Sources list has 340 sources, up from 317, so many source numbers change.
   Most of the new ones back the notes for small climbers and the corrected
   evidence.
-- The insets that show the body from above, e.g. in Turning the hip in and Twist
-  lock, draw a climber seen from above with head, shoulders and hips, in place of
-  an oval. In Barn door, Side flag and Counter-kick, each inset shows the moment of
-  the back view beside it from straight above, worked out from that view's
-  climber so the two agree. As in photographs from above, the head sits over the
-  shoulders, which hide the hips. An arrow shows the swing, and the dashed
-  earlier position is gone. Barn door's inset is larger. The shoes seen from above
+- Every view from above is worked out from the climber in the view beside it,
+  so the two agree. That covers the insets in Turning the hip in, Backstep, Drop
+  knee, Side flag, Inside flag, Twist lock, Barn door and Counter-kick, and the
+  corner and the gaston seen from above. The same hands and feet are on the same
+  holds, the hips and shoulders turn as far as the back view shows, and a leg
+  drawn behind another lies further from the wall. Each view shows one moment,
+  with an arrow where the body turns, and the dashed earlier positions are gone.
+  The climber from above has a head, shoulders and arms, and legs where they
+  reach past the shoulders, in place of an oval. The shoes seen from above
   in Edging and Pivoting have more detail.
 - Counter-kick: the kicked foot ends lower, rather than level with the standing
   foot as if on a hold. From above, the kicked leg crosses behind the standing
@@ -602,6 +604,11 @@ section as the notes of the GitHub release.
   to read.
 - Page references inside parentheses read "(Compression, p. 124)". Index heads
   repeat at the top of a column when their sub-entries run on.
+- Every drawing has a figure number, on one sequence through the book, so any
+  of them can be cited: entries' drawings and film strips too, where before only
+  the 14 drawings in the running text had one. The booklet numbers its own.
+- Pulling with the toes: the band along the body is gone. The muscle dots show
+  where the body works.
 - The glossary's pointers to entries are links without page numbers. The A–Z
   that follows it gives the pages.
 - The running head's links (Contents, A–Z, Troubleshooting, Glossary, Index)
