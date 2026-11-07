@@ -142,7 +142,8 @@ def _holds(svg, hold):
 
 def _in_turn(svg, holds):
     """Give each hold in `svg` the next of `holds`. A hold's shades are clipped
-    to its outline, so its outline finds them."""
+    to its outline, so its outline finds them. A pocket's hollow isn't clipped,
+    so it takes the palest shade of the hold drawn just before it."""
     turn = itertools.cycle(holds)
     for outline in re.findall(f'<path d="([^"]+)" fill="{DARK}"', svg):
         hold = next(turn)
@@ -151,7 +152,17 @@ def _in_turn(svg, holds):
         shades = rf'(<path d="{re.escape(outline)}"/></clipPath><g clip-path="[^"]+">)(.*?</g>)'
         svg = re.sub(shades, lambda m: m.group(1) + _holds(m.group(2), hold), svg,
                      count=1, flags=re.S)
-    return svg
+    palest = {hold[0]: hold[3] for hold in holds}
+    pale = HOLD_PALE
+
+    def hollow(m):
+        nonlocal pale
+        if m.group(1):
+            pale = palest[m.group(1)]
+            return m.group(0)
+        return pale
+    bodies = "|".join(palest)
+    return re.sub(f'<path d="[^"]+" fill="({bodies})"|{HOLD_PALE}', hollow, svg)
 
 
 def paint(svg, name, grade=None):
