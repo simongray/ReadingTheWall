@@ -112,7 +112,7 @@ A technique you merge into another keeps its address: add its old key to
 | `tools/contact_sheet.py` | Renders all the figures of a module into labelled contact sheets for checking |
 | `tools/colour_chart.py` | Makes a test chart for checking the figures' colours on a real e-reader |
 | `tools/check_hands.py` | Builds the figures and checks every hand as drawn against `research/hand-proportions.md`: its thickness, lengths and body, its nails and its line weights. `build.sh` runs it last |
-| `tools/check_alt.py` | Checks `book/figure-alt.toml`, the drawings' text descriptions: lists figures with no description, descriptions whose figure is gone, and figures that have changed since they were described |
+| `tools/check_alt.py` | Checks `book/figure-alt.toml`, the drawings' text descriptions: lists figures with no description, descriptions whose figure is gone, and figures whose grey drawing has changed since they were described, so a change of colour alone doesn't count |
 | `research/*.md` (letters A–G) | The research dossiers the chapters were written from, each with its full source list |
 | `research/*-sources.yml` | Bibliography entries (Hayagriva format), one file per dossier |
 | `research/BRIEF.md`, `STYLE.md`, `KEYS.md` | The research brief, the chapter-writing guide (voice, plain language, hold-direction convention) and the master list of technique keys |

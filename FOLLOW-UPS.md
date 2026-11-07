@@ -85,6 +85,3 @@ streamlining), which have the details.
     stay with its steps if it came before "How to do it". Bicycle and Mantle
     keep their current splits.
   - None of this has been read on the Boox.
-- **Figure descriptions:** `tools/check_alt.py` lists 15 figures redrawn since
-  they were described. Revise any whose description no longer fits, then copy
-  the new hash into `drawn`.
