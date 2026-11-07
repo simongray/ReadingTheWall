@@ -21,7 +21,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
 #ttable(
   [You swing off like a door when you let go with one hand.],
-  [A #tref("barn-door", show-page: false). Your hand and foot on one side form a hinge. Nothing stops the swing.],
+  [A #tref("barn-door", body: [barn door], show-page: false). Your hand and foot on one side form a hinge. Nothing stops the swing.],
   [Flag the free leg: #tref("flag"), #tref("back-flag"), #tref("inside-flag"). Or turn in: #tref("drop-knee"), #tref("backstep"). Or use your other hand #src("E8", "E11", "E12").],
 
   [Your body sways after a jump, or your hips zig-zag on steep ground.],
@@ -38,7 +38,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #ttable(
   [Your feet come off when you reach on steep ground.#ix("Feet popping off")],
   [Your hips sag away from the wall. Your feet push instead of pull.],
-  [Keep the toes loaded and clawing: #tref("toe-pull"). Bring the hips in: #tref("overhang"). Hook with a #tref("toe-hook") or #tref("heel-hook") #src("E7", "E8", "E11").],
+  [Keep the toes loaded and clawing: #tref("toe-pull"). Bring the hips in: #tref("overhang"). Hook with a #tref("toe-hook", body: [toe hook]) or #tref("heel-hook", body: [heel hook]) #src("E7", "E8", "E11").],
 
   [Your feet swing off as soon as you move a hand under a roof.],
   [You push on footholds that face down.],
@@ -48,7 +48,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [The swing is out of control.],
   [Let one foot go before the other. Don't fight the swing on the way out. At its peak, tense your stomach and use the backswing to lift your feet: #tref("cutting-loose") #src("E11").],
 
-  [A toe hook keeps popping off.],
+  [A toe hook keeps popping~off.],
   [The foot isn't flexed, or your hips drift out.],
   [Pull the toes towards you and tense the shin and #jt("core"): #tref("toe-hook") #src("E7", "E20"). If it still pops, clamp the hold with both feet: #tref("bicycle").],
 
@@ -94,18 +94,18 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [A hold feels useless with the hand you planned.],
   [It faces the wrong way for that hand.],
-  [Use the other hand or cross: #tref("cross-through"). Try it as a #tref("sidepull") or #tref("gaston") #src("E21", "E29").],
+  [Use the other hand or cross: #tref("cross-through"). Try it as a #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) #src("E21", "E29").],
 )
 
 #heading(level: 2, numbering: none)[Slab and volumes]
 
 #ttable(
   [Your foot skates off blank wall on a slab.],
-  [Your heel is high and you half-commit your weight. Your chest leans in.],
+  [Your heel is high and you half-commit your weight. Your chest leans~in.],
   [Drop the heel. Commit all your weight at once. Keep the hips back over the toes: #tref("slab"), #tref("smearing") #src("E1", "E3", "E16").],
 
   [Your foot slips as you stand up on a slab hold.],
-  [Your weight wasn't over the foot before you stood.],
+  [Your weight wasn't over the foot before you~stood.],
   [Shift your hips over the foot first. Take smaller steps: #tref("slab"), #tref("rockover") #src("E3", "E16").],
 
   [Slab handholds feel useless.],
@@ -124,11 +124,11 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #heading(level: 2, numbering: none)[Corners and traverses]
 
 #ttable(
-  [Your arms tire in a corner with footholds on both walls.],
+  [Your arms tire in a corner with footholds on both~walls.],
   [You aren't pushing into both walls.],
   [Spread your feet across the corner and press: #tref("stemming"). Rest with no hands where you can #src("E17", "E20").],
 
-  [Traverses feel slow and #jt("pump", body: [pumpy]).],
+  [Traverses feel slow and~#jt("pump", body: [pumpy]).],
   [You shuffle your hands and swap feet twice.],
   [Cross through. Flag instead of swapping feet: #tref("traverse"), #tref("cross-through"), #tref("flag"), #tref("back-flag") #src("E11", "E25").],
 )
@@ -161,10 +161,10 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Name the cause of each fall. Try other sequences and small changes to grip and feet. Watch climbers of your size #src("E31", "E41", "E44").],
 
   [You feel scrunched on a problem others call flowing.],
-  [It was set for a shorter span.],
+  [It was set for a shorter~span.],
   [Use lower or wider footholds. Skip #jt("intermediate", body: [intermediate holds]). Keep your arms straight (judgement).#ix("Tall climbers!scrunchy problems") See @cons-tall #src("E46", "E47").],
 
   [A problem feels two grades harder than its tag.],
-  [The style doesn't suit you, or the gym grades hard.],
+  [The style doesn't suit you, or the gym grades~hard.],
   [Judge the gym by style, not number. Compare with your own reference problems. See Chapter 2 #src("E51", "E53", "E54").],
 )

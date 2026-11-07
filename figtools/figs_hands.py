@@ -119,7 +119,11 @@ def half_crimp_fig(path):
     pip_arc(a, p, "≈90°")
     label_lines(a, ["end joint", "straight"], (-9.2, 1.6), to=p.joint("i", "dip"))
     # the full crimp as it is usually climbed, the thumb locked over the nail
-    b, pb = grip_profile("lock", **frame)
+    # (cut at the same depth as panel a, so their feet and the captions under them line up)
+    shown = H.FOREARM_SHOWN
+    while grip_pose("lock").forearm_point(shown)[1] > a.y0:
+        shown += 0.01
+    b, pb = grip_profile("lock", shown=shown, **frame)
     pb.xray_end(b)         # the bend the panel names lies under the thumb
     pip_arc(b, pb, "over 90°")
     label_lines(b, ["end joint", "bent back"], (-9.2, 1.6), to=pb.joint("i", "dip"))
@@ -199,7 +203,8 @@ def pocket_profile(safe, labels=True, x0=-14.5, y1=5.65, height=None, shown=H.FO
 
 
 def pocket_fig(path):
-    combine([pocket_profile(True), pocket_profile(False)], path, gap=4, align="top",
+    # within the 92 mm that sit beside the steps
+    combine([pocket_profile(True, x0=-14.2), pocket_profile(False, x0=-14.2)], path, gap=2.5, align="top",
             labels=["a", "b"], captions=["safer", "stronger but riskier"])
 
 
@@ -471,7 +476,7 @@ def wrap_fig(path):
     f.text("arête", (1.6, top - 1.3), size=7, anchor="start")
     f.label("palm and thumb", (x0 + 5.6, top - 1.3), to=p.xy(H.vlerp(h.thumb()["cmc"],
                                                                      h.thumb()["mcp"], 0.8)), size=7)
-    label_lines(f, ["fingers round", "the edge"], (x1 - 3.6, y0 + 2.2), to=p.joint("l", "tip"))
+    label_lines(f, ["fingers round", "the edge"], (x1 - 2.6, y0 + 2.2), to=p.joint("l", "tip"))
     plane_arrow(f, p, Q(6.8, 1.2, 1.2), (0, 0, -1), gap=0.0)
     plane_arrow(f, p, add(p.joint("m", "tip"), (0.5, 0)), (-1, 0, 0), length_=2.6)
     hwarn("wrap", p)
@@ -487,7 +492,8 @@ def hold_angle_fig(path):
     specs = ((-20, "positive (incut)", "incut locks it"),
              (0, "flat", "friction and curl"),
              (30, "negative (sloping)", "slides off"))
-    for slope, cap, note in specs:
+
+    def posed(slope):
         t = math.tan(math.radians(slope))
         cx = WX - 1.3
         pt = (cx, -(WX - cx) * t)
@@ -500,8 +506,14 @@ def hold_angle_fig(path):
         # against the index finger, as in a half crimp, and low enough to leave
         # the edge in view
         H.tuck_thumb(p, "half", drop=0.5)
-        # the figure is about the edges, so it stops just below the wrist
-        f = profile_frame(-9.6, y1=7.03, posed=p, shown=1.0)
+        return p, pt, t
+
+    # the figure is about the edges, so it stops just below the wrist; the three
+    # panels are cut at one height, the highest of the three
+    y0 = max(posed(s)[0].forearm_point(1.0)[1] for s, _, _ in specs)
+    for slope, cap, note in specs:
+        p, pt, t = posed(slope)
+        f = profile_frame(-9.6, y0=y0, y1=7.03)
         edge_profile(f, WX, 0, depth=3.2, height=3.6, slope=slope)
         x0 = WX - 2.8
         f.line((x0, -(WX - x0) * t + 0.07), (WX - 0.15, -0.15 * t + 0.07), z=-4.9,
@@ -610,8 +622,8 @@ def filmstrip_sloper(path):
         hwarn(f"filmstrip-sloper {i + 1}", p)
         frames.append(f)
     filmstrip(frames, path, captions=[
-        "catch with the fingertips", "drag the pads over", "bring the palm on",
-        "find a thumb spot below", "wrist below, hang low"])
+        "catch with\nthe fingertips", "drag the\npads over", "bring the\npalm on",
+        "find a thumb\nspot below", "wrist below,\nhang low"])
 
 
 # ---------------------------------------------------------------- climber figures
@@ -697,7 +709,7 @@ def sidepull_fig(path):
             f.arrow([add(g, (12, 6)), add(g, (30, 6))], kind="force")
             f.arrow([add(stand(LF), (-8, 6)), add(stand(LF), (-26, 6))], kind="force")
             f.label("lean away", (-40, 148), to=lerp(c.J["lsh"], c.J["lel"], 0.5))
-            f.label("foot pushes left", (-46, 34), size=7.5)
+            f.label("foot pushes left", (-46, 50), size=7.5)
         f.cog(c.cog(), plumb_to=48)
         warn("sidepull", c)
         panels.append(f)
@@ -932,7 +944,7 @@ def sloper_fig(path):
 
 
 def palming_fig(path):
-    f = Fig(-90, 25, 90, 245)
+    f = Fig(-90, 28, 90, 245)
     wall_grid(f)
     outline = [(16, 90), (78, 90), (78, 152), (16, 152)]
     volume(f, outline, apex=(47, 121))
@@ -965,12 +977,13 @@ def mantle_fig(path):
     WX = 30
     frames = []
     for k in range(3):
-        f = Fig(-75, 39, 70, 297)
-        at = wall_side(f, WX, 39, TOP, angle=0)
+        # (the low foothold sits high enough that the figure fits under the steps)
+        f = Fig(-75, 66, 70, 297)
+        at = wall_side(f, WX, 66, TOP, angle=0)
         f.poly([(WX, TOP), (70, TOP), (70, TOP - f.mm(2.4)), (WX, TOP - f.mm(2.4))],
                z=-21, fill=PALE, stroke=None)
         f.line((WX, TOP), (70, TOP), z=-19, sw=0.6)
-        Fh, Fl = at(TOP - 92), at(TOP - 150)
+        Fh, Fl = at(TOP - 92), at(TOP - 122)
         hold_side(f, "foot", Fh)
         hold_side(f, "foot", Fl)
         foot_h = add(Fh, (-2.5, 2.5))
@@ -1229,7 +1242,7 @@ def grid(rows, path, gap=3.0, row_gap=1.5, zoom=1.0):
             out.append(f'<g transform="translate({x:.2f},{y + h - fh * s:.2f}) '
                        f'scale({s:.5f})"><g clip-path="url(#g{n})">{inner}</g></g>')
             out.append(f'<text x="{x + fw * s / 2:.2f}" y="{y + h + 3.8:.2f}" '
-                       f'font-family="{FONT}" font-size="2.9" font-weight="600" '
+                       f'font-family="{FONT}" font-size="2.9" font-weight="500" '
                        f'text-anchor="middle">{esc(cap)}</text>')
             x += fw * s + gap
             n += 1

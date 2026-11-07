@@ -13,7 +13,7 @@ No public syllabus ties footwork to grades #src("A46"), so this chapter's grades
 == Feet first
 
 #ix("Foot-first sequencing") #ix("Footwork!sequencing")
-Most climbers plan the hands and let the feet follow. Turn that round. These rules come from coaches:
+Most climbers plan the hands and let the feet follow. Turn that round. These rules come from~coaches:
 
 - *Let the legs do the work.* Overhangs are the exception, where the arms do more. Push with one foot at a time, as on a ladder #src("A36").
 - *Your hands decide your feet.* When your left hand lets go, your right hand holds you: stand on your left foot, and the other way round. That is the diagonal from Chapter 1: the hand that stays on and the foot you stand on are on opposite sides#ix("Opposite hand and foot") #src("A32").
@@ -25,7 +25,7 @@ Most climbers plan the hands and let the feet follow. Turn that round. These rul
 
 *Drill:* climb down#ix("Downclimbing!as a footwork drill") your warm-up problems. Let the feet lead and lower yourself with your legs #src("A3", "A24").
 
-*Symptoms* that you are climbing hands-first#ix("Footwork!signs of climbing hands-first"):
+#lead-line[*Symptoms* that you are climbing hands-first#ix("Footwork!signs of climbing hands-first"):]
 - You arrive at a hold at full stretch with your feet below your knees.
 - You keep scanning for handholds #src("A7").
 - You can't repeat a move you did last go #src("A32").
@@ -33,10 +33,10 @@ Most climbers plan the hands and let the feet follow. Turn that round. These rul
 == From foothold to technique
 
 #ix("Route reading!footholds")
-Use this table while you read a problem from the mat.
+#lead-in[Use this table while you read a problem from the mat.]
 
 #table(
-  columns: (1fr, 0.8fr, auto),
+  columns: (1fr, 0.9fr, 3.9cm),
   table.header([*What you see*], [*Try first*], [*Entry*]),
   [A small edge in front of you on a vertical or leaning-back wall], [Inside edge, front of the shoe], [#tref("edging")],
   [A foothold across your body's centre line; a steep wall; a sidepull for the hand], [Outside edge, hip turned in], [#tref("edging")],
@@ -106,17 +106,16 @@ Only the shoe points that change technique are here. They come from coaches, not
   tall: [Your eyes are far from your feet, which makes feet harder to place than hands#ix("Tall climbers!placing the feet") #src("A36"). Bend at the hips or turn your head to see the hold. Don't place by memory. On a problem you work over several sessions, a small chalk mark above a key foothold is fine. Brush it off afterwards #src("A35").],
   related: ("edging", "pivoting", "smearing"),
   sources: ("A2", "A3", "A4", "A5", "A7", "A24", "A27", "A30", "A35", "A36", "A44"),
+  closing-box: notebox([Drills for quiet feet])[
+    #ix("Drills!quiet feet")
+    - *Silent feet.* Climb an easy problem without a sound from your shoes. Ask a friend to call out every squeak #src("A5", "A24").
+    - *Wet paint.* Imagine the holds are freshly painted. Your foot should leave a dot, not a smear #src("A5").
+    - *Blinking.* Aim at a foothold. Close your eyes just before contact and find it by feel #src("A3").
+    - *Target practice.* On problems a grade below your limit, place each toe on the best spot without looking away #src("A35").
+
+    Do the first three slowly in the warm-up. Speed up as they get easy #src("A3", "A7"). The goal is accuracy at normal speed, not slowness.
+  ],
 )
-
-#notebox[Drills for quiet feet][
-  #ix("Drills!quiet feet")
-  - *Silent feet.* Climb an easy problem without a sound from your shoes. Ask a friend to call out every squeak #src("A5", "A24").
-  - *Wet paint.* Imagine the holds are freshly painted. Your foot should leave a dot, not a smear #src("A5").
-  - *Blinking.* Aim at a foothold. Close your eyes just before contact and find it by feel #src("A3").
-  - *Target practice.* On problems a grade below your limit, place each toe on the best spot without looking away #src("A35").
-
-  Do the first three slowly in the warm-up. Speed up as they get easy #src("A3", "A7"). The goal is accuracy at normal speed, not slowness.
-]
 
 #technique(
   key: "edging",
@@ -146,10 +145,10 @@ Only the shoe points that change technique are here. They come from coaches, not
     *Look for*
     - a small edge in front of you on a vertical or leaning-back wall. Use the inside edge.
     - a foothold on the far side of your body's centre line. Use the outside edge.
-    - a steep wall, or a #tref("sidepull") for the hand. Turn the hip in and use the outside edge #src("A7", "A50").
+    - a steep wall, or a #tref("sidepull", body: [sidepull]) for the hand. Turn the hip in and use the outside edge #src("A7", "A50").
 
     *Symptoms*
-    - On an #tref("overhang", body: [overhang]) you hang square on with bent arms, pulling hard #src("A7"). That is the #tref("frog"). Turn a hip in.
+    - On an #tref("overhang", body: [overhang]) you hang square on with bent arms, pulling hard #src("A7"). That is the #tref("frog", body: [frog position]). Turn a hip in.
     - You keep swapping feet to reach holds on the other side #src("A50").
   ],
   errors: [
@@ -215,9 +214,12 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Keep your weight over the big toe #src("A33"). Press into the wall, at right angles to its surface #src("A30").
     + Bend the knees towards the wall. Stand tall over your feet. Don't lean in and don't lean back #src("A6", "A30").
     + Shift weight smoothly from foot to foot. Several small steps beat one big one #src("A6").
+  ],
+  after-figure: [
+    *On a volume:*#ix("Volumes!smearing on") drop the heel well down. Soft shoes help #src("A2", "A28").
 
-    *On a volume:*#ix("Volumes!smearing on") drop the heel well down. Soft shoes help #src("A2", "A28").\
-    *Smedging* (smearing on a tiny edge): use the front of the toe. Press the rubber onto the edge so it moulds round it #src("A6").\
+    *Smedging* (smearing on a tiny edge): use the front of the toe. Press the rubber onto the edge so it moulds round it #src("A6").
+
     *Swapping feet on a smear:* press the heel down into the wall, or you slip #src("A26").
   ],
   when: [
@@ -255,13 +257,13 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Watch the foot onto the hold. Set the toe precisely #src("A3").
     + Move your hips towards the wall and over the high foot.
     + If you can't shift your weight slowly, push off the lower foot. Hop your hips onto the high foot #src("A31").
-    + Finish with a #tref("rockover").
+    + Finish with a #tref("rockover", body: [rockover]).
   ],
   when: [
     *Look for*
     - a big foothold at hip height or above, with nothing in between.
     - a handhold you can't reach from where you stand.
-    - a ledge or the top of a #tref("volume", body: [volume]). A high foot starts a #tref("mantle") #src("A34").
+    - a ledge or the top of a #tref("volume", body: [volume]). A high foot starts a #tref("mantle", body: [mantle]) #src("A34").
     - *Not on a #tref("slab", body: [slab]):* there, high steps upset your balance. Take small steps#ix("Slab technique!small steps") #src("A34").
 
     *Symptoms*
@@ -293,7 +295,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Bring your hips and chest over the foot #src("A20").
     + Straighten that leg to stand #src("A20", "A34").
     + Don't kneel on the hold. Kneeling makes standing up harder #src("A34").
-    + *Over a heel:* learn the #tref("heel-hook") first and read its warnings (this book's suggestion). Then pull with the heel and push with the lower leg. Press down with one or both hands at the same time #src("A8").
+    + *Over a heel:* learn the #tref("heel-hook", body: [heel hook]) first and read its warnings (this book's suggestion). Then pull with the heel and push with the lower leg. Press down with one or both hands at the same time #src("A8").
   ],
   when: [
     *Look for*
@@ -318,7 +320,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 2,
   grade-note: [Matters from V2–V3, when your hips start to turn on steep walls (judgement).],
-  summary: [You turn the shoe on the foothold without lifting it. The big toe stays put while the heel swings. This lets your hips turn, for example from facing the wall into a #tref("backstep").],
+  summary: [You turn the shoe on the foothold without lifting it. The big toe stays put while the heel swings. This lets your hips turn, for example from facing the wall into a #tref("backstep", body: [backstep]).],
   figure: "pivoting.svg",
   caption: [Right foot seen from above. The front of the shoe stays on the hold while the heel swings round. The inside edge (dashed) becomes the outside edge.],
   how: [
@@ -330,7 +332,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   ],
   when: [
     *Look for*
-    - a move that turns your hips while your feet stay: a backstep, a #tref("drop-knee") or a traverse #src("A6").
+    - a move that turns your hips while your feet stay: a backstep, a #tref("drop-knee", body: [drop knee]) or a traverse #src("A6").
     - a foot swap. A pivot often sets it up #src("A6").
 
     *Symptoms*
@@ -376,7 +378,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     *Look for*
     - a sequence that needs the *other* foot on your foothold, e.g. to stand on your left foot when your left hand lets go #src("A32").
     - a traverse with only one good foothold for several moves.
-    - *Check first* whether a #tref("flag") or a #tref("backstep") does the job. It is often smoother than a swap #src("A6", "A7").
+    - *Check first* whether a #tref("flag", body: [side flag]) or a #tref("backstep", body: [backstep]) does the job. It is often smoother than a swap #src("A6", "A7").
 
     *Symptoms*
     - You are on the wrong foot for the next reach, so you swing open as the hand lets go.
@@ -396,7 +398,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   aliases: ("foot on a handhold",),
   category: "feet",
   grade: 2,
-  grade-note: [It is the heart of a #tref("mantle"), so you need it from V2 (judgement). It is common on V3–V4 problems with ledges and volume tops.],
+  grade-note: [It is the heart of a #tref("mantle", body: [mantle]), so you need it from V2 (judgement). It is common on V3–V4 problems with ledges and volume tops.],
   summary: [You put a foot on the hold your hand is on, then rock over onto it. It gets you onto a ledge when there is nothing higher to pull on.],
   figure: "hand-foot-match.svg",
   caption: [(a) The left hand presses down on the ledge. The left foot comes up beside it. (b) The hips move over the foot. Now rock over and stand.],
@@ -435,7 +437,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   grade-note: [Needed once problems move onto steep walls with small footholds, around V3–V4. Gresham's rule is that on steep walls you pull with your feet rather than push #src("A7").],
   summary: [On a steep wall you drive the toe onto the foothold and pull back on it, with your whole body tight. Your feet then stay on and keep carrying weight.],
   figure: "toe-pull.svg",
-  caption: [Side view of a 35° overhang. (a) Standing passively with the hips out: the foot pops off. (b) Hips in, body tight from toe to hands (grey band), toe drilled onto the hold.],
+  caption: [Side view of a 35° overhang. (a) Standing passively with the hips out: the foot pops off. (b) Hips in, body tight from toe to hands (shaded band), toe drilled onto the hold.],
   how: [
     + Place the toe precisely on the best part of the hold. Don't slap the wall with the ball of the foot #src("A38").
     + Tighten your #jt("hamstring", body: [hamstrings]) (the muscles at the back of the thigh), buttocks, belly and lower back together. Drive the toe onto the hold, as if you were drilling it in #src("A6").
@@ -444,7 +446,8 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Turn a hip in and use the outside edge, or drop a knee. Both put more weight on your legs #src("A7", "A37").
     + Keep the feet loaded at the moment a hand lets go #src("A7").
     + *Paddling:* when a big foothold sits out to the side, put the whole sole on it. Pull with the hamstring to draw your body in or to steer it #src("A6").
-
+  ],
+  after-figure: [
     *Drill:*#ix("Drills!keeping the feet on") hang on two handholds on a steep #jt("training board") (a standard steep wall, such as a MoonBoard#ix("MoonBoard")). Move your feet to 10 different holds per set. Do 3–5 sets #src("A24"). Repeat problems you normally cut loose on until your feet stay on #src("A39").
   ],
   when: [
@@ -488,8 +491,10 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Keep your hips close to the wall #src("A9").
     + To let go, first put the other foot on a solid hold. Tighten your middle. Then release slowly #src("A9", "A15").
 
-    *High or low:* a heel at chest height or above gains reach, while a heel below the waist gives control #src("A15"). As you move up, turn the foot: a heel above you points the toe up, a heel at your side points it out and a low heel points it down #src("A8").\
-    *On an arête:*#ix("Arêtes!heel hooks") wrap the heel round the back of the edge. Hold it there with the hamstring. This stops you swinging open #src("A8").\
+    *High or low:* a heel at chest height or above gains reach, while a heel below the waist gives control #src("A15"). As you move up, turn the foot: a heel above you points the toe up, a heel at your side points it out and a low heel points it down #src("A8").
+
+    *On an arête:*#ix("Arêtes!heel hooks") wrap the heel round the back of the edge. Hold it there with the hamstring. This stops you swinging open #src("A8").
+
     *On a volume:*#ix("Volumes!heel hooks") hook a small hold on the side or top of the volume. Or drag the heel on a flat face #src("A8").
   ],
   when: [
@@ -544,7 +549,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     *Look for*
     - a hold near your middle with an underside you can get a foot under. Heel hooks suit holds out to the side #src("A21").
     - a hold too far out to the side for a heel. A toe hook is easier to set there and can add reach #src("A13").
-    - an undercut foothold or an #tref("undercling") on the side of the hand you want to free #src("A4", "A15").
+    - an undercut foothold or an #tref("undercling", body: [undercling]) on the side of the hand you want to free #src("A4", "A15").
     - the edge of a #tref("roof", body: [roof]). Go out feet first and hook the edge#ix("Roofs!toe hooks") #src("A12").
     - an #tref("arete", body: [arête]). A toe hook round it stops you swinging open#ix("Arêtes!toe hooks") #src("A12").
     - sideways moves across volumes #src("A20").
@@ -593,7 +598,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - *Check:* if your pushing foot is just above a toe hook, you are already doing a bicycle #src("A14").
   ],
   related: ("toe-hook", "toe-pull", "compression", "roof"),
-  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "15  Neil Greshams Masterclass - Bicycling", "https://www.youtube.com/watch?v=NDxhEPPrGt4"),),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "Neil Greshams Masterclass - Bicycling", "https://www.youtube.com/watch?v=NDxhEPPrGt4"),),
   sources: ("A1", "A12", "A14", "A19", "A21", "A25", "A41"),
 )
 
@@ -625,7 +630,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Trying it without a #jt("spotter")#ix("Spotting") (a friend who guides your fall onto the mat) #src("A8").
   ],
   related: ("heel-hook", "toe-hook", "knee-bar", "volume"),
-  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "14 Neil Greshams Masterclass - T&T Heel toe", "https://www.youtube.com/watch?v=gv2BVT2nLv4"),),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "Neil Greshams Masterclass - T&T Heel toe", "https://www.youtube.com/watch?v=gv2BVT2nLv4"),),
   sources: ("A1", "A8", "A12", "A33"),
 )
 
@@ -635,7 +640,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   aliases: ("kneebar", "knee scum", "knee clamp"),
   category: "feet",
   grade: 5,
-  grade-note: [Rare, because it needs exactly the right gap #src("A18"). Indoors it shows up on steep V5+ problems with big volumes (judgement). Learn the #tref("drop-knee") first #src("A17").],
+  grade-note: [Rare, because it needs exactly the right gap #src("A18"). Indoors it shows up on steep V5+ problems with big volumes (judgement). Learn the #tref("drop-knee", body: [drop knee]) first #src("A17").],
   summary: [You wedge your leg between a foothold and a surface above the knee, with the toe pushing one way and the thigh the other. Your hands can then rest or move. A _knee scum_ is the light version: the knee presses lightly and takes a little weight #src("A16").],
   figure: "knee-bar.svg",
   caption: [Side view of a 40° overhang. The right toe digs into the foothold. The thigh just above the knee presses up under the volume. The right hand is free.],

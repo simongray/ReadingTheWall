@@ -18,6 +18,7 @@ a build, so draw and judge a figure in grey.
 import math
 import os
 import random
+import re
 
 # ---------------------------------------------------------------- vectors
 
@@ -474,7 +475,7 @@ class Fig:
                   cap=cap)
 
     def text(self, s, p, size=7.5, anchor="middle", weight=500, z=50,
-             fill=INK, italic=False, halo=True):
+             fill=INK, italic=False, halo=True, keep_in=True):
         q = self.P(p)
         fs = self.pt(size)
         # keep the text inside the frame (approximate width)
@@ -482,9 +483,9 @@ class Fig:
         x0 = {"start": q[0], "middle": q[0] - w / 2, "end": q[0] - w}[anchor]
         W = self.x1 - self.x0
         pad = self.mm(0.8)
-        if x0 < pad:
+        if keep_in and x0 < pad:
             q = (q[0] + pad - x0, q[1])
-        elif x0 + w > W - pad:
+        elif keep_in and x0 + w > W - pad:
             q = (q[0] - (x0 + w - W + pad), q[1])
         style = ' font-style="italic"' if italic else ""
         base = (f'x="{q[0]:.2f}" y="{q[1] + fs * 0.35:.2f}" '
@@ -621,7 +622,7 @@ class Fig:
     # output
     def svg(self):
         W, H = self.x1 - self.x0, self.y1 - self.y0
-        body = "\n".join(s for _, _, s in sorted(self.items))
+        body = "\n".join(s for _, _, s in sorted(_without_cut_dots(self.items, W, H)))
         return (f'<svg xmlns="http://www.w3.org/2000/svg" '
                 f'width="{W * self.scale:.2f}mm" height="{H * self.scale:.2f}mm" '
                 f'viewBox="0 0 {W:.2f} {H:.2f}">\n{body}\n</svg>\n')
@@ -629,6 +630,111 @@ class Fig:
     def save(self, path):
         with open(path, "w") as f:
             f.write(self.svg())
+
+
+# A bolt hole on the wall (wall_grid) that a shape or a label cuts leaves a tiny
+# fragment of a dot beside the shape, which reads as a speck on e-ink. So a dot goes
+# when an edge or a stroke runs through it, or the frame does. One wholly under a shape
+# doesn't show anyway, and one clear of everything stays. The test uses the drawn
+# paths, so it sees exactly what the pen effects made of a shape.
+GRID_DOT = re.compile(r'<circle cx="([-\d.]+)" cy="([-\d.]+)" r="([\d.]+)" fill="#b0b0b0"/>$')
+_CLIPPED = re.compile(r'<clipPath.*?</clipPath>|<g clip-path.*?</g>', re.S)
+_ELEMENT = re.compile(r'<(path|circle|text|rect)\b([^>]*)>([^<]*)')
+_CELL = 10.0            # world units; the side of a square of the index below
+
+
+def _attr(attrs, name, default=None):
+    m = re.search(rf'\b{name}="([^"]*)"', attrs)
+    return m.group(1) if m else default
+
+
+def _path_segments(d):
+    """A path's outline as straight pieces. Dots of a stipple (arcs) are skipped:
+    they lie inside the limb they shade."""
+    if "a" in d:
+        return []
+    pieces, cur, start = [], None, None
+    for op, nums in re.findall(r'([MLCZ])([^MLCZ]*)', d):
+        n = [float(v) for v in re.findall(r'-?\d+\.?\d*', nums)]
+        if op == "M":
+            cur = start = (n[0], n[1])
+        elif op == "L":
+            for i in range(0, len(n), 2):
+                pieces.append((cur, (n[i], n[i + 1])))
+                cur = (n[i], n[i + 1])
+        elif op == "C":
+            for i in range(0, len(n), 6):
+                p0, p1, p2, p3 = cur, (n[i], n[i + 1]), (n[i + 2], n[i + 3]), (n[i + 4], n[i + 5])
+                last = p0
+                for t in (0.25, 0.5, 0.75, 1.0):
+                    u = 1 - t
+                    q = (u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0],
+                         u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1])
+                    pieces.append((last, q))
+                    last = q
+                cur = p3
+        elif op == "Z" and cur != start:
+            pieces.append((cur, start))
+            cur = start
+    return pieces
+
+
+def _edges(svg):
+    """The straight pieces of an item's visible edges, with the half width of the
+    stroke along each."""
+    out = []
+    for kind, attrs, inner in _ELEMENT.findall(_CLIPPED.sub("", svg)):
+        stroked = _attr(attrs, "stroke") not in (None, "none")
+        hw = float(_attr(attrs, "stroke-width", "0")) / 2 if stroked else 0.0
+        if kind == "path":
+            out += [(a, b, hw) for a, b in _path_segments(_attr(attrs, "d", ""))]
+        elif kind == "rect":
+            x, y, w, h = (float(_attr(attrs, k, "0")) for k in ("x", "y", "width", "height"))
+            ring = [(x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)]
+            out += [(a, b, hw) for a, b in zip(ring, ring[1:])]
+        elif kind == "circle":
+            cx, cy, r = (float(_attr(attrs, k, "0")) for k in ("cx", "cy", "r"))
+            ring = [(cx + r * math.cos(i * math.pi / 8), cy + r * math.sin(i * math.pi / 8)) for i in range(17)]
+            out += [(a, b, hw) for a, b in zip(ring, ring[1:])]
+        elif kind == "text":
+            # a label's box, drawn as a hatch of edges so that a dot inside it goes too
+            size = float(_attr(attrs, "font-size", "0"))
+            w = len(inner) * size * 0.53
+            x = float(_attr(attrs, "x", "0"))
+            x -= {"start": 0, "middle": w / 2, "end": w}[_attr(attrs, "text-anchor", "start")]
+            y = float(_attr(attrs, "y", "0"))
+            for j in range(4):
+                level = y - j * size / 3
+                out.append(((x, level), (x + w, level), hw + size / 6))
+    return out
+
+
+def _without_cut_dots(items, W, H):
+    dots = [it for it in items if GRID_DOT.match(it[2])]
+    if not dots:
+        return items
+    index = {}
+    for z, _, svg in items:
+        if GRID_DOT.match(svg) or z <= dots[0][0]:
+            continue
+        for a, b, hw in _edges(svg):
+            pad = hw + 2.0
+            for i in range(int((min(a[0], b[0]) - pad) // _CELL), int((max(a[0], b[0]) + pad) // _CELL) + 1):
+                for j in range(int((min(a[1], b[1]) - pad) // _CELL), int((max(a[1], b[1]) + pad) // _CELL) + 1):
+                    index.setdefault((i, j), []).append((a, b, hw))
+
+    def cut(item):
+        x, y, r = (float(v) for v in GRID_DOT.match(item[2]).groups())
+        if x < r or y < r or x > W - r or y > H - r:
+            return True
+        for a, b, hw in index.get((int(x // _CELL), int(y // _CELL)), ()):
+            d = sub(b, a)
+            t = max(0.0, min(1.0, dot(sub((x, y), a), d) / max(dot(d, d), 1e-9)))
+            if length(sub((x, y), add(a, mul(d, t)))) < r + hw:
+                return True
+        return False
+
+    return [it for it in items if it not in dots or not cut(it)]
 
 
 def esc(s):
@@ -3092,8 +3198,9 @@ def filmstrip(frames, path, captions=None, gap=2.2, band=4.2):
     sizes = [((f.x1 - f.x0) * f.scale, (f.y1 - f.y0) * f.scale) for f in frames]
     fh = max(h for _, h in sizes)
     W = sum(w for w, _ in sizes) + gap * (len(frames) + 1)
-    cap_lines = [_wrap(c, max(8, int(w / 1.75))) for c, (w, _) in
-                 zip(captions or [""] * len(frames), sizes)]
+    # a caption is wrapped to its frame, unless "\n" says where it should break
+    cap_lines = [c.split("\n") if "\n" in c else _wrap(c, max(8, int(w / 1.75)))
+                 for c, (w, _) in zip(captions or [""] * len(frames), sizes)]
     cap_h = (max(len(c) for c in cap_lines) * 3.6 + 2.5) if captions else 0
     H = band * 2 + fh + cap_h
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.2f}mm" '

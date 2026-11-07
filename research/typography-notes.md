@@ -66,24 +66,29 @@ matter take the half steps next to the text size, headings whole steps.
   follows it closely (`list-after-label`).
 - Boxes, tables and figures +1 above and below; the entry title band +1
   below; the entry apparatus +1.5 above.
-- Subheads +1.5 above, +0.35 below. Sections +2.5 above, +0.9 below; a
+- Subheads +1.5 above, +0.5 below. Sections +2.5 above, +0.9 below; a
   grade section +2.5 below, a grade guide +2 below.
 - Chapter openings are sunk 2 lines, with 3 lines between the ornament and
   the text. Heads, title bands, summaries and labels are sticky.
 
-## Page breaks and fitting
+## Page breaks
 
 - Chapters, grade guides, grade sections and technique entries start a
   page. An entry right after its grade section's head stays on that page
-  (`entry-top`). Floats left over from an entry are set before the next
-  one starts (`place.flush`).
+  (`entry-top`).
 - A film strip between two entries opens the page of the entry after it
-  (`entries-running`); elsewhere it floats like a figure.
-- A technique entry measures itself and is set with its spaces scaled
-  down (to 0.6, 0.35 or 0.1 of normal, the most that works) when that saves
-  a page it would otherwise spill a few lines onto. `fit-pages[...]` does
-  the same for running text that starts at a fixed place: the grade guides
-  in chapter 8 and the openings of chapters 4 and 6 are wrapped in it.
+  (`entries-running`); elsewhere it stays in the text like a figure.
+- Nothing tightens to save a page. Every text sets at full space, and a
+  page may end short at the end of an entry or before a figure or box.
+  `tools/check_fit.py` reads the finished PDF and fails the build on the
+  faults listed in its docstring.
+- A paragraph ending in ":" keeps room for the start of its list. A section
+  head needs room for itself and five lines. Up to three short list items
+  and up to six table rows stay whole; longer ones keep two together at
+  each end.
+- `lead-in` holds a short line to the table after it, and `keep-together`
+  holds the last stretch of a text together, so that its end isn't left
+  alone on the next page.
 - Measured copies are marked by a style (`probe`, which sets the text
   region to "AQ"). In them `tref`, `navlink`, backlinks and the generated
   tables leave out links and real page numbers, and citations are
@@ -91,8 +96,8 @@ matter take the half steps next to the text size, headings whole steps.
   from converging.
 - Page breaks that depend on where something ended on the page don't
   converge in Typst (tried both in a heading's show rule and before it), so
-  short spills before a grade head are handled by fitting, not by
-  skipping the break.
+  a rule that needs room is a block that can't break, not a test of the
+  position. A list's rule counts characters for the same reason.
 - A note box after an entry is kept whole, on a page of its own if need be.
   In running text a short one (under a third of a page) is kept whole and
   a long one may break.
@@ -178,12 +183,12 @@ matter take the half steps next to the text size, headings whole steps.
 ## Figures
 
 - Figures keep the size they were drawn at. Narrow technique figures
-  (≤ 92 mm) sit beside the steps; wider ones go below them as a top float
-  inside a block that starts after the steps.
-- Figures in running text and film strips float to the top of a page, but
-  never above the head of their own section: when that head is on the same
-  page, they go to the bottom if they fit. Narrow ones (< 80 mm) take
-  their caption beside them.
+  (≤ 92 mm) sit beside the steps; wider ones follow the steps. No figure floats, so an entry's order never changes: steps,
+  figure, parts, box, mistakes, notes, apparatus.
+- Steps beside a figure end where that makes the whole lowest, and the rest
+  go on at full measure under the figure.
+- Figures in running text stay where the text puts them, whole. Narrow ones
+  (< 80 mm) take their caption beside them.
 
 ## Reference matter
 
@@ -224,19 +229,12 @@ redesign (267 pages) fixes them.
 A page-by-page read of the 266-page draft found these; the book still has
 266 pages.
 
-- Tightened grade guides set their subheads with almost no space above.
-  The space above a subhead now shrinks to half at most, so it stays about
-  twice the space below. Boxes inside `fit-pages` tighten with the text
-  around them, which wins back the room for it.
 - Technique names in an italic key point were upright and looked too big.
   In italic text a cross-reference is still upright, but a twentieth
   smaller, to match the italic's capitals.
 - The grade tab in running text widened its line. Its black is now drawn
   behind the figures, which sit on the baseline, so the line keeps its
   height.
-- A figure could float above the head of its own section (Figures 3 and 5
-  in Chapter 1, Figures 9 and 10 in Chapter 5). It now goes to the bottom
-  of that page instead.
 - Section heads left one word on their second line. A head that wraps is
   now broken as a whole with a high runt cost, and never inside a compound
   such as "comp-style". Heads tied with no-break spaces keep their breaks.
@@ -245,7 +243,14 @@ A page-by-page read of the 266-page draft found these; the book still has
 - Index heads taken from the glossary were lower case (fingerboard,
   pulley) above capitalised sub-entries. A head is now capitalised when
   any entry under it is.
-- The reading box could break after its first item. Its items are now
-  set so that the label and the first two items stay together, and the
-  last two, which keeps a short box whole.
 - Removed the unused `chapter-end`.
+
+## The third revision
+
+Running paragraphs are justified. Lists, entry summaries, captions, tables, boxes
+and the apparatus are ragged, with no hyphens. In ragged text a compound stays whole,
+and so does a short technique name with its page.
+
+The fitting machinery is gone; `revise3-typography.md` lists what changed and
+why. The folios are arabic from Chapter 1, which must stay physically odd so that
+each worked problem's question backs onto its answer.

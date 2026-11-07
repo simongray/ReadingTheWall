@@ -12,14 +12,13 @@
 
 // ------------------------------------------------------------ main matter
 
+#part("Part I", subtitle: "Foundations: how movement works and\u{a0}how\u{a0}to\u{a0}read\u{a0}a\u{a0}problem")
 #set page(numbering: "1")
 #counter(page).update(1)
-
-#part("Part I", subtitle: "Foundations: how movement works and how to read a problem")
 #include "chapters/01-movement.typ"
 #include "chapters/02-reading.typ"
 
-#part("Part II", subtitle: "The techniques, by category and grade")
+#part("Part II", subtitle: "The techniques, by\u{a0}category\u{a0}and\u{a0}grade")
 #include "chapters/03-feet.typ"
 #include "chapters/04-body.typ"
 #include "chapters/05-hands.typ"

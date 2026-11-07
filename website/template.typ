@@ -37,6 +37,9 @@
 // chapters' `#page(...)[...]` into calls to this.
 #let web-page(..args, body) = cls("section", "front-page", body)
 
+// A citation here needs no binding to the word before it.
+#let src(..keys) = for k in keys.pos() { cite(label(src-map.at(k, default: k))) }
+
 // ------------------------------------------------------------ type
 
 #let sc(body, tracking: 0.06em) = cls("span", "sc", body)
@@ -82,7 +85,7 @@
 
 // A reference to a technique. build.py follows key-alias, fills in the name when
 // there is no `body` and collects these for "Referenced from".
-#let tref(key, body: none, show-page: true) = tag("a", attrs: (
+#let tref(key, body: none, show-page: true, inner: false) = tag("a", attrs: (
   class: "tref", href: "#tech-" + key, "data-key": key,
   "data-named": if body == none { "0" } else { "1" },
 ), if body == none { key } else { body })
@@ -90,6 +93,13 @@
 #let jt(term, body: none) = tag("a", attrs: (class: "jt", href: "#" + gloss-key(term)),
   if body == none { term } else { body })
 
+#let glossary-columns(body) = columns(2, gutter: 1.6em, body)
+#let sources-columns(body, pages: 1, last: auto) = columns(2, gutter: 1.5em, body)
+#let lead-line(body) = par(body)
+#let lead-label(body) = par(strong(body))
+#let run-in(body) = par(body)
+#let lead-in(body) = body
+#let keep-together(body) = body
 #let gloss(term, body, see: ()) = tag("div", attrs: (class: "gloss", id: gloss-key(term)), {
   tag("dt", { term; ix(term) })
   tag("dd", {
@@ -106,7 +116,7 @@
   if title != none { cls("h6", "label", { aside-icon(icon); title }) }
   body
 })
-#let readbox(body, k: 1) = panel(title: [When to use it — reading the wall], icon: "reading", class: "box reading", body)
+#let readbox(body, k: 1, title: [When to use it — reading the wall], icon: "reading") = panel(title: title, icon: icon, class: "box reading", body)
 #let notebox(title, body, icon: none) = panel(title: title, icon: icon, class: "box note", body)
 #let remember(title, body) = panel(title: title, class: "box remember", body)
 #let keypoint(body) = panel(class: "box keypoint", body)
@@ -174,7 +184,7 @@
   key: none, name: none, aliases: (), category: none, grade: none, grade-note: none,
   summary: none, figure: none, caption: none, figure-wide: false, how: none, parts: (),
   when: none, errors: none, tall: none, small: none, related: (), watch: (), sources: (),
-  k: auto, ..extra,
+  k: auto, closing-box: none, after-figure: none, ..extra,
 ) = {
   let aliases = if type(aliases) == str { (aliases,) } else { aliases }
   let parts = if type(parts) == dictionary { (parts,) } else { parts }
@@ -210,6 +220,7 @@
           how
         }
         if figure != none { entry-figure(figure, caption, figure-wide) }
+        after-figure
       })
     }
     for p in parts { entry-part(p) }
@@ -217,6 +228,7 @@
     if errors != none { mistakes(errors) }
     if tall != none { cls("div", "climber-note", { aside-icon("tall"); [*_Tall climbers._* ]; tall }) }
     if small != none { cls("div", "climber-note", { aside-icon("small"); [*_Small climbers._* ]; small }) }
+    closing-box
     for (field, value) in extra.named() {
       tag("div", attrs: (class: "climber-note", "data-unknown-field": field), {
         [*#field.* ]

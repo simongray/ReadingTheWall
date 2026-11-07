@@ -33,6 +33,25 @@ section as the notes of the GitHub release.
   light on volumes. This shows on every screen.
 - The grade tabs are coloured like the circuits at Boulders, a Danish gym chain,
   and darken as the grade rises, which also shows on a monochrome screen.
+- The book is set with its full white space everywhere, so it is longer. No entry
+  is tightened to save a page. Figures stay in order after the steps, and reading
+  boxes and tables no longer split badly.
+- Lists and the summaries that open entries are ragged, which ends their loose
+  lines. Steps that don't fit beside a figure go on at full measure below it.
+- Page numbers are arabic from Chapter 1, so every folio has changed. Part I's
+  divider has no number. A worked problem's question is on an odd page, with its
+  answer on the back of the leaf.
+- Lines break better: citations stay whole and with their word, ranges such as
+  V4–V5 stay whole, and URLs break only after a separator. Word spacing is more
+  even, and justified text now hyphenates where it helps.
+- Figures stay with their steps more often, and captions sit closer to their
+  figures. Film strip labels break by sense, and the key to the illustrations is
+  easier to read.
+- Page references inside parentheses read "(Compression, p. 125)". Index heads
+  repeat at the top of a column when their sub-entries run on.
+- A technique named in a sentence after "a" or "the" is in lower case: "a sidepull
+  (p. 131)". In lists of references, names stay whole and keep their capitals.
+- URLs and DOIs in Sources take lining figures, so a zero no longer reads as an "o".
 
 ### Removed
 

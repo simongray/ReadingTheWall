@@ -8,7 +8,7 @@ Every technique in this book solves one of a few mechanical problems. How do you
 
 Your #ix("Centre of gravity", main: true)#jt("centre of gravity") is the point your weight acts through. When you stand upright, it sits in your pelvis, near your navel #src("B16"), but it moves when you bend, reach or raise a leg. Gravity pulls straight down through it. Picture a #jt("plumb line") hanging from it: the line shows at a glance where your weight goes.
 
-Your #ix("Base of support", main: true)#jt("base of support") is the set of points holding you: footholds, handholds, a knee or a heel. On the ground it is the area between your feet. On a wall, ask where the plumb line falls:
+Your #ix("Base of support", main: true)#jt("base of support") is the set of points holding you: footholds, handholds, a knee or a heel. On the ground it is the area between your feet. On a wall, ask where the plumb line~falls:
 
 - If the plumb line falls *over or between your footholds*, your feet carry your weight and your hands only stop you falling backwards, which costs little grip #src("B8", "B17").
 - If the plumb line falls *outside your feet*, your fingers must hold you up and in #src("B7", "B8"). Every second in that position costs strength.
@@ -45,7 +45,7 @@ How far your hips#ix("Hips!distance from the wall") are from the wall decides ho
 
 == Holds have a direction
 
-A hold is not just "good" or "bad". It has a surface you can pull on, which only works when you pull away from the way it faces. A #tref("jug") works from below. An #tref("undercling") works from above, pulling upward. A #tref("sidepull") whose gripping edge faces left works when your body is to its right, leaning away from it. Used with your body on its left, the same hold becomes a #tref("gaston"). A #tref("sloper") works only when your body hangs below it, arm straight #src("B31"). So the holds dictate where your body goes. #ix("Direction of pull", main: true)
+A hold is not just "good" or "bad". It has a surface you can pull on, which only works when you pull away from the way it faces. A #tref("jug", body: [jug]) works from below. An #tref("undercling", body: [undercling]) works from above, pulling upward. A #tref("sidepull", body: [sidepull]) whose gripping edge faces left works when your body is to its right, leaning away from it. Used with your body on its left, the same hold becomes a #tref("gaston", body: [gaston]). A #tref("sloper", body: [sloper]) works only when your body hangs below it, arm straight #src("B31"). So the holds dictate where your body goes. #ix("Direction of pull", main: true)
 
 This is the most useful idea for #ix("Route reading")reading problems. Look at which way every hold faces, then ask where your body must be for each hold to work. Chapter 2 turns this into a method, and Chapter 5 describes each hold type.
 
@@ -53,26 +53,29 @@ Three kinds of force come out of this:
 
 - *Pulling*, towards you or downward, as on a jug.
 - *Pushing*, as when you press a palm on a #tref("volume", body: [volume]) or #tref("mantle", body: [mantle]) onto a ledge.
-- *Opposition*: two forces pushing or pulling against each other. Two hands squeeze a block (#tref("compression")). A hand pulls one way while a foot pushes the other (#tref("layback")). Your feet push apart in a corner (#tref("stemming")). With opposition, holds that are useless on their own start to work #src("B1", "B14"). See #tref("opposition").
+- *Opposition*: two forces pushing or pulling against each other. Two hands squeeze a block (#tref("compression", inner: true)). A hand pulls one way while a foot pushes the other (#tref("layback", inner: true)). Your feet push apart in a corner (#tref("stemming", inner: true)). With opposition, holds that are useless on their own start to work #src("B1", "B14"). See #tref("opposition").
 
+// a new page, so that the section and its figure are read together
+#pagebreak(weak: true)
 == Rotation and the barn door
 
-Hang from two points, say your left hand and your left foot. Your body can rotate#ix("Rotation") around the line between them, like a door on its hinges. If your centre of gravity sits to the side of that #jt("hinge")#ix("Hinge"), gravity swings your body open #src("B8"). This is the #tref("barn-door"), which explains many falls that seem to have no cause.
+Hang from two points, say your left hand and your left foot. Your body can rotate#ix("Rotation") around the line between them, like a door on its hinges. If your centre of gravity sits to the side of that #jt("hinge")#ix("Hinge"), gravity swings your body open #src("B8"). This is the #tref("barn-door", body: [barn door]), which explains many falls that seem to have no cause.
 
-#figure(image("../figures/concept-barn-door.svg"), caption: [(a) The left hand and left foot form a hinge, so reaching right swings the body open. (b) A back flag: the free right leg crosses behind the left and presses the wall on the far side of the hinge. The centre of gravity now sits on the hinge.], kind: image, supplement: [Figure])
 
 Every fix for a barn door does one of these things #src("B11", "B13", "B62"):
 
-+ *Put weight or a contact on the far side of the hinge.* Press your free foot on the wall there, even without a hold. If the free leg is already on that side, that is a #tref("flag"). If not, cross it behind (#tref("back-flag")) or in front (#tref("inside-flag")) #src("B26").
++ *Put weight or a contact on the far side of the hinge.* Press your free foot on the wall there, even without a hold. If the free leg is already on that side, that is a #tref("flag", body: [side flag]). If not, cross it behind (#tref("back-flag", inner: true)) or in front (#tref("inside-flag", inner: true)) #src("B26").
 + *Move your centre of gravity onto the hinge.* Shift your hips over the standing foot.
-+ *Change the hinge.* Swap feet so the hand and foot you use are on opposite sides: left hand with right foot. That diagonal resists rotation #src("B11"). A #tref("backstep") or #tref("drop-knee") does this with your hips turned in.
++ *Change the hinge.* Swap feet so the hand and foot you use are on opposite sides: left hand with right foot. That diagonal resists rotation #src("B11"). A #tref("backstep", body: [backstep]) or #tref("drop-knee", body: [drop knee]) does this with your hips turned in.
 + *Beat the swing.* Move fast enough that the rotation has no time to build #src("B62").
+
+#figure(image("../figures/concept-barn-door.svg"), caption: [(a) The left hand and left foot form a hinge, so reaching right swings the body open. (b) A back flag: the free right leg crosses behind the left and presses the wall on the far side of the hinge. The centre of gravity now sits on the hinge.], kind: image, supplement: [Figure])
 
 A good default for any move is the diagonal: *opposite hand and foot*#ix("Opposite hand and foot", main: true) #src("B11"). When a problem forces same-side hand and foot, expect to need one of these fixes.
 
 == Static and dynamic
 
-A #jt("static")#ix("Static movement", main: true) move is one you could stop at any point: your body stays in balance throughout. A #jt("dynamic")#ix("Dynamic movement", main: true) move uses #jt("momentum")#ix("Momentum"): you move fast enough that your hand reaches the next hold before you have time to fall. Static movement is precise and controllable. Dynamic movement can save energy compared with a hard lock-off, according to one gym owner's article #src("D13"). It is the only option when the next hold is out of static reach. From about V3 indoors you need both, and much of the skill lies in choosing. Chapter 6 covers the dynamic side, starting with the #tref("deadpoint").
+A #jt("static")#ix("Static movement", main: true) move is one you could stop at any point: your body stays in balance throughout. A #jt("dynamic")#ix("Dynamic movement", main: true) move uses #jt("momentum")#ix("Momentum"): you move fast enough that your hand reaches the next hold before you have time to fall. Static movement is precise and controllable. Dynamic movement can save energy compared with a hard lock-off, according to one gym owner's article #src("D13"). It is the only option when the next hold is out of static reach. From about V3 indoors you need both, and much of the skill lies in choosing. Chapter 6 covers the dynamic side, starting with the #tref("deadpoint", body: [deadpoint]).
 
 == Tension: connecting hands and feet
 

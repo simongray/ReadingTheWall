@@ -436,8 +436,7 @@ def volumes(out):
     for side in (-1, 1):
         f.arrow([(side * 58, 196), (side * 38, 196)], kind="force")
         f.arrow([(side * 50, 93.5), (side * 34, 81.5)], kind="force")
-    mark(f, {"B R3 L4": (39, 314), "Y L1": (-58, 176), "Y R2": (58, 176), "X": (46, 62)}, VOLUMES_NUMBERS)
-    f.text("A", (-23, 113), size=6.8, weight=500)
+    mark(f, {"A": (-23, 113), "B R3 L4": (39, 314), "Y L1": (-58, 176), "Y R2": (58, 176), "X": (46, 62)}, VOLUMES_NUMBERS)
     check("reading-v5-volumes-answer", c)
     f.save(out + "/reading-v5-volumes-answer.svg")
 

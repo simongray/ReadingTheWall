@@ -15,7 +15,9 @@ The heavier you are, the more load your fingers carry.#ix("Body weight!load on t
 #ix("Direction of pull")
 Pull each hold opposite to the way its gripping surface faces. Chapter 1 explains why. Chapter 2 has a table of where your body goes for each hold.
 
-German school climbing lessons turn this into a drill:#ix("Drills!taping hold directions") students mark each hold's best pulling direction with a strip of tape, then climb so the forearm lies along the tape #src("C42"). The same lessons name two warning signs of a wrong direction:
+German school climbing lessons turn this into a drill:#ix("Drills!taping hold directions") students mark each hold's best pulling direction with a strip of tape, then climb so the forearm lies along the tape #src("C42").
+
+The same lessons name two warning signs of a wrong direction:
 
 - *You slip off suddenly* from a hold that felt fine. Move your body until you can lean into the hold. Get more of your hand on it.
 - *Your forearms #jt("pump") on easy holds.* (Pump is the hard, tired, swollen feeling in the forearm.) You are squeezing to make up for a bad angle,#ix("Pump!from a wrong pull direction") so move your body instead and grip only as hard as you need.
@@ -29,7 +31,7 @@ How well a hold works changes as you move. A sloper that holds while your hips a
 #ix("Positive hold") #ix("Negative hold")
 A #jt("positive hold") has a gripping surface that faces up or tilts back into the wall. That tilt is called an #jt("incut"). Your fingers hook behind it and lock on by shape. A #jt("negative hold") slopes down and away from the wall, so part of your pull runs along the surface and #jt("friction") (the grip of skin on the surface) has to keep you on #src("C42").
 
-#fig("hands-hold-angle.svg", caption: [A fingertip on three edges, pulled straight down. The incut locks it. The flat edge needs curl and friction. On the sloping edge, part of the pull drags the finger off.])
+#fig("hands-hold-angle.svg", caption-width: 125mm, caption: [A fingertip on three edges, pulled straight down. The incut locks it. The flat edge needs curl and friction. On the sloping edge, part of the pull drags the finger off.])
 
 Lab tests show how fast small sloping holds get worse#ix("Studies!edge depth and slope")#ix("Edge!depth and slope") #src("C29"). Eight strong climbers pulled as hard as they could on #jt("edge", body: [edges]) (narrow ledges) 1–4 cm deep, tilted from flat to 40°.
 
@@ -50,7 +52,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
 #figure(image("../figures/hand-atlas.svg"), caption: [Hand positions at a glance. Each grip has its own entry in this chapter.], kind: image, supplement: [Figure])
 
-== V0–V1: big holds and the first directions
+== V0–V1: big holds and~the~first~directions
 
 #technique(
   key: "jug",
@@ -73,7 +75,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   when: [
     *Look for*
     - big chalky holds between hard sections. On steep problems, choose your rest jugs before you start.#ix("Resting on the wall")
-    - which way each jug faces. One that faces sideways is a #tref("sidepull"). One that faces down is an #tref("undercling").
+    - which way each jug faces. One that faces sideways is a #tref("sidepull", body: [sidepull]). One that faces down is an #tref("undercling", body: [undercling]).
 
     *Symptoms*
     - Your forearms #jt("pump") on easy holds. German school lessons blame squeezing too hard or hanging on bent arms #src("C42").
@@ -99,12 +101,12 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "sidepull.svg",
   caption: [(a) Under a left-hand sidepull, the body swings open. (b) Body to the right of it, leaning away. The left foot pushes left.],
   how: [
-    + Read which way the hold faces. A hold on your left whose edge faces left is a left-hand sidepull.
+    + Read which way the hold faces. A hold on your left whose edge faces left is a left-hand~sidepull.
     + Grip it thumb up, fingers pointing into the edge. Pull towards your middle.
     + Lean away. Move your hips and shoulders right until your left arm is straight #src("C34", "C36").
     + Push your feet the other way. Your left foot pushes left against its foothold #src("C36").
-    + Turn side-on to reach. Later, a #tref("backstep") or partial #tref("drop-knee") on the reaching side adds height #src("C36").
-    + If there is a spot for your thumb on the back of the hold, squeeze it into a #tref("pinch") #src("C36").
+    + Turn side-on to reach. Later, a #tref("backstep", body: [backstep]) or partial #tref("drop-knee", body: [drop knee]) on the reaching side adds height #src("C36").
+    + If there is a spot for your thumb on the back of the hold, squeeze it into a #tref("pinch", body: [pinch]) #src("C36").
   ],
   when: [
     *Look for*
@@ -124,7 +126,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   sources: ("C34", "C36", "C40", "C41", "H3"),
 )
 
-== V2: edges, open hands, pressing and pulling up
+== V2: edges, open hands, pressing~and~pulling~up
 
 #technique(
   key: "half-crimp",
@@ -151,7 +153,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
     *Symptoms*
     - Your fingertips roll off the front of the edge. Your body is too high above it, or the edge slopes.
-    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now, because a #tref("full-crimp") is for the tiny edges of about V5 (judgement).
+    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now, because a #tref("full-crimp", body: [full crimp]) is for the tiny edges of about V5 (judgement).
     - You feel a sharp pain at the base of a finger. Stop for the day.
   ],
   errors: [
@@ -189,7 +191,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
     *Symptoms*
     - Your fingers peel off as your hips rise. You have moved above the line of pull.
-    - The open hand slides on a 1–2 cm edge. Switch to a #tref("half-crimp") #src("C29").
+    - The open hand slides on a 1–2 cm edge. Switch to a #tref("half-crimp", body: [half crimp]) #src("C29").
   ],
   errors: [
     - Starting in a #jt("crimp") and letting it be forced open under full load. Hooper's Beta#ix("Hooper, Jason") links this to pulley tears#ix("Injuries!pulley") #src("C15"). Choose the open hand before you load the hold.
@@ -301,7 +303,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
         + Get a foot high on the side of the volume, or #tref("heel-hook", body: [heel-hook]) its edge #src("C5", "C39").
         + Pull on the volume's edge until you are balanced. Only then flip a hand onto the top #src("C39").
         + Press the heel of your palm on the top, away from the way you are going #src("C11").
-        + Move your hips over the high foot and stand up on it, as in a #tref("rockover") #src("C6").
+        + Move your hips over the high foot and stand up on it, as in a #tref("rockover", body: [rockover]) #src("C6").
         + Keep pressing with the palm while the other hand goes to the next hold.
       ],
       figure: "volume-mantle.svg",
@@ -396,7 +398,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [Seen from above, with the wall at the top. The thumb and fingers squeeze across each hold.],
   how: [
     + Find two opposite faces. Put your thumb on one and your fingers on the other, so you squeeze straight across.
-    + On a narrow pinch, squeeze between the thumb pad and the side of the index finger #src("C35"). Bend the fingers as in a #tref("half-crimp") #src("C38").
+    + On a narrow pinch, squeeze between the thumb pad and the side of the index finger #src("C35"). Bend the fingers as in a #tref("half-crimp", body: [half crimp]) #src("C38").
     + On a wide pinch, lay your fingers flat and open #src("C38").
     + On a #jt("volume") edge, put the thumb on one face and the fingers on the other #src("C11").
     + Put your thumb where the chalk marks show #src("C38").
@@ -406,7 +408,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   when: [
     *Look for*
     - vertical ribs, blocks and volume edges with two usable sides.
-    - a #tref("sidepull") with a thumb spot on the back. Pinching it pulls you in #src("C36").
+    - a #tref("sidepull", body: [sidepull]) with a thumb spot on the back. Pinching it pulls you in #src("C36").
 
     *Symptoms*
     - The hold squirts out sideways. You aren't squeezing straight across.
@@ -418,7 +420,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Taking a narrow pinch on a hold that offers a wide one. Compared with a jug, climbers' pull dropped 6–19% on a wide pinch but 31–46% on a narrow one #src("C31").
   ],
   tall: [Big hands help on wide pinches#ix("Hand size") #src("C37"), less so on narrow ones (judgement).],
-  small: [If your thumb can't press back on a wide pinch, you may be able to hold it like an edge #src("C37"), or pull it as a #tref("sidepull"), leaning away from it (judgement).],
+  small: [If your thumb can't press back on a wide pinch, you may be able to hold it like an edge #src("C37"), or pull it as a #tref("sidepull", body: [sidepull]), leaning away from it (judgement).],
   related: ("sidepull", "compression", "wrap", "thumb-catch"),
   watch: (("Lattice Training", "A Deep Dive into EVERY Climbing Grip Type", "https://www.youtube.com/watch?v=HBa-ilEp4Os&t=1317s"),),
   sources: ("C11", "C31", "C34", "C35", "C36", "C37", "C38", "C42", "C43"),
@@ -468,7 +470,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   grade-note: [It takes a lot of shoulder power #src("C34"). Many climbers avoid it until problems force it, which starts around V3.],
   summary: [A gaston faces towards your middle, usually in front of your face or chest. You grip it thumb down and elbow out. Then you push it away from you, like prising open lift doors #src("C41", "C57").],
   figure: "gaston.svg",
-  caption: [The same left-facing hold. (a) With the body to its right, it is a left-hand sidepull. (b) With the body to its left, it is a right-hand gaston, thumb down and elbow out.],
+  caption: [The same left-facing hold. (a) With the body to its right, it is a left-hand~sidepull. (b) With the body to its left, it is a right-hand gaston, thumb down and elbow out.],
   how: [
     + Put your fingers on the face of the hold that faces your middle. Turn your thumb down and your elbow out #src("C41", "C57").
     + Push the hold away from your middle. Your shoulder does most of the work #src("C34").
@@ -588,7 +590,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     + Feel the hold with your thumb for bumps, dips or a second face. Give up a little of the main hold if that gets the thumb on #src("C7").
     + *Thumb catch:* press the thumb into a dimple below or beside the fingers.
     + *Thumb press:* lay the thumb pad flat on a face and push. It takes load off the fingers #src("C7").
-    + *On a #tref("sloper"):* try the thumb below the hold and to one side #src("C2").
+    + *On a #tref("sloper", body: [sloper]):* try the thumb below the hold and to one side #src("C2").
     + *On a #jt("volume") edge:* put the thumb on one face and the fingers on the other #src("C11").
     + *Thumb wrap:* on a big jug or a #jt("rail"), wrap the thumb round the front #src("C1").
     + *Thumbercling:* on an overhead hold that faces down, press up with the thumb pad. Keep the wrist and fingers straight #src("C7").
@@ -653,7 +655,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   - In one model,#ix("Studies!pulley loads") 96 N at the fingertip put about 255 N on the A2 pulley in a crimp. The open "slope" grip put about 8 N on it #src("C14", "C23").
   - Schweizer#ix("Schweizer, Andreas") puts pulley forces in a crimp at 3–4 times the fingertip force. They become particularly high once the middle joint bends past about 80°, and he advises against bending it past 80–90° #src("C25"). The half crimp in this book, at 85–90°, sits at the top of that range (this book's reading).
   - A sudden jolt on one finger, as from a foot slip, can put about 450 N on A2. Its cited breaking force is about 400 N #src("C26").
-  - The model above compares a crimp, with the end joint bent back, with an open grip. We found no pulley load figure for the half crimp, measured or modelled, so the model can't say whether a half crimp saves anything, or how much #src("C23"). The research found for this book does not compare injury rates between full and half crimping.
+  - The model above compares a crimp, with the end joint bent back, with an open grip. We found no pulley load figure for the half crimp, measured or modelled, so the model can't say whether a half crimp saves anything, or how much #src("C23"). The research found for this book does not compare injury rates between full and half~crimping.
 
   Coaches disagree about what follows. A physio-based guide says use the full crimp only when needed #src("C9"). Ned Feehally#ix("Feehally, Ned") calls controlled full-crimp training on a #jt("fingerboard")#ix("Fingerboard!full-crimp training") (a board of small edges to hang from) "relatively safe", though "not 100 per cent risk free" #src("C8"). Hooper's Beta#ix("Hooper, Jason") says pulleys get stronger with load #src("C14") and links tears to a hand forced open under full load #src("C15").
 

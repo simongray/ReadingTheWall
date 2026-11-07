@@ -9,39 +9,39 @@
 
 ["arete.svg"]
 alt = "A climber from behind at an arête, first laybacking its edge, then with a heel hooked round it."
-drawn = "96202db753aa"
+drawn = "0894a39b16ef"
 
 ["back-flag.svg"]
 alt = "A climber from behind, on the left hand and left foot, with the right leg crossed behind to balance."
-drawn = "c7d898bca172"
+drawn = "cd21364d7118"
 
 ["backstep.svg"]
 alt = "A climber from behind with the left foot under the right hand, then further left, where the hips turn out."
-drawn = "3d875fa21f2d"
+drawn = "d8f9ecb202a4"
 
 ["bicycle.svg"]
 alt = "Close-up from the side of two shoes squeezing a hold, one on top and one underneath."
-drawn = "6d6503ed00da"
+drawn = "88eccdbcfe34"
 
 ["body-tension.svg"]
 alt = "A climber on an overhang from the side, first hanging slack with the feet off, then tensed with the toes on a foothold."
-drawn = "c9f4815a781d"
+drawn = "3d732d41c8d1"
 
 ["bumping.svg"]
 alt = "A climber from behind, with numbered arrows moving the right hand up through a small hold to a higher one."
-drawn = "0640b93a8e1d"
+drawn = "de21c6f5098c"
 
 ["campus-move.svg"]
 alt = "A climber hanging from an overhang with no footholds, knees tucked, then popping the hips up to move one hand higher."
-drawn = "35f7407fb881"
+drawn = "b4686c94b261"
 
 ["compression.svg"]
 alt = "A climber from behind, spread across two large volumes, squeezing the upper one with the palms and the lower one with the feet."
-drawn = "157c59e872aa"
+drawn = "b846971ed0bb"
 
 ["concept-balance.svg"]
 alt = "A climber from behind with the weight first between both feet, then moved over the left foot so the right can step up."
-drawn = "e8a7972995d2"
+drawn = "1ca77ddfb635"
 
 ["concept-barn-door.svg"]
 alt = "A climber from behind on the left hand and left foot, swinging open like a door, then steadied by a back flag."
@@ -65,7 +65,7 @@ drawn = "9467db8afd0b"
 
 ["considerations-sit-start.svg"]
 alt = "A climber sitting on a mat for a sit start: knees jammed, then knees out wide, then one foot high and one low."
-drawn = "786be75b6ed0"
+drawn = "9ba188b1059e"
 
 ["corner.svg"]
 alt = "A climber from behind, bridged across a corner with palms and feet pressing on both walls, and the same position from above."
@@ -73,15 +73,15 @@ drawn = "2602c2a0d7f8"
 
 ["counter-kick.svg"]
 alt = "A climber from behind, swinging open from the right hand, then kicking the left leg across to stop the swing."
-drawn = "44860ac6f3a5"
+drawn = "e1e62df2b71b"
 
 ["cover.svg"]
 alt = "A pelican climbing an indoor wall, gripping holds with its wing feathers and its bill, webbed feet on a volume and a foothold."
-drawn = "d91d515e542e"
+drawn = "5ae06923fc83"
 
 ["cross-through.svg"]
 alt = "A climber from behind, traversing left, with the right arm crossing over the head to the next hold."
-drawn = "c41715f37a73"
+drawn = "8b407389ddff"
 
 ["cutting-loose.svg"]
 alt = "A climber hanging from an overhang as the feet cut and swing out, tuck, then swing back in to catch a foothold."
@@ -89,15 +89,15 @@ drawn = "e690ff891eee"
 
 ["deadpoint.svg"]
 alt = "A climber from the side, sinking with the hips out, then driving them in and up to grab a higher hold."
-drawn = "517c0a5afdb1"
+drawn = "fd94204ea382"
 
 ["double-clutch.svg"]
 alt = "A climber from behind, jumping from a crouch on one hold and catching two high holds, left hand first, then right."
-drawn = "08f66fe096a9"
+drawn = "6ffe2f6ebd0f"
 
 ["double-dyno.svg"]
 alt = "A climber from behind, sinking on two holds, then jumping to catch a higher pair with both hands at once."
-drawn = "735eb8ca2f85"
+drawn = "e2ec8f35bc22"
 
 ["drop-knee.svg"]
 alt = "A climber from behind with the right foot high, first short of a high hold, then dropping the right knee to reach it."
@@ -105,7 +105,7 @@ drawn = "656ba6f3efeb"
 
 ["dynamic-slab.svg"]
 alt = "A climber from behind, jumping from one volume to another and catching a hold overhead, with the moves numbered."
-drawn = "f55809bf7b6f"
+drawn = "a24d15da3268"
 
 ["dyno.svg"]
 alt = "A climber from the side, sinking low, driving up with the legs, then catching a big hold with the feet off the wall."
@@ -113,35 +113,35 @@ drawn = "96effd09af1e"
 
 ["edging.svg"]
 alt = "Three views from above of a shoe on a small hold: on the inside edge, on the outside edge, and wrongly on the arch."
-drawn = "e46cc6a96409"
+drawn = "830f338a1c0a"
 
 ["filmstrip-drop-knee.svg"]
 alt = "A film strip from behind of a climber stepping the right foot up, dropping the knee and reaching a high hold."
-drawn = "c988e2d18a21"
+drawn = "344a7c134a4a"
 
 ["filmstrip-dyno.svg"]
 alt = "A film strip from the side of a climber sinking, driving up, catching a high hold and holding the swing."
-drawn = "b7cad02e1810"
+drawn = "8978199aa702"
 
 ["filmstrip-heel-hook.svg"]
 alt = "A film strip from behind of a climber hooking a heel on a big hold, rocking over it and standing up to reach."
-drawn = "22589655625f"
+drawn = "8310f7e5dcb7"
 
 ["filmstrip-hips-first.svg"]
 alt = "A film strip from behind of a climber shifting the hips over one foot, stepping the other up, then standing to reach."
-drawn = "891aa486dcfd"
+drawn = "4a4467aa705f"
 
 ["filmstrip-sloper.svg"]
 alt = "A film strip from the side of a hand settling onto a big rounded hold, from fingertips to palm, until the wrist hangs below it."
-drawn = "1deddf8bbe88"
+drawn = "8980c6e1a119"
 
 ["filmstrip-top-out.svg"]
 alt = "A film strip from the side of a climber hanging from the lip of a wall, pressing up, stepping on top and standing."
-drawn = "adb0291f22b3"
+drawn = "2883dc333f0a"
 
 ["filmstrip-worked-problem.svg"]
 alt = "A film strip from behind of a climber moving from the start hold to the finish of the worked problem."
-drawn = "86befd96861d"
+drawn = "97b6387b7bfd"
 
 ["flag.svg"]
 alt = "A climber from behind on the left hand and right foot, swinging open, then balanced by the left leg stretched out to the side."
@@ -153,7 +153,7 @@ drawn = "06c46453876d"
 
 ["foot-catch.svg"]
 alt = "A climber from behind, stopping a swing with the toes hooked behind a volume, and a close-up of the toes."
-drawn = "24f1ecbaccc8"
+drawn = "d4634d459005"
 
 ["foot-swap.svg"]
 alt = "Three close-ups from the side of one foot replacing the other on a small foothold."
@@ -161,7 +161,7 @@ drawn = "b81b5e914e24"
 
 ["frog.svg"]
 alt = "A climber with the knees out from behind, then from the side with the knees to the wall and then with the hips close to it."
-drawn = "613fe4cf981d"
+drawn = "41ad7603e5f1"
 
 ["front-pointing.svg"]
 alt = "Two side views of a shoe at a pocket: the tip resting on the rim, and the toe pointed into the back."
@@ -177,23 +177,23 @@ drawn = "27de20b180fa"
 
 ["half-crimp.svg"]
 alt = "Two side views of a hand on a small hold, comparing a half crimp with a full crimp."
-drawn = "92801c81cfc9"
+drawn = "0bbbdf2e801c"
 
 ["hand-atlas.svg"]
 alt = "Ten close-ups of a hand showing the grips, from jug and crimps to sloper, pinch, undercling and palm press."
-drawn = "1c85a164621e"
+drawn = "b679514f24ea"
 
 ["hand-foot-match.svg"]
 alt = "A climber from behind pressing down on a ledge at hip height, then bringing the left foot up beside the hand."
-drawn = "96027b2db5ce"
+drawn = "ed78445485fd"
 
 ["hands-hold-angle.svg"]
 alt = "Three side views of a fingertip on a small hold: one with a raised lip, one flat, and one sloping away."
-drawn = "8e8d1139ae38"
+drawn = "2b91e694ca2b"
 
 ["heel-hook.svg"]
 alt = "A climber from behind, first short of a high hold, then reaching it with a heel hook, and a close-up of the heel."
-drawn = "4983c3683a1f"
+drawn = "6a8b47bd3afc"
 
 ["heel-toe-cam.svg"]
 alt = "Close-up from behind of one foot wedged between a big hold below and a volume above."
@@ -201,7 +201,7 @@ drawn = "9afdc0b1f9ac"
 
 ["high-step.svg"]
 alt = "A climber from behind, first short of a high hold, then with the right foot stepped up high and the knee out."
-drawn = "07bedfca4a2c"
+drawn = "88590b3ae84e"
 
 ["hip-pop.svg"]
 alt = "A climber from behind, sitting back on a partial drop knee, then popping the hip in and throwing the right hand to a high hold."
@@ -209,15 +209,15 @@ drawn = "045afa5211b5"
 
 ["hip-pump.svg"]
 alt = "A climber from behind, dipping the hips onto the right foot, then rising in one arc to reach a higher hold."
-drawn = "345a4845d012"
+drawn = "0ce9c38d38ba"
 
 ["hip-turn.svg"]
 alt = "A climber from behind, first short of a hold overhead, then reaching it with the left hip turned to the wall."
-drawn = "54ce53178010"
+drawn = "641320a30697"
 
 ["inside-flag.svg"]
 alt = "A climber from behind, crouched on one low foothold, then standing with the right leg passed across the left."
-drawn = "6efa7b15adbf"
+drawn = "f6d5475011e5"
 
 ["jug.svg"]
 alt = "A climber from behind on a big hold, first on two bent arms, then on one straight arm while shaking out the other."
@@ -233,11 +233,11 @@ drawn = "5413560e4d95"
 
 ["lache.svg"]
 alt = "A climber from behind, swinging from two holds, letting go and catching a far hold one-handed."
-drawn = "98983fec5c2b"
+drawn = "6e9221d73cf7"
 
 ["latching.svg"]
 alt = "Close-ups of a hand arriving just above a hold and dropping onto it, then a climber from behind bearing down on it."
-drawn = "c8b0f16c1287"
+drawn = "6d306c43b30d"
 
 ["layback.svg"]
 alt = "A climber from the side, leaning back on straight arms from the edge of a flake with both feet pressed against it."
@@ -245,7 +245,7 @@ drawn = "a9f7eb83b6f6"
 
 ["legend.svg"]
 alt = "A climber from behind with the left and right limbs labelled, beside a list of the symbols the drawings use."
-drawn = "6e2925c1add7"
+drawn = "fd7646d69757"
 
 ["lock-off.svg"]
 alt = "A climber from the side, holding a bent right arm tight to the ribs while the left arm reaches slowly up."
@@ -253,11 +253,11 @@ drawn = "e9a74c86949c"
 
 ["lunge.svg"]
 alt = "A climber from behind, sinking with the eyes on a high hold, then turning the hip and throwing the right hand to it."
-drawn = "8ef5781aab6c"
+drawn = "2a5ef79af87e"
 
 ["mantle.svg"]
 alt = "Three side views of a climber at a flat-topped wall: pulling, pressing down on one palm, then stepping onto the top."
-drawn = "2362f41a319a"
+drawn = "61c080460a0c"
 
 ["matching.svg"]
 alt = "Two views of hands on one long hold: a left hand in the middle crowding the right, then each hand on its own half."
@@ -269,19 +269,19 @@ drawn = "76c076520ed6"
 
 ["opposition.svg"]
 alt = "A climber from behind, arms out to the sides, pulling two far-apart side-facing holds towards each other."
-drawn = "66557e44a3e5"
+drawn = "efd09040b657"
 
 ["overhang.svg"]
 alt = "A climber on an overhang from the side, first stretched out with the feet coming off, then with the feet up and the hips in."
-drawn = "7d3a5635bae4"
+drawn = "660fe4a72582"
 
 ["paddle-dyno.svg"]
 alt = "A climber from behind, launching from two holds and tapping along a row of numbered holds to reach a good one."
-drawn = "acc35759a14a"
+drawn = "6d5d7c21ffa8"
 
 ["palming.svg"]
 alt = "A climber from behind, with the right palm pressing on a big volume so the right foot can step up."
-drawn = "989a2324a758"
+drawn = "6374d63e41c7"
 
 ["pinch.svg"]
 alt = "Three views from above of a hand pinching: a narrow hold, a wide hold, and the edge of a volume."
@@ -293,55 +293,55 @@ drawn = "05934c77c9c6"
 
 ["pocket.svg"]
 alt = "Two side views of two fingers in a pocket, with the little finger kept beside them, then curled into the palm."
-drawn = "f51230acf58f"
+drawn = "dfd91f13e8f3"
 
 ["pogo.svg"]
 alt = "A climber from behind, sinking with the right leg back, then swinging it up while the left foot pushes and the right hand reaches."
-drawn = "1a764a2589a4"
+drawn = "1c6d0efdae3c"
 
 ["pre-loading.svg"]
 alt = "A climber on an overhang from the side, first pulled in tight, then sitting back on straight arms with the feet pressing."
-drawn = "5158cdd9c09b"
+drawn = "4593f8769393"
 
 ["precise-footwork.svg"]
 alt = "A climber from behind, looking up as the right foot slips off its foothold, then watching the foot onto it."
-drawn = "225321dfd750"
+drawn = "66d99e5b44d8"
 
 ["reading-hold-orientation.svg"]
 alt = "Four views from behind of how the body sits on a jug, a sidepull, an undercling and a gaston."
-drawn = "c1e4a7b9aa24"
+drawn = "bac3a44a85de"
 
 ["reading-v2-slab-answer.svg"]
 alt = "The same slab with a climber on the big foothold; arrows take the feet up by way of the volume."
-drawn = "d771b97943ad"
+drawn = "2356c2d0fb3f"
 
 ["reading-v2-slab.svg"]
 alt = "A slab from behind with five lettered holds, seven numbered footholds and a low volume."
-drawn = "b81cb9cc8a48"
+drawn = "074d9bf7e551"
 
 ["reading-v3-overhang-answer.svg"]
 alt = "The same overhang with a climber whose right heel hooks the big hold out to the side, the right hand high on a rounded hold."
-drawn = "115db66141ab"
+drawn = "25bb71690b19"
 
 ["reading-v3-overhang.svg"]
 alt = "A 20-degree overhang from behind with lettered holds and four footholds; one big hold sits out to the right."
-drawn = "f918738f2c53"
+drawn = "059c26c3a086"
 
 ["reading-v3-traverse-answer.svg"]
 alt = "The same traverse with a climber crossing the left hand under the right arm, left hip to the wall."
-drawn = "fe12fec0cf3a"
+drawn = "a0e6264654e5"
 
 ["reading-v3-traverse.svg"]
 alt = "A traverse from behind, running right, with five lettered holds above seven footholds."
-drawn = "52737b1ed095"
+drawn = "30800440457f"
 
 ["reading-v4-sit-answer.svg"]
 alt = "The same problem with a climber off the mat: left foot high on one side, right foot lower on the other, right hand high."
-drawn = "76c836f70fd3"
+drawn = "b773963ca7b8"
 
 ["reading-v4-sit.svg"]
 alt = "A sit start from behind: lettered holds above and six footholds (two almost on the mat)."
-drawn = "5691a4ae5848"
+drawn = "062d927144bb"
 
 ["reading-v4-steep-answer.svg"]
 alt = "The same wall with a climber holding the hips in: toes on the large foothold and a thin edge, right hand on a rounded hold."
@@ -353,31 +353,31 @@ drawn = "66baa089b752"
 
 ["reading-v5-gap-answer.svg"]
 alt = "The same wall with a climber at the top of a deadpoint, both feet on, the right hand catching the small edge."
-drawn = "9acd2549d990"
+drawn = "157077a34555"
 
 ["reading-v5-gap.svg"]
 alt = "A 25-degree overhang from behind with a long gap below a small high edge and footholds at three heights."
-drawn = "5ef26e432dd1"
+drawn = "fccabf04a2c0"
 
 ["reading-v5-volumes-answer.svg"]
 alt = "The same wall with a climber squeezing the upper volume's sides with the palms and the lower volume with the feet."
-drawn = "ea9179a9fc2c"
+drawn = "442d6357978c"
 
 ["reading-v5-volumes.svg"]
 alt = "A 25-degree overhang from behind with two big volumes one above the other, a start hold between them and a finish hold above."
-drawn = "553f6824e2e4"
+drawn = "8a304e0ef65f"
 
 ["reading-v6-cave-answer.svg"]
 alt = "The same wall with a climber: left toes hooked behind the far left hold, right foot pushing, left hand on high hold D."
-drawn = "c5c3128c8a8a"
+drawn = "38076c9f0d4c"
 
 ["reading-v6-cave.svg"]
 alt = "A 40-degree overhang from behind: the footholds all sit right of the middle and one big hold sits far out to the left."
-drawn = "ecc0542f0d59"
+drawn = "d0da0365b8c5"
 
 ["reading-worked-problem.svg"]
 alt = "A diagram of a problem on a wall, with no climber: labelled left- and right-hand holds linked by dashed arrows from start to finish."
-drawn = "a15abd977124"
+drawn = "2fc7d94947d3"
 
 ["regrip.svg"]
 alt = "Two views of a hand on a long hold: catching it at one end, then walking along to an incut by the screw hole."
@@ -385,19 +385,19 @@ drawn = "13d90403a95e"
 
 ["rockover.svg"]
 alt = "A climber from behind, moving the hips across over a high right foot, then standing up on it to reach."
-drawn = "6eb84223ac93"
+drawn = "5cd36facdec7"
 
 ["roof.svg"]
 alt = "A climber under a roof from the side, first hanging with the feet swung off, then lying level with the toes on a hold."
-drawn = "b27470db63ef"
+drawn = "f54a003e3f61"
 
 ["run-and-jump.svg"]
 alt = "A climber from the side, running across a mat, pushing off a volume and catching a high hold."
-drawn = "d68642ed9a4f"
+drawn = "8cb51f5bb982"
 
 ["sidepull.svg"]
 alt = "A climber from behind on a side-facing hold, first under it and swinging open, then to its right and leaning away."
-drawn = "9f64c4c8510b"
+drawn = "7210848907dc"
 
 ["sit-start.svg"]
 alt = "A climber from behind on a sit start, first square on with the knees splayed, then with the hips turned."
@@ -417,7 +417,7 @@ drawn = "665807aa965c"
 
 ["stemming.svg"]
 alt = "A climber from behind between two volumes, with the legs spread and each foot pushing on its own volume."
-drawn = "aa0e8da66b97"
+drawn = "f0725bc24183"
 
 ["terrain-wall-angles.svg"]
 alt = "The same climber from the side on a slab, a vertical wall, an overhang and a roof."
@@ -433,7 +433,7 @@ drawn = "6a7de6125717"
 
 ["toe-hook.svg"]
 alt = "A climber from behind with the left toes hooked behind a hold out to the side, and a close-up of the toes."
-drawn = "e6a143fba86c"
+drawn = "fea73e10b51a"
 
 ["toe-pull.svg"]
 alt = "A climber on an overhang from the side, first with the hips out and the foot popping off, then with the hips in."
@@ -441,15 +441,15 @@ drawn = "6d2b4e26f243"
 
 ["top-out.svg"]
 alt = "A climber topping out a wall, from behind with a heel on the lip, then from the side rocking over it."
-drawn = "734242926fc5"
+drawn = "baeb55828ba0"
 
 ["traverse.svg"]
 alt = "A climber from behind, moving right, with the left arm crossing over the right and the left leg flagged behind."
-drawn = "d0e2bc76c918"
+drawn = "630366204e97"
 
 ["twist-lock.svg"]
 alt = "A climber from behind, turning the hip and shoulder in to lock the right arm and reach high, and the lock from the side."
-drawn = "8926f3f6f821"
+drawn = "96bd059dd9d5"
 
 ["undercling.svg"]
 alt = "A climber from the side on a down-facing hold, first overhead with the arms bent, then at the waist with the feet up."
@@ -465,4 +465,4 @@ drawn = "39ca1399617a"
 
 ["wrap.svg"]
 alt = "A hand wrapped round an arête seen at an angle, with the palm on one face and the fingers round the edge."
-drawn = "cfaa57a1e5a7"
+drawn = "0b77db4e38c5"

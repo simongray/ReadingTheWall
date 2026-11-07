@@ -361,7 +361,7 @@ EDGE_GAP = {"inside": 0.2, "outside": 1.1}
 
 
 def edging(path):
-    kw = dict(x0=-17.5, x1=17.5, y0=-22, y1=6, scale=0.7)
+    kw = dict(x0=-17.5, x1=17.5, y0=-22, y1=11, scale=0.7)
     # (a) inside edge: right foot turned out, big-toe side on the hold
     a, hold = plan_panel(hold_x=5, **kw)
     P, _ = shoe_top_against(a, 9.0, 3.5, EDGE_DEG["inside"], gap=EDGE_GAP["inside"])
@@ -387,8 +387,8 @@ def edging(path):
     hold_under_shoe(c, hold, P)
     c.cross((0, -9))
     c.label("arch on the hold", (0, -16), size=7)
-    combine([a, b, c], path, gap=3, captions=["inside edge", "outside edge",
-                                              "not the arch"])
+    combine([a, b, c], path, gap=3, labels=["a", "b", "c"],
+            captions=["inside edge", "outside edge", "not the arch"])
 
 
 def pivoting(path):
@@ -742,7 +742,7 @@ def toe_hook(path):
     a.arrow([add(grip(TK["LH0"]), (0, 7)), (-35, 214)], kind="move")
     a.arrow([add(stand(TK["RF"]), (10, 18)), add(stand(TK["RF"]), (10, 4))],
             kind="force")
-    a.label("push", (44, 66), size=7.5)
+    a.label("push", (52, 66), size=7.5)
     a.label("toe hook", (-92, 146), to=add(contact, (0, 4)))
     a.cog(c.cog(), plumb_to=46)
     check("toe-hook a", c)
@@ -797,9 +797,9 @@ def bicycle(path):
     shoe_side(f, under, 22, spot="top", up=1, shin=134, shin_fill=LEFT,
               z=0, name="bicycle under")
     f.arrow([add(top, (-2, 16)), add(top, (-2, 7.5))], kind="force")
-    f.arrow([add(under, (2, -22)), add(under, (2, -12))], kind="force")
+    f.arrow([add(under, (2, -20)), add(under, (2, -12))], kind="force")
     f.label("push", (-16, 26), size=7)
-    f.label("pull", (-4, -31), size=7)
+    f.label("pull", (-4, -33), size=7)
     f.save(path)
 
 
@@ -903,8 +903,8 @@ HS = dict(LH=(-44, 216), RH=(72, 178), T=(44, 282), LF=(-18, 60), RF=(26, 60),
           HF=(46, 114))
 
 
-def hs_panel(x0=-62, x1=100, y1=296):
-    f = Fig(x0, 40, x1, y1)
+def hs_panel(x0=-62, x1=100, y1=296, y0=40):
+    f = Fig(x0, y0, x1, y1)
     wall_grid(f)
     for k in ("LH", "RH", "T"):
         hold(f, "jug", HS[k])
@@ -923,7 +923,9 @@ def high_step_pose():
 
 
 def high_step(path):
-    a = hs_panel()
+    # (the bottom row of bolt holes is left out, so the figure stays on the page of
+    # the steps it explains)
+    a = hs_panel(y0=50)
     # standing tall on the low feet, right arm at full stretch: still short.
     # The reaching side lengthens, as in the heel hook figure
     c = FootClimber((0, 150), lean=2, bend=-8, lh=grip(HS["LH"]),
@@ -932,7 +934,7 @@ def high_step(path):
                     rf={"at": stand(HS["RF"]), "angle": -16}, head=(2, 3))
     c.draw(a)
     a.cross((41, 272), size=a.mm(1.2))
-    b = hs_panel()
+    b = hs_panel(y0=50)
     d = high_step_pose()
     d.draw(b)
     b.arrow([add(stand(HS["RF"]), (10, 8)), add(stand(HS["HF"]), (10, -10))],
@@ -1059,7 +1061,7 @@ def precise_footwork(path):
     F = (30, 66)                    # the small foothold being stepped on
     panels = []
     for good in (False, True):
-        f = Fig(-70, 26, 88, 262)
+        f = Fig(-70, 36, 88, 262)
         wall_grid(f)
         for h in (LH, RH, T):
             hold(f, "jug", h)
@@ -1085,7 +1087,8 @@ def precise_footwork(path):
                 f.line((x, F[1] - 3.0), (x + 1.0, F[1] - 6.0), sw=0.3)
             f.arrow([add(F, (14, -6)), add(F, (14, -20))], kind="move")
             f.cross(add(F, (24, -13)))
-            f.label("lands short, slips", (40, 33), size=7.5)
+            f.text("lands short,", (67, 80), size=7.5)
+            f.text("slips", (67, 80 - f.pt(9.5)), size=7.5)
         check("precise-footwork", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -1187,8 +1190,8 @@ def filmstrip_heel_hook(path):
         check(f"filmstrip heel hook {i + 1}", c)
         frames.append(f)
     filmstrip(frames, path, captions=[
-        "hook the heel, toes out", "pull heel to bum", "hips over the heel",
-        "roll onto the toe", "stand up and reach"])
+        "hook the heel,\ntoes out", "pull heel\nto bum", "hips over\nthe heel",
+        "roll onto\nthe toe", "stand up\nand reach"])
 
 
 # ---------------------------------------------------------------- foot atlas
