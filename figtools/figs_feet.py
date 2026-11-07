@@ -207,6 +207,49 @@ def check_shoe(name, deg, shin, up=1, lo=48, hi=148):
         print(f"{name}: close-up ankle {a:.0f} deg (want {lo}-{hi})")
 
 
+# The close-ups' legs have the climbers' shape (climb.py): a calf at the back
+# of the shin, a knee narrower than the thigh and one outline round both. The
+# shin narrows to the ankle, where it enters the shoe.
+CLOSE_SHIN_FRONT = [(0, 5.5), (0.35, 5.0), (0.75, 4.5), (1, 3.7)]
+CLOSE_SHIN_BACK = [(0, 5.5), (0.25, 5.9), (0.6, 5.0), (0.9, 4.0), (1, 3.7)]
+
+
+def side_leg(f, ankle, shin_deg, toe, thigh_deg=None, k=1.0, fill=WHITE, ghost=False,
+             z=0.2):
+    """A leg in profile from `ankle`, long enough for the panel's edge to cut it off.
+
+    shin_deg: the shin's direction from the ankle. toe: the shoe's heel-to-toe
+      direction, which puts the front of the shin on the toes' side.
+    thigh_deg: the thigh's direction from the knee. Without it the leg is straight.
+    Returns the knee."""
+    sv = ang(shin_deg)
+    K = add(ankle, mul(sv, DIM["shin"] * k))
+    far = add(K, mul(ang(shin_deg if thigh_deg is None else thigh_deg), DIM["thigh"] * k))
+    # tube() puts its left profile on the side of perp(end - start)
+    shin_front = dot(mul(perp(sv), -1), toe) > 0
+    shin = tube(K, ankle, CLOSE_SHIN_FRONT if shin_front else CLOSE_SHIN_BACK,
+                CLOSE_SHIN_BACK if shin_front else CLOSE_SHIN_FRONT, k, cap1=1, cap2=1)
+    # the front of the thigh is on the side the knee juts out to, away from the shin
+    c = cross(norm(sub(K, far)), sv)
+    thigh_front = shin_front if abs(c) < 0.08 else c > 0
+    thigh = tube(far, K, THIGH_FRONT if thigh_front else THIGH_BACK,
+                 THIGH_BACK if thigh_front else THIGH_FRONT, k, cap1=0, cap2=1)
+    shapes = [thigh, shin]
+    fil, _ = climb._fillet(far, K, ankle, thigh, shin, 4.5 * k, 3.2 * k, k)
+    if fil:
+        shapes.append(fil)
+    if ghost:
+        silhouette(f, shapes, z, WHITE, stroke=GHOST["stroke"], sw=GHOST["sw"],
+                   dash=GHOST["dash"])
+    else:
+        silhouette(f, shapes, z, fill, sw=0.35)
+        # the cuff, where the trousers meet the shoe
+        cuf = add(ankle, mul(sv, 2.4 * k))
+        w = 3.9 * k
+        f.line(add(cuf, mul(perp(sv), w)), add(cuf, mul(perp(sv), -w)), z=z + 0.01, sw=0.3)
+    return K
+
+
 def shoe_side(f, at, deg, spot="toe", up=1, z=0, ghost=False, shin=None,
               shin_fill=WHITE, shin_len=60, sole_line=True, bend=0.0, k=1.0,
               flat=None, press=0.8, name=None):
@@ -234,15 +277,7 @@ def shoe_side(f, at, deg, spot="toe", up=1, z=0, ghost=False, shin=None,
     if shin is not None:
         # the leg goes in front of the shoe, so the shin enters it from
         # above, with a cuff line where they meet
-        sv = ang(shin)
-        top = add(ankle, mul(sv, shin_len * k))
-        sst = GHOST if ghost else dict(fill=shin_fill, stroke=INK, sw=0.35)
-        f.poly(capsule(ankle, 3.6 * k, top, 5.6 * k), z=z + 0.2, **sst)
-        if not ghost:
-            cuf = add(ankle, mul(sv, 2.4 * k))
-            w = 3.9 * k
-            f.line(add(cuf, mul(perp(sv), w)), add(cuf, mul(perp(sv), -w)),
-                   z=z + 0.21, sw=0.3)
+        side_leg(f, ankle, shin, d, k=k, fill=shin_fill, ghost=ghost, z=z + 0.2)
         if name:
             check_shoe(name, deg, shin, up)
     draw_shoe(f, base, d, n, k, bend, flat, st=st, z=z,
@@ -1258,21 +1293,6 @@ def wall_line(f, angle, through=(0, 0)):
     return d, n
 
 
-def bent_leg(f, ankle, shin_deg, thigh_deg, z=0.2):
-    """A leg with its knee in the tile: the shin up from `ankle` and the thigh on
-    from the knee, drawn long so the tile's edge cuts it off. Returns the knee."""
-    sv = ang(shin_deg)
-    K = add(ankle, mul(sv, DIM["shin"]))
-    far = add(K, mul(ang(thigh_deg), 40))
-    leg = dict(fill=WHITE, stroke=INK, sw=0.35)
-    f.poly(capsule(far, 6.6, K, 5.0), z=z, **leg)
-    f.poly(capsule(K, 5.0, ankle, 3.6), z=z + 0.05, **leg)
-    cuf = add(ankle, mul(sv, 2.4))           # cuff where the shin enters the shoe
-    f.line(add(cuf, mul(perp(sv), 3.9)), add(cuf, mul(perp(sv), -3.9)), z=z + 0.06,
-           sw=0.3)
-    return K
-
-
 def atlas_toe_edge():
     """The front of the sole on a small ledge that sticks straight out, its
     top facing up, the heel a little raised, as in the front-pointing entry."""
@@ -1352,7 +1372,7 @@ def atlas_heel_hook():
     on = (-7.2, 5.2)
     deg, shin_deg, thigh_deg = 104, 222, 292
     P = shoe_side(f, on, deg, spot="heelback", up=1)
-    bent_leg(f, P(*ANKLE), shin_deg, thigh_deg)
+    side_leg(f, P(*ANKLE), shin_deg, ang(deg), thigh_deg)
     check_shoe("atlas heel hook", deg, shin_deg)
     # the pull towards the bum, drawn below the shin, not on it
     f.arrow([(-11, -5), (-15, -18)], kind="force")
@@ -1414,7 +1434,7 @@ def atlas_knee_bar():
     dd = ang(fa)
     o = sub(ANKLE, SPOT["tip"])
     ankle = add(tip, add(mul(dd, o[0]), mul(perp(dd), o[1])))
-    K = bent_leg(f, ankle, shin_deg, thigh_deg)
+    K = side_leg(f, ankle, shin_deg, dd, thigh_deg)
     hipdir = ang(thigh_deg)
     shoe_side(f, tip, fa, spot="tip", up=1)
     check_shoe("atlas knee bar", fa, shin_deg)

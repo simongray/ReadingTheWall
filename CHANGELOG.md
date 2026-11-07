@@ -452,20 +452,22 @@ section as the notes of the GitHub release.
 
 ### Added
 
-- Chapter 2 ends with "Eight problems to read", eight problems invented for this
-  book. They run from about V2 to about V6 in different styles. Each has a
-  question page with a drawing and prompts that follow the reading method. Its
-  answer is overleaf: the moves on a second drawing, the crux, why the obvious
-  try fails, what to try next and the entries to read. No gym has set these
-  problems and nobody has climbed them, so their grades and beta are judgement.
+- A companion booklet, _Reading the Wall: Exercises_, published with the book. It
+  holds eight problems to read, invented for the book. They run from about V2 to
+  about V6 in different styles. Each has a question page with a drawing and
+  prompts that follow the reading method. Its answer is overleaf: the moves on a
+  second drawing, the crux, why the obvious try fails, what to try next and the
+  entries to read, with the book's page numbers. No gym has set these problems
+  and nobody has climbed them, so their grades and beta are judgement. Chapter 2
+  points to the booklet.
 - Chapter 6: Competition set pieces (V5), a new entry with parts for the lache,
   the paddle dyno, the tic-tac and the double clutch. It says these moves depend
   more on a gym's setting style than on its grades. It also says the names
   "tic-tac" and "double clutch" are loose, since no climbing source uses the
   first and sources disagree on the second.
 - Notes for small climbers on nine entries: Edging, High step, Hand–foot match,
-  Backstep, Lock-off, Sidepull, Pinch, Deadpoint and Volumes. Six of the worked
-  problems have one too. Chapter 9 has a new section, "Climbing small", after
+  Backstep, Lock-off, Sidepull, Pinch, Deadpoint and Volumes. Six of the
+  booklet's problems have one too. Chapter 9 has a new section, "Climbing small", after
   "Climbing tall", so the sections after it move down a number.
 - Chapter 9, Learning technique: "A ladder for any technique" takes a technique
   from a single move to problems at your limit in three steps. Three questions
@@ -559,10 +561,19 @@ section as the notes of the GitHub release.
 - The Sources list has 340 sources, up from 317, so many source numbers change.
   Most of the new ones back the notes for small climbers and the corrected
   evidence.
-- The insets that show the body from above, e.g. in Turning the hip in, Twist
-  lock, Barn door and Counter-kick, draw a climber seen from above with head,
-  shoulders and hips, in place of an oval. The shoes seen from above in Edging
-  and Pivoting have more detail.
+- The insets that show the body from above, e.g. in Turning the hip in and Twist
+  lock, draw a climber seen from above with head, shoulders and hips, in place of
+  an oval. In Barn door, Side flag and Counter-kick, each inset shows the moment of
+  the back view beside it from straight above, worked out from that view's
+  climber so the two agree. As in photographs from above, the head sits over the
+  shoulders, which hide the hips. An arrow shows the swing, and the dashed
+  earlier position is gone. Barn door's inset is larger. The shoes seen from above
+  in Edging and Pivoting have more detail.
+- Counter-kick: the kicked foot ends in a back flag, pressing the wall below the
+  standing foot, rather than level with it as if on a hold.
+- The legs in the foot close-ups, among them the foot positions at a glance, have
+  the climbers' shape: a calf, a knee narrower than the thigh and one outline,
+  where they were straight tubes with a round knee.
 - The figures have colour: holds in the colour of the entry's grade, red muscle
   dots, amber block arrows and the cover's pelican in its real colours. On a
   monochrome e-reader the colour leaves the figures' greys as they were, apart
@@ -580,8 +591,7 @@ section as the notes of the GitHub release.
   repeats its header.
 - Lists and the summaries that open entries are ragged, which ends their loose
   lines. Steps that don't fit beside a figure go on at full measure below it.
-- Arabic page numbers start at Chapter 1. Part I's divider has no number, and
-  each worked problem's answer is on the back of its question.
+- Arabic page numbers start at Chapter 1, and Part I's divider has no number.
 - Lines break better: citations and ranges such as V4–V5 stay whole, and URLs
   break only after a separator.
 - Word spacing is more even, and justified text hyphenates where it helps.
@@ -591,6 +601,10 @@ section as the notes of the GitHub release.
   to read.
 - Page references inside parentheses read "(Compression, p. 124)". Index heads
   repeat at the top of a column when their sub-entries run on.
+- The glossary's pointers to entries are links without page numbers. The A–Z
+  that follows it gives the pages.
+- The running head's links (Contents, A–Z, Troubleshooting, Glossary, Index)
+  have more space between them, in print and on the website.
 - A technique named in a sentence after "a" or "the" is in lower case: "a
   sidepull (p. 131)". In lists of references, names stay whole and keep their
   capitals.

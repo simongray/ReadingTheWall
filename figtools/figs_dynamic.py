@@ -449,9 +449,10 @@ def counter_kick(path):
                      knees={"l": "out", "r": "down"}, bend=-6,
                      active=("-lupper", "-lfore"))      # the left hand is off
     # the stomach tenses as the kick stops the swing; the chest leans left
-    # against the leg kicked right
+    # against the leg kicked right. The left foot ends in a back flag: below the
+    # right foot, its edge pressed on the wall, on no hold (as in Barn door b)
     kicked = Climber((14, 146), lean=8, lh=None, rh=rh,
-                     lf={"at": (70, 63), "contact": "toe", "angle": -10},
+                     lf={"at": (62, 57), "contact": "edge", "angle": -20},
                      rf={"at": stand(RF), "style": "back"}, elbows={"l": "down"},
                      knees={"l": "down", "r": "down"}, allow_cross=True, bend=-8,
                      # behind the standing leg = nearer the viewer
@@ -459,7 +460,8 @@ def counter_kick(path):
                      active=("+core",))
     panels = []
     for k in range(2):
-        f = Fig(-84, 40, 96, 262)
+        # room at the top for the view from above
+        f = Fig(-84, 40, 96, 280)
         wall_grid(f)
         hold(f, "jug", R, use=0)
         hold(f, "foot", RF)
@@ -468,7 +470,10 @@ def counter_kick(path):
             f.line(add(rh, (4, 14)), add(stand(RF), (6, -18)), sw=0.45,
                    dash=(2.2, 1.2), z=60)
             f.label("hinge", (76, 250), to=add(rh, (4, 10)))
-            plan.door(f, (-38, 241), "r", span=(52, 66))
+            # the left arm flung out, level with the shoulders (the left leg would
+            # lie under it)
+            plan.from_back(f, opened, (-6, 272), "r", s=0.56, span=(12, 116),
+                           label_at=(-44, -36))
             _warn("counter-kick a", opened)
         else:
             # only the kicking leg as a ghost: the hips barely move
@@ -478,8 +483,12 @@ def counter_kick(path):
                     kind="move")
             # under the kick's path, in the clear
             f.label("kick across behind", (-8, 45), to=(-4, 60), anchor="middle")
-            plan.door(f, (-38, 241), "r", back=True, span=(52, 66),
-                      legs={"l": dict(heel=(56, 20), deg=4)})
+            # square to the wall again: the left arm hangs, and the left leg
+            # crosses under the body to press the wall right of the right foot
+            # back square to the wall: the left arm hangs out of sight, and the left
+            # leg crosses under the body to press the wall right of the right foot
+            plan.from_back(f, kicked, (-6, 272), "r", s=0.56, feet={"l": 0}, swing="back",
+                           span=(46, 56), label_at=(-44, -36))
             _warn("counter-kick b", kicked)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],

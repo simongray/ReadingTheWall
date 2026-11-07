@@ -1,9 +1,11 @@
 # Built files: regenerate with ./build.sh
 /Bouldering Technique Handbook.pdf
+/Reading the Wall - Exercises.pdf
 /colour-chart.pdf
 book/figures/*.svg
 book/src-map.typ
 book/errata.json
+book/book-pages.json
 __pycache__/
 .DS_Store
 # Local copies of published editions; the PDFs live in GitHub releases

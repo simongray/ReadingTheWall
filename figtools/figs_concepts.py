@@ -96,7 +96,8 @@ def barn_door(path):
     T = (36, 238)
     panels = []
     for fixed in (False, True):
-        f = Fig(-100, 50, 80, 276)
+        # (a) is wider, for the view from above
+        f = Fig(-100, 50, 80 if fixed else 90, 276)
         wall_grid(f)
         hold(f, "jug", LH, use=180)
         hold(f, "jug", T)
@@ -115,7 +116,8 @@ def barn_door(path):
             c.draw(f)
             f.cog(c.cog(), plumb_to=58)
             f.cross(add(T, (0, -13)))
-            fb._door(f, (58, 178), w=40)
+            fb.plan.from_back(f, c, (44, 168), "l", s=0.6, reach=8, span=(8, 48),
+                              label_at=(4, -52))
             f.label("hinge", (-74, 250), to=(-39, 236))
         else:
             c = fb._back_flagger(LH, LF, T)

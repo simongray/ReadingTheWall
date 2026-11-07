@@ -58,12 +58,6 @@ def _hinge(f, a, b, ext=14, label=None, label_at=None):
         f.label(label, label_at, to=lerp(p0, a, 0.5))
 
 
-def _door(f, at, w=40):
-    """An inset of a barn door from above, hinged on the climber's left, for a left
-    hand holding on above the standing foot. `w` sets its size."""
-    plan.door(f, (at[0] - w / 2 + 9, at[1] + 3), "l", s=w / 90)
-
-
 # ---------------------------------------------------------------- frog
 
 
@@ -358,7 +352,8 @@ def flag(path):
                         knees={"r": "out", "l": "left"}, head=(2, 1), active=("-rupper", "-rfore"))
             c.draw(f)
             f.cog(c.cog(), plumb_to=66)
-            _door(f, (64, 162), w=50)
+            plan.from_back(f, c, (48, 165), "l", s=0.56, reach=8, span=(8, 48),
+                           label_at=(4, -49))
             f.label("hinge", (-56, 262), to=(-11, 238))
             f.cross(add(T, (0, -13)))
         else:

@@ -4,8 +4,9 @@
 # Requires a clean working tree and a "## … (edition-N)" section in
 # CHANGELOG.md. Tags the current commit as edition-N (annotated, with the
 # message), builds the PDF stamped with the edition, today's date and the
-# commit SHA into editions/, pushes the branch and the tag, and publishes a
-# GitHub release with the PDF and the changelog section as its notes.
+# commit SHA into editions/, with the exercises booklet beside it, pushes the
+# branch and the tag, and publishes a GitHub release with both PDFs and the
+# changelog section as its notes.
 set -e
 cd "$(dirname "$0")"
 n="$1"
@@ -34,8 +35,16 @@ out="editions/Reading-the-Wall-edition-$n.pdf"
 typst compile --root . \
   --input edition="$n" --input date="$today" --input commit="$commit" \
   book/main.typ "$out"
+python3 tools/book_pages.py --input edition="$n" --input date="$today" --input commit="$commit"
+exercises="editions/Reading-the-Wall-edition-$n-exercises.pdf"
+typst compile --root . \
+  --input edition="$n" --input date="$today" --input commit="$commit" \
+  --input booklet=1 book/exercises.typ "$exercises"
+python3 tools/check_booklet.py --input edition="$n" --input date="$today" --input commit="$commit" \
+  || { echo "the booklet failed its check"; exit 1; }
 git tag -a "edition-$n" -m "$msg"
 cp "$out" "Bouldering Technique Handbook.pdf"
-echo "tagged edition-$n at $commit and wrote $out"
+cp "$exercises" "Reading the Wall - Exercises.pdf"
+echo "tagged edition-$n at $commit and wrote $out and $exercises"
 git push origin HEAD "edition-$n"
-gh release create "edition-$n" "$out" --verify-tag --title "$msg" --notes "$notes"
+gh release create "edition-$n" "$out" "$exercises" --verify-tag --title "$msg" --notes "$notes"

@@ -417,6 +417,24 @@
   balanced-columns("index", 3, items, sizes: sizes, margin: 1.3 * pitch)
 }
 
+// The sources of one research file (research/A-sources.yml and so on) for
+// bibliography(). The access date is the same for every web page and is given
+// above the list, so it is left out of the entries: each URL keeps its value,
+// not its date.
+#let source-list(letter) = {
+  let data = yaml("../research/" + letter + "-sources.yml")
+  // a file with no sources yet parses as none, or as an empty mapping
+  if data == none { data = (:) }
+  for (k, e) in data {
+    if type(e) == dictionary and type(e.at("url", default: none)) == dictionary {
+      e.url = e.url.value
+      data.insert(k, e)
+    }
+  }
+  bytes(yaml.encode(data))
+}
+#let source-files = ("A", "B", "C", "D", "E", "F", "G", "H").map(source-list)
+
 // The sources, set in two columns with the last page even. The bibliography is one
 // element, so its entries can't be handed to `balanced-columns`. Instead the columns
 // sit in a block of a set height, which is shared out over the pages, so that only the
@@ -552,12 +570,23 @@
   [#set-name#if show-page { tref-page(pg, inner, tied) }]
 }
 
+// The exercises booklet refers to the book's entries and sections. It is
+// compiled with `--input booklet=1`, and reads their pages from
+// book/book-pages.json, which tools/book_pages.py writes from the book.
+#let in-booklet = sys.inputs.at("booklet", default: none) == "1"
+#let book-pages = if in-booklet { json("book-pages.json") }
+
 #let tref(key, body: none, show-page: true, inner: false) = context {
   let key = resolve-key(key)
   let q = query(label("tech-meta-" + key))
+  let outside = book-pages
   if probing() {
     let name = if body == none and q.len() > 0 { q.first().value.name } else if body == none { key } else { body }
     tref-set(name, "000", show-page, inner)
+  } else if q.len() == 0 and outside != none and key in outside.tech {
+    // an entry of the book, from the booklet: no link
+    let m = outside.tech.at(key)
+    tref-set(if body == none { m.name } else { body }, m.page, show-page, inner)
   } else if q.len() == 0 {
     text(fill: red, weight: 700)[[?#key]]
   } else {
@@ -575,8 +604,20 @@
 // Jargon in running text, linked to its glossary entry: #jt("beta"),
 // or #jt("crimp", body: [crimping]) to show different words.
 #let jt(term, body: none) = {
-  let shown = underline(stroke: (thickness: 0.5pt, dash: "dotted"), offset: 2pt, text(hyphenate: false, if body == none { term } else { body }))
-  navlink(label(gloss-key(term)), shown)
+  let word = text(hyphenate: false, if body == none { term } else { body })
+  // the booklet has no glossary, so its terms are not marked
+  if in-booklet { word } else {
+    navlink(label(gloss-key(term)), underline(stroke: (thickness: 0.5pt, dash: "dotted"), offset: 2pt, word))
+  }
+}
+
+// A section or figure of the book, from the booklet: "Section 2.4 (p. 14)", or
+// "Figure 72c (p. 251)" with sub: "c". `body` replaces the name and number.
+#let bref(lbl, body: none, sub: "") = {
+  let r = book-pages.refs.at(lbl, default: none)
+  if r == none { text(fill: red, weight: 700)[[?#lbl]] } else {
+    [#if body == none [#r.supplement~#r.number#sub] else { body } (p.~#r.page)]
+  }
 }
 
 // The glossary's entries in two columns, the last page even. website/template.typ
@@ -586,10 +627,12 @@
   balanced-columns("glossary", 2, items, gutter: 1.6em)
 }
 
-// One glossary entry. `see` lists technique keys.
+// One glossary entry. `see` lists technique keys, as links with no page: the A–Z
+// right after the glossary gives the pages. (With pages, the layout took more
+// passes to settle than Typst makes.)
 #let gloss(term, body, see: ()) = block(above: 1.15em, below: 1.15em, breakable: false, ragged({
   set text(size: fs.caption)
-  par(hanging-indent: 1em, first-line-indent: 0pt, leading: 0.78em)[#text(weight: 700, term)#label(gloss-key(term))#ix(term)#h(0.5em)#body#if see.len() > 0 [ See #see.map(k => tref(k)).join(", ").]]
+  par(hanging-indent: 1em, first-line-indent: 0pt, leading: 0.78em)[#text(weight: 700, term)#label(gloss-key(term))#ix(term)#h(0.5em)#body#if see.len() > 0 [ See #see.map(k => tref(k, show-page: false)).join(", ").]]
 }))
 
 // Where a technique is referenced from: one link per section or entry.
@@ -1346,7 +1389,9 @@
   if m == none { none } else { (grade: m.captures.at(0), title: m.captures.at(1), font: m.captures.at(2)) }
 }
 
-#let book(title: none, subtitle: none, author: none, body) = {
+// links: false leaves the links to the reference sections out of the running
+// head, for the exercises booklet, which has none of them.
+#let book(title: none, subtitle: none, author: none, links: true, body) = {
   set document(title: title, author: author)
   set page(
     paper: "a4",
@@ -1365,8 +1410,8 @@
         set text(size: fs.note, number-type: "old-style")
         // (its own spacing, or a page begun inside the A–Z would pass on the A–Z's)
         set par(justify: false, first-line-indent: 0pt, spacing: lead)
-        let dot = h(0.45em) + sym.dot.c + h(0.45em)
-        let nav = sc(tracking: 0.05em)[#navlink(<contents>)[Contents]#dot#navlink(<a-to-z>)[A–Z]#dot#navlink(<troubleshooting>)[Troubleshooting]#dot#navlink(<glossary>)[Glossary]#dot#navlink(<index>)[Index]]
+        let dot = h(0.8em) + sym.dot.c + h(0.8em)
+        let nav = if links { sc(tracking: 0.05em)[#navlink(<contents>)[Contents]#dot#navlink(<a-to-z>)[A–Z]#dot#navlink(<troubleshooting>)[Troubleshooting]#dot#navlink(<glossary>)[Glossary]#dot#navlink(<index>)[Index]] }
         let running = if chs.len() > 0 and not opening {
           let t = plain(chs.last().body)
           link(chs.last().location(), emph(if t.contains(":") { t.split(":").first() } else { chs.last().body }))

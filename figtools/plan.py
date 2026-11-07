@@ -93,10 +93,13 @@ def _hull(pts):
     return half(pts) + half(pts[::-1])
 
 
-def _limb(f, view, parts, fill, z, scale=1.0):
+def _limb(f, view, parts, fill, z, scale=1.0, ghost=False):
     """Overlapping tubes in plan cm, drawn as one silhouette."""
     shapes = [[view.P(p) for p in tube(a, b, ra, rb, scale)] for a, b, ra, rb in parts]
-    silhouette(f, shapes, z, fill, sw=OUTLINE)
+    if ghost:
+        silhouette(f, shapes, z, WHITE, stroke=GHOST_LINE, sw=OUTLINE, dash=GHOST_STYLE["dash"])
+    else:
+        silhouette(f, shapes, z, fill, sw=OUTLINE)
 
 
 def _leg(f, view, hip, side, leg, z):
@@ -123,7 +126,7 @@ def _leg(f, view, hip, side, leg, z):
               fill, z + 0.01, LEG_SLIM)
 
 
-def _arm(f, view, sh, side, arm, z):
+def _arm(f, view, sh, side, arm, z, ghost=False):
     if not isinstance(arm, dict):
         arm = dict(hand=arm)
     hand = arm["hand"]
@@ -132,13 +135,14 @@ def _arm(f, view, sh, side, arm, z):
     wr = hand if tips else lerp(el, hand, 0.86)
     palm = (wr, tips, PALM, PALM) if tips else (wr, hand, HAND, HAND)
     _limb(f, view, [(sh, el, UPPER_ARM_OUT, UPPER_ARM_IN), (el, wr, FORE_RADIAL, FORE_ULNAR), palm],
-          LEFT if side == "l" else WHITE, z)
-    sleeve = tube(sh, lerp(sh, el, SLEEVE_LEN), SLEEVE, SLEEVE, cap2=0)
-    f.poly([view.P(p) for p in sleeve], z=z + 0.02, fill=WHITE, stroke=INK, sw=OUTLINE)
+          LEFT if side == "l" else WHITE, z, ghost=ghost)
+    if not ghost:
+        sleeve = tube(sh, lerp(sh, el, SLEEVE_LEN), SLEEVE, SLEEVE, cap2=0)
+        f.poly([view.P(p) for p in sleeve], z=z + 0.02, fill=WHITE, stroke=INK, sw=OUTLINE)
 
 
 def climber(f, view, hips=0.0, chest=None, head=None, lean=(0.0, -23.0), arms=None,
-            legs=None, ghost=False, z=70.0):
+            legs=None, ghost=False, pelvis=True, z=70.0):
     """Draw a climber from above in a View.
 
     hips, chest, head: how far the pelvis, shoulders and head turn. The chest follows
@@ -151,10 +155,22 @@ def climber(f, view, hips=0.0, chest=None, head=None, lean=(0.0, -23.0), arms=No
       heel-to-toe direction `deg`, and `knee` (by default halfway, so the leg is straight).
       xray=False leaves out the dotted outline of a hidden shoe.
     ghost: draw the body and arms as one dashed outline and dashed lines, for an earlier
-      position."""
+      position.
+    pelvis=False: the view from straight above, with the shoulders over the pelvis and
+      hiding it. Set lean to (0, 0) for it. A ghost then keeps its head and the shape of
+      its arms."""
     chest = hips if chest is None else chest
     head = chest if head is None else head
     head_c = add(lean, rot((0, 2.5), head))
+    if ghost and not pelvis:
+        for side, sgn in (("l", -1), ("r", 1)):
+            if arms and side in arms:
+                _arm(f, view, add(lean, rot((sgn * DIM["sh_half"], 0), chest)), side,
+                     arms[side], z, ghost=True)
+        for part, c, turn in ((SHOULDERS, lean, chest), (SKULL, head_c, head)):
+            f.poly([view.P(add(c, rot(p, turn))) for p in _dense(part)], z=z + 0.1,
+                   fill=WHITE, **GHOST_STYLE)
+        return
     if ghost:
         body = [rot(p, hips) for p in _dense(PELVIS)]
         body += [add(lean, rot(p, chest)) for p in _dense(SHOULDERS)]
@@ -167,17 +183,18 @@ def climber(f, view, hips=0.0, chest=None, head=None, lean=(0.0, -23.0), arms=No
     for side, sgn in (("l", -1), ("r", 1)):
         if legs and side in legs:
             _leg(f, view, rot((sgn * DIM["hip_half"], 0), hips), side, legs[side], z)
-    # the left half of the seat is grey, as in the other views
-    pelvis = _dense(PELVIS)
-    outline = [view.P(rot(p, hips)) for p in pelvis]
-    f.poly(outline, z=z + 0.2, fill=WHITE, stroke=None)
-    f.poly([view.P(rot(p, hips)) for p in pelvis if p[0] <= 0.001], z=z + 0.21,
-           fill=LEFT, stroke=None)
-    f.poly(outline, z=z + 0.22, fill=None, stroke=INK, sw=OUTLINE)
-    # the T-shirt runs from the waist to the shoulders and covers the back of the pelvis
-    torso = _hull(ellipse_pts(lerp((0, 0), lean, 0.5), 11.5, 5.5, (hips + chest) / 2, n=18) +
-                  ellipse_pts(lean, 15, 7.5, chest, n=18))
-    f.poly([view.P(p) for p in torso], z=z + 0.3, fill=WHITE, stroke=INK, sw=OUTLINE)
+    if pelvis:
+        # the left half of the seat is grey, as in the other views
+        seat = _dense(PELVIS)
+        outline = [view.P(rot(p, hips)) for p in seat]
+        f.poly(outline, z=z + 0.2, fill=WHITE, stroke=None)
+        f.poly([view.P(rot(p, hips)) for p in seat if p[0] <= 0.001], z=z + 0.21,
+               fill=LEFT, stroke=None)
+        f.poly(outline, z=z + 0.22, fill=None, stroke=INK, sw=OUTLINE)
+        # the T-shirt runs from the waist to the shoulders and covers the back of the pelvis
+        torso = _hull(ellipse_pts(lerp((0, 0), lean, 0.5), 11.5, 5.5, (hips + chest) / 2,
+                                  n=18) + ellipse_pts(lean, 15, 7.5, chest, n=18))
+        f.poly([view.P(p) for p in torso], z=z + 0.3, fill=WHITE, stroke=INK, sw=OUTLINE)
     for side, sgn in (("l", -1), ("r", 1)):
         if arms and side in arms:
             _arm(f, view, add(lean, rot((sgn * DIM["sh_half"], 0), chest)), side, arms[side],
@@ -211,35 +228,51 @@ def hips(f, at, deg, chest=None, head=None, to_wall=26.0, s=0.6, lean=(0.0, -23.
     f.text(label, (at[0] + label_dx, label_y), size=INSET_LABEL)
 
 
-def door(f, hinge, hand="l", deg=40.0, back=False, s=0.55, legs=None, span=(12, 66),
-         label="from above"):
-    """An inset of the body as a barn door, swinging about the hand `hand`. That hand
-    holds on at the hinge, a black dot, with the standing foot out of sight under it.
-    With the hinge on the climber's left, the right side comes off the wall, and with
-    the hinge on the right, the left side does.
+# climb.py turns a back view by up to this many degrees, at turn = ±1
+TURN_DEG = 70.0
 
-    hinge: the hinge in world units.
-    deg: how far the body opens. The dashed body is square to the wall and the solid
-      one is open. With back=True it swings back, so the two swap over.
-    legs: any legs to draw, as for climber().
+
+def from_back(f, c, hinge, hold="l", s=0.6, depth=28.0, reach=None, feet=None, swing="open",
+              span=(12, 56), label="from above", label_at=None):
+    """An inset of the back-view climber `c` seen from straight above, to go beside it.
+
+    The sideways positions of the shoulders, hands and feet come from c, and the turn
+    of the body from c.turn. A back view has no depth, so a hand on a hold is at the
+    wall, the middle of the shoulders is `depth` cm from it and the turn sets how far
+    each shoulder is. The shoulders hide the hips, as from straight above.
+
+    hinge: where the holding hand `hold` goes, in world units. It is a black dot.
+    reach: how far the other hand is from the wall, in cm (by default level with the
+      shoulders). A hand that hangs is left out.
+    feet: {"l": deg} draws that leg with its foot on the wall, the shoe pointing `deg`.
+    swing: "open" or "back", a turn arrow about the hinge for the free side.
     span: how far the wall runs past the hinge on its outer side and on the body's
-      side, in cm."""
-    sgn = -1 if hand == "l" else 1
-    h = (sgn * 34.0, 25.0)
-    lean = (-sgn * 6.0, -23.0)
-    swing = deg if sgn > 0 else -deg
-    at = sub(hinge, mul(h, s))
-    square, opened = View(at, s, h, 0.0), View(at, s, h, swing)
-    wall_y = h[1] + 4.0
+      side, in cm.
+    label_at: where the label goes, from the hinge in world units."""
+    sgn = -1 if hold == "l" else 1
+    sx = c.J["sh_c"][0]
+    turn = c.turn * TURN_DEG
+
+    def on_plan(p, from_wall):
+        return (p[0] - sx, depth - from_wall)
+    h = on_plan(c.J[hold + "ha"], 4.0)
+    arms = {hold: h}
+    other = "r" if hold == "l" else "l"
+    if getattr(c, other + "h") is not None:
+        arms[other] = on_plan(c.J[other + "ha"], depth if reach is None else reach)
+    legs = {}
+    for side, deg in (feet or {}).items():
+        ankle = on_plan(c.J[side + "an"], 4.5)
+        legs[side] = dict(heel=sub(ankle, mul(ang(deg), SHOE_ANKLE)), deg=deg, xray=False)
+    view = View(sub(hinge, mul(h, s)), s)
     x0, x1 = sorted((h[0] + span[0] * sgn, h[0] - span[1] * sgn))
-    wall(f, square.P((x0, wall_y)), square.P((x1, wall_y)))
-    hold_on(f, square, (h[0], wall_y))
-    start, end = (opened, square) if back else (square, opened)
-    climber(f, start, lean=lean, arms={hand: h}, ghost=True, z=70.0)
-    climber(f, end, lean=lean, arms={hand: h}, legs=legs, z=70.7)
+    wall(f, view.P((x0, depth)), view.P((x1, depth)))
+    hold_on(f, view, (h[0], depth))
+    climber(f, view, turn, lean=(0.0, 0.0), arms=arms, legs=legs, pelvis=False, z=70.7)
     f.circle(hinge, 1.5, z=72, fill=INK, stroke=None)
-    # the arc runs outside the free end of the body
-    a_square = 180 + 42 if sgn > 0 else -42
-    a_open = a_square + swing * 0.75
-    turn_arrow(f, square, h, 86.0, *((a_open, a_square) if back else (a_square, a_open)))
-    f.text(label, add(hinge, (-sgn * 14, -(84 * s + 5))), size=INSET_LABEL)
+    # the arc runs round the hinge just outside the free shoulder, the way it swings
+    v = sub(rot((-sgn * DIM["sh_half"], 0.0), turn), h)
+    a_sh = math.degrees(math.atan2(v[1], v[0]))
+    a0, a1 = a_sh + 6 * sgn, a_sh + 38 * sgn
+    turn_arrow(f, view, h, length(v) + 14, *((a0, a1) if swing == "open" else (a1, a0)))
+    f.text(label, add(hinge, label_at or (-sgn * 14, -(60 * s + 4))), size=INSET_LABEL)

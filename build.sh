@@ -1,6 +1,7 @@
 #!/bin/sh
-# Rebuild the figures, the source map and the PDF. The PDF is stamped as a
-# draft with the current commit; use release.sh to publish an edition.
+# Rebuild the figures, the source map, the PDF and the exercises booklet. Both
+# PDFs are stamped as drafts with the current commit; use release.sh to publish
+# an edition.
 set -e
 cd "$(dirname "$0")"
 python3 figtools/build_all.py
@@ -14,6 +15,10 @@ fi
 set -- --input edition=draft --input date="$(date +%Y-%m-%d)" --input commit="$commit"
 typst compile --root . "$@" book/main.typ "Bouldering Technique Handbook.pdf"
 echo "wrote Bouldering Technique Handbook.pdf (draft, $commit)"
+python3 tools/book_pages.py "$@"
+typst compile --root . "$@" --input booklet=1 book/exercises.typ "Reading the Wall - Exercises.pdf"
+echo "wrote Reading the Wall - Exercises.pdf (draft, $commit)"
 python3 tools/check_fit.py "$@"
+python3 tools/check_booklet.py "$@"
 python3 tools/check_order.py
 python3 tools/check_hands.py
