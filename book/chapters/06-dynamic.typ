@@ -454,7 +454,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   category: "dynamic",
   grade: 5,
   grade-note: [Low-grade gym problems rarely force moves without feet. Steep V5+ problems sometimes leave no usable feet for a move or two (judgement; no coaching source places it).],
-  summary: [You move a hand with no feet on the wall, while your arms and #tref("body-tension", body: [body tension]) hold you. Each move is a short, footless dyno #src("D46").],
+  summary: [You move a hand with no feet on the wall, while your arms and #tref("body-tension", body: [body tension]) hold you. Each move is a footless dyno #src("D46").],
   figure: "campus-move.svg",
   caption: [(a) Hang with your arms slightly bent and your knees tucked. (b) Pop your hips up a little. The right hand moves on at the top.],
   how: [

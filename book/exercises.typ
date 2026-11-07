@@ -78,7 +78,7 @@
 
 #heading(level: 1, numbering: none)[Sources]
 
-Sources are numbered in the order they are first cited here, so their numbers differ from the book's. Web pages were accessed in October 2026.
+Sources are numbered in the order they are first cited here, so their numbers differ from the book's. Web pages were accessed in October and November 2026.
 
 #sources-columns(bibliography(
   source-files,

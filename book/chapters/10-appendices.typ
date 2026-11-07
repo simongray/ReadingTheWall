@@ -18,7 +18,7 @@ Every technique in this book, with the names you may hear for it. Aliases point 
 
 #heading(level: 1, numbering: none)[Sources] <sources>
 
-Sources are numbered in the order they are first cited. Web pages were accessed in October 2026. Where a claim rests on a coach's or a gym's advice rather than on a study, the text says so.
+Sources are numbered in the order they are first cited. Web pages were accessed in October and November 2026. Where a claim rests on a coach's or a gym's advice rather than on a study, the text says so.
 
 #sources-columns(pages: 12, last: 470pt, bibliography(
   source-files,

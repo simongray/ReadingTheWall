@@ -472,9 +472,9 @@ D46:
   parent:
     title: "Rock Prodigy Training forum"
   url:
-    value: "https://rockprodigytraining.proboards.com/thread/927/dynos-dyno-training"
-    date: 2026-10-30
-  note: "Forum thread (posts by jessebruni and iclimb2improve). Wayback copy of 17 April 2024: https://web.archive.org/web/20240417184134/https://rockprodigytraining.proboards.com/thread/927/dynos-dyno-training"
+    value: "https://web.archive.org/web/20240417184134/https://rockprodigytraining.proboards.com/thread/927/dynos-dyno-training"
+    date: 2026-11-07
+  note: "Forum thread of 27–28 March 2016 (posts by iclimb2improve and jessebruni). The live page shows a bot check, so this is the Wayback copy of 17 April 2024."
 
 D47:
   type: web

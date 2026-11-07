@@ -335,8 +335,9 @@ E34:
     volume: 22
     issue: 1
   url:
-    value: "https://coachsci.sdsu.edu/csa/vol185/sanchez1.htm"
-    date: 2026-10-30
+    value: "https://research.rug.nl/en/publications/f9fd5950-5f31-4f14-9111-55e22bbff301"
+    date: 2026-11-07
+  note: "Same paper as the former G48. Read the abstract in the University of Groningen's record, which lists the publisher's PDF; the PDF itself shows a bot check."
 E35:
   type: article
   title: "Identification of Parameters That Predict Sport Climbing Performance"
@@ -363,9 +364,11 @@ E36:
     type: periodical
     title: "Brain and Cognition"
     volume: 73
+    issue: 1
   url:
-    value: "https://doi.org/10.1016/j.bandc.2010.03.002"
-    date: 2026-10-30
+    value: "https://europepmc.org/article/MED/20381226"
+    date: 2026-11-07
+  note: "Read the abstract only. No open full text: CNR's repository record has no file, and ScienceDirect refused the browser."
 E37:
   type: article
   title: "Problem difficulty and expertise modulate planning performance in a virtual embodied task"
@@ -620,9 +623,9 @@ E63:
     volume: 8
     issue: "3-4"
   url:
-    value: "https://hal.archives-ouvertes.fr/hal-03545405"
-    date: 2026-10-30
-  note: "About two dozen further co-authors; full text not accessed"
+    value: "https://web.archive.org/web/20240302031421/https://hal.science/hal-03545405v1/file/2016-Draper%20et%20al.-SPORT%20TECHNO.pdf"
+    date: 2026-11-07
+  note: "27 further co-authors. Read in full: the authors' version on HAL (hal-03545405), through the Wayback copy of 2 March 2024, since HAL shows scripts a bot check. No longer cited in the text"
 E65:
   type: web
   title: "Beginner’s Guide to Bouldering: What It Is & How to Get Started"

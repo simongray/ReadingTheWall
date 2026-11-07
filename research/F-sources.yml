@@ -169,7 +169,7 @@ F17:
   url:
     value: "https://lida.sport-iat.de/ta/Record/4056114"
     date: 2026-10-30
-  note: "Further co-authors not listed here. Abstract read via search summary only"
+  note: "Further co-authors not listed here. Abstract read via search summary only. No longer cited in the text"
 
 F18:
   type: article
@@ -200,7 +200,7 @@ F19:
     issue: 3-4
   serial-number:
     doi: "10.1080/19346182.2015.1107081"
-  note: "Further co-authors not listed here"
+  note: "Further co-authors not listed here. Same paper as E63. No longer cited in the text"
 
 F22:
   type: web
