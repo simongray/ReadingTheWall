@@ -202,11 +202,15 @@
 // `..extra` catches any field a later edition adds to its entries. The entry
 // still builds, the field's content appears under a plain label, and build.py
 // warns that this template should learn about it.
+//
+// In print, `figure-first` sets a wide figure before the steps so that it doesn't
+// end up alone on the next page. A web page has no page breaks, so this template
+// ignores it.
 #let technique(
   key: none, name: none, aliases: (), category: none, grade: none, grade-note: none,
   summary: none, figure: none, caption: none, figure-wide: false, how: none, parts: (),
   when: none, errors: none, tall: none, small: none, related: (), watch: (), sources: (),
-  k: auto, closing-box: none, after-figure: none, ..extra,
+  k: auto, closing-box: none, after-figure: none, figure-first: false, ..extra,
 ) = {
   let aliases = if type(aliases) == str { (aliases,) } else { aliases }
   let parts = if type(parts) == dictionary { (parts,) } else { parts }
