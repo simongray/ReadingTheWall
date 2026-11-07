@@ -546,6 +546,10 @@ def _twist_lock_side(RH, T, A, B, W=30):
                 lf={"at": add(at(A[1]), (-2.5, 2.5))},
                 rf={"at": add(at(B[1]), (-2.5, 2.5))},
                 leg_len={"l": (0.8, 1.0), "r": (0.62, 1.0)},
+                # the chest arches back, but the head stays nearly level and
+                # back from the raised arm, so the jaw slopes and the chin
+                # doesn't run into the arm's line
+                head=(-2, 0), head_tilt=12,
                 active=("rupper", "rfore"))
     c.draw(f)
     _warn("twist-lock c", c)
@@ -709,16 +713,16 @@ def cross_through(path):
 # ---------------------------------------------------------------- matching
 
 
-# The hands come from hand.py, like every hand close-up in the book, but at
-# 1.6 mm per cm rather than its HAND_SCALE (2.6): at that scale the two
-# panels would be about 140 mm wide, too wide to sit beside the steps.
+# The hands come from authored.py, like every hand close-up in the book, but at
+# 1.6 mm per cm rather than the close-ups' HAND_SCALE (2.6): at that scale the
+# two panels would be about 140 mm wide, too wide to sit beside the steps.
 MATCH_SCALE = 1.6
 MATCH_TOP = 0.0          # top of the edge
 
 
 def _face_edge(f, c, w, h, z=-5):
-    """A short edge seen face-on (as figs_hands.face_edge), with its hidden
-    outline dotted where the hands cover it."""
+    """A short edge seen face-on, with its hidden outline dotted where the
+    hands cover it."""
     x, y = c
     r = h * 0.25
     pts = [(x - w / 2 + r, y + h / 2), (x + w / 2 - r, y + h / 2), (x + w / 2, y),
@@ -730,38 +734,24 @@ def _face_edge(f, c, w, h, z=-5):
         f.smooth(pts, z=XRAY_Z, tension=0.5, **XRAY_STYLE)
 
 
-def _crimp_back(side, x):
-    """A half crimp on the edge seen from behind, knuckles centred on x: the
-    right hand, or its mirror image for side "l". The thumb rests against
-    the side of the index finger, a little under it."""
-    import hand as H
-    h = H.Hand("half").rest_thumb(along=0.3, out=1.5, palm=2.0)
-    p = h.view("back", a0=90, flip=side == "l")
-    p.move_point(H.pad_point(h, "m", 0.85), (0, MATCH_TOP - 0.3))
-    mid = p.xy(H.vlerp(H.MCP["i"], H.MCP["l"], 0.5))
-    return p.move_point(H.pad_point(h, "m", 0.85), (x - mid[0], MATCH_TOP - 0.3))
-
-
 def matching(path):
-    """Close-up from behind of a short edge, half crimped. (a) Left hand in
+    """Close-up from behind of a short edge, fingers over it. (a) Left hand in
     the middle: the right hand would hang off the end. (b) Left hand on the
     left half: the right hand fits beside it."""
+    import authored as A
     panels = []
-    # the hands all hang alike: cut the arms a little above H.FOREARM_SHOWN
-    # below the wrist, which keeps the figure at its printed height
-    y0 = _crimp_back("l", 0).forearm_point()[1] + 1.36 / MATCH_SCALE
     for k in range(2):
-        f = Fig(-11.5, y0, 14.5, 7.0, scale=MATCH_SCALE)
+        f = Fig(-11.5, -17.732, 14.5, 7.0, scale=MATCH_SCALE)
         wall_grid(f, step=10)
-        _face_edge(f, (0, MATCH_TOP - 1.7), 21.6, 3.4)
+        _face_edge(f, (0, MATCH_TOP - 1.5), 21.6, 3.0)
         if k == 0:
-            _crimp_back("l", 0).draw(f, z=0, fill=LEFT)
-            g = _crimp_back("r", 9.8)
-            g.draw(f, z=-3, ghost=True)
-            f.cross(g.at(1.0, 0.6))
+            A.draw_hand(f, A.drag_from_behind("l", 0.08, MATCH_TOP), z=0, fill=LEFT)
+            # a little low, so its thumb stays behind the solid one
+            A.draw_hand(f, A.drag_from_behind("r", 9.72, MATCH_TOP - 0.3), z=-3, ghost=True)
+            f.cross((9.38, -11.27))
         else:
-            _crimp_back("l", -5.9).draw(f, z=0, fill=LEFT)
-            _crimp_back("r", 5.9).draw(f, z=2)
+            A.draw_hand(f, A.drag_from_behind("l", -5.82, MATCH_TOP), z=0, fill=LEFT)
+            A.draw_hand(f, A.drag_from_behind("r", 5.82, MATCH_TOP), z=2)
         panels.append(f)
     combine(panels, path, gap=5, labels=["a", "b"],
             captions=["centred: no room", "left half: room to match"])
@@ -770,13 +760,15 @@ def matching(path):
 
 
 def compression(path):
-    """Back view. A big volume at head height: its left face faces left, its
-    right face faces right. The palms press those faces inward, elbows down,
-    as in a hug; the feet squeeze a lower volume the same way. All four
+    """Back view. A big volume at head height, the Y of reading 7. It stands
+    about 45 cm off the wall on a base 60 cm wide, so its left face faces left
+    and its right face faces right: a wider, shallower one would face out at
+    you, with nothing to squeeze. The palms press those faces inward, elbows
+    down, as in a hug; the feet squeeze a lower volume the same way. All four
     force arrows point inward."""
     f = Fig(-92, 46, 92, 246)
     wall_grid(f)
-    volume(f, [(-62, 176), (-44, 238), (44, 238), (62, 176), (40, 148), (-40, 148)],
+    volume(f, [(-30, 176), (-24, 238), (24, 238), (30, 176), (20, 148), (-20, 148)],
            apex=(0, 200))
     V, TOP = (-34, 66), (0, 104)       # the lower volume's left corner and top
     volume(f, [V, TOP, (34, 66), (0, 50)], apex=(0, 70))
@@ -787,15 +779,18 @@ def compression(path):
     e = norm(sub(V, TOP))
     down_face = math.degrees(math.atan2(e[1], e[0]))
     P = lerp(V, TOP, 0.35)
-    c = Climber((0, 134), lh=(-54, 196), rh=(54, 196),
+    # the shoulders stand well off the wall and the palms close to it, so the
+    # arms point partly at the viewer and are drawn shortened
+    c = Climber((0, 130), lh=(-25, 198), rh=(25, 198),
                 lf={"at": P, "angle": down_face, "contact": "ball"},
                 rf={"at": (-P[0], P[1]), "angle": 180 - down_face, "contact": "ball"},
                 knees={"l": "out", "r": "out"}, elbows={"l": "down", "r": "down"},
+                arm_len={"l": (.6, .9), "r": (.6, .9)},
                 hand_style={"l": "open", "r": "open"},
                 active=("+llat", "+rlat"))   # a hug: the back squeezes too
     c.draw(f)
     for sg in (-1, 1):
-        f.arrow([(sg * 86, 194), (sg * 65, 194)], kind="force")
+        f.arrow([(sg * 58, 196), (sg * 38, 196)], kind="force")
         # square to the face, stopping short of the toe
         f.arrow([(sg * 52, 93.5), (sg * 36, 81.5)], kind="force")
     _warn("compression", c)

@@ -101,7 +101,8 @@ A technique you merge into another keeps its address: add its old key to
 | `book/key-alias.typ` | Technique keys that were merged into another entry |
 | `book/edition.typ` | Reads the edition, date and commit that `build.sh` and `release.sh` pass to Typst |
 | `figtools/climb.py` | The drawing library: a clothed mannequin climber (back and side views, anatomical joint limits, `warn()` pose checks), holds, volumes, walls, arrows, block arrows, labels, dotted outlines of hidden parts (`XRAY`), multi-panel figures (`combine`) and film strips (`filmstrip`) |
-| `figtools/hand.py` | The anatomical hand model used for every hand close-up, with thumb-side, little-finger-side, back and palm views and grip presets |
+| `figtools/authored.py` | The hands in every close-up, written point by point as outlines and drawn with the climbers' smoothing and pen, and the figures most of them appear in |
+| `figtools/hand.py` | The frames, edges and walls of the hand close-ups |
 | `figtools/closeup.py` | Helpers for shoes seen from above and small edges in profile, used by `figs_feet.py` |
 | `figtools/figs_*.py`, `legend.py` | The figures for each chapter; each module defines `build(out)` |
 | `figtools/paint.py` | Colours the finished figures, keeping each shape's panel grey; `research/COLOUR.md` has the reasons |
@@ -110,12 +111,13 @@ A technique you merge into another keeps its address: add its old key to
 | `tools/add_gloss.py` | Adds glossary entries and keeps the glossary sorted |
 | `tools/contact_sheet.py` | Renders all the figures of a module into labelled contact sheets for checking |
 | `tools/colour_chart.py` | Makes a test chart for checking the figures' colours on a real e-reader |
-| `tools/check_hands.py` | Checks every hand close-up against the hand model: segment lengths in side views, and how much of the thumb shows |
+| `tools/check_hands.py` | Builds the figures and checks every hand as drawn against `research/hand-proportions.md`: its thickness, lengths and body, its nails and its line weights. `build.sh` runs it last |
 | `tools/check_alt.py` | Checks `book/figure-alt.toml`, the drawings' text descriptions: lists figures with no description, descriptions whose figure is gone, and figures that have changed since they were described |
 | `research/*.md` (letters A–G) | The research dossiers the chapters were written from, each with its full source list |
 | `research/*-sources.yml` | Bibliography entries (Hayagriva format), one file per dossier |
 | `research/BRIEF.md`, `STYLE.md`, `KEYS.md` | The research brief, the chapter-writing guide (voice, plain language, hold-direction convention) and the master list of technique keys |
 | `research/ILLUSTRATION.md`, `STREAMLINE.md`, `TYPOGRAPHY.md` | The guides for figure editing, the streamlining pass and the typography pass |
+| `research/hand-proportions.md` | The proportions the hand close-ups are drawn to, as ratios with their sources |
 | `research/factcheck-*.md`, `figreview-*.md`, `figcritic-*.md`, `streamline-*.md`, … | Logs of what each editing pass checked and changed |
 | `FOLLOW-UPS.md` | Open questions and ideas for a later revision |
 | `CHANGELOG.md` | Errata and changes between editions |

@@ -219,6 +219,7 @@ class Fig:
         self.items = []
         self.defs = set()
         self._plain = 0         # > 0 while drawing exact symbols (no pen effects)
+        self.wobble = None      # world point -> the share of WOBBLE kept there (None: all)
 
     # unit helpers
     def mm(self, v):
@@ -300,7 +301,8 @@ class Fig:
             for p_, c_ in seg:
                 if pen:
                     dx, dy = _field(p_[0] * k, p_[1] * k)
-                    p_ = (p_[0] + dx / k, p_[1] + dy / k)
+                    a = self.wobble(p_) if self.wobble else 1.0
+                    p_ = (p_[0] + a * dx / k, p_[1] + a * dy / k)
                 P.append(self.P(p_))
                 C.append(c_)
         return P, C
@@ -2111,6 +2113,10 @@ class Climber:
       forearm. A list of names replaces that; names written "+name" or
       "-name" add to it or take from it, e.g. ("+rthigh",) for a leg that
       drives the move or ("+lham",) for a heel hook.
+    tuck: the arms ("l", "r") whose root stays under the T-shirt's shoulder.
+      An upper arm that hangs close to the side can have the root of its
+      sleeve run along the shoulder just outside the T-shirt's line, which
+      doubles that line into a heavy stroke; this takes it back inside.
 
     The climber is drawn clothed: a white T-shirt with short sleeves, and
     trousers whose left leg (and left half of the seat) is grey; the bare
@@ -2126,8 +2132,9 @@ class Climber:
                  arm_len=None, leg_len=None, head=(0, 0), sh_w=None,
                  hip_w=None, order=None, hand_style=None, scale=1.0,
                  shoulders=None, anatomy=True, allow_cross=False, xray=None,
-                 head_tilt=0.0, active=None, bend=0.0):
+                 head_tilt=0.0, active=None, bend=0.0, tuck=()):
         self.view = view
+        self.tuck = tuck
         self.head_tilt = head_tilt
         self.active = active
         self.lean = lean
@@ -2856,7 +2863,9 @@ class Climber:
         th = self._thumb_side(s, v)
         hide = _root_hide(sh, el, 1.2 * SLEEVE[0][1] * S, torso_polys)
         se = lerp(sh, el, SLEEVE_LEN)
-        sleeve = tube(sh, se, SLEEVE, SLEEVE, S, cap1=0.85, cap2=0.2)
+        # (see tuck) a shallower root stays under the T-shirt's shoulder
+        tucked = s in self.tuck
+        sleeve = tube(sh, se, SLEEVE, SLEEVE, S, cap1=0.6 if tucked else 0.85, cap2=0.2)
         # the inner side of the upper arm: toward the body in a back view
         # (the hips are below a hanging arm and beside a raised one), toward
         # the bend of the elbow in a side view
@@ -2868,7 +2877,7 @@ class Climber:
             _, r = self.chest_frame()
             in_left = elbow > 0 if abs(elbow) > 1.5 * S else dot(n_up, r) > 0
         up_l, up_r = (UPPER_ARM_IN, UPPER_ARM_OUT) if in_left else (UPPER_ARM_OUT, UPPER_ARM_IN)
-        upper = tube(sh, el, up_l, up_r, S)
+        upper = tube(sh, el, up_l, up_r, S, cap1=0.5 if tucked else 1.0)
         rad, uln = FORE_RADIAL, FORE_ULNAR
         fo_l, fo_r = (rad, uln) if th > 0 else (uln, rad)
         fore = tube(el, wr, fo_l, fo_r, S)
@@ -3193,8 +3202,9 @@ def _wrap(text, width_chars):
 def filmstrip(frames, path, captions=None, gap=2.2, band=4.2):
     """Lay out frames (Fig objects) as a strip of film: a dark band with
     sprocket holes above and below, numbered frames, and a short caption
-    under each frame. Sizes in mm. Use the same Fig scale for every frame
-    (0.28 keeps a five-frame strip of back views within the page width)."""
+    under each frame, wrapped to fit unless "\n" says where it should break.
+    Sizes in mm. Use the same Fig scale for every frame (0.28 keeps a five-frame
+    strip of back views within the page width)."""
     sizes = [((f.x1 - f.x0) * f.scale, (f.y1 - f.y0) * f.scale) for f in frames]
     fh = max(h for _, h in sizes)
     W = sum(w for w, _ in sizes) + gap * (len(frames) + 1)

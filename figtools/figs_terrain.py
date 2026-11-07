@@ -890,8 +890,9 @@ def sit_start(path):
     # nearly straight arms, as in photographs of sit starts from behind
     L, R = (-25, 114), (23, 118)
     # both feet on footholds just above the mat, a little lower than the
-    # hips that sit on it, so the shoes stand the right way up
-    LF, RF = (-64, 8), (24, 12)
+    # hips that sit on it, so the shoes stand the right way up. Side-on to
+    # the wall, both feet lie ahead of the hips, to the left
+    LF, RF = (-64, 8), (-28, 12)
     for good in (False, True):
         f = Fig(-75, -6, 75, 150)
         wall_grid(f, y0=10)
@@ -902,22 +903,24 @@ def sit_start(path):
         for p in ((LF, RF) if good else (LFa, RFa)):
             hold(f, "foot", p)
         if good:
-            # right hip turned to the wall, right foot on its outside edge
-            # with the knee up and pointing in, the way the toes point; the
-            # left foot on its inside edge out to the side, ready to push.
-            # Both shins point toward the wall, so they are shortened. The
-            # outside-edge leg takes a share of the first pull, and the
-            # right arm hangs nearly straight, its side stretched: the
-            # chest bends left over the level hips
-            c = Climber((-8, 15), turn=0.8, lean=0, bend=-8, lh=grip(L), rh=grip(R),
+            # right hip turned to the wall, so the climber sits side-on,
+            # facing left. The right foot lies ahead of the hips with its toes
+            # the same way, on its outside edge against the wall, its knee up
+            # and hidden behind the body. It is the leg nearest the wall, so
+            # the left leg passes in front of it. The left foot goes on its
+            # inside edge further along, ready to push. Both shins point
+            # toward the wall, so they are shortened. The hips sit to the
+            # right of the hands, so the chest leans over to them, and the
+            # arms hang nearly straight
+            c = Climber((12, 15), turn=0.8, lean=-10, bend=-8, lh=grip(L), rh=grip(R),
                         lf={"at": stand(LF)},
                         rf={"at": stand(RF), "angle": 180},
                         knees={"l": "up", "r": "up"},
-                        leg_len={"l": (0.95, 0.78), "r": (0.8, 0.8)},
-                        elbows={"l": "down", "r": "down"}, head=(2, 0),
-                        active=("lupper", "lfore", "rthigh"))
+                        leg_len={"l": (0.95, 0.85), "r": (0.8, 0.7)},
+                        elbows={"l": "down", "r": "down"}, head=(2, 0), head_tilt=8,
+                        allow_cross=True)
             c.draw(f)
-            f.label("outside edge", (52, 52), to=(41, 13), size=7)
+            f.label("outside edge", (-72, 58), to=(-30, 15), size=7, anchor="start")
             f.label("right hip turned in", (14, 140), size=7.5)
         else:
             # bottom on the mat, knees up and splayed wide, each foot out

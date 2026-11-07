@@ -58,7 +58,9 @@ HOLD_GREYS = (DARK, HOLD_MID, HOLD_LIGHT, HOLD_PALE, HOLD_DEEP)
 YELLOW = ("#c6ad25", "#e9ce3d", "#f4de73", "#fcefb2", "#927e00")
 YELLOW_GREYS = ("#aaaaaa", "#cccccc", "#dddddd", "#eeeeee", "#777777")
 
-HOLDS = (FOREST, RASPBERRY, DENIM, YELLOW, BRICK, TEAL, VIOLET, RUST)
+# Yellow comes fifth, where it lands on a big hold in both atlases. It shows lighter than the
+# others on a monochrome screen, so a small hold in that shade would be easy to miss.
+HOLDS = (FOREST, RASPBERRY, DENIM, BRICK, YELLOW, TEAL, VIOLET, RUST)
 
 # A figure in a technique entry takes the hold colour of the entry's grade, from
 # V0 up, as in the circuits at Boulders (see grade-tabs in book/template.typ).
@@ -140,7 +142,8 @@ def _holds(svg, hold):
 
 def _in_turn(svg, holds):
     """Give each hold in `svg` the next of `holds`. A hold's shades are clipped
-    to its outline, so its outline finds them."""
+    to its outline, so its outline finds them. A pocket's hollow isn't clipped,
+    so it takes the palest shade of the hold drawn just before it."""
     turn = itertools.cycle(holds)
     for outline in re.findall(f'<path d="([^"]+)" fill="{DARK}"', svg):
         hold = next(turn)
@@ -149,7 +152,17 @@ def _in_turn(svg, holds):
         shades = rf'(<path d="{re.escape(outline)}"/></clipPath><g clip-path="[^"]+">)(.*?</g>)'
         svg = re.sub(shades, lambda m: m.group(1) + _holds(m.group(2), hold), svg,
                      count=1, flags=re.S)
-    return svg
+    palest = {hold[0]: hold[3] for hold in holds}
+    pale = HOLD_PALE
+
+    def hollow(m):
+        nonlocal pale
+        if m.group(1):
+            pale = palest[m.group(1)]
+            return m.group(0)
+        return pale
+    bodies = "|".join(palest)
+    return re.sub(f'<path d="[^"]+" fill="({bodies})"|{HOLD_PALE}', hollow, svg)
 
 
 def paint(svg, name, grade=None):
