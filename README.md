@@ -12,7 +12,7 @@ rebuild the PDF.
 
 This regenerates the illustrations and the source map
 (`book/src-map.typ`), then compiles
-`Bouldering Technique Handbook.pdf` and the exercises booklet,
+`Reading the Wall.pdf` and the exercises booklet,
 `Reading the Wall - Exercises.pdf`. Both are stamped "Draft" with the
 commit SHA, plus "-dirty" if there are uncommitted changes.
 
@@ -43,7 +43,7 @@ exact source.
    Otherwise it:
    - tags the commit `edition-N`;
    - builds the stamped PDF and the exercises booklet into `editions/` and
-     copies them to `Bouldering Technique Handbook.pdf` and
+     copies them to `Reading the Wall.pdf` and
      `Reading the Wall - Exercises.pdf`;
    - pushes the branch and the tag;
    - publishes a

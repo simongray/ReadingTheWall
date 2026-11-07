@@ -599,7 +599,7 @@ section as the notes of the GitHub release.
   break only after a separator.
 - Word spacing is more even, and justified text hyphenates where it helps.
 - Figures stay with their steps more often, and captions sit closer to their
-  figures.
+  figures. Twist lock's figure comes before its steps, so the two share a page.
 - Film strip labels break by sense, and the key to the illustrations is easier
   to read.
 - Page references inside parentheses read "(Compression, p. 124)". Index heads

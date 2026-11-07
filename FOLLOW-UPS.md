@@ -80,8 +80,9 @@ streamlining), which have the details.
     `10-appendices.typ`. `check_fit` says when they need changing.
   - The video titles keep "Greshams", as published, without their episode numbers.
   - The "Fix" numbering in Barn door is as it was.
-  - Four entries still run loose, and a fix needs Simon's word. Straight arms'
-    box misses its first page by two lines of copy. Twist lock's figure would
-    stay with its steps if it came before "How to do it". Bicycle and Mantle
-    keep their current splits.
+  - Three entries still run loose. Straight arms' box misses its first page
+    by about a line, and the only fixes are to cut a line from the box or let
+    it break across the page turn, both worse than the gap. Bicycle and Mantle
+    keep their current splits. Twist lock now sets its figure before the
+    steps (`figure-first` in `technique()`), so the two share a page.
   - None of this has been read on the Boox.

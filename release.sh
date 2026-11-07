@@ -43,7 +43,7 @@ typst compile --root . \
 python3 tools/check_booklet.py --input edition="$n" --input date="$today" --input commit="$commit" \
   || { echo "the booklet failed its check"; exit 1; }
 git tag -a "edition-$n" -m "$msg"
-cp "$out" "Bouldering Technique Handbook.pdf"
+cp "$out" "Reading the Wall.pdf"
 cp "$exercises" "Reading the Wall - Exercises.pdf"
 echo "tagged edition-$n at $commit and wrote $out and $exercises"
 git push origin HEAD "edition-$n"

@@ -805,6 +805,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Hörst#ix("Hörst, Eric") starts it on boulders about 20° overhanging, then moves steeper #src("B15"). The full twist of hips and shoulders pays from about V4.],
   summary: [You add a turn of the shoulders to a #tref("backstep", body: [backstep]) or #tref("drop-knee", body: [drop knee]). The reaching-side hip and shoulder turn to the wall while the holding arm pulls down to your ribs. Your body locks, so the free hand reaches with little effort #src("B15", "B43").],
   figure: "twist-lock.svg",
+  figure-first: true,
   caption: [(a) Set: right arm straight, left foot backstepped, hips half turned. (b) Locked. The left hip and shoulder turn in. The right elbow comes to the ribs. The left hand reaches high. (c) The lock from the side. The right forearm points into the wall.],
   how: [
     + Set your feet. Backstep if the foothold is on #jt("the line"). Drop a knee if it is behind the line #src("B38", "B40").

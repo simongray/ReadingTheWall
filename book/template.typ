@@ -1104,6 +1104,9 @@
   // paragraphs on variants of the move, set straight after a wide figure rather than
   // between the steps and the figure, for when they would part the two
   after-figure: none,
+  // a wide figure set before the steps instead of after them, for an entry whose
+  // steps would otherwise leave its figure alone overleaf
+  figure-first: false,
 ) = {
   // `aliases: ("one name")` is a string, not an array: accept both
   let aliases = if type(aliases) == str { (aliases,) } else { aliases }
@@ -1154,6 +1157,8 @@
   let entry() = {
     show: entry-spaces
     head
+    let wide-first = figure-first and file != none and not side-figure()
+    if wide-first { block(above: gap(1), below: gap(1), wide-figure-block(file, caption)) }
     if side-figure() { beside-steps([How to do it], how, file, caption) }
     else if how != none { labelled-steps([How to do it], how) }
     // after the steps: the parts, the reading box, mistakes, the notes for tall
@@ -1234,8 +1239,8 @@
       }
     }
     // a wide figure stays in flow after the steps, so the order never changes:
-    // steps, figure, parts, box, mistakes, notes, apparatus
-    if file != none and not side-figure() { block(above: gap(1), below: 0pt, wide-figure-block(file, caption)) }
+    // steps, figure, parts, box, mistakes, notes, apparatus (unless `figure-first`)
+    if file != none and not side-figure() and not wide-first { block(above: gap(1), below: 0pt, wide-figure-block(file, caption)) }
     if after-figure != none { block(width: 100%, above: gap(1), below: 0pt, breakable: false, after-figure) }
     rest
   }

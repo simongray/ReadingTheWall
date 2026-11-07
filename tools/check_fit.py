@@ -39,7 +39,7 @@ import subprocess
 import sys
 import tempfile
 
-PDF = os.environ.get("PDF", "Bouldering Technique Handbook.pdf")
+PDF = os.environ.get("PDF", "Reading the Wall.pdf")
 PT_PER_MM = 72 / 25.4
 PAGE_TOP = 25 * PT_PER_MM        # as in book/template.typ
 PAGE_BOTTOM = 841.89 - 23 * PT_PER_MM

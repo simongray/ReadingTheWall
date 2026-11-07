@@ -13,8 +13,8 @@ if git rev-parse --git-dir >/dev/null 2>&1 && git rev-parse HEAD >/dev/null 2>&1
   [ -n "$(git status --porcelain)" ] && commit="$commit-dirty"
 fi
 set -- --input edition=draft --input date="$(date +%Y-%m-%d)" --input commit="$commit"
-typst compile --root . "$@" book/main.typ "Bouldering Technique Handbook.pdf"
-echo "wrote Bouldering Technique Handbook.pdf (draft, $commit)"
+typst compile --root . "$@" book/main.typ "Reading the Wall.pdf"
+echo "wrote Reading the Wall.pdf (draft, $commit)"
 python3 tools/book_pages.py "$@"
 typst compile --root . "$@" --input booklet=1 book/exercises.typ "Reading the Wall - Exercises.pdf"
 echo "wrote Reading the Wall - Exercises.pdf (draft, $commit)"
