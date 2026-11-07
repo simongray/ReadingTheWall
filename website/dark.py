@@ -11,7 +11,8 @@ volumes, the pelican. Only what is drawn straight on the paper changes:
 
 - The paper itself goes dark: the frames of a film strip, the halos behind labels, and
   earlier positions, which are white on paper only so that they look see-through.
-- The wall's pale band and the grid of dots go quieter, and shoes get lighter.
+- The wall's pale band, the far face of an arête and the grid of dots go quieter, and
+  shoes get lighter. Left pale, the far face would need heavy halos around its labels.
 - The shadow a hold throws on the wall goes darker than the page. Left pale, it glows.
 - Black lines and text blend with what's behind them ("difference"), so they are light
   on the dark page and stay dark where they cross a white limb.
@@ -34,6 +35,8 @@ from itertools import groupby
 PAGE = "#171614"           # the dark page, --paper in style.css
 DOTS = "#5c5a55"            # the grid of dots on the wall
 WALL = "#34322d"            # the pale band beside a wall seen from the side
+FAR_FACE = "#403e38"        # the far face of an arête: further from the page than the band
+FAR_FACE_LIGHT = "#6e6c66"  # its bolt holes, and its rounded edge where that catches the light
 SHOE = "#4d4b45"            # would vanish into the page in its own near-black
 SHADOW = "#0b0a09"          # a hold's shadow on the wall
 CAST_SHADOW = "#dddddd"     # ROCK_SHADOW in figtools/climb.py
@@ -42,6 +45,10 @@ BLACK = {"#000000", XRAY_LINE}
 WHITE = "#ffffff"
 LEFT_LIMB = "#aaaaaa"       # LEFT in figtools/climb.py
 BODY = {WHITE, LEFT_LIMB}
+FAR_FACES = {"#cccccc", "#d4d4d4"}  # wrap_panel in figtools/authored.py, ARETE_SIDE in figs_terrain.py
+FAR_FACE_DOTS = "#a0a0a0"   # arete_wall in figtools/figs_terrain.py
+FAR_FACE_SHARE = 0.08       # of the figure's area that a far face covers at least
+EDGE_STOPS = {WHITE: FAR_FACE_LIGHT, "#d4d4d4": FAR_FACE}   # the gradient on an arête's edge
 GHOST_LINES = {"#777777", "#8c8c8c"}
 LIGHT_ON_DARK = "#ffffff"   # what "difference" turns into its opposite
 STYLE = "<style>.m{mix-blend-mode:difference}</style>"
@@ -50,6 +57,8 @@ TOKEN = re.compile(r"<[^>]+>|[^<]+")
 GREY = re.compile(r"#([0-9a-fA-F]{2})\1\1")
 SHAPE = re.compile(r"<(path|circle|ellipse|polygon|polyline|rect|line)\b[^>]*/>")
 GROUP = re.compile(r"</?g\b")
+SCALE = re.compile(r"scale\(([\d.]+)\)")
+VIEW_BOX = re.compile(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ([\d.]+)"')
 PATH_STEP = re.compile(r"([a-zA-Z])([^a-zA-Z]*)")
 NUMBER = re.compile(r"-?[\d.]+")
 AROUND = [(1, 0), (.7, .7), (0, 1), (-.7, .7), (-1, 0), (-.7, -.7), (0, -1), (.7, -.7)]
@@ -156,9 +165,10 @@ class Surfaces:
     """What is painted so far in one coordinate system, and how far the thickest outline
     shows past the shape it surrounds."""
 
-    def __init__(self):
+    def __init__(self, scale=1):
         self.shapes = []        # (bounding box, subpaths, whether it's a body), top last
         self.reach = 0
+        self.scale = scale      # how much larger than these coordinates the figure draws them
 
     def add(self, tag):
         """Note the plain shape `tag`, in the colour it has in the dark copy."""
@@ -192,11 +202,12 @@ class Surfaces:
 class DarkCopy:
     """The copy being written, with a blended group open while lines are coming."""
 
-    def __init__(self, outlines, shadows):
+    def __init__(self, outlines, shadows, area):
         self.parts = []
         self.blending = False
         self.outlines = outlines
         self.shadows = shadows
+        self.area = area        # of the whole figure
         self.holds = set()      # the paths of coloured holds
         self.ghost_lines = 0    # dashed outlines of an earlier position, just drawn
         self.ghost_fills = 0    # the white pieces still to come for those outlines
@@ -216,7 +227,9 @@ class DarkCopy:
             clip = attr(token, "clip-path")
             if self.clipped or (clip and clip[5:-1] not in self.frames):
                 self.clipped += 1
-            self.surfaces.append(Surfaces() if "transform" in token else self.surfaces[-1])
+            scale = SCALE.search(token)
+            self.surfaces.append(Surfaces(float(scale[1]) if scale else 1)
+                                 if "transform" in token else self.surfaces[-1])
         self.plain(token)
 
     def plain(self, *parts):
@@ -235,6 +248,16 @@ class DarkCopy:
             self.parts.append('<g class="m">')
             self.blending = True
         self.parts += parts
+
+    def is_far_face(self, tag):
+        """Whether the pale shape `tag` is the far face of an arête. It covers much of the
+        figure, unlike a finger behind the hand or the pelican's bill in the same greys."""
+        points = points_on(tag)
+        if not points:
+            return False
+        xs, ys = zip(*points)
+        size = (max(xs) - min(xs)) * (max(ys) - min(ys)) * self.surfaces[-1].scale ** 2
+        return size >= FAR_FACE_SHARE * self.area
 
     def is_detail(self, tag):
         """Whether all of the black mark `tag` lies on a body or the outline around it."""
@@ -270,6 +293,10 @@ class DarkCopy:
             self.plain(tag)
         elif fill == CAST_SHADOW and path in self.shadows and not self.clipped:
             self.draw(with_attr(tag, "fill", SHADOW))
+        elif fill in FAR_FACES and stroke is None and not self.clipped and self.is_far_face(tag):
+            self.draw(with_attr(tag, "fill", FAR_FACE))
+        elif fill == FAR_FACE_DOTS and tag.startswith("<circle"):
+            self.draw(with_attr(tag, "fill", FAR_FACE_LIGHT))
         elif coloured(fill):
             self.holds.add(path)
             self.draw(tag)
@@ -333,7 +360,9 @@ def dark_copy(svg):
     """The dark version of the SVG text `svg`."""
     tokens = TOKEN.findall(svg)
     shapes = [t for t in tokens if SHAPE.fullmatch(t)]
-    copy = DarkCopy(limb_outlines(shapes), cast_shadows(shapes))
+    box = VIEW_BOX.search(svg)
+    area = float(box[1]) * float(box[2]) if box else float("inf")
+    copy = DarkCopy(limb_outlines(shapes), cast_shadows(shapes), area)
     i = 0
     while i < len(tokens):
         token = tokens[i]
@@ -348,6 +377,8 @@ def dark_copy(svg):
             copy.shape(token)
         elif GROUP.match(token):
             copy.group(token)
+        elif token.startswith("<stop") and attr(token, "stop-color") in EDGE_STOPS:
+            copy.plain(with_attr(token, "stop-color", EDGE_STOPS[attr(token, "stop-color")]))
         elif token.startswith("<") or token.strip():
             copy.plain(token)
         else:
