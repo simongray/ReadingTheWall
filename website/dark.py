@@ -13,6 +13,9 @@ volumes, the pelican. Only what is drawn straight on the paper changes:
   earlier positions, which are white on paper only so that they look see-through.
 - The wall's pale band, the far face of an arête and the grid of dots go quieter, and
   shoes get lighter. Left pale, the far face would need heavy halos around its labels.
+- So does a solid piece of wall seen from the side, such as a boulder at its top-out,
+  and its outline blends. The figure code marks it (data-wall), as it has a volume's
+  grey and outline.
 - The shadow a hold throws on the wall goes darker than the page. Left pale, it glows.
 - Black lines and text blend with what's behind them ("difference"), so they are light
   on the dark page and stay dark where they cross a white limb.
@@ -35,6 +38,7 @@ from itertools import groupby
 PAGE = "#171614"           # the dark page, --paper in style.css
 DOTS = "#5c5a55"            # the grid of dots on the wall
 WALL = "#34322d"            # the pale band beside a wall seen from the side
+PALE = "#ececec"            # PALE in figtools/climb.py: that band and a solid piece of wall
 FAR_FACE = "#403e38"        # the far face of an arête: further from the page than the band
 FAR_FACE_LIGHT = "#6e6c66"  # its bolt holes, and its rounded edge where that catches the light
 SHOE = "#4d4b45"            # would vanish into the page in its own near-black
@@ -315,8 +319,11 @@ class DarkCopy:
             self.blend(with_attr(tag, "stroke", LIGHT_ON_DARK))
         elif fill == "#b0b0b0":
             self.draw(with_attr(tag, "fill", DOTS))
-        elif fill == "#ececec" and stroke is None:
+        elif fill == PALE and stroke is None:
             self.draw(with_attr(tag, "fill", WALL))
+        elif fill == PALE and attr(tag, "data-wall") is not None:
+            self.draw(with_attr(with_attr(tag, "fill", WALL), "stroke", "none"))
+            self.blend(with_attr(with_attr(tag, "fill", "none"), "stroke", LIGHT_ON_DARK))
         elif fill == WHITE and tag.startswith("<rect"):
             self.draw(with_attr(tag, "fill", PAGE))
         else:
