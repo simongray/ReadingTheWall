@@ -232,7 +232,7 @@ def hips(f, at, deg, chest=None, head=None, to_wall=26.0, s=0.6, lean=(0.0, -23.
 TURN_DEG = 70.0
 
 
-def from_back(f, c, hinge, hold="l", s=0.6, depth=28.0, reach=None, feet=None, swing="open",
+def from_back(f, c, hinge, hold="l", s=0.6, depth=28.0, reach=None, legs=None, swing="open",
               span=(12, 56), label="from above", label_at=None):
     """An inset of the back-view climber `c` seen from straight above, to go beside it.
 
@@ -244,7 +244,9 @@ def from_back(f, c, hinge, hold="l", s=0.6, depth=28.0, reach=None, feet=None, s
     hinge: where the holding hand `hold` goes, in world units. It is a black dot.
     reach: how far the other hand is from the wall, in cm (by default level with the
       shoulders). A hand that hangs is left out.
-    feet: {"l": deg} draws that leg with its foot on the wall, the shoe pointing `deg`.
+    legs: {"l": (from_wall, deg)} draws that leg, its ankle `from_wall` cm from the wall
+      (4.5 for a foot on it) and its shoe pointing `deg`. A leg behind another, as in a
+      back flag, is further from the wall than it.
     swing: "open" or "back", a turn arrow about the hinge for the free side.
     span: how far the wall runs past the hinge on its outer side and on the body's
       side, in cm.
@@ -260,15 +262,15 @@ def from_back(f, c, hinge, hold="l", s=0.6, depth=28.0, reach=None, feet=None, s
     other = "r" if hold == "l" else "l"
     if getattr(c, other + "h") is not None:
         arms[other] = on_plan(c.J[other + "ha"], depth if reach is None else reach)
-    legs = {}
-    for side, deg in (feet or {}).items():
-        ankle = on_plan(c.J[side + "an"], 4.5)
-        legs[side] = dict(heel=sub(ankle, mul(ang(deg), SHOE_ANKLE)), deg=deg, xray=False)
+    shoes = {}
+    for side, (from_wall, deg) in (legs or {}).items():
+        ankle = on_plan(c.J[side + "an"], from_wall)
+        shoes[side] = dict(heel=sub(ankle, mul(ang(deg), SHOE_ANKLE)), deg=deg, xray=False)
     view = View(sub(hinge, mul(h, s)), s)
     x0, x1 = sorted((h[0] + span[0] * sgn, h[0] - span[1] * sgn))
     wall(f, view.P((x0, depth)), view.P((x1, depth)))
     hold_on(f, view, (h[0], depth))
-    climber(f, view, turn, lean=(0.0, 0.0), arms=arms, legs=legs, pelvis=False, z=70.7)
+    climber(f, view, turn, lean=(0.0, 0.0), arms=arms, legs=shoes, pelvis=False, z=70.7)
     f.circle(hinge, 1.5, z=72, fill=INK, stroke=None)
     # the arc runs round the hinge just outside the free shoulder, the way it swings
     v = sub(rot((-sgn * DIM["sh_half"], 0.0), turn), h)

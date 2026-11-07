@@ -473,7 +473,7 @@ def counter_kick(path):
             # the left arm flung out, level with the shoulders (the left leg would
             # lie under it)
             plan.from_back(f, opened, (-6, 272), "r", s=0.56, span=(12, 116),
-                           label_at=(-44, -36))
+                           label_at=(26, -10))
             _warn("counter-kick a", opened)
         else:
             # only the kicking leg as a ghost: the hips barely move
@@ -485,10 +485,11 @@ def counter_kick(path):
             f.label("kick across behind", (-8, 45), to=(-4, 60), anchor="middle")
             # square to the wall again: the left arm hangs, and the left leg
             # crosses under the body to press the wall right of the right foot
-            # back square to the wall: the left arm hangs out of sight, and the left
-            # leg crosses under the body to press the wall right of the right foot
-            plan.from_back(f, kicked, (-6, 272), "r", s=0.56, feet={"l": 0}, swing="back",
-                           span=(46, 56), label_at=(-44, -36))
+            # back square to the wall: the left arm hangs out of sight. The right foot
+            # stands at the wall under the hand, pointing in. The left leg crosses
+            # behind it, so further from the wall, its foot off the wall
+            plan.from_back(f, kicked, (-6, 272), "r", s=0.56, swing="back", span=(46, 56),
+                           legs={"r": (21, 90), "l": (44, -10)}, label_at=(-44, -36))
             _warn("counter-kick b", kicked)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],

@@ -569,8 +569,9 @@ section as the notes of the GitHub release.
   shoulders, which hide the hips. An arrow shows the swing, and the dashed
   earlier position is gone. Barn door's inset is larger. The shoes seen from above
   in Edging and Pivoting have more detail.
-- Counter-kick: the kicked foot ends in a back flag, pressing the wall below the
-  standing foot, rather than level with it as if on a hold.
+- Counter-kick: the kicked foot ends lower, rather than level with the standing
+  foot as if on a hold. From above, the kicked leg crosses behind the standing
+  leg, on the side away from the wall, as the back view draws it.
 - The legs in the foot close-ups, among them the foot positions at a glance, have
   the climbers' shape: a calf, a knee narrower than the thigh and one outline,
   where they were straight tubes with a round knee.
