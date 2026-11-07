@@ -632,8 +632,9 @@ section as the notes of the GitHub release.
   top-out shows its palms flat on the top.
 - The hands seen from the thumb side are drawn from one hand model, posed by
   joint angles read from photographs: the atlas's jug, open hand, half crimp,
-  full crimp, sloper and thumb catch, and Half crimp, Full crimp, Open hand,
-  the hold angles, Sloper, Thumb catch and Latching. Every one is the same
+  full crimp, sloper, undercling and thumb catch, and Half crimp, Full crimp,
+  Open hand, the hold angles, Sloper, Thumb catch, Latching and the sloper film
+  strip, where the wrist now drops below the hold. Every one is the same
   hand at the same size. The thumb is seen from its back, broad, with its nail
   toward you, as in photographs, and the same grip is the same drawing
   wherever it appears.

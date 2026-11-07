@@ -721,8 +721,9 @@ def _pen_loop(f, pts):
     return f._path_d(pts, True, True)
 
 
-def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=False):
-    """Draw a posed hand on figure f, with the climbers' pen."""
+def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=False, behind=()):
+    """Draw a posed hand on figure f, with the climbers' pen. behind: the outlines of the
+    holds behind the hand, which show through a hole in it."""
     if not hasattr(hand, "grid"):
         hand.build()
     g, own, joined = hand.grid, hand.own, hand.joined
@@ -776,7 +777,10 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
         outer = max(every, key=lambda L: abs(area(L)))
         for L in every:
             if L is not outer and area(L) * area(outer) < 0:
-                f.add(f'<path d="{_pen_loop(f, L)}" fill="{GAP}"/>', z + 0.012)
+                # a hole shows what lies behind it: where a hold does, it is left open and the
+                # hold shows through; where none does, it is a dark gap of shadow
+                if not any(_inside(q, poly) for poly in behind for q in L):
+                    f.add(f'<path d="{_pen_loop(f, L)}" fill="{GAP}"/>', z + 0.012)
     if apart:
         # the thumb: white over the hand, and its outline all round, but for its base,
         # where it melts into the ball of the thumb inside the hand's outline
@@ -838,7 +842,16 @@ def thumb_outline(hand, U):
             out.append((r, 3.5 if g.at(U, r[-1]) < -0.25 else 0.0))
     return out
 ROOT_BACK = 0.22        # from the back the fingers part down to the webs, near the knuckles
-GAP = "#3c3c3c"         # a hole in the outline
+GAP = "#3c3c3c"         # a hole in the outline, where no hold lies behind it
+
+
+def _inside(p, poly):
+    x, y = p
+    c = False
+    for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1]):
+        if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1):
+            c = not c
+    return c
 FRONT = dict(side="i", little="l")      # the finger in front, in the views with grey fingers
 
 
@@ -1089,9 +1102,12 @@ def draw_skeleton(f, hand, z):
 
 GRIPS = dict(
     # J2, J1: knuckle 45-60, middle joint 90, end joint 30-45, the back of the hand upright;
-    # the thumb up beside the index, in front of the palm
-    jug=(dict(wrist=(0, 0), i=(45, 90, 40), m=(47, 96, 40), r=(37, 101, 40), l=(37, 97, 40),
-              thumb=dict(cmc=(2, -20), mcp=20, ip=25)), 0.0),
+    # the thumb up beside the index, in front of the palm, its tip on the lip below the
+    # fingers and clear of the index's middle joint (J2, and jug photos 2, 7 and 8). The
+    # middle finger's knuckle stands a little higher and its tip further on, so the fingers
+    # over the lip step instead of merging into one rounded top
+    jug=(dict(wrist=(0, 0), i=(45, 90, 40), m=(39, 86, 40), r=(28, 94, 40), l=(26, 94, 40),
+              thumb=dict(cmc=(-44, 2), mcp=30, ip=30)), 0.0),
     # O1 (a true side view), Fischer 2024: knuckle 10, middle joint 38 (Fischer's mean 39;
     # O1 reads 20-30, O3 about 60), end joint 45 over the lip, wrist bent back 8; the thumb
     # nearly straight along the palm side, free below the lip
@@ -1108,6 +1124,33 @@ GRIPS = dict(
     # thumb along the palm (no close-up photo: the reference's whole-body dyno only)
     latch=(dict(wrist=(-8, 0), i=(25, 25, 15), m=(25, 27, 15), r=(25, 27, 15), l=(27, 27, 15),
                 thumb=dict(cmc=(14, -12), mcp=5, ip=5)), 22.0),
+    # the undercling: palm up under a flake, seen from the thumb side, which is the other
+    # hand's view (MIRRORED). The fingers rise past the lip and curl up behind it, the thumb
+    # points out (Momentum and Mesa Rim photos: palm up, middle joints curled up behind the
+    # lip, the thumb out along the hold's side). The atlas's flake is shallow, so the middle
+    # joint bends 60, where the photos show about 90 on deeper holds
+    under=(dict(wrist=(0, 0), i=(10, 60, 30), m=(10, 65, 30), r=(13, 65, 30), l=(16, 60, 30),
+                thumb=dict(cmc=(-20, 0), mcp=10, ip=10)), -60.0),
+    # The sloper film strip: one hand in five moments of a regrip. No photo shows the
+    # sequence; the end is S1's and the atlas's sloper, the steps between rest on the
+    # anatomy. 1 catch with the fingertips: the fingers curled, only their tips on the top
+    film_catch=(dict(wrist=(0, 0), i=(20, 60, 35), m=(14, 76, 35), r=(8, 70, 35), l=(11, 47, 35),
+                     thumb=dict(cmc=(-30, -4), mcp=5, ip=5)), 0.0),
+    # 2 drag the pads over: the fingers open out, the pads come onto the top
+    film_drag=(dict(wrist=(5, 0), i=(15, 30, 25), m=(3, 56, 25), r=(3, 47, 25), l=(23, 0, 25),
+                    thumb=dict(cmc=(-30, -4), mcp=5, ip=5)), 0.0),
+    # 3 bring the palm on: the sloper's drape, the thumb still free, off the hold, the wrist
+    # not yet dropped: turned 15 less toward the palm, so the forearm comes in from the side
+    film_palm=(dict(wrist=(8, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
+                    thumb=dict(cmc=(-20, -30), mcp=5, ip=5)), 15.0),
+    # 4 find a thumb spot below: the same, the thumb's pad now on the hold below the fingers
+    film_thumb=(dict(wrist=(8, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
+                     thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 15.0),
+    # 5 wrist below, hang low: the hand rolls round the dome, the fingertips onto its upper
+    # shoulder and the palm down its face, so the wrist drops well below the hold and the
+    # arm hangs under it (fitted to the strip's dome)
+    film_hang=(dict(wrist=(5, 0), i=(30, 35, 15), m=(30, 35, 15), r=(30, 37, 15), l=(33, 37, 15),
+                    thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
     # the half crimp on an incut edge: the same hand with the end joint curled 40 behind the lip
     half_incut=(dict(wrist=(-15, 0), i=(15, 85, 40), m=(10, 98, 40), r=(3, 93, 40), l=(4, 73, 40),
                      thumb=dict(cmc=(-20, -8), mcp=5, ip=5)), 15.0),
@@ -1127,6 +1170,10 @@ GRIPS = dict(
     sloper=(dict(wrist=(23, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
                  thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
 )
+
+
+# grips seen from the thumb side of the other hand: drawn mirrored
+MIRRORED = {"under"}
 
 
 # ---------------------------------------------------------------- solving a pose

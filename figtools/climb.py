@@ -3213,13 +3213,14 @@ def _wrap(text, width_chars):
     return lines
 
 
-def filmstrip(frames, path, captions=None, gap=2.2, band=4.2):
+def filmstrip(frames, path, captions=None, gap=2.2, band=4.2, zoom=1.0):
     """Lay out frames (Fig objects) as a strip of film: a dark band with
     sprocket holes above and below, numbered frames, and a short caption
     under each frame, wrapped to fit unless "\n" says where it should break.
     Sizes in mm. Use the same Fig scale for every frame (0.28 keeps a five-frame
-    strip of back views within the page width)."""
-    sizes = [((f.x1 - f.x0) * f.scale, (f.y1 - f.y0) * f.scale) for f in frames]
+    strip of back views within the page width). zoom scales the frames' drawings,
+    as a plate of close-ups drawn at their own scale is reduced."""
+    sizes = [((f.x1 - f.x0) * f.scale * zoom, (f.y1 - f.y0) * f.scale * zoom) for f in frames]
     fh = max(h for _, h in sizes)
     W = sum(w for w, _ in sizes) + gap * (len(frames) + 1)
     # a caption is wrapped to its frame, unless "\n" says where it should break
@@ -3248,7 +3249,7 @@ def filmstrip(frames, path, captions=None, gap=2.2, band=4.2):
         fw, fhh = f.x1 - f.x0, f.y1 - f.y0
         out.append(f'<clipPath id="fs{i}"><rect x="0" y="0" width="{fw:.2f}" '
                    f'height="{fhh:.2f}"/></clipPath>')
-        out.append(f'<g transform="translate({x:.2f},{y:.2f}) scale({f.scale:.5f})">'
+        out.append(f'<g transform="translate({x:.2f},{y:.2f}) scale({f.scale * zoom:.5f})">'
                    f'<g clip-path="url(#fs{i})">{inner}</g></g>')
         # frame number
         out.append(f'<rect x="{x + 0.8:.2f}" y="{band + 0.8:.2f}" width="4.2" '

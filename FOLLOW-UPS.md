@@ -53,10 +53,15 @@ streamlining), which have the details.
 - The hand close-ups seen from the thumb side come from the hand model in
   `figtools/handmodel.py`. These are still written by hand in
   `figtools/authored.py`, with the old proportions: Matching and Regrip (back
-  views), the sloper film strip, Pinch, Pocket, Wrapping, and the atlas's
-  pocket, pinch, undercling and palm press. The film strip's frames 4–5 and
-  Matching were tried with the model and need their own pass. The old
-  hands that no figure draws any more are still defined in `authored.py`.
+  views), Pinch, Pocket, Wrapping, and the atlas's pocket, pinch and palm
+  press. The old hands that no figure draws any more are still defined in
+  `authored.py`.
+  - In the sloper film strip, frame 4's thumb finds its spot on the dome below
+    the fingers, as photos of sloper grips show. The caption says
+    "underneath": the model can't reach the dome's underside without the
+    thumb turning toward the reader past what `check_hands` allows.
+  - The atlas's undercling bends its middle joint 60°, not the photos' 90°,
+    because the tile's flake is shallow.
   `research/hands-drawing-reference.md` has the photos and joint angles.
 - A prototype drawing the hands from a CC0 3D mesh (MakeHuman) is on the
   branch `claude/hands-3d-model-b315ef`, unmerged. It is the better route to

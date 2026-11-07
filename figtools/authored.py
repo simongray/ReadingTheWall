@@ -1294,16 +1294,26 @@ def grip(name, anchor, at, arm=None):
     """The model's hand in grip `name`, placed so its point `anchor` lands on `at`."""
     import handmodel as M
     pose, a = M.GRIPS[name]
-    return M.Hand(pose, "side", arm=a if arm is None else arm, anchor=anchor, at=at, name=name)
+    return M.Hand(pose, "side", arm=a if arm is None else arm, anchor=anchor, at=at, name=name,
+                  mirror=name in M.MIRRORED)
 
 
-def draw_any(f, hand, z=0.0, fill=WHITE):
-    """Draw an authored hand (a dict) or one of the model's."""
+def draw_any(f, hand, z=0.0, fill=WHITE, behind=()):
+    """Draw an authored hand (a dict) or one of the model's; behind: the outlines of the
+    holds behind it."""
     if isinstance(hand, dict):
         draw_hand(f, hand, z, fill)
     else:
         import handmodel as M
-        M.draw(f, hand, z=z, fill=fill)
+        M.draw(f, hand, z=z, fill=fill, behind=behind)
+
+
+def grip_outline(kind):
+    """The outline of a profile grip's hold (H.grip_hold), for what shows through the hand."""
+    draw, kw = H.GRIP_HOLD[kind]
+    if draw is H.rounded_lip:
+        return H.lip_pts(WX, 0, kw.get("depth", 2.6), kw.get("height", 4.0))
+    return H.edge_pts(WX, 0, kw.get("depth", 2.0), kw.get("height", 2.6), kw.get("slope", 0.0))
 
 
 # where each grip sits on its hold in the atlas's tiles and the entry figures
@@ -1322,10 +1332,12 @@ def side(hold, hand, y0, y1, x0=None, arrow=None):
     f = H.profile_frame(tile_x0() if x0 is None else x0, y0, y1)
     if hold in ("half", "full", "open"):
         H.grip_hold(f, hold)
+        behind = [grip_outline(hold)]
     else:
         f.smooth(hold[0], z=-5, fill=DARK, stroke=INK, sw=0.35, tension=hold[1])
         H.xray_outline(f, hold[0], hold[1])
-    draw_any(f, hand)
+        behind = [hold[0]]
+    draw_any(f, hand, behind=behind)
     if arrow:
         pull(f, *arrow)
     return f
@@ -1447,7 +1459,8 @@ def panel_under():
     f = H.profile_frame(tile_x0(), 4.3 - TILE_H, 4.3)
     f.smooth(FLAKE, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.45)
     H.xray_outline(f, FLAKE, 0.45)
-    draw_hand(f, UNDER_TILE)
+    # the index's tip on the lip's inner face
+    draw_any(f, grip("under", "i_tip", (WX - 4.85, -2.2)))
     f.arrow([(WX - 8.0, -2.4), (WX - 11.0, -0.8)], kind="force")
     return f
 
@@ -1781,46 +1794,55 @@ def hold_angle_fig(path):
             captions=["positive (incut)", "flat", "negative (sloping)"])
 
 
-FILM = CLOSE * 0.73
+FILM_ZOOM = 0.73       # the strip is reduced as the atlas is: its frames are drawn at CLOSE
+FILM = CLOSE * FILM_ZOOM
 
 
 def film_frame(hand, arrow=False):
-    x1 = WX + 2.4 / FILM + 0.01
-    f = Fig(x1 - 31.3 / FILM, -17.4, x1, 7.6, scale=FILM)
+    """One frame of the sloper film strip, drawn at the close-ups' scale. The strip reduces
+    it to FILM, as the atlas's plate reduces its tiles."""
+    x1 = WX + 2.4 / CLOSE + 0.01
+    f = Fig(x1 - 31.3 / FILM, -17.4, x1, 7.6, scale=CLOSE)
     H.wall_profile(f, WX, f.y0, f.y1)
     f.smooth(FILM_DOME, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
     H.xray_outline(f, FILM_DOME, 0.55)
-    draw_hand(f, hand)
+    draw_any(f, hand)
     if arrow:
         f.arrow([(0.6, -8.1), (0.6, -11.9)], kind="force")
     return f
 
 
+# where the hand sits on the dome: the fingertips on its top, then its pads, as the atlas's sloper
+FILM_TIP, FILM_PAD = (0.9, 4.45), (0.4, 4.25)
+
+
 def film_1():
-    return film_frame(FILM_CATCH)
+    return film_frame(grip("film_catch", "i_tip", FILM_TIP))
 
 
 def film_2():
-    return film_frame(FILM_DRAG)
+    return film_frame(grip("film_drag", "i_pad", FILM_PAD))
 
 
 def film_3():
-    return film_frame(FILM_PALM)
+    return film_frame(grip("film_palm", "i_pad", FILM_PAD))
 
 
 def film_4():
-    return film_frame(FILM_THUMB)
+    return film_frame(grip("film_thumb", "i_pad", FILM_PAD))
 
 
 def film_5():
-    return film_frame(FILM_HANG, arrow=True)
+    # the fingertips rolled onto the dome's upper shoulder
+    return film_frame(grip("film_hang", "i_pad", (-2.0, 3.3)), arrow=True)
 
 
 def filmstrip_fig(path):
-    # the hand's line stays the climbers' weight though the plate is reduced
-    H.LINE[0] = 1.0
+    # the hand's line keeps the climbers' weight though the strip is reduced
+    H.LINE[0] = 1 / FILM_ZOOM
     frames = [film_1(), film_2(), film_3(), film_4(), film_5()]
-    filmstrip(frames, path, captions=[
+    H.LINE[0] = 1.0
+    filmstrip(frames, path, zoom=FILM_ZOOM, captions=[
         "catch with\nthe fingertips", "drag the pads over", "bring the palm on",
         "find a thumb\nspot below", "wrist below,\nhang low"])
 
@@ -1862,7 +1884,8 @@ def latch_b(jug_profile):
     jug_profile(f, (0, 0))
     # the atlas's jug grip, its fingertips on this jug's floor
     h = grip("jug", "i_tip", (1.8, -1.3))
-    draw_any(f, h)
+    draw_any(f, h, behind=[[(6.5, -4.5), (1.5, -4.2), (0.1, -2.0), (-0.2, 0.2), (0.25, 0.6), (0.9, -1.3),
+                            (2.6, -1.6), (6.5, -0.6)]])
     f.label("fingers over the lip", (-4.0, 8.4), to=h.spot("i2"), size=7)
     return f
 
