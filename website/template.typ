@@ -119,7 +119,8 @@
 #let readbox(body, k: 1, title: [When to use it — reading the wall], icon: "reading") = panel(title: title, icon: icon, class: "box reading", body)
 #let notebox(title, body, icon: none) = panel(title: title, icon: icon, class: "box note", body)
 #let remember(title, body) = panel(title: title, class: "box remember", body)
-#let keypoint(body) = panel(class: "box keypoint", body)
+// Print may break a key point at its sentence; a screen runs the sentences on.
+#let keypoint(body) = panel(class: "box keypoint", { show linebreak: [ ]; body })
 #let mistakes(body, k: 1) = cls("section", "mistakes", { labelled([Common mistakes], icon: "mistakes"); body })
 
 // ------------------------------------------------------------ figures
@@ -293,6 +294,8 @@
   show h: [ ]
   show pagebreak: none
   show colbreak: none
+  // A break print allows inside a URL; here it would stay in copied text and search.
+  show "\u{200b}": none
   show line: cls("hr", "rule")
   show rect: none
   show underline: it => cls("span", "dotted", it.body)

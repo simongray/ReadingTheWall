@@ -277,7 +277,7 @@ This section is for you if you climb most V4s but haven't #jt("send", body: [sen
   [*Wall angle*], [30–45°, or vertical with poor feet], [More problems on the steepest walls, 40–50° (judgement)],
   [*Footholds*], [Small edges, volumes], [Smaller edges or none; tension holds the feet on #src("F48")\; feet often swing off],
   [*The #jt("crux")*], [Several solutions work], [Usually one technique done precisely, such as a #tref("toe-hook", body: [toe hook]) to stop a swing (judgement)],
-  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move (judgement)], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump") #src("F34")],
+  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move (judgement)], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump", body: [run-and-jump]) #src("F34")],
   [*Body tension*], [Needed on steep moves (judgement)], [Needed to keep the feet on through hand moves #src("F35", "F48")],
   [*Techniques per problem*], [Two or three], [Three to five, linked without rests (judgement)],
   [*How it goes*], [First go, or in one session], [Often several sessions; you work out the beta move by move (judgement)],
@@ -522,6 +522,6 @@ Each row lists key techniques badged at that grade in Part II, and what to focus
   [*V4→V5*], [Those of V3 and V4, done precisely and linked], [Find your limiter; work three to five V5s over sessions],
   [*V5*], [#tref("bicycle"), #tref("heel-toe-cam"), #tref("knee-bar"), #tref("full-crimp"), #tref("double-dyno"), #tref("campus-move"), #tref("foot-catch"), #tref("pogo"), #tref("comp-moves")], [A broad V5 base across styles],
   [*V6*], [No new techniques; hooks as main holds, #tref("compression") and #tref("cutting-loose")], [Weak styles; small holds; precision],
-  [*V7*], [No new techniques; precise #tref("latching"), hooks and compression], [Test for weaknesses; projects over weeks],
+  [*V7*], [No new techniques; precise #tref("latching", body: [latching]), hooks and compression], [Test for weaknesses; projects over weeks],
   [*V8+*], [No new techniques; grip-specific strength], [Moves worked out for your body; specialist strength],
 )

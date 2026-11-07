@@ -359,7 +359,9 @@ class Fig:
 
     # primitives
     def style(self, fill=None, stroke=INK, sw=0.3, dash=None, opacity=None,
-              join="round", cap="round"):
+              join="round", cap="round", ghost=False):
+        """ghost: mark a piece of an earlier position, whose white is paper, for
+        the site's dark copy (website/dark.py). Print ignores the mark."""
         s = f'fill="{fill or "none"}"'
         if stroke:
             s += (f' stroke="{stroke}" stroke-width="{self.mm(self.weight(sw)):.2f}"'
@@ -369,6 +371,8 @@ class Fig:
                 f"{self.mm(d):.2f}" for d in dash) + '"'
         if opacity is not None:
             s += f' opacity="{opacity}"'
+        if ghost:
+            s += ' data-ghost="1"'
         return s
 
     def stipple(self, outline, c, u, ra, rb, colour, focus=None, z=0):
@@ -2051,7 +2055,8 @@ def _draw_group(fig, z, pieces, lines, st):
                          cap="round" if closed else "butt")
     for pc in pieces:
         if pc.get("fill"):
-            fig.poly(pc["pts"], z=z + 0.001, fill=pc["fill"], stroke=None)
+            fig.poly(pc["pts"], z=z + 0.001, fill=pc["fill"], stroke=None,
+                     ghost=st.get("ghost", False))
     for ln in lines:
         ln = dict(ln)
         pts = ln.pop("pts")
@@ -2364,7 +2369,7 @@ class Climber:
         self._fig = fig
         if ghost:
             dash = (0.9, 0.7)
-            line = dict(stroke=GHOST_LINE, sw=0.3, dash=dash)
+            line = dict(stroke=GHOST_LINE, sw=0.3, dash=dash, ghost=True)
             shoe_st = dict(fill=WHITE, stroke=GHOST_LINE, sw=0.3, dash=dash)
             g = WHITE
             if fills == "solid":
@@ -2441,7 +2446,7 @@ class Climber:
         wr = sub(hand, mul(v, min(self.D["hand"], length(sub(hand, elbow)) * 0.4)))
         col = (dict(l=WHITE, r=WHITE, shirt=WHITE) if ghost else
                dict(l=LEFT, r=WHITE, shirt=WHITE))
-        line = (dict(stroke=GHOST_LINE, sw=0.3, dash=(0.9, 0.7)) if ghost else
+        line = (dict(stroke=GHOST_LINE, sw=0.3, dash=(0.9, 0.7), ghost=True) if ghost else
                 dict(stroke=INK, sw=0.32, dash=None))
         torso_polys = self._torso_shapes()[0]
         pieces, lines = self._arm_geometry(s, J[s + "sh"], elbow, wr, hand,

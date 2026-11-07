@@ -324,7 +324,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("cutting feet", "cut loose", "feet off", "counter-kick"),
   category: "dynamic",
   grade: 4,
-  grade-note: [On steep gym walls, many big moves at V4–V5 end with your feet off. Lattice Training#ix("Lattice Training") notes that climbers who struggle with big moves rarely cut loose #src("D40"). The counter-kick arrives with one-handed throws and #tref("sidepull") catches at V4–V5 (judgement). The sources describe swing control but not this name.],
+  grade-note: [On steep gym walls, many big moves at V4–V5 end with your feet off. Lattice Training#ix("Lattice Training") notes that climbers who struggle with big moves rarely cut loose #src("D40"). The counter-kick arrives with one-handed throws and #tref("sidepull", body: [sidepull]) catches at V4–V5 (judgement). The sources describe swing control but not this name.],
   summary: [Your feet leave the wall during or after a move, either because you cut them on purpose or because they slip. You hold the swing with your shoulders and stomach, then use it to put your feet back on.],
   figure: "cutting-loose.svg",
   caption: [(a) Your feet cut and your legs swing out. (b) At the peak, tuck your knees. (c) Swing back in. Catch the foothold with your toes.],
@@ -454,7 +454,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   category: "dynamic",
   grade: 5,
   grade-note: [Low-grade gym problems rarely force moves without feet. Steep V5+ problems sometimes leave no usable feet for a move or two (our judgement; no coaching source places it).],
-  summary: [You move a hand with no feet on the wall, while your arms and #tref("body-tension") hold you. Each move is a short, footless dyno #src("D46").],
+  summary: [You move a hand with no feet on the wall, while your arms and #tref("body-tension", body: [body tension]) hold you. Each move is a short, footless dyno #src("D46").],
   figure: "campus-move.svg",
   caption: [(a) Hang with your arms slightly bent and your knees tucked. (b) Pop your hips up a little. The right hand moves on at the top.],
   how: [

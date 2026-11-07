@@ -1,6 +1,6 @@
 # Typography changes for the third revision
 
-The brief is the section "Typography" in `REVISE-3.md`. Most faults had one root: the template saved pages by tightening entries, floating figures and letting boxes fill the page around them. Taking that away cleared most of the fault list, and the book went from 290 to 317 pages with no blanks. A second pass then fixed what a page-by-page reading of the result found, which brought it to 311. "Second pass" below records that.
+The brief is the section "Typography" in `REVISE-3.md`. Most faults had one root: the template saved pages by tightening entries, floating figures and letting boxes fill the page around them. Taking that away cleared most of the fault list, and the book went from 290 to 317 pages with no blanks. A second pass then fixed what a page-by-page reading of the result found, which brought it to 311, and a third brought it to 313. The sections below record each pass, the merge with the third edition's figure work and the repairs after it.
 
 ## The first pass, measured against the book before this work
 
@@ -169,7 +169,7 @@ A reading of all 317 pages listed about 125 faults. All of them are fixed here u
 - **5.1**'s "German school" paragraph splits before "The same lessons", with no change of words, so the lead-in and its list stay on one page.
 - **Chapter 9**'s mats list may break (`loose-list`), which closes three short pages in a row.
 - **The step table in Reading the wall for body position** sits closer to its step than to the next one.
-- **Tables.** The foot table and the V4/V5 comparison have fixed columns, so the long cells set fewer lines and the comparison stays whole.
+- **Tables.** The foot table and the V4/V5 comparison have fixed columns, so the long cells set fewer lines. The comparison stayed whole then. Since the third pass it may break (8.6), and it runs over pp. 235–236.
 - **On the mat.** The opening line is centred under the title.
 - **Local fixes.** A few last words are tied (`new~problem`, `meet~them`). Five list items with an unbreakable tail are set ragged, since no break could close the gaps: Compression step 7, Opposition's "Foot against foot", "Keep the hips close" in Chapter 6, the hands-behind-you step in Chapter 9 and two bullets in the grade guides.
 
@@ -265,3 +265,63 @@ The last two are the words "straight arms" as ordinary text, in Layback's captio
 - **Mantle.** Its figure misses the first page by one line (16 pt). The mistakes, the note and the apparatus now sit together, so the box doesn't need to break, and it stays whole.
 - **Heights set by hand.** The `margin` values and Sources' `pages` and `last` may need changing if the reference matter changes.
 - **Still not read on the Boox.**
+
+## The merge with the third edition
+
+- **Hands.** The old hand figures are gone, so the crops and label moves made on them were redone on the outlines in `figtools/authored.py`. Pocket fits in the 92 mm beside its steps, Hold angle stops just below the wrist, "fingers round the edge" in Wrapping clears the arête's line and "2–3 cm above" in Latching clears its panel letter.
+- **Citations [56] and [57]** swap throughout, with Sources in step. Sources are numbered in order of first citation, and the move in 2.5 (third pass) now cites "Climbers often find..." first.
+- **"Is this move meant to be dynamic?"** has the reading box's marks instead of round bullets, since it became a `readbox` with `title:` and `icon:` in the first pass.
+
+## After the merge: repairs
+
+A reading of the merged book and site listed these faults. The book stays at 313 pages, and every change stays on its own page: the pages that differ are PDF 2, 5, 22, 30, 34, 38, 42, 46, 55, 59, 64, 75, 82, 84, 114, 127, 132, 138, 144, 151, 156, 160, 162, 166, 170, 183, 189, 190, 194, 201, 216, 223, 227, 247, 259 and 271. `check_fit` reports 0 faults and the same 11 notes.
+
+### The template and the chapters
+
+- **Ranges with a unit.** "10–25 / minutes" broke in the rest table, because the box that keeps a range whole hid its last digit from the measurement rule. The range rule now ties a following unit itself.
+- **"Chapter" doesn't hyphenate,** as "Section" and "Figure" don't, since "Chap-/ter 2" opened 5.1.
+- **Bold run-ins.** A page reference inside `*...*` printed bold, because `text(weight: "regular")` can't undo strong's weight delta. The two run-ins with one ("Not on a slab", "On a sloper") end the bold before the reference, with the same words.
+- **Case.** Ten references the third pass missed are in lower case: lock-off twice, undercling, stemming, smearing, half crimp, open hand, sidepull, body tension, run-and-jump and latching.
+- **"The grey box" → "The shaded box"** in "How to use this book", since the text never names a tone.
+- **Ties.** "a~bicycle" ends the colophon, and "A~2024" in 9.6 no longer leaves "A" at a line end.
+- **Watch line.** Mantle's video title has a spaced hyphen, which prints as an en dash like the other titles, instead of an em dash.
+- **Heel hook rock-up** (content correction). The strip draws the hips moving towards the heel but not over it, so frame 3 says "hips towards the heel" and the caption "up and across towards the foot". Re-posing would need new left footholds.
+
+### Figures (`figtools/`)
+
+These drawings changed, so their alt text should be rechecked: reading-worked-problem, reading-v4-sit-answer, reading-v5-volumes-answer, reading-v3-overhang-answer, reading-v2-slab-answer, precise-footwork, front-pointing, filmstrip-heel-hook, heel-toe-cam, bicycle, twist-lock, pinch, wrap, hip-pump, dyno, filmstrip-dyno, overhang, volume and sit-start. I read each description against its drawing, and none needed new words.
+
+- **Figure 6.** L4 and R5 sat on the crux box's lines, and the "rest" leader grazed R3's tag. The tags moved off the lines and the leader runs below the tag to the jug's lower edge.
+- **Problem 5.** "C R1" covered the right wrist, so it moved onto the wall beside hold C. B's leader stopped on the torso; it now reaches B's hidden outline.
+- **Problem 7.** The A tag lay across the left thigh, and the legs and tape leave no room for it by the hold. It is on open wall above the thigh, with a leader to the hold, as in Problem 5.
+- **Problems 1 and 3.** "D R3" and "C L1" touched the arm and hand, so they moved about 1 mm clear.
+- **Precise footwork.** "lands short, slips" sat on the shin, because the frame pushed the centred first line left. Both lines now end at the panel's right side.
+- **Front-pointing.** The leader ended on the "b" of "back", for the same reason. The label's end now sits at its anchor and the leader leaves from the "k".
+- **Heel–toe cam.** The volume's corner was cut off at the measure. The frame is 6 cm wider, so the figure hangs into the margin beside the steps, as Knee bar does.
+- **Bicycle.** "push" moved 2 cm off the wall line.
+- **Twist lock.** "elbow to ribs" ran past the panel edge, so the frame pushed it under its own leader and onto a bolt hole. It is in two lines, and "feet squeeze" moved off its arrow.
+- **Pinch.** The panel letters stood on the wall line, so the band above the wall is a little deeper. The drawings keep their size.
+- **Wrapping.** "fingers round the edge" touched the arête's line, so it is in three lines.
+- **Hip pump.** The label and steps say straight arms, but the dip's elbows were at 147° and 140°. The dip's hips are 3 cm lower, so the arms hang straight.
+- **Dyno and its strip.** The sink is labelled "arms straight" but was drawn at about 142°, and the drive bent to 122°. The sink's shoulders sit lower and further out (about 172°) and the drive's further back (155–160°, "nearly straight" as step 5 says).
+- **Overhangs.** Panel a's climber lay on the wall line and hid it. The body now hangs off the wall between the hand and the low foot. The X is off the wall line, "feet cut loose" sits in two lines beside its arrow instead of on the plumb line, and panel b's "arms straight" leader ends on the arm's near edge.
+- **Volumes.** Panel a's elbows went through the wall. The hands are a little lower and the climber stands further out, with the arms still bent.
+- **Sit starts.** Panel a's caption "square on (frog)" marked the frog as the mistake, which step 3 recommends. It is "square on, bottom out".
+- **Ghosts in the dark copies.** `Climber.draw` marks a ghost's white pieces (`data-ghost`), and `website/dark.py` turns marked pieces into the page. The count of outlines it relied on broke when the real body's lines came between a ghost's outlines and its fills, which left white ghosts in Dynamic slab, the falling strip, Roofs, Run-and-jump and Figure 1. Print ignores the mark.
+- **`book/figure-alt.toml`.** `drawn` is current for all figures. Besides those above, this covers the figures changed by the hands work and the ghost mark, after reading each description against its drawing.
+
+### The website
+
+- **Tied heads.** A part subtitle or a section head tied for print reached the site as no-break spaces, and a tied run too wide for a phone broke inside a word. The site turns them into spaces in heads and subtitles, which also clears the part pages' descriptions and `llms.txt`. The mid-word sweep at 320–430 px now matches the site before the merge, in Iowan and Georgia.
+- **2.10's key point** runs on as one paragraph instead of a `<br>`. Print keeps its break.
+- **Zero-width spaces** in the repository's address are dropped, so copied text and search match it.
+- **Sources line.** A long citation group may wrap, as in print. On Deadpoint it widened the page to 359 px at 320 px.
+- **Grades in tables and the A–Z** are a capital V with lining figures, as in print, since "V0" read as "vo".
+- **The Foreword's signature** has a line of space above it, as in print.
+- **Spacing.** A level-4 head has half a line below it and paragraphs in an entry are half a line apart, the values print uses.
+
+### Left for Simon
+
+- **Top-out palms.** The words promise flat palms, but the hands stand on end and dip into the block. Mantle's flat palm needs the hands lifted about 3.5 cm with the body, so that the fists end at the palm. The left foot then misses its hold and the right shoe overlaps the right palm. I drew a first sample but didn't apply it, since a change to a hand waits for Simon.
+- **Tones in the key.** Figure 1's caption and key still say "white" ("the right limbs white", "The white lip"). Whether white counts as a tone is Simon's call.
+- **Hold angle.** Panels b and c end at the heel of the hand with no wrist. Showing a wrist in all three adds about 5 mm and moves a line of p. 127 over.

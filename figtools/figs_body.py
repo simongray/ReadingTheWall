@@ -7,6 +7,7 @@ your right faces right, use=0); a gaston faces the body's midline.
 
 from climb import *
 import plan
+from figs_hands import label_lines
 
 
 def _warn(name, *climbers):
@@ -513,9 +514,11 @@ def twist_lock(path):
             c.draw(f)
             f.arrow([add(stand(A), (-20, -8)), add(stand(A), (-6, -8))], kind="force")
             f.arrow([add(stand(B), (20, -8)), add(stand(B), (6, -8))], kind="force")
-            f.label("elbow to ribs", (92, 178), to=add(c.J["rel"], (-1, 1)))
+            # in two lines: in one, the text ran past the panel's edge and was
+            # pushed back under its own leader
+            label_lines(f, ["elbow", "to ribs"], (100, 172), to=add(c.J["rel"], (-1, 1)), size=7.5)
             f.label("shoulder in", (-8, 222), to=add(c.J["lsh"], (2, 0)))
-            f.label("feet squeeze", (80, 64))
+            f.label("feet squeeze", (83, 62))
             # the chin comes round to the right shoulder, as the steps say
             plan.hips(f, (-34, 93.8), -65, chest=-55, head=-115, to_wall=16, lean=(-6, -22),
                       span=(-42, 52), spin=(29, 195, 160), label="from above", label_y=62,

@@ -72,7 +72,7 @@
     v(0.5em)
     [Set in Iowan Old Style, with its small capitals and old-style figures. The ornaments are climbing holds, one for each chapter and part, drawn like those in the illustrations, which were made in Python. Typeset~with~Typst.]
     v(0.5em)
-    [The pelican on the cover is a play on Simon Willison's test of language models, which asks them to draw a pelican riding a bicycle.]
+    [The pelican on the cover is a play on Simon Willison's test of language models, which asks them to draw a pelican riding a~bicycle.]
   })
 ]
 
@@ -125,7 +125,7 @@ The *appendices* start with "On the mat", the book on one page to look at betwee
 - *Name and grade badge.* The badge, such as #badge(3), marks the grade where the technique starts to *matter* on indoor problems. Below that grade you can usually get away without it. Above it, more and more problems are set so that you need it. The grade is a judgement based on coaches' advice, technique clinics and climbers' reports, and gyms vary. If you should start learning the technique earlier, the #sc(tracking: 0.08em)[Grade] note says when.
 - *Also called.* Other names you will hear. All of them are in the A–Z list and the index.
 - *How to do it.* Numbered, concrete steps: which limb goes where, and why.
-- *When to use it — reading the wall.* The grey box has two groups. "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
+- *When to use it — reading the wall.* The shaded box has two groups. "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
 - *Common mistakes*, notes for *tall climbers* and *small climbers* where there is something specific to say, *related* techniques, videos to *watch*, and *sources*.
 - *Referenced from.* Every place in the book that mentions the technique, so you can jump back to it.
 

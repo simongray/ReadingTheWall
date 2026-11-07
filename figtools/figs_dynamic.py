@@ -164,7 +164,7 @@ def hip_pump(path):
     start = Climber((-18, 152), lean=-4, lh=grip(LH), rh=grip(RH),
                     lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                     knees={"l": "out", "r": "down"}, bend=8)
-    dip = Climber((18, 142), lean=4, lh=grip(LH), rh=grip(RH),
+    dip = Climber((18, 139), lean=4, lh=grip(LH), rh=grip(RH),
                   lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                   knees={"l": "out", "r": "out"}, bend=-6)
     # the push leg lifts the hips, so the arms don't have to; the reaching
@@ -219,7 +219,7 @@ def dyno(path):
         return (x0 - t * (h - 60), h)
     S, T, F = W(170), W(306), W(70)
     s, tg, ft = _side_grip(S, A), _side_grip(T, A), _side_foot(F, A)
-    sink = Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
+    sink = Climber(None, shoulders=add(s, (-48, -43)), view="side", lean=24,
                    lh=s, rh=add(s, (0.4, -0.6)),
                    lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
                    rf={"at": ft, "contact": "toe"}, head=(1, 1),
@@ -228,7 +228,7 @@ def dyno(path):
                    bend=8, head_tilt=-25)
     # arched: hips in, shoulders back, arms nearly straight; the legs are
     # nearly straight too, so the knees stay off the wall
-    drive = Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
+    drive = Climber(None, shoulders=add(s, (-58, 24.5)), view="side", lean=-35,
                     lh=s, rh=add(s, (0.4, -0.6)),
                     lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
                     rf={"at": ft, "contact": "toe"}, head=(3, 0), bend=-14,
@@ -1067,11 +1067,11 @@ def filmstrip_dyno(path):
     on = dict(lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
               rf={"at": ft, "contact": "toe"})
     poses = [
-        Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
+        Climber(None, shoulders=add(s, (-48, -43)), view="side", lean=24,
                 lh=s, rh=s2, head=(1, 2), bend=8, head_tilt=-25, **on),
         # arched: hips in, shoulders back, arms nearly straight; the legs
         # drive, as in the dyno figure
-        Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
+        Climber(None, shoulders=add(s, (-58, 24.5)), view="side", lean=-35,
                 lh=s, rh=s2, head=(3, 0), bend=-14, **on,
                 active=("lthigh", "rthigh", "lcalf", "rcalf")),
         # legs straight, toes just off the foothold; the head tips back to

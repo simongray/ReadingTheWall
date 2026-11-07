@@ -1384,10 +1384,16 @@
   set text(font: serif, size: fs.body, lang: "en", region: "gb", number-type: "old-style", top-edge: cap, costs: (hyphenation: 40%))
   // Grades and Font grades take lining figures: V3, 6A+.
   show regex("\bV\d+|\b\d[ABC]\b|\bA[1-5]\b|Font[ \u{a0}]\d\+?(?:[–\u{2060}]+\d\+?)?"): set text(number-type: "lining")
-  show regex("[\p{L}\p{N}+]+–[\p{L}\p{N}+]+"): box
+  // A range stays whole, and with its unit: the box hides the range's last digit
+  // from the measurement rule below, so "10–25 minutes" is tied here.
+  show regex("[\p{L}\p{N}+]+–[\p{L}\p{N}+]+(?: (?:mm|cm|m|km|kg|N|min|minutes?|seconds?)\b)?"): it => {
+    let (span, ..unit) = it.text.split(" ")
+    if unit.len() == 0 { box(it) } else { box(span) + "\u{a0}" + unit.join(" ") }
+  }
   // A spaced dash ends a line and never starts one.
   show regex(" [-–] "): "\u{a0}– "
-  show regex("\b(Chapters?|Font) \d"): it => it.text.replace(" ", "\u{a0}")
+  // "Chapter 2" and "Font 6A" stay together, and "Chapter" doesn't hyphenate.
+  show regex("\b(Chapters?|Font) \d"): it => text(hyphenate: false, it.text.replace(" ", "\u{a0}"))
   show regex("\d (mm|cm|m|km|kg|N|min|minutes?|seconds?)\b"): it => it.text.replace(" ", "\u{a0}")
   show regex("(?i)\b(e-reader|side-on|pull-up|take-off|big-toe|little-toe|one-handed|two-finger|top-outs?|fact-check)\b"): box
   show regex("\b(Section|Figure)\b"): box

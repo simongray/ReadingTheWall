@@ -264,7 +264,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - a big foothold at hip height or above, with nothing in between.
     - a handhold you can't reach from where you stand.
     - a ledge or the top of a #tref("volume", body: [volume]). A high foot starts a #tref("mantle", body: [mantle]) #src("A34").
-    - *Not on a #tref("slab", body: [slab]):* there, high steps upset your balance. Take small steps#ix("Slab technique!small steps") #src("A34").
+    - *Not on a* #tref("slab", body: [*slab*])*:* there, high steps upset your balance. Take small steps#ix("Slab technique!small steps") #src("A34").
 
     *Symptoms*
     - Your feet are low, so you can't reach even at full stretch.
@@ -469,7 +469,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   sources: ("A6", "A7", "A24", "A37", "A38", "A39", "A40"),
 )
 
-#filmstrip("filmstrip-heel-hook.svg", [Heel hook rock-up], [Watch the hips: the heel pulls them up and across until they sit over the foot. Only then does the foot roll onto the toe to stand.])
+#filmstrip("filmstrip-heel-hook.svg", [Heel hook rock-up], [Watch the hips: the heel pulls them up and across towards the foot. Only then does the foot roll onto the toe to stand.])
 
 #technique(
   key: "heel-hook",

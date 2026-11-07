@@ -120,7 +120,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   errors: [
     - Feet in the wrong place, so nothing pushes against the pull. Put a foot under the hold.
   ],
-  small: [Burying your hand in a deep sidepull or #tref("undercling") feels secure but shortens your reach. When you need distance, slide your hand out towards the edge, as far as it still holds, before you move off it #src("H3").],
+  small: [Burying your hand in a deep sidepull or #tref("undercling", body: [undercling]) feels secure but shortens your reach. When you need distance, slide your hand out towards the edge, as far as it still holds, before you move off it #src("H3").],
   related: ("gaston", "layback", "barn-door", "backstep", "drop-knee", "pinch"),
   watch: (("Climbing Tech Tips", "Climbing Movement: 21. Side Pull Holds", "https://www.youtube.com/watch?v=kgDU3WSXowM"),),
   sources: ("C34", "C36", "C40", "C41", "H3"),
@@ -246,7 +246,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [It helps on easy slabs and volume problems from V2. In corners and on steep volumes it becomes necessary around V4.],
-  summary: [You press an open palm against the wall or a #jt("volume") instead of gripping. The push and skin friction hold you. It is the hand version of #tref("smearing") #src("C41").],
+  summary: [You press an open palm against the wall or a #jt("volume") instead of gripping. The push and skin friction hold you. It is the hand version of #tref("smearing", body: [smearing]) #src("C41").],
   figure: "palming.svg",
   caption: [The right palm presses down and right on a volume. That frees the right foot to step up.],
   how: [
@@ -332,7 +332,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   ],
   tall: [You reach the lip and a high foot easily. Folding a long body over that foot is the hard part.#ix("Tall climbers!mantles") Get weight onto the foot early, so your arms don't press your whole weight #src("C5").],
   related: ("top-out", "rockover", "high-step", "palming", "volume"),
-  watch: (("Friction Labs", "The Art of the Mantle — Chris Schulte’s Guide to Topping Out in Fontainebleau", "https://www.youtube.com/watch?v=oKrATkvFOck"),),
+  watch: (("Friction Labs", "The Art of the Mantle - Chris Schulte’s Guide to Topping Out in Fontainebleau", "https://www.youtube.com/watch?v=oKrATkvFOck"),),
   sources: ("C5", "C6", "C11", "C39", "C46", "C49"),
 )
 
@@ -513,7 +513,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     + Aim at a small mark, such as a screw hole: "aim small, miss small" #src("C18").
     + Aim with your head. Put your nose where your balanced body needs to be. A fumbled hand then has time to correct #src("C18").
     + Move your fingers one at a time while your weight is on your feet or the other hand.
-    + On a long run of edges, switch between #tref("half-crimp") and #tref("open-hand"). The change rests your fingers #src("C51").
+    + On a long run of edges, switch between #tref("half-crimp", body: [half crimp]) and #tref("open-hand", body: [open hand]). The change rests your fingers #src("C51").
     + To make room for a #tref("matching", body: [match]), take the hold with fewer fingers, on one side, or pinch it #src("C58"). Swap fingers across one at a time.
   ],
   when: [
@@ -590,7 +590,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     + Feel the hold with your thumb for bumps, dips or a second face. Give up a little of the main hold if that gets the thumb on #src("C7").
     + *Thumb catch:* press the thumb into a dimple below or beside the fingers.
     + *Thumb press:* lay the thumb pad flat on a face and push. It takes load off the fingers #src("C7").
-    + *On a #tref("sloper", body: [sloper]):* try the thumb below the hold and to one side #src("C2").
+    + *On a* #tref("sloper", body: [*sloper*])*:* try the thumb below the hold and to one side #src("C2").
     + *On a #jt("volume") edge:* put the thumb on one face and the fingers on the other #src("C11").
     + *Thumb wrap:* on a big jug or a #jt("rail"), wrap the thumb round the front #src("C1").
     + *Thumbercling:* on an overhead hold that faces down, press up with the thumb pad. Keep the wrist and fingers straight #src("C7").

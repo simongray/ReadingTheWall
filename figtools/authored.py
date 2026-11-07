@@ -1578,7 +1578,7 @@ def pocket_fig(path):
 
 
 def pinch_a():
-    f = block_panel(PINCH, 1.5, -9.644, -18.88, 7.42, 1.3)
+    f = block_panel(PINCH, 1.5, -9.644, -18.88, 7.42, 1.75)
     f.arrow([(6.85, -2.6), (4.25, -2.6)], kind="force")
     f.arrow([(-6.2, -3.5), (-3.6, -3.5)], kind="force")
     f.text("wall", (6.42, 0.75), size=7)
@@ -1588,14 +1588,14 @@ def pinch_a():
 
 
 def pinch_b():
-    f = block_panel(PINCH_WIDE, 3.0, -11.569, -18.88, 7.94, 1.3)
+    f = block_panel(PINCH_WIDE, 3.0, -11.569, -18.88, 7.94, 1.75)
     f.arrow([(7.7, -2.2), (5.1, -2.2)], kind="force")
     f.arrow([(-7.7, -3.8), (-5.1, -3.8)], kind="force")
     return f
 
 
 def pinch_c():
-    f = pinch_frame(-14.112, -18.88, 7.94, 1.3)
+    f = pinch_frame(-14.112, -18.88, 7.94, 1.75)
     hold = [(-8.0, 0), (0.0, -7.0), (8.0, 0)]
     f.poly(hold, z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     H.xray_outline(f, hold)
@@ -1680,7 +1680,7 @@ def wrap_panel():
     f.poly([low, high], closed=False, z=H.XRAY_Z, **H.XRAY_STYLE)
     f.label("arête", (1.75, 5.9), to=(0.0, 5.2), size=7)
     f.label("palm and thumb", (-14.51, 5.76), to=(-9.15, 4.21), size=7)
-    label_lines(f, ["fingers round", "the edge"], (3.85, -8.64), to=(0.0, -2.75))
+    label_lines(f, ["fingers", "round", "the edge"], (3.85, -6.9), to=(0.0, -2.75))
     f.arrow([(-10.0, -0.75), (-6.8, -0.4)], kind="force", z=50)
     f.arrow([(6.2, 1.4), (3.6, 1.68)], kind="force", z=50)
     return f

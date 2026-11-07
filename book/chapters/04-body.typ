@@ -493,7 +493,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
 
     *Symptoms*
     - You twist in, but your body keeps rotating back out and your arm has to hold it. This is a #jt("spin-out"). The foot is behind the line. Use a #tref("drop-knee", body: [drop knee]) instead #src("B39").
-    - The move feels like a hard one-arm #tref("lock-off").
+    - The move feels like a hard one-arm #tref("lock-off", body: [lock-off]).
   ],
   errors: [
     - A foot too low to get your hips over the heel #src("B38").
@@ -733,7 +733,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + Find a partner contact that pushes or pulls the opposite way.
     + *Hand against hand:* pull two #tref("sidepull", body: [sidepulls]) towards your chest. Or push two #tref("gaston", body: [gastons]) apart, elbows out #src("B14").
     + *Hand against foot:* pull an #tref("undercling", body: [undercling]) up while your high feet press into the wall #src("B30"). Or pull a sidepull while the opposite foot stands on its outside edge #src("B14").
-    + *Foot against foot:* push your feet apart, as in #tref("stemming") or a #tref("drop-knee", body: [drop knee]) #src("B20", "B29"). A #tref("bicycle", body: [bicycle]) squeezes one hold between both feet #src("B56").
+    + *Foot against foot:* push your feet apart, as in #tref("stemming", body: [stemming]) or a #tref("drop-knee", body: [drop knee]) #src("B20", "B29"). A #tref("bicycle", body: [bicycle]) squeezes one hold between both feet #src("B56").
     + Load both contacts at once. Then move the limb that isn't part of the pair.
     + Keep your trunk tight. If your #jt("core") sags, the squeeze lets go #src("B31").
   ],
@@ -825,7 +825,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     *Symptoms*
     - You touch the target but can't hold the position to grip it.
     - You swing out as you let go.
-    - You can only do the move as a full front-on #tref("lock-off").
+    - You can only do the move as a full front-on #tref("lock-off", body: [lock-off]).
   ],
   errors: [
     - Not finding the exact locked position. Shuffle until it feels solid.

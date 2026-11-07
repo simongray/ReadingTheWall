@@ -442,7 +442,7 @@ def front_pointing(path):
         if good:
             tip = (POCKET["back"] - 0.25, 0.4)
             shoe_side(f, tip, -9, spot="tip", shin=104, name="front-pointing b")
-            f.label("into the back", (-25, -11), to=(POCKET["back"] - 1.2, -0.6),
+            f.label("into the back", (-19, -12), to=(POCKET["back"] - 1.2, -0.6),
                     size=7)
         else:
             lip = (-11.2, POCKET["lo"] + 0.2)
@@ -798,7 +798,7 @@ def bicycle(path):
               z=0, name="bicycle under")
     f.arrow([add(top, (-2, 16)), add(top, (-2, 7.5))], kind="force")
     f.arrow([add(under, (2, -20)), add(under, (2, -12))], kind="force")
-    f.label("push", (-16, 26), size=7)
+    f.label("push", (-18, 26), size=7)
     f.label("pull", (-4, -33), size=7)
     f.save(path)
 
@@ -809,7 +809,7 @@ def bicycle(path):
 def heel_toe_cam(path):
     """Back view close-up: heel down on a jug, top of the toes up under a
     volume, the foot wedged between them."""
-    f = Fig(-34, -14, 44, 44, scale=0.75)
+    f = Fig(-34, -14, 50, 44, scale=0.75)
     hold(f, "jug", (0, 0), size=1.1)
     heel = (-5.5, 5.5)
     deg = 14
@@ -1087,8 +1087,8 @@ def precise_footwork(path):
                 f.line((x, F[1] - 3.0), (x + 1.0, F[1] - 6.0), sw=0.3)
             f.arrow([add(F, (14, -6)), add(F, (14, -20))], kind="move")
             f.cross(add(F, (24, -13)))
-            f.text("lands short,", (67, 80), size=7.5)
-            f.text("slips", (67, 80 - f.pt(9.5)), size=7.5)
+            f.text("lands short,", (86, 76), size=7.5, anchor="end")
+            f.text("slips", (86, 76 - f.pt(9.5)), size=7.5, anchor="end")
         check("precise-footwork", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -1190,7 +1190,7 @@ def filmstrip_heel_hook(path):
         check(f"filmstrip heel hook {i + 1}", c)
         frames.append(f)
     filmstrip(frames, path, captions=[
-        "hook the heel,\ntoes out", "pull heel\nto bum", "hips over\nthe heel",
+        "hook the heel,\ntoes out", "pull heel\nto bum", "hips towards\nthe heel",
         "roll onto\nthe toe", "stand up\nand reach"])
 
 
