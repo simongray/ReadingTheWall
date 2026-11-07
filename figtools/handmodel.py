@@ -273,12 +273,18 @@ def digit_solids(skel, k):
     segs = skel.digits[k]
     out = []
     if k == "t":
-        # the thumb's metacarpal and knuckle are the thumb's: its outline runs from the tip
-        # down past the knuckle, and only the base, in the ball of the thumb, melts away
+        # the thumb grows out of the ball of the thumb: its metacarpal and the ball are one
+        # convex mass, so the palm side runs in one curve from the wrist over the ball and on
+        # up the thumb. Its outline runs from the tip down past the knuckle and over the
+        # ball; only its back, where it crosses the palm near the base, melts away
         mc, L = segs[0]
+        H_ = skel.H
+        hx, hy, hz = skel.hand
         (b0, d0), (b1, d1) = THUMB_SECTION[0], THUMB_SECTION[1]
         out.append(ellipsoid(mc.o, (v_mul(mc.u, d0 * 0.45), v_mul(mc.v, b0 / 2), v_mul(mc.w, d0 / 2)))
-                   + ellipsoid(mc.at(L, 0, 0), (v_mul(mc.u, d1 * 0.45), v_mul(mc.v, b1 / 2), v_mul(mc.w, d1 / 2))))
+                   + ellipsoid(mc.at(L, 0, 0), (v_mul(mc.u, d1 * 0.45), v_mul(mc.v, b1 / 2), v_mul(mc.w, d1 / 2)))
+                   + ellipsoid(H_(BALL_AT), (v_mul(hy, 2.0), v_mul(hx, BALL[0]), v_mul(hz, BALL[1])))
+                   + ellipsoid(H_(BALL_LOW), (v_mul(hy, 1.0), v_mul(hx, BALL[0] * 0.9), v_mul(hz, BALL[1] * 0.7))))
         f1, _ = segs[1]
         out.append(ellipsoid(f1.o, (v_mul(f1.u, 1.05), v_mul(f1.v, 1.15), v_mul(f1.w, 1.0))))
         segs, sec = segs[1:], THUMB_SECTION[1:]
@@ -325,13 +331,9 @@ def palm_solids(skel):
     out.append(ellipsoid(H_((0.1, 8.5, -1.5)), (v_mul(hx, 4.1), v_mul(hy, 1.0), v_mul(hz, 0.8))))
     # the mass on the little-finger side of the palm
     out.append(ellipsoid(H_((-2.85, 4.3, -1.15)), (v_mul(hx, 1.25), v_mul(hy, 3.4), v_mul(hz, 1.25))))
-    # the ball of the thumb: a muscle on the palm, which stays there when the thumb swings
-    # out. One convex mass that tapers down to the wrist, so the palm side runs in one curve
-    # from the ball to the wrist
+    # the ball of the thumb is the thumb's (digit_solids)
     mc, L = skel.digits["t"][0]
     f1, _ = skel.digits["t"][1]
-    out.append(ellipsoid(H_(BALL_AT), (v_mul(hy, 2.0), v_mul(hx, BALL[0]), v_mul(hz, BALL[1])))
-               + ellipsoid(H_(BALL_LOW), (v_mul(hy, 1.0), v_mul(hx, BALL[0] * 0.9), v_mul(hz, BALL[1] * 0.7))))
     # the web between thumb and index: a sheet of skin from the ball of the thumb up both
     # digits to the middle of their first segments. Its free edge, from one to the other, is
     # a shallow curve once the joins round it off. Without it the space between them would

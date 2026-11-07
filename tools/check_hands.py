@@ -551,7 +551,11 @@ def measure_model(hand):
     c = hand.flat(s.H((0, 0, 0)))
     up = unit(sub(hand.flat(s.H((0, 1, 0))), c))
     palm = hand.own["palm"]
-    m["mid-palm"] = chord(hand, palm, (c[0] + up[0] * MID_PALM, c[1] + up[1] * MID_PALM), up)
+    # with the ball of the thumb, which is the thumb's first solid
+    ball = hand.P["t"][0]
+    with_ball = [[min(v, ball.field(g.x0 + a * g.s, g.y0 + b * g.s)) for a, v in enumerate(row)]
+                 for b, row in enumerate(palm)]
+    m["mid-palm"] = chord(hand, with_ball, (c[0] + up[0] * MID_PALM, c[1] + up[1] * MID_PALM), up)
     m["wrist"] = chord(hand, palm, c, up)
     down = unit(sub(hand.flat((0.0, -1.0, 0.0)), hand.flat((0.0, 0.0, 0.0))))
     m["forearm"] = chord(hand, palm, (c[0] + down[0] * ARM_BELOW, c[1] + down[1] * ARM_BELOW), down)
@@ -563,7 +567,16 @@ def measure_model(hand):
     # and the stretch of the outline that is the thumb's
     order = HM.ORDER[hand.view]
     body = [n for n in order if n not in HM.GREYS[hand.view] and n != "t"]
-    edge = [q for pts, _ in HM.thumb_outline(hand, HM.union(hand, body)) for q in pts]
+    # the thumb itself, its bones' width about them: the ball's curve down to the wrist is the
+    # palm side, not the thumb
+    def on_thumb(q):
+        for a, b in zip(T, T[1:]):
+            v = sub(b, a)
+            t = max(0.0, min(1.0, dot(sub(q, a), v) / dot(v, v)))
+            if math.dist(q, (a[0] + v[0] * t, a[1] + v[1] * t)) < 1.3:
+                return True
+        return False
+    edge = [q for pts, _ in HM.thumb_outline(hand, HM.union(hand, body)) for q in pts if on_thumb(q)]
     axis = unit(sub(T[3], hand.flat(mc.o)))
     m["thumb drawn"] = max(dot(sub(T[3], q), axis) for q in edge) if edge else 0.0
     return m
