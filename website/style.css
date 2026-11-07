@@ -418,6 +418,17 @@
   .guide-head { margin-block: .5rem 2rlh; }
   .guide-head h1 { font-size: clamp(1.9rem, 1.5rem + 3cqi, var(--fs-guide)); }
 
+  summary {
+    letter-spacing: .08em;
+    list-style: none;
+    hanging-punctuation: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "›"; display: inline-block; margin-inline-end: .5em; font-weight: 700; }
+  }
+  [open] > summary::before { rotate: 90deg; }
+
   .on-page {
     margin-block: -1rlh 1.5rlh;
     padding-block: .35rem;
@@ -426,17 +437,7 @@
     line-height: 1.35;
     font-variant-numeric: lining-nums;
 
-    summary {
-      padding-block: .15rem;
-      letter-spacing: .08em;
-      list-style: none;
-      hanging-punctuation: none;
-      cursor: pointer;
-
-      &::-webkit-details-marker { display: none; }
-      &::before { content: "›"; display: inline-block; margin-inline-end: .5em; font-weight: 700; }
-    }
-    &[open] summary::before { rotate: 90deg; }
+    summary { padding-block: .15rem; }
     ol { margin-block: .2rem .3rem; padding: 0; list-style: none; }
     ol ol { margin-block: 0 .25rem; padding-inline-start: .85rem; }
     li { margin: 0; }
@@ -646,7 +647,7 @@
   .how {
     margin-block-start: 1rlh;
 
-    ol { margin-block: .2rlh .5rlh; padding-inline-start: 1.4em; }
+    :is(ol, ul) { margin-block: .2rlh .5rlh; padding-inline-start: 1.4em; }
     p { margin-block-start: .4rlh; }
     .label + p { margin-block-start: 0; }
 
@@ -669,7 +670,7 @@
           max-inline-size: 24rem;
           margin: 0;
         }
-        figcaption { max-inline-size: 100%; }
+        figcaption { contain: inline-size; }   /* wraps under the figure instead of widening its column */
       }
     }
   }
@@ -1132,5 +1133,8 @@
     p, li { orphans: 2; widows: 2; }
     .grade-tab, .reading { print-color-adjust: exact; }
     .letter { content-visibility: visible; }
+    /* Nobody can open what's closed on paper. */
+    details::details-content { content-visibility: visible; }
+    summary::before { content: none; }
   }
 }

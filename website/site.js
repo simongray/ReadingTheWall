@@ -211,4 +211,19 @@
     const nav = here.closest(".outline");
     nav.scrollTop = Math.max(0, here.offsetTop - nav.clientHeight / 3);
   }
+
+  // ------------------------------------------------------------ closed answers
+
+  // A backlink or a "Cited in" can lead into an answer that is still closed, and not
+  // every browser opens it for you.
+  const reveal = () => {
+    const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    const closed = target && target.closest("details:not([open])");
+    if (closed) {
+      closed.open = true;
+      target.scrollIntoView();
+    }
+  };
+  addEventListener("hashchange", reveal);
+  reveal();
 })();

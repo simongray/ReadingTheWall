@@ -24,7 +24,7 @@ CHAPTER_MENTION = re.compile(r"\b(Chapter) (\d+)\b|\b(Part) (IV|V?I{0,3})\b(?=[\
 PAGE_IN_LINK = re.compile(r"\s*\(p\.[\s ]*\d+\)")
 # Words that mean the text still talks about print.
 PRINT_WORDS = re.compile(r"\bPDF\b|\be-reader\b|\bQR\b|\bscan\b|\bpage numbers?\b|\bpp?\.[\s ]*\d|\bbookmarks?\b|"
-                         r"\btitle page\b|\bheader of\b", re.I)
+                         r"\btitle page\b|\bheader of\b|\bturn the page\b", re.I)
 # The width above which a figure goes below the steps instead of beside them. In
 # print it is 92 mm of 150 mm, but a screen needs a wider column for the steps.
 BESIDE_MM = 66
@@ -320,7 +320,9 @@ class Book:
         label print gives a backlink."""
         heading = page.title
         for node in page.body.walk():
-            if node.tag in ("h2", "h3", "h4"):
+            # In print a worked problem needs no label of its own, since the page
+            # number finds it. Here the link has to say which problem it leads to.
+            if node.tag in ("h2", "h3", "h4") or (node.tag == "h5" and node.parent.has_class("reading-question")):
                 heading = clean(node.text())
             yield node, heading
 
