@@ -5,10 +5,9 @@ research/REVISE-3.md. A page that ends short at the end of an entry or chapter i
 normal, and nothing here asks for fewer pages.
 
 These fail the build:
-- arabic page 1 isn't physically odd, so questions would no longer back onto answers
+- arabic page 1 isn't physically odd, so Chapter 1 would open on a left-hand page
 - a blank page after arabic 1
 - a page with fewer than 3 lines of text
-- a worked problem's question and answer not on consecutive odd and even pages
 - a range such as V4–V5 broken at a line end
 - a line holding only a citation
 - a lead-in line ending in ":" or a head as the last thing on a page
@@ -24,7 +23,6 @@ These are printed for the editor to read and don't fail it:
 - three or more hyphens at line ends in a row
 - a page with 10 or more one-word lines, which is how a collapsed column shows
 - a label such as "Look for" as the last line of a page
-- the free space on each answer page, where a spill would add a blank page
 - uneven columns on the last page of Sources, when that block's numbers need changing
 
 Usage: check_fit.py [TYPST ARGS...], run from the repository root, e.g.
@@ -55,7 +53,6 @@ EXPR = """let plain(c) = if type(c) == str { c } else if c.has("text") { c.text 
     folio: counter(page).at(h.location()).first(), label: str(h.at("label", default: "")),
     text: plain(h.body))),
   parts: query(<part-page>).map(m => m.location().page()),
-  readings: query(<reading-page>).map(m => (n: m.value.n, side: m.value.side, page: m.location().page())),
   strips: query(<strip-page>).map(m => m.location().page()),
 )"""
 
@@ -145,7 +142,7 @@ def main():
         return str(p - offset) if p > offset else f"physical {p}"
 
     # What starts a new text: a chapter, an entry, a grade guide or grade section (they
-    # start pages), a part, a worked problem, a film strip that opens an entry's page. A plain section head doesn't.
+    # start pages), a part, a film strip that opens an entry's page. A plain section head doesn't.
     starts = set()
     for h in heads:
         if h["y"] > PAGE_TOP + 90:
@@ -154,7 +151,6 @@ def main():
         grade_section = h["level"] == 2 and re.match(r"V[B0-9]+.*: ", h["text"])
         if h["level"] in (1, 3) or guide or grade_section:
             starts.add(h["page"])
-    starts |= {r["page"] for r in facts["readings"]}
     starts |= set(facts["strips"])
 
     # The last head before a page says what kind of text it holds.
@@ -230,20 +226,6 @@ def main():
         alone = sum(1 for ws in by_y.values() if len(ws) == 1 and len(ws[0]) == 1 and len(ws[0][0][4]) >= 4 and ws[0][0][4].isalpha())
         if alone >= 10:
             notes.append(f"p. {folio(p)}: {alone} lines of one word")
-
-    # The worked problems.
-    pairs = {}
-    for r in facts["readings"]:
-        pairs.setdefault(r["n"], {})[r["side"]] = r["page"]
-    free = []
-    for number, pair in sorted(pairs.items()):
-        q, a = pair.get("question"), pair.get("answer")
-        if q is None or a is None or a != q + 1 or q % 2 == 0:
-            fails.append(f"Problem {number}: the question is on physical p. {q} and the answer on {a}")
-        if a is not None:
-            free.append(f"{number}: {PAGE_BOTTOM - bottoms[a - 1]:.0f} pt")
-    if free:
-        notes.append("free space on the answer pages: " + ", ".join(free))
 
     # The sources sit in a block of a set height, which can drop what doesn't fit.
     sources = next((h for h in heads if h["level"] == 1 and h["text"] == "Sources"), None)

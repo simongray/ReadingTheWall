@@ -4,8 +4,9 @@ from climb import *
 
 
 def legend(path):
-    # (inside the measure, and tall enough for the key's rows to stay apart)
-    f = Fig(-96, -8, 361, 272)
+    # (the full measure, so the longest line of the key clears the edge, and
+    # tall enough for the key's rows to stay apart)
+    f = Fig(-96, -8, 372, 272)
     wall_grid(f, x0=-88, x1=80, y0=44)
     # a climber with a ghost of the earlier position: the right hand has
     # moved from the lower hold to the higher one. Only the arm that moved

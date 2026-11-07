@@ -68,8 +68,8 @@ streamlining), which have the details.
 
 ## Book
 
-- The second edition is 268 pages, two more than the first: the
-  corrections appendix takes three.
+- The third edition's draft is 306 pages. The eight worked problems
+  moved out of it into the exercises booklet.
 - **Typography, for Simon to judge** (`research/revise3-typography.md`):
   - A few entries' first pages still end short, with the figure or box on the
     next page. It no longer happens because of a near miss.
