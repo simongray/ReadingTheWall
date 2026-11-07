@@ -773,6 +773,48 @@
   }
 })
 
+// ------------------------------------------------------------ worked readings
+
+// The problems at the end of Chapter 2: a question page, then an answer page. A
+// question starts on an odd page, so in a two-page view its answer is on the back
+// of the leaf. website/template.typ has its own versions of these two macros.
+#let reading-head(n, title) = block(above: 0pt, below: gap(0.5), breakable: false, sticky: true,
+  text(size: fs.sub)[#section-label[Problem #n]#h(0.6em)#text(weight: 700, title)])
+
+// Every figure here is under 92 mm wide, so it always sits beside its text.
+#let reading-layout(label, steps, file, caption) = context beside-steps(
+  labelled-steps(label, steps, 1), "figures/" + file, caption, 1)
+
+#let reading-question(n: none, title: none, grade: none, wall: none, start: none, finish: none, figure: none, prompts: none) = {
+  pagebreak(weak: true, to: "odd")
+  reading-head(n, title)
+  [About #grade-tab-inline(grade-label(grade), g: grade). #wall Start: #start Finish: #finish]
+  reading-layout([Read it yourself], prompts, figure, none)
+  v(1fr)
+  align(right, text(size: fs.caption, emph[Make your plan, then turn the page.]))
+}
+
+// A full line parts the notes from the figure above them, as under a figure in an
+// entry. The notes belong together, so half a line parts them from each other.
+#let reading-answer(n: none, figure: none, caption: none, moves: none, crux: none, wrong: none, next: none, tall: none, small: none, entries: ()) = {
+  pagebreak(weak: true)
+  reading-head(n, [The answer])
+  reading-layout([The moves], moves, figure, caption)
+  block(above: gap(1), below: 0pt, [#text(weight: 700)[Crux.] #crux])
+  for (head, body) in (([Why the obvious try fails.], wrong), ([What to try next.], next)) {
+    if body != none { block(above: gap(0.5), below: 0pt, [#text(weight: 700, head) #body]) }
+  }
+  if tall != none { block(above: gap(0.5), below: 0pt, [#aside-icon("tall")#text(weight: 700, style: "italic")[Tall climbers.] #tall]) }
+  if small != none { block(above: gap(0.5), below: 0pt, [#aside-icon("small")#text(weight: 700, style: "italic")[Small climbers.] #small]) }
+  if entries.len() > 0 {
+    block(above: gap(0.5), below: 0pt, {
+      set text(size: fs.note)
+      set par(justify: false, leading: 0.68em, hanging-indent: 1em)
+      [#sc[Entries]#h(0.45em)#entries.map(k => tref(k)).join(", ")]
+    })
+  }
+}
+
 // A part of an entry, for a move the entry absorbed or gathers: a dictionary
 // with `name` and `how` (numbered steps or a short paragraph), and optionally
 // `figure`, `caption` and `figure-wide`, which work as they do for the entry.

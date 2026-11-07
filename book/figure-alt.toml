@@ -311,6 +311,70 @@ drawn = "d0e8da75921c"
 alt = "Four views from behind of how the body sits on a jug, a sidepull, an undercling and a gaston."
 drawn = "b26e8de46ca2"
 
+["reading-v2-slab-answer.svg"]
+alt = "The same slab with a climber on the big foothold; arrows take the feet up by way of the volume."
+drawn = "d771b97943ad"
+
+["reading-v2-slab.svg"]
+alt = "A slab from behind with five lettered holds, seven numbered footholds and a low volume."
+drawn = "b81cb9cc8a48"
+
+["reading-v3-overhang-answer.svg"]
+alt = "The same overhang with a climber whose right heel hooks the big hold out to the side, the right hand high on a rounded hold."
+drawn = "115db66141ab"
+
+["reading-v3-overhang.svg"]
+alt = "A 20-degree overhang from behind with lettered holds and four footholds; one big hold sits out to the right."
+drawn = "f918738f2c53"
+
+["reading-v3-traverse-answer.svg"]
+alt = "The same traverse with a climber crossing the left hand under the right arm, left hip to the wall."
+drawn = "7d324035025a"
+
+["reading-v3-traverse.svg"]
+alt = "A traverse from behind, running right, with five lettered holds above seven footholds."
+drawn = "52737b1ed095"
+
+["reading-v4-sit-answer.svg"]
+alt = "The same problem with a climber off the mat: left foot high on one side, right foot lower on the other, right hand high."
+drawn = "8f60169e7c5f"
+
+["reading-v4-sit.svg"]
+alt = "A sit start from behind: lettered holds above and six footholds (two almost on the mat)."
+drawn = "5691a4ae5848"
+
+["reading-v4-steep-answer.svg"]
+alt = "The same wall with a climber holding the hips in: toes on the large foothold and a thin edge, right hand on a rounded hold."
+drawn = "c485ffad5f04"
+
+["reading-v4-steep.svg"]
+alt = "A 35-degree overhang from the side with five lettered holds and four footholds (one of them large)."
+drawn = "66baa089b752"
+
+["reading-v5-gap-answer.svg"]
+alt = "The same wall with a climber at the top of a deadpoint, both feet on, the right hand catching the small edge."
+drawn = "9acd2549d990"
+
+["reading-v5-gap.svg"]
+alt = "A 25-degree overhang from behind with a long gap below a small high edge and footholds at three heights."
+drawn = "5ef26e432dd1"
+
+["reading-v5-volumes-answer.svg"]
+alt = "The same wall with a climber squeezing the upper volume's sides with the palms and the lower volume with the feet."
+drawn = "ea9179a9fc2c"
+
+["reading-v5-volumes.svg"]
+alt = "A 25-degree overhang from behind with two big volumes one above the other, a start hold between them and a finish hold above."
+drawn = "553f6824e2e4"
+
+["reading-v6-cave-answer.svg"]
+alt = "The same wall with a climber: left toes hooked behind the far left hold, right foot pushing, left hand on high hold D."
+drawn = "c5c3128c8a8a"
+
+["reading-v6-cave.svg"]
+alt = "A 40-degree overhang from behind: the footholds all sit right of the middle and one big hold sits far out to the left."
+drawn = "ecc0542f0d59"
+
 ["reading-worked-problem.svg"]
 alt = "A diagram of a problem on a wall, with no climber: labelled left- and right-hand holds linked by dashed arrows from start to finish."
 drawn = "e9ce6b20018e"

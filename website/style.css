@@ -676,6 +676,30 @@
 
   .entry-part { margin-block-start: 1.25rlh; }
 
+  .reading-question { margin-block-start: 2rlh; }
+
+  .reading-answer {
+    margin-block-start: 1rlh;
+    padding-block: .35rem;
+    border-block: var(--rule-light);
+
+    > summary {
+      letter-spacing: .08em;
+      list-style: none;
+      cursor: pointer;
+
+      &::-webkit-details-marker { display: none; }
+      &::before { content: "›"; display: inline-block; margin-inline-end: .5em; font-weight: 700; }
+    }
+    &[open] > summary::before { rotate: 90deg; }
+
+    /* print parts these notes by half a line and indents none of them */
+    > :is(p, .climber-note) { margin-block: .5rlh 0; text-indent: 0; }
+
+    /* a caption wraps under its image instead of widening the figure's column */
+    .how.beside figcaption { contain: inline-size; }
+  }
+
   .apparatus {
     display: grid;
     grid-template-columns: max-content minmax(0, 1fr);

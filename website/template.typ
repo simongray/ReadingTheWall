@@ -129,6 +129,33 @@
   if caption != none { tag("figcaption", caption) }
 })
 
+// A problem of "Eight problems to read". There is no page to turn here, so the
+// answer stays closed until the reader opens it.
+#let reading-question(n: none, title: none, grade: none, wall: none, start: none, finish: none, figure: none, prompts: none) = cls("section", "reading-question", {
+  cls("h5", "step", { section-label[Problem #n]; " "; title })
+  tag("p", [About #grade-tab-inline(grade-label(grade), g: grade). #wall Start: #start Finish: #finish])
+  cls("section", "how", {
+    labelled([Read it yourself])
+    prompts
+    entry-figure(figure, none, false)
+  })
+})
+
+#let reading-answer(n: none, figure: none, caption: none, moves: none, crux: none, wrong: none, next: none, tall: none, small: none, entries: ()) = tag("details", attrs: (class: "reading-answer"), {
+  tag("summary", [The answer to problem #n])
+  cls("section", "how", {
+    labelled([The moves])
+    moves
+    entry-figure(figure, caption, false)
+  })
+  for (head, body) in (([Crux.], crux), ([Why the obvious try fails.], wrong), ([What to try next.], next)) {
+    if body != none { tag("p", [*#head* #body]) }
+  }
+  if tall != none { cls("div", "climber-note", { aside-icon("tall"); [*_Tall climbers._* ]; tall }) }
+  if small != none { cls("div", "climber-note", { aside-icon("small"); [*_Small climbers._* ]; small }) }
+  if entries.len() > 0 { cls("dl", "apparatus", { tag("dt", "Entries"); tag("dd", entries.map(k => tref(k)).join(", ")) }) }
+})
+
 // ------------------------------------------------------------ technique entry
 
 // A part of an entry (a move it absorbed or gathers): `name` and `how`, and

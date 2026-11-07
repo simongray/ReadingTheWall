@@ -10,5 +10,7 @@
   {"find": "The right column lists techniques to try, with page numbers; try the first one first.",
    "replace": "The right column lists techniques to try; try the first one first."},
   {"find": "(see the back of the title page)",
-   "replace": "(see the colophon)"}
+   "replace": "(see the colophon)"},
+  {"find": "then turn the page and compare",
+   "replace": "then open the answer and compare"}
 ]
