@@ -56,10 +56,6 @@ streamlining), which have the details.
   views), Pinch, Pocket, Wrapping, and the atlas's pocket, pinch and palm
   press. The old hands that no figure draws any more are still defined in
   `authored.py`.
-  - In the sloper film strip, frame 4's thumb finds its spot on the dome below
-    the fingers, as photos of sloper grips show. The caption says
-    "underneath": the model can't reach the dome's underside without the
-    thumb turning toward the reader past what `check_hands` allows.
   - The atlas's undercling bends its middle joint 60°, not the photos' 90°,
     because the tile's flake is shallow.
   `research/hands-drawing-reference.md` has the photos and joint angles.
