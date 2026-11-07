@@ -135,18 +135,18 @@
   cls("h5", "step", { section-label[Problem #n]; " "; title })
   tag("p", [About #grade-tab-inline(grade-label(grade), g: grade). #wall Start: #start Finish: #finish])
   cls("section", "how", {
+    entry-figure(figure, none, false)
     labelled([Read it yourself])
     prompts
-    entry-figure(figure, none, false)
   })
 })
 
 #let reading-answer(n: none, figure: none, caption: none, moves: none, crux: none, wrong: none, next: none, tall: none, small: none, entries: ()) = tag("details", attrs: (class: "reading-answer"), {
-  tag("summary", [The answer to problem #n])
+  cls("summary", "sc", [The answer to problem #n])
   cls("section", "how", {
+    entry-figure(figure, caption, false)
     labelled([The moves])
     moves
-    entry-figure(figure, caption, false)
   })
   for (head, body) in (([Crux.], crux), ([Why the obvious try fails.], wrong), ([What to try next.], next)) {
     if body != none { tag("p", [*#head* #body]) }
