@@ -50,10 +50,17 @@ streamlining), which have the details.
   leg, so they can't show the muscles at work. In Twist lock (b), the lat
   that pulls the arm in lies behind the upper arm.
 - Some of the waist bends are only 5–8°, so they barely show at print size.
-- In the hand close-ups, the ring finger is often hidden behind the middle
-  one in curled grips, which is true to the geometry. The sloper filmstrip
-  draws the hands at the atlas's smaller size, and the stretch of forearm
-  it shows varies from frame to frame.
+- The hand close-ups seen from the thumb side come from the hand model in
+  `figtools/handmodel.py`. These are still written by hand in
+  `figtools/authored.py`, with the old proportions: Matching and Regrip (back
+  views), the sloper film strip, Pinch, Pocket, Wrapping, and the atlas's
+  pocket, pinch, undercling and palm press. The film strip's frames 4–5 and
+  Matching were tried with the model and need their own pass. The old
+  hands that no figure draws any more are still defined in `authored.py`.
+  `research/hands-drawing-reference.md` has the photos and joint angles.
+- A prototype drawing the hands from a CC0 3D mesh (MakeHuman) is on the
+  branch `claude/hands-3d-model-b315ef`, unmerged. It is the better route to
+  views from above, such as the pinches.
 - The editing passes noted these limits of the drawing library:
   - `turn` narrows the shoulders, so a back view can't show the reach that
     a hip turn gains.

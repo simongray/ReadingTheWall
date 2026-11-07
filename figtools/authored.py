@@ -1284,6 +1284,39 @@ def pull(f, x, y, length_=3.4):
     f.arrow([(x, y), (x, y - length_)], kind="force")
 
 
+# ---------------------------------------------------------------- the model's hands
+#
+# The hands seen from the thumb side are drawn by handmodel.py: one skeleton with fixed
+# bones, posed by the joint angles read off photographs (handmodel.GRIPS), at HAND_SCALE.
+# A grip is the same pose wherever it appears; only where it sits on its hold changes.
+
+def grip(name, anchor, at, arm=None):
+    """The model's hand in grip `name`, placed so its point `anchor` lands on `at`."""
+    import handmodel as M
+    pose, a = M.GRIPS[name]
+    return M.Hand(pose, "side", arm=a if arm is None else arm, anchor=anchor, at=at, name=name)
+
+
+def draw_any(f, hand, z=0.0, fill=WHITE):
+    """Draw an authored hand (a dict) or one of the model's."""
+    if isinstance(hand, dict):
+        draw_hand(f, hand, z, fill)
+    else:
+        import handmodel as M
+        M.draw(f, hand, z=z, fill=fill)
+
+
+# where each grip sits on its hold in the atlas's tiles and the entry figures
+JUG_M = lambda: grip("jug", "i_tip", (WX - 5.7, 0.45))
+OPEN_M = lambda: grip("open", "i_pad", (WX - 0.95, 0.12))
+HALF_M = lambda: grip("half", "i_pad", (WX - 1.05, 0.02))
+# the full crimp's fingertip on the edge and against the wall; the same crimp on the half
+# crimp's edge in half-crimp.svg (b)
+FULL_M = lambda: grip("full", "i_pad", (WX - 1.11, 0.26))
+FULL_ON_HALF_M = lambda: grip("full", "i_pad", (WX - 1.11, 0.16))
+SLOPER_M = lambda: grip("sloper", "i_pad", (0.4, 4.25))
+
+
 def side(hold, hand, y0, y1, x0=None, arrow=None):
     """A side-view figure: wall at x = WX, a hold, a hand."""
     f = H.profile_frame(tile_x0() if x0 is None else x0, y0, y1)
@@ -1292,7 +1325,7 @@ def side(hold, hand, y0, y1, x0=None, arrow=None):
     else:
         f.smooth(hold[0], z=-5, fill=DARK, stroke=INK, sw=0.35, tension=hold[1])
         H.xray_outline(f, hold[0], hold[1])
-    draw_hand(f, hand)
+    draw_any(f, hand)
     if arrow:
         pull(f, *arrow)
     return f
@@ -1320,23 +1353,29 @@ POCKET_CAVE = [(WX - 3.9, 1.75), (WX - 1.2, 1.85), (WX - 0.55, 0.65), (WX - 1.1,
 
 
 def panel_jug():
-    return side((JUG_HOLD, 0.35), JUG, -14.895, 4.505, arrow=(WX - 1.4, -5.6))
+    # the upright hand's middle joint stands higher over the lip than the authored hand's:
+    # the tile shows the same hold 1.8 cm lower in a frame of the same size
+    return side((JUG_HOLD, 0.35), JUG_M(), -14.895 + 1.8, 4.505 + 1.8, arrow=(WX - 1.4, -5.6))
 
 
 def panel_open():
-    return side("open", OPEN, -17.386, 2.014, arrow=(WX - 0.7, -4.6))
+    return side("open", OPEN_M(), -17.386, 2.014, arrow=(WX - 0.7, -4.6))
 
 
 def panel_halft():
-    return side("half", HALF, -16.008, 3.392, arrow=(WX - 1.1, -2.8))
+    return side("half", HALF_M(), -16.008, 3.392, arrow=(WX - 1.1, -2.8))
 
 
 def panel_fullt():
-    return side("full", FULL, -13.2, 6.2, arrow=(WX - 0.85, -2.8))
+    return side("full", FULL_M(), -13.2, 6.2, arrow=(WX - 0.85, -2.8))
+
+
+CATCH_M = lambda: grip("catch", "i_pad", (WX - 0.95, 0.12))
+PRESS_M = lambda: grip("press", "i_pad", (-0.9, 1.6))
 
 
 def panel_catch():
-    f = side((CATCH_HOLD, 0.6), CATCH, -17.386, 2.014)
+    f = side((CATCH_HOLD, 0.6), CATCH_M(), -17.386, 2.014)
     f.arrow(CATCH_ARROW, kind="force", head=2.0)
     return f
 
@@ -1346,7 +1385,7 @@ def panel_sloper():
     wall_side(f, WX, f.y0, f.y1)
     f.smooth(DOME, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
     H.xray_outline(f, DOME, 0.55)
-    draw_hand(f, SLOPER)
+    draw_any(f, SLOPER_M())
     f.arrow([(0.6, -6.893), (0.6, -10.793)], kind="force")
     return f
 
@@ -1455,6 +1494,20 @@ def pip_arc(f, hand, label, at=None, r=1.5, stop=None):
     f.text(label, at or add(p, (-2.6, 2.4)), size=7, z=41)
 
 
+def pip_arc_m(f, hand, label, at=None, r=1.5):
+    """pip_arc for the model's hand: the arc stops where it meets the middle segment's back."""
+    import handmodel as M
+    m, p, d = (hand.spot(f"i{k}") for k in range(3))
+    a0, a1 = seg_angle(m, p), seg_angle(p, d)
+    half = M.SECTION[1][1] / 2
+    stop = a1 + math.copysign(math.degrees(math.asin(min(0.95, half / r))), a0 - a1)
+    f.line(p, add(p, mul(ang(a0), r + 0.7)), z=40.1, sw=0.28, dash=(0.8, 0.5))
+    n = 16
+    pts = [add(p, mul(ang(a0 + (stop - a0) * i / n), r)) for i in range(n + 1)]
+    f.poly(pts, closed=False, z=40.1, sw=0.2, stroke=INK)
+    f.text(label, at or add(p, (-2.6, 2.4)), size=7, z=41)
+
+
 def label_lines(f, lines, at, to=None, size=7):
     """As figs_hands.label_lines: short lines centred under `at`, the leader
     leaving from the first."""
@@ -1477,13 +1530,15 @@ HALF_Y0, FULL_Y0 = -18.985, -15.453       # the old frames, so the figures keep 
 
 
 def half_crimp_fig(path):
-    a = side("half", HALF, HALF_Y0, HALF_Y1, x0=GRIP_X0)
-    pip_arc(a, HALF, "≈90°", stop=HALF_ARC_STOP)
-    label_lines(a, ["end joint", "straight"], (-9.2, 1.6), to=HALF["joints"]["i"][2])
-    # on the same edge as (a), and with the thumb off the end segment, to compare the two
-    b = side("half", FULL_FREE, HALF_Y0, HALF_Y1, x0=GRIP_X0)
-    pip_arc(b, FULL_FREE, "over 90°", at=add(FULL_FREE["joints"]["i"][1], (-3.2, 2.1)), stop=FULL_ARC_STOP)
-    label_lines(b, ["end joint", "bent back"], (-0.8, 7.2), to=FULL_FREE["joints"]["dent"])
+    h = HALF_M()
+    a = side("half", h, HALF_Y0, HALF_Y1, x0=GRIP_X0)
+    pip_arc_m(a, h, "≈90°")
+    label_lines(a, ["end joint", "straight"], (-9.2, 1.6), to=h.spot("i2"))
+    # the full crimp of full-crimp.svg and the atlas, on the same edge as (a)
+    g = FULL_ON_HALF_M()
+    b = side("half", g, HALF_Y0, HALF_Y1, x0=GRIP_X0)
+    pip_arc_m(b, g, "over 90°", at=add(g.spot("i1"), (-3.2, 2.1)))
+    label_lines(b, ["end joint", "bent back"], (-0.8, 7.2), to=g.spot("dent"))
     combine([a, b], path, gap=4, labels=["a", "b"], align="top",
             captions=["half crimp", "full crimp, for comparison"])
 
@@ -1495,12 +1550,12 @@ OPEN_ARC_STOP = 50.0    # on the finger's back
 
 
 def full_crimp_fig(path):
-    a = side("full", FULL, FULL_Y0, FULL_Y1, x0=GRIP_X0)
-    p = FULL["joints"]["i"][1]
-    pip_arc(a, FULL, "over 90°", at=add(p, (-2.6, 2.4)), stop=FULL_ARC_STOP)
-    label_lines(a, ["end joint", "bent back"], (-9.2, 3.5), to=FULL["joints"]["dent"])
-    label_lines(a, ["A2", "pulley"], (-9.9, -2.6), to=A2_FULL)
-    a.label("thumb over the nail", (0.9, 7.6), to=FULL["joints"]["label"], anchor="end")
+    h = FULL_M()
+    a = side("full", h, FULL_Y0, FULL_Y1, x0=GRIP_X0)
+    pip_arc_m(a, h, "over 90°", at=add(h.spot("i1"), (-2.6, 2.4)))
+    label_lines(a, ["end joint", "bent back"], (-9.2, 3.5), to=h.spot("dent"))
+    label_lines(a, ["A2", "pulley"], (-9.9, -2.6), to=h.spot("a2"))
+    a.label("thumb over the nail", (0.9, 7.6), to=h.spot("thumbnail"), anchor="end")
     a.save(path)
 
 
@@ -1530,9 +1585,10 @@ def face_edge(f, c, w, h, rounded=False, z=-5, stripe_to=None):
 def open_side():
     a = H.profile_frame(GRIP_X0, -20.354, 8.29)
     H.grip_hold(a, "open")
-    draw_hand(a, OPEN)
-    pip_arc(a, OPEN, "≈40°", r=2.6, stop=OPEN_ARC_STOP)
-    a.label("pads over the lip", (-4.0, 7.4), to=(0.8, -0.01), anchor="middle")
+    h = OPEN_M()
+    draw_any(a, h)
+    pip_arc_m(a, h, "≈40°", r=2.6)
+    a.label("pads over the lip", (-4.0, 7.4), to=h.spot("pads"), anchor="middle")
     return a
 
 
@@ -1614,7 +1670,7 @@ def catch_a():
     f = H.profile_frame(-13.5, -20.354, 5.81)
     f.smooth(CATCH_HOLD, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.6)
     H.xray_outline(f, CATCH_HOLD, 0.6)
-    draw_hand(f, CATCH)
+    draw_any(f, CATCH_M())
     f.arrow(CATCH_ARROW, kind="force", head=2.0)
     f.arrow([(0.6, 3.59), (0.6, 1.59)], kind="force")
     label_lines(f, ["thumb in", "a dimple"], (-10.6, -6.2), to=(0.0, -4.5))
@@ -1624,9 +1680,10 @@ def catch_a():
 def catch_b():
     f = H.profile_frame(-13.5, -20.232, 5.81)
     f.poly([(WX, 5.0), (WX - 4.4, -0.6), (WX, -9.0)], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
-    draw_hand(f, CATCH_RIDGE)
-    f.arrow([(-2.5, -7.9), (-1.72, -5.35)], kind="force")
-    label_lines(f, ["thumb pad", "presses up"], (-10.95, -8.2), to=(-1.32, -4.4))
+    h = PRESS_M()
+    draw_any(f, h)
+    f.arrow([(-2.9, -6.6), (-2.1, -4.05)], kind="force")
+    label_lines(f, ["thumb pad", "presses up"], (-10.95, -8.2), to=h.flat(h.skel.digits["t"][2][0].at(1.7, 0.0, -0.5)))
     return f
 
 
@@ -1696,7 +1753,7 @@ def angle_panel(slope, hand, note):
     y0 = -12.43
     f = H.profile_frame(-9.6, y0, 7.03)
     H.edge_profile(f, WX, 0, depth=3.2, height=3.6, slope=slope)
-    draw_hand(f, hand)
+    draw_any(f, hand)
     f.arrow([(WX - 0.85, -3.9), (WX - 0.85, -6.6)], kind="force")
     if slope > 0:
         # above the finger and along the slope: the gap under the finger has no room for it
@@ -1706,15 +1763,17 @@ def angle_panel(slope, hand, note):
 
 
 def angle_a():
-    return angle_panel(-20, ANGLE_INCUT, "incut locks it")
+    # the end joint curls down behind the lip, toward the corner at the wall
+    return angle_panel(-20, grip("half_incut", "i_tip", (WX - 0.25, 0.8)), "incut locks it")
 
 
 def angle_b():
-    return angle_panel(0, ANGLE_FLAT, "friction and curl")
+    return angle_panel(0, grip("half", "i_pad", (WX - 1.05, 0.02)), "friction and curl")
 
 
 def angle_c():
-    return angle_panel(30, ANGLE_SLOPING, "slides off")
+    # the same hand as on the flat edge, a little lower: it slides off down the slope
+    return angle_panel(30, grip("half", "i_pad", (WX - 1.05, -0.6)), "slides off")
 
 
 def hold_angle_fig(path):
@@ -1773,10 +1832,13 @@ def sloper_panel():
     wall_side(f, x_at(f.y0), f.y0, f.y1, angle=A)
     f.smooth(DOME20, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
     H.xray_outline(f, DOME20, 0.55)
-    draw_hand(f, SLOPER20)
+    # the atlas's sloper, turned 10 degrees with the wall
+    h = grip("sloper", "i_pad", (-1.0, 4.3), arm=10.0)
+    draw_any(f, h)
     f.arrow([(0.6, -6.18), (0.6, -10.08)], kind="force")
-    f.label("palm and pads", (-5.2, 7.8), to=(-5.0, 2.6))
-    f.label("wrist below", (-4.6, -11.67), to=(-11.6, -10.1))
+    # the palm side of the hand, between the finger's base and the ball of the thumb
+    f.label("palm and pads", (-5.2, 7.8), to=h.flat(h.skel.H((1.0, 7.6, -2.1))))
+    f.label("wrist below", (-4.6, -11.67), to=h.flat(h.point("crease")))
     return f
 
 
@@ -1785,9 +1847,11 @@ def latch_a(jug_profile):
     f = Fig(-10.5, y0, 7.5 + 2.4 / CLOSE, 9.5, scale=CLOSE)
     H.wall_profile(f, 6.5, y0, 9.5)
     jug_profile(f, (0, 0))
-    draw_hand(f, LATCH_OPEN)
+    # the fingertips 2-3 cm above the lip
+    h = grip("latch", "i_tip", (0.9, 3.2))
+    draw_any(f, h)
     f.arrow([(4.4, 6.6), (4.4, 0.8)], kind="move")
-    f.label("2–3 cm above", (-2.9, 8.0), to=(-0.6, 3.5), size=7)
+    f.label("2–3 cm above", (-2.9, 8.0), to=h.spot("pads"), size=7)
     return f
 
 
@@ -1796,8 +1860,10 @@ def latch_b(jug_profile):
     f = Fig(-10.5, y0, 7.5 + 2.4 / CLOSE, 9.5, scale=CLOSE)
     H.wall_profile(f, 6.5, y0, 9.5)
     jug_profile(f, (0, 0))
-    draw_hand(f, LATCH_JUG)
-    f.label("fingers over the lip", (-4.0, 8.4), to=LATCH_JUG["joints"]["i"][2], size=7)
+    # the atlas's jug grip, its fingertips on this jug's floor
+    h = grip("jug", "i_tip", (1.8, -1.3))
+    draw_any(f, h)
+    f.label("fingers over the lip", (-4.0, 8.4), to=h.spot("i2"), size=7)
     return f
 
 

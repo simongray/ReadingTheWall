@@ -106,7 +106,8 @@ A technique you merge into another keeps its address: add its old key to
 | `tools/check_booklet.py` | Checks that each of the booklet's questions starts a right-hand page with its answer overleaf, and that every reference into the book resolved |
 | `book/edition.typ` | Reads the edition, date and commit that `build.sh` and `release.sh` pass to Typst |
 | `figtools/climb.py` | The drawing library: a clothed mannequin climber (back and side views, anatomical joint limits, `warn()` pose checks), holds, volumes, walls, arrows, block arrows, labels, dotted outlines of hidden parts (`XRAY`), multi-panel figures (`combine`) and film strips (`filmstrip`) |
-| `figtools/authored.py` | The hands in every close-up, written point by point as outlines and drawn with the climbers' smoothing and pen, and the figures most of them appear in |
+| `figtools/handmodel.py` | One hand, with measured bones, posed by joint angles and drawn from the side with the climbers' pen: the close-ups seen from the thumb side |
+| `figtools/authored.py` | The hand close-ups not yet drawn from the model (back views, the film strip, pinches), written point by point as outlines, and the figures the hands appear in |
 | `figtools/hand.py` | The frames, edges and walls of the hand close-ups |
 | `figtools/closeup.py` | Helpers for shoes seen from above and small edges in profile, used by `figs_feet.py` |
 | `figtools/figs_*.py`, `legend.py` | The figures for each chapter; each module defines `build(out)` |

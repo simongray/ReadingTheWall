@@ -2,12 +2,14 @@
 
 Usage: python3 tools/check_hands.py [--table]
 
-This builds all the figures in a temporary folder and records each call of draw_hand, so
-no hand or figure can be left out. It reads the outline from the pen's path and measures
-it in cm of a hand 19 cm long. A hand's joints only say where to measure. It exits with
-status 1 if a measure is out of range, and --table prints every number. Look at the
-figures as well: a hand must look right before it measures right, and contact with the
-rock isn't tested.
+This builds all the figures in a temporary folder and records each call of draw_hand, and
+of handmodel.draw, so no hand or figure can be left out. For an authored hand it reads the
+outline from the pen's path and measures it in cm of a hand 19 cm long; a hand's joints only
+say where to measure. A hand from handmodel.py is checked through the model: its bones, its
+joints' ranges, its scale, and the same chords measured on the solids its outline is traced
+from. It exits with status 1 if a measure is out of range, and --table prints every number.
+Look at the figures as well: a hand must look right before it measures right, and contact
+with the rock isn't tested.
 """
 import contextlib
 import glob
@@ -25,6 +27,7 @@ sys.path.insert(0, os.path.join(ROOT, "figtools"))
 
 import climb  # noqa: E402
 import authored as A  # noqa: E402
+import handmodel as HM  # noqa: E402
 from climb import sub, dot, perp, norm as unit  # noqa: E402
 
 STEP = 0.1          # cm between the stations along a digit
@@ -276,7 +279,20 @@ def record():
             if m:
                 (ghost if climb.GHOST_LINE in svg else solid).append(round(float(m.group(1)) * f.scale, 2))
         return out
-    A.draw_hand, A.moved, climb.Climber.draw = spy, spy_moved, spy_climber
+    model_draw = HM.draw
+
+    def spy_model(f, hand, *a, **k):
+        n = len(f.items)
+        model_draw(f, hand, *a, **k)
+        d = dict(hand=hand, fig=f, model=True, name=hand.name or "?", ghost=k.get("ghost", False))
+        for _, _, svg in f.items[n:]:
+            m = PATH.match(svg)
+            sw = WIDTH.search(svg)
+            if m and sw and 'fill-rule="evenodd"' in svg:
+                d.update(path=m.group(1), stroke=float(sw.group(1)))
+                break
+        drawn.append(d)
+    A.draw_hand, A.moved, climb.Climber.draw, HM.draw = spy, spy_moved, spy_climber, spy_model
     with tempfile.TemporaryDirectory() as out, contextlib.redirect_stdout(io.StringIO()):
         for p in sorted(glob.glob(os.path.join(ROOT, "figtools", "figs_*.py"))):
             importlib.import_module(os.path.basename(p)[:-3]).build(out)
@@ -483,11 +499,119 @@ def check(d, climbers):
     return rows
 
 
+# ---------------------------------------------------------------- the model's hands
+#
+# A model hand's outline is traced from its solids, so the chords are measured on those
+# solids' fields, in the hand's own cm, square to each part, as the side view shows them.
+
+# The thumb seen from the side, from its tip to the ball of the thumb: at least the free thumb
+# (SIDE's tlen, 4.7), up to the whole thumb from its crease (6.3, Kouchi 2012) and the knuckle
+# below it, which the outline runs past (about 0.7 more)
+THUMB_SEEN = (4.7, 7.0)
+# its drawn edge runs at least as far; where the thumb stands off the palm the outline may
+# carry it down to its base joint, the whole thumb, 10.5
+THUMB_DRAWN = (4.7, 10.5)
+# each joint's range, in degrees of flexion (negative bends back): hands-drawing-reference.md
+JOINTS = dict(mcp=(-45, 90), pip=(0, 120), dip=(-30, 80), wrist=(-70, 80),
+              t_mcp=(-8, 60), t_ip=(-12, 88))
+
+
+def chord(hand, piece, at, along):
+    """The width of a piece's solids through `at`, square to the direction `along`."""
+    g = hand.grid
+    F = hand.own[piece] if isinstance(piece, str) else piece
+    n = perp(unit(along))
+    inside = lambda t: g.at(F, (at[0] + n[0] * t / 50, at[1] + n[1] * t / 50)) < 0
+    if not inside(0):
+        return None
+    lo = hi = 0     # the run through `at` only: a folded finger's other segment isn't this one's
+    while lo > -300 and inside(lo - 1):
+        lo -= 1
+    while hi < 300 and inside(hi + 1):
+        hi += 1
+    return (hi - lo) / 50
+
+
+def measure_model(hand):
+    """The side view's measures of a model hand, in cm."""
+    if not hasattr(hand, "grid"):
+        hand.build()
+    s, m = hand.skel, {}
+    J = [hand.flat(j) for j in s.joints("i")]
+    g = hand.grid
+    for i, solid in enumerate(hand.P["i"]):
+        # each segment's own solid: in a curled finger the next segment lies across the chord
+        F = [[solid.field(g.x0 + a * g.s, g.y0 + b * g.s) for a in range(g.nx)] for b in range(g.ny)]
+        mid = ((J[i][0] + J[i + 1][0]) / 2, (J[i][1] + J[i + 1][1]) / 2)
+        m[f"f{i + 1}"] = chord(hand, F, mid, sub(J[i + 1], J[i]))
+    T = [hand.flat(j) for j in s.joints("t")]
+    m["t1"] = chord(hand, "t", T[2], sub(T[3], T[1]))
+    f, L = s.digits["t"][2]
+    m["t2"] = chord(hand, "t", hand.flat(f.at(L * 0.55, 0, 0)), sub(T[3], T[2]))
+    c = hand.flat(s.H((0, 0, 0)))
+    up = unit(sub(hand.flat(s.H((0, 1, 0))), c))
+    palm = hand.own["palm"]
+    m["mid-palm"] = chord(hand, palm, (c[0] + up[0] * MID_PALM, c[1] + up[1] * MID_PALM), up)
+    m["wrist"] = chord(hand, palm, c, up)
+    down = unit(sub(hand.flat((0.0, -1.0, 0.0)), hand.flat((0.0, 0.0, 0.0))))
+    m["forearm"] = chord(hand, palm, (c[0] + down[0] * ARM_BELOW, c[1] + down[1] * ARM_BELOW), down)
+    # how much thumb shows: from its tip down to where its outline melts into the ball of the
+    # thumb. A thumb that turns toward you, or melts away too soon, comes out a stub
+    mc, Lm = s.digits["t"][0]
+    m["thumb seen"] = math.dist(hand.flat(mc.at(Lm * HM.ROOT["t"], 0, 0)), T[3])
+    # and how far down from the tip the drawing really carries the thumb's edge: its lines
+    # and the stretch of the outline that is the thumb's
+    order = HM.ORDER[hand.view]
+    front = [n for n in order if n not in HM.GREYS[hand.view]]
+    U = None
+    for n in front:
+        U = hand.joined[n] if U is None else [[min(a, b) for a, b in zip(ra, rb)] for ra, rb in zip(U, hand.joined[n])]
+    edge = [q for L in hand.grid.contours(U) for q in L if abs(g.at(hand.own["t"], q)) < 0.1]
+    edge += [q for pts, _ in HM.inner_lines(hand, front) for q in pts if abs(g.at(hand.own["t"], q)) < 0.1]
+    axis = unit(sub(T[3], hand.flat(mc.o)))
+    m["thumb drawn"] = max(dot(sub(T[3], q), axis) for q in edge) if edge else 0.0
+    return m
+
+
+def check_model(d, climbers):
+    """[(measure, value, low, high, in range)] for one hand from the model."""
+    hand, p = d["hand"], d["paper"]
+    rows = []
+    want = climbers["ghost" if d["ghost"] else "outline"]
+    rows.append(("outline mm", d["stroke"] * p, want, want, abs(d["stroke"] * p - want) <= STROKE))
+    if d["ghost"]:
+        return rows
+    # one hand: the bones of every pose are the model's
+    same = HM.bones(hand) == HM.bones(HM.Hand(HM.default_pose()))
+    rows.append(("same bones", float(same), 1.0, 1.0, same))
+    # the close-ups' scale, before a plate is reduced
+    rows.append(("mm per cm", d["fig"].scale, HM.H.HAND_SCALE, HM.H.HAND_SCALE,
+                 abs(d["fig"].scale - HM.H.HAND_SCALE) < 1e-9))
+    P = hand.skel.pose
+    for k in "imrl":
+        mcp, pip, dip = P[k]
+        dip = HM.dip_of(pip, dip)
+        for key, v in (("mcp", mcp), ("pip", pip), ("dip", dip)):
+            lo, hi = JOINTS[key]
+            rows.append((f"{k} {key}", float(v), lo, hi, lo <= v <= hi))
+    lo, hi = JOINTS["wrist"]
+    rows.append(("wrist", float(P["wrist"][0]), lo, hi, lo <= P["wrist"][0] <= hi))
+    for key, v in (("t_mcp", P["thumb"]["mcp"]), ("t_ip", P["thumb"]["ip"])):
+        lo, hi = JOINTS[key]
+        rows.append((key, float(v), lo, hi, lo <= v <= hi))
+    pen = 2 * climb.WOBBLE / d["fig"].scale
+    for key, v in measure_model(hand).items():
+        r = dict(SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN})[key]
+        rows.append((key, v if v is not None else -1.0, r[0], r[1],
+                     v is not None and r[0] - pen <= v <= r[1] + pen))
+    return rows
+
+
 def main():
     drawn, climbers = record()
     bad = 0
     for d in drawn:
-        rows = check(d, climbers)
+        rows = check_model(d, climbers) if d.get("model") else check(d, climbers)
         if "--table" in sys.argv:
             print(f"{d['name']:14s}{d['figure'][:16]:17s}" + " ".join(
                 f"{k}={v:.2f}{'' if ok else '!'}" for k, v, _, _, ok in rows))
