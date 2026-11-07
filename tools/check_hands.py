@@ -504,6 +504,16 @@ def check(d, climbers):
 # A model hand's outline is traced from its solids, so the chords are measured on those
 # solids' fields, in the hand's own cm, square to each part, as the side view shows them.
 
+# From behind, the measures that read the same on the model's solids: the index's breadth
+# at its segments and the hand's breadth at mid-palm, wrist and forearm (BACK's ranges), and
+# how much thumb shows and is drawn, as from the side (THUMB_SEEN, THUMB_DRAWN). The thumb's
+# breadths are BACK's for a thumb seen edge-on, and the knuckle row's chord takes in the
+# curled fingers, so neither is measured.
+BACK_MODEL = ("f1", "f2", "f3", "mid-palm", "wrist", "forearm", "thumb seen", "thumb drawn")
+# Every model hand is drawn at the close-ups' scale, except on a plate printed smaller as a
+# whole: matching.svg keeps its 1.6 mm to the cm, so its two hands fit beside the steps
+# (the atlas and the film strip are drawn at the close-ups' scale and reduced afterwards).
+PLATES = {"matching": 1.6}
 # The thumb seen from the side, from its tip to the ball of the thumb: at least the free thumb
 # (SIDE's tlen, 4.7), up to the whole thumb from its crease (6.3, Kouchi 2012) and the knuckle
 # below it, which the outline runs past (about 0.7 more)
@@ -594,8 +604,8 @@ def check_model(d, climbers):
     same = HM.bones(hand) == HM.bones(HM.Hand(HM.default_pose()))
     rows.append(("same bones", float(same), 1.0, 1.0, same))
     # the close-ups' scale, before a plate is reduced
-    rows.append(("mm per cm", d["fig"].scale, HM.H.HAND_SCALE, HM.H.HAND_SCALE,
-                 abs(d["fig"].scale - HM.H.HAND_SCALE) < 1e-9))
+    want = PLATES.get(d["figure"], HM.H.HAND_SCALE)
+    rows.append(("mm per cm", d["fig"].scale, want, want, abs(d["fig"].scale - want) < 1e-9))
     P = hand.skel.pose
     for k in "imrl":
         mcp, pip, dip = P[k]
@@ -609,8 +619,11 @@ def check_model(d, climbers):
         lo, hi = JOINTS[key]
         rows.append((key, float(v), lo, hi, lo <= v <= hi))
     pen = 2 * climb.WOBBLE / d["fig"].scale
+    back = hand.view in ("back", "above")
     for key, v in measure_model(hand).items():
-        r = dict(SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN})[key]
+        if back and key not in BACK_MODEL:
+            continue
+        r = dict(BACK if back else SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN})[key]
         rows.append((key, v if v is not None else -1.0, r[0], r[1],
                      v is not None and r[0] - pen <= v <= r[1] + pen))
     return rows

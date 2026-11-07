@@ -933,8 +933,9 @@ BACK_CRIMP = dict(
 # view: breadth 8.5, 9.9 from the wrist crease to the webs, middle finger 7.4
 # from its web, wrist 6.2. The fingers lean a little toward the middle one.
 
-PALM_AT = (0.3, -0.85)    # the wrist crease
+PALM_AT = (0.1, -0.85)    # the wrist crease: thumb and little finger about 0.5 inside the tile
 PALM_LEAN = 8.0
+PALM_PITCH = 23.0      # three quarters on: cos 23 = 0.92
 
 _P_LITTLE = ([(3.62, 9.4), (4.2, 11.9), (4.9, 15.0)], 0.84, 0.66)
 _P_RING = ([(1.38, 11.0), (1.8, 13.2), (2.1, 16.95)], 0.98, 0.8)
@@ -1290,12 +1291,15 @@ def pull(f, x, y, length_=3.4):
 # bones, posed by the joint angles read off photographs (handmodel.GRIPS), at HAND_SCALE.
 # A grip is the same pose wherever it appears; only where it sits on its hold changes.
 
-def grip(name, anchor, at, arm=None):
-    """The model's hand in grip `name`, placed so its point `anchor` lands on `at`."""
+def grip(name, anchor, at, arm=None, view="side", mirror=None):
+    """The model's hand in grip `name`, placed so its point `anchor` lands on `at`. From
+    behind (view "back") it is seen a little from above; mirror: the other hand."""
     import handmodel as M
     pose, a = M.GRIPS[name]
-    return M.Hand(pose, "side", arm=a if arm is None else arm, anchor=anchor, at=at, name=name,
-                  mirror=name in M.MIRRORED)
+    back = view == "back"
+    return M.Hand(pose, view, arm=a if arm is None else arm, anchor=anchor, at=at, name=name,
+                  mirror=(name in M.MIRRORED) if mirror is None else mirror,
+                  pitch=M.BACK_PITCH if back else 0.0)
 
 
 def draw_any(f, hand, z=0.0, fill=WHITE, behind=()):
@@ -1473,7 +1477,13 @@ def panel_palm():
     e = (x0 + TILE_W + 2, y1 + 2)
     f.poly([a, b, e, c, d], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     f.poly([a, b, (x0 - 2, y1 + 2)], z=-11.9, fill=VOLUME, stroke=INK, sw=0.35)
-    draw_hand(f, PALM)
+    # the model's right hand from behind, flat on the face, which is seen three quarters on:
+    # the hand's length shows 0.92 of itself (hand-proportions.md), the view tipped 23 degrees.
+    # Its wrist crease where the authored hand's was, leaning 8 degrees the same way
+    import handmodel as M
+    pose, _ = M.GRIPS["press_palm"]
+    draw_any(f, M.Hand(pose, "back", arm=PALM_LEAN, anchor="crease", at=PALM_AT, mirror=True,
+                       pitch=PALM_PITCH, name="press_palm"))
     f.arrow([(1.357, 4.69), (-0.653, 1.951)], kind="force", z=50)
     return f
 
@@ -1613,9 +1623,10 @@ def open_back():
     # as tall as (a), so that the arm runs to the same line above the caption
     b = Fig(-7.6, -23.444, 11.6, 5.2, scale=CLOSE)
     face_edge(b, (0.2, 0.0), 14.6, 3.4, rounded=True)
-    hand = moved(BACK_DRAG3, **OPEN_BACK_AT)
-    draw_hand(b, hand)
-    label_lines(b, ["little", "finger off"], (9.2, -3.2), to=hand["joints"]["l"][1])
+    # the three-finger drag from behind, the middle finger's middle joint at the edge's top
+    hand = grip("drag3", "m1", (0.95, 1.8), view="back", mirror=True)     # the right hand
+    draw_any(b, hand)
+    label_lines(b, ["little", "finger off"], (9.2, -3.2), to=hand.flat(hand.skel.joints("l")[1]))
     return b
 
 
@@ -1707,6 +1718,8 @@ def thumb_catch_fig(path):
 
 # tilted a little and high enough for the little finger to reach the hold's top edge
 REGRIP_DRAG, REGRIP_CRIMP = dict(dx=-3.75, dy=-10.8, deg=2.5), dict(dx=4.9, dy=-9.2)
+# the model's hands from behind: where the middle finger's middle joint sits on the edge
+REGRIP_DRAG_AT, REGRIP_CRIMP_AT = (-3.3, 3.75), (5.3, 3.75)
 
 
 def regrip_panel(k):
@@ -1714,22 +1727,25 @@ def regrip_panel(k):
     # the stripe stops under the hand in panel 2, or it would show in the gaps where
     # panel 1 has the incut
     face_edge(f, (0, 2.0), 21, 3.2, stripe_to=None if k == 0 else 1.6)
-    drag = moved(BACK_DRAG, **REGRIP_DRAG)
+    # the drag from behind, the middle finger's middle joint at the edge's top
+    drag = grip("drag", "m1", REGRIP_DRAG_AT, view="back", mirror=True)     # the right hand
     if k == 0:
         # the incut sweet spot on the right half, a screw hole beside it. Panel 2 leaves them
         # out: its hand covers them, and the incut would only show as black blocks in the gaps.
         f.poly([(1.8, 3.3), (8.5, 3.3), (8.0, 2.7), (2.3, 2.7)], z=-4.8, fill=INK, stroke=None)
         f.circle((5.2, 1.5), 0.45, z=-4.8, fill="#b0b0b0", stroke=INK, sw=0.25)
-        draw_hand(f, drag)
+        draw_any(f, drag)
         f.circle((5.2, 1.5), 1.6, z=40, stroke=INK, sw=0.3, fill=None)
         label_lines(f, ["aim at the", "screw hole"], (7.2, -3.4), to=(5.2, -0.1))
         label_lines(f, ["incut"], (7.4, 5.6), to=(7.4, 3.0))
     else:
-        crimp = moved(BACK_CRIMP, **REGRIP_CRIMP)
-        draw_hand(f, drag, z=-3, ghost=True)
-        draw_hand(f, crimp)
+        # the half crimp of the side views, from behind, in the incut
+        crimp = grip("half", "m1", REGRIP_CRIMP_AT, view="back", arm=0.0, mirror=True)
+        import handmodel as M
+        M.draw(f, drag, z=-3, ghost=True)
+        draw_any(f, crimp)
         f.arrow([(-4.6, 8.1), (0.2, 9.0), (3.4, 8.6)], kind="move")
-        label_lines(f, ["half crimp", "in the incut"], (7.9, 9.1), to=crimp["joints"]["m"][1])
+        label_lines(f, ["half crimp", "in the incut"], (7.9, 9.1), to=crimp.flat(crimp.skel.joints("m")[1]))
     return f
 
 

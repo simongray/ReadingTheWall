@@ -52,10 +52,11 @@ streamlining), which have the details.
 - Some of the waist bends are only 5–8°, so they barely show at print size.
 - The hand close-ups seen from the thumb side come from the hand model in
   `figtools/handmodel.py`. These are still written by hand in
-  `figtools/authored.py`, with the old proportions: Matching and Regrip (back
-  views), Pinch, Pocket, Wrapping, and the atlas's pocket, pinch and palm
-  press. The old hands that no figure draws any more are still defined in
-  `authored.py`.
+  `figtools/authored.py`, with the old proportions: Pinch, Pocket, Wrapping,
+  and the atlas's pocket and pinch. The old hands that no figure draws any
+  more are still defined in `authored.py`.
+  - No photo of matching on a rail from behind, or of a palm press close up,
+    was found; those views rest on the anatomy and the side-view photos.
   - The atlas's undercling bends its middle joint 60°, not the photos' 90°,
     because the tile's flake is shallow.
   `research/hands-drawing-reference.md` has the photos and joint angles.

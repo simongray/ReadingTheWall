@@ -196,7 +196,8 @@ class Skeleton:
             mcp, pip, dip = P[k]
             dip = dip_of(pip, dip)
             base = Frame(H_(MC_HEAD[k]), hy, hz)
-            base = base.turned(hz, spread[k])
+            # a turn about the back of the hand's axis: positive spreads toward the thumb
+            base = base.turned(hz, -spread[k])
             segs, f = [], base
             for ang, L in zip((mcp, pip, dip), PHALANX[k]):
                 f = f.turned(f.v, -ang)
@@ -377,12 +378,13 @@ VIEWS = {
     # fingers pointing at the wall
     "above": ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
 }
-# back to front; grey pieces lie behind the front finger
+# back to front; grey pieces lie behind the front finger. From behind the thumb lies beside
+# the index and is drawn over the hand as a digit of its own, as from the side
 ORDER = {
     "side": ["l", "r", "m", "palm", "i", "t"],
     "little": ["t", "i", "m", "r", "palm", "l"],
-    "back": ["t", "palm", "l", "r", "m", "i"],
-    "above": ["t", "palm", "l", "r", "m", "i"],
+    "back": ["palm", "l", "r", "m", "i", "t"],
+    "above": ["palm", "l", "r", "m", "i", "t"],
 }
 GREYS = {"side": {"m": A.GREY, "r": A.GREY2, "l": A.GREY2},
          "little": {"r": A.GREY, "m": A.GREY2, "i": A.GREY2},
@@ -731,10 +733,11 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     greys = GREYS[hand.view]
     k_ = H.LINE[0]
     front = [n for n in order if n not in greys]
-    # From the side the thumb stands in front of the palm and the index: a digit with its own
-    # outline, drawn over the rest of the hand, which is outlined without it. Joined into one
-    # silhouette, the outline would run from the index down between them and up the thumb,
-    # as if the two were one forked digit.
+    # From the side the thumb stands in front of the palm and the index; from behind it lies
+    # beside the index. Either way it is a digit with its own outline, drawn over the rest of
+    # the hand, which is outlined without it. Joined into one silhouette, the outline would
+    # run from the index down between them and up the thumb, as if the two were one forked
+    # digit.
     apart = thumb_apart(hand)
     body = [n for n in front if not (apart and n == "t")]
     U = union(hand, body)
@@ -781,17 +784,18 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
                 # hold shows through; where none does, it is a dark gap of shadow
                 if not any(_inside(q, poly) for poly in behind for q in L):
                     f.add(f'<path d="{_pen_loop(f, L)}" fill="{GAP}"/>', z + 0.012)
+    # the thumb: white over the hand, and its outline all round, but for its base, where it
+    # melts into the ball of the thumb inside the hand's outline
+    zt = z + 0.015
     if apart:
-        # the thumb: white over the hand, and its outline all round, but for its base,
-        # where it melts into the ball of the thumb inside the hand's outline
         for L in g.contours(own["t"]):
             L = relax(resample(L, 0.18), 2)
             if len(L) > 5:
-                f.add(f'<path d="{_pen_loop(f, L)}" fill="{fill}"/>', z + 0.015)
+                f.add(f'<path d="{_pen_loop(f, L)}" fill="{fill}"/>', zt)
     f.wobble = None
     if apart:
         for pts, fade in thumb_outline(hand, U):
-            A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
+            A.pen_line(f, pts, zt + 0.005, A.OUT * k_, fade=fade)
     if show_lines:
         for pts, fade in inner_lines(hand, front, skip=("t",) if apart else ()):
             A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
@@ -809,8 +813,10 @@ ROOT = dict(t=0.8, i=0.42, m=0.42, r=0.42, l=0.42)   # of the first segment: a d
 
 
 def thumb_apart(hand):
-    """Whether the thumb is drawn as a digit of its own, over the hand: in the side views."""
-    return hand.view in ("side", "little") and "t" not in GREYS[hand.view]
+    """Whether the thumb is drawn as a digit of its own, over the hand: in every view where
+    it is not a grey digit behind. From behind too it lies beside the index, not under it,
+    so no line of the hand's edge runs across it."""
+    return "t" not in GREYS[hand.view]
 
 
 def union(hand, names):
@@ -1151,6 +1157,21 @@ GRIPS = dict(
     # arm hangs under it (fitted to the strip's dome)
     film_hang=(dict(wrist=(5, 0), i=(30, 35, 15), m=(30, 35, 15), r=(30, 37, 15), l=(33, 37, 15),
                     thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
+    # From behind, the open hand's drag over an edge or a rail: the index as the open hand's
+    # (O1, O2), the other fingers alike, over the top beside it (ClimbingCrux's two hands
+    # sharing a hold, from behind); the thumb lies along the side of the index, back to the
+    # back of the hand, its tip on the rail: from behind it shows broad, with its nail
+    drag=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(15, 38, 45),
+               thumb=dict(cmc=(-10, -20), mcp=20, ip=20)), 0.0),
+    # the three-finger drag: the same, the little finger curled off the edge
+    drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(60, 95, 60),
+                thumb=dict(cmc=(-10, -20), mcp=20, ip=20)), 0.0),
+    # the palm press: the hand flat on a volume's face, the fingers straight and spread, the
+    # thumb out to the side (the reference's palm press and TripSavvy's palm on a slab: the heel
+    # presses, the fingers lie flat). Seen from behind, flat on the face
+    press_palm=(dict(wrist=(0, 0), i=(0, 5, 5), m=(0, 5, 5), r=(0, 5, 5), l=(0, 5, 5),
+                     spread=dict(i=6.0, m=0.0, r=-6.0, l=-12.0),
+                     thumb=dict(cmc=(-20, 0), mcp=5, ip=5)), 0.0),
     # the half crimp on an incut edge: the same hand with the end joint curled 40 behind the lip
     half_incut=(dict(wrist=(-15, 0), i=(15, 85, 40), m=(10, 98, 40), r=(3, 93, 40), l=(4, 73, 40),
                      thumb=dict(cmc=(-20, -8), mcp=5, ip=5)), 15.0),
@@ -1174,6 +1195,8 @@ GRIPS = dict(
 
 # grips seen from the thumb side of the other hand: drawn mirrored
 MIRRORED = {"under"}
+# from behind, a little from above, so the fingers curled over an edge's top show
+BACK_PITCH = 15.0
 
 
 # ---------------------------------------------------------------- solving a pose

@@ -738,19 +738,24 @@ def matching(path):
     the middle: the right hand would hang off the end. (b) Left hand on the
     left half: the right hand fits beside it."""
     import authored as A
+    import handmodel as M
     panels = []
     for k in range(2):
         f = Fig(-11.5, -17.732, 14.5, 7.0, scale=MATCH_SCALE)
         wall_grid(f, step=10)
         _face_edge(f, (0, MATCH_TOP - 1.5), 21.6, 3.0)
+        # the model's drag from behind, the middle finger's middle joint at the edge's top;
+        # the left hand is the model's, the right its mirror
+        left = lambda x: A.grip("drag", "m1", (x, MATCH_TOP + 0.1), view="back", mirror=False)
+        right = lambda x, dy=0.0: A.grip("drag", "m1", (x, MATCH_TOP + 0.1 + dy), view="back", mirror=True)
         if k == 0:
-            A.draw_hand(f, A.drag_from_behind("l", 0.08, MATCH_TOP), z=0, fill=LEFT)
+            A.draw_any(f, left(0.08), z=0, fill=LEFT)
             # a little low, so its thumb stays behind the solid one
-            A.draw_hand(f, A.drag_from_behind("r", 9.72, MATCH_TOP - 0.3), z=-3, ghost=True)
+            M.draw(f, right(9.72, -0.3), z=-3, ghost=True)
             f.cross((9.38, -11.27))
         else:
-            A.draw_hand(f, A.drag_from_behind("l", -5.82, MATCH_TOP), z=0, fill=LEFT)
-            A.draw_hand(f, A.drag_from_behind("r", 5.82, MATCH_TOP), z=2)
+            A.draw_any(f, left(-5.82), z=0, fill=LEFT)
+            A.draw_any(f, right(5.82), z=2)
         panels.append(f)
     combine(panels, path, gap=5, labels=["a", "b"],
             captions=["centred: no room", "left half: room to match"])
