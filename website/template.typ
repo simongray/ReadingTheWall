@@ -93,6 +93,10 @@
 #let jt(term, body: none) = tag("a", attrs: (class: "jt", href: "#" + gloss-key(term)),
   if body == none { term } else { body })
 
+// A section or figure of the book, from the exercises booklet. The site has the
+// booklet beside the book, so this is a link as `@label` is, with no page.
+#let bref(lbl, body: none, sub: "") = if body == none [#ref(label(lbl))#sub] else { link(label(lbl), body) }
+
 #let glossary-columns(body) = columns(2, gutter: 1.6em, body)
 #let sources-columns(body, pages: 1, last: auto) = columns(2, gutter: 1.5em, body)
 #let lead-line(body) = par(body)
@@ -141,10 +145,14 @@
 })
 
 // A problem of "Eight problems to read". There is no page to turn here, so the
-// answer stays closed until the reader opens it.
-#let reading-question(n: none, title: none, grade: none, wall: none, start: none, finish: none, figure: none, prompts: none) = cls("section", "reading-question", {
+// answer stays closed until the reader opens it. In an edition with an exercises
+// booklet, build.py gives each problem a page of its own, and reads its number,
+// title and grade from these attributes.
+#let reading-question(n: none, title: none, grade: none, wall: none, start: none, finish: none, figure: none, prompts: none) = tag("section", attrs: (
+  class: "reading-question", "data-n": str(n), "data-title": name-text(title), "data-grade": str(grade),
+), {
   cls("h5", "step", { section-label[Problem #n]; " "; title })
-  tag("p", [About #grade-tab-inline(grade-label(grade), g: grade). #wall Start: #start Finish: #finish])
+  tag("p", [About #grade-tab-inline(grade-label(grade), g: grade). #cls("span", "wall", wall) Start: #start Finish: #finish])
   cls("section", "how", {
     entry-figure(figure, none, false)
     labelled([Read it yourself])
@@ -261,6 +269,13 @@
 #let make-index() = tag("div", attrs: ("data-gen": "index"))
 
 // ------------------------------------------------------------ the document
+
+// Where the exercises booklet starts. build.py adds it after the book, and makes
+// a section of the site from what follows. Its figures count from 1, as in print.
+#let booklet(title) = {
+  counter(figure.where(kind: image)).update(0)
+  tag("section", attrs: (class: "booklet", "data-title": title))
+}
 
 // A part page. build.py lists the chapters under it.
 #let part(title, subtitle: none, ornament: auto) = tag("section", attrs: (

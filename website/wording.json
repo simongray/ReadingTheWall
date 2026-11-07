@@ -12,5 +12,7 @@
   {"find": "(see the back of the title page)",
    "replace": "(see the colophon)"},
   {"find": "then turn the page and compare",
-   "replace": "then open the answer and compare"}
+   "replace": "then open the answer and compare"},
+  {"find": "Page numbers in brackets, as in",
+   "drop": true}
 ]

@@ -15,6 +15,7 @@ LICENCE = "https://creativecommons.org/licenses/by-sa/4.0/"
 QUICK_LINKS = (("Contents", "contents/"), ("A–Z", "a-to-z/"), ("Troubleshooting", "troubleshooting/"),
                ("Glossary", "glossary/"), ("Index", "index/"))
 EDITION_WORDS = ("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth")
+COUNT_WORDS = ("No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve")
 
 
 def trail(page):
@@ -28,9 +29,15 @@ def trail(page):
 
 def chapter_of(page):
     for p in [page] + trail(page)[::-1]:
-        if p.kind in ("chapter", "appendix", "front"):
+        if p.kind in ("chapter", "appendix", "front", "booklet"):
             return p
     return None
+
+
+def numbered(number, title):
+    # The space goes inside the number, which floats beside the title, so that the
+    # title's first line starts where its others do.
+    return [el("span", {"class": "num"}, number + " "), title] if number else [title]
 
 
 def edition_label(stamp):
@@ -46,9 +53,10 @@ def long_date(iso):
     return f"{d.day} {d.strftime('%B %Y')}"
 
 
-def pdf_link(stamp):
+def pdf_link(stamp, suffix=""):
+    """The edition's PDF on its release, or the booklet's with suffix "-exercises"."""
     n = stamp["edition"]
-    return f"{REPO}/releases/latest" if n == "draft" else f"{REPO}/releases/download/edition-{n}/Reading-the-Wall-edition-{n}.pdf"
+    return f"{REPO}/releases/latest" if n == "draft" else f"{REPO}/releases/download/edition-{n}/Reading-the-Wall-edition-{n}{suffix}.pdf"
 
 
 def relative(target, page_path):
@@ -93,6 +101,12 @@ def outline(book, page):
             label = [el("span", {"class": "num"}, ch.number), " ", ch.title] if ch.number else [ch.title]
             chapters.append(el("li", None, link_to(ch, page, *label), chapter_sections(ch, page) if ch is here else None))
         ol.append(el("li", {"class": "o-part"}, link_to(part, page, part.title, **{"class": "sc"}), chapters))
+    booklet = book.booklet
+    if booklet is not None:
+        # The booklet's problems show only once you are in it.
+        problems = el("ol", None, [el("li", None, link_to(p, page, el("span", {"class": "num"}, p.number), " ", p.short))
+                                   for p in booklet.chapters]) if here is booklet else None
+        ol.append(el("li", {"class": "o-part"}, link_to(booklet, page, booklet.title, **{"class": "sc"}), problems))
     return el("nav", {"class": "outline", "aria-label": "The book's outline"}, ol)
 
 
@@ -192,14 +206,54 @@ def on_this_page(page):
     return el("details", {"class": "on-page"}, el("summary", {"class": "sc"}, "In this chapter"), sections)
 
 
-def page_content(page):
+def booklet_opening(page):
+    """The booklet's head, set as a chapter's, with the booklet's name above the title."""
+    return el("header", {"class": "opening"},
+              el("p", {"class": "chapter-label sc"}, page.title),
+              el("h1", None, list(page.heading.children) if page.heading is not None else page.title),
+              el("span", {"class": "orn-rule"},
+                 el("img", {"class": "ornament", "alt": "", "src": f"/figures/ornament-{page.ornament}.svg"})) if page.ornament else None)
+
+
+def problem_opening(page):
+    """A problem's head as in print: its number in small capitals, then its name."""
+    return el("header", {"class": "guide-head"},
+              el("h1", None, el("span", {"class": "label"}, f"Problem {page.number}"), " ", page.short))
+
+
+def problem_list(book, booklet):
+    """The booklet's problems under its opening text, each with its grade and wall."""
+    items = []
+    for p in booklet.chapters:
+        grade = p.meta.get("grade")
+        items.append(el("li", None,
+                        el("a", {"href": p.url}, el("span", {"class": "num"}, p.number), " ", p.short),
+                        " ", el("span", {"class": f"grade-tab {book.grade_class(p)}"}, book.grade_label(grade)) if grade is not None else None,
+                        el("p", None, p.meta["wall"]) if p.meta.get("wall") else None))
+    return fragment(
+        el("h2", {"class": "sec", "id": "the-problems"}, "The problems"),
+        el("ul", {"class": "chapter-list"}, items),
+        el("p", {"class": "booklet-pdf"}, "To work on paper, ",
+           el("a", {"href": pdf_link(book.stamp, "-exercises")}, "download the booklet as a PDF"),
+           ". Each answer is on the back of its problem."))
+
+
+def page_content(book, page):
     """The text of a page from the book, under its head."""
     body = fragment()
+    if page.kind == "part":
+        return part_content(page)
     if page.kind in ("chapter", "appendix", "front"):
         body.append(chapter_opening(page), on_this_page(page))
     elif page.kind == "guide":
         body.append(guide_opening(page))
+    elif page.kind == "booklet":
+        body.append(booklet_opening(page))
+    elif page.kind == "problem":
+        body.append(problem_opening(page))
     body.append(list(page.body.children))
+    if page.kind == "booklet":
+        body.append(problem_list(book, page))
     return body
 
 
@@ -217,12 +271,7 @@ def part_content(page):
 
 def contents_content(book):
     """As in print: parts in small caps, chapters in bold, sections below them. It
-    also lists the entries, as the PDF's bookmarks do."""
-    def numbered(number, title):
-        # The space goes inside the number, which floats beside the title, so that the
-        # title's first line starts where its others do.
-        return [el("span", {"class": "num"}, number + " "), title] if number else [title]
-
+    also lists the entries, as the PDF's bookmarks do, and the booklet's problems."""
     out = el("nav", {"class": "contents", "role": "doc-toc", "aria-label": "Contents"})
     fronts = [p for p in book.pages if p.kind == "front"]
     if fronts:
@@ -248,6 +297,13 @@ def contents_content(book):
                                el("a", {"class": "c-chapter", "href": ch.url}, numbered(ch.number, ch.title)),
                                sections if sections.children else None))
         out.append(chapters)
+    booklet = book.booklet
+    if booklet is not None:
+        # Set as a part is, with its problems as its chapters.
+        heading = [" ", el("em", None, " ".join(booklet.heading.text().split()))] if booklet.heading is not None else None
+        out.append(el("h2", {"class": "c-part"}, el("a", {"href": booklet.url}, el("span", {"class": "sc"}, booklet.title), heading)),
+                   el("ol", {"class": "c-chapters"}, [el("li", None, el("a", {"class": "c-chapter", "href": p.url}, numbered(p.number, p.short)))
+                                                      for p in booklet.chapters]))
     return fragment(el("header", {"class": "opening"}, el("h1", None, "Contents")), out)
 
 
@@ -312,8 +368,19 @@ def home_content(book):
            el("section", None, el("h2", {"class": "label"}, "The techniques"),
               el("ul", {"class": "category-row"}, categories)),
            stuck_on_something(book),
+           practice(book),
            el("section", None, el("h2", {"class": "label"}, "The book"),
               el("ul", {"class": "part-row"}, parts))))
+
+
+def practice(book):
+    booklet = book.booklet
+    if booklet is None or not booklet.chapters:
+        return None
+    count = len(booklet.chapters)
+    words = f"{COUNT_WORDS[count] if count < len(COUNT_WORDS) else count} drawn problem{'' if count == 1 else 's'}"
+    return el("section", None, el("h2", {"class": "label"}, booklet.title),
+              el("p", None, el("a", {"href": booklet.url}, words), " to read from the ground, each with its answer."))
 
 
 def stuck_on_something(book):
@@ -477,6 +544,10 @@ def write_llms_txt(book, home):
     lines.append("")
     for entry in book.entries.values():
         lines.append(f"- [{entry.title}]({root}{entry.path}): {entry.description}")
+    if book.booklet is not None:
+        lines += ["", f"## {book.booklet_title}", ""]
+        for page in [book.booklet] + book.booklet.chapters:
+            lines.append(f"- [{page.title}]({root}{page.path}): {page.description}")
     (book.out / "llms.txt").write_text("\n".join(lines) + "\n")
 
 
@@ -567,7 +638,7 @@ def write_site(book):
     home.body = home_content(book)
     colophon.body = colophon_content(book)
     for page in book.pages:
-        write_page(book, page, part_content(page) if page.kind == "part" else page_content(page))
+        write_page(book, page, page_content(book, page))
     write_page(book, contents, contents_content(book))
     write_page(book, home, home.body)
     write_page(book, colophon, colophon.body)

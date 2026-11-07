@@ -851,6 +851,8 @@
     p { margin-block-start: .15rem; color: var(--ink-soft); font-size: var(--fs-note); }
   }
 
+  .booklet-pdf { margin-block-start: 1rlh; }
+
   /* The letter bars and what they lead to */
   .alpha {
     display: flex;

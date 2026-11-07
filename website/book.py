@@ -73,19 +73,19 @@ class Page:
     def __init__(self, path, title, kind, parent=None):
         self.path = path            # from the site's root, with a final slash: "techniques/edging/"
         self.title = title
-        self.kind = kind            # home, front, part, chapter, appendix, guide, entry
+        self.kind = kind            # home, front, part, chapter, appendix, guide, entry, booklet, problem
         self.parent = parent        # the page above it in the book's outline
         self.body = fragment()
         self.heading = None         # the head of a chapter or guide
         self.number = ""            # "3", or "8.6" for a guide
-        self.short = title          # a guide's name without its Font grades
+        self.short = title          # a guide's name without its Font grades, a problem's without its number
         self.word = ""              # "Three"
         self.ornament = ""
         self.subtitle = ""          # of a part
         self.description = ""
         self.sections = []          # the outline below it: see `Section`
-        self.chapters = []          # of a part
-        self.meta = {}              # of an entry: grade, category, aliases
+        self.chapters = []          # of a part, or the problems of the booklet
+        self.meta = {}              # of an entry: grade, category, aliases; of a problem: grade, wall
         self.prev = None
         self.next = None
 
@@ -118,6 +118,9 @@ class Book:
         self.chapters = {}         # by number
         self.targets = {}          # an id in the book -> the page it ended up on
         self.front = []            # the title page and its back
+        self.booklet = None        # the first page of the exercises booklet, in an edition with one
+        self.booklet_title = ""    # its title in print: "Reading the Wall: Exercises"
+        self.booklet_reading = []  # its pages in order, which have a reading order of their own
         self.key_alias = {}
         self.categories = {}
         self.tab_looks = []
@@ -129,6 +132,8 @@ class Book:
         self.cited_in = defaultdict(list)
         self.previews = {}
         self.search = []
+        self.wording = json.loads((here / "wording.json").read_text())
+        self.wording_used = set()
         title = self.doc.first("title")
         self.title = title.text() if title else "The book"
         self.alts = self.read_alts()
@@ -186,6 +191,14 @@ class Book:
                 self.tab_looks = json.loads(node.attrs["data-tab-looks"])
             elif node.tag == "section" and node.has_class("front-page"):
                 self.front.append(node)
+            elif node.tag == "section" and node.has_class("booklet"):
+                current = self.add_booklet(node)
+            elif self.booklet is not None:
+                current = self.add_to_booklet(node, current)
+            elif node.tag == "section" and node.has_class("reading-question"):
+                # A problem in a chapter, as in the second edition, stays where it is.
+                self.problem_attrs(node)
+                current.body.append(node)
             elif node.tag == "section" and node.has_class("part"):
                 part = self.add_part(node)
                 current, chapter, section = part, None, None
@@ -301,6 +314,66 @@ class Book:
             chapter.sections.append(section)
         section.entries.append(page)
         self.reading.append(page)
+        return page
+
+    def add_booklet(self, node):
+        """The first page of the exercises booklet. The site already carries the book's
+        title, so the page takes the rest of the booklet's: "Exercises"."""
+        self.booklet_title = clean(node.attrs["data-title"])
+        name = self.booklet_title.removeprefix(self.title + ": ") or self.booklet_title
+        page = self.booklet = self.add(Page(slug(name) + "/", name, "booklet"))
+        self.booklet_reading.append(page)
+        return page
+
+    def add_to_booklet(self, node, current):
+        """The booklet's opening heading and the text after it go on its first page,
+        each problem with its answer on a page of its own."""
+        booklet = self.booklet
+        if node.tag == "h2" and booklet.heading is None:
+            booklet.heading = node
+            booklet.ornament = node.attrs.get("data-ornament", "")
+            if node.attrs.get("id"):
+                self.targets[node.attrs["id"]] = booklet
+            return booklet
+        if node.tag == "section" and node.has_class("reading-question"):
+            return self.add_problem(node)
+        if node.tag == "h2":
+            self.warn(f"the booklet has a second chapter, {clean(node.text())!r}, which website/book.py doesn't give a page")
+        elif node.tag == "h3" and current is booklet:
+            booklet.sections.append(Section(clean(node.text()), node.attrs.get("data-num", ""), heading=node))
+        current.body.append(node)
+        return current
+
+    @staticmethod
+    def problem_attrs(node):
+        """A problem's number, title, grade and wall, taken from its markup."""
+        found = [node.attrs.pop(name, "") for name in ("data-n", "data-title", "data-grade")]
+        wall = node.first("span", cls="wall")
+        if wall is not None:
+            found.append(clean(wall.text()))
+            wall.unwrap()
+        else:
+            found.append("")
+        return found
+
+    def add_problem(self, node):
+        booklet = self.booklet
+        number, name, grade, wall = self.problem_attrs(node)
+        path = f"{booklet.path}{slug(name)}/"
+        if not slug(name) or self.has_page(path):
+            path = f"{booklet.path}problem-{number}/"
+        page = self.add(Page(path, f"Problem {number}: {name}", "problem", booklet))
+        page.number, page.short = number, name
+        page.meta = dict(wall=wall)
+        if re.fullmatch(r"-?\d+", grade):
+            page.meta["grade"] = int(grade)
+        # The page's own head takes its place.
+        head = node.first("h5", cls="step")
+        if head is not None:
+            head.detach()
+        page.body.append(node)
+        booklet.chapters.append(page)
+        self.booklet_reading.append(page)
         return page
 
     # ------------------------------------------------------------ marks
@@ -733,26 +806,39 @@ class Book:
         dl = el("dl", {"class": "glossary"}, entries)
         columns.replace_with(self.alpha_nav(letters), el("section", {"role": "doc-glossary"}, dl))
 
+    def drop_print_only(self):
+        """Remove the paragraphs and list items that wording.json drops: a sentence
+        about print that wraps around a link, which a rule can't reword. This runs
+        before anything refers to what is in them."""
+        for n, rule in enumerate(self.wording):
+            if not rule.get("drop"):
+                continue
+            for page in self.pages:
+                found = [node for node in page.body.walk() if node.tag in ("p", "li")
+                         and any(isinstance(c, str) and rule["find"] in c for c in node.children)]
+                for node in found:
+                    node.detach()
+                    self.wording_used.add(n)
+
     def apply_wording(self):
         """Replace the sentences that only make sense in print. Rules live in
         website/wording.json, and one that stops matching shows up in the report."""
-        rules = json.loads((self.here / "wording.json").read_text())
-        used = set()
+        rules = [(n, rule) for n, rule in enumerate(self.wording) if not rule.get("drop")]
         for page in self.pages:
             for node in page.body.walk():
                 for i, child in enumerate(node.children):
                     if not isinstance(child, str):
                         continue
-                    for n, rule in enumerate(rules):
+                    for n, rule in rules:
                         if rule["find"] in child:
                             child = child.replace(rule["find"], rule["replace"])
-                            used.add(n)
+                            self.wording_used.add(n)
                     node.children[i] = child
                 # A rule can remove a list item outright.
                 if node.tag == "li" and not node.text().strip():
                     node.detach()
-        for n, rule in enumerate(rules):
-            if n not in used:
+        for n, rule in enumerate(self.wording):
+            if n not in self.wording_used:
                 print(f"note: wording.json: not found in this edition: {rule['find']!r}")
 
     def link_mentions(self):
@@ -772,6 +858,18 @@ class Book:
                         continue
                     out += self.split_mentions(child, part_numbers)
                 node.set_children(out)
+
+    def link_booklet(self):
+        """Link the booklet's title where the book names it, as in "A companion
+        booklet, Reading the Wall: Exercises, has …"."""
+        if self.booklet is None:
+            return
+        for page in self.pages:
+            for em in page.body.select("em"):
+                if clean(em.text()) == self.booklet_title and not any(p.tag == "a" for p in self.ancestors(em)):
+                    link = el("a", {"class": "xref", "href": self.booklet.url})
+                    em.replace_with(link)
+                    link.append(em)
 
     @staticmethod
     def ancestors(node):
@@ -939,9 +1037,11 @@ class Book:
         they looked like in the book, whatever level they end up at."""
         for page in self.pages:
             used = set()
-            stack = [(2, 1)] if page.kind in ("chapter", "appendix", "front") else []
+            stack = [(2, 1)] if page.kind in ("chapter", "appendix", "front", "booklet") else []
             if page.kind == "guide":
                 stack = [(3, 1)]
+            elif page.kind == "problem":
+                stack = [(5, 1)]
             for node in page.body.walk():
                 if not re.fullmatch(r"h[1-6]", node.tag) or node.has_class("letter-head"):
                     continue
@@ -990,7 +1090,7 @@ class Book:
                 a.unwrap()
                 continue
             is_head = anchor == f"tech-{target.meta.get('key')}" or anchor == f"tech-meta-{target.meta.get('key')}"
-            is_head = is_head or (target.kind in ("chapter", "appendix", "front", "guide") and target.heading is not None
+            is_head = is_head or (target.kind in ("chapter", "appendix", "front", "guide", "booklet") and target.heading is not None
                                   and target.heading.attrs.get("id") == anchor)
             a.attrs["href"] = target.url if is_head else f"{target.url}#{anchor}"
 
@@ -1091,8 +1191,11 @@ class Book:
     # ------------------------------------------------------------ the whole
 
     def set_reading_order(self):
-        for before, after in zip(self.reading, self.reading[1:]):
-            before.next, after.prev = after, before
+        """The book ends at its index. The booklet's pages lead on from one to the next
+        among themselves."""
+        for pages in (self.reading, self.booklet_reading):
+            for before, after in zip(pages, pages[1:]):
+                before.next, after.prev = after, before
 
     def untie_headings(self):
         """Print ties a head's last words so that it breaks well on its page. A tied
@@ -1109,6 +1212,7 @@ class Book:
 
     def build(self):
         self.split()
+        self.drop_print_only()
         self.untie_headings()
         self.read_title_page()
         self.register_targets()
@@ -1123,6 +1227,7 @@ class Book:
         self.fill_entry_lists()
         self.fill_backlinks()
         self.link_mentions()
+        self.link_booklet()
         self.set_lining_figures()
         self.lay_out_figures()
         self.number_headings()
