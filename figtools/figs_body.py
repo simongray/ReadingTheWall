@@ -708,9 +708,9 @@ def cross_through(path):
 # ---------------------------------------------------------------- matching
 
 
-# The hands come from hand.py, like every hand close-up in the book, but at
-# 1.6 mm per cm rather than its HAND_SCALE (2.6): at that scale the two
-# panels would be about 140 mm wide, too wide to sit beside the steps.
+# The hands come from authored.py, like every hand close-up in the book, but at
+# 1.6 mm per cm rather than the close-ups' HAND_SCALE (2.6): at that scale the
+# two panels would be about 140 mm wide, too wide to sit beside the steps.
 MATCH_SCALE = 1.6
 MATCH_TOP = 0.0          # top of the edge
 
@@ -729,38 +729,24 @@ def _face_edge(f, c, w, h, z=-5):
         f.smooth(pts, z=XRAY_Z, tension=0.5, **XRAY_STYLE)
 
 
-def _crimp_back(side, x):
-    """A half crimp on the edge seen from behind, knuckles centred on x: the
-    right hand, or its mirror image for side "l". The thumb rests against
-    the side of the index finger, a little under it."""
-    import hand as H
-    h = H.Hand("half").rest_thumb(along=0.3, out=1.5, palm=2.0)
-    p = h.view("back", a0=90, flip=side == "l")
-    p.move_point(H.pad_point(h, "m", 0.85), (0, MATCH_TOP - 0.3))
-    mid = p.xy(H.vlerp(H.MCP["i"], H.MCP["l"], 0.5))
-    return p.move_point(H.pad_point(h, "m", 0.85), (x - mid[0], MATCH_TOP - 0.3))
-
-
 def matching(path):
-    """Close-up from behind of a short edge, half crimped. (a) Left hand in
+    """Close-up from behind of a short edge, fingers over it. (a) Left hand in
     the middle: the right hand would hang off the end. (b) Left hand on the
     left half: the right hand fits beside it."""
+    import authored as A
     panels = []
-    # the hands all hang alike: cut the arms a little above H.FOREARM_SHOWN
-    # below the wrist, which keeps the figure at its printed height
-    y0 = _crimp_back("l", 0).forearm_point()[1] + 1.36 / MATCH_SCALE
     for k in range(2):
-        f = Fig(-11.5, y0, 14.5, 7.0, scale=MATCH_SCALE)
+        f = Fig(-11.5, -17.732, 14.5, 7.0, scale=MATCH_SCALE)
         wall_grid(f, step=10)
-        _face_edge(f, (0, MATCH_TOP - 1.7), 21.6, 3.4)
+        _face_edge(f, (0, MATCH_TOP - 1.5), 21.6, 3.0)
         if k == 0:
-            _crimp_back("l", 0).draw(f, z=0, fill=LEFT)
-            g = _crimp_back("r", 9.8)
-            g.draw(f, z=-3, ghost=True)
-            f.cross(g.at(1.0, 0.6))
+            A.draw_hand(f, A.drag_from_behind("l", 0.08, MATCH_TOP), z=0, fill=LEFT)
+            # a little low, so its thumb stays behind the solid one
+            A.draw_hand(f, A.drag_from_behind("r", 9.72, MATCH_TOP - 0.3), z=-3, ghost=True)
+            f.cross((9.38, -11.27))
         else:
-            _crimp_back("l", -5.9).draw(f, z=0, fill=LEFT)
-            _crimp_back("r", 5.9).draw(f, z=2)
+            A.draw_hand(f, A.drag_from_behind("l", -5.82, MATCH_TOP), z=0, fill=LEFT)
+            A.draw_hand(f, A.drag_from_behind("r", 5.82, MATCH_TOP), z=2)
         panels.append(f)
     combine(panels, path, gap=5, labels=["a", "b"],
             captions=["centred: no room", "left half: room to match"])

@@ -218,6 +218,7 @@ class Fig:
         self.items = []
         self.defs = set()
         self._plain = 0         # > 0 while drawing exact symbols (no pen effects)
+        self.wobble = None      # world point -> the share of WOBBLE kept there (None: all)
 
     # unit helpers
     def mm(self, v):
@@ -299,7 +300,8 @@ class Fig:
             for p_, c_ in seg:
                 if pen:
                     dx, dy = _field(p_[0] * k, p_[1] * k)
-                    p_ = (p_[0] + dx / k, p_[1] + dy / k)
+                    a = self.wobble(p_) if self.wobble else 1.0
+                    p_ = (p_[0] + a * dx / k, p_[1] + a * dy / k)
                 P.append(self.P(p_))
                 C.append(c_)
         return P, C
@@ -3087,13 +3089,14 @@ def _wrap(text, width_chars):
 def filmstrip(frames, path, captions=None, gap=2.2, band=4.2):
     """Lay out frames (Fig objects) as a strip of film: a dark band with
     sprocket holes above and below, numbered frames, and a short caption
-    under each frame. Sizes in mm. Use the same Fig scale for every frame
-    (0.28 keeps a five-frame strip of back views within the page width)."""
+    under each frame, wrapped to fit unless it is given as a list of lines.
+    Sizes in mm. Use the same Fig scale for every frame (0.28 keeps a five-frame
+    strip of back views within the page width)."""
     sizes = [((f.x1 - f.x0) * f.scale, (f.y1 - f.y0) * f.scale) for f in frames]
     fh = max(h for _, h in sizes)
     W = sum(w for w, _ in sizes) + gap * (len(frames) + 1)
-    cap_lines = [_wrap(c, max(8, int(w / 1.75))) for c, (w, _) in
-                 zip(captions or [""] * len(frames), sizes)]
+    cap_lines = [c if isinstance(c, list) else _wrap(c, max(8, int(w / 1.75)))
+                 for c, (w, _) in zip(captions or [""] * len(frames), sizes)]
     cap_h = (max(len(c) for c in cap_lines) * 3.6 + 2.5) if captions else 0
     H = band * 2 + fh + cap_h
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.2f}mm" '

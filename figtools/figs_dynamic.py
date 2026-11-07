@@ -544,8 +544,8 @@ def hip_pop(path):
 def _jug_profile(fig, top):
     """A positive jug in profile on a wall to the right of `top`."""
     x, y = top
-    pts = [(x + 6.5, y - 4.5), (x + 1.5, y - 4.2), (x - 0.4, y - 2.0),
-           (x - 0.6, y + 0.2), (x + 0.2, y + 0.6), (x + 0.9, y - 1.3),
+    pts = [(x + 6.5, y - 4.5), (x + 1.5, y - 4.2), (x + 0.1, y - 2.0),
+           (x - 0.2, y + 0.2), (x + 0.25, y + 0.6), (x + 0.9, y - 1.3),
            (x + 2.6, y - 1.6), (x + 6.5, y - 0.6)]
     fig.smooth(pts, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.5)
     if XRAY:     # dotted where the hand covers it
@@ -557,36 +557,10 @@ def latching(path):
     2-3 cm above the jug. (b) The fingers drop over the lip. (c) Back view:
     the right hand has caught with a slightly bent arm, the shoulder pulled
     down and both feet pressing on their holds."""
-    import hand as H
-    # the close-ups use the book's one hand model at its fixed scale, each
-    # frame cutting the arm H.FOREARM_SHOWN below the wrist
-    # (a) close-up: the open hand arrives a little above the lip
-    ha = H.Hand("open", fingers={f: (18, 32, 22) for f in "imrl"}).rest_thumb()
-    pa = ha.view("thumb").place("i", (1.4, 3.0), a0=98, k=0.6)
-    y0 = pa.forearm_point()[1]
-    a = Fig(-10.5, y0, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
-    H.wall_profile(a, 6.5, y0, 9.5)
-    _jug_profile(a, (0, 0))
-    pa.draw(a)
-    a.arrow([(4.4, 6.6), (4.4, 0.8)], kind="move")
-    a.label("2–3 cm above", (-4.6, 8.0), to=(1.0, 1.8), size=7)
-    # (b) close-up: fingers drop over the lip
-    hb = H.Hand("jug")
-    pb = hb.view("thumb").place("i", (1.5, -1.15), a0=100, k=0.75)
-    # the fingers behind hook into the bucket too, each beside the last
-    H.on_edge(pb, (1.5, -1.15), k=0.75, along=-8, spread=0.35)
-    # the thumb pad on the jug's front face, below the lip, so that the
-    # fingers hooked over the lip stay in view
-    pb.thumb_to((-0.85, -1.3), part="pad", k=0.6, facing=0)
-    y0 = pb.forearm_point()[1]
-    b = Fig(-10.5, y0, 7.5 + 2.4 / H.HAND_SCALE, 9.5, scale=H.HAND_SCALE)
-    H.wall_profile(b, 6.5, y0, 9.5)
-    _jug_profile(b, (0, 0))
-    pb.draw(b)
-    b.label("fingers over the lip", (-4.0, 8.4), to=pb.joint("i", "dip"), size=7)
-    for p in (pa, pb):
-        for w in p.hand.warn():
-            print("latching close-up:", w)
+    import authored as A
+    # the close-ups use the book's hands (authored.py) at their fixed scale
+    a = A.latch_a(_jug_profile)
+    b = A.latch_b(_jug_profile)
 
     # (c) body, back view: arm slightly bent, shoulder set, feet press down
     T = (26, 236)

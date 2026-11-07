@@ -58,7 +58,9 @@ HOLD_GREYS = (DARK, HOLD_MID, HOLD_LIGHT, HOLD_PALE, HOLD_DEEP)
 YELLOW = ("#c6ad25", "#e9ce3d", "#f4de73", "#fcefb2", "#927e00")
 YELLOW_GREYS = ("#aaaaaa", "#cccccc", "#dddddd", "#eeeeee", "#777777")
 
-HOLDS = (FOREST, RASPBERRY, DENIM, YELLOW, BRICK, TEAL, VIOLET, RUST)
+# Yellow comes fifth, where it lands on a big hold in both atlases. It shows lighter than the
+# others on a monochrome screen, so a small hold in that shade would be easy to miss.
+HOLDS = (FOREST, RASPBERRY, DENIM, BRICK, YELLOW, TEAL, VIOLET, RUST)
 
 # A figure in a technique entry takes the hold colour of the entry's grade, from
 # V0 up, as in the circuits at Boulders (see grade-tabs in book/template.typ).

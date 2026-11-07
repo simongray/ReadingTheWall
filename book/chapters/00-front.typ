@@ -166,7 +166,7 @@ Claude, an AI model made by Anthropic, wrote this book at its editor's direction
 
 *The text.* Claude searched the web for sources, read the pages it could open and wrote up what they said in research files. It wrote the chapters from those files. Claude has never climbed, so the technique advice comes from its sources and its own judgement. Claude rewrote much of the prose for this edition.
 
-*The figures.* No image generator was used. Claude wrote the Python code that draws every figure, the cover included. It gives each pose as hand and foot positions in centimetres, and the code works out the elbows and knees. The code adds the colour last. For the second edition, Claude compared the poses with photographs or single video frames, which aren't in the book. The logs cover most figures but not those in the hands chapter, and for some techniques the references were thin.
+*The figures.* No image generator was used. Claude wrote the Python code that draws every figure, the cover included. It gives each pose as hand and foot positions in centimetres, and the code works out the elbows and knees. Claude wrote the outlines of the hand close-ups point by point. The code adds the colour last. For the second edition, Claude compared the poses with photographs or single video frames, which aren't in the book. The logs cover most figures but not those in the hands chapter, and for some techniques the references were thin.
 
 *The website.* Claude wrote the code that builds a website from the book's own files and makes its dark-mode figures. It also wrote the figures' descriptions for screen readers.
 

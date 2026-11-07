@@ -925,7 +925,8 @@ def sloper_fig(path):
         f.cog(c.cog(), plumb_to=28 if good else 116)
         warn("sloper", c)
         panels.append(f)
-    panels.append(sloper_closeup(A))
+    import authored
+    panels.append(authored.sloper_panel())
     combine(panels, path, gap=4, labels=["a", "b", "c"],
             captions=["hips up and out: it rolls off", "hips low: it holds",
                       "hand draped over it"])
@@ -1100,6 +1101,7 @@ TILE_W, TILE_H = 14.4, 19.4      # every tile's size in cm
 # than the other close-ups (H.FOREARM_SHOWN), so that three rows of tiles
 # tall enough for an upright open hand stay within about 170 mm.
 ATLAS_ARM = 2.5
+ATLAS_ZOOM = 0.73
 
 
 def tile_x0(w=TILE_W):
@@ -1243,6 +1245,8 @@ def grid(rows, path, gap=3.0, row_gap=1.5, zoom=1.0):
 
 def hand_atlas_fig(path):
     size = (TILE_W, TILE_H)
+    # the hand's line stays the climbers' weight though the plate is reduced
+    H.LINE[0] = 1 / ATLAS_ZOOM
     rows = [[(atlas_jug(), "jug"), (atlas_grip("open"), "open hand"),
              (atlas_grip("half"), "half crimp"), (atlas_grip("lock"), "full crimp"),
              (pocket_atlas(), "pocket (two fingers)")],
@@ -1254,9 +1258,10 @@ def hand_atlas_fig(path):
              (thumb_catch_panel(labels=False, x0=tile_x0(), height=TILE_H, shown=ATLAS_ARM,
                                 press=False), "thumb catch"),
              (atlas_palm(), "palm press")]]
+    H.LINE[0] = 1.0
     # an overview plate: two rows of five, smaller than the close-ups, so
     # that it fits beside the chapter's opening text in the text width
-    grid(rows, path, zoom=0.73)
+    grid(rows, path, zoom=ATLAS_ZOOM)
 
 
 def pocket_atlas():
@@ -1268,26 +1273,36 @@ def pocket_atlas():
 # ---------------------------------------------------------------- build
 
 
+def authored_atlas_fig(path):
+    """The plate from the hands written by hand in authored.py."""
+    import authored as A
+    H.LINE[0] = 1 / ATLAS_ZOOM
+    rows = A.atlas_rows()
+    H.LINE[0] = 1.0
+    grid(rows, path, zoom=ATLAS_ZOOM)
+
+
 def build(out):
-    hold_angle_fig(out + "/hands-hold-angle.svg")
+    import authored as A
+    A.hold_angle_fig(out + "/hands-hold-angle.svg")
     jug_fig(out + "/jug.svg")
-    open_hand_fig(out + "/open-hand.svg")
-    half_crimp_fig(out + "/half-crimp.svg")
-    full_crimp_fig(out + "/full-crimp.svg")
-    pinch_fig(out + "/pinch.svg")
+    A.open_hand_fig(out + "/open-hand.svg")
+    A.half_crimp_fig(out + "/half-crimp.svg")
+    A.full_crimp_fig(out + "/full-crimp.svg")
+    A.pinch_fig(out + "/pinch.svg")
     sloper_fig(out + "/sloper.svg")
-    pocket_fig(out + "/pocket.svg")
+    A.pocket_fig(out + "/pocket.svg")
     sidepull_fig(out + "/sidepull.svg")
     gaston_fig(out + "/gaston.svg")
     undercling_fig(out + "/undercling.svg")
     palming_fig(out + "/palming.svg")
     mantle_fig(out + "/mantle.svg")
     volume_mantle_fig(out + "/volume-mantle.svg")
-    thumb_catch_fig(out + "/thumb-catch.svg")
-    wrap_fig(out + "/wrap.svg")
-    regrip_fig(out + "/regrip.svg")
-    hand_atlas_fig(out + "/hand-atlas.svg")
-    filmstrip_sloper(out + "/filmstrip-sloper.svg")
+    A.thumb_catch_fig(out + "/thumb-catch.svg")
+    A.wrap_fig(out + "/wrap.svg")
+    A.regrip_fig(out + "/regrip.svg")
+    authored_atlas_fig(out + "/hand-atlas.svg")
+    A.filmstrip_fig(out + "/filmstrip-sloper.svg")
 
 
 if __name__ == "__main__":

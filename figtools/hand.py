@@ -79,6 +79,7 @@ from climb import (INK, WHITE, LIGHT, MID, PALE, DARK, Fig, ang, add, sub, mul, 
 
 HAND_SCALE = 2.6        # paper mm per cm, for every hand close-up in the book
 
+LINE = [1.0]            # multiplies the hands' line weights, for a plate that gets reduced
 OUTLINE = 0.34          # outline weights in mm, as elsewhere in the book
 BACK_SW = 0.26          # the fingers behind the front one in a side view
 # their greys, nearest first: one step apart on the e-ink panel's 16 greys
