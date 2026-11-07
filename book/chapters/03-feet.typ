@@ -643,7 +643,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   grade-note: [Rare, because it needs exactly the right gap #src("A18"). Indoors it shows up on steep V5+ problems with big volumes (judgement). Learn the #tref("drop-knee", body: [drop knee]) first #src("A17").],
   summary: [You wedge your leg between a foothold and a surface above the knee, with the toe pushing one way and the thigh the other. Your hands can then rest or move. A _knee scum_ is the light version: the knee presses lightly and takes a little weight #src("A16").],
   figure: "knee-bar.svg",
-  caption: [Side view of a 40° overhang. The right toe digs into the foothold. The thigh just above the knee presses up under the volume. The right hand is free.],
+  caption: [Side view of a 40° overhang. The right toe digs into the foothold. The thigh just above the knee presses up under the volume. The left foot presses on the wall below. The right hand is free.],
   how: [
     + Find a foothold and a flat surface about one shin length from it. That is the distance from the top of your knee to your big toe #src("A17").
     + Place the foot first. Then wedge the knee in and load it #src("A19").

@@ -185,7 +185,7 @@ drawn = "e1f36c6f1bf7"
 
 ["hand-foot-match.svg"]
 alt = "A climber from behind pressing down on a ledge at hip height, then bringing the left foot up beside the hand."
-drawn = "a0aac46487d8"
+drawn = "0bee6512b573"
 
 ["hands-hold-angle.svg"]
 alt = "Three side views of a fingertip on a small hold: one with a raised lip, one flat, and one sloping away."
@@ -201,7 +201,7 @@ drawn = "670e73424455"
 
 ["high-step.svg"]
 alt = "A climber from behind, first short of a high hold, then with the right foot stepped up high and the knee out."
-drawn = "bb53033f96d9"
+drawn = "4a924686c153"
 
 ["hip-pop.svg"]
 alt = "A climber from behind, sitting back on a partial drop knee, then popping the hip in and throwing the right hand to a high hold."
@@ -228,8 +228,8 @@ alt = "A climber from the side, crouching on the floor, then jumping straight up
 drawn = "40f1a726a015"
 
 ["knee-bar.svg"]
-alt = "A climber on an overhang from the side, held by a toe on a foothold and the thigh under a volume, with the arms hanging."
-drawn = "9f4c1dfa12ce"
+alt = "A climber on an overhang from the side, held by a toe on a foothold and the thigh under a volume, the other foot on the wall and the arms hanging."
+drawn = "ce3250397a84"
 
 ["lache.svg"]
 alt = "A climber from behind, swinging from two holds, letting go and catching a far hold one-handed."
@@ -385,7 +385,7 @@ drawn = "0948bd96c1f7"
 
 ["rockover.svg"]
 alt = "A climber from behind, moving the hips across over a high right foot, then standing up on it to reach."
-drawn = "bcfbcc6a58b2"
+drawn = "80a6315e870f"
 
 ["roof.svg"]
 alt = "A climber under a roof from the side, first hanging with the feet swung off, then lying level with the toes on a hold."
@@ -445,7 +445,7 @@ drawn = "59ebf9646172"
 
 ["traverse.svg"]
 alt = "A climber from behind, moving right, with the left arm crossing over the right and the left leg flagged behind."
-drawn = "2b2ee0f43d33"
+drawn = "cc1cae528e62"
 
 ["twist-lock.svg"]
 alt = "A climber from behind, turning the hip and shoulder in to lock the right arm and reach high, and the lock from the side."

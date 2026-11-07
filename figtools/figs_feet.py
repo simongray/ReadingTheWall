@@ -853,8 +853,9 @@ def heel_toe_cam(path):
 
 def knee_bar(path):
     """Side view of a 40 degree overhang: right toe on a foothold, the
-    thigh just above the knee wedged up under a volume, both arms hanging
-    (the left arm behind the right), so the right hand is free."""
+    thigh just above the knee wedged up under a volume, the left foot
+    pressing on the wall below, both arms hanging (the left arm behind the
+    right), so the right hand is free."""
     ang_w = 40
     WX = 60
     t = math.tan(math.radians(ang_w))
@@ -863,18 +864,20 @@ def knee_bar(path):
     def at(h):
         return (WX - t * (h - 30), h)
 
-    # the frame sits left of the wall's foot, to fit the body hanging back
-    f = Fig(-165, 40, 39, 214)
+    # the frame sits left of the wall's foot, to fit the body hanging back,
+    # and reaches past the wall for the toe's label
+    f = Fig(-165, 40, 70, 214)
     wall_side(f, WX, 30, 214, angle=ang_w)
     F = at(96)
     hold_side(f, "foot", F, angle=ang_w, size=1.3)
     tip = add(F, add(mul(wn, 3.0), mul(wd, 1.0)))     # on top of the foothold
     # the shin runs close along the wall and the thigh falls away from the
-    # knee, so the lower thigh sits under a face that sticks straight out
-    # of the wall: the underside of a big volume. With the hands off, the
+    # knee, under the underside of a big volume. With the hands off, the
     # body hangs back from the locked thigh, the face turned up, as in
-    # photographs of knee-bar rests; it does not sit up over the hips
-    fa, shin_deg, thigh_deg, lean = 20, 140, 215, -48
+    # photographs of knee-bar rests. The thigh drops steeply enough that the
+    # hips stay within a leg's reach of the wall, so the free foot can
+    # press on it (a thigh standing straight out puts them out of reach)
+    fa, shin_deg, thigh_deg, lean = 20, 140, 255, -26
     # build the leg backwards from the toe: ankle, knee, hip
     d = ang(fa)
     o = sub(ANKLE, SPOT["tip"])
@@ -896,14 +899,19 @@ def knee_bar(path):
     V = add(touch, mul(s_dir, -3))
     W1 = add(W0, mul(wd, 72))
     f.poly([W0, V, W1], z=-12, fill=VOLUME, stroke=INK, sw=0.35)
-    # the calf lifts the heel and wedges the thigh up into the volume; the
-    # free leg hangs below it
+    # the calf lifts the heel and wedges the thigh up into the volume. The
+    # free foot presses on the wall below the bar foot, so knee, toe and
+    # free foot make the tripod of the how-to steps, as in photographs of
+    # knee bars on overhangs
+    W2 = at(80)
     c = FootClimber(pelvis, view="side", lean=lean, lh=None, rh=None,
                     rf={"at": tip, "angle": fa, "spot": "tip", "up": 1},
-                    lf={"at": (-60, 54), "angle": -48, "up": 1},
+                    lf={"at": W2, "angle": 15, "spot": "auto", "flat": (W2, wn),
+                        "press": 0.8, "up": 1},
                     head=(-4, -3), active=("+rcalf",))
     c.draw(f)
-    f.label("toe digs in", (-2, 52), to=add(tip, mul(wn, 1.5)))
+    # (right of the wall: the free foot lies below the toe)
+    f.label("toe digs in", (22, 122), to=add(tip, mul(wn, 1.5)))
     # on two lines, so the label stays left of the wall line; the leader
     # comes down between the head and the volume and ends on the thigh
     # where it goes under the volume's corner
@@ -932,11 +940,18 @@ def hs_panel(x0=-62, x1=100, y1=296, y0=40):
     return f
 
 
+# a high foot turned out about 45 degrees with its knee: the profile shoe
+# shortened along its length, toe to the right
+HIGH_FOOT = {"at": stand(HS["HF"]), "angle": 0, "fore": 0.7}
+
+
 def high_step_pose():
-    """Right foot up on the high hold beside the hip, knee up and out."""
+    """Right foot up on the high hold beside the hip, knee up and out. The
+    shoe turns out with the knee, about 45 degrees, so from behind it shows
+    its heel and inside edge, as in photographs of high steps."""
     return FootClimber((-6, 136), lh=grip(HS["LH"]), rh=grip(HS["RH"]),
                        lf={"at": stand(HS["LF"]), "angle": 196},
-                       rf={"at": stand(HS["HF"]), "style": "back"},
+                       rf=HIGH_FOOT,
                        knees={"r": "up", "l": "out"}, leg_len={"r": .85},
                        elbows={"r": "down"}, head=(3, -2), active=("+rthigh",))
 
@@ -972,12 +987,15 @@ def rockover_poses():
     """Hips across over the high foot, then stand up. While the hips move
     across, the right hand presses down on its hold with the elbow up and
     back: that upper arm points out of the wall, so the arm is drawn
-    through an explicit elbow (RO_ARM)."""
-    across = FootClimber((38, 150), lean=-4, lh=grip(HS["LH"]),
+    through an explicit elbow (RO_ARM). The high foot stays turned out
+    with the knee, as in photographs of rockovers. With the hips over it,
+    the thigh points into the wall, so from behind it is short and the
+    shin stands nearly upright under the knee."""
+    across = FootClimber((38, 156), lean=-4, lh=grip(HS["LH"]),
                          rh=grip(HS["RH"]),
                          lf={"at": stand(HS["LF"]), "angle": 200},
-                         rf={"at": stand(HS["HF"]), "style": "back"},
-                         knees={"r": "right", "l": "out"}, leg_len={"r": .7},
+                         rf=dict(HIGH_FOOT, angle=-10),
+                         knees={"r": "right", "l": "out"}, leg_len={"r": (.5, .9)},
                          elbows={"l": "down", "r": "down"}, head=(3, -1),
                          order=["lleg", "rleg", "torso", "larm"],
                          active=("+rthigh",))
@@ -985,7 +1003,7 @@ def rockover_poses():
     # the right one reaches
     up = FootClimber((36, 186), lean=-8, lh=grip(HS["LH"]), rh=grip(HS["T"]),
                      lf={"at": stand(RO_LF), "style": "back"},
-                     rf={"at": stand(HS["HF"]), "style": "back"},
+                     rf=dict(HIGH_FOOT, angle=-15),
                      knees={"r": "right", "l": "out"}, leg_len={"r": .9},
                      elbows={"l": "down"}, head=(1, 3), active=("rthigh",))
     return across, up
@@ -1053,7 +1071,7 @@ def hand_foot_match(path):
             # into the wall, so it is drawn behind the seat, the T-shirt
             # and the pressing arm, and only the knee shows past the body
             c = FootClimber((10, 146), lh=hand, rh=grip(RH),
-                            lf={"at": spot, "style": "back"},
+                            lf={"at": spot, "angle": 180, "fore": 0.7},
                             rf={"at": stand(RF), "angle": -16},
                             knees={"l": "up"}, leg_len={"l": .85},
                             elbows={"l": "in"}, head=(-3, -2),

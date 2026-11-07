@@ -32,22 +32,18 @@ streamlining), which have the details.
 ## Figures
 
 - Every figure was checked against photographs and video in this revision
-  (`research/photo-check-*.md`). These doubts remain:
-  - The references were thin for Bicycle, Heel–toe cam, Front-pointing,
-    Pivoting, Pogo, Tic-tac, Cutting loose and a few generic back-view
-    stances. Better photos or video stills may show more to fix.
-  - In High step and Rockover the high foot is drawn end-on, though photos
-    show it turned out about 45°.
-  - In the Knee bar the free leg hangs, where the text describes a tripod
-    with that foot on the wall. Photos show both.
-  - In the Traverse, the turn that lets the arm cross works against a true
-    back flag in 3D; only the drawing order makes it read as one.
+  (`research/photo-check-*.md`, and `research/photo-check-3-poses.md` for
+  the second pass, which fixed High step, Rockover, Hand–foot match, Knee bar
+  and Traverse). These doubts remain:
+  - References are still thin for Tic-tac (parkour only), Heel–toe cam (one
+    video) and Pogo (low-resolution stills). In Heel–toe cam the shin may
+    come in level along the slot rather than from above.
   - The Stemming text says the fingers point down or away from the corner,
-    as its source says, but several photos show them up for a palm at
-    shoulder height.
+    as its source says. Photos show them down for a palm at the hip and out
+    or up for one at shoulder height, as both figures draw them.
   - Twist lock (c) is a side view, which can't show the twist of the torso,
-    since the drawing library has no front view. The "hips from above"
-    inset in (b) shows the turn instead.
+    since the drawing library has no front view. The inset from above in (b)
+    shows the turn instead.
   - The thumb lock in Full crimp hides part of the index finger, which is
     true to life.
 - The shoe close-ups (toe hook, heel hook, bicycle, foot atlas) draw no

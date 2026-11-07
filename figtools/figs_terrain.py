@@ -886,19 +886,18 @@ def traverse(path):
     hold(f, "foot", RF)
     hold(f, "foot", (-30, 70))
     # the hips sit under the right hand, so the right arm hangs nearly
-    # straight up from its own shoulder to B. The left hip turns in and
-    # the left arm reaches across under the chin (hidden by the head, which
-    # tips left out of its way) and over the right arm at forehead height
-    # to C. Drawn in that order: right arm, left arm, then the body over
-    # both arms' roots. The chest bends right, toward the crossing reach,
-    # the left side stretched. The flagging left leg passes behind the
-    # standing right leg, on the side away from the wall, so from behind it
-    # is drawn over it, as in photographs of back flags (and the back-flag
-    # figure); under it, it read as an inside flag
-    c = Climber((18, 116), lean=1, bend=6, turn=-0.7, lh=grip(C), rh=grip(B),
+    # straight up from its own shoulder to B. As in photographs of back
+    # flags, the standing leg's hip (the right) turns in to the wall and
+    # the flagging hip comes out toward the viewer. The flagging left leg
+    # then passes behind the standing right leg, on the side away from the
+    # wall, and the left arm reaches across over the right arm to C, so the
+    # library's own drawing order draws both over their right-hand partners.
+    # (With the left hip in, the leg would pass between the right leg and
+    # the wall, an inside flag.) The chest bends right, toward the crossing
+    # reach, the left side stretched
+    c = Climber((18, 116), lean=1, bend=6, turn=0.65, lh=grip(C), rh=grip(B),
                 lf={"at": (78, 56), "angle": -20, "contact": "ball"},
                 rf={"at": stand(RF)},
-                order=["rleg", "lleg", "rarm", "larm", "torso"],
                 elbows={"l": "down", "r": "out"}, knees={"l": "up", "r": "out"},
                 head=(-5, -1), allow_cross=True)
     c.draw(f)

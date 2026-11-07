@@ -2317,14 +2317,18 @@ class Climber:
         J = self._J
         sign = -1 if s == "l" else 1
         sc = self.s
+        # `fore` shortens a profile shoe along its length: a foot turned partway
+        # toward the viewer, e.g. 0.7 for a high foot turned out 45 degrees
+        # in a back view
+        k = ft.get("fore", 1.0)
         if ft["style"] == "back":
             ankle = add(ft["at"], (0, 8 * sc))
         elif ft["contact"] in SHOE_CONTACTS:
             o = sub(SHOE_ANKLE, SHOE_CONTACTS[ft["contact"]])
-            ankle = add(ft["at"], add(mul(d, o[0] * sc), mul(n, o[1] * sc)))
+            ankle = add(ft["at"], add(mul(d, o[0] * sc * k), mul(n, o[1] * sc)))
         else:
             o = sub(SHOE_ANKLE, SHOE_HEEL)
-            ankle = add(ft["at"], add(mul(d, o[0] * sc), mul(n, o[1] * sc)))
+            ankle = add(ft["at"], add(mul(d, o[0] * sc * k), mul(n, o[1] * sc)))
         ft["d"], ft["n"] = d, n
         ft["ankle_target"] = ankle
         setattr(self, "_" + s + "f", ft)
@@ -3021,10 +3025,11 @@ class Climber:
             return
         # place the shoe so that its ankle point sits at the solved ankle
         o = SHOE_ANKLE
-        base = sub(an, add(mul(d, o[0] * sc), mul(n, o[1] * sc)))
+        k = ft.get("fore", 1.0)
+        base = sub(an, add(mul(d, o[0] * sc * k), mul(n, o[1] * sc)))
 
         def P(x, y):
-            return add(base, add(mul(d, x * sc), mul(n, y * sc)))
+            return add(base, add(mul(d, x * sc * k), mul(n, y * sc)))
         pts = [P(x, y) for x, y in SHOE]
         fig.smooth(pts, z=z, tension=0.7, **st)
         if self._xray_feet and not self._ghost:

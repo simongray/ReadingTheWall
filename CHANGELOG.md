@@ -561,6 +561,11 @@ section as the notes of the GitHub release.
 - The Sources list has 340 sources, up from 317, so many source numbers change.
   Most of the new ones back the notes for small climbers and the corrected
   evidence.
+- Five poses checked against photographs are redrawn. In Knee bar the free
+  foot presses on the wall below, making the tripod the steps describe. In
+  High step, Rockover and Hand–foot match the high shoe turns out with its
+  knee. In Traverse the standing leg's hip turns in, so the flag is a back
+  flag in depth too.
 - Every view from above is worked out from the climber in the view beside it,
   so the two agree. That covers the insets in Turning the hip in, Backstep, Drop
   knee, Side flag, Inside flag, Twist lock, Barn door and Counter-kick, and the
