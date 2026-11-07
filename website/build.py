@@ -12,7 +12,9 @@ The book itself is never touched. This script works in a temporary copy:
 1. It runs the generators that build.sh (or, for an edition, release.sh) runs
    before it compiles, so a generator added later is picked up by itself.
 2. It puts website/template.typ in place of book/template.typ, with the real
-   template beside it. The chapters then compile unchanged to one long HTML file.
+   template beside it, and adds the exercises booklet's chapters, if the edition
+   has a booklet, after the book's. The chapters then compile unchanged to one
+   long HTML file.
 3. website/book.py turns that file into the site.
 """
 import argparse
@@ -131,6 +133,21 @@ def install_template(work):
             path.write_text(patched)
 
 
+def add_booklet(work):
+    """Put the exercises booklet, in an edition that has one, after the book. The
+    site has one glossary and one list of sources for both, so the booklet's links
+    resolve as the book's do. Its title page and its own sources stay out."""
+    booklet = work / "book" / "exercises.typ"
+    if not booklet.exists():
+        return
+    text = booklet.read_text()
+    title = re.search(r'\btitle:\s*("[^"]*")', text)
+    chapters = re.findall(r'^#include "([^"]+)"', text, re.M)
+    main = work / "book" / "main.typ"
+    main.write_text(main.read_text().rstrip() + "\n\n#booklet(" + (title.group(1) if title else '"Exercises"') + ")\n"
+                    + "".join(f'#include "{c}"\n' for c in chapters))
+
+
 def compile_html(work, stamp):
     """Compile the book to one HTML file. Typst's warnings go to the terminal,
     because a layout element it ignores takes its content with it."""
@@ -184,6 +201,7 @@ def main():
         print(f"building {args.ref or args.source}: edition {stamp['edition']}, {stamp['date']}, commit {stamp['commit']}")
         run_generators(work, stamp["edition"])
         install_template(work)
+        add_booklet(work)
         html = compile_html(work, stamp)
         clear_output(out)
         ok = site_book.build(html, work, out, stamp, args.base_url.rstrip("/"), HERE)
