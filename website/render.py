@@ -218,6 +218,11 @@ def part_content(page):
 def contents_content(book):
     """As in print: parts in small caps, chapters in bold, sections below them. It
     also lists the entries, as the PDF's bookmarks do."""
+    def numbered(number, title):
+        # The space goes inside the number, which floats beside the title, so that the
+        # title's first line starts where its others do.
+        return [el("span", {"class": "num"}, number + " "), title] if number else [title]
+
     out = el("nav", {"class": "contents", "role": "doc-toc", "aria-label": "Contents"})
     fronts = [p for p in book.pages if p.kind == "front"]
     if fronts:
@@ -230,17 +235,17 @@ def contents_content(book):
             sections = el("ol", {"class": "c-sections"})
             for s in ch.sections:
                 if s.guide is not None:
-                    sections.append(el("li", None, el("a", {"href": s.guide.url}, el("span", {"class": "num"}, s.number), " ", s.title)))
+                    sections.append(el("li", None, el("a", {"href": s.guide.url}, numbered(s.number, s.title))))
                     continue
                 entries = None
                 if s.entries:
                     entries = el("ul", {"class": "c-entries"}, [el("li", None, el("a", {"href": e.url}, e.title)) for e in s.entries])
                 if s.title:
-                    sections.append(el("li", None, el("a", {"href": f"{ch.url}#{s.id}"}, el("span", {"class": "num"}, s.number), " ", s.title), entries))
+                    sections.append(el("li", None, el("a", {"href": f"{ch.url}#{s.id}"}, numbered(s.number, s.title)), entries))
                 elif entries:
                     sections.append(el("li", None, entries))
             chapters.append(el("li", None,
-                               el("a", {"class": "c-chapter", "href": ch.url}, el("span", {"class": "num"}, ch.number) if ch.number else None, " ", ch.title),
+                               el("a", {"class": "c-chapter", "href": ch.url}, numbered(ch.number, ch.title)),
                                sections if sections.children else None))
         out.append(chapters)
     return fragment(el("header", {"class": "opening"}, el("h1", None, "Contents")), out)
