@@ -164,7 +164,7 @@ def balance(path):
             f.cog(c.cog(), plumb_to=58)
             f.body_arrow([(36, 160), (8, 160)], width=1.8)
             f.arrow([add(stand(RF), (12, 4)), add(stand(F2), (12, 2))], kind="move")
-            f.label("right foot free", (54, 138), to=add(stand(F2), (14, 4)), size=6.5)
+            f.label("right foot free", (54, 138), to=add(stand(F2), (14, 4)))
         for w in c.warn():
             print("balance:", w)
         panels.append(f)
@@ -227,11 +227,11 @@ def filmstrip_hips_first(path):
         for w in c.warn():
             print("filmstrip-hips-first:", w)
         frames.append(f)
-    filmstrip(frames, path, captions=["centred: weight split",
-                                      "hips over the left foot",
-                                      "step the light foot up",
-                                      "hips over the new foot",
-                                      "stand up, then reach"])
+    filmstrip(frames, path, captions=["centred:\nweight split",
+                                      "hips over\nthe left foot",
+                                      "step the\nlight foot up",
+                                      "hips over\nthe new foot",
+                                      "stand up,\nthen reach"])
 
 
 def build(out):

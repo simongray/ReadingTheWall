@@ -4,7 +4,8 @@ from climb import *
 
 
 def legend(path):
-    f = Fig(-96, 18, 432, 272)
+    # (inside the measure, and tall enough for the key's rows to stay apart)
+    f = Fig(-96, -8, 361, 272)
     wall_grid(f, x0=-88, x1=80, y0=44)
     # a climber with a ghost of the earlier position: the right hand has
     # moved from the lower hold to the higher one. Only the arm that moved
@@ -30,7 +31,7 @@ def legend(path):
     # Both sleeves are white, so the labels name the arm and leg and the
     # left leader points at the shaded forearm, below the sleeve. Short
     # lines keep them clear of the frame edge and of the key.
-    f.label("left arm", (-48, 176), to=add(lerp(c.J["lel"], c.J["lwr"], 0.4), (-2, 0)))
+    f.label("left arm", (-48, 176), to=add(lerp(c.J["lel"], c.J["lwr"], 0.4), (-2, 0)), anchor="end")
     for i, s in enumerate(("and leg", "shaded")):
         f.text(s, (-48, 166 - 10 * i), size=7.5, anchor="end")
     # the leader rises to the thigh, clear of the lines below
@@ -95,8 +96,9 @@ def legend(path):
             f.step(2, (sx + 8, y))
         elif kind == "cross":
             f.cross((sx, y))
-        f.text(text, (x0 + 46, y), size=8, anchor="start", halo=False)
-        y -= 18
+        # (the frame is cut to these lines, wider in this estimate than in fact)
+        f.text(text, (x0 + 46, y), size=8, anchor="start", halo=False, keep_in=False)
+        y -= 20
     f.save(path)
 
 

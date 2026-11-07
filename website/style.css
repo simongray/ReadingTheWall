@@ -356,6 +356,7 @@
   p + p { text-indent: 1.5em; }   /* as in print: an indent marks a paragraph, space a boundary */
   li > p + p, td > p + p { text-indent: 0; margin-block-start: .4rlh; }
   .flush-end { text-align: end; }
+  :not(td, th) > .flush-end { margin-block-start: 1rlh; }   /* the Foreword's signature, a line below it as in print */
 
   .sec, .sub, .step, .opening h1, .guide-head h1, .book-title { font-weight: 400; }
 
@@ -365,6 +366,7 @@
   }
 
   .sub, .step { margin-block: 1.5rlh .35rlh; font-size: var(--fs-sub); font-weight: 700; }
+  .sub { margin-block-end: .5rlh; }   /* as in print: half a line, so a head sits as far from a list as from a paragraph */
   .step .label { margin-inline-end: .5em; font-size: 1rem; font-weight: 400; letter-spacing: .08em; }
   :is(.sec, .sub, .step) + p { text-indent: 0; }
 
@@ -614,7 +616,7 @@
   }
 
   .grade-plain {
-    font-variant-caps: all-small-caps;
+    /* a capital V with lining figures, as in print: in small caps "V0" read as "vo" */
     font-variant-numeric: lining-nums;
     letter-spacing: .03em;
     white-space: nowrap;
@@ -648,7 +650,7 @@
     margin-block-start: 1rlh;
 
     :is(ol, ul) { margin-block: .2rlh .5rlh; padding-inline-start: 1.4em; }
-    p { margin-block-start: .4rlh; }
+    p { margin-block-start: .5rlh; }   /* half a line, as in print */
     .label + p { margin-block-start: 0; }
 
     &.beside {
@@ -701,6 +703,7 @@
     line-height: 1.4;
 
     dt { font-variant-caps: all-small-caps; letter-spacing: .06em; }
+    .cite { white-space: normal; }   /* a long group of sources may break after a comma, as in print */
 
     @container main (width < 26rem) {
       display: block;

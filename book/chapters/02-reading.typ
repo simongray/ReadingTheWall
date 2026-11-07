@@ -56,15 +56,16 @@ Work out which way each hold faces and where that puts your body (the next secti
 
 #fig("reading-worked-problem.svg", caption: [A worked reading. Start with both hands on the taped hold. R1 is a sidepull facing right, so the right hand takes it. L4 lies to the right of R3, so the left hand must cross over. The cross and the slap to R5 form the crux (the hardest part). A high right foot sets up the cross. R3 is a jug where you can rest.])
 
-#filmstrip("filmstrip-worked-problem.svg", [Climbing the worked problem], [Watch the right foot: it steps up onto the high foothold before the left hand crosses to L4.])
 
 #step(5)[Find the feet]
 
 - Holds with rubber marks and no chalk are probably footholds#ix("Route reading!footholds") #src("E30", "E31").
 - On steep ground, look for footholds you can use with the outside edge of the shoe. Under roofs, look for #tref("heel-hook", body: [heel hooks], show-page: false) and #tref("toe-hook", body: [toe hooks], show-page: false) #src("E30").
-- Look for moves where a #tref("flag") saves you swapping feet twice in a row #src("E30", "E12").
+- Look for moves where a #tref("flag", body: [side flag]) saves you swapping feet twice in a row #src("E30", "E12").
 - Read the feet together with the hands, because the next hand move depends on where your feet are #src("E35").
 - Don't try to plan every foot. The coach Neil Gresham#ix("Gresham, Neil") says the full foot sequence is the hardest part to predict #src("E30"). At V3–V4, plan the feet for the start and the hardest move. Sort out the rest on the wall (judgement).
+
+#filmstrip("filmstrip-worked-problem.svg", [Climbing the worked problem], [Watch the right foot: it steps up onto the high foothold before the left hand crosses to L4.])
 
 #step(6)[Find the crux, the traps and the rests]
 
@@ -75,7 +76,7 @@ Work out which way each hold faces and where that puts your body (the next secti
 
 #step(7)[Guess what the setter intended]
 
-@reading-setter lists what setters say they do. Ask yourself: what movement is this problem testing?
+@reading-setter lists what setters say they do. Ask yourself what movement this problem is~testing.
 
 #step(8)[Rehearse]
 
@@ -92,17 +93,18 @@ Work out which way each hold faces and where that puts your body (the next secti
 
 #keypoint[Read the whole problem before you touch it, top included. Then count the hands, find the feet for the start and the crux, and mime the crux once.]
 
+// a new page: the sentence that announces the table, the table and the figure are read
+// together. The paragraph and the key point that close the section may go over together.
+#pagebreak(weak: true)
 == Hold direction and body position
 
 #ix("Direction of pull")
-This table applies the rule from Chapter 1 to each kind of hold. Use it on every hold of a new problem.
-
-#keypoint[Find which way the hold faces, then pull the opposite way, with your body on the side you are pulling towards. Gastons are the exception: push them away from your middle.]
+This table applies the rule from Chapter 1 to each kind of hold. Use it on every hold of a new~problem.
 
 #{
   set par(justify: false)
   table(
-    columns: (auto, auto, 1fr, 1fr),
+    columns: (auto, 2.4cm, 1fr, 1.1fr),
     table.header(th[Hold], th[Faces], th[Where your body goes], th[Which hand, and the cue]),
     [#tref("jug", body: [Jug], show-page: false) or edge], [Up], [Below it. Pull down.#ix("Jug!body position")], [Either hand. Hips under it, arm straight on steep ground.],
     [#tref("sidepull", body: [Sidepull], show-page: false)], [Away from your body], [On the side you pull towards. Lean away from the hold and turn a hip in#ix("Sidepull!body position") #src("E21", "E29").], [The hand on the hold's side. A hold on your left facing left takes the left hand. Your body goes to its right.],
@@ -113,11 +115,14 @@ This table applies the rule from Chapter 1 to each kind of hold. Use it on every
   )
 }
 
-#fig("reading-hold-orientation.svg", caption: [Each hold puts the body in a different place. (a) Jugs: hang below. (b) A sidepull facing right: right hand, body to its left, leaning away. (c) An undercling: pull up, feet high. (d) A gaston on the right facing left: right hand, pushed away from the body with the elbow out.])
-
-A hold that faces the "wrong" way for the hand you planned tells you that you need the other hand, a cross or a different body position. The hand techniques are in Chapter 5.
 
 // non-breaking spaces: the head breaks after "first", not before "wall"
+#fig("reading-hold-orientation.svg", caption: [Each hold puts the body in a different place. (a) Jugs: hang below. (b) A sidepull facing right: right hand, body to its left, leaning away. (c) An undercling: pull up, feet high. (d) A gaston on the right facing left: right hand, pushed away from the body with the elbow out.])
+
+#lead-in[A hold that faces the "wrong" way for the hand you planned tells you that you need the other hand, a cross or a different body position. The hand techniques are in Chapter 5.]
+
+#keypoint[Find which way the hold faces, then pull the opposite way, with your body on the side you are pulling towards. Gastons are the exception: push them away from your middle.]
+
 == What to read first on~each~kind~of~wall <reading-first>
 
 Each kind of terrain hides its key information in a different place, so read that first.#ix("Route reading!by kind of wall")
@@ -143,22 +148,22 @@ Each kind of terrain hides its key information in a different place, so read tha
 #ix("Setter intent")
 A #jt("setter") (the person who designs the problems) starts from a brief:#ix("Setting!the setter’s brief") who the problem is for, its grade, the movement it uses and how much effort it takes #src("E49"). Some gyms also ask which skills a problem tests and what share of members should finish it #src("E52"). Knowing how setters think helps you find the intended sequence.
 
+Climbers often find a sequence the setter didn't expect #src("E54"). On #jt("comp style", body: [comp-style problems]) (jumpy, competition-like), read from the top down.#ix("Comp-style setting!reading") Use chalk marks, thumbprints and shoe marks as clues #src("E5").
+
 What setters say they do:
 
 - *They avoid ladders.* Easier problems get matches and crosses too, and sometimes an easy #tref("heel-hook", body: [heel hook], show-page: false) or dyno #src("E46", "E47"). Harder ones get intricate sequences, big #tref("sloper", body: [slopers], show-page: false), or big holds with small footholds #src("E46").
 - *They force body positions.* Setters remove footholds or put the one useful foothold far to one side, which makes you think about balance #src("E48").
 
 #notebox("Setter clichés you will meet")[
-#ix("Setting!clichés")Setters warn each other about these habits #src("E46", "E47", "E48"), which means you will still meet them.
+#ix("Setting!clichés")Setters warn each other about these habits #src("E46", "E47", "E48"), which means you will still meet~them.
 - *The ladder:* each foot follows a hand up a line of holds #src("E47").
 - *Extra feet:* a row of footholds added as a shortcut #src("E46").
 - *Reach as difficulty:* a hard grade made by spacing holds far apart. Tall setters do this without noticing #src("E47", "E48").
 - *Jugs for easy, crimps for hard:* easy problems get only big holds, while hard ones get #jt("crimp", body: [crimps]) (small edges) and big spans #src("E46").
 ]
 
-Climbers often find a sequence the setter didn't expect #src("E54"). On #jt("comp style", body: [comp-style problems]) (jumpy, competition-like), read from the top down.#ix("Comp-style setting!reading") Use chalk marks, thumbprints and shoe marks as clues #src("E5").
-
-== Other people's beta, and reading for your size
+== Other people's beta, and~reading~for~your~size
 
 #jt("beta", body: [Beta]) is the sequence of moves for a problem. Watching other climbers#ix("Watching others"), asking for advice and talking it over are normal tools#ix("Beta!from other climbers") #src("E29", "E32"). Apps such as Kaya also collect beta #src("E32"). Beta from others has limits, though.
 
@@ -187,7 +192,7 @@ When you copy a taller climber:
 #ix("Projecting")
 To #jt("flash") a problem is to climb it on your first try. To #jt("project") it is to work on it over several attempts or sessions. The two need different tactics.
 
-*Flashing.* In a study of the 2019 World Cup#ix("World Cup!success by attempt") finals, the first attempt on a steep problem succeeded about 21% of the time. The rate fell with each try, to 6% on the fifth, and the authors call the first attempt a finalist's best chance there. On #tref("slab", body: [slab], show-page: false) and slab-like problems the rate rose, from about 15% on the first to 22% on the second and third. The authors ran no statistical test on these rates and warn that skill probably skews them, because better climbers finish earlier. Finalists also rest very little, about 30 seconds between tries #src("E6"). The climbers still trying after a failed attempt tend to be those the problem suits least, so these rates can't show that your own chance falls after one try (judgement).
+#run-in[*Flashing.* In a study of the 2019 World Cup#ix("World Cup!success by attempt") finals, the first attempt on a steep problem succeeded about 21% of the time. The rate fell with each try, to 6% on the fifth, and the authors call the first attempt a finalist's best chance there. On #tref("slab", body: [slab], show-page: false) and slab-like problems the rate rose, from about 15% on the first to 22% on the second and third. The authors ran no statistical test on these rates and warn that skill probably skews them, because better climbers finish earlier. Finalists also rest very little, about 30 seconds between tries #src("E6"). The climbers still trying after a failed attempt tend to be those the problem suits least, so these rates can't show that your own chance falls after one try (judgement).]
 
 You only get one flash and your arms are at their freshest, so on steep problems put everything into the first try (judgement). On slab, a failed first try costs you less (judgement).
 
@@ -198,7 +203,7 @@ Your flash routine#ix("Flashing!routine"), built from the steps above:
 + Rest fully.
 + Climb at a steady pace. Don't stop on the wall to re-read.
 
-*Projecting.*#ix("Projecting!method") Choose a project no more than two or three grades above what you usually climb in a session #src("E41"). Then:
+#run-in[*Projecting.*#ix("Projecting!method") Choose a project no more than two or three grades above what you usually climb in a session #src("E41"). Then:]
 
 + Learn the single moves first, in isolation. Get the first contact right before you add the second #src("E5"). Then #jt("link-up", body: [link]) the #jt("crux") (climb its moves without stopping), then longer sections #src("E44", "E45").
 + Split the problem at the crux, the rests and the changes of style. Work on one link or one move at a time #src("E32", "E43").
@@ -249,7 +254,7 @@ A grade tells you how hard a problem is meant to be. Indoor grades are a useful 
 
 One setter says what matters most is consistency. A gym can grade hard or easy compared with outdoor rock, as long as its grades stay the same as problems come and go. Regulars then adapt to that gym #src("E46").
 
-*Why grades differ between gyms.*#ix("Grades!indoor variation")
+#lead-label[Why grades differ between gyms.#ix("Grades!indoor variation")]
 
 - *The spread is large.* An analysis of 40 US gyms#ix("Studies!grades in 40 US gyms") found grades differing by two to four V-grades between gyms. The author reckons a solid V4 climber could expect anything from V2 to V6, depending on the gym #src("E53"). It is a blog analysis by a gym-listing website's founder, not a peer-reviewed study.
 - *Gym type and walls.* Large commercial chains graded about one V-grade #jt("soft", body: [softer]) (easier for the number) than gyms focused on training. Steep gyms graded harder, while gyms with lots of slab or competition-style setting graded softer #src("E53").
@@ -261,7 +266,7 @@ We found no peer-reviewed study of indoor grade consistency.
 
 *Colours and circuits.*#ix("Circuits") Some walls group problems into a #jt("circuit"): a colour that covers one grade or a range of two or three #src("E55"). One aim is to play down grades and encourage you to try everything. Colour ranges often overlap, so a problem in a harder colour isn't always harder #src("E56"). Two US gyms use five colours each, such as V0–V2, V2–V4, V4–V6, V6–V8 and V8 and up #src("E52"). Some gyms use colours with no V-grades at all, or their own scales #src("E57"). UK walls mostly use Font or V-grades for bouldering #src("E55").
 
-*Calibrating yourself in a new gym.*#ix("Grades!in a new gym")
+#lead-label[Calibrating yourself in a new gym.#ix("Grades!in a new gym")]
 
 + Ask the staff how their system works and how it compares with standard grades #src("E55", "E56").
 + Warm up three or four grades below your maximum. Start below your limit while you learn the gym's style #src("E53", "E56").
@@ -269,7 +274,7 @@ We found no peer-reviewed study of indoor grade consistency.
 + Pick one reference problem at your home gym for each style: steep overhang, small edges, slab, jumps and squeezing. After three or four sessions, compare the new gym's problems with them #src("E53").
 + Keep track of which problems you climb reliably and which feel harder or easier for your body #src("E51").
 
-#keypoint[Judge a new gym by style, not by the number on the tag. A V4 there can be your V3 or your V5.]
+#keypoint[Judge a new gym by style, not by the number on the tag. \ A V4 there can be your V3 or your V5.]
 
 == Eight problems to read <reading-problems>
 

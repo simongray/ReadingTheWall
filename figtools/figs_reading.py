@@ -113,7 +113,7 @@ def slab(out):
                 active=("lfore", "rthigh"))
     c.draw(f)
     f.label("", (-66, 160), to=(-14, 150))
-    mark(f, {"A": (-66, 160), "C L1": (-61, 253), "B R2": (74, 230), "D R3": (58, 297), "E R4 L5": (31, 350)},
+    mark(f, {"A": (-66, 160), "C L1": (-61, 253), "B R2": (74, 230), "D R3": (59, 299), "E R4 L5": (31, 350)},
          {1: (-14, 17), 2: (30, 23), 3: (-11, 93), 6: (15, 166), 7: (-13, 201)})
     number_with_leader(f, 4, (72, 112), (38, 112))
     number_with_leader(f, 5, (-62, 126), (-18, 128))
@@ -213,7 +213,7 @@ def overhang(out):
                     knees={"r": "up"}, leg_len={"r": (.85, .7)}, head=(2, 3), active=("+rham", "+lthigh"))
     c.draw(f)
     f.label("", (-50, 172), to=(-28, 172))
-    mark(f, {"A heel": (84, 150), "B": (-50, 172), "C L1": (-14, 270),
+    mark(f, {"A heel": (84, 150), "B": (-50, 172), "C L1": (-17, 270),
              "D R2": (85, 271), "E R3 L4": (73, 324)},
          {**OVERHANG_NUMBERS, 4: (-36, 121)})
     f.body_arrow([(14, 120), (42, 146)])
@@ -333,9 +333,9 @@ def sit_start(out):
                 order=["rleg", "rarm", "torso", "larm", "lleg"])
     c.draw(f)
     f.label("", (-58, 130), to=(-34, 119))
-    f.label("", (58, 130), to=(44, 123))
+    f.label("", (58, 130), to=(29, 118))
     number_with_leader(f, 5, (32, 78), (41, 94))
-    mark(f, {"A": (-58, 130), "B": (58, 130), "C R1": (59, 196), "D L2": (-6, 237),
+    mark(f, {"A": (-58, 130), "B": (58, 130), "C R1": (64, 201), "D L2": (-6, 237),
              "E R3": (50, 264), "F R4 L5": (29, 308)},
          {1: (-73, 9), 2: (14, 13), 3: (68, 45), 4: (-36, 54), 6: (68, 147)})
     # the feet went first: the left from 1 to 4, then the right from 2 to 3
@@ -436,8 +436,9 @@ def volumes(out):
     for side in (-1, 1):
         f.arrow([(side * 58, 196), (side * 38, 196)], kind="force")
         f.arrow([(side * 50, 93.5), (side * 34, 81.5)], kind="force")
-    mark(f, {"B R3 L4": (39, 314), "Y L1": (-58, 176), "Y R2": (58, 176), "X": (46, 62)}, VOLUMES_NUMBERS)
-    f.text("A", (-23, 113), size=6.8, weight=500)
+    # the hips hide A, and the legs leave no room for its tag beside it
+    f.label("", (-30, 143), to=(-8, 124.3))
+    mark(f, {"A": (-30, 143), "B R3 L4": (39, 314), "Y L1": (-58, 176), "Y R2": (58, 176), "X": (46, 62)}, VOLUMES_NUMBERS)
     check("reading-v5-volumes-answer", c)
     f.save(out + "/reading-v5-volumes-answer.svg")
 

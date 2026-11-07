@@ -5,7 +5,7 @@
 Plain definitions of the slang and technical words used in this book. Technique names have full entries in Part II; here they get one line and a link. Words with a #underline(stroke: (thickness: 0.5pt, dash: "dotted"), offset: 2pt)[dotted underline] in the text lead here.
 
 #set par(justify: false)
-#columns(2, gutter: 1.6em)[
+#glossary-columns[
 
 #gloss("ACL")[The anterior cruciate ligament, the main ligament inside the knee that stops the shin sliding forward.]
 
@@ -89,7 +89,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("flash")[Sending a problem on your first attempt, after watching others or getting beta. Doing it with no information at all is an onsight.]
 
-#gloss("Font grade")[The Fontainebleau grading scale (3, 4, 5, 6A, 6A+ …), used in many European gyms. The Grade conversion appendix converts it to V-grades.]
+#gloss("Font grade")[The Fontainebleau grading scale (#text(number-type: "lining")[3, 4, 5], 6A, 6A+ …), used in many European gyms. The Grade conversion appendix converts it to V-grades.]
 
 #gloss("Font scale")[Another name for Font grade.]
 

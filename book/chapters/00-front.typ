@@ -37,7 +37,7 @@
 // ------------------------------------------------------------ colophon
 
 // The back of the title page: one quiet page in small type, set at the foot.
-#page(header: none, footer: none, margin: (x: 31mm, top: 30mm, bottom: 26mm))[
+#page(header: none, footer: none, margin: (x: margin-x, top: 30mm, bottom: 26mm))[
   #set par(justify: false, first-line-indent: 0pt, leading: 0.82em, spacing: 0.82em)
   #set text(size: fs.note, hyphenate: false)
   #let shown-date = if edition-day == none { none } else {
@@ -72,7 +72,7 @@
     v(0.5em)
     [Set in Iowan Old Style, with its small capitals and old-style figures. The ornaments are climbing holds, one for each chapter and part, drawn like those in the illustrations, which were made in Python. Typeset~with~Typst.]
     v(0.5em)
-    [The pelican on the cover is a play on Simon Willison's test of language models, which asks them to draw a pelican riding a bicycle.]
+    [The pelican on the cover is a play on Simon Willison's test of language models, which asks them to draw a pelican riding a~bicycle.]
   })
 ]
 
@@ -94,7 +94,7 @@ So I thought: why not try a fun experiment and point frontier AI agents at the p
 
 That is what this book is: written by an AI and edited by a novice. It isn't really a climbing instructor. Treat it as a starting point and ask a coach if something feels wrong. Many of its claims cite their sources right there on the page so you can check them. "How this book was made" says what has and hasn't been checked. The book is free and always will be. I hope you get some use out of it.
 
-#align(right)[Simon Gray \ 6~November 2026]
+#block(above: gap(1), width: 100%, align(right)[Simon Gray \ 6~November 2026])
 
 #heading(level: 1, numbering: none, outlined: true)[How to use this book]
 
@@ -125,7 +125,7 @@ The *appendices* start with "On the mat", the book on one page to look at betwee
 - *Name and grade badge.* The badge, such as #badge(3), marks the grade where the technique starts to *matter* on indoor problems. Below that grade you can usually get away without it. Above it, more and more problems are set so that you need it. The grade is a judgement based on coaches' advice, technique clinics and climbers' reports, and gyms vary. If you should start learning the technique earlier, the #sc(tracking: 0.08em)[Grade] note says when.
 - *Also called.* Other names you will hear. All of them are in the A–Z list and the index.
 - *How to do it.* Numbered, concrete steps: which limb goes where, and why.
-- *When to use it — reading the wall.* The grey box has two groups. "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
+- *When to use it — reading the wall.* The shaded box has two groups. "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
 - *Common mistakes*, notes for *tall climbers* and *small climbers* where there is something specific to say, *related* techniques, videos to *watch*, and *sources*.
 - *Referenced from.* Every place in the book that mentions the technique, so you can jump back to it.
 
@@ -174,10 +174,10 @@ Claude, an AI model made by Anthropic, wrote this book at its editor's direction
 
 *Claims without a source.* Each grade badge is a judgement. Some other unsourced claims carry a label such as "(judgement)". Every technique entry lists its sources at the foot, but about one in five of its numbered steps and common mistakes has no citation of its own and no label. In the "When to use it" boxes, about three lines in five have neither.
 
-*The checks.* Claude also ran the fact checks, which compare a selection of claims with the pages they cite. The first, dated 30~October 2026, took 159 claims from chapters 2, 3, 6 and 7 and the troubleshooting table. Claude left 78 as they were, changed 70 and couldn't verify~11. A second covered every claim in chapter 1 and the flagged claims, numbers, injury claims and attributions in chapters 4, 5, 8 and 9 and the grade appendix. A third, on 31~October, went back to the pages that had been blocked. Most of the unverified claims held and some didn't. The second edition listed 30 corrections to the first. A later check covered the corrections to evidence in this edition.
+*The checks.* Claude also ran the fact checks, which compare a selection of claims with the pages they cite. The first, dated 30~October 2026, took 159 claims from Chapters 2, 3, 6 and 7 and the troubleshooting table. Claude left 78 as they were, changed 70 and couldn't verify~11. A second covered every claim in Chapter 1 and the flagged claims, numbers, injury claims and attributions in Chapters 4, 5, 8 and 9 and the grade appendix. A third, on 31~October, went back to the pages that had been blocked. Most of the unverified claims held and some didn't. The second edition listed 30 corrections to the first. A later check covered the corrections to evidence in this edition.
 
 *What hasn't been done.* No outside expert has reviewed this book and no person has audited its citations. The first three checks read an earlier text. A later check read this edition's rewritten text and new notes for small climbers, but its log doesn't record its scope.
 
-*The records.* The repository at #box(link("https://github.com/simongray/ReadingTheWall")[github.com/simongray/ReadingTheWall]) holds the fact-check logs and other research files (in research/), the code and the list of corrections between editions (CHANGELOG.md). Claude wrote those logs, so they aren't independent evidence. The repository's history starts with the first edition on 31~October 2026, so the work before that isn't in it. The second edition followed on 1~November. The history records every change under the editor's name, so it doesn't show who wrote what.
+*The records.* The repository at #link("https://github.com/simongray/ReadingTheWall")[github.com/#sym.zws;simongray/#sym.zws;ReadingTheWall] holds the fact-check logs and other research files (in research/), the code and the list of corrections between editions (CHANGELOG.md). Claude wrote those logs, so they aren't independent evidence. The repository's history starts with the first edition on 31~October 2026, so the work before that isn't in it. The second edition followed on 1~November. The history records every change under the editor's name, so it doesn't show who wrote what.
 
 #outline(title: [Contents], depth: 2, indent: auto) <contents>

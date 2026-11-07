@@ -50,6 +50,7 @@
 #let margin-top = 25mm
 #let margin-bottom = 23mm
 #let overhang = 11mm
+#let page-height = 297mm - margin-top - margin-bottom
 
 // Vertical space is measured in lines of text. Text edges are set at the
 // cap height and the baseline, so the space between two blocks of text is
@@ -60,9 +61,35 @@
 #let lead = (pitch / fs.body - 0.7) * 1em    // the leading that gives it
 #let gap(n) = pitch - 0.7 * fs.body + n * pitch
 
+// Ragged text. Its lines are weighed over the whole paragraph, as in justified text,
+// so that no word is left alone on a last line when the others can make room for it.
+// A compound stays whole, since a rag can spare the room: "toe-/hook" reads as two words.
+#let keep-compounds(body) = {
+  show regex("[\p{L}\p{N}]+(-[\p{L}\p{N}]+)+"): box
+  body
+}
+#let ragged(body) = {
+  set par(justify: false, linebreaks: "optimized")
+  set text(costs: (runt: 2000%))
+  keep-compounds(body)
+}
+
+// The number of a numbered list, bold and flush right in a column of one width. A long
+// list is set in parts (`keep-list`), and without this each part would size its column
+// by its own figures, which differ in width, so the text edge would jog.
+#let step-number(n) = box(width: if n < 10 { 0.9em } else { 1.4em }, align(right, text(weight: 700, str(n) + ".")))
+
+// A caption sits one line under its drawing, closer to it than to what follows.
+#let caption-gap = gap(0)
+
 #let smcp = ("c2sc", "smcp")
 // True small caps with light letterspacing.
-#let sc(body, tracking: 0.06em) = text(features: smcp, tracking: tracking, body)
+// A figure stays out of them: under these features a 0 reads as the letter O and a 1 as
+// the letter I, so it is a lining figure scaled to the small caps.
+#let sc(body, tracking: 0.06em) = {
+  show regex("\d+"): it => text(features: (c2sc: 0, smcp: 0), number-type: "lining", size: 0.8em, it)
+  text(features: smcp, tracking: tracking, body)
+}
 // Table heads.
 #let th(body) = sc(body, tracking: 0.05em)
 
@@ -126,7 +153,7 @@
 #let icon-gap = 0.8em
 #let aside-icon(name, inset: 0pt) = if name == none { none } else {
   box(width: 0pt, place(right + horizon, dx: -inset - icon-gap, dy: -0.25em,
-    box(width: overhang, align(right, image("figures/icon-" + aside-icons.at(name, default: name) + ".svg")))))
+    box(width: overhang, align(right, image("figures/icon-" + aside-icons.at(name, default: name) + ".svg", height: 7mm)))))
 }
 
 // Plain text of a heading body (for short running heads).
@@ -144,8 +171,8 @@
 // weights are equal across figures.
 #let wide-image(file) = pad(x: -overhang, align(center, image(file)))
 
-// Content measured before it is set (see `technique`) is marked by this
-// region, so that cross-references in it leave out their links and marks:
+// Content measured before it is set (a note box, a part, the steps beside a
+// figure, the last page of columns) is marked by this region, so that cross-references in it leave out their links and marks:
 // a measured copy may not hold anything that refers to the document.
 #let probe-region = "AQ"
 #let probing() = text.region == probe-region
@@ -174,9 +201,14 @@
 #import "key-alias.typ": key-alias
 #import "@preview/tiaoma:0.3.0": qrcode
 
+// A citation stays with the word before it. A group of up to four numbers is never
+// broken, since half a citation alone on a line reads as a stray; a longer one, as in
+// an entry's Sources line, may break after a comma.
 #let src(..keys) = {
   let ks = keys.pos()
-  for k in ks { cite(label(src-map.at(k, default: k))) }
+  let group = for k in ks { cite(label(src-map.at(k, default: k))) }
+  sym.wj
+  if ks.len() <= 4 { box(group) } else { group }
 }
 
 // The evidence line of an entry, a prototype that is off by default. With
@@ -253,6 +285,35 @@
   "the line": "Line, the",
 )
 
+// Items set in n columns, the columns of the last page even. Each item leaves a
+// mark, so the pass after tells where the last page starts; what lies on it is
+// set in a block of its own, a little over an nth of its height. The last page
+// starts a page earlier when the items of both fit on it, or an early pass could
+// leave a few items on a page of their own. (`sizes` is a copy of the items to
+// measure, with no links, since a measurement of a link doesn't settle.) `margin` is what
+// a column may run over an nth: the smallest that leaves nothing over depends on how the
+// last items fall, so each caller sets its own.
+#let balanced-columns(id, n, items, gutter: 1.4em, sizes: none, margin: pitch) = context {
+  let sizes = if sizes == none { items } else { sizes }
+  let w = (page.width - 2 * margin-x + 2 * overhang - (n - 1) * gutter) / n
+  let height-from(i) = measure(block(width: w, probe(sizes.slice(i).join()))).height
+  let marks = query(selector(<col-item>)).filter(m => m.value.id == id)
+  let last = marks.map(m => m.location().page()).fold(0, calc.max)
+  let first-on(pg) = marks.filter(m => m.location().page() == pg).map(m => m.value.i).first(default: 0)
+  let cut = if marks.len() == items.len() {
+    let earlier = first-on(last - 1)
+    if earlier > 0 and height-from(earlier) / n + margin <= page-height { earlier } else { first-on(last) }
+  } else { 0 }
+  let tagged = items.enumerate().map(((i, c)) => [#metadata((id: id, i: i))<col-item>#c])
+  if cut > 0 {
+    columns(n, gutter: gutter, tagged.slice(0, cut).join())
+    pagebreak()
+    block(height: height-from(cut) / n + margin, columns(n, gutter: gutter, tagged.slice(cut).join()))
+  } else {
+    columns(n, gutter: gutter, tagged.join())
+  }
+}
+
 #let make-index() = context {
   let entries = query(<ix>)
   // Terms that differ only in case ("Sloper", "sloper") share one entry,
@@ -278,16 +339,18 @@
   }
   let last-head = none
   let last-letter = none
-  set par(justify: false, hanging-indent: 1em, spacing: 0.75em, leading: 0.72em, first-line-indent: 0pt)
+  set par(justify: false, hanging-indent: 2em, leading: 0.72em, first-line-indent: 0pt)
   set text(size: fs.index, number-type: "lining")
-  columns(3, gutter: 1.4em, {
+  // Each line's text, with links to set and without them to measure, under its letter.
+  let rows = ()
+  {
     for g in keys {
       let k = shown.at(g)
       let parts = k.split("!")
       let head = heads.at(lower(parts.first()))
       let letter = upper(ix-fold(head).first())
       if letter != last-letter {
-        block(above: 1.6em, below: 0.75em, sticky: true, text(size: fs.sub, weight: 700, letter))
+        rows.push((letter: letter, kind: "letter", body: none, plain: none))
         last-letter = letter
       }
       let recs = groups.at(g)
@@ -299,17 +362,78 @@
       }
       let pages = seen.values().sorted(key: r => r.page)
       let refs = pages.map(r => link(r.loc, if r.main { strong(str(r.page)) } else { str(r.page) })).join(", ")
+      let plainrefs = pages.map(r => if r.main { strong(str(r.page)) } else { str(r.page) }).join(", ")
+      // the word and its first page number stay on one line
+      let tie = [#sym.wj#h(0.45em)#sym.wj]
       if parts.len() == 1 {
-        par[#head#h(0.45em)#refs]
+        rows.push((letter: letter, kind: "entry", parent: head, body: [#head#tie#refs], plain: [#head#tie#plainrefs]))
         last-head = lower(head)
       } else {
         if lower(head) != last-head {
-          par[#head]
+          rows.push((letter: letter, kind: "parent", parent: head, body: [#head], plain: [#head]))
           last-head = lower(head)
         }
-        par[#h(0.9em)#parts.at(1)#h(0.45em)#refs]
+        rows.push((letter: letter, kind: "sub", parent: head, body: [#h(0.9em)#parts.at(1)#tie#refs], plain: [#h(0.9em)#parts.at(1)#tie#plainrefs]))
       }
     }
+  }
+  // A line never breaks, a head stays with its sub-entries, and two lines stay together
+  // at each end of a letter's group. A head with up to four sub-entries stays whole with
+  // them. Under a longer one two sub-entries stay together at each end, and the head
+  // repeats at the top of a column, since a reader who sees one page at a time can't see
+  // it on the page before.
+  let line(body) = block(above: 0.75em, below: 0.75em, breakable: false, par(body))
+  let groups = ()
+  let i = 0
+  while i < rows.len() {
+    let r = rows.at(i)
+    let j = i + 1
+    if r.kind != "letter" {
+      while j < rows.len() and rows.at(j).kind == "sub" and rows.at(j).parent == r.parent { j += 1 }
+    }
+    groups.push(rows.slice(i, j))
+    i = j
+  }
+  let set-group(k, field) = {
+    let g = groups.at(k)
+    let r = g.first()
+    if r.kind == "letter" { return block(above: 1.6em, below: 0.75em, sticky: true, text(size: fs.sub, weight: 700, r.letter)) }
+    let same-letter(n) = n < groups.len() and groups.at(n).first().letter == r.letter
+    let keep = same-letter(k + 1) and not same-letter(k + 2)
+    if g.len() <= 5 {
+      block(above: 0.75em, below: 0.75em, breakable: false, sticky: keep, g.map(x => line(x.at(field))).join())
+    } else {
+      let subs = g.slice(1).map(x => line(x.at(field)))
+      let n = subs.len()
+      block(above: 0.75em, below: 0.75em, grid(columns: 1fr, row-gutter: 0.75em,
+        grid.header(par(r.at(field))),
+        block(breakable: false, subs.slice(0, 2).join()),
+        ..subs.slice(2, n - 2),
+        block(breakable: false, subs.slice(n - 2).join())))
+    }
+  }
+  let items = range(groups.len()).map(k => set-group(k, "body"))
+  let sizes = range(groups.len()).map(k => set-group(k, "plain"))
+  balanced-columns("index", 3, items, sizes: sizes, margin: 1.3 * pitch)
+}
+
+// The sources, set in two columns with the last page even. The bibliography is one
+// element, so its entries can't be handed to `balanced-columns`. Instead the columns
+// sit in a block of a set height, which is shared out over the pages, so that only the
+// last page gets shorter columns: `pages` pages, the last with columns `last` tall. The
+// two numbers have to be given, since working them out from the layout doesn't settle
+// within Typst's five passes. tools/check_fit.py fails the build if they drop a source,
+// and says when the columns of the last page come out uneven. website/template.typ has
+// its own version of this macro.
+#let sources-columns(body, pages: 1, last: auto) = {
+  show columns: it => context {
+    let first = page.height - margin-bottom - here().position().y - gap(1.5)
+    block(above: gap(1.5), breakable: true, height: if last == auto { auto } else { first + (pages - 2) * page-height + last }, it)
+  }
+  columns(2, gutter: 1.5em, {
+    set text(size: fs.index)
+    set par(justify: false, leading: 0.72em, spacing: 0.95em, first-line-indent: 0pt)
+    body
   })
 }
 
@@ -375,7 +499,7 @@
 #let badge(g, size: 9pt) = grade-tab-inline(grade-label(g) + "+", size: size, g: g)
 
 // The grade in tables and lists: small caps, no tab.
-#let badge-plain(g) = text(number-type: "lining", sc(grade-label(g), tracking: 0.03em))
+#let badge-plain(g) = text(number-type: "lining", grade-label(g))
 
 // ------------------------------------------------------------ technique cross-references
 
@@ -405,19 +529,42 @@
 // entry either way shows as [?key].
 #let resolve-key(key) = if query(label("tech-meta-" + key)).len() > 0 { key } else { key-alias.at(key, default: key) }
 
-#let tref(key, body: none, show-page: true) = context {
+// The page after a technique's name: "Heel hook (p. 34)", or inside parentheses
+// "(Heel hook, p. 34)". In ragged text, a list of references say, it is tied to the
+// name so that it never stands alone on a line, and a short name and its page stay
+// whole, so that such a list breaks at its commas. In justified text they stay free,
+// as an unbreakable name and page would stretch the line before it.
+#let tref-page(pg, inner, tied) = {
+  let sep = if tied { sym.space.nobreak } else { [ ] }
+  text(weight: "regular", if inner [,#sep;p.#sym.space.nobreak#pg] else [#sep;(p.#sym.space.nobreak#pg)])
+}
+
+#let short-name(name) = plain(name).len() <= 22
+// (no-break spaces, not a box: a ragged line is weighed by its spaces, so a line of boxes
+// counts as badly filled. A name with figures would lose its lining figures, so it is boxed.)
+#let unbroken(name) = if plain(name).match(regex("\d")) != none { box(name) } else {
+  show " ": sym.space.nobreak
+  name
+}
+#let tref-set(name, pg, show-page, inner) = {
+  let tied = not par.justify
+  let set-name = if tied and short-name(name) { unbroken(tref-name(name)) } else { tref-name(name) }
+  [#set-name#if show-page { tref-page(pg, inner, tied) }]
+}
+
+#let tref(key, body: none, show-page: true, inner: false) = context {
   let key = resolve-key(key)
   let q = query(label("tech-meta-" + key))
   if probing() {
     let name = if body == none and q.len() > 0 { q.first().value.name } else if body == none { key } else { body }
-    [#tref-name(name)#if show-page [ (p.#sym.space.nobreak#"000")]]
+    tref-set(name, "000", show-page, inner)
   } else if q.len() == 0 {
     text(fill: red, weight: 700)[[?#key]]
   } else {
     let m = q.first()
     let name = if body == none { m.value.name } else { body }
     let pg = counter(page).at(m.location()).first()
-    [#metadata((key: key))<tref-mark>#link(m.location())[#tref-name(name)#if show-page [ (p.#sym.space.nobreak#pg)]]]
+    [#metadata((key: key))<tref-mark>#link(m.location(), tref-set(name, pg, show-page, inner))]
   }
 }
 
@@ -428,22 +575,26 @@
 // Jargon in running text, linked to its glossary entry: #jt("beta"),
 // or #jt("crimp", body: [crimping]) to show different words.
 #let jt(term, body: none) = {
-  let shown = underline(stroke: (thickness: 0.5pt, dash: "dotted"), offset: 2pt, if body == none { term } else { body })
+  let shown = underline(stroke: (thickness: 0.5pt, dash: "dotted"), offset: 2pt, text(hyphenate: false, if body == none { term } else { body }))
   navlink(label(gloss-key(term)), shown)
 }
 
+// The glossary's entries in two columns, the last page even. website/template.typ
+// has its own version of this macro.
+#let glossary-columns(body) = {
+  let items = body.children.filter(c => c.func() not in ([ ].func(), parbreak))
+  balanced-columns("glossary", 2, items, gutter: 1.6em)
+}
+
 // One glossary entry. `see` lists technique keys.
-#let gloss(term, body, see: ()) = block(above: 0.85em, below: 0.85em, breakable: false, {
+#let gloss(term, body, see: ()) = block(above: 1.15em, below: 1.15em, breakable: false, ragged({
   set text(size: fs.caption)
-  set par(hanging-indent: 1em, first-line-indent: 0pt, leading: 0.78em)
-  [#text(weight: 700, term)#label(gloss-key(term))#ix(term)]
-  h(0.5em)
-  body
-  if see.len() > 0 [ See #see.map(k => tref(k)).join(", ").]
-})
+  par(hanging-indent: 1em, first-line-indent: 0pt, leading: 0.78em)[#text(weight: 700, term)#label(gloss-key(term))#ix(term)#h(0.5em)#body#if see.len() > 0 [ See #see.map(k => tref(k)).join(", ").]]
+}))
 
 // Where a technique is referenced from: one link per section or entry.
-#let backlink-items(key) = {
+// (`measuring`: with no links and a set page number, since a measurement of those doesn't settle)
+#let backlink-items(key, measuring: false) = {
   let own = query(label("tech-" + key))
   let own-pos = if own.len() > 0 { own.first().location().position() } else { none }
   let marks = query(<tref-mark>).filter(m => m.value.key == key)
@@ -459,7 +610,16 @@
     if id in seen { continue }
     seen.push(id)
     let pg = counter(page).at(m.location()).first()
-    items.push(link(m.location())[#h.body (p.#sym.space.nobreak#pg)])
+    // A head tied for its own line breaks is free here. A grade keeps its Font grade,
+    // and a short head stays whole with its page, as a reference does.
+    let t = plain(h.body)
+    let grade = t.match(regex("^V\S+.* \(Font")) != none
+    let title = if grade { box(h.body) } else if short-name(t) { unbroken(h.body) } else {
+      show "\u{a0}": " "
+      h.body
+    }
+    let item = [#title#tref-page(if measuring { "000" } else { pg }, false, true)]
+    items.push(if measuring { item } else { link(m.location(), item) })
   }
   items
 }
@@ -479,20 +639,15 @@
 // every part of an entry and of every box.
 #let section-label(body) = text(size: fs.body, sc(body, tracking: 0.08em))
 
-// The spaces of an entry and its boxes take a factor `k`: 1 normally,
-// less for an entry that would otherwise spill a few lines onto a page of
-// its own (see `technique`).
-#let kgap(n, k) = gap(0) + n * k * pitch
-
 // A label and the block it belongs to: never apart. `icon` names the
 // aside's icon (`aside-icons`), hung in the margin beside the label.
-#let labelled(title, k: 1, icon: none) = block(above: kgap(1, k), below: kgap(0.2, k), sticky: true,
+#let labelled(title, icon: none) = block(above: gap(1), below: gap(0.2), sticky: true,
   [#aside-icon(icon)#section-label(title)])
 
 // Lists inside entries and boxes follow their label closely.
-#let list-after-label(body, k: 1) = {
-  show list: set block(above: kgap(0.2, k))
-  show enum: set block(above: kgap(0.2, k))
+#let list-after-label(body) = {
+  show list: set block(above: gap(0.2))
+  show enum: set block(above: gap(0.2))
   body
 }
 
@@ -501,41 +656,46 @@
 #let box-inset = (x: 12pt, top: 12pt, bottom: 13pt)
 #let box-gap = gap(1)
 
-// The factor `k` of the text a box sits in. `spaced` and `technique` set
-// the list spacing to kgap(0.4, k), so it is read back from there; it is 1
-// in ordinary running text.
-#let space-k() = if type(list.spacing) == length {
-  // to-absolute: a spacing given in em (as the brochure does) can't be
-  // divided by a length in pt until it is resolved
-  calc.min(1, calc.max(0, (list.spacing.to-absolute() - gap(0)) / (0.4 * pitch)))
-} else { 1 }
-
-// A box takes the factor of the text around it unless it is given one, so
-// a box in a grade guide set with tighter space (`fit-pages`) tightens too.
-// `icon` hangs an aside's icon in the margin beside the title, in line
-// with the icons of labels outside boxes.
-#let panel(title: none, fill: none, breakable: true, tight: false, k: auto, icon: none, body) = context {
-  let k = if k == auto { space-k() } else { k }
-  block(
-    width: 100%, fill: fill, breakable: breakable,
-    inset: (x: box-inset.x, top: box-inset.top * (0.5 + k / 2), bottom: box-inset.bottom * (0.5 + k / 2)),
-    stroke: (top: rule-heavy, bottom: rule-light), above: kgap(1, k), below: kgap(1, k),
-    {
-      if title != none {
-        block(below: kgap(0.2, k), sticky: true, [#aside-icon(icon, inset: box-inset.x)#section-label(title)])
-      }
-      // a box that is one list keeps it close under the label
-      if tight { list-after-label(body, k: k) } else { body }
-    },
-  )
+// A list of up to three items stays whole unless it is long; a longer one keeps
+// its first two and its last two items together. (<kept> marks a part already made.)
+#let keep-list(make, it) = {
+  if it.at("label", default: none) == <kept> or probing() { return it }
+  let n = it.children.len()
+  let chars = it.children.map(c => plain(c.body).len()).sum(default: 0)
+  if n <= 3 and chars < 900 { return block(width: 100%, breakable: false, it) }
+  if n < 4 { return it }
+  let st = if make == enum { let x = it.at("start", default: auto); if x == auto { 1 } else { x } } else { 1 }
+  let part(from, to) = [#make(..if make == enum { (start: st + from) } else { (:) }, ..it.children.slice(from, to)) <kept>]
+  let sp = it.at("spacing", default: auto)
+  let sp = if type(sp) == length { sp } else { gap(0.4) }
+  block(width: 100%, breakable: false, below: sp, part(0, 2))
+  if n > 4 { block(width: 100%, above: sp, below: sp, breakable: true, part(2, n - 2)) }
+  block(width: 100%, breakable: false, above: sp, part(n - 2, n))
 }
 
-// The reading box: the one tinted panel. It holds one list, or several
-// lists that each follow a bold label (*Look for*, *Symptoms*). Each list is
-// set item by item so that a page break never parts a label from the first
-// two items or the last two items from each other: a short box stays whole.
-#let readbox(body, k: 1) = panel(title: [When to use it — reading the wall], icon: "reading", fill: shade, tight: true, k: k, {
-  set par(justify: false)
+// A box. `icon` hangs an aside's icon in the margin beside the title, in line
+// with the icons of labels outside boxes. A box that may break repeats its title
+// above the rest on the next page.
+#let panel(title: none, fill: none, breakable: true, tight: false, icon: none, body) = block(
+  width: 100%, fill: fill, breakable: breakable, inset: box-inset,
+  stroke: (top: rule-heavy, bottom: rule-light), above: gap(1), below: gap(1),
+  {
+    // a box that is one list keeps it close under the label
+    let content = if tight { list-after-label(body) } else { body }
+    let label = [#aside-icon(icon, inset: box-inset.x)#section-label(title)]
+    if title == none { content } else if breakable {
+      grid(columns: 1fr, row-gutter: gap(0.2), grid.header(label), content)
+    } else {
+      block(below: gap(0.2), sticky: true, label)
+      content
+    }
+  },
+)
+
+// The reading box: the one tinted panel. It holds one list, or several lists that
+// each follow a bold label (*Look for*, *Symptoms*), and never breaks: the reader
+// takes it in as one thing. Each list is set item by item, for its spacing.
+#let readbox(body, title: [When to use it — reading the wall], icon: "reading") = panel(title: title, icon: icon, fill: shade, tight: true, breakable: false, ragged({
   set list(marker: text(weight: 700)[›], indent: 0.1em, body-indent: 0.55em)
   let kids = if body.func() == [].func() { body.children } else { (body,) }
   // Split the body into runs: list items, and the text between them. A blank
@@ -563,22 +723,15 @@
     marks.join()
     for (i, run) in runs.enumerate() {
       if run.items {
-        let n = run.kids.len()
         for (j, item) in run.kids.enumerate() {
-          block(
-            above: if j == 0 { kgap(0.2, k) } else { kgap(0.4, k) }, below: kgap(0.4, k),
-            breakable: false, sticky: (j == 0 and n > 1) or j == n - 2,
-            list(item),
-          )
+          block(above: if j == 0 { gap(0.2) } else { gap(0.4) }, below: gap(0.4), breakable: false, list(item))
         }
       } else {
-        // a label: never apart from the list it opens
-        let opens-list = i + 1 < runs.len() and runs.at(i + 1).items
-        block(above: if i == 0 { kgap(0.2, k) } else { kgap(0.8, k) }, below: kgap(0.2, k), sticky: opens-list, run.kids.join())
+        block(above: if i == 0 { gap(0.2) } else { gap(0.8) }, below: gap(0.2), run.kids.join())
       }
     }
   }
-})
+}))
 
 // A note box. One that follows a technique entry is kept whole (on a
 // page of its own if need be), like the entry; in running text a short
@@ -592,51 +745,73 @@
 }
 
 // A quick-reminder box: "Five things to keep in mind at V3".
-#let remember(title, body) = panel(title: title, breakable: false, tight: true, {
-  set enum(numbering: n => text(weight: 700, str(n) + "."), body-indent: 0.6em)
-  set par(justify: false)
+#let remember(title, body) = panel(title: title, breakable: false, tight: true, ragged({
+  set enum(body-indent: 0.6em)
   body
-})
+}))
 
 // A key point: the same panel, the text in italic one half step up.
-#let keypoint(body) = panel(breakable: false, {
+#let keypoint(body) = panel(breakable: false, ragged({
   set par(first-line-indent: 0pt)
-  set par(justify: false)
   text(size: fs.lead, style: "italic", body)
-})
+}))
 
-#let mistakes(body, k: 1) = {
-  labelled([Common mistakes], k: k, icon: "mistakes")
+// A line that opens the list after it: flush left, never apart from the list and
+// close above it, as a label is. (The space above a list is the larger of its own and
+// the line's, so the difference is taken back here.) `lead-label` is the bold form.
+#let lead-line(body) = {
+  block(width: 100%, above: gap(0.5), below: 0pt, sticky: true, par(first-line-indent: 0pt, body))
+  v(gap(0.2) - gap(0.5))
+}
+#let lead-label(body) = lead-line(strong(body))
+
+// A run-in head that opens a stretch of a section: flush left, with half a line above.
+// (It stays a paragraph, so the paragraph after it keeps its indent.)
+#let run-in(body) = {
+  v(gap(0.5))
+  par(first-line-indent: 0pt, body)
+}
+
+// A short lead-in that stays with the table or figure after it.
+#let lead-in(body) = block(width: 100%, sticky: true, body)
+
+// The last stretch of a text, kept on one page so that its end isn't left alone on
+// the next. It replaces a page break: if it fits where it falls, nothing moves.
+#let keep-together(body) = block(breakable: false, above: gap(1.5), body)
+
+// Ragged, like the reading box above them: these are one or two lines each, and
+// justifying them buys nothing.
+#let mistakes(body, glue: false) = {
+  labelled([Common mistakes], icon: "mistakes")
+  show: ragged
   set par(first-line-indent: 0pt)
   set list(marker: text(weight: 700)[×], body-indent: 0.55em)
-  list-after-label(body, k: k)
+  // Item by item. Up to four items move as one with their label; a longer list keeps two
+  // together at each end, so no item is ever carried over alone. With `glue` the last ones
+  // also go with what follows.
+  let kids = if body.func() == [].func() { body.children } else { (body,) }
+  let items = kids.filter(c => c.func() == list.item)
+  kids.filter(c => c.func() == metadata).join()
+  let n = items.len()
+  for (j, item) in items.enumerate() {
+    let keep = n <= 4 or j == 0 or j >= n - 2
+    block(above: if j == 0 { gap(0.2) } else { gap(0.4) }, below: gap(0.4),
+      breakable: false, sticky: keep and (glue or j < n - 1), list(item))
+  }
 }
 
 // ------------------------------------------------------------ figures
 
-#let caption-text(body) = text(size: fs.caption, style: "italic", par(leading: 0.72em, body))
-
-// Figures in the running text float to the top of the page (or of the
-// next one, when they don't fit), so they never leave a gap. A figure
-// never rises above the head of its own section, though: when that head
-// is on the same page (a chapter's title included), the figure goes to
-// the bottom of the page when it fits there, and otherwise to the top of
-// the next page.
-#let float-figure(body, clearance: gap(1)) = context {
-  let here-pos = here().position()
-  let height = measure(block(width: 210mm - 2 * margin-x, body)).height
-  let heads = query(selector(heading).before(here())).filter(h => h.at("label", default: none) != <part>)
-  let under-head = heads.len() > 0 and heads.last().location().page() == here-pos.page
-  // Where the figure is measured from: where its text would be without
-  // it. A figure set above its text on the same page (the mark it leaves)
-  // has pushed that text down by its own height.
-  let mark = query(selector(<float-mark>).after(here()))
-  let above = mark.len() > 0 and mark.first().location().page() == here-pos.page and mark.first().location().position().y < here-pos.y
-  let y = if above { here-pos.y - height - clearance } else { here-pos.y }
-  let fits = y + height + 8mm < 297mm - margin-bottom
-  let mark = if probing() { none } else [#metadata("float")<float-mark>]
-  place(if under-head and fits { bottom } else { top }, float: true, clearance: clearance, mark + body)
+// A panel's mark stays with the word after it.
+#let tie-marks(body) = {
+  show regex("\([a-z0-9]\) "): it => it.text.replace(" ", "\u{a0}")
+  body
 }
+#let caption-text(body) = text(size: fs.caption, style: "italic", tie-marks(ragged(par(leading: 0.72em, body))))
+
+// A figure in the running text stays where the text puts it, whole, with a line
+// of space around it.
+#let figure-block(body, clearance: gap(1)) = block(above: clearance, below: clearance, breakable: false, body)
 
 // A full-width drawn sequence of one movement, set apart as a feature:
 // #filmstrip("filmstrip-dyno.svg", [The dyno], [One sentence on what to watch for.])
@@ -645,105 +820,67 @@
   let strip = block(width: 100%, breakable: false, {
     block(below: gap(0.5), [#section-label[In motion]#h(0.7em)#text(size: fs.sub, style: "italic", title)])
     wide-image("figures/" + file)
-    v(0.6em)
-    align(center, block(width: 88%, align(left, caption-text(caption))))
+    v(caption-gap)
+    // (the inner block shrinks to its text, which centres as a whole under the strip)
+    align(center, block(above: 0pt, width: 88%, align(center, block(align(left, caption-text(caption))))))
   })
   context if entries-running.get() {
-    place.flush()
     pagebreak(weak: true)
+    [#metadata("strip")<strip-page>]
     block(below: gap(2), strip)
     entry-top.update(true)
   } else {
-    float-figure(clearance: gap(1.5), strip)
+    figure-block(clearance: gap(1.5), strip)
   }
 }
 
 // A figure from book/figures. `width` scales it; by default it keeps the
 // size it was drawn at, which keeps line weights equal across figures.
-#let fig(file, caption: none, width: auto, lbl: none) = {
+// `caption-width` lets a short last line of a caption come up: the caption then centres
+// under the figure instead of starting at its edge.
+#let fig-caption-width = state("fig-caption-width", none)
+#let fig(file, caption: none, width: auto, lbl: none, caption-width: none) = {
   let img = if width == auto { image("figures/" + file) } else { image("figures/" + file, width: width) }
+  fig-caption-width.update(caption-width)
   [#figure(img, caption: caption, kind: image, supplement: [Figure]) #if lbl != none { label(lbl) }]
-}
-
-// ------------------------------------------------------------ fitting to pages
-
-// How many pages `body(k)`, set from `y` on the current page, takes: its
-// height is measured and a line a page is added for what page breaks cost
-// (widowed lines, blocks moved whole). It is only an estimate, since a
-// measurement isn't broken into pages, so build.sh checks it against the
-// layout with tools/check_fit.py.
-//
-// `waste(k)` adds what the text is known to lose to blocks that move whole
-// to the next page.
-#let page-estimate(y, body, waste: k => 0pt) = k => {
-  let page-h = 297mm - margin-top - margin-bottom
-  let avail = 297mm - margin-bottom - y
-  let h = measure(block(width: 210mm - 2 * margin-x, probe(body(k)))).height + waste(k)
-  let h = h + pitch * calc.ceil(h / page-h)
-  if h <= avail { 1 } else { 1 + calc.ceil((h - avail) / page-h) }
-}
-
-// The space factor for a text and the pages it is estimated to take with
-// it: `k` if it is given, else the most space (six tenths, a third or a
-// tenth of it, or only the `tries` given) with which the text comes to fewer
-// `pages` than at full space, or full space if none does.
-#let fit-space(pages, k, tries: (0.6, 0.35, 0.1)) = {
-  if k != auto { return (k, pages(k)) }
-  let n = pages(1)
-  for k in tries {
-    if n > 1 and pages(k) < n { return (k, pages(k)) }
-  }
-  (1, n)
-}
-
-// Markers round a fitted text (`what` is an entry's key), for
-// tools/check_fit.py.
-#let fit-start(what, est) = [#metadata((what: what, est: est))<fit-start>]
-#let fit-end = [#metadata(none)<fit-end>]
-
-// ------------------------------------------------------------ page flow
-
-// An experiment, off by default, in letting entries share pages. By default
-// every entry starts a page. With `--input flow=fit` an entry starts on the
-// current page when the whole of it fits there. With `--input flow=0.4` (any
-// fraction) an entry also starts there when that fraction of the text height
-// is left, and breaks across pages as it needs to.
-//
-// The layout itself decides what fits, through blocks that can't break.
-// Deciding from an entry's position wouldn't settle in the passes Typst
-// allows: a position comes from the previous pass, and each decision moves
-// everything after it.
-#let page-flow = sys.inputs.at("flow", default: none)
-#let flow-share = if page-flow in (none, "fit") { none } else { float(page-flow) }
-#let page-height = 297mm - margin-top - margin-bottom
-// The space above an entry that doesn't start a page. The block's spacing
-// disappears at the top of a page.
-#let entry-gap = gap(3)
-
-// Moves on to the next page unless `height` is left on this one: a block
-// that can't break takes the decision, and the spacing takes its height back.
-#let need-space(height, above: 0pt) = {
-  block(height: height, breakable: false, above: above, below: 0pt)
-  v(-height)
+  fig-caption-width.update(none)
 }
 
 // ------------------------------------------------------------ technique entry
 
-// The spaces inside an entry, scaled by `k`.
-#let entry-spaces(k, body) = {
-  set par(first-line-indent: 0pt)
-  set list(spacing: kgap(0.4, k))
-  set enum(spacing: kgap(0.4, k))
-  show list: set block(above: kgap(0.5, k), below: kgap(0.5, k))
-  show enum: set block(above: kgap(0.5, k), below: kgap(0.5, k))
+// The spaces inside an entry.
+#let entry-spaces(body) = {
+  set par(first-line-indent: 0pt, spacing: gap(0.5))
   body
 }
 
+// A paragraph that opens a list of steps stays with its first steps, or the steps would
+// open the next page with no label, restarted from 1.
+#let keep-leads(how) = {
+  if how == none or how.func() != [].func() { return how }
+  let blank(c) = c.func() in ([ ].func(), parbreak)
+  let out = ()
+  let run = ()
+  for c in how.children {
+    if c.func() == enum.item {
+      if run.any(x => not blank(x)) {
+        out.push(block(width: 100%, below: gap(0.5), sticky: true, run.join()))
+      } else { out += run }
+      run = ()
+      out.push(c)
+    } else if c.func() == parbreak {
+      out += run
+      out.push(c)
+      run = ()
+    } else { run.push(c) }
+  }
+  (out + run).join()
+}
+
 // A label and the numbered steps or short paragraph under it.
-#let labelled-steps(title, how, k) = {
-  labelled(title, k: k)
-  set enum(numbering: n => text(weight: 700, str(n) + "."), body-indent: 0.5em)
-  list-after-label(how, k: k)
+#let labelled-steps(title, how) = {
+  labelled(title)
+  list-after-label(keep-leads(how))
 }
 
 // An entry's figures, its main figure and those of its parts, follow one rule:
@@ -754,22 +891,62 @@
 #let side-figure-block(file, caption) = block(breakable: false, {
   image(file)
   if caption != none {
-    v(0.6em)
-    block(width: calc.max(fig-width(file), 48mm), caption-text(caption))
+    v(caption-gap)
+    block(above: 0pt, width: calc.max(fig-width(file) - overhang, 48mm), caption-text(caption))
   }
 })
-// A narrow figure beside the steps, hanging into the right margin. (The grid
-// sits in a block, since a cell ignores the space above its first block.)
-#let beside-steps(steps, file, caption, k) = block(above: kgap(1, k), below: 0pt,
-  pad(right: if fig-width(file) > 60mm { -overhang } else { 0pt }, grid(columns: (1fr, auto), column-gutter: 16pt,
-    steps,
-    side-figure-block(file, caption),
-  )))
+// A narrow figure beside the steps, hanging into the right margin when it is wide.
+// The steps are ragged here, since a narrow justified column opens rivers. The column
+// ends after the step that makes the whole lowest, and the other steps go on at full
+// measure under the figure, with their numbers. (The grid sits in a block, since a
+// cell ignores the space above its first block.)
+#let beside-steps(title, how, file, caption, hang: auto, lead: none) = context {
+  let w = fig-width(file)
+  let hang = if hang != auto { hang } else if w > 60mm { overhang } else { 0pt }
+  let col = 210mm - 2 * margin-x + hang - w - 16pt
+  let how = if how == none { [] } else { how }
+  let fig-h = measure(probe(side-figure-block(file, caption))).height
+  let kids = if how.func() == [].func() { how.children } else { (how,) }
+  // the places where the column could end: after each item
+  let ends = kids.enumerate().filter(((i, c)) => c.func() == enum.item).map(((i, c)) => i + 1)
+  let steps(slice) = list-after-label(slice)
+  let label-h = measure(block(width: col, probe({ lead; labelled(title) }))).height + gap(0.2)
+  let height-to(e) = label-h + measure(block(width: col, probe(ragged(steps(kids.slice(0, e).join()))))).height
+  let rest-h(e) = if e >= kids.len() or kids.slice(e).filter(c => c.func() not in ([ ].func(), parbreak)).len() == 0 { 0pt } else { gap(0.4) + measure(block(width: 210mm - 2 * margin-x, probe({ steps(kids.slice(e).join()) }))).height }
+  // the end of the column that makes the whole lowest, the later one on a tie
+  let cut = kids.len()
+  let best = calc.max(fig-h, height-to(cut))
+  for e in ends.rev() {
+    let t = calc.max(fig-h, height-to(e)) + rest-h(e)
+    if t < best - 1pt { best = t; cut = e }
+  }
+  let rest = kids.slice(cut)
+  block(above: gap(1), below: 0pt,
+    pad(right: -hang, grid(columns: (1fr, auto), column-gutter: 16pt,
+      ragged({ lead; labelled(title); steps(kids.slice(0, cut).join()) }),
+      side-figure-block(file, caption),
+    )))
+  if rest.filter(c => c.func() not in ([ ].func(), parbreak)).len() > 0 {
+    // the list that was cut goes on with its numbers; a later list starts again
+    let is-filler(c) = c.func() in ([ ].func(), parbreak)
+    let run-start = kids.slice(0, cut).enumerate().filter(((i, c)) => c.func() != enum.item and not is-filler(c)).map(((i, c)) => i + 1).last(default: 0)
+    let done = kids.slice(run-start, cut).filter(c => c.func() == enum.item).len()
+    let run-end = rest.enumerate().filter(((i, c)) => c.func() != enum.item and not is-filler(c)).map(((i, c)) => i).first(default: rest.len())
+    block(above: gap(0.4), below: 0pt, width: 100%, {
+      {
+        set enum(start: done + 1)
+        show enum: set block(above: 0pt)
+        steps(rest.slice(0, run-end).join())
+      }
+      if run-end < rest.len() { steps(rest.slice(run-end).join()) }
+    })
+  }
+}
 #let wide-figure-block(file, caption) = block(width: 100%, breakable: false, {
   wide-image(file)
   if caption != none {
-    v(0.6em)
-    align(center, block(width: calc.min(calc.max(fig-width(file), 60mm), 125mm), align(left, caption-text(caption))))
+    v(caption-gap)
+    align(center, block(above: 0pt, width: calc.min(calc.max(fig-width(file), 60mm), 125mm), align(left, caption-text(caption))))
   }
 })
 
@@ -781,12 +958,20 @@
 #let reading-head(n, title) = block(above: 0pt, below: gap(0.5), breakable: false, sticky: true,
   text(size: fs.sub)[#section-label[Problem #n]#h(0.6em)#text(weight: 700, title)])
 
+// A hold's mark stays with the word before it, since "2." at the start of a line reads
+// as a list number and "B." as a stray letter.
+#let tie-holds(body) = {
+  show regex("[\p{L}\p{N}]+,? [A-Z0-9]\b"): it => it.text.replace(" ", "\u{a0}")
+  body
+}
+
 // Every figure here is under 92 mm wide, so it always sits beside its text.
-#let reading-layout(label, steps, file, caption) = context beside-steps(
-  labelled-steps(label, steps, 1), "figures/" + file, caption, 1)
+#let reading-layout(label, steps, file, caption, lead: none) = beside-steps(label, steps, "figures/" + file, caption, hang: overhang, lead: lead)
 
 #let reading-question(n: none, title: none, grade: none, wall: none, start: none, finish: none, figure: none, prompts: none) = {
   pagebreak(weak: true, to: "odd")
+  [#metadata((n: n, side: "question"))<reading-page>]
+  show: tie-holds
   reading-head(n, title)
   [About #grade-tab-inline(grade-label(grade), g: grade). #wall Start: #start Finish: #finish]
   reading-layout([Read it yourself], prompts, figure, none)
@@ -798,20 +983,21 @@
 // entry. The notes belong together, so half a line parts them from each other.
 #let reading-answer(n: none, figure: none, caption: none, moves: none, crux: none, wrong: none, next: none, tall: none, small: none, entries: ()) = {
   pagebreak(weak: true)
-  reading-head(n, [The answer])
-  reading-layout([The moves], moves, figure, caption)
-  block(above: gap(1), below: 0pt, [#text(weight: 700)[Crux.] #crux])
+  [#metadata((n: n, side: "answer"))<reading-page>]
+  show: tie-holds
+  reading-layout([The moves], moves, figure, caption, lead: reading-head(n, [The answer]))
+  block(width: 100%, above: gap(1), below: 0pt, [#text(weight: 700)[Crux.] #crux])
   for (head, body) in (([Why the obvious try fails.], wrong), ([What to try next.], next)) {
-    if body != none { block(above: gap(0.5), below: 0pt, [#text(weight: 700, head) #body]) }
+    if body != none { block(width: 100%, above: gap(0.5), below: 0pt, [#text(weight: 700, head) #body]) }
   }
-  if tall != none { block(above: gap(0.5), below: 0pt, [#aside-icon("tall")#text(weight: 700, style: "italic")[Tall climbers.] #tall]) }
-  if small != none { block(above: gap(0.5), below: 0pt, [#aside-icon("small")#text(weight: 700, style: "italic")[Small climbers.] #small]) }
+  if tall != none { block(width: 100%, above: gap(0.5), below: 0pt, [#aside-icon("tall")#text(weight: 700, style: "italic")[Tall climbers.] #tall]) }
+  if small != none { block(width: 100%, above: gap(0.5), below: 0pt, [#aside-icon("small")#text(weight: 700, style: "italic")[Small climbers.] #small]) }
   if entries.len() > 0 {
-    block(above: gap(0.5), below: 0pt, {
+    block(above: gap(0.5), below: 0pt, ragged({
       set text(size: fs.note)
-      set par(justify: false, leading: 0.68em, hanging-indent: 1em)
-      [#sc[Entries]#h(0.45em)#entries.map(k => tref(k)).join(", ")]
-    })
+      set par(leading: 0.68em, hanging-indent: 1em)
+      par[#sc[Entries]#h(0.45em)#entries.map(k => tref(k)).join(", ")]
+    }))
   }
 }
 
@@ -819,26 +1005,27 @@
 // with `name` and `how` (numbered steps or a short paragraph), and optionally
 // `figure`, `caption` and `figure-wide`, which work as they do for the entry.
 // With `live` false it carries no index mark, for measuring.
-#let part-content(p, k, live) = {
-  let steps = labelled-steps([#if live { ix(plain(p.name), main: true) }#p.name], p.how, k)
+#let part-content(p, live) = {
+  let title = [#if live { ix(plain(p.name), main: true) }#p.name]
   let figure = p.at("figure", default: none)
   let caption = p.at("caption", default: none)
   if figure == none {
-    steps
+    labelled-steps(title, p.how)
   } else if sits-beside("figures/" + figure, p.at("figure-wide", default: false)) {
-    beside-steps(steps, "figures/" + figure, caption, k)
+    beside-steps(title, p.how, "figures/" + figure, caption)
   } else {
-    steps
-    block(above: kgap(1, k), wide-figure-block("figures/" + figure, caption))
+    labelled-steps(title, p.how)
+    block(above: gap(1), wide-figure-block("figures/" + figure, caption))
   }
 }
-#let part-height(p, k) = measure(block(width: 210mm - 2 * margin-x, probe(entry-spaces(k, part-content(p, k, false))))).height
-// A figure stays on one page with its steps unless together they are taller
-// than a page. A part with no figure stays whole when it is short (under a
-// third of a page, as for a note box), and otherwise breaks like the main steps.
-#let part-whole(p, height) = height <= if p.at("figure", default: none) == none { page-height / 3 } else { page-height }
-#let entry-part(p, k, live) = block(width: 100%, breakable: not part-whole(p, part-height(p, k)), above: kgap(1, k), below: kgap(1, k),
-  part-content(p, k, live))
+// A part with no figure stays whole when it is short (under a third of a page, as
+// for a note box), and otherwise breaks like the main steps. A part with a figure
+// may break between its steps and its figure, rather than leave a page half empty.
+#let part-whole(p) = p.at("figure", default: none) == none and measure(block(width: 210mm - 2 * margin-x, probe(entry-spaces(part-content(p, false))))).height <= page-height / 3
+#let entry-part(p) = block(width: 100%, breakable: not part-whole(p), above: gap(1), below: gap(1), part-content(p, true))
+
+// An apparatus at least this tall (about nine lines) can stand alone on a page.
+#let apparatus-alone = 120pt
 
 #let technique(
   key: none,
@@ -862,73 +1049,67 @@
   related: (),
   watch: (),
   sources: (),
-  // the space factor, when the one chosen to save a page spills anyway
-  k: auto,
+  // a box that belongs to the entry (of drills, say), set last, so the apparatus still
+  // closes the entry
+  closing-box: none,
+  // paragraphs on variants of the move, set straight after a wide figure rather than
+  // between the steps and the figure, for when they would part the two
+  after-figure: none,
 ) = {
   // `aliases: ("one name")` is a string, not an array: accept both
   let aliases = if type(aliases) == str { (aliases,) } else { aliases }
   // and `parts: (name: ..., how: ...)` is one part, not an array
   let parts = if type(parts) == dictionary { (parts,) } else { parts }
   let meta = (key: key, name: name, aliases: aliases, category: category, grade: grade)
-  // The head of the entry, its spaces scaled by `k`. With `live` false it
-  // carries no heading, labels or index marks, for measuring.
-  let head(k, live) = {
+  // The head of the entry.
+  let head = {
     // title band: the name and the grade, the other names and the
     // category, then a heavy rule (sticky: never left alone at the foot
     // of a page)
-    block(width: 100%, below: kgap(1, k), breakable: false, sticky: true, {
+    block(width: 100%, below: gap(1), breakable: false, sticky: true, {
       grid(columns: (1fr, auto), column-gutter: 1em, align: (left + bottom, right + bottom),
-        if live [#heading(level: 3, name)#label("tech-" + key)#metadata(meta)#label("tech-meta-" + key)#ix(name, main: true)]
-        else { text(size: fs.tech, weight: 700, name) },
+        [#heading(level: 3, name)#label("tech-" + key)#metadata(meta)#label("tech-meta-" + key)#ix(name, main: true)],
         navlink(label("grade-" + str(calc.min(calc.max(grade, 0), 8))), grade-tab(grade-label(grade) + "+", size: fs.badge, g: grade)),
       )
       if aliases.len() > 0 or category != none {
         set par(justify: false)
-        block(above: 0.85em, text(size: fs.caption)[
-          #if aliases.len() > 0 [_Also called_ #aliases.join(", ")]
-          #if aliases.len() > 0 and category != none [#h(0.4em)·#h(0.4em)]
-          #if category != none [#navlink(label("cattable-" + category), sc(categories.at(category), tracking: 0.05em))]
-        ])
+        // other names and category on one line, or the category on a line of its own
+        // with no separator left hanging
+        let others = if aliases.len() > 0 [_Also called_ #aliases.join(", ")]
+        let cat = if category != none { box(navlink(label("cattable-" + category), sc(categories.at(category), tracking: 0.05em))) }
+        let sep = [#h(0.4em)·#h(0.4em)]
+        block(above: 0.85em, text(size: fs.caption, context {
+          if others == none or cat == none { others; cat }
+          else if measure([#others#sep#cat]).width <= 210mm - 2 * margin-x { others; sep; cat }
+          else { others; linebreak(); cat }
+        }))
       }
       block(above: 0.8em, line(length: 100%, stroke: rule-heavy))
     })
     // (an alias that names a part is indexed at the part, under that name alone)
     let part-names = parts.map(p => lower(plain(p.name)))
-    if live { for a in aliases.filter(a => lower(a) not in part-names) { ix(a + " (see " + name + ")") } }
-    if summary != none { block(above: 0pt, below: kgap(0.6, k), sticky: true, text(size: fs.lead, par(summary))) }
-    // (when entries share pages, the head of an entry stays with its steps)
+    for a in aliases.filter(a => lower(a) not in part-names) { ix(a + " (see " + name + ")") }
+    // (ragged, like the grade note under it: at this size a line stretched to justify shows)
+    if summary != none { block(width: 100%, above: 0pt, below: gap(0.6), sticky: true, ragged(text(size: fs.lead, par(summary)))) }
     if grade-note != none {
-      block(above: kgap(0.6, k), below: 0pt, sticky: page-flow != none, text(size: fs.note)[#sc(tracking: 0.08em)[Grade]#h(0.6em)#grade-note])
+      block(width: 100%, above: gap(0.6), below: 0pt, ragged(text(size: fs.note)[#sc(tracking: 0.08em)[Grade]#h(0.6em)#grade-note]))
     }
   }
   // The figure of the entry. `side-figure` is true when it sits beside the
   // steps (it takes a context, to measure the image).
   let file = if figure != none { "figures/" + figure } else { none }
   let side-figure() = file != none and sits-beside(file, figure-wide)
-  // The head and the steps, with the figure if it sits beside them. (An entry
-  // made up of parts may have no steps of its own.)
-  let opening(k, live) = {
-    head(k, live)
-    let steps = if how != none { labelled-steps([How to do it], how, k) }
-    if side-figure() { beside-steps(steps, file, caption, k) } else { steps }
-  }
-  // The entry, its spaces scaled by `k`. With `live` false it is for measuring.
-  let entry(k, live) = {
-    show: entry-spaces.with(k)
-    opening(k, live)
+  // The entry: the head and the steps, with the figure if it sits beside them.
+  // (An entry made up of parts may have no steps of its own.)
+  // (It takes a context, for the figure's width and the backlinks.)
+  let entry() = {
+    show: entry-spaces
+    head
+    if side-figure() { beside-steps([How to do it], how, file, caption) }
+    else if how != none { labelled-steps([How to do it], how) }
     // after the steps: the parts, the reading box, mistakes, the notes for tall
     // and small climbers and the entry's apparatus
     let rest = {
-      for p in parts { entry-part(p, k, live) }
-      if when != none { readbox(when, k: k) }
-      if errors != none { mistakes(errors, k: k) }
-      // when entries share pages, a note and the apparatus stay whole
-      if tall != none {
-        block(above: kgap(1, k), below: 0pt, breakable: page-flow == none, [#aside-icon("tall")#text(weight: 700, style: "italic")[Tall climbers.] #tall])
-      }
-      if small != none {
-        block(above: kgap(1, k), below: 0pt, breakable: page-flow == none, [#aside-icon("small")#text(weight: 700, style: "italic")[Small climbers.] #small])
-      }
       // the entry's apparatus: related entries, videos, sources, backlinks
       let foot = ()
       if related.len() > 0 {
@@ -936,7 +1117,7 @@
       }
       // a small black tab with the link's number, matching the number under
       // its QR code (and unlike a digit in the video's title)
-      let qr-num(n) = grade-tab(str(n), size: 7.2pt)
+      let qr-num(n) = grade-tab-inline(str(n), size: 7.2pt)
       if watch.len() > 0 {
         let items = watch.enumerate().map(((i, w)) => {
           let num = if i < 2 { [#qr-num(i + 1)#h(0.3em)] } else { [] }
@@ -950,154 +1131,75 @@
       if sources.len() > 0 {
         foot.push([#sc[Sources]#h(0.45em)#src(..sources)])
       }
-      let back = backlink-items(key)
-      let back = if live { back } else { back.map(b => [#b.body.children.first() (p.#sym.space.nobreak#"000")]) }
-      if back.len() > 0 {
-        foot.push([#sc[Referenced from]#h(0.45em)#back.join(", ")])
-      }
-      if foot.len() > 0 {
-        // up to two QR codes for the videos, numbered like the Watch links
-        let qrs = watch.slice(0, calc.min(watch.len(), 2)).enumerate().map(((i, w)) => stack(
-          spacing: 3pt,
-          link(w.at(2), qrcode(w.at(2), width: 13mm)),
-          align(center, qr-num(i + 1)),
-        ))
-        let lines = {
+      let foot-with(back) = foot + if back.len() > 0 { ([#sc[Referenced from]#h(0.45em)#back.join(", ")],) } else { () }
+      // up to two QR codes for the videos, numbered like the Watch links
+      let qrs = watch.slice(0, calc.min(watch.len(), 2)).enumerate().map(((i, w)) => stack(
+        spacing: 3pt,
+        link(w.at(2), qrcode(w.at(2), width: 13mm)),
+        align(center, qr-num(i + 1)),
+      ))
+      let references(back) = {
+        let lines = ragged({
           set text(size: fs.note)
-          set par(justify: false, leading: 0.68em, spacing: 0.75em, hanging-indent: 1em)
-          for f in foot { par(f) }
+          set par(leading: 0.68em, spacing: 0.75em, hanging-indent: 1em)
+          for f in foot-with(back) { par(f) }
+        })
+        if qrs.len() == 0 { lines } else {
+          grid(columns: (1fr, auto), column-gutter: 14pt, lines,
+            stack(spacing: 4pt,
+              text(size: fs.index, style: "italic")[Scan to watch],
+              stack(dir: ltr, spacing: 7pt, ..qrs)))
         }
-        block(above: kgap(1.5, k), width: 100%, breakable: page-flow == none, {
-          block(below: kgap(0.5, k), sticky: true, line(length: 100%, stroke: rule-light))
-          if qrs.len() == 0 { lines } else {
-            grid(columns: (1fr, auto), column-gutter: 14pt, lines,
-              stack(spacing: 4pt,
-                text(size: fs.index, style: "italic")[Scan to watch],
-                stack(dir: ltr, spacing: 7pt, ..qrs)))
+      }
+      let back = backlink-items(key)
+      // A short apparatus alone on a page reads as a stray, so whatever comes last before
+      // it stays with it. A long one can stand on its own, and the block before it can
+      // then stay on its page instead of leaving a hole there.
+      let has-apparatus = foot.len() > 0 or back.len() > 0
+      let glue = closing-box != none or (has-apparatus and measure(block(width: 210mm - 2 * margin-x, probe(references(backlink-items(key, measuring: true))))).height < apparatus-alone)
+      let last-note = tall == none and small == none
+      for p in parts { entry-part(p) }
+      if when != none {
+        if errors == none and last-note and closing-box == none and glue { block(sticky: true, below: 0pt, readbox(when)) } else { readbox(when) }
+      }
+      if errors != none { mistakes(errors, glue: last-note and closing-box == none and glue) }
+      if tall != none {
+        // (the two notes are a pair, and stay together)
+        block(width: 100%, above: gap(1), below: 0pt, breakable: false, sticky: small != none or (closing-box == none and glue), [#aside-icon("tall")#text(weight: 700, style: "italic")[Tall climbers.] #tall])
+      }
+      if small != none {
+        block(width: 100%, above: gap(1), below: 0pt, breakable: false, sticky: closing-box == none and glue, [#aside-icon("small")#text(weight: 700, style: "italic")[Small climbers.] #small])
+      }
+      if closing-box != none { block(sticky: true, below: 0pt, closing-box) }
+      if has-apparatus {
+        // A box straight above closes the entry with its own rule, since two rules with
+        // nothing between them read like an empty table row. At the top of a page the
+        // running head's rule is enough.
+        let after-box = closing-box != none or (when != none and errors == none and last-note)
+        block(above: if after-box { gap(1) } else { gap(1.5) }, width: 100%, breakable: false, {
+          context if not after-box and here().position().y > margin-top + 1pt {
+            block(below: gap(0.5), sticky: true, line(length: 100%, stroke: rule-light))
           }
+          references(back)
         })
       }
     }
-    if file == none or side-figure() {
-      rest
-    } else if parts.len() > 0 {
-      // wide figure, with parts to follow: a part never goes ahead of it
-      block(above: kgap(1, k), below: 0pt, wide-figure-block(file, caption))
-      rest
-    } else {
-      // wide figure: below the steps when it fits on the page, otherwise at
-      // the top of the next page while the reading box fills this one. The
-      // float sits in a block that starts after the steps, so it can't rise
-      // above them.
-      block(width: 100%, breakable: true, above: kgap(1, k), {
-        place(top, float: true, clearance: kgap(1, k), wide-figure-block(file, caption))
-        rest
-      })
-    }
+    // a wide figure stays in flow after the steps, so the order never changes:
+    // steps, figure, parts, box, mistakes, notes, apparatus
+    if file != none and not side-figure() { block(above: gap(1), below: 0pt, wide-figure-block(file, caption)) }
+    if after-figure != none { block(width: 100%, above: gap(1), below: 0pt, breakable: false, after-figure) }
+    rest
   }
-  // Every entry starts a page, unless it follows the head of its grade
-  // section on that page or page sharing lets it stay (see `page-flow`).
-  // Floats still waiting from the entry before are set first, so they can't
-  // land on this entry's page.
-  place.flush()
-  context if page-flow == none and not entry-top.get() { pagebreak(weak: true) }
+  // Every entry starts a page, unless it follows the head of its grade section on
+  // that page. The updates come after the page break: Typst moves the start of this
+  // context past the break, so a state update before it would count as coming before
+  // the context, and `entry-top.get()` would read its value.
+  context if not entry-top.get() { pagebreak(weak: true) }
   context {
-    let under-head = entry-top.get()
-    // An entry that may share a page is estimated from the top of a page,
-    // which is where it goes if it doesn't stay on this one.
-    let sharing = page-flow != none and not under-head
-    let y = if sharing { margin-top } else { here().position().y }
-    let height-of(body) = measure(block(width: 210mm - 2 * margin-x, probe(body))).height
-    // A wide figure and a part that stays whole can leave the foot of a page
-    // empty, which a measured height doesn't show, so the estimate walks
-    // through them.
-    let part-waste(k) = {
-      if parts.len() == 0 { return 0pt }
-      let blocks = parts.map(p => {
-        let h = part-height(p, k)
-        (h, part-whole(p, h))
-      })
-      if file != none and not side-figure() { blocks.insert(0, (height-of(wide-figure-block(file, caption)), true)) }
-      let waste = 0pt
-      let left = page-height - (y - margin-top) - height-of(entry-spaces(k, opening(k, false)))
-      for (h, whole) in blocks {
-        while left < 0pt { left += page-height }
-        if whole and h + kgap(1, k) > left {
-          waste += left
-          left = page-height - h
-        } else {
-          left -= h + kgap(1, k)
-        }
-      }
-      waste
-    }
-    let pages = page-estimate(y, k => entry(k, false), waste: part-waste)
-    // An entry is set with tighter spaces when that saves it a page, i.e.
-    // when it would otherwise spill a little onto a page of its own (see
-    // `fit-space`), or with the spaces its `k` asks for. An entry that breaks
-    // wherever it needs to has no such spill to avoid. An entry with parts runs
-    // over pages with white at their feet, where tight spaces would look wrong,
-    // so it only ever takes the mildest factor.
-    let (k, est) = if sharing and flow-share != none {
-      let k = if k == auto { 1 } else { k }
-      (k, pages(k))
-    } else if parts.len() > 0 {
-      fit-space(pages, k, tries: (0.6,))
-    } else { fit-space(pages, k) }
-    // Short enough to stay whole: on this page if it fits, else on the next.
-    let whole = sharing and est == 1 and (flow-share == none or height-of(entry(k, false)) <= flow-share * page-height)
-    if sharing and not whole and flow-share == none { pagebreak(weak: true) }
-    // These updates have to come after that page break. Typst moves the start
-    // of this context past the break, so a state update before the break
-    // would count as coming before the context, and `entry-top.get()` above
-    // would read its value.
     entry-top.update(false)
     entries-running.update(true)
-    if whole {
-      block(breakable: false, above: entry-gap, below: 0pt, width: 100%, fit-start(key, est) + entry(k, true) + fit-end)
-    } else {
-      if sharing and flow-share != none {
-        // The head and a figure beside the steps have to fit where the entry
-        // starts: the steps can break, but the figure would leave them beside
-        // a hole if it moved on to the next page.
-        let lead = height-of({
-          head(k, false)
-          if side-figure() { block(above: kgap(1, k), side-figure-block(file, caption)) }
-        })
-        need-space(calc.max(flow-share * page-height, lead), above: entry-gap)
-      }
-      fit-start(key, est)
-      block(breakable: true, above: 0pt, below: 0pt, width: 100%, entry(k, true))
-      fit-end
-    }
+    block(breakable: true, above: 0pt, below: 0pt, width: 100%, entry())
   }
-}
-
-// ------------------------------------------------------------ fitting running text
-
-// Running text set with its spaces scaled by `k` (see `kgap`). The space
-// above a subhead shrinks to half at most, so that it stays about twice
-// the space below.
-#let spaced(k, body) = {
-  set list(spacing: kgap(0.4, k))
-  set enum(spacing: kgap(0.4, k))
-  show list: set block(above: kgap(0.5, k), below: kgap(0.5, k))
-  show enum: set block(above: kgap(0.5, k), below: kgap(0.5, k))
-  show heading.where(level: 4): it => block(above: kgap(1.5, calc.max(k, 1 / 3)), below: kgap(0.35, k), sticky: true, text(size: fs.sub, weight: 700, it.body))
-  body
-}
-
-// A stretch of running text that starts at a fixed place (a grade guide
-// under its head, a chapter's opening sections) and ends where a new page
-// begins. Like an entry, it is set with tighter space when that saves it
-// a page of a few lines (#fit-pages[...]), or with the space `k` asks for
-// (#fit-pages(k: 0.35)[...]).
-#let fit-pages(k: auto, body) = context {
-  let pages = page-estimate(here().position().y, k => spaced(k, body))
-  let (k, est) = fit-space(pages, k)
-  fit-start(none, est)
-  spaced(k, body)
-  fit-end
 }
 
 // ------------------------------------------------------------ generated tables
@@ -1118,8 +1220,10 @@
 #let cell-inset = (x: 5pt, y: 5pt)
 
 // A table with the book's style (chapters use it through `gtable` etc.).
+// Its rows run to several lines, so they are parted by more space than the short rows
+// of the generated tables.
 #let data-table(columns: auto, ..args) = table(
-  columns: columns, stroke: head-rule, inset: cell-inset, align: left + top, ..args,
+  columns: columns, stroke: head-rule, inset: (x: cell-inset.x, y: 7pt), align: left + top, ..args,
 )
 
 // Table of the techniques in one category, ranked by grade, in two columns.
@@ -1149,10 +1253,10 @@
 // grouped by category, in the chapter's order within each category.
 #let grade-techniques(g) = context {
   let ms = tech-metas().filter(m => if g >= 8 { m.value.grade >= 8 } else { m.value.grade == g })
-  if ms.len() == 0 { block(above: gap(0.5), par(first-line-indent: 0pt, emph[None listed.])) } else {
+  if ms.len() > 0 {
     let rows = ms.sorted(key: m => m.value.category)
     table(
-      columns: (1fr, auto, auto),
+      columns: (1fr, 10em, 2.2em),
       stroke: head-rule,
       inset: (x: 5pt, y: 4.2pt),
       align: (left, left, right),
@@ -1181,21 +1285,29 @@
   let dots = box(width: 1fr, repeat(gap: 0.25em, text(size: 0.8em, ".")))
   set text(size: fs.caption, number-type: "lining")
   set par(justify: false, leading: 0.72em, spacing: 0.72em, hanging-indent: 1em, first-line-indent: 0pt)
-  block(above: gap(1.5), columns(2, gutter: 2em, {
-    let last-letter = none
-    for r in rows {
-      let letter = upper(ix-fold(r.sort).first())
-      if last-letter != none and letter != last-letter { v(gap(0.5), weak: true) }
-      last-letter = letter
-      let loc = r.m.location()
-      let pg = str(counter(page).at(loc).first())
-      if r.see == none {
-        par[#link(loc, strong(r.name))#h(0.3em)#dots#h(0.3em)#box(width: 2.1em, badge-plain(r.m.value.grade))#box(width: 1.6em, align(right, link(loc, pg)))]
-      } else {
-        par[#link(loc)[#r.name #arrow _#r.see _]#h(0.3em)#dots#h(0.3em)#box(width: 1.6em, align(right, link(loc, pg)))]
-      }
+  let items = ()
+  let sizes = ()
+  let letter-of(i) = if i >= 0 and i < rows.len() { upper(ix-fold(rows.at(i).sort).first()) }
+  // the page's number stays on the line of its leader, and the leader with the last
+  // word before it; a target name never breaks
+  let tie = [#sym.wj#h(0.3em)#sym.wj]
+  for (i, r) in rows.enumerate() {
+    let letter = letter-of(i)
+    let sp = if i > 0 and letter != letter-of(i - 1) { v(gap(0.5), weak: true) }
+    // like the index, two rows stay together at each end of a letter's group
+    let keep = (letter == letter-of(i + 1) and (letter != letter-of(i - 1) or letter != letter-of(i + 2)))
+    let row(body) = block(breakable: false, sticky: keep, par(body))
+    let loc = r.m.location()
+    let pg = str(counter(page).at(loc).first())
+    if r.see == none {
+      items.push([#sp#row[#link(loc, strong(r.name))#tie#dots#tie#box(width: 2.1em, badge-plain(r.m.value.grade))#box(width: 2em, align(right, link(loc, pg)))]])
+      sizes.push([#sp#row[#strong(r.name)#tie#dots#tie#box(width: 2.1em, badge-plain(r.m.value.grade))#box(width: 2em, align(right, pg))]])
+    } else {
+      items.push([#sp#row[#link(loc)[#r.name #arrow #box(emph(r.see))]#tie#dots#tie#box(width: 2em, align(right, link(loc, pg)))]])
+      sizes.push([#sp#row[#r.name #arrow #box(emph(r.see))#tie#dots#tie#box(width: 2em, align(right, pg))]])
     }
-  }))
+  }
+  balanced-columns("az", 2, items, gutter: 2em, sizes: sizes, margin: 0pt)
 }
 
 // ------------------------------------------------------------ document
@@ -1216,7 +1328,7 @@
     if subtitle != none {
       text(size: fs.sub, sc(title, tracking: 0.24em))
       v(8mm)
-      block(width: 80%, text(size: fs.part-sub, style: "italic", hyphenate: false, par(justify: false, leading: 0.5em, subtitle)))
+      block(width: 90%, text(size: fs.part-sub, style: "italic", hyphenate: false, par(justify: false, leading: 0.5em, subtitle)))
     } else {
       text(size: fs.chapter, style: "italic", title)
     }
@@ -1251,7 +1363,8 @@
         let chs = h1.filter(h => h.location().page() <= pg and h.at("label", default: none) != <part>)
         let opening = h1.filter(h => h.location().page() == pg).len() > 0
         set text(size: fs.note, number-type: "old-style")
-        set par(justify: false, first-line-indent: 0pt)
+        // (its own spacing, or a page begun inside the A–Z would pass on the A–Z's)
+        set par(justify: false, first-line-indent: 0pt, spacing: lead)
         let dot = h(0.45em) + sym.dot.c + h(0.45em)
         let nav = sc(tracking: 0.05em)[#navlink(<contents>)[Contents]#dot#navlink(<a-to-z>)[A–Z]#dot#navlink(<troubleshooting>)[Troubleshooting]#dot#navlink(<glossary>)[Glossary]#dot#navlink(<index>)[Index]]
         let running = if chs.len() > 0 and not opening {
@@ -1268,24 +1381,81 @@
     },
     footer: none,
   )
-  set text(font: serif, size: fs.body, lang: "en", region: "gb", hyphenate: true, number-type: "old-style", top-edge: cap)
+  set text(font: serif, size: fs.body, lang: "en", region: "gb", number-type: "old-style", top-edge: cap, costs: (hyphenation: 40%))
   // Grades and Font grades take lining figures: V3, 6A+.
-  show regex("\bV\d+|\b\d[ABC]\b"): set text(number-type: "lining")
+  show regex("\bV\d+|\b\d[ABC]\b|\bA[1-5]\b|Font[ \u{a0}]\d\+?(?:[–\u{2060}]+\d\+?)?"): set text(number-type: "lining")
+  // A range stays whole, and with its unit: the box hides the range's last digit
+  // from the measurement rule below, so "10–25 minutes" is tied here.
+  show regex("[\p{L}\p{N}+]+–[\p{L}\p{N}+]+(?: (?:mm|cm|m|km|kg|N|min|minutes?|seconds?)\b)?"): it => {
+    let (span, ..unit) = it.text.split(" ")
+    if unit.len() == 0 { box(it) } else { box(span) + "\u{a0}" + unit.join(" ") }
+  }
+  // A spaced dash ends a line and never starts one.
+  show regex(" [-–] "): "\u{a0}– "
+  // "Chapter 2" and "Font 6A" stay together, and "Chapter" doesn't hyphenate.
+  show regex("\b(Chapters?|Font) \d"): it => text(hyphenate: false, it.text.replace(" ", "\u{a0}"))
+  show regex("\d (mm|cm|m|km|kg|N|min|minutes?|seconds?)\b"): it => it.text.replace(" ", "\u{a0}")
+  show regex("(?i)\b(e-reader|side-on|pull-up|take-off|big-toe|little-toe|one-handed|two-finger|top-outs?|fact-check)\b"): box
+  show regex("\b(Section|Figure)\b"): box
   // Running text: paragraphs are marked by an indent, not by space; space
   // is kept for the boundaries between blocks.
-  set par(justify: true, leading: lead, spacing: lead, first-line-indent: 1.5em)
+  set par(justify: true, leading: lead, spacing: lead, first-line-indent: 1.5em, justification-limits: (spacing: (min: 82%, max: 130%), tracking: (min: -0.01em, max: 0.015em)))
   // Lists: items half a line apart, the list half a line from the text.
   set list(indent: 0.25em, body-indent: 0.5em, spacing: gap(0.4), marker: text(size: 0.9em, [•]))
-  set enum(indent: 0.1em, body-indent: 0.5em, spacing: gap(0.4))
+  set enum(indent: 0.1em, body-indent: 0.5em, spacing: gap(0.4), numbering: step-number)
   show list: set block(above: gap(0.5), below: gap(0.5))
   show enum: set block(above: gap(0.5), below: gap(0.5))
-  show list: set par(first-line-indent: 0pt)
-  show enum: set par(first-line-indent: 0pt)
+  // Lists are ragged, in every setting: items are short, a justified one opens loose
+  // lines when its last words have to stay together, and steps beside a figure are ragged
+  // anyway. Running paragraphs stay justified.
+  show list: set par(first-line-indent: 0pt, justify: false, linebreaks: "optimized")
+  show enum: set par(first-line-indent: 0pt, justify: false, linebreaks: "optimized")
+  show list: set text(costs: (runt: 2000%))
+  show enum: set text(costs: (runt: 2000%))
+  show list: keep-compounds
+  show enum: keep-compounds
   show link: it => it
+  show list: keep-list.with(list)
+  show enum: keep-list.with(enum)
+  // The last line of a lead-in ending in ":" carries a strut hanging below it, so that
+  // it needs the room for the first items of its list (six lines); the same space is
+  // then taken back. (It stays a paragraph, not a block, so it keeps its first-line
+  // indent.) Six lines cover the book's lists today, and tools/check_fit.py fails the
+  // build if a lead-in ever ends a page.
+  show par: it => {
+    let done = it.body.func() == [].func() and it.body.children.len() > 0 and it.body.children.last().func() == box
+    if not done and plain(it.body).trim().ends-with(":") {
+      let strut = gap(0.5) + 6 * pitch
+      par(it.body + box(width: 0pt, height: strut, baseline: strut))
+      v(-strut)
+    } else { it }
+  }
   // Reference matter set in columns (glossary, A–Z, sources, index) uses
   // the outer frame.
   show columns: it => block(above: gap(1.5), pad(x: -overhang, it))
   show cite: set text(size: 0.9em)
+  // A source never breaks across columns, and its URL breaks only after a separator
+  // or an escaped character such as %20, never leaving a few characters alone on a line.
+  show bibliography: set grid.cell(breakable: false)
+  show bibliography: it => {
+    show link: l => {
+      // (a link already set in pieces is left alone)
+      let set-already = l.body.func() == box or (l.body.func() == [].func() and l.body.children.any(c => c.func() == box))
+      let t = plain(l.body)
+      if set-already or t.len() == 0 { return l }
+      let pieces = t.matches(regex("[^/.\\-_?=&%]*(?:[/.\\-_?=&]+|%[0-9A-Fa-f]{2})?")).map(m => m.text).filter(x => x != "")
+      if pieces.len() > 1 and pieces.last().len() < 7 {
+        let tail = pieces.pop()
+        pieces.push(pieces.pop() + tail)
+      }
+      link(l.dest, text(number-type: "lining", pieces.map(box).join()))
+    }
+    // The citation style leaves a comma where an entry has no page numbers, and after a
+    // title that ends in its own punctuation.
+    show regex(", \(\d{4}[a-z]?\)"): it => it.text.slice(1)
+    show regex("[?!]\)?, "): it => it.text.replace(",", "")
+    it
+  }
   set heading(numbering: (..n) => {
     let n = n.pos()
     if n.len() == 1 { str(n.first()) } else if n.len() == 2 { str(n.at(0)) + "." + str(n.at(1)) } else { none }
@@ -1327,24 +1497,27 @@
     let lbl = it.at("label", default: none)
     let lbl = if lbl == none { "" } else { str(lbl) }
     let g = grade-head(it)
-    let guide = lbl.starts-with("grade")
+    // (the progression map closes the run of guides, so it looks like them)
+    let guide = lbl.starts-with("grade") or lbl == "progression-map"
     let size = if guide { fs.guide } else { fs.section }
     let head = context {
       set text(size: size)
-      let num = if it.numbering != none [#text(number-type: "old-style", counter(heading).display())#h(0.45em)]
-      set par(leading: 0.42em, hanging-indent: if num != none { measure(num).width } else { 0pt })
-      [#num#it.body]
+      let num = if it.numbering != none [#text(number-type: "old-style", numbering(it.numbering, ..counter(heading).at(it.location())))#h(0.45em)]
+      par(leading: 0.42em, hanging-indent: if num != none { measure(text(size: size, num)).width } else { 0pt }, [#num#it.body])
     }
     if guide or (g != none and g.title != none) {
       pagebreak(weak: true)
       if guide { entries-running.update(false); v(pitch) } else { entry-top.update(true) }
       block(width: 100%, above: 0pt, below: if guide { gap(2) } else { gap(2.5) }, sticky: true, head)
     } else {
-      block(width: 100%, above: gap(2.5), below: gap(0.9), sticky: true, head)
+      // room for the head and five lines under it, or the next page
+      block(width: 100%, above: gap(2.5), below: 0pt, breakable: false, height: 5 * pitch + 2 * fs.section, sticky: true)
+      v(-(5 * pitch + 2 * fs.section))
+      block(width: 100%, above: 0pt, below: gap(0.9), sticky: true, head)
     }
   }
   show heading.where(level: 3): it => text(size: fs.tech, weight: 700, it.body)
-  show heading.where(level: 4): it => block(above: gap(1.5), below: gap(0.35), sticky: true, text(size: fs.sub, weight: 700, it.body))
+  show heading.where(level: 4): it => block(above: gap(1.5), below: gap(0.5), sticky: true, text(size: fs.sub, weight: 700, it.body))
   // A head that runs to two lines is broken as a whole, so that no word is
   // left alone on the last line, and never inside a compound such as
   // "comp-style" or "V0–V1". A head tied with no-break spaces keeps the
@@ -1361,18 +1534,23 @@
   // Figures: the drawing (allowed into the margins when wide) and an
   // italic caption led by the figure number in small caps.
   show figure.caption: it => {
-    set par(justify: false, first-line-indent: 0pt, leading: 0.72em)
-    text(size: fs.caption)[#sc(tracking: 0.05em)[#it.supplement #context it.counter.display(it.numbering)]#h(0.5em)#emph(it.body)]
+    show: ragged
+    set par(first-line-indent: 0pt, leading: 0.72em)
+    text(size: fs.caption)[#sc(tracking: 0.05em)[#it.supplement #context it.counter.display(it.numbering)]#h(0.5em)#tie-marks(emph(it.body))]
   }
   // Narrow figures take their caption beside them.
-  show figure: it => float-figure(block(width: 100%, breakable: false, context {
+  show figure: it => figure-block(block(width: 100%, breakable: false, context {
     let w = measure(it.body).width
     if w < 80mm {
-      align(center, grid(columns: (w, 62mm), column-gutter: 7mm, align: bottom, it.body, it.caption))
+      align(center, grid(columns: (w, 62mm), column-gutter: 7mm, align: bottom, it.body, align(left, it.caption)))
     } else {
       pad(x: -overhang, align(center, it.body))
-      v(0.7em)
-      align(center, block(width: calc.min(calc.max(w, 70mm), 130mm), align(left, it.caption)))
+      v(caption-gap)
+      // Under a figure wider than the block's limit the caption shrinks to its text, so
+      // that it centres as a whole; under a narrower figure it starts at the drawing's edge.
+      let asked = fig-caption-width.get()
+      let shrink(c) = if w > 130mm or asked != none { align(center, block(align(left, c))) } else { align(left, c) }
+      align(center, block(above: 0pt, width: if asked != none { asked } else { calc.min(calc.max(w, 70mm), 130mm) }, shrink(it.caption)))
     }
   }))
   // Tables: a heavy rule above, a light rule under the head and another
@@ -1382,10 +1560,33 @@
     show strong: s => sc(s.body, tracking: 0.05em)
     it
   }
+  set table.cell(breakable: false)
   show table: it => {
     set text(size: fs.caption, number-type: "lining")
-    set par(justify: false, first-line-indent: 0pt, leading: 0.6em)
-    block(above: gap(1), below: gap(1), inset: (top: 2pt, bottom: 3pt), stroke: (top: rule-heavy, bottom: rule-light), it)
+    show: ragged
+    set par(first-line-indent: 0pt, leading: 0.6em)
+    let is-head(c) = type(c) == content and c.func() == table.header
+    let is-foot(c) = type(c) == content and c.func() == table.footer
+    let n = if type(it.columns) == array { it.columns.len() } else if type(it.columns) == int { it.columns } else { 1 }
+    let heads = it.children.filter(is-head)
+    let foots = it.children.filter(is-foot)
+    let cells = it.children.filter(c => not is-head(c) and not is-foot(c))
+    let spans = cells.any(c => c.func() == table.cell and (c.at("colspan", default: 1) > 1 or c.at("rowspan", default: 1) > 1))
+    let countable = not spans and calc.rem(cells.len(), n) == 0
+    let rows = cells.len() / n
+    // A table that may break keeps two rows together at each end: its first row is a
+    // sub-head that doesn't repeat, which a page break can't leave alone, and its last
+    // two are a footer that doesn't repeat, which a page break can't part.
+    if countable and foots.len() == 0 and rows > 6 {
+      let fields = it.fields()
+      let _ = fields.remove("children")
+      let m = cells.len() - 2 * n
+      return table(..fields, ..heads, table.header(level: 2, repeat: false, ..cells.slice(0, n)),
+        ..cells.slice(n, m), table.footer(repeat: false, ..cells.slice(m)))
+    }
+    // a short table stays whole
+    block(above: gap(1), below: gap(1), breakable: foots.len() > 0 or not (countable and rows <= 6),
+      inset: (top: 2pt, bottom: 3pt), stroke: (top: rule-heavy, bottom: rule-light), it)
   }
   // The contents: parts in small caps, chapters in bold, sections indented,
   // dotted leaders to lining page numbers.
@@ -1395,6 +1596,8 @@
     let dots = box(width: 1fr, repeat(gap: 0.3em, text(size: 0.8em, ".")))
     if it.level == 1 and el.at("label", default: none) == <part> {
       let t = plain(el.body).split(" — ")
+      // Part III and its one long chapter start a page rather than break across two
+      if t.first() == "Part III" { pagebreak(weak: true) }
       block(above: gap(1.25), below: gap(0.4), sticky: true, link(el.location(), {
         sc(tracking: 0.08em, t.first())
         if t.len() > 1 { h(0.6em); emph(t.slice(1).join(" — ")) }
@@ -1402,13 +1605,13 @@
     } else if it.level == 1 {
       block(above: gap(0.4), below: 0.6em, sticky: true, link(el.location(), {
         let pre = it.prefix()
-        strong[#box(width: 1.6em, if pre != none { pre })#it.body()]
+        strong[#box(width: 1.6em, if pre != none { text(number-type: "lining", pre) })#it.body()]
         h(0.4em); dots; h(0.4em); pg
       }))
     } else {
       block(above: 0.6em, below: 0.6em, pad(left: 1.6em, link(el.location(), {
         let pre = it.prefix()
-        box(width: 2.3em, if pre != none { text(number-type: "lining", pre) })
+        box(width: 2.6em, if pre != none { text(number-type: "lining", pre) })
         it.body(); h(0.4em); dots; h(0.4em); pg
       })))
     }

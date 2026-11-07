@@ -1556,13 +1556,13 @@ def open_hand_fig(path):
 
 
 def pocket_a():
-    f = pocket_frame(POCKET, -14.5, -18.737, 5.65)
+    f = pocket_frame(POCKET, -14.2, -18.737, 5.65)
     label_lines(f, ["little finger", "parallel"], (-11.2, -1.0), to=POCKET["joints"]["label"])
     return f
 
 
 def pocket_b():
-    f = pocket_frame(POCKET_CURLED, -14.5, -18.737, 5.65)
+    f = pocket_frame(POCKET_CURLED, -14.2, -18.737, 5.65)
     f.arrow([(-5.3, 1.9), (-2.75, 2.38)], kind="force", z=50)
     # the curled finger's pull, the opposite way, from its tip across the back of the hand
     f.arrow([(-5.95, -5.3), (-8.1, -5.3)], kind="force", z=50, head=2.0)
@@ -1572,12 +1572,13 @@ def pocket_b():
 
 
 def pocket_fig(path):
-    combine([pocket_a(), pocket_b()], path, gap=4, align="top",
+    # within the 92 mm that sit beside the steps
+    combine([pocket_a(), pocket_b()], path, gap=2.5, align="top",
             labels=["a", "b"], captions=["safer", "stronger but riskier"])
 
 
 def pinch_a():
-    f = block_panel(PINCH, 1.5, -9.644, -18.88, 7.42, 1.3)
+    f = block_panel(PINCH, 1.5, -9.644, -18.88, 7.42, 1.75)
     f.arrow([(6.85, -2.6), (4.25, -2.6)], kind="force")
     f.arrow([(-6.2, -3.5), (-3.6, -3.5)], kind="force")
     f.text("wall", (6.42, 0.75), size=7)
@@ -1587,14 +1588,14 @@ def pinch_a():
 
 
 def pinch_b():
-    f = block_panel(PINCH_WIDE, 3.0, -11.569, -18.88, 7.94, 1.3)
+    f = block_panel(PINCH_WIDE, 3.0, -11.569, -18.88, 7.94, 1.75)
     f.arrow([(7.7, -2.2), (5.1, -2.2)], kind="force")
     f.arrow([(-7.7, -3.8), (-5.1, -3.8)], kind="force")
     return f
 
 
 def pinch_c():
-    f = pinch_frame(-14.112, -18.88, 7.94, 1.3)
+    f = pinch_frame(-14.112, -18.88, 7.94, 1.75)
     hold = [(-8.0, 0), (0.0, -7.0), (8.0, 0)]
     f.poly(hold, z=-12, fill=VOLUME, stroke=INK, sw=0.35)
     H.xray_outline(f, hold)
@@ -1679,7 +1680,7 @@ def wrap_panel():
     f.poly([low, high], closed=False, z=H.XRAY_Z, **H.XRAY_STYLE)
     f.label("arête", (1.75, 5.9), to=(0.0, 5.2), size=7)
     f.label("palm and thumb", (-14.51, 5.76), to=(-9.15, 4.21), size=7)
-    label_lines(f, ["fingers round", "the edge"], (3.53, -8.64), to=(0.0, -2.75))
+    label_lines(f, ["fingers", "round", "the edge"], (3.85, -6.9), to=(0.0, -2.75))
     f.arrow([(-10.0, -0.75), (-6.8, -0.4)], kind="force", z=50)
     f.arrow([(6.2, 1.4), (3.6, 1.68)], kind="force", z=50)
     return f
@@ -1690,7 +1691,9 @@ def wrap_fig(path):
 
 
 def angle_panel(slope, hand, note):
-    y0 = -14.985       # one length of arm in all three, so the hands look one size
+    # the figure is about the edges, so it stops just below the wrist; one length of arm
+    # in all three, so the hands look one size
+    y0 = -12.43
     f = H.profile_frame(-9.6, y0, 7.03)
     H.edge_profile(f, WX, 0, depth=3.2, height=3.6, slope=slope)
     draw_hand(f, hand)
@@ -1759,8 +1762,8 @@ def filmstrip_fig(path):
     H.LINE[0] = 1.0
     frames = [film_1(), film_2(), film_3(), film_4(), film_5()]
     filmstrip(frames, path, captions=[
-        ["catch with", "the fingertips"], ["drag the pads over"], ["bring the palm on"],
-        ["find a thumb", "spot below"], ["wrist below,", "hang low"]])
+        "catch with\nthe fingertips", "drag the pads over", "bring the palm on",
+        "find a thumb\nspot below", "wrist below,\nhang low"])
 
 
 def sloper_panel():
@@ -1784,7 +1787,7 @@ def latch_a(jug_profile):
     jug_profile(f, (0, 0))
     draw_hand(f, LATCH_OPEN)
     f.arrow([(4.4, 6.6), (4.4, 0.8)], kind="move")
-    f.label("2–3 cm above", (-4.6, 8.0), to=(-0.6, 3.5), size=7)
+    f.label("2–3 cm above", (-2.9, 8.0), to=(-0.6, 3.5), size=7)
     return f
 
 

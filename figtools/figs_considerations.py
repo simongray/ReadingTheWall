@@ -109,7 +109,8 @@ def tall_sit_start(path):
     warn("sit-c", c)
     panels.append(f)
 
-    combine(panels, path, gap=5, labels=["a", "b", "c"],
+    # (the gaps bring it to the measure, so its edges line up with the box below it)
+    combine(panels, path, gap=3.3, labels=["a", "b", "c"],
             captions=["side: knees jammed", "behind: knees out (frog)",
                       "behind: one foot high, one low"])
 

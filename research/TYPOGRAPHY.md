@@ -12,7 +12,7 @@ tiny bit of ornamentation".
   about 207 ppi, page shown at ~95% size). Strokes thinner than ~0.25 pt
   and text lighter than about 45% grey wash out; avoid them. Body text no
   smaller than 10.5 pt.
-- Stay under 200 pages in total (check `pdfinfo`).
+- Page count is not a target (see "Typography" in `REVISE-3.md`).
 - Typst 0.15 (`typst compile --root /Users/simongray/Books/Bouldering
   book/main.typ out.pdf`). Fonts: macOS system fonts (`typst fonts` lists
   them: Charter, Iowan Old Style, Palatino, New York, Optima, Avenir Next

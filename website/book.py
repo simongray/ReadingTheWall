@@ -238,7 +238,7 @@ class Book:
         m = re.fullmatch(r"part-([ivx]+)", slug(title))
         path = f"part-{roman(m.group(1))}" if m else slug(title)
         page = self.add(Page(path + "/", title, "part"))
-        page.subtitle = node.attrs.get("data-subtitle", "")
+        page.subtitle = clean(node.attrs.get("data-subtitle", ""))
         page.ornament = node.attrs.get("data-ornament", "")
         page.description = page.subtitle or f"{title} of {self.title}"
         self.parts.append(page)
@@ -1094,8 +1094,22 @@ class Book:
         for before, after in zip(self.reading, self.reading[1:]):
             before.next, after.prev = after, before
 
+    def untie_headings(self):
+        """Print ties a head's last words so that it breaks well on its page. A tied
+        run that a narrow screen can't fit breaks inside a word, so the site lets a
+        head break at any space."""
+        for page in self.pages:
+            for root in (page.body, page.heading):
+                if root is None:
+                    continue
+                for node in root.walk():
+                    if re.fullmatch(r"h[1-6]", node.tag):
+                        for part in node.walk():
+                            part.children = [c.replace("\xa0", " ") if isinstance(c, str) else c for c in part.children]
+
     def build(self):
         self.split()
+        self.untie_headings()
         self.read_title_page()
         self.register_targets()
         self.resolve_references()

@@ -131,7 +131,7 @@ def sidepull_fig(path):
             f.arrow([add(g, (12, 6)), add(g, (30, 6))], kind="force")
             f.arrow([add(stand(LF), (-8, 6)), add(stand(LF), (-26, 6))], kind="force")
             f.label("lean away", (-40, 148), to=lerp(c.J["lsh"], c.J["lel"], 0.5))
-            f.label("foot pushes left", (-46, 34), size=7.5)
+            f.label("foot pushes left", (-46, 50), size=7.5)
         f.cog(c.cog(), plumb_to=48)
         warn("sidepull", c)
         panels.append(f)
@@ -308,7 +308,7 @@ def sloper_fig(path):
 
 
 def palming_fig(path):
-    f = Fig(-90, 25, 90, 245)
+    f = Fig(-90, 28, 90, 245)
     wall_grid(f)
     outline = [(16, 90), (78, 90), (78, 152), (16, 152)]
     volume(f, outline, apex=(47, 121))
@@ -341,12 +341,13 @@ def mantle_fig(path):
     WX = 30
     frames = []
     for k in range(3):
-        f = Fig(-75, 39, 70, 297)
-        at = wall_side(f, WX, 39, TOP, angle=0)
+        # (the low foothold sits high enough that the figure fits under the steps)
+        f = Fig(-75, 66, 70, 297)
+        at = wall_side(f, WX, 66, TOP, angle=0)
         f.poly([(WX, TOP), (70, TOP), (70, TOP - f.mm(2.4)), (WX, TOP - f.mm(2.4))],
                z=-21, fill=PALE, stroke=None)
         f.line((WX, TOP), (70, TOP), z=-19, sw=0.6)
-        Fh, Fl = at(TOP - 92), at(TOP - 150)
+        Fh, Fl = at(TOP - 92), at(TOP - 122)
         hold_side(f, "foot", Fh)
         hold_side(f, "foot", Fl)
         foot_h = add(Fh, (-2.5, 2.5))
@@ -492,7 +493,7 @@ def grid(rows, path, gap=3.0, row_gap=1.5, zoom=1.0):
             out.append(f'<g transform="translate({x:.2f},{y + h - fh * s:.2f}) '
                        f'scale({s:.5f})"><g clip-path="url(#g{n})">{inner}</g></g>')
             out.append(f'<text x="{x + fw * s / 2:.2f}" y="{y + h + 3.8:.2f}" '
-                       f'font-family="{FONT}" font-size="2.9" font-weight="600" '
+                       f'font-family="{FONT}" font-size="2.9" font-weight="500" '
                        f'text-anchor="middle">{esc(cap)}</text>')
             x += fw * s + gap
             n += 1

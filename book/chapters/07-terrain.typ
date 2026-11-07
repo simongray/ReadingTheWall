@@ -16,7 +16,7 @@ The steeper the wall, the more of your weight your arms carry (Chapter 1 explain
 #{
   set par(justify: false)
   table(
-    columns: (auto, 1fr, 1fr, 1fr),
+    columns: (auto, 1.25fr, 1fr, 1fr),
     table.header(th[Wall], th[Your weight and hips], th[Your hands], th[What goes wrong]),
     [Slab], [Almost all your weight is on your feet. Your hips are over your toes, slightly away from the wall.], [Press, palm and steer.], [Feet skate off. Pulling on the hands levers the feet off #src("E1", "E3", "E4").],
     [Vertical], [Most of your weight stays on your feet if your hips stay close to the wall.], [Stand tall. A slightly bent arm is fine.], [Your hips drift out, so you over-grip #src("E10").],
@@ -167,7 +167,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 2,
   grade-note: [Topping out matters wherever your gym has boulders you can stand on top of. Finishes like this are common from V2–V4 (judgement). The #tref("heel-hook", body: [heel hook]) for a rounded lip comes at V3, so try it low on the wall first (this book's suggestion).],
-  summary: [A top-out takes you from hanging on the #jt("lip") (the top edge of the wall) to standing on top. On a flat top you press down on your palms, which is a #tref("mantle"). On a rounded or steep lip you first hook a heel over it, then roll over the heel.],
+  summary: [A top-out takes you from hanging on the #jt("lip") (the top edge of the wall) to standing on top. On a flat top you press down on your palms, which is a #tref("mantle", body: [mantle]). On a rounded or steep lip you first hook a heel over it, then roll over the heel.],
   figure: "top-out.svg",
   caption: [(a) From behind: left foot high, right heel hooked on the lip beside the hands. (b) From the side: the climber has rolled from heel to toe. The chest leans over the top and the palms press down.],
   how: [
@@ -216,7 +216,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
     + Press each toe down and into its hold, as if gripping with it. Don't slap the ball of the foot onto it #src("E8", "E11"). See #tref("toe-pull").
     + Hang on straight arms between moves #src("E7", "E8"). See #tref("straight-arms").
     + To reach, turn the hip on the reaching side into the wall. Stand on the outside edge of that foot, on a hold below or behind you. Brace the other foot so you stand on a tripod #src("E9", "E11"). See #tref("backstep") and #tref("twist-lock").
-    + For a longer reach without jumping, use a #tref("drop-knee") #src("E7").
+    + For a longer reach without jumping, use a #tref("drop-knee", body: [drop knee]) #src("E7").
     + Start each move with your hips, then pull. Don't lead with your head #src("E8").
     + Where the footholds face sideways or down, hook them. See #tref("heel-hook") and #tref("toe-hook").
   ],
@@ -275,7 +275,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   tall: [Your span lets you hold a face hold and the arête at once, which makes the opposition stronger. A long body also swings further, so set the heel hook early.],
   related: ("layback", "heel-hook", "barn-door", "opposition", "pinch", "flag", "stemming"),
-  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "26  Neil Greshams Masterclass - Aretes", "https://www.youtube.com/watch?v=juMNJz7Wn6g"),),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "Neil Greshams Masterclass - Aretes", "https://www.youtube.com/watch?v=juMNJz7Wn6g"),),
   sources: ("E2", "E17", "E24"),
 )
 
@@ -351,7 +351,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   tall: [Long legs reach foot hooks further from your hands, but keeping a long body flat costs more tension. Bring your feet in closer when you can.],
   related: ("toe-hook", "bicycle", "heel-hook", "knee-bar", "cutting-loose", "body-tension", "campus-move", "overhang", "top-out"),
-  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "19  Neil Greshams Masterclass - Roofs", "https://www.youtube.com/watch?v=LNdQDLokHRY"),),
+  watch: (("Neil Gresham Climbing Masterclass - Crux Films", "Neil Greshams Masterclass - Roofs", "https://www.youtube.com/watch?v=LNdQDLokHRY"),),
   sources: ("E5", "E7", "E13", "E15", "E20", "A12"),
 )
 

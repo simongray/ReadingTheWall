@@ -45,8 +45,8 @@ Technique*. How the design carries them out is in `typography-notes.md`.
 9. **Big divisions start a page.** Chapters, grade guides, grade sections
    and every technique entry start a page, as every exercise does in
    Kettle's book. On an e-reader a link then lands on the start of what it
-   points to. An entry that would spill a few lines onto a page of its own
-   is set with tighter space instead.
+   points to. A page that ends short at the end of an entry is normal, and
+   nothing is tightened to save a page.
 10. **Margins are part of the page.** The foot margin is deeper than the
     head, with the running head in the head margin, so the text block hangs
     from the top instead of running into the foot (Bringhurst 8.5).

@@ -25,7 +25,6 @@ Haven't climbed a V5 after a year? These figures give you no reason to think tha
 // ------------------------------------------------------------------ VB–V0
 
 == VB–V0 (Font~3–\u{2060}4+) <grade-0>
-#fit-pages[
 
 #remember[Five things to keep in mind at VB–V0][
   + Watch each foot onto its hold before you weight it (#tref("precise-footwork", body: [precise footwork], show-page: false)).
@@ -41,7 +40,7 @@ The wall is vertical, a gentle #tref("slab", body: [slab]) (leaning back) or a s
 
 ==== Techniques that start to matter
 
-Three habits carry you through this band and every band after it. Place each foot exactly (#tref("precise-footwork")). When you pause on an overhang, hang on #tref("straight-arms", body: [straight arms]) with your shoulders set; on a vertical wall, stand tall. Move up by standing on your feet, not by pulling with your arms. Learn to jump off and land too#ix("Falling!practice") (@cons-falling): NICAS and the DAV#ix("DAV") both start their schemes with how to boulder safely #src("F28", "F32").
+Three habits carry you through this band and every band after it. Place each foot exactly (#tref("precise-footwork", inner: true)). When you pause on an overhang, hang on #tref("straight-arms", body: [straight arms]) with your shoulders set; on a vertical wall, stand tall. Move up by standing on your feet, not by pulling with your arms. Learn to jump off and land too#ix("Falling!practice") (@cons-falling): NICAS and the DAV#ix("DAV") both start their schemes with how to boulder safely #src("F28", "F32").
 
 #grade-techniques(0)
 
@@ -68,12 +67,10 @@ Nothing specific. Any healthy adult has the strength for this band.
 - *Fear of falling.* Fix: practise falling from low down, a little higher each session (@cons-falling).
 
 One blog says most people get through this band in their first few sessions #src("F48").
-]
 
 // ------------------------------------------------------------------ V1
 
 == V1 (Font 5) <grade-1>
-#fit-pages[
 
 #remember[Five things to keep in mind at V1][
   + Shift your hips over the pushing foot before every reach.
@@ -89,7 +86,7 @@ Walls are mostly vertical or slightly overhanging. Jugs give way to #jt("incut")
 
 ==== Techniques that start to matter
 
-Use #tref("edging") on the outside of the shoe as well as the inside. Use #tref("smearing") where there is no foothold. Pull a #tref("sidepull") towards you. A #tref("high-step") needs a #tref("rockover") to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching")). Others ask you to turn both knees out so your hips come in (#tref("frog")). In a corner or between two #tref("volume", body: [volumes]) (big bolted-on shapes), push your feet out against both sides (#tref("stemming")).
+Use #tref("edging") on the outside of the shoe as well as the inside. Use #tref("smearing") where there is no foothold. Pull a #tref("sidepull", body: [sidepull]) towards you. A #tref("high-step", body: [high step]) needs a #tref("rockover", body: [rockover]) to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching", inner: true)). Others ask you to turn both knees out so your hips come in (#tref("frog", inner: true)). In a corner or between two #tref("volume", body: [volumes]) (big bolted-on shapes), push your feet out against both sides (#tref("stemming", inner: true)).
 
 #grade-techniques(1)
 
@@ -110,14 +107,12 @@ Nothing specific.
 
 ==== Why people stall here
 
-- *Square-on climbing.* You keep your chest to the wall and stand on both toe tips for every move. Sideways reaches then fall short. Fix: square on suits most vertical walls, so on easy problems that lean towards you, practise turning one hip into the wall (#tref("hip-turn")).
+- *Square-on climbing.* You keep your chest to the wall and stand on both toe tips for every move. Sideways reaches then fall short. Fix: square on suits most vertical walls, so on easy problems that lean towards you, practise turning one hip into the wall (#tref("hip-turn", inner: true)).
 - *Over-gripping.* Fix: the loose-grip habit above.
-]
 
 // ------------------------------------------------------------------ V2
 
 == V2 (Font 5+) <grade-2>
-#fit-pages[
 
 #remember[Five things to keep in mind at V2][
   + Turn one hip into the wall on steep ground (#tref("hip-turn", body: [hip turn], show-page: false)).
@@ -133,9 +128,9 @@ Gentle overhangs of about 10–25° become common. Holds include ones you pull s
 
 ==== Techniques that start to matter
 
-On the steep, learn to turn a hip in (#tref("hip-turn")); the #tref("backstep") builds on this from V3. The #tref("flag") stops the #tref("barn-door") swing when one hand lets go. Two sideways holds facing the same way ask for a #tref("layback"). An #tref("undercling") at chest height asks you to bring your feet high. Some moves, especially on #tref("traverse", body: [traverses]), ask you to swap feet on one hold (#tref("foot-swap")). On #jt("crimp", body: [crimps]) (small edges held on the fingertips), make the #tref("half-crimp") your default from the start, so you don't fall into the habit of full crimping. As footholds shrink, #tref("slab") starts to matter. Problems that finish on top ask for a #tref("mantle") and a #tref("top-out", body: [top-out]).
+On the steep, learn to turn a hip in (#tref("hip-turn", inner: true)); the #tref("backstep", body: [backstep]) builds on this from V3. The #tref("flag", body: [side flag]) stops the #tref("barn-door", body: [barn door]) swing when one hand lets go. Two sideways holds facing the same way ask for a #tref("layback", body: [layback]). An #tref("undercling", body: [undercling]) at chest height asks you to bring your feet high. Some moves, especially on #tref("traverse", body: [traverses]), ask you to swap feet on one hold (#tref("foot-swap", inner: true)). On #jt("crimp", body: [crimps]) (small edges held on the fingertips), make the #tref("half-crimp", body: [half crimp]) your default from the start, so you don't fall into the habit of full crimping. As footholds shrink, #tref("slab") starts to matter. Problems that finish on top ask for a #tref("mantle", body: [mantle]) and a #tref("top-out", body: [top-out]).
 
-A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid building that habit. On big holds low on the wall, start practising a partial #tref("drop-knee"), small #tref("deadpoint", body: [deadpoints]) and the #tref("dyno") (this book's suggestion).
+A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid building that habit. On big holds low on the wall, start practising a partial #tref("drop-knee", body: [drop knee]), small #tref("deadpoint", body: [deadpoints]) and the #tref("dyno", body: [dyno]) (this book's suggestion).
 
 #grade-techniques(2)
 
@@ -160,12 +155,10 @@ Nothing specific.
 - *Arms tire on the steep.* Fix: straighten your arms and turn a hip in, so your biceps can rest.
 
 #ix("Plateau!at V2") V2 is a known plateau: one gym runs a movement clinic for climbers stuck there #src("F36"). The way out is learning to climb side-on.
-]
 
 // ------------------------------------------------------------------ V3
 
 == V3 (Font 6A/6A+) <grade-3>
-#fit-pages[
 
 #remember[Five things to keep in mind at V3][
   + Catch poor holds at the top of your rise (#tref("deadpoint", body: [deadpoint], show-page: false)).
@@ -181,7 +174,7 @@ V3s come in two families. *Steep* problems sit on 20–40° overhangs with mid-s
 
 ==== Techniques that start to matter
 
-Learn the #tref("deadpoint"): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook") on a good hold to pull your hips in. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep") or a partial #tref("drop-knee") turns a hip to the wall. Where you can't turn in, a #tref("lock-off") holds you for a slow reach. Your hands meet the #tref("sloper"), the #tref("pinch") and the #tref("gaston"), a hold you push outwards with your elbow out. On big holds, start practising the #tref("lunge"), the #tref("double-dyno") and the #tref("run-and-jump") (this book's suggestion).
+Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook", body: [heel hook]) on a good hold to pull your hips in. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]) turns a hip to the wall. Where you can't turn in, a #tref("lock-off", body: [lock-off]) holds you for a slow reach. Your hands meet the #tref("sloper", body: [sloper]), the #tref("pinch", body: [pinch]) and the #tref("gaston", body: [gaston]), a hold you push outwards with your elbow out. On big holds, start practising the #tref("lunge", body: [one-handed dyno]), the #tref("double-dyno", body: [double dyno]) and the #tref("run-and-jump", body: [run-and-jump]) (this book's suggestion).
 
 #grade-techniques(3)
 
@@ -193,11 +186,13 @@ Learn the #tref("deadpoint"): catch the hold at the top of a small upward moveme
 
 ==== Reading problems at this grade
 
-- Can you catch the crux hold while moving, or must you arrive static (#tref("lock-off"))? You can catch a deep hold with a lip. A poor sloper needs a deadpoint or a slow reach.
+- Can you catch the crux hold while moving, or must you arrive static (#tref("lock-off", inner: true))? You can catch a deep hold with a lip. A poor sloper needs a deadpoint or a slow reach.
 - Is there a foothold at hip height on the side you move towards? It may be meant for a heel hook.
 - On slab, find where you can stand. Then find blank wall clean enough to #tref("smearing", body: [smear]) on.
 - On a pinch, find the thumb side before you set off.
 
+// these two go over the page together, not the last alone
+#keep-together[
 ==== Physical side
 
 Lattice tests a #jt("max hang")#ix("Max hang!averages by grade"): the most extra weight you can hang for a few seconds. In its lowest band, V1–V4, climbers add about 19~kg on two arms #src("F1"). That figure mixes men and women over four grades, so many V3 climbers climb well on less (judgement).
@@ -211,7 +206,6 @@ Lattice tests a #jt("max hang")#ix("Max hang!averages by grade"): the most extra
 // ------------------------------------------------------------------ V4
 
 == V4 (Font 6B/6B+) <grade-4>
-#fit-pages[
 
 #remember[Five things to keep in mind at V4][
   + Start big steep moves from straight arms, hips back and down.
@@ -227,7 +221,7 @@ Expect overhangs of 30–45°, or vertical walls with poor feet. #jt("crimp", bo
 
 ==== Techniques that start to matter
 
-The #tref("heel-hook") becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. Add the #tref("toe-hook") to stop a swing and to keep your feet on a #tref("roof", body: [roof]). Squeezing between two holds becomes a technique of its own (#tref("compression")). Gyms start to set the #tref("lunge") and the #tref("dyno") here, so you need #tref("latching") to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. The #tref("run-and-jump") appears on problems set in a competition style. Your hands meet the #tref("pocket"). On rounded holds the thumb starts to help (#tref("thumb-catch")). By now, momentum is a normal tool, not a last resort.
+The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. Add the #tref("toe-hook", body: [toe hook]) to stop a swing and to keep your feet on a #tref("roof", body: [roof]). Squeezing between two holds becomes a technique of its own (#tref("compression", inner: true)). Gyms start to set the #tref("lunge", body: [one-handed dyno]) and the #tref("dyno", body: [dyno]) here, so you need #tref("latching") to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. The #tref("run-and-jump", body: [run-and-jump]) appears on problems set in a competition style. Your hands meet the #tref("pocket", body: [pocket]). On rounded holds the thumb starts to help (#tref("thumb-catch", inner: true)). By now, momentum is a normal tool, not a last resort.
 
 #grade-techniques(4)
 
@@ -242,7 +236,7 @@ The #tref("heel-hook") becomes an active pull: bend the knee and pull with the #
 - Find the #jt("crux") first, then work backwards. What body position must you be in to start the crux move?
 - Find the move where your feet will swing off. Decide how you will catch the swing before you leave the ground.
 
-*Look for*
+#lead-label[Look for]
 - heel-hook holds: a horizontal edge or volume at hip height, out to the side.
 - toe-hook features: a hold or volume edge that faces down or sideways at foot level.
 
@@ -256,12 +250,10 @@ The #tref("heel-hook") becomes an active pull: bend the knee and pull with the #
 - *Never trying V5s.* You repeat what you can already climb.
 
 The next section covers both.
-]
 
 // ------------------------------------------------------------------ V4 to V5
 
 == From V4 to V5 <grades-v4-v5>
-#fit-pages[
 
 #remember[Five things that get you from V4 to V5][
   + Assume technique, not strength, stops you until a symptom says otherwise (judgement, from the coaches' advice in "Technique or strength?").
@@ -276,22 +268,20 @@ This section is for you if you climb most V4s but haven't #jt("send", body: [sen
 
 ==== What changes between V4 and V5
 
-In the table, #jt("beta") is the sequence of moves that works.
+#lead-in[In the table, #jt("beta") is the sequence of moves that works. Most rows come from gym clinics and forum reports, not measurement. The forum reports are about the step to V6, which shows where V5 is heading.]
 
 #gtable(
-  columns: (auto, 1fr, 1fr),
+  columns: (28mm, 1fr, 1fr),
   table.header(th[], th[Typical V4], th[Typical V5]),
   [*Holds*], [Edges and rounded holds with some lip; a jug to rest on], [Smaller #jt("crimp", body: [crimps]), rounder holds, pinches; few rests #src("F48", "F46")],
   [*Wall angle*], [30–45°, or vertical with poor feet], [More problems on the steepest walls, 40–50° (judgement)],
   [*Footholds*], [Small edges, volumes], [Smaller edges or none; tension holds the feet on #src("F48")\; feet often swing off],
   [*The #jt("crux")*], [Several solutions work], [Usually one technique done precisely, such as a #tref("toe-hook", body: [toe hook]) to stop a swing (judgement)],
-  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move (judgement)], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump") #src("F34")],
+  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move (judgement)], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump", body: [run-and-jump]) #src("F34")],
   [*Body tension*], [Needed on steep moves (judgement)], [Needed to keep the feet on through hand moves #src("F35", "F48")],
   [*Techniques per problem*], [Two or three], [Three to five, linked without rests (judgement)],
   [*How it goes*], [First go, or in one session], [Often several sessions; you work out the beta move by move (judgement)],
 )
-
-Most rows come from gym clinics and forum reports, not measurement. The forum reports are about the step to V6, which shows where V5 is heading.
 
 ==== What holds people at V4
 
@@ -316,7 +306,7 @@ These figures can't say where the extra strength for V5 comes from. Trying V5s i
 Try three or four V5s in different styles. Note *how* you fail on each.
 
 #gtable(
-  columns: (1.25fr, 1fr, 1fr),
+  columns: (1.1fr, 1fr, 1.1fr),
   table.header(th[Symptom on a V5], th[Most likely limiter], th[Where to look]),
   [You can't hold the start or crux holds, even with good feet], [Finger strength for that kind of hold], [#tref("half-crimp"), #tref("sloper"), #tref("pinch")],
   [You can do every move alone but can't link them], [Efficiency and pacing. Some climbers can't string several near-limit moves together #src("F14")], [#tref("straight-arms")\; re-read the problem and look for rests],
@@ -341,24 +331,22 @@ The table follows Lattice's logic: compare what your fingers can hold with what 
 ==== Reading V5 problems
 
 - Find the crux by its holds: the smallest hold, the longest gap or the hold facing the "wrong" way.
-- Ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull") or #tref("gaston") needs a body position. A sloper wants low hips and straight arms.
+- Ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) needs a body position. A sloper wants low hips and straight arms.
 - Before you start, find the hidden footholds, such as a volume's edge or a hold's side.
 - Find the swing move, where a hand lets go and the feet are poor. Decide in advance: flag, toe hook, or let the feet swing and catch them.
 - Read in chunks (Chapter 2). A Lattice summary ties previews of two to four holds to difficult routes, which doesn't show that they help #src("F11").
 
-]
 
 // ------------------------------------------------------------------ V5
 
 == V5 (Font 6C/6C+) <grade-5>
-#fit-pages[
 
 #remember[Five things to keep in mind at V5][
   + Place each foot before you move a hand.
   + Find the one technique the hardest move demands, then do it exactly.
   + Climb V5s in every style before you chase V6.
   + Give each new V5 one real first-go attempt before you work it.
-  + Be ready for the odd two-handed or footless move: the #tref("double-dyno", body: [double dyno], show-page: false) and #tref("campus-move", body: [campus move], show-page: false).
+  + Be ready for the odd two-handed or footless move: the #tref("double-dyno", body: [double dyno], show-page: false) and #tref("campus-move", body: [campus~move], show-page: false).
 ]
 
 ==== What problems look like
@@ -367,7 +355,7 @@ Expect steep walls with small #jt("crimp", body: [crimps]), poor rounded holds a
 
 ==== Techniques that start to matter
 
-Some moves take your feet or both hands off the wall: the #tref("double-dyno"), the #tref("campus-move") and #tref("foot-catch"). Steep hooking extends to the #tref("bicycle"), the #tref("heel-toe-cam") and, where a volume or corner allows it, the #tref("knee-bar"). The tiniest edges may need a #tref("full-crimp"), so keep it for those moves. Some slabs turn dynamic (#tref("dynamic-slab")). #jt("comp style", body: [Comp-style]) problems (set like competition problems) add the #tref("pogo") and #tref("comp-moves", body: [competition set pieces]) such as the tic-tac, the paddle dyno and the double clutch.
+Some moves take your feet or both hands off the wall: the #tref("double-dyno", body: [double dyno]), the #tref("campus-move", body: [campus move]) and #tref("foot-catch", body: [jumping to a foothold]). Steep hooking extends to the #tref("bicycle", body: [bicycle]), the #tref("heel-toe-cam", body: [heel–toe cam]) and, where a volume or corner allows it, the #tref("knee-bar", body: [knee bar]). The tiniest edges may need a #tref("full-crimp", body: [full crimp]), so keep it for those moves. Some slabs turn dynamic (#tref("dynamic-slab", inner: true)). #jt("comp style", body: [Comp-style]) problems (set like competition problems) add the #tref("pogo", body: [pogo]) and #tref("comp-moves", body: [competition set pieces]) such as the tic-tac, the paddle dyno and the double clutch.
 
 #grade-techniques(5)
 
@@ -390,12 +378,10 @@ Lattice's V5–V7 band adds about 24~kg on a two-arm #jt("max hang") #src("F1").
 
 - *Staying on the V5s that suit you.* It feels like progress, but your weak styles stay weak.
 - *V6s feel like a different sport.* One forum climber found V6s "too overhung and crimpy or too shouldery". Replies pointed to overhang technique and finger strength for small holds. Others said each gym's setting has blind spots, so visit other gyms #src("F46").
-]
 
 // ------------------------------------------------------------------ V6
 
 == V6 (Font 7A) <grade-6>
-#fit-pages[
 
 #remember[Five things to keep in mind at V6][
   + Climb the style you avoid, usually steep walls with small edges.
@@ -436,12 +422,10 @@ Finger strength becomes a more common limiter (judgement). Forum climbers recomm
 - *Climbing V6 like V5.* Solutions that worked at V5 are too loose here.
 - *Holds too small to use.* Your fingers can't yet hold the small crimps.
 - *A comfortable home gym.* It hides your weakest style. Fix: the focus points above.
-]
 
 // ------------------------------------------------------------------ V7
 
 == V7 (Font 7A+) <grade-7>
-#fit-pages[
 
 #remember[Five things to keep in mind at V7][
   + Test for your weaknesses instead of guessing them.
@@ -478,12 +462,10 @@ Men at V7–V8 average about 145% of bodyweight on Lattice's two-rep weighted pu
 ==== Why people stall here
 
 Some climbers test strong on a #jt("hangboard") (a board of edges to hang from) but climb below that level. Lattice says they may lack contact strength, or the power for several hard moves in a row #src("F14").
-]
 
 // ------------------------------------------------------------------ V8+
 
 == V8 and above (Font~7B~and~up) <grade-8>
-#fit-pages[
 
 #remember[Five things to keep in mind at V8 and above][
   + Work out sequences for your own body, not an average one.
@@ -511,6 +493,8 @@ Build strength for specific grips, pinches and squeezing. Refine your tactics.
 
 Your build drives the solutions. Read for *your* body, not an average one.
 
+// these two go over the page together, as on V6 and V7, not the last alone
+#keep-together[
 ==== Physical side
 
 Lattice's V8–V11 band adds about 38~kg on a two-arm #jt("max hang") #src("F1"). Climbers in that band train 4.4 hours a week #src("F3"). Above roughly 160–165% of bodyweight on the weighted pull-up test, Lattice sees diminishing returns from more pulling strength in men #src("F5").
@@ -522,9 +506,7 @@ The data doesn't show what holds people here. Climbers at this level report abou
 
 // ------------------------------------------------------------------ map
 
-#pagebreak(weak: true)
-
-== Progression map
+== Progression map <progression-map>
 
 #ix("Progression map")
 Each row lists key techniques badged at that grade in Part II, and what to focus on.
@@ -540,6 +522,6 @@ Each row lists key techniques badged at that grade in Part II, and what to focus
   [*V4→V5*], [Those of V3 and V4, done precisely and linked], [Find your limiter; work three to five V5s over sessions],
   [*V5*], [#tref("bicycle"), #tref("heel-toe-cam"), #tref("knee-bar"), #tref("full-crimp"), #tref("double-dyno"), #tref("campus-move"), #tref("foot-catch"), #tref("pogo"), #tref("comp-moves")], [A broad V5 base across styles],
   [*V6*], [No new techniques; hooks as main holds, #tref("compression") and #tref("cutting-loose")], [Weak styles; small holds; precision],
-  [*V7*], [No new techniques; precise #tref("latching"), hooks and compression], [Test for weaknesses; projects over weeks],
+  [*V7*], [No new techniques; precise #tref("latching", body: [latching]), hooks and compression], [Test for weaknesses; projects over weeks],
   [*V8+*], [No new techniques; grip-specific strength], [Moves worked out for your body; specialist strength],
 )

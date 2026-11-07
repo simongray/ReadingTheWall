@@ -127,9 +127,14 @@ def overhang_scene(f, good=True, x=106, y0=20, y1=250, angle=30):
                     rf={"at": foot, "contact": "toe", "angle": -10},
                     active=("+core",))
     else:
+        # stretched out between the hand and the low foot, but hanging off
+        # the wall: drawn on the line between them, the body hid the wall
+        _, n = wall_dirs(angle)
         v = norm(sub(foot, hand))
-        sh = add(hand, mul(v, 62))
-        ln = 90 - math.degrees(math.atan2(-v[1], -v[0]))
+        sh = add(hand, add(mul(v, 62), mul(n, 14)))
+        hips = add(hand, add(mul(v, 118), mul(n, 17)))
+        u = norm(sub(hips, sh))
+        ln = 90 - math.degrees(math.atan2(-u[1], -u[0]))
         c = Climber(None, shoulders=sh, view="side", lean=ln,
                     lh=hand, rh=hand, head=(1, 1),
                     lf={"at": foot, "contact": "toe", "angle": -20},
@@ -357,10 +362,10 @@ def reading_problem(path):
     worked_problem_wall(f)
     HRF = WP_HRF
     f.label("start: both hands", (-34, 112), to=(-14, 136))
-    f.label("finish: match", (20, 344), to=(66, 334))
+    f.label("finish: match", (16, 336), to=(66, 334))
     # hand order tags beside their holds
     tags = {"R1": (72, 180), "L2": (-22, 212), "R3": (60, 243),
-            "L4": (100, 262), "R5": (22, 304), "F": (96, 330)}
+            "L4": (100, 266), "R5": (19, 304), "F": (96, 330)}
     for name, p in tags.items():
         tag(f, "L6" if name == "F" else name, p)
     # moves as dashed arrows
@@ -373,9 +378,9 @@ def reading_problem(path):
     # crux box around the cross and the slap
     f.poly([(32, 254), (112, 254), (112, 316), (32, 316)], fill=None,
            stroke=INK, sw=0.45, dash=(1.4, 0.9), z=30)
-    f.label("crux: cross", (-14, 278), size=7)
+    f.label("crux: cross", (-14, 278))
     f.label("high right foot", (88, 152), to=add(HRF, (2, 2)))
-    f.label("rest", (80, 226), to=(46, 238))
+    f.label("rest", (80, 220), to=(44, 235))
     f.save(path)
 
 
@@ -450,7 +455,7 @@ def dynamic_slab(path):
     """Back view: a volume-to-volume move planned from its end position.
     The feet stand on each volume's top facet out near the apex (the side
     away from the wall), so the hips can sit over them."""
-    f = Fig(-146, 20, 140, 290)
+    f = Fig(-146, 26, 140, 290)
     wall_grid(f)
     A = [(-130, 30), (-40, 30), (-58, 92), (-112, 92)]
     B = [(28, 56), (122, 56), (104, 118), (46, 118)]
@@ -495,23 +500,26 @@ def overhang(path):
     for good in (False, True):
         # (b) sits further left on the wall: its body hangs out from
         # the hands while (a) lies along the wall down to the low foot
-        f = Fig(-62, 20, 84, 250) if good else Fig(-42, 20, 104, 250)
+        # (narrow enough to sit beside the steps)
+        f = Fig(-58, 20, 72, 250) if good else Fig(-38, 20, 104, 250)
         c, foot = overhang_scene(f, good)
         if good:
             f.arrow([add(foot, (-18, -16)), add(foot, (-4, -7))], kind="force")
             f.label("toes pull in", (16, 70), to=add(foot, (-4, -3)))
             f.label("arms straight", (24, 238),
-                    to=lerp(c.J["rsh"], c.J["rha"], 0.45))
+                    to=add(lerp(c.J["rsh"], c.J["rha"], 0.45), (10, -2)))
             f.cog(c.cog(), plumb_to=foot[1] - 12)
         else:
             f.arrow([add(foot, (-6, -2)), add(foot, (-26, 4)), add(foot, (-40, 20))],
                     kind="move")
-            f.cross(add(foot, (2, -9)))
-            f.label("feet cut loose", (-8, 56), size=7.5)
+            f.cross(add(foot, (-10, -11)))
+            # beside the arrow, between it and the plumb line
+            f.text("feet", (42, 75), size=7.5)
+            f.text("cut loose", (42, 75 - f.pt(9.5)), size=7.5)
             f.cog(c.cog(), plumb_to=26)
         warn("overhang", c)
         panels.append(f)
-    combine(panels, path, gap=6, labels=["a", "b"],
+    combine(panels, path, gap=4.5, labels=["a", "b"],
             captions=["stretched out", "feet up, hips in"])
 
 
@@ -552,7 +560,7 @@ def roof(path):
             c.draw(f)
             f.arrow([add(sole, (-4, -16)), (34, 120), (-30, 40)], kind="move")
             f.cross(add(sole, (12, -12)))
-            f.label("feet swing off", (22, 70), size=7.5)
+            f.label("feet swing off", (32, 70), size=7.5)
             warn("roof-ghost", g)
         warn("roof", c)
         panels.append(f)
@@ -751,9 +759,10 @@ def volume_fig(path):
                         active=())
         else:
             foot = add(lerp(p2, p1, 0.84), mul(up, 0.8))
-            H1, H2 = at(282), at(268)
-            # pushed back off the slope, the bent arms hold on
-            c = Climber((foot[0] - 24, foot[1] + 84), view="side", lean=16,
+            H1, H2 = at(276), at(262)
+            # pushed back off the slope, the bent arms hold on; the elbows
+            # stay on the climber's side of the wall
+            c = Climber((foot[0] - 28, foot[1] + 84), view="side", lean=2,
                         lh=off(H1, 0, 2.5, 1.5), rh=off(H2, 0, 2.5, 1.5),
                         lf={"at": foot, "contact": "ball", "angle": 14},
                         rf={"at": foot, "contact": "ball", "angle": 14})
@@ -848,8 +857,8 @@ def top_out(path):
 
 def traverse(path):
     """Back view: crossing the left hand through, with a back flag."""
-    f = Fig(-62, 26, 92, 266)
-    wall_grid(f)
+    f = Fig(-62, 18, 92, 266)
+    wall_grid(f, y0=26)
     A = (-24, 206)      # where the left hand was
     B = (32, 222)       # right hand
     C = (60, 200)       # the left hand crosses over to here
@@ -877,7 +886,7 @@ def traverse(path):
     c.draw(f)
     f.arrow([(-20, 216), (22, 252), (55, 218)], kind="move")
     f.label("left hand crosses over", (14, 258), size=7.5)
-    f.label("left leg flags behind", (40, 34), to=(70, 52))
+    f.label("left leg flags behind", (40, 23), to=(70, 52))
     warn("traverse", c)
     f.save(path)
 
@@ -936,7 +945,7 @@ def sit_start(path):
         warn("sit-start", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
-            captions=["square on (frog)", "hips turned, outside edge"])
+            captions=["square on, bottom out", "hips turned, outside edge"])
 
 
 # ---------------------------------------------------------------- filmstrips
@@ -959,7 +968,7 @@ def filmstrip_top_out(path):
         return {"at": (W - 1.4, y), "contact": "toe", "angle": angle}
 
     def frame():
-        f = Fig(-30, 46, 84, 358, scale=FS)
+        f = Fig(-28, 46, 84, 358, scale=FS)
         hatch_block(f, [(W, f.y0 - 5), (f.x1 + 5, f.y0 - 5), (f.x1 + 5, TOP),
                         (W, TOP)])
         for y in (FA, FB, FC):
@@ -999,9 +1008,9 @@ def filmstrip_top_out(path):
         c.draw(f)
         warn(f"filmstrip-top-out {i + 1}", c)
         frames.append(f)
-    filmstrip(frames, path, gap=1.6, captions=[
-        "hang, feet high", "pull, walk the feet up", "flip a palm, elbow up",
-        "press out, foot on top", "rock over and stand"])
+    filmstrip(frames, path, captions=[
+        "hang, feet high", "pull, walk\nthe feet up", "flip a palm,\nelbow up",
+        "press out,\nfoot on top", "rock over\nand stand"])
 
 
 def filmstrip_worked_problem(path):
@@ -1013,9 +1022,9 @@ def filmstrip_worked_problem(path):
     finish as an arrow: with both hands on R5 and F the hands sit either
     side of the head at face height, so the arms would cross on it."""
     def frame(used):
-        # cropped to the holds the climber uses; the far-right foothold
-        # sits just outside
-        f = Fig(-36, 22, 81, 344, scale=FS)
+        # cropped to the holds the climber uses, with air around the climber: five
+        # frames this wide fit the page only at a smaller scale
+        f = Fig(-42, 22, 86, 344, scale=0.245)
         wall_grid(f)
         worked_problem_wall(f, used)
         return f
@@ -1094,10 +1103,10 @@ def filmstrip_worked_problem(path):
         c.draw(f)
         warn(f"filmstrip-worked-problem {i + 1}", c)
         frames.append(f)
-    filmstrip(frames, path, gap=1.0, captions=[
-        "both hands on the start", "right hand to sidepull R1",
-        "L2, then rest on R3", "high right foot, cross to L4",
-        "slap R5, left to finish"])
+    filmstrip(frames, path, captions=[
+        "both hands\non the start", "right hand\nto sidepull R1",
+        "L2, then\nrest on R3", "high right foot,\ncross to L4",
+        "slap R5,\nleft to finish"])
 
 
 def build(out):

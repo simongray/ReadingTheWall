@@ -7,6 +7,7 @@ your right faces right, use=0); a gaston faces the body's midline.
 
 from climb import *
 import plan
+from figs_hands import label_lines
 
 
 def _warn(name, *climbers):
@@ -384,7 +385,7 @@ def back_flag(path):
     LH = (-36, 262)    # sidepull facing left: the body hangs to its right
     LF = (-30, 70)
     T = (36, 238)
-    f = _back(-100, 50, 76, 276)
+    f = _back(-100, 54, 76, 276)
     hold(f, "jug", LH, use=180)
     hold(f, "jug", T)
     hold(f, "foot", LF)
@@ -447,7 +448,8 @@ def inside_flag(path):
                         head=(2, 1), order=["rleg", "rarm", "torso", "lleg", "larm"],
                         allow_cross=True)
             c.draw(f)
-            f.label("between leg and wall", (-36, 42), to=lerp(c.J["rkn"], c.J["ran"], 0.45))
+            f.text("and wall", (-64, 52 - f.pt(9.5)), size=7.5)
+            f.label("between leg", (-64, 52), to=lerp(c.J["rkn"], c.J["ran"], 0.45), anchor="middle")
             f.label("limbs straight", (46, 168), to=lerp(c.J["rel"], c.J["rha"], .4), anchor="middle")
             plan.hips(f, (-46, 232), 45, chest=25, to_wall=16, lean=(4, -22), span=(-74, 24),
                       spin=(27, -8, 30), label_y=205,
@@ -512,9 +514,11 @@ def twist_lock(path):
             c.draw(f)
             f.arrow([add(stand(A), (-20, -8)), add(stand(A), (-6, -8))], kind="force")
             f.arrow([add(stand(B), (20, -8)), add(stand(B), (6, -8))], kind="force")
-            f.label("elbow to ribs", (78, 176), to=add(c.J["rel"], (-1, 1)), size=6.5)
+            # in two lines: in one, the text ran past the panel's edge and was
+            # pushed back under its own leader
+            label_lines(f, ["elbow", "to ribs"], (100, 172), to=add(c.J["rel"], (-1, 1)), size=7.5)
             f.label("shoulder in", (-8, 222), to=add(c.J["lsh"], (2, 0)))
-            f.label("feet squeeze", (80, 56))
+            f.label("feet squeeze", (83, 62))
             # the chin comes round to the right shoulder, as the steps say
             plan.hips(f, (-34, 93.8), -65, chest=-55, head=-115, to_wall=16, lean=(-6, -22),
                       span=(-42, 52), spin=(29, 195, 160), label="from above", label_y=62,
@@ -684,7 +688,7 @@ def cross_through(path):
     S = (34, 212)
     T = (-44, 216)
     RF = (12, 62)
-    f = _back(-88, 44, 84, 262)
+    f = _back(-88, 57, 84, 262)
     hold(f, "jug", LH, use=180, size=0.85)
     hold(f, "jug", S)
     hold(f, "jug", T, size=0.85)
@@ -765,7 +769,7 @@ def compression(path):
     you, with nothing to squeeze. The palms press those faces inward, elbows
     down, as in a hug; the feet squeeze a lower volume the same way. All four
     force arrows point inward."""
-    f = Fig(-92, 42, 92, 246)
+    f = Fig(-92, 46, 92, 246)
     wall_grid(f)
     volume(f, [(-30, 176), (-24, 238), (24, 238), (30, 176), (20, 148), (-20, 148)],
            apex=(0, 200))
@@ -806,8 +810,9 @@ def body_tension(path):
     A = 40
     panels = []
     for k in range(2):
-        f = Fig(-134, 18, 22, 240)
-        at = wall_side(f, 95, 18, 240, angle=A)
+        # the wall stops short of the panel's edge, so it isn't cut off by it
+        f = Fig(-150, 18, 22, 240)
+        at = wall_side(f, 95 - (112 - 18) * math.tan(math.radians(A)), 112, 240, angle=A)
         H = at(222)
         F = at(130)
         hold_side(f, "jug", H, angle=A)
@@ -879,7 +884,7 @@ def pre_loading(path):
             # next: drive the hips up and in toward the wall
             f.body_arrow([add(p, (-26, -2)), add(p, (-28, 36)), add(p, (-10, 62))])
             f.text("then up and in", (p[0] - 18, p[1] - 26), size=7)
-            f.label("arms straight", (-64, 234), to=lerp(c.J["lsh"], hand, .5))
+            f.label("arms straight", (-72, 234), to=lerp(c.J["lsh"], hand, .5))
             f.label("heels low", (12, 54), to=add(foot, (-12, -2)))
         _warn(f"pre-loading {k}", c)
         panels.append(f)
@@ -894,7 +899,7 @@ def opposition(path):
     """Back view: two sidepulls that face away from each other (the left one
     faces left, the right one faces right), pulled toward each other. The
     force arrows at the hands point at each other."""
-    a = _back(-90, 46, 90, 232)
+    a = _back(-90, 57, 90, 232)
     L, R = (-54, 188), (54, 188)
     hold(a, "jug", L, use=180)
     hold(a, "jug", R, use=0)
@@ -926,7 +931,7 @@ def bumping(path):
     LF, RF = (-28, 66), (30, 72)
     # the frame sits right of centre so "intermediate" fits beside its
     # hold, clear of the arrow
-    f = _back(-74, 50, 122, 266)
+    f = _back(-74, 60, 122, 266)
     hold(f, "jug", LH)
     hold(f, "jug", S)
     hold(f, "crimp", I)
@@ -1023,8 +1028,8 @@ def filmstrip_drop_knee(path):
         _warn(f"filmstrip-drop-knee {k + 1}", c)
         frames.append(f)
     filmstrip(frames, path, captions=["square on: short",
-                                      "right toe on the high hold",
-                                      "drop the knee, hip in",
+                                      "right toe on\nthe high hold",
+                                      "drop the knee,\nhip in",
                                       "reach high",
                                       "catch, knee up"])
 

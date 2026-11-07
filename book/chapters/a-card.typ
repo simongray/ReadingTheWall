@@ -3,7 +3,7 @@
 #heading(level: 1, numbering: none)[On the mat] <on-the-mat>
 
 #ix("Quick reference")
-The book on one page, for between attempts. @reading-method has the full method.
+#align(center)[The book on one page, for between attempts. @reading-method has the full method.]
 
 // two columns of about the same height, so the card fits on one page
 #columns(2, gutter: 1.5em)[

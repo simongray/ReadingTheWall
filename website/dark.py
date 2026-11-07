@@ -272,15 +272,17 @@ class DarkCopy:
         self.details = []
 
     def is_ghost(self, tag, fill, stroke):
-        """Whether `tag` is a white piece of an earlier position. It may carry its dashed
-        outline itself, or come after a run of outlines, one piece for each."""
+        """Whether `tag` is a white piece of an earlier position. The climber marks its
+        own (data-ghost). Another piece may carry its dashed outline itself, or come
+        after a run of outlines, one piece for each."""
         if ghost_outline(tag):
             self.ghost_lines += 1
             self.ghost_fills = self.ghost_lines
             return fill == WHITE
         self.ghost_lines = 0
-        if fill == WHITE and stroke is None and self.ghost_fills:
-            self.ghost_fills -= 1
+        marked = attr(tag, "data-ghost") is not None
+        if fill == WHITE and stroke is None and (self.ghost_fills or marked):
+            self.ghost_fills = max(self.ghost_fills - 1, 0)
             return True
         self.ghost_fills = 0
         return False

@@ -122,27 +122,29 @@ def deadpoint(path):
                   rf={"at": foot, "contact": "edge"}, bend=-10, active=("rthigh",))
     panels = []
     for k in range(2):
-        # room on the left, so the labels sit left of the hand and the hips
-        f = Fig(-90, 40, 74, 270)
+        # room on the left, so the labels sit left of the hand and the hips; narrow
+        # enough to sit beside the steps
+        f = Fig(-61, 40, 74, 270)
         wall_side(f, x0, 40, 262, angle=A)
         hold_side(f, "jug", LO, angle=A)
         hold_side(f, "jug", HI, angle=A)
         hold_side(f, "foot", FT, angle=A)
         if k == 0:
             load.draw(f)
-            f.label("arms straight", (-44, 238), to=lerp(load.J["rsh"], lo, 0.72))
-            f.label("hips sag out", (-40, 70), to=add(load.pelvis, (-10, -6)))
+            f.label("arms straight", (-58, 238), to=lerp(load.J["rsh"], lo, 0.72), anchor="start")
+            f.label("hips sag out", (-58, 70), to=add(load.pelvis, (-10, -6)), anchor="start")
             _warn("deadpoint a", load)
         else:
             load.draw(f, ghost=True)
             top.draw(f, z=5)
             f.body_arrow([add(load.pelvis, (-4, -16)), add(load.pelvis, (14, -18)),
                           add(top.pelvis, (6, -18))])
-            f.label("grab at the top", (-16, 234), to=add(hi, (-4, 1)), anchor="end")
-            f.label("hips in and up", (-44, 56))
+            f.label("grab at", (-22, 240), to=add(hi, (-4, 1)), anchor="end")
+            f.text("the top", (-22, 240 - f.pt(9.5)), anchor="end")
+            f.label("hips in and up", (-58, 56), anchor="start")
             _warn("deadpoint b", top)
         panels.append(f)
-    combine(panels, path, gap=6, labels=["a", "b"],
+    combine(panels, path, gap=4.5, labels=["a", "b"],
             captions=["load: hips out", "drive in, grab at the top"])
 
 
@@ -162,7 +164,7 @@ def hip_pump(path):
     start = Climber((-18, 152), lean=-4, lh=grip(LH), rh=grip(RH),
                     lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                     knees={"l": "out", "r": "down"}, bend=8)
-    dip = Climber((18, 142), lean=4, lh=grip(LH), rh=grip(RH),
+    dip = Climber((18, 139), lean=4, lh=grip(LH), rh=grip(RH),
                   lf={"at": stand(LF)}, rf={"at": stand(RF), "style": "back"},
                   knees={"l": "out", "r": "out"}, bend=-6)
     # the push leg lifts the hips, so the arms don't have to; the reaching
@@ -217,7 +219,7 @@ def dyno(path):
         return (x0 - t * (h - 60), h)
     S, T, F = W(170), W(306), W(70)
     s, tg, ft = _side_grip(S, A), _side_grip(T, A), _side_foot(F, A)
-    sink = Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
+    sink = Climber(None, shoulders=add(s, (-48, -43)), view="side", lean=24,
                    lh=s, rh=add(s, (0.4, -0.6)),
                    lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
                    rf={"at": ft, "contact": "toe"}, head=(1, 1),
@@ -226,7 +228,7 @@ def dyno(path):
                    bend=8, head_tilt=-25)
     # arched: hips in, shoulders back, arms nearly straight; the legs are
     # nearly straight too, so the knees stay off the wall
-    drive = Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
+    drive = Climber(None, shoulders=add(s, (-58, 24.5)), view="side", lean=-35,
                     lh=s, rh=add(s, (0.4, -0.6)),
                     lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
                     rf={"at": ft, "contact": "toe"}, head=(3, 0), bend=-14,
@@ -398,7 +400,8 @@ def lunge(path):
                     active=("+lthigh",))      # the left leg drives
     panels = []
     for k in range(2):
-        f = Fig(-80, 12, 94, 252)
+        # no more wall than the climber needs, so the figure stays under the steps
+        f = Fig(-80, 22, 104, 238)
         wall_grid(f)
         hold(f, "jug", LH)
         hold(f, "jug", T)
@@ -406,7 +409,7 @@ def lunge(path):
         hold(f, "foot", RF)
         if k == 0:
             sink.draw(f)
-            f.label("eyes on target", (10, 244), to=add(T, (-9, 0)))
+            f.label("eyes on target", (2, 226), to=add(T, (-9, 0)))
             f.label("arm low", (70, 132), to=sink.J["rha"])
             _warn("lunge a", sink)
         else:
@@ -415,8 +418,9 @@ def lunge(path):
             f.arrow([add(sink.J["rha"], (8, 4)), (80, 170), add(grip(T), (7, -5))],
                     kind="move")
             arc = _axis_turn(f, add(throw.pelvis, (2, -4)), rx=32, ry=10, a0=-120, a1=50)
-            f.label("hip turns in", (62, 24), to=arc[6])
-            f.label("left hand stays", (-40, 236), to=grip(LH))
+            f.label("hip", (74, 124), to=arc[6], anchor="start")
+            f.text("turns in", (74, 124 - f.pt(9.5)), anchor="start")
+            f.label("left hand stays", (-62, 221), to=grip(LH), anchor="start")
             _warn("lunge b", throw)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -472,7 +476,8 @@ def counter_kick(path):
             kicked.draw(f, z=5)
             f.arrow([add(opened.J["lan"], (-2, -14)), (12, 58), add(kicked.J["lan"], (12, -10))],
                     kind="move")
-            f.label("kick across behind", (-38, 48))
+            # under the kick's path, in the clear
+            f.label("kick across behind", (-8, 45), to=(-4, 60), anchor="middle")
             plan.door(f, (-38, 241), "r", back=True, span=(52, 66),
                       legs={"l": dict(heel=(56, 20), deg=4)})
             _warn("counter-kick b", kicked)
@@ -644,7 +649,7 @@ def run_and_jump(path):
     1: the last running step (steps 1-3 on the mat). Ghost 2: the right
     foot on the volume, pushing up and along the wall. Solid: the catch at
     the top of the flight, feet straight back on the volume."""
-    f = Fig(-136, -14, 113, 274)
+    f = Fig(-120, -14, 113, 274)
     ground(f, 0)
     wall_side(f, 102, 0, 274, angle=0)
     J = (102, 258)
@@ -667,7 +672,7 @@ def run_and_jump(path):
     run.draw(f, ghost=True)
     push.draw(f, ghost=True, z=2)
     catch.draw(f, z=5)
-    for i, x in enumerate((-126, -88, -50)):
+    for i, x in enumerate((-110, -80, -50)):
         f.step(i + 1, (x, 9))
     f.step(4, (50, 92))
     f.body_arrow([add(run.pelvis, (0, -10)), add(push.pelvis, (-10, -16)),
@@ -708,7 +713,8 @@ def pogo(path):
                       active=("+lthigh",))
     panels = []
     for k in range(2):
-        f = Fig(-90, 30, 134, 280)
+        # no more wall than the climber needs, so the figure stays under the steps
+        f = Fig(-90, 38, 134, 274)
         wall_grid(f)
         for p in (LH, RH, T):
             hold(f, "jug", p)
@@ -716,16 +722,17 @@ def pogo(path):
         if k == 0:
             back.draw(f)
             f.label("arms straight", (-56, 256), to=lerp(back.J["lsh"], back.J["lha"], 0.5))
-            f.label("right leg back", (40, 44), to=add(back.J["ran"], (6, -6)))
+            f.label("right leg back", (40, 48), to=add(back.J["ran"], (6, -6)))
             _warn("pogo a", back)
         else:
             back.draw(f, ghost=True)
             swing.draw(f, z=5)
-            f.arrow([add(back.J["ran"], (-8, -14)), (-10, 34), (90, 70),
+            f.arrow([add(back.J["ran"], (-8, -4)), (-10, 44), (90, 70),
                      add(swing.J["ran"], (10, -10))], kind="move")
             f.arrow([add(stand(LF), (-12, 20)), add(stand(LF), (-12, 4))], kind="force")
             f.arrow([add(swing.J["rha"], (6, -2)), add(grip(T), (5, -5))], kind="move")
-            f.label("leg nearly straight", (84, 120), to=lerp(swing.J["rkn"], swing.J["ran"], 0.4))
+            # (between the standing leg and the swing's arc, clear of both)
+            f.label("leg nearly straight", (90, 120), to=lerp(swing.J["rkn"], swing.J["ran"], 0.4), anchor="end")
             # right of the standing leg, clear of it and the ghost
             f.label("left foot pushes", (2, 92), to=add(stand(LF), (6, 6)))
             _warn("pogo b", swing)
@@ -770,13 +777,13 @@ def campus_move(path):
     pop = tucked(add(h1, (-32, -24)), -16, h1, h2, bend=-4)
     panels = []
     for k, c in enumerate((hang, pop)):
-        f = Fig(-50, 66, 130, 292)
+        f = Fig(-50, 66, 138, 292)
         wall_side(f, x0, 120, 300, angle=A)
         hold_side(f, "jug", H1, angle=A)
         hold_side(f, "jug", H2, angle=A)
         if k == 0:
             c.draw(f)
-            f.label("knees tucked", (96, 104), to=c.J["rkn"])
+            f.label("knees tucked", (107, 104), to=c.J["rkn"])
             f.label("no footholds", (100, 150), to=W(186))
         else:
             hang.draw(f, ghost=True)
@@ -784,7 +791,7 @@ def campus_move(path):
             f.body_arrow([add(hang.pelvis, (6, -18)), add(c.pelvis, (8, -18))])
             f.arrow([add(h1, (-8, 6)), add(lerp(h1, h2, 0.5), (-10, 12)), add(h2, (-4, 6))],
                     kind="move")
-            f.label("hips pop up", (96, 104), to=add(c.pelvis, (14, -18)))
+            f.label("hips pop up", (107, 104), to=add(c.pelvis, (14, -18)))
         _warn(f"campus-move {'ab'[k]}", c)
         panels.append(f)
     combine(panels, path, gap=6, labels=["a", "b"],
@@ -896,18 +903,18 @@ def foot_catch(path):
     # the top of the toes pressing on the far side, the leg pulling back
     shin = sub(c.J["lkn"], c.J["lan"])
     sdeg = math.degrees(math.atan2(shin[1], shin[0]))
-    k = Fig(-12.5, -30, 17.76, 30, scale=0.62)
+    k = Fig(-12.5, -30, 35.5, 30, scale=0.62)
     # the volume's lower left corner, up and right of the toes as the hold
     # is in the toe hook figure, with the shin passing below it
-    volume(k, [(-5.5, -4), (30, -9), (30, 19), (-3.9, 19)], apex=(12, 6))
+    volume(k, [(-5.5, -4), (44, -11), (44, 19), (-3.9, 19)], apex=(16, 6))
     shoe_side(k, (-6.2, -1), 98, spot="toptoe", up=-1, shin=sdeg, shin_len=50,
               shin_fill=LEFT, name="foot-catch close-up")
     k.arrow([(2, -22), (17, -22)], kind="force")
     k.text("leg pulls", (9, -26.5), size=7)
     k.label("top of the toes", (-12.2, 25), to=(-7, 0.5), size=7, anchor="start")
     # a figure this wide hangs 11 mm into the page margin beside the steps
-    # (template.typ's overhang), so the margin here keeps panel (b) in the column
-    combine([f, k], path, gap=4, labels=["a", "b"], margin=11,
+    # (template.typ's overhang), like the others beside their steps
+    combine([f, k], path, gap=4, labels=["a", "b"],
             captions=["toe hooks, swing stops", "behind the edge"])
 
 
@@ -935,7 +942,7 @@ def lache(path):
                       rf={"at": (6, 60), "contact": "toe", "angle": 280},
                       elbows={"l": "out"}, knees={"l": "out", "r": "out"},
                       active=("rupper", "rfore"))
-    f = Fig(-222, 40, 100, 282)
+    f = Fig(-222, 44, 100, 282)
     wall_grid(f)
     for p in (L1, L2, R1):
         hold(f, "jug", p)
@@ -975,7 +982,7 @@ def paddle_dyno(path):
                     rf={"at": (96, 86), "contact": "toe", "angle": 285},
                     elbows={"l": "out", "r": "out"}, knees={"l": "out", "r": "out"},
                     active=("-lupper", "-lfore"))       # the left hand only taps 3
-    f = Fig(-196, 24, 150, 300)
+    f = Fig(-196, 34, 150, 300)
     wall_grid(f)
     hold(f, "jug", S1)
     hold(f, "jug", S2)
@@ -1060,11 +1067,11 @@ def filmstrip_dyno(path):
     on = dict(lf={"at": add(ft, (-1, -0.5)), "contact": "toe"},
               rf={"at": ft, "contact": "toe"})
     poses = [
-        Climber(None, shoulders=add(s, (-46, -40)), view="side", lean=24,
+        Climber(None, shoulders=add(s, (-48, -43)), view="side", lean=24,
                 lh=s, rh=s2, head=(1, 2), bend=8, head_tilt=-25, **on),
         # arched: hips in, shoulders back, arms nearly straight; the legs
         # drive, as in the dyno figure
-        Climber(None, shoulders=add(s, (-52, 22)), view="side", lean=-35,
+        Climber(None, shoulders=add(s, (-58, 24.5)), view="side", lean=-35,
                 lh=s, rh=s2, head=(3, 0), bend=-14, **on,
                 active=("lthigh", "rthigh", "lcalf", "rcalf")),
         # legs straight, toes just off the foothold; the head tips back to
@@ -1085,8 +1092,8 @@ def filmstrip_dyno(path):
                 rf={"at": (-30, 110), "contact": "toe", "angle": 284},
                 bend=6, active=("+rupper", "+rfore", "+core")),
     ]
-    caps = ["sink, eyes on target", "drive with the legs", "let go, reach",
-            "catch with both hands", "feet off, hold the swing"]
+    caps = ["sink, eyes\non target", "drive with\nthe legs", "let go, reach",
+            "catch with\nboth hands", "feet off,\nhold the swing"]
     frames = []
     for k, c in enumerate(poses):
         f = Fig(-57.5, 56, 54, 316, scale=0.28)

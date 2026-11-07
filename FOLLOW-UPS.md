@@ -70,3 +70,18 @@ streamlining), which have the details.
 
 - The second edition is 268 pages, two more than the first: the
   corrections appendix takes three.
+- **Typography, for Simon to judge** (`research/revise3-typography.md`):
+  - A few entries' first pages still end short, with the figure or box on the
+    next page. It no longer happens because of a near miss.
+  - Three figures changed in ways worth a look: the worked problem's film strip
+    is at a smaller scale than the others, Mantle's low foothold moved up, and
+    Deadpoint, Pocket and Overhangs are narrower so they sit beside their steps.
+  - Sources' last page is even through two numbers set by hand in
+    `10-appendices.typ`. `check_fit` says when they need changing.
+  - The video titles keep "Greshams", as published, without their episode numbers.
+  - The "Fix" numbering in Barn door is as it was.
+  - Four entries still run loose, and a fix needs Simon's word. Straight arms'
+    box misses its first page by two lines of copy. Twist lock's figure would
+    stay with its steps if it came before "How to do it". Bicycle and Mantle
+    keep their current splits.
+  - None of this has been read on the Boox.

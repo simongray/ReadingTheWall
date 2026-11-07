@@ -35,15 +35,11 @@ Sources are numbered in the order they are first cited. Web pages were accessed 
   bytes(yaml.encode(data))
 }
 
-#columns(2, gutter: 1.5em, {
-  set text(size: fs.index)
-  set par(justify: false, leading: 0.72em, spacing: 0.95em, first-line-indent: 0pt)
-  bibliography(
-    ("A", "B", "C", "D", "E", "F", "G", "H").map(source-list),
-    title: none,
-    style: "springer-lecture-notes-in-computer-science",
-  )
-})
+#sources-columns(pages: 12, last: 470pt, bibliography(
+  ("A", "B", "C", "D", "E", "F", "G", "H").map(source-list),
+  title: none,
+  style: "springer-lecture-notes-in-computer-science",
+))
 
 #heading(level: 1, numbering: none)[Index] <index>
 

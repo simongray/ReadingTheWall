@@ -38,7 +38,7 @@ Gyms in the US grade boulders on the #jt("V-scale"). Gyms in the UK use the V-sc
   ))
 }
 
-*Caveats.*
+#lead-label[Caveats.]
 - *From V3 to V5, one V-grade covers two Font grades.* V3 covers 6A and 6A+, V4 covers 6B and 6B+, and V5 covers 6C and 6C+. So your first V5 in a Font gym is a 6C. From about 7A up, the scales match almost one to one #src("F24", "F23").
 - *Charts disagree at the low end.* At least one popular chart maps V2 to 6A/6A+, V3 to 6B and V4 to 6B+, up to a full Font grade harder than this table #src("F25"). Wikipedia calls all such conversions "only ever indicative" #src("F23").
 
