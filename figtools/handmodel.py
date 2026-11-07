@@ -154,6 +154,8 @@ WRIST_CREASE = (0.0, 0.0, -2.6)
 BALL = (1.2, 0.95)
 BALL_AT = (1.9, 4.0, -2.6)    # where the ball of the thumb sits on the palm
 BALL_LOW = (1.4, 1.0, -2.3)   # and where it tapers off toward the wrist
+# how far up the thumb's first segment and the index's the web's free edge runs
+WEB = (0.5, 0.4)
 
 
 def default_pose():
@@ -330,16 +332,19 @@ def palm_solids(skel):
     f1, _ = skel.digits["t"][1]
     out.append(ellipsoid(H_(BALL_AT), (v_mul(hy, 2.0), v_mul(hx, BALL[0]), v_mul(hz, BALL[1])))
                + ellipsoid(H_(BALL_LOW), (v_mul(hy, 1.0), v_mul(hx, BALL[0] * 0.9), v_mul(hz, BALL[1] * 0.7))))
-    # the web between thumb and index: a thin sheet from the thumb's knuckle to the index's
-    # its free edge is hollow, which a convex sheet can't be, so it stays short of both
-    # digits and the smooth joins round it off
-    a = f1.at(0.2, -0.4, -0.3)
-    b = H_((2.9, 8.3, -0.9))
-    c = H_((2.4, 5.0, -1.3))
-    n = v_norm(v_cross(v_sub(b, a), v_sub(c, a)))
+    # the web between thumb and index: a sheet of skin from the ball of the thumb up both
+    # digits to the middle of their first segments. Its free edge, from one to the other, is
+    # a shallow curve once the joins round it off. Without it the space between them would
+    # be a deep slot, and the outline would run from the index down into it and up the thumb
+    # as if the two were one forked digit
+    fi, Li = skel.digits["i"][0]
+    _, L1 = skel.digits["t"][1]
+    pts = [f1.o, f1.at(L1 * WEB[0], 0.0, 0.0), fi.at(Li * WEB[1], 0.0, -0.3), fi.o,
+           H_(BALL_AT), mc.at(L * 0.6, 0.0, 0.0)]
+    n = v_norm(v_cross(v_sub(pts[2], pts[0]), v_sub(pts[4], pts[0])))
     web = []
-    for p in (a, b, c, mc.at(L * 0.6, -0.5, -0.3)):
-        web += [v_add(p, v_mul(n, 0.4)), v_add(p, v_mul(n, -0.4))]
+    for p in pts:
+        web += [v_add(p, v_mul(n, 0.35)), v_add(p, v_mul(n, -0.35))]
     out.append(web)
     return out
 
@@ -723,10 +728,13 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     greys = GREYS[hand.view]
     k_ = H.LINE[0]
     front = [n for n in order if n not in greys]
-    # the silhouette of the front pieces
-    U = None
-    for n in front:
-        U = joined[n] if U is None else [[min(a, b) for a, b in zip(ra, rb)] for ra, rb in zip(U, joined[n])]
+    # From the side the thumb stands in front of the palm and the index: a digit with its own
+    # outline, drawn over the rest of the hand, which is outlined without it. Joined into one
+    # silhouette, the outline would run from the index down between them and up the thumb,
+    # as if the two were one forked digit.
+    apart = thumb_apart(hand)
+    body = [n for n in front if not (apart and n == "t")]
+    U = union(hand, body)
     loops = [relax(resample(L, 0.18), 2) for L in g.contours(U)]
     loops = [L for L in loops if len(L) > 5]
     if hand.view in ("side", "little") and loops:
@@ -760,14 +768,26 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     f.add(f'<path d="{d}" fill-rule="evenodd" {f.style(fill=fill, stroke=INK, sw=A.OUT * k_)}/>', z + 0.01)
     # a hole in the outline, as between the thumb, the index and the palm in a full crimp,
     # is a dark gap, not paper
-    if loops:
-        outer = max(loops, key=lambda L: abs(area(L)))
-        for L in loops:
+    every = [relax(resample(L, 0.18), 2) for L in g.contours(union(hand, front))]
+    every = [L for L in every if len(L) > 5]
+    if every:
+        outer = max(every, key=lambda L: abs(area(L)))
+        for L in every:
             if L is not outer and area(L) * area(outer) < 0:
                 f.add(f'<path d="{_pen_loop(f, L)}" fill="{GAP}"/>', z + 0.012)
+    if apart:
+        # the thumb: white over the hand, and its outline all round, but for its base,
+        # where it melts into the ball of the thumb inside the hand's outline
+        for L in g.contours(own["t"]):
+            L = relax(resample(L, 0.18), 2)
+            if len(L) > 5:
+                f.add(f'<path d="{_pen_loop(f, L)}" fill="{fill}"/>', z + 0.015)
     f.wobble = None
+    if apart:
+        for pts, fade in thumb_outline(hand, U):
+            A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
     if show_lines:
-        for pts, fade in inner_lines(hand, front):
+        for pts, fade in inner_lines(hand, front, skip=("t",) if apart else ()):
             A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
     for pts in nails(hand, front):
         f.poly(A.curve(f, pts, False), closed=False, z=z + 0.03, taper=True, _smooth=True,
@@ -780,6 +800,41 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
 
 
 ROOT = dict(t=0.8, i=0.42, m=0.42, r=0.42, l=0.42)   # of the first segment: a digit's root
+
+
+def thumb_apart(hand):
+    """Whether the thumb is drawn as a digit of its own, over the hand: in the side views."""
+    return hand.view in ("side", "little") and "t" not in GREYS[hand.view]
+
+
+def union(hand, names):
+    """The field of these pieces together, each joined to the palm."""
+    U = None
+    for n in names:
+        F = hand.joined[n]
+        U = F if U is None else [[min(a, b) for a, b in zip(ra, rb)] for ra, rb in zip(U, F)]
+    return U
+
+
+def thumb_outline(hand, U):
+    """The thumb's outline as drawn: all of it, except its base where that lies inside the
+    hand's outline U. [(points, fade mm)]"""
+    g, own = hand.grid, hand.own
+    out = []
+    for L in g.contours(own["t"]):
+        L = relax(resample(L, 0.12), 2)
+        keep = [hand.root_t("t", p) >= ROOT["t"] or g.at(U, p) > -0.05 for p in L]
+        if all(keep):
+            out.append((L + [L[0]], 0.0))
+            continue
+        for r in _runs(L, keep):
+            if len(r) < 3:
+                continue
+            # fade toward an end inside the hand, where the thumb melts into the ball
+            if g.at(U, r[0]) < g.at(U, r[-1]):
+                r = r[::-1]
+            out.append((r, 3.5 if g.at(U, r[-1]) < -0.25 else 0.0))
+    return out
 ROOT_BACK = 0.22        # from the back the fingers part down to the webs, near the knuckles
 GAP = "#3c3c3c"         # a hole in the outline
 FRONT = dict(side="i", little="l")      # the finger in front, in the views with grey fingers
@@ -875,7 +930,7 @@ def behind_field(hand, n):
     return out
 
 
-def inner_lines(hand, front):
+def inner_lines(hand, front, skip=()):
     """Where a front piece lies over one behind it: its own outline, but not where it grows
     out of the palm. [(points, fade mm)]"""
     g, own = hand.grid, hand.own
@@ -883,7 +938,7 @@ def inner_lines(hand, front):
     from_back = hand.view in ("back", "above")
     out = []
     for n in front:
-        if n == "palm":
+        if n == "palm" or n in skip:
             continue
         idx = order.index(n)
         behind = order[:idx]            # grey fingers too: the thumb's edge shows over them

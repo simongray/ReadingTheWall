@@ -562,12 +562,8 @@ def measure_model(hand):
     # and how far down from the tip the drawing really carries the thumb's edge: its lines
     # and the stretch of the outline that is the thumb's
     order = HM.ORDER[hand.view]
-    front = [n for n in order if n not in HM.GREYS[hand.view]]
-    U = None
-    for n in front:
-        U = hand.joined[n] if U is None else [[min(a, b) for a, b in zip(ra, rb)] for ra, rb in zip(U, hand.joined[n])]
-    edge = [q for L in hand.grid.contours(U) for q in L if abs(g.at(hand.own["t"], q)) < 0.1]
-    edge += [q for pts, _ in HM.inner_lines(hand, front) for q in pts if abs(g.at(hand.own["t"], q)) < 0.1]
+    body = [n for n in order if n not in HM.GREYS[hand.view] and n != "t"]
+    edge = [q for pts, _ in HM.thumb_outline(hand, HM.union(hand, body)) for q in pts]
     axis = unit(sub(T[3], hand.flat(mc.o)))
     m["thumb drawn"] = max(dot(sub(T[3], q), axis) for q in edge) if edge else 0.0
     return m
