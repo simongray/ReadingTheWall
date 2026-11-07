@@ -359,9 +359,11 @@ class Fig:
 
     # primitives
     def style(self, fill=None, stroke=INK, sw=0.3, dash=None, opacity=None,
-              join="round", cap="round", ghost=False):
+              join="round", cap="round", ghost=False, wall=False):
         """ghost: mark a piece of an earlier position, whose white is paper, for
-        the site's dark copy (website/dark.py). Print ignores the mark."""
+        the site's dark copy (website/dark.py). wall: mark a solid piece of wall,
+        which the dark copy turns wall grey, unlike a volume of the same grey.
+        Print ignores both marks."""
         s = f'fill="{fill or "none"}"'
         if stroke:
             s += (f' stroke="{stroke}" stroke-width="{self.mm(self.weight(sw)):.2f}"'
@@ -373,6 +375,8 @@ class Fig:
             s += f' opacity="{opacity}"'
         if ghost:
             s += ' data-ghost="1"'
+        if wall:
+            s += ' data-wall="1"'
         return s
 
     def stipple(self, outline, c, u, ra, rb, colour, focus=None, z=0):

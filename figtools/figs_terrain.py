@@ -39,8 +39,9 @@ def ceiling(fig, x0, x1, y, z=-20):
 
 
 def hatch_block(fig, pts, z=-20):
-    """A solid piece of wall (filled, outlined)."""
-    fig.poly(pts, z=z, fill=PALE, stroke=INK, sw=0.5)
+    """A solid piece of wall (filled, outlined), marked so the site's dark copy
+    can tell it from a volume of the same grey."""
+    fig.poly(pts, z=z, fill=PALE, stroke=INK, sw=0.5, wall=True)
 
 
 def wall_dirs(angle):
