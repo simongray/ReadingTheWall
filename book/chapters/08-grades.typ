@@ -154,7 +154,7 @@ Nothing specific.
 - *Barn-dooring.* You swing off when one hand releases. Fix: the flag above, *before* the hand moves.
 - *Arms tire on the steep.* Fix: straighten your arms and turn a hip in, so your biceps can rest.
 
-#ix("Plateau!at V2") V2 is a known plateau: one gym runs a movement clinic for climbers stuck there #src("F36"). The way out is learning to climb side-on.
+#ix("Plateau!at V2") V2 is a known plateau: one gym runs a movement clinic for climbers stuck there #src("F36"). The way out is probably learning to climb side-on (judgement).
 
 // ------------------------------------------------------------------ V3
 

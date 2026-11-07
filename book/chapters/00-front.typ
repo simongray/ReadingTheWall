@@ -114,7 +114,7 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 
 *Part IV* covers your body (being tall, small or heavier, or starting as an adult), how to learn technique, and how to fall safely.
 
-The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques that fix it. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the corrections to the previous edition, the sources and the index.
+The *appendices* start with "On the mat", the book on one page to look at between attempts. Then comes a troubleshooting table that goes from a symptom ("I swing off like a door") to the techniques to try. They also hold a glossary of climbing jargon, an A–Z list of every technique name, a grade conversion table, the corrections to the previous edition, the sources and the index.
 
 == Anatomy of a technique entry
 

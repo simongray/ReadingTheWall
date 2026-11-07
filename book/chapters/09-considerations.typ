@@ -149,7 +149,7 @@ The picture depends on where the data come from: finger and shoulder problems us
   [Build up big dynamic moves gradually. Keep your shoulders set (pulled down and back) when you catch a hold (this book's suggestion).],
   [*Ankles and knees*],
   [Most gym bouldering accidents are falls onto the mat, often with a twisted ankle or leg #src("G12"). In one hospital's emergency department, the ankle was hurt in 37% of bouldering injuries#ix("Injuries!ankle") and the knee in 17% #src("G15"). Older climbers who reach an emergency department are admitted more often #src("G22").],
-  [Learn to fall (@cons-falling). This is the injury you can most easily prevent.],
+  [Learn to fall (@cons-falling). This may be the injury you can most easily prevent (judgement).],
 )
 
 #par(justify: false)[Studies of boulderers agree that fingers and ankles are among the most common injuries #src("G20", "G21").]
@@ -232,7 +232,7 @@ Film from behind, 3–4~m back, or from the side on steep walls. Watch after two
 ==== Drills
 #ix("Drills")
 
-Do drills on problems two or three grades below your best #src("G53"), or on the gym's easiest if you haven't got that far. One session a week of 25–40 easy problems works well (this book's suggestion). Lattice argues that easy, continuous climbing teaches relaxed movement #src("G54"). The evidence it cites is about forearm fitness, though, not technique.
+Do drills on problems two or three grades below your best #src("G53"), or on the gym's easiest if you haven't got that far. Try one session a week of 25–40 easy problems (this book's suggestion). Lattice argues that easy, continuous climbing teaches relaxed movement #src("G54"). The evidence it cites is about forearm fitness, though, not technique.
 
 The Level column gives the grade where each drill starts to pay off (this book's suggestion). A drill can also train a technique whose badge comes later.
 

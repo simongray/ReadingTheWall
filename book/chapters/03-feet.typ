@@ -516,7 +516,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Skipping the warm-up. Heel hooks use muscles that climbing rarely trains, so hamstring injuries#ix("Injuries!hamstring")#ix("Warm-up!before heel hooks") are common #src("A11").
     - Turning the foot out hard on a heel close to the hip without warming up. That can tear the #jt("LCL") (the ligament on the outside of the knee)#ix("Injuries!knee") #src("A10").
   ],
-  tall: [Short climbers use heel hooks mainly to gain reach#ix("Small climbers!heel hooks") #src("A9", "A15"). You will use them more to keep your hips in and to stop swings.#ix("Tall climbers!heel hooks") The hardest heels for you are the folded-up ones close to your hip, which need knee and hip mobility #src("A10").],
+  tall: [Short climbers use heel hooks mainly to gain reach#ix("Small climbers!heel hooks") #src("A9", "A15"). You may use them more to keep your hips in and to stop swings.#ix("Tall climbers!heel hooks") The hardest heels for you are the folded-up ones close to your hip, which need knee and hip mobility #src("A10").],
   related: ("toe-hook", "heel-toe-cam", "rockover", "arete", "roof", "barn-door"),
   watch: (("Joe Kinder for Eastern Mountain Sports", "Essentials of Climbing: Heel and Toe Hooks", "https://www.youtube.com/watch?v=YxGpiR0KCms"),),
   sources: ("A8", "A9", "A10", "A11", "A15", "A19", "A21", "A42", "A43", "A44", "A45"),
