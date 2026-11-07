@@ -357,7 +357,7 @@ FULL = dict(
         nail((0.72, 1.46), (0.3, 0.95), w=0.9, L=0.88, back=0.38),
         FULL_WRIST,
     ],
-    joints=dict(FULL_JOINTS, dent=(-0.62, 1.3), label=(0.62, 1.12)),
+    joints=dict(FULL_JOINTS, dent=(-0.62, 1.3), label=(1.0, 1.4)),
 )
 
 # The same finger with the thumb free below it, which leaves all of the end segment in view:
@@ -617,9 +617,8 @@ POCKET_CURLED = dict(
                                 (-6.4, -4.2)]),
           POCKET_THUMB],
     lines=[
-        # round the fingertip on the palm, along its pad and up the middle segment to the crook
-        [(-5.3, -5.58), (-5.62, -5.4), (-5.74, -5.02), (-5.54, -4.62), (-5.18, -4.28), (-4.96, -3.9),
-         (-4.92, -3.44), (-5.0, -3.0)],
+        # round the fingertip on the palm and along its pad, fading before the crook
+        [(-5.3, -5.58), (-5.62, -5.4), (-5.74, -5.02), (-5.54, -4.62), (-5.18, -4.28), (-4.96, -3.9), (-4.92, -3.44)],
     ],
     marks=[
         # little finger's nail, on the back of its end segment and clear of the palm's edge
@@ -1133,15 +1132,16 @@ _UNDER_THUMB = SLOPER_TOP[:-1] + [
     (-4.7, -4.6), (-4.72, -5.15, 1),
     # the thumb's upper edge, on the hold, and its tip clear of the slope to the wall
     (-4.4, -5.19), (-3.7, -5.27), (-2.9, -5.36), (-2.1, -5.44), (-1.41, -5.53), (-1.0, -5.6), (-0.58, -5.76),
-    (-0.14, -6.02), (0.2, -6.4), (0.32, -6.84), (0.12, -7.28), (-0.4, -7.5),
-    # its lower edge, a thumb's width below for 4 cm, into the ball of the thumb
-    (-1.3, -7.5), (-2.2, -7.5), (-3.1, -7.62), (-3.9, -7.92), (-4.62, -8.44), (-5.2, -9.06),
+    (-0.14, -6.02), (0.22, -6.46), (0.38, -6.98), (0.18, -7.44), (-0.3, -7.72),
+    # its lower edge tilts down with the slope, so the tip keeps a thumb's width, then into the ball
+    (-0.95, -7.82), (-1.8, -7.78), (-2.6, -7.8), (-3.4, -7.98), (-4.2, -8.38), (-4.8, -8.9),
+    (-5.2, -9.3),
 ]
 _UNDER_MARKS = [
     SLOPER_MARKS[0],
-    side_nail((-0.95, -7.52), (0.16, -7.2), (-0.4, -6.7), 0.28),
+    side_nail((-0.9, -7.82), (0.22, -7.42), (-0.35, -7.0), 0.28),
 ]
-_UNDER_JOINTS = dict(t=[(-7.0, -8.4), (-4.0, -6.75), (-1.7, -6.55), (0.32, -6.72)])
+_UNDER_JOINTS = dict(t=[(-7.0, -8.4), (-4.0, -6.95), (-1.7, -6.85), (0.38, -7.0)])
 FILM_THUMB = dict(SLOPER, outline=[_SLOPER_DIAG_BACK + _UNDER_THUMB + [
     (-5.8, -9.85), (-6.5, -10.8), (-7.15, -12.05), (-8.0, -14.0), (-9.0, -17.0), (-9.7, -19.0),
 ]], lines=[],
@@ -1166,16 +1166,16 @@ FILM_HANG = dict(SLOPER, outline=[[
     (-4.08, -4.8), (-4.08, -5.23, 1),
     # the thumb's upper edge, on the hold, and its tip clear of the slope to the wall
     (-3.7, -5.27), (-2.9, -5.36), (-2.09, -5.44), (-1.41, -5.53), (-0.73, -5.72), (-0.21, -6.05),
-    (0.29, -6.41), (0.68, -6.84), (0.52, -7.34), (0.0, -7.62),
+    (0.29, -6.41), (0.6, -6.96), (0.42, -7.46), (-0.1, -7.76),
     # its lower edge, into the ball of the thumb, and the arm's front
-    (-0.9, -7.62), (-1.8, -7.6), (-2.6, -7.7), (-3.25, -7.98), (-3.8, -8.5), (-4.3, -9.24),
+    (-0.85, -7.84), (-1.7, -7.8), (-2.5, -7.86), (-3.2, -8.1), (-3.8, -8.6), (-4.3, -9.3),
     (-4.72, -10.1), (-5.02, -11.1), (-5.26, -12.3), (-5.42, -13.6), (-5.56, -15.5), (-5.9, -19.0),
 ]], lines=[], marks=[
     side_nail((-0.4, 5.44), (0.98, 5.42), (0.3, 4.78), 0.3),
-    side_nail((-0.55, -7.62), (0.52, -7.34), (0.0, -6.8), 0.28),
+    side_nail((-0.8, -7.84), (0.42, -7.46), (-0.12, -7.0), 0.28),
     [(-4.8, -10.3), (-5.5, -10.52), (-6.3, -10.42)],
 ], joints=dict(SLOPER["joints"], i=[(-5.3, -0.97), (-3.41, 2.83), (-1.42, 4.3), (1.31, 4.97)],
-               t=[(-6.6, -8.9), (-3.6, -6.75), (-1.3, -6.55), (0.68, -6.72)],
+               t=[(-6.6, -8.9), (-3.6, -6.95), (-1.3, -6.9), (0.6, -7.0)],
                crease=(-7.39, -9.78), hand_dir=(0.225, 0.975), wrist=(-7.43, -10.69), arm_dir=(0.09, 0.996)))
 
 
@@ -1564,8 +1564,8 @@ def pocket_a():
 def pocket_b():
     f = pocket_frame(POCKET_CURLED, -14.5, -18.737, 5.65)
     f.arrow([(-5.3, 1.9), (-2.75, 2.38)], kind="force", z=50)
-    # the curled finger's pull, on down the palm, so that the finger only carries its label
-    f.arrow([(-6.5, -5.2), (-7.0, -7.6)], kind="force", z=50, head=2.0)
+    # the curled finger's pull, the opposite way, from its tip across the back of the hand
+    f.arrow([(-5.95, -5.3), (-8.1, -5.3)], kind="force", z=50, head=2.0)
     label_lines(f, ["opposite", "pulls"], (-10.9, 3.1), to=(-5.65, 1.85))
     label_lines(f, ["little finger", "curled"], (-11.2, -1.0), to=POCKET_CURLED["joints"]["label"])
     return f
