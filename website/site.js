@@ -216,7 +216,7 @@
 
   // A backlink or a "Cited in" can lead into an answer that is still closed, and not
   // every browser opens it for you.
-  const reveal = () => {
+  const openAnswer = () => {
     const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
     const closed = target && target.closest("details:not([open])");
     if (closed) {
@@ -224,6 +224,6 @@
       target.scrollIntoView();
     }
   };
-  addEventListener("hashchange", reveal);
-  reveal();
+  addEventListener("hashchange", openAnswer);
+  openAnswer();
 })();
