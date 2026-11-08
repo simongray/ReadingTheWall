@@ -124,7 +124,7 @@ SECTION = [(1.95, 2.0), (1.86, 1.8), (1.62, 1.42), (1.43, 1.2)]
 GIRTH = dict(i=(1.0, 1.0), m=(1.01, 1.03), r=(0.94, 0.96), l=(0.83, 0.85))
 # the fingers fan out a little from the knuckles when straight (degrees, + to the thumb side),
 # so from behind they part with slight gaps, as in the photos
-SPREAD = dict(i=5.0, m=0.0, r=-5.0, l=-11.0)
+SPREAD = dict(i=7.0, m=1.0, r=-6.0, l=-13.0)
 
 # the thumb: its CMC near the wrist on the thumb side, about 1 cm nearer the wrist than the
 # index's metacarpal base; metacarpal 4.62, phalanges 3.16 and 2.17 with 0.57 of pulp
@@ -144,11 +144,13 @@ THUMB_W = v_norm((0.85, -0.3, 0.42))
 # the forearm: its bones end at the wrist joint. Sections (y, breadth, depth, z of centre)
 RADIUS = ((1.9, -25.0, -0.2), (1.95, -0.6, -0.3))
 ULNA = ((-2.4, -25.0, 0.4), (-2.55, -1.1, 0.35))
-FOREARM = [(-0.9, 6.3, 4.25, -0.35), (-5.0, 7.0, 4.95, -0.3), (-12.0, 7.5, 5.4, -0.25),
-           (-26.0, 8.2, 6.0, -0.2)]
+# From behind the forearm stays near the wrist's breadth for a hand's length before it
+# widens toward the elbow, as in the photos from behind; it does not flare from the wrist
+FOREARM = [(-0.9, 5.8, 4.25, -0.35), (-5.0, 6.75, 4.95, -0.3), (-12.0, 7.2, 5.4, -0.25),
+           (-26.0, 7.9, 6.0, -0.2)]
 # the palm as a wedge, thicker at the wrist: sections (y, x of centre, breadth, z of centre,
 # depth)
-PALM = [(-0.2, -0.15, 6.3, -0.425, 4.15), (2.8, -0.15, 7.5, -0.475, 3.85),
+PALM = [(-0.2, -0.15, 5.8, -0.425, 4.15), (2.8, -0.15, 7.5, -0.475, 3.85),
         (6.0, 0.0, 8.3, -0.6, 3.45), (8.7, 0.05, 8.35, -0.8, 3.05)]
 
 WRIST_CREASE = (0.0, 0.0, -2.6)
@@ -759,8 +761,12 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     f.wobble = wob
     d = " ".join(_pen_loop(f, L) for L in loops)
     if ghost:
+        # the same hand, dashed: its outline, and the thumb's own as the solid hand draws it
         st = f.style(fill=None, stroke=MID, sw=0.3, dash=(0.9, 0.7))
         f.add(f'<path d="{d}" fill-rule="evenodd" {st}/>', z)
+        if apart:
+            for pts, _ in thumb_outline(hand, U):
+                f.add(f'<path d="{f._path_d(pts, False, True)}" {st}/>', z)
         f.wobble = None
         return
     # grey fingers behind: only where they stand out above the front finger's back or past
@@ -1193,12 +1199,12 @@ GRIPS = dict(
                      thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 15.0),
     # From behind, the open hand's drag over a rail: the index as the open hand's (O1, O2), the
     # other fingers alike, over the top beside it (ClimbingCrux's two hands sharing a hold, from
-    # behind). The thumb as the photos from behind show it (back-5, -6, -7): beside the index,
-    # pressing up into the rail's underside from below, turned on its side so its edge, not
-    # its nail, faces you, its tip on the rail's lower half, about half the index's length
-    # showing. It came from a search for those with the thumb outlined as a whole digit
+    # behind). The thumb as the photos from behind show it (back-1, -5, -6): held tight beside
+    # the index, not out to the side, turned so its edge, not its nail, faces you, its tip on
+    # the rail. It came from a search for the narrowest hand whose thumb is still outlined as
+    # a whole digit
     drag=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(15, 38, 45),
-               thumb=dict(cmc=(-20, 35), mcp=10, ip=0)), 0.0),
+               thumb=dict(cmc=(-10, 15), mcp=10, ip=30)), 0.0),
     # open-hand.svg (b), the three-finger drag: (a)'s open hand from behind, the same pose and
     # lean (which tips its back up toward you), the little finger curled off the edge
     drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(20, 70, 20),
@@ -1241,8 +1247,10 @@ GRIPS = dict(
 
 # grips seen from the thumb side of the other hand: drawn mirrored
 MIRRORED = {"under"}
-# from behind, a little from above, so the fingers curled over an edge's top show
-BACK_PITCH = 15.0
+# from behind, a little from above, so the fingers curled over an edge's top show; no more,
+# or the back of the hand shortens and the hand reads wide (photos back-1 and back-6 are
+# nearly level)
+BACK_PITCH = 10.0
 
 
 # ---------------------------------------------------------------- solving a pose
