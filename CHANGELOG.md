@@ -100,10 +100,17 @@ section as the notes of the GitHub release.
   general to this technique. "Your first V0–V1s" didn't match the V1 badge → the
   Gripped sentence is gone. The note says "Needed on your first V1s with pockets
   or small holds that face straight out (judgement)".
+- p. 32, High step, figure (b): the high shoe pointed straight into the wall
+  under a knee that points out, a twisted knee → the shoe turns out about 45°
+  with the knee, as in photographs of high steps. Rockover (p. 38) and
+  Hand–foot match (p. 40) had the same fault and are drawn the same way.
 - p. 42, Heel hook rock-up (In motion), frame 3 and caption: the hips move
   towards the heel but never reach it, so "hips over the heel" and "until they
   sit over the foot" said more than the drawing shows → "hips towards the heel"
   and "up and across towards the foot".
+- p. 51, Knee bar, figure: the free leg hung in the air, though step 6 presses
+  it against the wall → its foot presses on the wall below the bar foot, making
+  the tripod of step 6.
 - p. 55, Weight shift, grade note, and the grade notes of Matching hands (p.
   60), Stemming (p. 61), Layback (p. 65), Side flag (p. 67) and Drop knee (p.
   84): calling a skill "basic" or one of "the first" on the UK coaching pathway
@@ -171,6 +178,9 @@ section as the notes of the GitHub release.
   rest".
 - p. 111, Pinch, tall note: "They don't help on narrow ones" was this book's
   inference, stated as fact → "less so on narrow ones (judgement)".
+- p. 114, Re-gripping a sloper (In motion), caption: "the thumb finds a spot
+  underneath" said more than photographs of sloper grips show → "below the
+  fingers".
 - p. 115, Sloper, common mistakes: "instead of hanging from the shoulder"
   reversed its source → "instead of using your shoulders, back and core", now
   cited.
@@ -235,6 +245,9 @@ section as the notes of the GitHub release.
   now a part of Deadpoint.
 - p. 149, One-handed dyno, tall note: "The throw costs less" → "The throw
   probably costs less energy (judgement)".
+- p. 152, Campus move, summary: "Each move is a short, footless dyno" added
+  "short", which its source doesn't say; it describes campus moves made as big
+  as possible → "Each move is a footless dyno".
 - p. 158, Jumping to a foothold, Sources: left out [82], the source step 3 cites
   → the list now includes it.
 - p. 171, Traverses, step 3: "Don't swap feet on one foothold" was a flat ban,
@@ -244,6 +257,10 @@ section as the notes of the GitHub release.
 - p. 171, Traverses, step 5: "Keep your arms straight" applied to any wall,
   against Straight arms (p. 70), which says to stand tall on a vertical wall →
   "On steep sections, keep your arms straight".
+- p. 171, Traverses, figure: the left hip turned in, so in depth the flagging
+  left leg passed between the standing leg and the wall, an inside flag, though
+  the caption says it flags behind → the standing leg's hip turns in, as in
+  photographs of back flags.
 - p. 173, Slab technique, step 8: "Lean in so the bone takes the weight" gave
   the bones as the mechanism. Leaning in is also the fault step 2 warns against
   → "Shift your weight onto that heel so the calf can relax".
@@ -561,11 +578,6 @@ section as the notes of the GitHub release.
 - The Sources list has 340 sources, up from 317, so many source numbers change.
   Most of the new ones back the notes for small climbers and the corrected
   evidence.
-- Five poses checked against photographs are redrawn. In Knee bar the free
-  foot presses on the wall below, making the tripod the steps describe. In
-  High step, Rockover and Hand–foot match the high shoe turns out with its
-  knee. In Traverse the standing leg's hip turns in, so the flag is a back
-  flag in depth too.
 - Every view from above is worked out from the climber in the view beside it,
   so the two agree. That covers the insets in Turning the hip in, Backstep, Drop
   knee, Side flag, Inside flag, Twist lock, Barn door and Counter-kick, and the
