@@ -698,8 +698,15 @@ def check_model(d, climbers):
         rows.append((key, float(v), lo, hi, lo <= v <= hi))
     pen = 2 * climb.WOBBLE / d["fig"].scale
     back = hand.view in ("back", "above")
+    # a thumb tucked out of sight from behind draws no line at all: there is no thumb to
+    # measure, so its measures don't apply. A thumb any of which shows is measured in full
+    hidden = HM.thumb_hidden(hand)
+    if hidden:
+        rows.append(("thumb hidden", 1.0, 1.0, 1.0, True))
     for key, v in measure_model(hand).items():
         if back and key not in BACK_MODEL:
+            continue
+        if hidden and key.startswith("thumb"):
             continue
         r = dict(BACK if back else SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN,
                                              "thumb outlined": THUMB_OUTLINED})[key]

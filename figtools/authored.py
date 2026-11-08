@@ -1299,7 +1299,10 @@ def grip(name, anchor, at, arm=None, view="side", mirror=None, lean=True):
     if view == "back":
         # the grip's lean toward the wall, which turns the drawing from the side, tips the
         # hand's back up toward you from behind: the same hand, seen from behind and a little
-        # above. `arm` then turns the drawing only
+        # above. `arm` then turns the drawing only. On a rail or edge its thumb is tucked
+        # under the palm, as the photos from behind show (handmodel.BACK_THUMB)
+        if name in M.BACK_TUCKED:
+            pose = dict(pose, thumb=M.BACK_THUMB)
         return M.Hand(pose, view, arm=arm or 0.0, anchor=anchor, at=at, name=name,
                       mirror=(name in M.MIRRORED) if mirror is None else mirror,
                       pitch=M.BACK_PITCH + (a if lean else 0.0))

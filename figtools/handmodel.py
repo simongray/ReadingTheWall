@@ -150,7 +150,7 @@ FOREARM = [(-0.9, 5.8, 4.25, -0.35), (-5.0, 6.75, 4.95, -0.3), (-12.0, 7.2, 5.4,
            (-26.0, 7.9, 6.0, -0.2)]
 # the palm as a wedge, thicker at the wrist: sections (y, x of centre, breadth, z of centre,
 # depth)
-PALM = [(-0.2, -0.15, 5.8, -0.425, 4.15), (2.8, -0.15, 7.5, -0.475, 3.85),
+PALM = [(-0.2, -0.15, 5.8, -0.425, 4.15), (2.8, -0.15, 7.8, -0.475, 3.85),
         (6.0, 0.0, 8.3, -0.6, 3.45), (8.7, 0.05, 8.35, -0.8, 3.05)]
 
 WRIST_CREASE = (0.0, 0.0, -2.6)
@@ -744,7 +744,8 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     # run from the index down between them and up the thumb, as if the two were one forked
     # digit.
     apart = thumb_apart(hand)
-    body = [n for n in front if not (apart and n == "t")]
+    hidden = thumb_hidden(hand)
+    body = [n for n in front if not ((apart or hidden) and n == "t")]
     U = union(hand, body)
     loops = [relax(resample(L, 0.18), 2) for L in g.contours(U)]
     loops = [L for L in loops if len(L) > 5]
@@ -761,12 +762,12 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     f.wobble = wob
     d = " ".join(_pen_loop(f, L) for L in loops)
     if ghost:
-        # the same hand, dashed: its outline, and the thumb's own as the solid hand draws it
+        # an earlier position: one outer outline of the whole hand, thumb and all unless it is
+        # out of sight, dashed, with no line of one part drawn across another
+        whole = union(hand, [n for n in front if not (hidden and n == "t")])
+        outer = max((relax(resample(L, 0.18), 2) for L in g.contours(whole)), key=lambda L: abs(area(L)))
         st = f.style(fill=None, stroke=MID, sw=0.3, dash=(0.9, 0.7))
-        f.add(f'<path d="{d}" fill-rule="evenodd" {st}/>', z)
-        if apart:
-            for pts, _ in thumb_outline(hand, U):
-                f.add(f'<path d="{f._path_d(pts, False, True)}" {st}/>', z)
+        f.add(f'<path d="{_pen_loop(f, outer)}" fill-rule="evenodd" {st}/>', z)
         f.wobble = None
         return
     # grey fingers behind: only where they stand out above the front finger's back or past
@@ -800,6 +801,7 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     # the thumb: white over the hand, and its outline all round, but for its base, where it
     # melts into the ball of the thumb inside the hand's outline
     zt = z + 0.015
+    apart = apart and not hidden
     if apart:
         for L in g.contours(own["t"]):
             L = relax(resample(L, 0.18), 2)
@@ -810,9 +812,9 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
         for pts, fade in thumb_outline(hand, U):
             A.pen_line(f, pts, zt + 0.005, A.OUT * k_, fade=fade)
     if show_lines:
-        for pts, fade in inner_lines(hand, front, skip=("t",) if apart else ()):
+        for pts, fade in inner_lines(hand, front, skip=("t",) if apart or hidden else ()):
             A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
-    for pts in nails(hand, front):
+    for pts in nails(hand, [n for n in front if not (hidden and n == "t")]):
         f.poly(A.curve(f, pts, False), closed=False, z=z + 0.03, taper=True, _smooth=True,
                fill=None, stroke=INK, sw=A.fine_sw())
     for pts in creases(hand):
@@ -834,6 +836,20 @@ def thumb_apart(hand):
     it is not a grey digit behind. From behind too it lies beside the index, not under it,
     so no line of the hand's edge runs across it."""
     return "t" not in GREYS[hand.view]
+
+
+def thumb_hidden(hand):
+    """From behind, a thumb tucked under the palm: every point of its outline inside the
+    hand's own outline, and behind the back of the hand, so none of it shows."""
+    if hand.view not in ("back", "above"):
+        return False
+    if not hasattr(hand, "grid"):
+        hand.build()
+    g, s = hand.grid, hand.skel
+    U = union(hand, [n for n in ORDER[hand.view] if n not in GREYS[hand.view] and n != "t"])
+    inside = all(g.at(U, p) < -0.05 for L in g.contours(hand.own["t"]) for p in L)
+    behind = hand.depth(s.joints("t")[-1]) < hand.depth(s.joints("i")[0]) - 1.0
+    return inside and behind
 
 
 def union(hand, names):
@@ -1199,12 +1215,9 @@ GRIPS = dict(
                      thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 15.0),
     # From behind, the open hand's drag over a rail: the index as the open hand's (O1, O2), the
     # other fingers alike, over the top beside it (ClimbingCrux's two hands sharing a hold, from
-    # behind). The thumb as the photos from behind show it (back-1, -5, -6): held tight beside
-    # the index, not out to the side, turned so its edge, not its nail, faces you, its tip on
-    # the rail. It came from a search for the narrowest hand whose thumb is still outlined as
-    # a whole digit
+    # behind). Its thumb is tucked under the palm, out of sight from behind (BACK_THUMB)
     drag=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(15, 38, 45),
-               thumb=dict(cmc=(-10, 15), mcp=10, ip=30)), 0.0),
+               thumb=dict(cmc=(-10, 80), mcp=20, ip=40)), 0.0),
     # open-hand.svg (b), the three-finger drag: (a)'s open hand from behind, the same pose and
     # lean (which tips its back up toward you), the little finger curled off the edge
     drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(20, 70, 20),
@@ -1244,6 +1257,14 @@ GRIPS = dict(
                thumb=dict(cmc=(-20, -5), mcp=5, ip=5)), -86.0),
 )
 
+
+# A hand on a rail or edge seen from behind tucks its thumb under the palm, out of sight,
+# as the photos from behind show it (back-1, a hangboard edge; back-4, two hands matched):
+# the thumb's pose from behind comes from those photos, not from the side view, whose thumb
+# is free below the edge. Folded in front of the palm, every point of its outline lies inside
+# the hand's, behind the back of the hand (thumb_hidden)
+BACK_THUMB = dict(cmc=(-10, 80), mcp=20, ip=40)
+BACK_TUCKED = {"drag", "half"}
 
 # grips seen from the thumb side of the other hand: drawn mirrored
 MIRRORED = {"under"}
