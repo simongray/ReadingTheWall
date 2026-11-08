@@ -822,33 +822,31 @@ def top_out(path):
     a.poly([(a.x0, LIP), (a.x1, LIP), (a.x1, LIP + 9), (a.x0, LIP + 9)],
            z=-30, fill=PALE, stroke=None)
     a.line((a.x0, LIP), (a.x1, LIP), z=-5, sw=0.7)
-    # the right leg swung up and out to the side, as a climber throws a
-    # heel onto a lip: the thigh rises from the hip, the knee bends a
-    # little and points down and out, and the shin reaches up and out to
-    # the heel, which sits on the edge of the top with the toes pointing
-    # out and up. The shin comes toward us, so the sole is down although
-    # the knee is below the heel: "flip" turns the top of the shoe away
-    # from the knee. The shin points a little into the wall, so it is a
-    # little shortened. The heel is well outside the right hand, so the
-    # arm and leg stay apart. The hands grip the lip at shoulder height,
+    # the right leg hooks the lip as in photographs of heel hooks from
+    # behind: the thigh goes out to the side, the knee points down and out,
+    # and the shin rises to the heel on the lip, the foot bent at about a
+    # right angle with the toes pointing away from the body. (A shin
+    # reaching up in line with a pointed foot read as a leg bent the wrong
+    # way.) The heel is outside the right hand, so the arm and leg stay
+    # apart. The hands grip the lip at shoulder height,
     # elbows down; the forearms point into the wall, so the arms are
     # shortened. The left foot is high: a frog leg whose knee points out
     # and a little toward the wall, so its thigh is shortened. The arms
     # and the heel pull together; the heel hikes the right hip, and the
     # right side bends over it to keep the shoulders level.
     LF = (-38, 112)
-    HEEL = (66, LIP + 1)
+    HEEL = (60, LIP + 1)
     hold(a, "foot", LF)
     c = Climber((2, 156), lean=-10, bend=8, lh=(-44, LIP + 4), rh=(34, LIP + 4),
                 lf={"at": stand(LF)},
-                rf={"at": HEEL, "contact": "heel", "angle": 32, "flip": True},
-                knees={"l": "out", "r": "down"},
+                rf={"at": HEEL, "contact": "heel", "angle": 0},
+                knees={"l": "out", "r": "right"},
                 arm_len={"l": 0.82, "r": 0.8},
-                leg_len={"l": (0.8, 0.9), "r": (0.97, 0.88)},
+                leg_len={"l": (0.8, 0.9), "r": (0.95, 0.9)},
                 elbows={"l": "down", "r": "down"}, head=(5, -1),
                 active=("+rham",))
     c.draw(a)
-    a.label("heel on the lip", (50, 237), to=add(HEEL, (0, 10)))
+    a.label("heel on the lip", (50, 237), to=add(HEEL, (1, 3)))
     a.label("foot high", (-6, 98), to=add(stand(LF), (5, -1)))
     warn("top-out-a", c)
 
@@ -890,16 +888,19 @@ def traverse(path):
     # flags, the standing leg's hip (the right) turns in to the wall and
     # the flagging hip comes out toward the viewer. The flagging left leg
     # then passes behind the standing right leg, on the side away from the
-    # wall, and the left arm reaches across over the right arm to C, so the
-    # library's own drawing order draws both over their right-hand partners.
-    # (With the left hip in, the leg would pass between the right leg and
-    # the wall, an inside flag.) The chest bends right, toward the crossing
-    # reach, the left side stretched
+    # wall, and the left arm reaches across over the right arm to C, as the
+    # library's order for this turn draws them. (With the left hip in, the
+    # leg would pass between the right leg and the wall, an inside flag.)
+    # The reaching arm crosses in front of the face, between the head and
+    # the wall, so the head is drawn last, over it, and tips left out of its
+    # way. The chest bends right, toward the crossing reach, the left side
+    # stretched
     c = Climber((18, 116), lean=1, bend=6, turn=0.65, lh=grip(C), rh=grip(B),
                 lf={"at": (78, 56), "angle": -20, "contact": "ball"},
                 rf={"at": stand(RF)},
                 elbows={"l": "down", "r": "out"}, knees={"l": "up", "r": "out"},
-                head=(-5, -1), allow_cross=True)
+                order=["rleg", "rarm", "torso", "lleg", "larm", "head"],
+                head=(-11, -3), allow_cross=True)
     c.draw(f)
     f.arrow([(-20, 216), (22, 252), (55, 218)], kind="move")
     f.label("left hand crosses over", (14, 258), size=7.5)

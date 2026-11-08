@@ -269,6 +269,10 @@ section as the notes of the GitHub release.
   slab-like walls are slightly overhanging, and the entry's Sources left the
   study out → "a near-vertical wall with big volumes where you'll mostly push",
   with the citation on that clause. The study is now in Sources.
+- p. 176, Top-outs (a): the shin reached up to the heel in line with a pointed
+  foot, so the leg looked bent the wrong way → the knee points down and out and
+  the shin rises to the heel, the foot bent at about a right angle with the toes
+  pointing away, as in photographs of heel hooks.
 - p. 178, Volumes (a): the elbows went through the wall. The climber now stands
   further out with the hands a little lower.
 - p. 179, Volumes, tall note: "a higher foot" told a folded-up climber to fold
