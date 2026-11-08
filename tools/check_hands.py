@@ -505,12 +505,13 @@ def check(d, climbers):
 # solids' fields, in the hand's own cm, square to each part, as the side view shows them.
 
 # From behind, the measures that read the same on the model's solids: the index's breadth
-# at its segments and the hand's breadth at mid-palm, wrist and forearm (BACK's ranges), and
+# at its segments and the hand's breadth at mid-palm, wrist and forearm (BACK's ranges), its
+# breadth across the knuckles as drawn (BACK's 8.5-9.0), and
 # how much thumb shows and is drawn, as from the side (THUMB_SEEN, THUMB_DRAWN). The thumb's
 # breadths are BACK's for a thumb seen edge-on, and the knuckle row's chord takes in the
 # curled fingers, so neither is measured.
 BACK_MODEL = ("f1", "f2", "f3", "mid-palm", "wrist", "forearm", "thumb seen", "thumb drawn",
-              "thumb outlined")
+              "thumb outlined", "knuckles")
 # From behind, the thumb outlined on both sides as a digit, from its tip, leaving out lines
 # where they fade: at least half the index as it shows over a rail from behind (5.6-6 cm in
 # these drawings), as the photos from behind show the thumb (back-5, -6, -7: half to
@@ -597,7 +598,30 @@ def measure_model(hand):
     m["thumb drawn"] = max(dot(sub(T[3], q), axis) for q in edge) if edge else 0.0
     if hand.view in ("back", "above"):
         m["thumb outlined"] = thumb_outlined(hand, body)
+        m["knuckles"] = knuckle_span(hand, body)
     return m
+
+
+def knuckle_span(hand, body):
+    """From behind, the hand's breadth across its knuckles as drawn: the span of the back of
+    the hand and the fingers' bases, along the line through the index's and the little
+    finger's knuckles. The web to the thumb is left out, as the surveys' hand breadth leaves
+    out the thumb."""
+    s, g = hand.skel, hand.grid
+    web = len(HM.palm_solids(s)) - 1
+    palm = g.blank()
+    for i, c in enumerate(hand.P["palm"]):
+        if i != web:
+            g.paint(palm, c, HM.BLEND_IN["palm"])
+    U = palm
+    for k in "imrl":
+        F = g.join(hand.own[k], palm, HM.BLEND_ROOT[k])
+        U = [[min(a, b) for a, b in zip(ra, rb)] for ra, rb in zip(U, F)]
+    a, b = hand.flat(s.H(HM.MC_HEAD["i"])), hand.flat(s.H(HM.MC_HEAD["l"]))
+    u = unit(sub(b, a))
+    c = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+    ins = [t / 50 for t in range(-500, 501) if g.at(U, (c[0] + u[0] * t / 50, c[1] + u[1] * t / 50)) < 0]
+    return (max(ins) - min(ins)) if ins else 0.0
 
 
 def hand_scale(hand):

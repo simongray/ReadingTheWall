@@ -117,11 +117,14 @@ MC_BASE = dict(i=(2.1, 2.76, 0.1), m=(0.6, 3.31, 0.25), r=(-0.9, 3.22, 0.15), l=
 # the artists have them
 PHALANX = dict(i=(3.98, 2.24, 1.96), m=(4.46, 2.63, 2.14), r=(4.14, 2.57, 2.13), l=(3.27, 1.81, 1.97))
 # (breadth, depth) at the base of the first segment, the middle joint, the end joint and
-# the fingertip, for the index; the others are scaled by GIRTH
-SECTION = [(2.05, 2.0), (1.95, 1.8), (1.7, 1.42), (1.5, 1.2)]
+# the fingertip, for the index; the others are scaled by GIRTH. The breadth at the middle
+# joint is Kouchi's 0.216 of the knuckles' 8.6 (hand-proportions.md); a breadth up at the US
+# hands' 0.23 made the hand from behind read too wide, its fingers touching
+SECTION = [(1.95, 2.0), (1.86, 1.8), (1.62, 1.42), (1.43, 1.2)]
 GIRTH = dict(i=(1.0, 1.0), m=(1.01, 1.03), r=(0.94, 0.96), l=(0.83, 0.85))
-# the fingers fan out a little from the knuckles when straight (degrees, + to the thumb side)
-SPREAD = dict(i=3.0, m=0.0, r=-3.0, l=-8.0)
+# the fingers fan out a little from the knuckles when straight (degrees, + to the thumb side),
+# so from behind they part with slight gaps, as in the photos
+SPREAD = dict(i=5.0, m=0.0, r=-5.0, l=-11.0)
 
 # the thumb: its CMC near the wrist on the thumb side, about 1 cm nearer the wrist than the
 # index's metacarpal base; metacarpal 4.62, phalanges 3.16 and 2.17 with 0.57 of pulp

@@ -1291,7 +1291,7 @@ def pull(f, x, y, length_=3.4):
 # bones, posed by the joint angles read off photographs (handmodel.GRIPS), at HAND_SCALE.
 # A grip is the same pose wherever it appears; only where it sits on its hold changes.
 
-def grip(name, anchor, at, arm=None, view="side", mirror=None):
+def grip(name, anchor, at, arm=None, view="side", mirror=None, lean=True):
     """The model's hand in grip `name`, placed so its point `anchor` lands on `at`. From
     behind (view "back") it is seen a little from above; mirror: the other hand."""
     import handmodel as M
@@ -1302,7 +1302,7 @@ def grip(name, anchor, at, arm=None, view="side", mirror=None):
         # above. `arm` then turns the drawing only
         return M.Hand(pose, view, arm=arm or 0.0, anchor=anchor, at=at, name=name,
                       mirror=(name in M.MIRRORED) if mirror is None else mirror,
-                      pitch=M.BACK_PITCH + a)
+                      pitch=M.BACK_PITCH + (a if lean else 0.0))
     return M.Hand(pose, view, arm=a if arm is None else arm, anchor=anchor, at=at, name=name,
                   mirror=(name in M.MIRRORED) if mirror is None else mirror)
 
@@ -1747,7 +1747,9 @@ def regrip_panel(k):
         label_lines(f, ["incut"], (7.4, 5.6), to=(7.4, 3.0))
     else:
         # the half crimp of the side views, from behind, in the incut
-        crimp = grip("half", "m1", REGRIP_CRIMP_AT, view="back", arm=0.0, mirror=True)
+        # seen as the drag is, from behind and a little above: the crimp's lean on top would
+        # tip the back of the hand away until the hand reads short and wide
+        crimp = grip("half", "m1", REGRIP_CRIMP_AT, view="back", arm=0.0, mirror=True, lean=False)
         import handmodel as M
         M.draw(f, drag, z=-3, ghost=True)
         draw_any(f, crimp)
