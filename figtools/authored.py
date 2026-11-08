@@ -1296,10 +1296,15 @@ def grip(name, anchor, at, arm=None, view="side", mirror=None):
     behind (view "back") it is seen a little from above; mirror: the other hand."""
     import handmodel as M
     pose, a = M.GRIPS[name]
-    back = view == "back"
+    if view == "back":
+        # the grip's lean toward the wall, which turns the drawing from the side, tips the
+        # hand's back up toward you from behind: the same hand, seen from behind and a little
+        # above. `arm` then turns the drawing only
+        return M.Hand(pose, view, arm=arm or 0.0, anchor=anchor, at=at, name=name,
+                      mirror=(name in M.MIRRORED) if mirror is None else mirror,
+                      pitch=M.BACK_PITCH + a)
     return M.Hand(pose, view, arm=a if arm is None else arm, anchor=anchor, at=at, name=name,
-                  mirror=(name in M.MIRRORED) if mirror is None else mirror,
-                  pitch=M.BACK_PITCH if back else 0.0)
+                  mirror=(name in M.MIRRORED) if mirror is None else mirror)
 
 
 def draw_any(f, hand, z=0.0, fill=WHITE, behind=()):
@@ -1623,10 +1628,10 @@ def open_back():
     # as tall as (a), so that the arm runs to the same line above the caption
     b = Fig(-7.6, -23.444, 11.6, 5.2, scale=CLOSE)
     face_edge(b, (0.2, 0.0), 14.6, 3.4, rounded=True)
-    # the three-finger drag from behind, the middle finger's middle joint at the edge's top
-    hand = grip("drag3", "m1", (0.95, 1.8), view="back", mirror=True)     # the right hand
+    # the three-finger drag from behind: (a)'s hand, its index's pad on the edge's top
+    hand = grip("drag3", "i_pad", (0.2, 1.5), view="back", mirror=True)     # the right hand
     draw_any(b, hand)
-    label_lines(b, ["little", "finger off"], (9.2, -3.2), to=hand.flat(hand.skel.joints("l")[1]))
+    label_lines(b, ["little", "finger off"], (9.6, -3.6), to=hand.flat(hand.skel.joints("l")[1]))
     return b
 
 

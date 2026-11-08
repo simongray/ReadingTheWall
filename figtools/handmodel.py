@@ -781,9 +781,13 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
         for L in every:
             if L is not outer and area(L) * area(outer) < 0:
                 # a hole shows what lies behind it: where a hold does, it is left open and the
-                # hold shows through; where none does, it is a dark gap of shadow
+                # hold shows through; where a finger behind does, as the next finger behind a
+                # full crimp's index, that finger's grey; where nothing does, a dark gap
                 if not any(_inside(q, poly) for poly in behind for q in L):
-                    f.add(f'<path d="{_pen_loop(f, L)}" fill="{GAP}"/>', z + 0.012)
+                    c = (sum(q[0] for q in L) / len(L), sum(q[1] for q in L) / len(L))
+                    shade = next((greys[n] for n in reversed(order)
+                                  if n in greys and g.at(own[n], c) < 0.0), GAP)
+                    f.add(f'<path d="{_pen_loop(f, L)}" fill="{shade}"/>', z + 0.012)
     # the thumb: white over the hand, and its outline all round, but for its base, where it
     # melts into the ball of the thumb inside the hand's outline
     zt = z + 0.015
@@ -810,6 +814,10 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
 
 
 ROOT = dict(t=0.8, i=0.42, m=0.42, r=0.42, l=0.42)   # of the first segment: a digit's root
+# Over the palm the thumb's back melts into the hand from its knuckle down, so the thumb widens
+# into the ball of the thumb; a line on down to the ball would part it from the hand, as if
+# it were stuck on. Its palm side carries on down over the ball as the hand's own outline
+THUMB_MELT = 1.0
 
 
 def thumb_apart(hand):
@@ -832,10 +840,22 @@ def thumb_outline(hand, U):
     """The thumb's outline as drawn: all of it, except its base where that lies inside the
     hand's outline U. [(points, fade mm)]"""
     g, own = hand.grid, hand.own
+    back = hand.view in ("back", "above")
+    # down the thumb, from its knuckle toward its base
+    J = [hand.flat(j) for j in hand.skel.joints("t")]
+    down = norm(sub(J[0], J[1]))
     out = []
     for L in g.contours(own["t"]):
         L = relax(resample(L, 0.12), 2)
-        keep = [hand.root_t("t", p) >= ROOT["t"] or g.at(U, p) > -0.05 for p in L]
+        if back:
+            # from behind the thumb grows out of the back of the hand: inside the hand's
+            # outline its edge shows only where it lies over a finger, never over the palm
+            # or the web, which join it to the hand
+            keep = [g.at(U, p) > -0.05 or (hand.root_t("t", p) >= 1.0 and
+                                           any(g.at(own[k], p) < 0.04 for k in "imrl"))
+                    for p in L]
+        else:
+            keep = [hand.root_t("t", p) >= THUMB_MELT or g.at(U, p) > -0.05 for p in L]
         if all(keep):
             out.append((L + [L[0]], 0.0))
             continue
@@ -845,7 +865,17 @@ def thumb_outline(hand, U):
             # fade toward an end inside the hand, where the thumb melts into the ball
             if g.at(U, r[0]) < g.at(U, r[-1]):
                 r = r[::-1]
-            out.append((r, 3.5 if g.at(U, r[-1]) < -0.25 else 0.0))
+            inside = g.at(U, r[-1]) < -0.25
+            if inside:
+                # and stop before its end turns off down the thumb, round the ball: a hook
+                # there closes the thumb off from the hand, as if it were stuck on
+                j, run = len(r) - 1, 0.0
+                while j > 1 and run < 1.5 and dot(norm(sub(r[j], r[j - 1])), down) < 0.5:
+                    run += length(sub(r[j], r[j - 1]))
+                    j -= 1
+                r = r[:j + 1]
+            if len(r) >= 3:
+                out.append((r, 3.5 if inside else 0.0))
     return out
 ROOT_BACK = 0.22        # from the back the fingers part down to the webs, near the knuckles
 GAP = "#3c3c3c"         # a hole in the outline, where no hold lies behind it
@@ -1118,7 +1148,7 @@ GRIPS = dict(
     # O1 reads 20-30, O3 about 60), end joint 45 over the lip, wrist bent back 8; the thumb
     # nearly straight along the palm side, free below the lip
     open=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(13, 6, 45),
-               thumb=dict(cmc=(-30, -4), mcp=5, ip=5)), 8.0),
+               thumb=dict(cmc=(-24, -4), mcp=5, ip=5)), 8.0),
     # the thumb catch: the open hand, its thumb pressed up into a dimple under the lip
     catch=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(13, 6, 45),
                 thumb=dict(cmc=(-28, -16), mcp=40, ip=20)), 8.0),
@@ -1152,20 +1182,21 @@ GRIPS = dict(
     # 4 find a thumb spot below: the same, the thumb's pad now on the hold below the fingers
     film_thumb=(dict(wrist=(8, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
                      thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 15.0),
-    # 5 wrist below, hang low: the hand rolls round the dome, the fingertips onto its upper
-    # shoulder and the palm down its face, so the wrist drops well below the hold and the
-    # arm hangs under it (fitted to the strip's dome)
-    film_hang=(dict(wrist=(5, 0), i=(30, 35, 15), m=(30, 35, 15), r=(30, 37, 15), l=(33, 37, 15),
+    # 5 wrist below, hang low: frame 4's hand turned 12 degrees about its pads on the dome, so
+    # the pads and palm keep their hold and the wrist drops below it; the wrist bends 11, the
+    # forearm hangs straight down
+    film_hang=(dict(wrist=(11, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
                     thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
-    # From behind, the open hand's drag over an edge or a rail: the index as the open hand's
-    # (O1, O2), the other fingers alike, over the top beside it (ClimbingCrux's two hands
-    # sharing a hold, from behind); the thumb lies along the side of the index, back to the
-    # back of the hand, its tip on the rail: from behind it shows broad, with its nail
+    # From behind, the open hand's drag over a rail: the index as the open hand's (O1, O2), the
+    # other fingers alike, over the top beside it (ClimbingCrux's two hands sharing a hold, from
+    # behind); the thumb along the side of the index, back to the back of the hand, bent so its
+    # tip comes to the rail below the index's middle joint, foreshortened as it turns in
     drag=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(15, 38, 45),
-               thumb=dict(cmc=(-10, -20), mcp=20, ip=20)), 0.0),
-    # the three-finger drag: the same, the little finger curled off the edge
-    drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(60, 95, 60),
-                thumb=dict(cmc=(-10, -20), mcp=20, ip=20)), 0.0),
+               thumb=dict(cmc=(-10, -20), mcp=35, ip=35)), 0.0),
+    # open-hand.svg (b), the three-finger drag: (a)'s open hand from behind, the same pose and
+    # lean (which tips its back up toward you), the little finger curled off the edge
+    drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(20, 70, 20),
+                thumb=dict(cmc=(-24, -4), mcp=5, ip=5)), 8.0),
     # the palm press: the hand flat on a volume's face, the fingers straight and spread, the
     # thumb out to the side (the reference's palm press and TripSavvy's palm on a slab: the heel
     # presses, the fingers lie flat). Seen from behind, flat on the face
@@ -1177,13 +1208,15 @@ GRIPS = dict(
                      thumb=dict(cmc=(-20, -8), mcp=5, ip=5)), 15.0),
     # H2 (a true side view), the book's "about 85-90" (C25): knuckle 15, middle joint 85, end
     # joint bent back 5, wrist bent back 15, the back of the hand upright; the thumb nearly
-    # straight, raised along the palm, its tip free about 1 cm under the middle segment
+    # straight, raised along the palm, its tip free about 1 cm under the middle segment. From
+    # behind its tip comes level with the index's middle joint
     half=(dict(wrist=(-15, 0), i=(15, 85, -5), m=(10, 98, -5), r=(3, 93, -5), l=(4, 73, -5),
                thumb=dict(cmc=(-20, -8), mcp=5, ip=5)), 15.0),
     # F1-F5, Fischer 2024: knuckle 35, middle joint 108, end joint bent back 25, wrist bent
     # back 25; the thumb crosses the index's end segment, its pad on the nail, its tip just
     # past and above the index's tip
-    full=(dict(wrist=(-25, 0), i=(35, 108, -25), m=(31, 115, -20), r=(19, 117, -20), l=(11, 113, -20),
+    # The other fingers curl in line with the index, so their knuckles stay behind its crest
+    full=(dict(wrist=(-25, 0), i=(35, 108, -25), m=(38, 108, -20), r=(35, 110, -20), l=(30, 110, -20),
                thumb=dict(cmc=(-18, -6), mcp=30, ip=15)), 20.0),
     # S1 (a true side view): the fingers nearly straight and draped as the index, the wrist
     # below the hold and turned toward the palm, which lies on it; the thumb's pad on the hold
