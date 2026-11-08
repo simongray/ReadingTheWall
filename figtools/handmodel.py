@@ -874,38 +874,90 @@ def tucked_outline(hand):
 # that stays hidden foreshortens to a blob, so Simon chose a drawn hint on 2026-11-08. In the
 # hand's own frame (cm, x toward the thumb, y along the hand): from the thumb side's edge just
 # below the index's knuckle, where the swelling is, in and up under the index's base toward
-# the middle finger; broad as the side views' thumb, tapering a little, its tip rounded
-THUMB_HINT = dict(base=(4.4, 6.4), tip=(1.1, 8.7), width=(2.0, 1.6), depth=-1.0)
+# the middle finger; broad as the side views' thumb, tapering a little, its tip rounded. It
+# bends gently at its joint, the end segment turning in toward the fingers, with the
+# knuckle's fullness on the outside of the bend, so it reads as a thumb and not a straight
+# tube. Its lower edge stops 1 cm short of the hand's outline (`gap`). Simon chose this
+# version, B3 of a sheet of variants, on 2026-11-08
+THUMB_HINT = dict(base=(4.4, 6.2), knuckle=(3.4, 7.9), tip=(1.3, 8.8), width=(2.0, 1.6),
+                  bump=0.08, gap=1.0, depth=-1.0)
 
 
 def hidden_thumb(hand, U):
     """The hint's dotted outline: open where it leaves the hand's outline U, so it grows out
     of the edge. [open polylines]"""
     g, s = hand.grid, hand.skel
-    (bx, by), (tx, ty) = THUMB_HINT["base"], THUMB_HINT["tip"]
+    B, K, T = THUMB_HINT["base"], THUMB_HINT["knuckle"], THUMB_HINT["tip"]
     wb, wt = THUMB_HINT["width"]
-    ax = (tx - bx, ty - by)
-    L = math.hypot(*ax)
-    u = (ax[0] / L, ax[1] / L)
-    n = (-u[1], u[0])
     r = wt / 2
-    pts = []
-    for k in range(13):     # one edge, base to the start of the tip
-        t = k / 12 * (L - r)
-        w = (wb + (wt - wb) * t / (L - r)) / 2
-        pts.append((bx + u[0] * t + n[0] * w, by + u[1] * t + n[1] * w))
-    c = (bx + u[0] * (L - r), by + u[1] * (L - r))
+    # the centre line: base to knuckle to tip, the corner rounded so the edges can't cross,
+    # stopping a tip's radius short of the tip, where the round end takes over
+    d2 = (T[0] - K[0], T[1] - K[1])
+    l2 = math.hypot(*d2)
+    T0 = (T[0] - d2[0] / l2 * r, T[1] - d2[1] / l2 * r)
+    line = [B, K, T0]
+    for _ in range(3):      # Chaikin: a joint, not a curve, so only a few rounds
+        out = [line[0]]
+        for p, q in zip(line, line[1:]):
+            out += [(0.75 * p[0] + 0.25 * q[0], 0.75 * p[1] + 0.25 * q[1]),
+                    (0.25 * p[0] + 0.75 * q[0], 0.25 * p[1] + 0.75 * q[1])]
+        line = out + [line[-1]]
+    cum = [0.0]
+    for p, q in zip(line, line[1:]):
+        cum.append(cum[-1] + math.hypot(q[0] - p[0], q[1] - p[1]))
+    L = cum[-1]
+    lk = min(range(len(line)), key=lambda i: math.hypot(line[i][0] - K[0], line[i][1] - K[1]))
+    # the side the bend's outside is on: the end segment turns away from it
+    d1 = (K[0] - B[0], K[1] - B[1])
+    outer = -1 if d1[0] * d2[1] - d1[1] * d2[0] > 0 else 1
+
+    def frame(i):
+        p, q = line[max(i - 1, 0)], line[min(i + 1, len(line) - 1)]
+        dx, dy = q[0] - p[0], q[1] - p[1]
+        m = math.hypot(dx, dy)
+        return (dx / m, dy / m), (-dy / m, dx / m)
+
+    def half(i, side):
+        w = (wb + (wt - wb) * cum[i] / L) / 2
+        near = max(0.0, 1 - abs(cum[i] - cum[lk]) / 0.9)
+        # the knuckle's fullness outside the bend, a slight crease inside it
+        return w + (THUMB_HINT["bump"] if side == outer else -0.6 * THUMB_HINT["bump"]) * near
+
+    left, right = [], []
+    for i, p in enumerate(line):
+        _, n = frame(i)
+        left.append((p[0] + n[0] * half(i, 1), p[1] + n[1] * half(i, 1)))
+        right.append((p[0] - n[0] * half(i, -1), p[1] - n[1] * half(i, -1)))
+    u, n = frame(len(line) - 1)
+    c = line[-1]
+    cap = []
     for k in range(1, 12):  # round the tip
         a = math.pi / 2 - math.pi * k / 12
-        pts.append((c[0] + (u[0] * math.cos(a) + n[0] * math.sin(a)) * r,
+        cap.append((c[0] + (u[0] * math.cos(a) + n[0] * math.sin(a)) * r,
                     c[1] + (u[1] * math.cos(a) + n[1] * math.sin(a)) * r))
-    for k in range(12, -1, -1):     # the other edge, back to the base
-        t = k / 12 * (L - r)
-        w = (wb + (wt - wb) * t / (L - r)) / 2
-        pts.append((bx + u[0] * t - n[0] * w, by + u[1] * t - n[1] * w))
+    lower_first = left[0][1] < right[0][1]     # which open end is the lower edge's
+    pts = left + cap + right[::-1]
     P = relax(resample([hand.flat(s.H((x, y, THUMB_HINT["depth"]))) for x, y in pts], 0.18), 1, closed=False)
-    return [r for r in _runs(P, [g.at(U, q) < -0.05 for q in P]) if len(r) > 3] if not all(
+    runs = [r for r in _runs(P, [g.at(U, q) < -0.05 for q in P]) if len(r) > 3] if not all(
         g.at(U, q) < -0.05 for q in P) else [P]
+    # the lower edge (toward the wrist) stops short of the hand's outline, as drawn, so a
+    # little space is left there and the thumb's base seems to sink into the palm (Simon,
+    # 2026-11-08); the gap is measured on the drawing, from the outline
+    gap = THUMB_HINT.get("gap", 0.0)
+    if gap > 0 and runs:
+        def cut(run):
+            done = 0.0
+            for i in range(1, len(run)):
+                done += math.hypot(run[i][0] - run[i - 1][0], run[i][1] - run[i - 1][1])
+                if done >= gap:
+                    return run[i:]
+            return []
+        if lower_first:
+            runs[0] = cut(runs[0])
+        else:
+            runs[-1] = cut(runs[-1][::-1])[::-1]
+        runs = [r for r in runs if len(r) > 3]
+    return runs
 
 
 def thumb_hidden(hand):
