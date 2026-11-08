@@ -509,7 +509,13 @@ def check(d, climbers):
 # how much thumb shows and is drawn, as from the side (THUMB_SEEN, THUMB_DRAWN). The thumb's
 # breadths are BACK's for a thumb seen edge-on, and the knuckle row's chord takes in the
 # curled fingers, so neither is measured.
-BACK_MODEL = ("f1", "f2", "f3", "mid-palm", "wrist", "forearm", "thumb seen", "thumb drawn")
+BACK_MODEL = ("f1", "f2", "f3", "mid-palm", "wrist", "forearm", "thumb seen", "thumb drawn",
+              "thumb outlined")
+# From behind, the thumb outlined on both sides as a digit, from its tip, leaving out lines
+# where they fade: at least half the index as it shows over a rail from behind (5.6-6 cm in
+# these drawings), as the photos from behind show the thumb (back-5, -6, -7: half to
+# two-thirds of the index), up to its two free segments, 5.9
+THUMB_OUTLINED = (2.8, 5.9)
 # Every model hand is drawn at the close-ups' scale, except on a plate printed smaller as a
 # whole: matching.svg keeps its 1.6 mm to the cm, so its two hands fit beside the steps
 # (the atlas and the film strip are drawn at the close-ups' scale and reduced afterwards).
@@ -589,7 +595,55 @@ def measure_model(hand):
     edge = [q for pts, _ in HM.thumb_outline(hand, HM.union(hand, body)) for q in pts if on_thumb(q)]
     axis = unit(sub(T[3], hand.flat(mc.o)))
     m["thumb drawn"] = max(dot(sub(T[3], q), axis) for q in edge) if edge else 0.0
+    if hand.view in ("back", "above"):
+        m["thumb outlined"] = thumb_outlined(hand, body)
     return m
+
+
+def hand_scale(hand):
+    """mm on the page per cm of hand: the close-ups' scale."""
+    return HM.H.HAND_SCALE
+
+
+def thumb_outlined(hand, body):
+    """From behind, how much of the thumb reads as a digit: from its tip down its free
+    segments, as far as the drawing outlines it on both sides. "thumb seen" and "thumb drawn"
+    run on down the ball of the thumb, which from behind is the hand's own edge; a thumb turned
+    toward the wall, or merged into the hand, shows only a knob at its tip however long they
+    measure."""
+    s, g = hand.skel, hand.grid
+    T = [hand.flat(j) for j in s.joints("t")]
+    # a line that fades into the hand reads only as far as its fade begins
+    pts = []
+    for run, fade in HM.thumb_outline(hand, HM.union(hand, body)):
+        if fade:
+            cut, acc = len(run), 0.0
+            while cut > 1 and acc < fade / hand_scale(hand):
+                acc += math.dist(run[cut - 1], run[cut - 2])
+                cut -= 1
+            run = run[:cut]
+        pts += run
+    if not pts:
+        return 0.0
+    out, step = 0.0, 0.1
+    for a, b in ((T[3], T[2]), (T[2], T[1])):
+        L = math.dist(a, b)
+        u = unit(sub(b, a))
+        n = perp(u)
+        k = 0
+        while k * step <= L:
+            c = (a[0] + u[0] * k * step, a[1] + u[1] * k * step)
+            # an edge on either side of the axis, within a thumb's breadth, square to it
+            sides = set()
+            for q in pts:
+                d = sub(q, c)
+                if abs(dot(d, u)) < 0.25 and abs(dot(d, n)) < 1.4:
+                    sides.add(dot(d, n) > 0)
+            if len(sides) < 2:
+                return out
+            out += step
+            k += 1
+    return out
 
 
 def check_model(d, climbers):
@@ -623,7 +677,8 @@ def check_model(d, climbers):
     for key, v in measure_model(hand).items():
         if back and key not in BACK_MODEL:
             continue
-        r = dict(BACK if back else SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN})[key]
+        r = dict(BACK if back else SIDE, **{"thumb seen": THUMB_SEEN, "thumb drawn": THUMB_DRAWN,
+                                             "thumb outlined": THUMB_OUTLINED})[key]
         rows.append((key, v if v is not None else -1.0, r[0], r[1],
                      v is not None and r[0] - pen <= v <= r[1] + pen))
     return rows

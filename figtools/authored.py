@@ -1699,10 +1699,12 @@ def catch_a():
     f = H.profile_frame(-13.5, -20.354, 5.81)
     f.smooth(CATCH_HOLD, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.6)
     H.xray_outline(f, CATCH_HOLD, 0.6)
-    draw_any(f, CATCH_M())
+    h = CATCH_M()
+    draw_any(f, h)
     f.arrow(CATCH_ARROW, kind="force", head=2.0)
     f.arrow([(0.6, 3.59), (0.6, 1.59)], kind="force")
-    label_lines(f, ["thumb in", "a dimple"], (-10.6, -6.2), to=(0.0, -4.5))
+    # to the thumb's pad, in the dimple
+    label_lines(f, ["thumb in", "a dimple"], (-10.8, -0.6), to=h.flat(h.skel.digits["t"][2][0].at(1.7, 0.0, -0.5)))
     return f
 
 
@@ -1767,10 +1769,10 @@ def wrap_panel():
     f.poly([low, high, (x1 + 2, y1 + 2), (x1 + 2, y0 - 2)], z=-20, fill="#cccccc", stroke=None)
     f.line(low, high, z=-19, sw=0.7)
     # the model's right hand from its back, the faces seen straight on, the fingers across
-    # the edge; the index's middle joint where the authored hand's was
+    # the edge; the index's middle joint low enough that the thumb stays in the frame
     import handmodel as M
     pose, arm = M.GRIPS["wrap"]
-    hand = M.Hand(pose, "back", arm=arm, anchor="i1", at=(-1.2, 2.5), mirror=True, name="wrap")
+    hand = M.Hand(pose, "back", arm=arm, anchor="i1", at=(-1.2, 1.7), mirror=True, name="wrap")
     draw_any(f, hand)
     # the edge carries on under the fingers, as a hidden line
     f.poly([low, high], closed=False, z=H.XRAY_Z, **H.XRAY_STYLE)
@@ -1782,7 +1784,7 @@ def wrap_panel():
     edge = (0.0, a[1] + (b[1] - a[1]) * (0.0 - a[0]) / (b[0] - a[0]))
     label_lines(f, ["fingers", "round", "the edge"], (3.85, -6.9), to=edge)
     f.arrow([(-10.0, -0.75), (-6.8, -0.4)], kind="force", z=50)
-    f.arrow([(6.2, 1.4), (3.6, 1.68)], kind="force", z=50)
+    f.arrow([(6.2, 0.6), (3.6, 0.88)], kind="force", z=50)
     return f
 
 
@@ -1828,7 +1830,7 @@ FILM_ZOOM = 0.73       # the strip is reduced as the atlas is: its frames are dr
 FILM = CLOSE * FILM_ZOOM
 
 
-def film_frame(hand, arrow=False):
+def film_frame(hand):
     """One frame of the sloper film strip, drawn at the close-ups' scale. The strip reduces
     it to FILM, as the atlas's plate reduces its tiles."""
     x1 = WX + 2.4 / CLOSE + 0.01
@@ -1837,8 +1839,6 @@ def film_frame(hand, arrow=False):
     f.smooth(FILM_DOME, z=-5, fill=DARK, stroke=INK, sw=0.35, tension=0.55)
     H.xray_outline(f, FILM_DOME, 0.55)
     draw_any(f, hand)
-    if arrow:
-        f.arrow([(0.6, -8.1), (0.6, -11.9)], kind="force")
     return f
 
 
@@ -1862,19 +1862,15 @@ def film_4():
     return film_frame(grip("film_thumb", "i_pad", FILM_PAD))
 
 
-def film_5():
-    # the fingertips rolled onto the dome's upper shoulder
-    return film_frame(grip("film_hang", "i_pad", (-2.0, 3.3)), arrow=True)
-
-
 def filmstrip_fig(path):
     # the hand's line keeps the climbers' weight though the strip is reduced
     H.LINE[0] = 1 / FILM_ZOOM
-    frames = [film_1(), film_2(), film_3(), film_4(), film_5()]
+    # the strip ends with the thumb on the hold; sloper.svg (c) shows the wrist below it
+    frames = [film_1(), film_2(), film_3(), film_4()]
     H.LINE[0] = 1.0
     filmstrip(frames, path, zoom=FILM_ZOOM, captions=[
         "catch with\nthe fingertips", "drag the pads over", "bring the palm on",
-        "find a thumb\nspot below", "wrist below,\nhang low"])
+        "find a thumb\nspot below"])
 
 
 def sloper_panel():

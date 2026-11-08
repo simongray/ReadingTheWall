@@ -1149,13 +1149,19 @@ GRIPS = dict(
     # nearly straight along the palm side, free below the lip
     open=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(13, 6, 45),
                thumb=dict(cmc=(-24, -4), mcp=5, ip=5)), 8.0),
-    # the thumb catch: the open hand, its thumb pressed up into a dimple under the lip
-    catch=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(13, 6, 45),
-                thumb=dict(cmc=(-28, -16), mcp=40, ip=20)), 8.0),
+    # The thumb catch: the open hand, its thumb pressed up into a dimple under the lip. The
+    # thumb runs on from the ball of the thumb in one line on the wall side, as in the full
+    # crimp, so its palm side is the hand's own outline from the wrist to its pad (Rock and
+    # Ice's thumb press, thumbpress-1, and ClimbingCrux's thumbcatch-11: the thumb in line
+    # with the hand's edge under the hold). The pose came from a search for a thumb in line
+    # with its metacarpal with its pad in the dimple; the hand leans in more to bring it there
+    catch=(dict(wrist=(8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(13, 6, 45),
+                thumb=dict(cmc=(-20, 2), mcp=15, ip=0)), 24.0),
     # the thumb pressing up on a volume's lower face, the fingers nearly straight along its
-    # upper face (Rock and Ice's thumb press; no true side view)
-    press=(dict(wrist=(0, 0), i=(15, 15, 8), m=(15, 15, 8), r=(15, 17, 8), l=(18, 17, 8),
-                thumb=dict(cmc=(-20, -18), mcp=40, ip=0)), 0.0),
+    # upper face (Rock and Ice's thumb press; no true side view); the thumb straight on from
+    # the ball of the thumb in the same way
+    press=(dict(wrist=(8, 0), i=(15, 15, 8), m=(15, 15, 8), r=(15, 17, 8), l=(18, 17, 8),
+                thumb=dict(cmc=(-15, -6), mcp=0, ip=0)), 0.0),
     # latching: the open hand arriving above the lip, the fingers only a little bent, the
     # thumb along the palm (no close-up photo: the reference's whole-body dyno only)
     latch=(dict(wrist=(-8, 0), i=(25, 25, 15), m=(25, 27, 15), r=(25, 27, 15), l=(27, 27, 15),
@@ -1182,17 +1188,14 @@ GRIPS = dict(
     # 4 find a thumb spot below: the same, the thumb's pad now on the hold below the fingers
     film_thumb=(dict(wrist=(8, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
                      thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 15.0),
-    # 5 wrist below, hang low: frame 4's hand turned 12 degrees about its pads on the dome, so
-    # the pads and palm keep their hold and the wrist drops below it; the wrist bends 11, the
-    # forearm hangs straight down
-    film_hang=(dict(wrist=(11, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
-                    thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
     # From behind, the open hand's drag over a rail: the index as the open hand's (O1, O2), the
     # other fingers alike, over the top beside it (ClimbingCrux's two hands sharing a hold, from
-    # behind); the thumb along the side of the index, back to the back of the hand, bent so its
-    # tip comes to the rail below the index's middle joint, foreshortened as it turns in
+    # behind). The thumb as the photos from behind show it (back-5, -6, -7): beside the index,
+    # pressing up into the rail's underside from below, turned on its side so its edge, not
+    # its nail, faces you, its tip on the rail's lower half, about half the index's length
+    # showing. It came from a search for those with the thumb outlined as a whole digit
     drag=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(10, 40, 45), r=(12, 40, 45), l=(15, 38, 45),
-               thumb=dict(cmc=(-10, -20), mcp=35, ip=35)), 0.0),
+               thumb=dict(cmc=(-20, 35), mcp=10, ip=0)), 0.0),
     # open-hand.svg (b), the three-finger drag: (a)'s open hand from behind, the same pose and
     # lean (which tips its back up toward you), the little finger curled off the edge
     drag3=(dict(wrist=(-8, 0), i=(10, 38, 45), m=(2, 58, 45), r=(-1, 51, 45), l=(20, 70, 20),
@@ -1226,9 +1229,10 @@ GRIPS = dict(
     # Wrapping an arête, its two faces opened out flat (wrap.svg): seen from the back of the
     # hand, the palm and thumb on one face, the fingers round the edge onto the other. Opened
     # flat, the fingers' bend round the edge comes out straight (b3 wrap-1, wrap-2: 10-20 /
-    # 30-40 / 10-20 on the rock). The thumb lies out along the index, as wrap-1's does
+    # 30-40 / 10-20 on the rock). The thumb lies out beside the index, as wrap-1's does,
+    # parted from it down to the web
     wrap=(dict(wrist=(0, 0), i=(0, 5, 5), m=(0, 5, 5), r=(0, 5, 5), l=(0, 5, 5),
-               thumb=dict(cmc=(-10, 0), mcp=5, ip=5)), -86.0),
+               thumb=dict(cmc=(-20, -5), mcp=5, ip=5)), -86.0),
 )
 
 

@@ -341,7 +341,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 // The strip's own page break would strand the head above, so it is switched off here.
 #[
   #show pagebreak: none
-  #filmstrip("filmstrip-sloper.svg", [Re-gripping a sloper], [Watch the palm: it comes onto the hold only after the finger pads have dragged over the top. Then the thumb finds a spot below the fingers and the wrist drops below the hold.])
+  #filmstrip("filmstrip-sloper.svg", [Re-gripping a sloper], [Watch the palm: it comes onto the hold only after the finger pads have dragged over the top. Then the thumb finds a spot below the fingers.])
 ]
 
 #technique(
