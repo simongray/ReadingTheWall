@@ -1186,11 +1186,13 @@
         foot.push([#sc[Sources]#h(0.45em)#src(..sources)])
       }
       let foot-with(back) = foot + if back.len() > 0 { ([#sc[Referenced from]#h(0.45em)#back.join(", ")],) } else { () }
-      // up to two QR codes for the videos, numbered like the Watch links
-      let qrs = watch.slice(0, calc.min(watch.len(), 2)).enumerate().map(((i, w)) => stack(
-        spacing: 3pt,
-        link(w.at(2), qrcode(w.at(2), width: 13mm)),
-        align(center, qr-num(i + 1)),
+      // up to two QR codes for the videos, numbered like the Watch links, each
+      // number beside its code. They stack with a wide gap between them, so a
+      // phone pointed at one doesn't pick up the other.
+      let qrs = watch.slice(0, calc.min(watch.len(), 2)).enumerate().map(((i, w)) => grid(
+        columns: 2, column-gutter: 5pt, align: horizon,
+        qr-num(i + 1),
+        link(w.at(2), qrcode(w.at(2), width: 16mm)),
       ))
       let references(back) = {
         let lines = ragged({
@@ -1200,9 +1202,9 @@
         })
         if qrs.len() == 0 { lines } else {
           grid(columns: (1fr, auto), column-gutter: 14pt, lines,
-            stack(spacing: 4pt,
-              text(size: fs.index, style: "italic")[Scan to watch],
-              stack(dir: ltr, spacing: 7pt, ..qrs)))
+            stack(spacing: 5pt,
+              align(right, text(size: fs.index, style: "italic")[Scan to watch]),
+              stack(spacing: 6mm, ..qrs)))
         }
       }
       let back = backlink-items(key)

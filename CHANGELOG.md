@@ -628,6 +628,9 @@ section as the notes of the GitHub release.
   where the body works.
 - The glossary's pointers to entries are links without page numbers. The A–Z
   that follows it gives the pages.
+- The QR codes for an entry's videos are larger (16 mm) and stack one above the
+  other with a wide gap, each with its number beside it, so a phone picks up
+  one at a time.
 - The running head's links (Contents, A–Z, Troubleshooting, Glossary, Index)
   have more space between them, in print and on the website.
 - A technique named in a sentence after "a" or "the" is in lower case: "a
