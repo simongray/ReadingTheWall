@@ -817,36 +817,37 @@ def top_out(path):
     rolled onto the toe, knee in, chest over the top, a palm pressing."""
     LIP = 200
     # (a) back view: the boulder face with its lip, the top seen edge-on
-    a = Fig(-70, 90, 92, 246)
+    a = Fig(-70, 90, 100, 246)
     wall_grid(a, y1=LIP - 4)
     a.poly([(a.x0, LIP), (a.x1, LIP), (a.x1, LIP + 9), (a.x0, LIP + 9)],
            z=-30, fill=PALE, stroke=None)
     a.line((a.x0, LIP), (a.x1, LIP), z=-5, sw=0.7)
-    # the right leg hooks the lip as in photographs of heel hooks from
-    # behind: the thigh goes out to the side, the knee points down and out,
-    # and the shin rises to the heel on the lip, the foot bent at about a
-    # right angle with the toes pointing away from the body. (A shin
-    # reaching up in line with a pointed foot read as a leg bent the wrong
-    # way.) The heel is outside the right hand, so the arm and leg stay
-    # apart. The hands grip the lip at shoulder height,
+    # the right leg hooks the lip as in photographs of climbers hanging from
+    # a lip with a heel on it (research/photo-check-topout-heel.md): a long,
+    # nearly straight leg rising about 40 degrees from the hip to the heel,
+    # well outside the right hand. The knee bends a little and points up,
+    # so it sits just above the line from hip to heel; a knee below that
+    # line read as bent the wrong way. The foot is pointed, carrying on the
+    # line of the shin, toes out and a little up, with the back of the heel
+    # on top of the lip. The hands grip the lip at shoulder height,
     # elbows down; the forearms point into the wall, so the arms are
     # shortened. The left foot is high: a frog leg whose knee points out
     # and a little toward the wall, so its thigh is shortened. The arms
     # and the heel pull together; the heel hikes the right hip, and the
     # right side bends over it to keep the shoulders level.
     LF = (-38, 112)
-    HEEL = (60, LIP + 1)
+    HEEL = (76, LIP + 1)
     hold(a, "foot", LF)
     c = Climber((2, 156), lean=-10, bend=8, lh=(-44, LIP + 4), rh=(34, LIP + 4),
                 lf={"at": stand(LF)},
-                rf={"at": HEEL, "contact": "heel", "angle": 0},
-                knees={"l": "out", "r": "right"},
+                rf={"at": HEEL, "contact": "heel", "angle": 25},
+                knees={"l": "out", "r": "up"},
                 arm_len={"l": 0.82, "r": 0.8},
-                leg_len={"l": (0.8, 0.9), "r": (0.95, 0.9)},
+                leg_len={"l": (0.8, 0.9), "r": (0.97, 0.95)},
                 elbows={"l": "down", "r": "down"}, head=(5, -1),
                 active=("+rham",))
     c.draw(a)
-    a.label("heel on the lip", (50, 237), to=add(HEEL, (1, 3)))
+    a.label("heel on the lip", (50, 237), to=add(HEEL, (2, 1)))
     a.label("foot high", (-6, 98), to=add(stand(LF), (5, -1)))
     warn("top-out-a", c)
 
