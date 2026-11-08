@@ -13,6 +13,26 @@ section as the notes of the GitHub release.
 ## Unreleased
 
 ### Errata
+
+### Added
+
+### Changed
+
+### Removed
+
+## Third edition (edition-3)
+
+The third edition corrects 135 mistakes in the second, listed below and in
+the book's appendix "Corrections to the second edition". The prose is
+rewritten in clearer, more natural language, and more claims say whose they
+are. Eleven entries have a new grade badge, eight are now parts of others,
+and Competition set pieces is new. The book adds a foreword by the editor, a
+section on how it was made and notes for small climbers. A companion
+booklet, _Reading the Wall: Exercises_, has eight problems to read. The
+figures have colour, and most of the hands are drawn from one hand model,
+posed from photographs.
+
+### Errata
 - p. 2, Chapter 1 opening: "How do you hang on your skeleton instead of your
   muscles?" gave the coaches' figure of speech as the mechanism → "How do you
   hang without wasting strength?"

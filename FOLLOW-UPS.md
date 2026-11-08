@@ -82,7 +82,7 @@ streamlining), which have the details.
 
 ## Book
 
-- The third edition's draft is 306 pages. The eight worked problems
+- The third edition is 306 pages. The eight worked problems
   moved out of it into the exercises booklet.
 - **Typography, for Simon to judge** (`research/revise3-typography.md`):
   - A few entries' first pages still end short, with the figure or box on the

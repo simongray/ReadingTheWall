@@ -153,7 +153,7 @@ A technique you merge into another keeps its address: add its old key to
 ## How to cite
 
 Gray, S. (ed.) (2026). *Reading the Wall: A technique handbook for indoor
-bouldering*. Written by Claude (Anthropic). Second edition.
+bouldering*. Written by Claude (Anthropic). Third edition.
 https://github.com/simongray/ReadingTheWall
 
 To pin down the exact text, add the commit printed on the back of the

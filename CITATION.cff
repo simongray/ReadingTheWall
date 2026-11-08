@@ -9,8 +9,8 @@ authors:
   - family-names: Gray
     given-names: Simon
   - name: "Claude (Anthropic)"
-version: edition-2
-date-released: 2026-11-01
+version: edition-3
+date-released: 2026-11-08
 license: CC-BY-SA-4.0
 url: "https://github.com/simongray/ReadingTheWall"
 repository-code: "https://github.com/simongray/ReadingTheWall"
@@ -26,7 +26,7 @@ preferred-citation:
   editors:
     - family-names: Gray
       given-names: Simon
-  edition: "Second edition"
+  edition: "Third edition"
   year: 2026
   url: "https://github.com/simongray/ReadingTheWall"
   notes: "Edited by Simon Gray. Written by Claude (Anthropic). Claude also wrote the code that draws the figures and builds the website."
