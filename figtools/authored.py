@@ -1761,12 +1761,21 @@ def wrap_panel():
     f.poly([low, high, (x0 - 2, y1 + 2), (x0 - 2, y0 - 2)], z=-20, fill=PALE, stroke=None)
     f.poly([low, high, (x1 + 2, y1 + 2), (x1 + 2, y0 - 2)], z=-20, fill="#cccccc", stroke=None)
     f.line(low, high, z=-19, sw=0.7)
-    draw_hand(f, WRAP)
+    # the model's right hand from its back, the faces seen straight on, the fingers across
+    # the edge; the index's middle joint where the authored hand's was
+    import handmodel as M
+    pose, arm = M.GRIPS["wrap"]
+    hand = M.Hand(pose, "back", arm=arm, anchor="i1", at=(-1.2, 2.5), mirror=True, name="wrap")
+    draw_any(f, hand)
     # the edge carries on under the fingers, as a hidden line
     f.poly([low, high], closed=False, z=H.XRAY_Z, **H.XRAY_STYLE)
     f.label("arête", (1.75, 5.9), to=(0.0, 5.2), size=7)
-    f.label("palm and thumb", (-14.51, 5.76), to=(-9.15, 4.21), size=7)
-    label_lines(f, ["fingers", "round", "the edge"], (3.85, -6.9), to=(0.0, -2.75))
+    # to the thumb's knuckle, and to the little finger where it crosses the edge
+    f.label("palm and thumb", (-14.51, 5.76), to=hand.flat(hand.skel.joints("t")[1]), size=7)
+    L = [hand.flat(j) for j in hand.skel.joints("l")]
+    a, b = next((a, b) for a, b in zip(L, L[1:]) if a[0] <= 0.0 <= b[0])
+    edge = (0.0, a[1] + (b[1] - a[1]) * (0.0 - a[0]) / (b[0] - a[0]))
+    label_lines(f, ["fingers", "round", "the edge"], (3.85, -6.9), to=edge)
     f.arrow([(-10.0, -0.75), (-6.8, -0.4)], kind="force", z=50)
     f.arrow([(6.2, 1.4), (3.6, 1.68)], kind="force", z=50)
     return f

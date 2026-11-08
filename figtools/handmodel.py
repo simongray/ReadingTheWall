@@ -1190,6 +1190,12 @@ GRIPS = dict(
     # below the fingers. The knuckle and wrist were fitted to the atlas's dome.
     sloper=(dict(wrist=(23, 0), i=(25, 15, 15), m=(25, 15, 15), r=(25, 17, 15), l=(28, 17, 15),
                  thumb=dict(cmc=(-10, -21), mcp=15, ip=10)), 0.0),
+    # Wrapping an arête, its two faces opened out flat (wrap.svg): seen from the back of the
+    # hand, the palm and thumb on one face, the fingers round the edge onto the other. Opened
+    # flat, the fingers' bend round the edge comes out straight (b3 wrap-1, wrap-2: 10-20 /
+    # 30-40 / 10-20 on the rock). The thumb lies out along the index, as wrap-1's does
+    wrap=(dict(wrist=(0, 0), i=(0, 5, 5), m=(0, 5, 5), r=(0, 5, 5), l=(0, 5, 5),
+               thumb=dict(cmc=(-10, 0), mcp=5, ip=5)), -86.0),
 )
 
 

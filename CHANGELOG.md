@@ -635,8 +635,8 @@ section as the notes of the GitHub release.
   full crimp, sloper, undercling and thumb catch, and Half crimp, Full crimp,
   Open hand, the hold angles, Sloper, Thumb catch, Latching and the sloper film
   strip, where the wrist now drops below the hold. The views from behind come
-  from the same hand: Matching, Regrip, the three-finger drag and the atlas's
-  palm press. Every one is the same
+  from the same hand: Matching, Regrip, the three-finger drag, the atlas's
+  palm press and Wrapping. Every one is the same
   hand at the same size. The thumb is seen from its back, broad, with its nail
   toward you, as in photographs, and the same grip is the same drawing
   wherever it appears.
