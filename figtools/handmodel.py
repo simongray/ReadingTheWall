@@ -747,6 +747,8 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     hidden = thumb_hidden(hand)
     body = [n for n in front if not ((apart or hidden) and n == "t")]
     U = union(hand, body)
+    if hidden:
+        U = tucked_outline(hand)
     loops = [relax(resample(L, 0.18), 2) for L in g.contours(U)]
     loops = [L for L in loops if len(L) > 5]
     if hand.view in ("side", "little") and loops:
@@ -764,7 +766,7 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     if ghost:
         # an earlier position: one outer outline of the whole hand, thumb and all unless it is
         # out of sight, dashed, with no line of one part drawn across another
-        whole = union(hand, [n for n in front if not (hidden and n == "t")])
+        whole = U if hidden else union(hand, front)
         outer = max((relax(resample(L, 0.18), 2) for L in g.contours(whole)), key=lambda L: abs(area(L)))
         st = f.style(fill=None, stroke=MID, sw=0.3, dash=(0.9, 0.7))
         f.add(f'<path d="{_pen_loop(f, outer)}" fill-rule="evenodd" {st}/>', z)
@@ -814,6 +816,10 @@ def draw(f, hand, z=0.0, fill=WHITE, ghost=False, show_lines=True, skeleton=Fals
     if show_lines:
         for pts, fade in inner_lines(hand, front, skip=("t",) if apart or hidden else ()):
             A.pen_line(f, pts, z + 0.02, A.OUT * k_, fade=fade)
+    if hidden and not ghost:
+        # the thumb behind the palm, hinted dotted, as anything hidden behind a limb is
+        for L in hidden_thumb(hand, U):
+            f.poly(L, closed=False, z=H.XRAY_Z, **H.XRAY_STYLE)
     for pts in nails(hand, [n for n in front if not (hidden and n == "t")]):
         f.poly(A.curve(f, pts, False), closed=False, z=z + 0.03, taper=True, _smooth=True,
                fill=None, stroke=INK, sw=A.fine_sw())
@@ -838,18 +844,84 @@ def thumb_apart(hand):
     return "t" not in GREYS[hand.view]
 
 
+def _body(hand):
+    return union(hand, [n for n in ORDER[hand.view] if n not in GREYS[hand.view] and n != "t"])
+
+
+def _paint(hand, solids, k):
+    g = hand.grid
+    F = g.blank()
+    for c in solids:
+        g.paint(F, c, k)
+    return F
+
+
+# how far, at most, the tucked thumb's base may swell the outline (cm): a hint, not a lump
+SWELL_MAX = 0.4
+
+
+def tucked_outline(hand):
+    """From behind, the hand's outline when its thumb is tucked: where the thumb comes to
+    the hand's edge, at its knuckle just below the index's and at its tip under the knuckles,
+    it swells the outline a little (back-1, back-4)."""
+    base = _paint(hand, hand.P["t"], BLEND_IN["palm"])
+    return hand.grid.join(base, _body(hand), 0.6)
+
+
+# The hidden thumb's hint. From behind, a tucked thumb is drawn as a dotted outline: a
+# drawn hint for a thumb hidden behind the palm, not the model's projection of the pose. The
+# model can't keep a thumb this long hidden (its end shows between the fingers), and the pose
+# that stays hidden foreshortens to a blob, so Simon chose a drawn hint on 2026-11-08. In the
+# hand's own frame (cm, x toward the thumb, y along the hand): from the thumb side's edge just
+# below the index's knuckle, where the swelling is, in and up under the index's base toward
+# the middle finger; broad as the side views' thumb, tapering a little, its tip rounded
+THUMB_HINT = dict(base=(4.4, 6.4), tip=(1.1, 8.7), width=(2.0, 1.6), depth=-1.0)
+
+
+def hidden_thumb(hand, U):
+    """The hint's dotted outline: open where it leaves the hand's outline U, so it grows out
+    of the edge. [open polylines]"""
+    g, s = hand.grid, hand.skel
+    (bx, by), (tx, ty) = THUMB_HINT["base"], THUMB_HINT["tip"]
+    wb, wt = THUMB_HINT["width"]
+    ax = (tx - bx, ty - by)
+    L = math.hypot(*ax)
+    u = (ax[0] / L, ax[1] / L)
+    n = (-u[1], u[0])
+    r = wt / 2
+    pts = []
+    for k in range(13):     # one edge, base to the start of the tip
+        t = k / 12 * (L - r)
+        w = (wb + (wt - wb) * t / (L - r)) / 2
+        pts.append((bx + u[0] * t + n[0] * w, by + u[1] * t + n[1] * w))
+    c = (bx + u[0] * (L - r), by + u[1] * (L - r))
+    for k in range(1, 12):  # round the tip
+        a = math.pi / 2 - math.pi * k / 12
+        pts.append((c[0] + (u[0] * math.cos(a) + n[0] * math.sin(a)) * r,
+                    c[1] + (u[1] * math.cos(a) + n[1] * math.sin(a)) * r))
+    for k in range(12, -1, -1):     # the other edge, back to the base
+        t = k / 12 * (L - r)
+        w = (wb + (wt - wb) * t / (L - r)) / 2
+        pts.append((bx + u[0] * t - n[0] * w, by + u[1] * t - n[1] * w))
+    P = relax(resample([hand.flat(s.H((x, y, THUMB_HINT["depth"]))) for x, y in pts], 0.18), 1, closed=False)
+    return [r for r in _runs(P, [g.at(U, q) < -0.05 for q in P]) if len(r) > 3] if not all(
+        g.at(U, q) < -0.05 for q in P) else [P]
+
+
 def thumb_hidden(hand):
-    """From behind, a thumb tucked under the palm: every point of its outline inside the
-    hand's own outline, and behind the back of the hand, so none of it shows."""
+    """From behind, a thumb tucked under the palm, in front of it, which comes no further
+    than SWELL_MAX past the hand's edge: no thumb shows beyond a slight swelling."""
     if hand.view not in ("back", "above"):
         return False
     if not hasattr(hand, "grid"):
         hand.build()
     g, s = hand.grid, hand.skel
-    U = union(hand, [n for n in ORDER[hand.view] if n not in GREYS[hand.view] and n != "t"])
-    inside = all(g.at(U, p) < -0.05 for L in g.contours(hand.own["t"]) for p in L)
-    behind = hand.depth(s.joints("t")[-1]) < hand.depth(s.joints("i")[0]) - 1.0
-    return inside and behind
+    # it comes no further than SWELL_MAX past the hand's edge anywhere, where the outline
+    # takes it in as a slight swelling, and it lies in front of the palm
+    U = _body(hand)
+    slight = all(g.at(U, p) < SWELL_MAX for L in g.contours(hand.own["t"]) for p in L)
+    behind = hand.depth(s.joints("t")[-1]) < hand.depth(s.joints("i")[0]) - 0.8
+    return slight and behind
 
 
 def union(hand, names):
@@ -1261,9 +1333,12 @@ GRIPS = dict(
 # A hand on a rail or edge seen from behind tucks its thumb under the palm, out of sight,
 # as the photos from behind show it (back-1, a hangboard edge; back-4, two hands matched):
 # the thumb's pose from behind comes from those photos, not from the side view, whose thumb
-# is free below the edge. Folded in front of the palm, every point of its outline lies inside
-# the hand's, behind the back of the hand (thumb_hidden)
-BACK_THUMB = dict(cmc=(-10, 80), mcp=20, ip=40)
+# is free below the edge. It sits high, its knuckle just below the index's on the thumb side,
+# and folds in under the index and middle finger, its tip under the rail where a tucked thumb
+# presses up: its free segments inside the hand's outline, in front of the palm (thumb_hidden).
+# Its knuckle and ball swell the outline a little there (tucked_outline), and a dotted hint
+# grows from that swelling (hidden_thumb, THUMB_HINT)
+BACK_THUMB = dict(cmc=(0, 40), mcp=0, ip=60)
 BACK_TUCKED = {"drag", "half"}
 
 # grips seen from the thumb side of the other hand: drawn mirrored
