@@ -933,7 +933,7 @@ BACK_CRIMP = dict(
 # view: breadth 8.5, 9.9 from the wrist crease to the webs, middle finger 7.4
 # from its web, wrist 6.2. The fingers lean a little toward the middle one.
 
-PALM_AT = (0.1, -0.85)    # the wrist crease: thumb and little finger about 0.5 inside the tile
+PALM_AT = (0.25, -0.85)   # the wrist crease: thumb and hand about 0.3 inside the tile
 PALM_LEAN = 8.0
 PALM_PITCH = 23.0      # three quarters on: cos 23 = 0.92
 

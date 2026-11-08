@@ -161,6 +161,10 @@ BALL_AT = (1.9, 4.0, -2.6)    # where the ball of the thumb sits on the palm
 BALL_LOW = (1.4, 1.0, -2.3)   # and where it tapers off toward the wrist
 # how far up the thumb's first segment and the index's the web's free edge runs
 WEB = (0.5, 0.4)
+# From behind the web stops lower: at the thumb's knuckle, and on the index below its knuckle,
+# so the fork between thumb and index sits about a third of the way from the fingers' forks
+# down to the wrist (the back of the hand in Commons' Human-Hands-Front-Back.jpg)
+WEB_BACK = (0.0, -0.6)
 
 
 def default_pose():
@@ -316,7 +320,7 @@ def digit_solids(skel, k):
     return out
 
 
-def palm_solids(skel):
+def palm_solids(skel, web_to=WEB):
     H_ = skel.H
     hx, hy, hz = skel.hand
     hand = Frame((0.0, 0.0, 0.0), hy, hz)
@@ -347,7 +351,7 @@ def palm_solids(skel):
     # as if the two were one forked digit
     fi, Li = skel.digits["i"][0]
     _, L1 = skel.digits["t"][1]
-    pts = [f1.o, f1.at(L1 * WEB[0], 0.0, 0.0), fi.at(Li * WEB[1], 0.0, -0.3), fi.o,
+    pts = [f1.o, f1.at(L1 * web_to[0], 0.0, 0.0), fi.at(Li * web_to[1], 0.0, -0.3), fi.o,
            H_(BALL_AT), mc.at(L * 0.6, 0.0, 0.0)]
     n = v_norm(v_cross(v_sub(pts[2], pts[0]), v_sub(pts[4], pts[0])))
     web = []
@@ -689,7 +693,8 @@ class Hand:
         """Each piece's projected solids, and its root: where it grows out of the palm."""
         s = self.skel
         out = {}
-        palm = [Convex([self.flat(p) for p in pts]) for pts in palm_solids(s) + forearm_solids()]
+        web_to = WEB_BACK if self.view in ("back", "above") else WEB
+        palm = [Convex([self.flat(p) for p in pts]) for pts in palm_solids(s, web_to) + forearm_solids()]
         out["palm"] = palm
         for k in "imrlt":
             out[k] = [Convex([self.flat(p) for p in pts]) for pts in digit_solids(s, k)]
@@ -1348,10 +1353,11 @@ GRIPS = dict(
                 thumb=dict(cmc=(-24, -4), mcp=5, ip=5)), 8.0),
     # the palm press: the hand flat on a volume's face, the fingers straight and spread, the
     # thumb out to the side (the reference's palm press and TripSavvy's palm on a slab: the heel
-    # presses, the fingers lie flat). Seen from behind, flat on the face
+    # presses, the fingers lie flat). Seen from behind, flat on the face, the thumb spread
+    # as wide as the tile allows, as a hand laid flat spreads it
     press_palm=(dict(wrist=(0, 0), i=(0, 5, 5), m=(0, 5, 5), r=(0, 5, 5), l=(0, 5, 5),
                      spread=dict(i=6.0, m=0.0, r=-6.0, l=-12.0),
-                     thumb=dict(cmc=(-20, 0), mcp=5, ip=5)), 0.0),
+                     thumb=dict(cmc=(-23, 0), mcp=5, ip=5)), 0.0),
     # the half crimp on an incut edge: the same hand with the end joint curled 40 behind the lip
     half_incut=(dict(wrist=(-15, 0), i=(15, 85, 40), m=(10, 98, 40), r=(3, 93, 40), l=(4, 73, 40),
                      thumb=dict(cmc=(-20, -8), mcp=5, ip=5)), 15.0),
