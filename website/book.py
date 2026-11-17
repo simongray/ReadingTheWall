@@ -578,6 +578,8 @@ class Book:
                     self.grade_techniques(node)
                 elif gen == "a-to-z":
                     node.replace_with(self.a_to_z())
+                elif gen == "technique-map":
+                    node.replace_with(self.technique_map())
                 elif gen == "index":
                     node.replace_with(self.index())
                 elif gen == "contents":
@@ -603,6 +605,75 @@ class Book:
             node.replace_with(el("p", None, el("em", None, "None listed.")))
             return
         node.replace_with(self.table(["Technique", "Category"], [[self.tech_link(p), el("em", None, p.meta["category_name"])] for p in rows]))
+
+    def technique_map(self):
+        """The technique map, from book/map.toml: as in print, each row is a path and
+        each column is a grade, and each category is a section of its own. Each
+        technique has a box to tick. site.js keeps the ticks and marks what they show.
+
+        Everything is placed on one grid of six columns. A section is its name, a
+        row for the grade tabs and a row for each path, with the six bands behind
+        the last two. A path is a grid on the same columns, with a row above its
+        nodes for its name when it starts at V0."""
+        data = tomllib.loads((self.work / "book" / "map.toml").read_text())
+        short, bands = data.get("short", {}), 6   # V0 to V5, the last grade with new techniques
+        grid = el("div", {"class": "tmap-grid"})
+        row, placed = 0, set()
+        for category, name in self.categories.items():
+            lines = []
+            for path in (p for p in data["path"] if p["category"] == category):
+                nodes = defaultdict(list)   # by band
+                for key in path["keys"]:
+                    entry = self.entries.get(key)
+                    if entry is None or key in placed:
+                        self.errors.append(f"map.toml: {key} is {'on two paths' if key in placed else 'not an entry'}")
+                        continue
+                    placed.add(key)
+                    nodes[min(max(entry.meta["grade"], 0), bands - 1)].append((key, entry))
+                if not nodes:
+                    continue
+                first, last = min(nodes), max(nodes)
+                line = el("div", {"class": "tmap-path"},
+                          el("h6", {"class": "tmap-path-name above"} if first == 0 else {"class": "tmap-path-name", "style": f"grid-column:1/{first + 1}"},
+                             el("span", None, path["name"], " ", el("span", {"class": "tmap-tally"}))))
+                for g in range(first, last + 1):
+                    if g not in nodes:
+                        line.append(el("span", {"class": "tmap-run", "style": f"grid-column:{g + 1}"}))
+                        continue
+                    ends = (" first" if g == first else "") + (" last" if g == last else "")
+                    line.append(el("div", {"class": f"tmap-cell band-g{g}{ends}", "style": f"grid-column:{g + 1}"},
+                                   el("span", {"class": f"grade-tab g{g} tmap-grade"}, self.grade_label(g)),
+                                   el("ul", {"class": "tmap-node"},
+                                      [el("li", None,
+                                          el("input", {"type": "checkbox", "data-key": key, "aria-label": entry.title}),
+                                          self.tech_link(entry, short.get(key)))
+                                       for key, entry in nodes[g]])))
+                lines.append(line)
+            if not lines:
+                continue
+            chapter = next((p for p in self.chapters.values() if p.title == name), None)
+            head, tabs = row + 1, row + 2
+            row = tabs + len(lines)
+            for g in range(bands):
+                guide = self.guides.get(f"grade-{g}")
+                label = self.grade_label(g)
+                grid.append(el("div", {"class": f"tmap-band band-g{g}", "style": f"grid-area:{tabs}/{g + 1}/{row + 1}"},
+                               el("a", {"class": f"grade-tab g{g}", "href": guide.url}, label) if guide else el("span", {"class": f"grade-tab g{g}"}, label)))
+            grid.append(el("h5", {"class": "tmap-cat", "style": f"grid-row:{head}"},
+                           el("img", {"class": "tmap-orn", "alt": "", "src": f"/figures/ornament-{chapter.ornament}.svg"}) if chapter and chapter.ornament else None,
+                           el("a", {"href": chapter.url}, name) if chapter else name))
+            grid.append(el("span", {"class": "tmap-tabs", "style": f"grid-row:{tabs}"}))
+            for n, line in enumerate(lines, start=1):
+                line.attrs["style"] = f"grid-row:{tabs + n}"
+                grid.append(line)
+        for key in self.entries:
+            if key not in placed:
+                self.errors.append(f"map.toml: {key} is on no path")
+        return el("div", {"class": "tmap"},
+                  el("p", {"class": "tmap-tools", "hidden": ""},
+                     el("span", {"class": "tmap-count", "role": "status"}),
+                     el("button", {"type": "button", "class": "tmap-clear"}, "Clear my ticks")),
+                  grid)
 
     @staticmethod
     def alpha_nav(anchors):
@@ -1126,6 +1197,14 @@ class Book:
         source. Kept apart from the pages, and loaded only when first needed."""
         for key, page in self.entries.items():
             self.previews[page.path] = dict(t=page.title, g=self.grade_label(page.meta["grade"]) + "+", c=self.grade_class(page), h=self.plain_summary(page))
+            # the entry's drawing, which the technique map shows with the summary
+            figure = page.body.first("figure")
+            img = figure.first("img") if figure is not None else None
+            if img is not None and "width" in img.attrs:
+                name = img.attrs["src"].lstrip("/")
+                self.previews[page.path].update(f=name, w=img.attrs["width"], v=img.attrs["height"])
+                if img.parent.tag == "picture":
+                    self.previews[page.path]["d"] = dark_name(name)
         for page in self.pages:
             for entry in page.body.select("div", cls="gloss"):
                 dt, dd = entry.first("dt"), entry.first("dd")

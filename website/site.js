@@ -158,7 +158,11 @@
     const previews = await load("previews.json");
     const data = previews[targetOf(a)];
     if (!data || current !== a) return;
-    box.innerHTML = `<div class="preview-title"><span>${esc(data.t)}</span>${data.g ? `<span class="grade-tab ${esc(data.c || "")}">${esc(data.g)}</span>` : ""}</div><div>${esc(data.h)}</div>${withLink ? `<a class="preview-go" href="${esc(a.href)}">Go there</a>` : ""}`;
+    // On the technique map a technique also shows its drawing.
+    const drawing = data.f && a.closest(".tmap")
+      ? `<picture>${data.d ? `<source media="screen and (prefers-color-scheme: dark) and (forced-colors: none)" srcset="${root}${esc(data.d)}">` : ""}<img class="preview-figure" src="${root}${esc(data.f)}" width="${esc(data.w)}" height="${esc(data.v)}" alt=""></picture>`
+      : "";
+    box.innerHTML = `<div class="preview-title"><span>${esc(data.t)}</span>${data.g ? `<span class="grade-tab ${esc(data.c || "")}">${esc(data.g)}</span>` : ""}</div>${drawing}<div>${esc(data.h)}</div>${withLink ? `<a class="preview-go" href="${esc(a.href)}">Go there</a>` : ""}`;
     if (tethered) place(a);
     if (!isOpen()) box.showPopover();
     if (!tethered) place(a);
@@ -203,6 +207,79 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") hide(); });
   // A preview that isn't tethered can't follow its link.
   if (!tethered) addEventListener("scroll", hide, { passive: true });
+
+  // ------------------------------------------------------------ the technique map
+
+  // The map keeps its ticks in this browser. From them it marks, on each path that
+  // has a tick, the gaps (an empty circle before a ticked one) and the next thing
+  // to learn (the first empty circle).
+  const map = document.querySelector(".tmap");
+  if (map) {
+    const store = "technique-map";
+    const boxes = [...map.querySelectorAll("input[data-key]")];
+    const tools = map.querySelector(".tmap-tools");
+    const count = map.querySelector(".tmap-count");
+    const clear = map.querySelector(".tmap-clear");
+    const read = () => {
+      try {
+        return new Set(JSON.parse(localStorage.getItem(store)) || []);
+      } catch {
+        return new Set();
+      }
+    };
+    const write = (ticked) => {
+      try {
+        localStorage.setItem(store, JSON.stringify([...ticked]));
+      } catch {
+        // Without storage the ticks last until the page is closed.
+      }
+    };
+    const restore = () => {
+      const ticked = read();
+      for (const box of boxes) box.checked = ticked.has(box.dataset.key);
+    };
+    const mark = () => {
+      const total = boxes.filter((box) => box.checked).length;
+      for (const path of map.querySelectorAll(".tmap-path")) {
+        const items = [...path.querySelectorAll("li")];
+        const done = items.map((li) => li.querySelector("input").checked);
+        const last = done.lastIndexOf(true);
+        const next = last >= 0 ? done.indexOf(false) : -1;
+        items.forEach((li, i) => {
+          li.classList.toggle("is-gap", !done[i] && i < last);
+          li.classList.toggle("is-next", i === next);
+        });
+        const n = done.filter(Boolean).length;
+        path.querySelector(".tmap-tally").textContent = n ? `${n}/${items.length}` : "";
+      }
+      count.textContent = total ? `${total} of ${boxes.length} ticked.` : "Nothing ticked yet.";
+      clear.hidden = !total;
+    };
+    map.addEventListener("change", (e) => {
+      if (!e.target.matches("input[data-key]")) return;
+      const ticked = read();
+      if (e.target.checked) ticked.add(e.target.dataset.key);
+      else ticked.delete(e.target.dataset.key);
+      write(ticked);
+      mark();
+    });
+    clear.addEventListener("click", () => {
+      if (!confirm("Clear all your ticks on the map?")) return;
+      write(new Set());
+      restore();
+      mark();
+    });
+    // Another tab of the book may change the ticks.
+    addEventListener("storage", (e) => {
+      if (e.key !== store) return;
+      restore();
+      mark();
+    });
+    restore();
+    mark();
+    tools.hidden = false;
+    map.classList.add("tmap-live");
+  }
 
   // ------------------------------------------------------------ the outline
 

@@ -346,7 +346,7 @@ The table follows Lattice's logic: compare what your fingers can hold with what 
 
 + Choose three to five problems at the next grade: one steep, one slab or vertical, one dynamic, one #tref("compression", body: [compression], show-page: false) problem. Work on them over several sessions, as @cons-projecting describes.
 + After each fall, check three things. Where were your hips? Where was your #jt("off foot") (the foot not carrying you)? Were your arms straight before the move? #src("F39", "F41", "F42")
-+ Take the techniques that the next grade's guide lists and practise them on problems a grade or two easier. There you have attention to spare for the movement #src("F34", "F35").
++ Take the techniques that the next grade's guide lists and practise them on problems a grade or two easier. There you have attention to spare for the movement #src("F34", "F35"). To find techniques you skipped at earlier grades, tick the #link(<technique-map>)[technique map].
 + For V5, spend about two-thirds of your hard sessions on steeper walls, on problems of four to eight moves at your limit #src("F43", "F46"). Give the rest to your other styles. Keep one session a week easy, for drills (@cons-learning).
 + Copy #jt("beta") (a sequence of moves) from climbers close to your height. Beta from someone much shorter or taller often won't fit your body (@cons-tall, @cons-small).
 

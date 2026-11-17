@@ -1,0 +1,127 @@
+# The technique map (the appendix "Technique map"): every technique of
+# Part II on one path.
+#
+# A path is a family of techniques that build on each other. Its keys are
+# in the order the map shows them: by grade, then in the chapter's order.
+# The grade and the category of a technique come from its entry, so they
+# are not repeated here. The book (technique-map in template.typ) and the
+# website (website/book.py) both draw the map from this file, and the
+# book's build fails when an entry is missing from it or is on two paths.
+#
+# The paths are the book's own grouping. Each one follows the "Related"
+# lists of its entries.
+
+# Names that are too long for a node, and the name the map shows instead.
+[short]
+regrip = "Re-gripping"
+cutting-loose = "Cutting loose"
+
+# ---------------------------------------------------------------- feet
+
+[[path]]
+category = "feet"
+name = "Placing the foot"
+keys = ["precise-footwork", "edging", "front-pointing", "smearing"]
+
+[[path]]
+category = "feet"
+name = "Stepping up"
+keys = ["high-step", "rockover", "hand-foot-match"]
+
+[[path]]
+category = "feet"
+name = "Moving on a foothold"
+keys = ["pivoting", "foot-swap"]
+
+[[path]]
+category = "feet"
+name = "Pulling with your feet"
+keys = ["toe-pull", "heel-hook", "toe-hook", "bicycle", "heel-toe-cam", "knee-bar"]
+
+# ---------------------------------------------------------------- body
+
+[[path]]
+category = "body"
+name = "Weight on your feet"
+keys = ["weight-shift", "straight-arms", "frog", "pre-loading", "body-tension"]
+
+[[path]]
+category = "body"
+name = "Stopping the swing"
+keys = ["barn-door", "flag", "back-flag", "inside-flag"]
+
+[[path]]
+category = "body"
+name = "Turning side-on"
+keys = ["hip-turn", "backstep", "drop-knee", "twist-lock"]
+
+[[path]]
+category = "body"
+name = "Moving your hands"
+keys = ["matching", "cross-through", "lock-off", "bumping"]
+
+[[path]]
+category = "body"
+name = "Opposing forces"
+keys = ["stemming", "layback", "opposition", "compression"]
+
+# ---------------------------------------------------------------- hands
+
+[[path]]
+category = "hands"
+name = "Holds by direction"
+keys = ["jug", "sidepull", "undercling", "gaston"]
+
+[[path]]
+category = "hands"
+name = "Finger grips"
+keys = ["half-crimp", "open-hand", "regrip", "pocket", "full-crimp"]
+
+[[path]]
+category = "hands"
+name = "Slopers and pinches"
+keys = ["sloper", "pinch", "wrap", "thumb-catch"]
+
+[[path]]
+category = "hands"
+name = "Pressing"
+keys = ["palming", "mantle"]
+
+# ---------------------------------------------------------------- dynamic
+
+[[path]]
+category = "dynamic"
+name = "Throwing for a hold"
+keys = ["deadpoint", "lunge", "dyno", "double-dyno"]
+
+[[path]]
+category = "dynamic"
+name = "Building momentum"
+keys = ["hip-pump", "pogo"]
+
+[[path]]
+category = "dynamic"
+name = "Catching and swinging"
+keys = ["latching", "cutting-loose", "campus-move", "foot-catch"]
+
+[[path]]
+category = "dynamic"
+name = "Jumps and set pieces"
+keys = ["jump-start", "run-and-jump", "comp-moves"]
+
+# ---------------------------------------------------------------- terrain
+
+[[path]]
+category = "terrain"
+name = "Slabs and volumes"
+keys = ["slab", "volume", "dynamic-slab"]
+
+[[path]]
+category = "terrain"
+name = "Steep walls"
+keys = ["overhang", "roof"]
+
+[[path]]
+category = "terrain"
+name = "Edges, starts and finishes"
+keys = ["traverse", "top-out", "arete", "sit-start"]

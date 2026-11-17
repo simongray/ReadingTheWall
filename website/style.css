@@ -782,6 +782,8 @@
 
   .preview-title { display: flex; justify-content: space-between; align-items: baseline; gap: .75em; margin-block-end: .15rem; font-weight: 700; }
   .preview-go { display: block; margin-block-start: .35rem; font-variant-caps: all-small-caps; letter-spacing: .06em; }
+  /* a technique's drawing, which the technique map shows with its summary */
+  .preview-figure { display: block; inline-size: 100%; max-block-size: 13rem; margin-block: .4rem .5rem; background: var(--plate); object-fit: contain; }
 
   .search-dialog {
     inline-size: min(40rem, 100dvw - 2rem);
@@ -916,6 +918,186 @@
   }
 
   .leader { flex: 1; min-inline-size: .75rem; border-block-end: 1px dotted var(--ink-soft); translate: 0 -.2em; }
+
+  /* The technique map. As in print, each row is a path and each column is a grade,
+     a line joins the nodes of a path, and each category is a section under its
+     name. A section's bands lie behind its rows, from the row their tabs sit on to
+     its last path. A path is a grid on the same columns: its nodes are in its
+     second row and its name is beside them, or in its first row when the path
+     starts at V0. --band is the grade's colour, set with the tabs' rules. */
+  .tmap {
+    margin-block: 1.5rlh;
+    font-size: .76rem;   /* smaller than the index: six columns share the measure */
+    line-height: 1.25;
+  }
+
+  .tmap-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .3rem 1rem;
+    margin-block-end: 1rlh;
+    font-size: var(--fs-note);
+
+    button {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--ink-faint);
+      cursor: pointer;
+    }
+  }
+
+  .tmap-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .tmap-band {
+    margin-inline: 2px;
+    border-radius: .5rem;
+    background: color-mix(in oklab, var(--band, var(--ink)) 13%, var(--paper));
+    text-align: center;
+
+    .grade-tab { translate: 0 -50%; }
+  }
+
+  /* the row the tabs sit on, and the room under a section's last path */
+  .tmap-tabs { grid-column: 1 / -1; block-size: .9rem; }
+  .tmap-path:has(+ .tmap-band), .tmap-path:last-child { padding-block-end: .45rem; }
+
+  .tmap-cat {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    grid-column: 1 / -1;
+    margin: 1.4rem 0 1.1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    font-variant-caps: all-small-caps;
+    letter-spacing: .08em;
+
+    &::after { content: ""; flex: 1; border-block-start: var(--rule-light); }
+    a { text-decoration: none; }
+  }
+
+  .tmap-orn { block-size: .9rem; inline-size: auto; }
+
+  .tmap-path {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  /* A path's name, with a dotted line from it to the first node. */
+  .tmap-path-name {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    grid-row: 2;
+    margin: 0;
+    padding-inline-start: .6rem;
+    font-size: inherit;
+    font-style: italic;
+    font-weight: 400;
+
+    &::after { content: ""; flex: 1; border-block-start: 2px dotted var(--ink-soft); }
+    &.above { grid-row: 1; grid-column: 1 / -1; padding-block-start: .25rem; }
+    &.above::after { content: none; }
+  }
+
+  .tmap-tally {
+    color: var(--ink-soft);
+    font-style: normal;
+    font-variant-numeric: lining-nums;
+    white-space: nowrap;
+  }
+
+  /* The path's line through its nodes: each node's cell draws the half before its
+     middle and the half after, and a column without a node the whole of it. */
+  .tmap-run, .tmap-cell { position: relative; grid-row: 2; }
+
+  .tmap-run::before, .tmap-cell::before, .tmap-cell::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: calc(50% - 1px);
+    block-size: 2px;
+    background: var(--ink);
+  }
+
+  .tmap-cell::before { inset-inline-end: 50%; }
+  .tmap-cell::after { inset-inline-start: 50%; }
+  .tmap-cell.first::before, .tmap-cell.last::after { content: none; }
+
+  .tmap-cell {
+    display: flex;
+    align-items: center;
+    padding: .28rem .25rem;
+  }
+
+  .tmap-grade { display: none; }
+
+  .tmap-node {
+    position: relative;
+    z-index: 1;
+    inline-size: 100%;
+    margin: 0;
+    padding: .2rem .3rem;
+    border: 1px solid var(--ink);
+    border-radius: .45rem;
+    background: var(--paper);
+    list-style: none;
+
+    li { display: flex; align-items: baseline; gap: .3em; margin: 0; padding-block: .1rem; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  }
+
+  /* The circle to tick. It shows only when the script is there to keep the ticks. */
+  .tmap input {
+    display: none;
+    flex: none;
+    appearance: none;
+    inline-size: .95em;
+    block-size: .95em;
+    margin: 0;
+    translate: 0 .12em;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+    cursor: pointer;
+
+    &:checked { background: var(--ink); box-shadow: inset 0 0 0 2px var(--paper); }
+  }
+
+  .tmap-live input { display: block; }
+  .tmap .is-gap input { border-style: dashed; }
+  .tmap .is-next a { font-weight: 700; }
+
+  /* In a narrow column the paths stand under each other, and each node has its
+     grade's tab and tint. */
+  @container main (width < 36rem) {
+    .tmap-grid { display: block; }
+    .tmap-band, .tmap-tabs, .tmap-run, .tmap-cell::before, .tmap-cell::after, .tmap-path-name::after { display: none; }
+    .tmap-cat { margin-block: 1.5rlh .5rlh; }
+    .tmap-path, .tmap-path:last-child { display: block; margin-block-end: .8rlh; padding: 0; }
+    .tmap-path-name, .tmap-path-name.above { margin-block-end: .2rem; padding: 0; font-size: var(--fs-note); }
+
+    .tmap-cell {
+      align-items: flex-start;
+      gap: .5rem;
+      margin-block: 2px;
+      padding: .3rem .45rem;
+      border-radius: .5rem;
+      background: color-mix(in oklab, var(--band, var(--ink)) 13%, var(--paper));
+    }
+
+    .tmap-grade { display: inline-block; flex: none; inline-size: 2.2rem; margin-block-start: .4rem; text-align: center; }
+  }
 
   .ix-list {
     font-size: var(--fs-note);

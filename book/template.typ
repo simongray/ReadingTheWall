@@ -1375,6 +1375,191 @@
   balanced-columns("az", 2, items, gutter: 2em, sizes: sizes, margin: 0pt)
 }
 
+// ------------------------------------------------------------ technique map
+
+// The technique map, on one page. Each row is a path (a family of
+// techniques that build on each other, from map.toml) and each column is
+// a grade, so a path reads from left to right, from the grade where it
+// starts. A node holds the techniques of one path at one grade, each
+// with a circle to tick and its page. Each category is a section of its
+// own, under its name, with white between it and the next.
+#let map-data = toml("map.toml")
+#let map-chapters = (feet: "3", body: "4", hands: "5", dynamic: "6", terrain: "7")
+#let map-grades = 6   // the columns: V0 to V5, the last grade with new techniques
+
+// The band of a grade: its tab's colour, thinned to a tint.
+#let map-tint(g) = color.mix((grade-tab-look(g).fill, 13%), (white, 87%))
+
+// Every technique's metadata by key, checked against the paths: each
+// entry is on one path, in its own category, and no path goes back a grade.
+#let map-entries() = {
+  let by-key = (:)
+  for m in tech-metas() { by-key.insert(m.value.key, m) }
+  if by-key.len() > 0 {
+    let seen = ()
+    for p in map-data.path {
+      let last = 0
+      for k in p.keys {
+        assert(k in by-key, message: "map.toml: no entry has the key " + k)
+        assert(k not in seen, message: "map.toml: " + k + " is on two paths")
+        let v = by-key.at(k).value
+        assert(v.category == p.category, message: "map.toml: " + k + " is not in the category " + p.category)
+        assert(v.grade >= last, message: "map.toml: " + k + " comes after a higher grade on its path")
+        last = v.grade
+        seen.push(k)
+      }
+    }
+    for k in by-key.keys() {
+      assert(k in seen, message: "map.toml: " + k + " is on no path")
+    }
+  }
+  by-key
+}
+
+#let technique-map() = pad(x: -overhang, context {
+  let by-key = map-entries()
+  let width = page.width - 2 * margin-x + 2 * overhang
+  let col-w = width / map-grades
+  let node-w = col-w - 2mm                 // a node, centred in its column
+  let size = 7.2pt
+  let tab-h = 3.6mm                        // a grade tab, which sits on the top edge of its band
+  let cat-h = 4.6mm                        // a category's name above its section
+  let cat-below = 1.5mm                    // from the name to the bands
+  let cat-gap = 3mm                        // the white between two sections
+  let pad-y = 1.6mm                        // from a band's ends to the rows
+  let row-gap = 1.9mm
+  let track = 1.1pt + ink
+  let lead-in = (paint: ink, thickness: 0.6pt, dash: (0.6pt, 2pt), cap: "round")
+
+  // The type of a node and of a path's name. It is set on each of them
+  // and not around the map, because `measure` sees only the styles of
+  // what it measures.
+  let map-type(body) = {
+    set text(size: size, hyphenate: false, number-type: "lining")
+    set par(justify: false, first-line-indent: 0pt, leading: 0.48em, spacing: 0.48em)
+    body
+  }
+
+  // One technique in a node: the circle, the name and the page. The page
+  // has a fixed width, so that a name breaks the same way whatever its
+  // page is. A node is measured without its page and its links
+  // (`sizing`): a height that asked for a page number would never settle.
+  let pg-size = 0.84 * size
+  let pg-w = measure(text(size: pg-size, number-type: "old-style", "000")).width
+  let tick = 2.2mm
+  let inset-x = 0.85mm
+  let name-w = node-w - 2 * inset-x - tick - 0.6mm - 0.5mm - pg-w
+  let item(k, sizing) = {
+    let m = by-key.at(k, default: none)
+    // a last word of one or two letters stays with the word before it
+    let name = map-data.short.at(k, default: if m == none { k } else { m.value.name })
+      .replace(regex(" (\\S{1,2})$"), w => "\u{a0}" + w.captures.first())
+    let to(body) = if m == none or sizing { body } else { link(m.location(), body) }
+    grid(
+      columns: (tick, name-w, pg-w), column-gutter: (0.6mm, 0.5mm), align: (left + horizon, left + horizon, right + horizon),
+      box(width: tick, height: 0.7em, place(horizon + left, circle(radius: tick / 2, stroke: 0.5pt + ink, fill: white))),
+      to(name),
+      text(size: pg-size, number-type: "old-style", to(if m == none or sizing { "" } else { tech-pg(m) })),
+    )
+  }
+  let node(keys, sizing: false) = block(
+    width: node-w, fill: white, stroke: 0.5pt + ink, radius: 1.3mm, inset: (x: inset-x, y: 1.05mm),
+    map-type(stack(spacing: 1.55mm, ..keys.map(k => item(k, sizing)))),
+  )
+  let path-name(p, w) = block(width: w, map-type(text(style: "italic", p.name)))
+
+  // Each path as a row: its nodes by column, its name and its height.
+  // A path that starts at V0 has its name above its first node. Any other
+  // has it at the left of the row, in the columns before its first node.
+  let grade-of(k) = if k in by-key { calc.min(by-key.at(k).value.grade, map-grades - 1) } else { 0 }
+  let row(p) = {
+    let cells = range(map-grades).map(g => {
+      let ks = p.keys.filter(k => grade-of(k) == g)
+      if ks.len() > 0 { (node: node(ks), h: measure(node(ks, sizing: true)).height) }
+    })
+    let on = range(map-grades).filter(g => cells.at(g) != none)
+    let first = on.first()
+    let name = path-name(p, if first == 0 { node-w } else { first * col-w - 3mm })
+    let name-size = measure(name)
+    // how far the name reaches, which is less than its block when it fits on a line
+    let reach = calc.min(name-size.width, measure(map-type(text(style: "italic", p.name))).width)
+    let nodes-h = calc.max(..on.map(g => cells.at(g).h))
+    let above = if first == 0 { name-size.height + 1.2mm } else { 0pt }
+    (
+      cells: cells, on: on, name: name, name-w: reach, above: above,
+      h: above + calc.max(nodes-h, if first == 0 { 0pt } else { name-size.height }),
+      mid: above + calc.max(nodes-h, if first == 0 { 0pt } else { name-size.height }) / 2,
+    )
+  }
+
+  // lay the sections out from the top: a category's name, its bands and
+  // in them its paths. The first section's bands carry the grade tabs.
+  let cats = categories.keys().map(cat => (cat: cat, rows: map-data.path.filter(p => p.category == cat).map(row)))
+  let placed = ()
+  let y = 0pt
+  for (i, c) in cats.enumerate() {
+    let head-y = y
+    y += cat-h + cat-below + if i == 0 { tab-h / 2 } else { 0pt }
+    let band-y = y
+    y += pad-y + if i == 0 { tab-h / 2 } else { 0pt }
+    let rows = ()
+    for r in c.rows {
+      rows.push((y: y, r: r))
+      y += r.h + row-gap
+    }
+    y += pad-y - row-gap
+    placed.push((cat: c.cat, head-y: head-y, band-y: band-y, band-h: y - band-y, rows: rows))
+    y += cat-gap
+  }
+  let total = y - cat-gap
+
+  block(width: width, height: total, breakable: false, {
+    for (i, c) in placed.enumerate() {
+      // the category, which leads to its chapter, and a rule beside it
+      let chapter = query(heading.where(level: 1)).filter(h => h.body == [#categories.at(c.cat)])
+      let title = sc(categories.at(c.cat), tracking: 0.08em)
+      place(top + left, dy: c.head-y, box(width: width, height: cat-h, align(horizon, grid(
+        columns: (auto, 1fr), column-gutter: 0.7em, align: horizon,
+        text(size: 8.6pt, {
+          box(baseline: 15%, fleuron(size: 3.4mm, name: ornaments.chapters.at(map-chapters.at(c.cat))))
+          h(0.5em)
+          if chapter.len() == 1 { link(chapter.first().location(), title) } else { title }
+        }),
+        line(length: 100%, stroke: rule-light),
+      ))))
+      // the columns: a band for each grade
+      for g in range(map-grades) {
+        place(top + left, dx: g * col-w + 0.6mm, dy: c.band-y, rect(width: col-w - 1.2mm, height: c.band-h, radius: 2.2mm, fill: map-tint(g)))
+        if i == 0 {
+          place(top + left, dx: g * col-w, dy: c.band-y - tab-h / 2, box(width: col-w, height: tab-h, align(center + horizon,
+            navlink(label("grade-" + str(g)), grade-tab(grade-label(g), size: 8.5pt, g: g)))))
+        }
+      }
+      for (y, r) in c.rows {
+        let (first, last) = (r.on.first(), r.on.last())
+        let x-of(g) = g * col-w + (col-w - node-w) / 2
+        // the path's name, a dotted line from it to the first node and a
+        // solid one from there to the last
+        if first == 0 {
+          place(top + left, dx: x-of(0) + inset-x, dy: y, r.name)
+        } else {
+          place(top + left, dx: 1.6mm, dy: y, box(height: r.h, align(horizon, r.name)))
+          let from = 1.6mm + r.name-w + 1.5mm
+          if x-of(first) - from > 2.5mm {
+            place(top + left, line(start: (from, y + r.mid), end: (x-of(first), y + r.mid), stroke: lead-in))
+          }
+        }
+        if last > first {
+          place(top + left, line(start: (x-of(first) + node-w, y + r.mid), end: (x-of(last), y + r.mid), stroke: track))
+        }
+        for g in r.on {
+          place(top + left, dx: x-of(g), dy: y + r.above, box(height: r.h - r.above, align(horizon, r.cells.at(g).node)))
+        }
+      }
+    }
+  })
+})
+
 // ------------------------------------------------------------ document
 
 #let number-words = ("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve")

@@ -14,5 +14,7 @@
   {"find": "then turn the page and compare",
    "replace": "then open the answer and compare"},
   {"find": "Page numbers in brackets, as in",
-   "drop": true}
+   "drop": true},
+  {"find": "The numbers are the pages of the entries.",
+   "replace": "The map keeps your ticks in this browser. On a path you have started, it draws a gap as a dashed circle and sets the next thing to learn in bold."}
 ]

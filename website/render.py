@@ -558,6 +558,7 @@ def tab_rules(book):
     for g, look in enumerate(book.tab_looks):
         outline = "border:1px solid #111;" if look["outlined"] else ""
         rules.append(f'.g{g}{{background:{look["fill"]};color:{look["figures"]};{outline}}}')
+        rules.append(f'.band-g{g}{{--band:{look["fill"]}}}')   # the technique map's bands, tinted from it
     return "\n".join(rules) + "\n" if rules else ""
 
 

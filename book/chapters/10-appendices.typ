@@ -2,6 +2,8 @@
 
 #include "a-card.typ"
 
+#include "a-map.typ"
+
 #include "a-troubleshooting.typ"
 
 #include "a-glossary.typ"

@@ -110,7 +110,7 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 - *Part II* is the catalogue of techniques. Each chapter ranks its techniques by grade, and the entries follow in that order.
 - *Part III* has a guide for every grade from VB to V8+.
 - *Part IV* is about you: your body, injuries and warming up, learning technique, working on a hard problem and falling safely.
-- The *appendices* start with "On the mat", the book on one page. A troubleshooting table goes from a symptom ("I swing off like a door") to the techniques to try. Then come the glossary, an A–Z of technique names, a grade conversion table, an account of how this book was made, the corrections to the previous edition, the sources and the index.
+- The *appendices* start with "On the mat", the book on one page, and a map that shows which techniques build on each other. A troubleshooting table goes from a symptom ("I swing off like a door") to the techniques to try. Then come the glossary, an A–Z of technique names, a grade conversion table, an account of how this book was made, the corrections to the previous edition, the sources and the index.
 
 == Anatomy of a technique entry
 

@@ -455,7 +455,7 @@ The data doesn't show what holds people here. Climbers at this level report abou
 == Progression map <progression-map>
 
 #ix("Progression map")
-Each row lists key techniques badged at that grade in Part II, and what to focus on.
+Each row lists key techniques badged at that grade in Part II, and what to focus on. The #link(<technique-map>)[technique map] shows every technique on the path it belongs to.
 
 #gtable(
   columns: (auto, 1.6fr, 1fr),

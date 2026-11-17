@@ -96,6 +96,16 @@ streamlining), which have the details.
 
 ## Book
 
+- **The technique map** (`book/map.toml`, `technique-map` in the template):
+  - Its type is 7.2 pt, the smallest in the book, so that the map fits one
+    page. It has not been read on the Boox.
+  - The print map has no drawings in its nodes. A small pose for each technique
+    would need every figure's code to draw one climber on its own. The web map
+    shows an entry's drawing when you hover over its name.
+  - The "Progression map" table in Chapter 8 lists key techniques by grade, which
+    the map now shows in full. Its "Focus" column is what the map doesn't have.
+  - The paths have no links between them, such as from the heel hook to the
+    top-out. The entries' "Related" lists hold those.
 - The third edition is 306 pages. The eight worked problems
   moved out of it into the exercises booklet.
 - **Typography, for Simon to judge** (`research/revise3-typography.md`):

@@ -72,6 +72,14 @@ section as the notes of the GitHub release.
   such effect → "Get feedback."
 
 ### Added
+- Technique map, a new appendix after "On the mat". It puts every technique of
+  Part II on one of 20 paths: families of techniques that build on each other,
+  such as the side flag, the back flag and the inside flag. A path runs through
+  the grades, and each technique has a circle to tick, so the map shows which
+  paths you are far along and where you have gaps. In print it fills one page.
+  The web edition keeps your ticks in the browser, marks the gaps and the next
+  step on each path you have started, and shows a technique's drawing when you
+  hover over it. The paths are in `book/map.toml`.
 - Footnotes. Where the book draws a conclusion that no source states, a note at
   the foot of the page says how it got there (`note` in the template). The web
   edition lists a page's notes at its foot.

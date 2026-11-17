@@ -285,6 +285,7 @@
 #let category-table(cat) = tag("div", attrs: ("data-gen": "category-table", "data-category": cat, id: "cattable-" + cat))
 #let grade-techniques(g) = tag("div", attrs: ("data-gen": "grade-techniques", "data-grade": str(g)))
 #let a-to-z() = tag("div", attrs: ("data-gen": "a-to-z"))
+#let technique-map() = tag("div", attrs: ("data-gen": "technique-map"))
 #let make-index() = tag("div", attrs: ("data-gen": "index"))
 
 // ------------------------------------------------------------ the document
