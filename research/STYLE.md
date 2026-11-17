@@ -71,6 +71,77 @@ the plainest common name as the term (singular, lower case unless a
 proper noun) and list in your final reply any jargon terms you linked
 that need a glossary definition, each with a one-line definition.
 
+## Lists and steps
+
+The book had about 1,400 list items after the third edition, and the editor
+found them hard to read where several were aspects of one thing. These rules
+come from the bullet pass of 2026-11-17. The sources behind each are listed
+below.
+
+- **A list is for a real series of separate, parallel items.** Ideas that
+  depend on each other go in sentences, where "so", "because" and "but" can say
+  how they connect. A bullet can't say that.
+- **One item, one thing.** A step is one action. A "look for" bullet is one
+  situation you can see on the wall, a symptom is one thing that goes wrong and
+  a mistake is one mistake. Aspects of the same thing go in one item.
+- **Number a list only when the order matters.**
+- **Keep lists short.** Aim for three to five steps in an entry and never more
+  than seven, and at most four "look for" bullets and four symptoms. A list
+  never has one item: write the sentence instead.
+- **Keep items short.** A step is the action and, if needed, its reason: one
+  or two sentences of under 20 words each. An item that needs more is a
+  paragraph, so make it one, as a run-in paragraph after the steps.
+- **Make the items of a list parallel,** and give the list a heading or a
+  lead-in that every item reads correctly after.
+- **Don't nest lists.**
+- **Say an error once, beside the action it belongs to.** Don't list a mistake
+  that only says "not doing step 3". Keep every safety warning.
+- **Every entry has the same parts in the same order,** with one kind of
+  information in each: what it is (summary), when you need it (the box), what
+  to do (steps) and what goes wrong (mistakes).
+- **On the wall a climber can hold one cue.** The steps describe the move, so
+  they can be complete. Don't expect the reader to carry them all up the wall.
+
+Where the sources disagree, the book takes the stricter number for steps and
+the looser one for bullets with a bold lead-in, which are labelled paragraphs.
+
+Sources, all read on 2026-11-17 unless marked:
+
+- Microsoft Writing Style Guide, "Lists" and "Writing step-by-step
+  instructions" (learn.microsoft.com/en-us/style-guide): two to seven items, a
+  reader should see two or three items at a glance, one instruction per step,
+  short steps in the same place may be combined.
+- Google developer documentation style guide, "Lists" and "Procedures"
+  (developers.google.com/style): no list of one item, one step per action, as
+  few steps as possible, action first and result second.
+- GOV.UK A to Z style guide, "Bullet points and steps": a lead-in line, more
+  than one bullet, one sentence per bullet, numbered steps for a process.
+- US plain language guidelines, "Lists" (digital.gov/guides/plain-language):
+  "You can overuse lists."
+- ASD-STE100 Simplified Technical English (read in a summary only): 20 words
+  for a sentence in a procedure, one instruction per sentence.
+- Daniele Procida, Diátaxis (diataxis.fr): steps are a sequence, reference is
+  uniform, explanation is connected prose.
+- Robert Horn, "What Kinds of Writing Have a Future?" (2001): one kind of
+  meaning in each labelled chunk, about seven chunks at most. Nelson Cowan,
+  "The magical number 4 in short-term memory" (2001), puts the limit nearer
+  four.
+- David Farkas, "Explicit Structure in Print and On-Screen Documents" (2005):
+  bullets that carry body text make it hard to tell main points from
+  subordinate ones.
+- Hans van der Meij and Ard Lazonder on minimal manuals (1994, in Dutch): be
+  brief, don't explain everything, give error information where an action is
+  error-prone and hard to correct.
+- Frank Jansen, "How bulleted lists and enumerations in formatted paragraphs
+  affect recall" (2014, abstract only): lists help recall of the listed items
+  and can lower recall of the text around them.
+- Nick Winkelman, *The Language of Coaching* (2020; the publisher's excerpts
+  and the author's slides only): one cue at a time. Buszard and others (2017)
+  found that five explicit instructions at once hurt learning in children with
+  less working memory.
+
+No publisher's guidance on the structure of a technique entry turned up.
+
 ## The technique entry
 
 ```typst

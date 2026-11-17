@@ -59,12 +59,9 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "jug.svg",
   caption: [(a) Bent arms: your biceps and shoulder muscles work to hold you there. (b) One straight arm holds you while the other hand shakes out.],
   how: [
-    + Put your fingers into the deepest part, up to the second joint.
-    + On a big #jt("incut") jug, wrap your thumb round the front. It takes load off the fingers #src("C1").
-    + Grip only as hard as you need #src("C35").
-    + On a steep wall, hang on a straight arm, so your biceps can rest #src("C41").
-    + Hang below the jug, or on the side away from the way it faces.
-    + To rest, drop the other arm below your waist and shake it loose. Then swap hands.
+    + Put your fingers into the deepest part, up to the second joint. On a big #jt("incut") jug, wrap your thumb round the front to take load off the fingers #src("C1"). Grip only as hard as you need #src("C35").
+    + On a steep wall, hang on a straight arm, so your biceps can rest #src("C41"). Hang below the jug, or on the side away from the way it faces.
+    + To rest, drop the other arm below your waist and shake it loose, then swap hands.
   ],
   when: [
     *Look for*
@@ -96,11 +93,9 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [(a) Under a left-hand sidepull, the body swings open. (b) Body to the right of it, leaning away. The left foot pushes left.],
   how: [
     + Read which way the hold faces. A hold on your left whose edge faces left is a left-hand~sidepull.
-    + Grip it thumb up, fingers pointing into the edge. Pull towards your middle.
-    + Lean away. Move your hips and shoulders right until your left arm is straight #src("C34", "C36").
-    + Push your feet the other way. Your left foot pushes left against its foothold #src("C36").
+    + Grip it thumb up, fingers pointing into the edge, and pull towards your middle. If the back of the hold has a spot for your thumb, squeeze it into a #tref("pinch", body: [pinch]) #src("C36").
+    + Lean away by moving your hips and shoulders right until your left arm is straight #src("C34", "C36"). Push your feet the other way: your left foot pushes left against its foothold #src("C36").
     + Turn side-on to reach. Later, a #tref("backstep", body: [backstep]) or partial #tref("drop-knee", body: [drop knee]) on the reaching side adds height #src("C36").
-    + If there is a spot for your thumb on the back of the hold, squeeze it into a #tref("pinch", body: [pinch]) #src("C36").
   ],
   when: [
     *Look for*
@@ -133,21 +128,17 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "half-crimp.svg",
   caption: [(a) Half crimp: the middle joint bends about 90° and the end joint stays straight. (b) Full crimp for comparison: the end joint bends back.],
   how: [
-    + Put your fingertips on the edge. Bend the middle joints to about 85–90° #src("C25").
-    + Keep the end joints straight or slightly bent. Never let them bend backwards #src("C9").
-    + Put the little finger on if it reaches. It is shorter, so it usually stays straight #src("C1").
-    + Rest your thumb beside the index finger, or press it on a bump on the side of the hold #src("C1").
+    + Put your fingertips on the edge and bend the middle joints to about 85–90° #src("C25"). Keep the end joints straight or slightly bent. Never let them bend backwards #src("C9").
+    + Put the little finger on if it reaches. It is shorter, so it usually stays straight #src("C1"). Rest your thumb beside the index finger, or press it on a bump on the side of the hold #src("C1").
     + Pull down and slightly in, elbow below the hand. Place your hips by the hold's direction.
     + If the hand is being forced open, re-grip or let go. Don't fight it #src("C15", "C20").
   ],
   when: [
-    *Look for*
-    - flat or #jt("incut") edges 1–2 cm deep #src("C29").
-    - small edges on #jt("volume", body: [volumes]).
+    *Look for* flat or #jt("incut") edges 1–2 cm deep #src("C29"), and small edges on #jt("volume", body: [volumes]).
 
     *Symptoms*
     - Your fingertips roll off the front of the edge. Your body is too high above it, or the edge slopes.
-    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now. A #tref("full-crimp", body: [full crimp]) is for very small edges #src("C1", "C10"). Holds get smaller and crimpier at about V5 #src("C48").
+    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now. A #tref("full-crimp", body: [full crimp]) is for very small edges #src("C1", "C10").
     - You feel a sharp pain at the base of a finger. Stop for the day.
   ],
   errors: [
@@ -170,17 +161,13 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "open-hand.svg",
   caption: [(a) Drag on a rounded edge: the pad drapes over and the middle joint bends about 40°. (b) Three-finger drag seen from behind, with the little finger off.],
   how: [
-    + Lay your finger pads over the #jt("lip") (the front of the hold). The end joint hooks over it #src("C1").
-    + Keep the middle joint only slightly bent. Measured open-hand grips average about 40° there #src("C28").
-    + Choose four fingers or three. In a three-finger drag, the little finger comes off #src("C1", "C10").
-    + Keep your wrist slightly bent back.#ix("Wrists") It gives your finger muscles better leverage #src("C9").
-    + Hang below the hold on a straight arm. The pull then runs down through the pads.
-    + Get as much skin#ix("Skin") on the hold as you can #src("C35").
+    + Lay your finger pads over the #jt("lip") (the front of the hold), so the end joint hooks over it #src("C1"). Keep the middle joint only slightly bent. Measured open-hand grips average about 40° there #src("C28").
+    + Choose four fingers or a three-finger drag, with the little finger off #src("C1", "C10"). Get as much skin#ix("Skin") on the hold as you can #src("C35").
+    + Keep your wrist slightly bent back,#ix("Wrists") which gives your finger muscles better leverage #src("C9"). Hang below the hold on a straight arm, so the pull runs down through the pads.
   ],
   when: [
     *Look for*
-    - rounded edges and #jt("rail", body: [rails]) (long horizontal edges) where bending the fingers hooks nothing.
-    - edges 3 cm deep or more #src("C29").
+    - rounded edges and #jt("rail", body: [rails]) (long horizontal edges) where bending the fingers hooks nothing, and edges 3 cm deep or more #src("C29").
     - long easy sections where you want to save energy #src("C1").
 
     *Symptoms*
@@ -207,11 +194,10 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "undercling.svg",
   caption: [(a) With the hold above the head and the feet low, the arms bend and you tip backwards. (b) With the feet up, the hold sits at the waist. The arm is straight and the free hand reaches.],
   how: [
-    + Build your feet up first. Then reach for the hold and bring it close to your body #src("C52").
-    + Grip palm up with an open hand, not a #jt("crimp"). Get as much hand behind it as you can. Point your thumb out #src("C4").
-    + Get your waist level with the hold. The higher you are, the easier it gets #src("C4", "C34").
-    + Keep the arm straight, so your biceps can rest #src("C4", "C36").
-    + Lean back and push your feet into the wall. Stand up into the hold #src("C4").
+    + Build your feet up first, then reach for the hold and bring it close to your body #src("C52").
+    + Grip palm up with an open hand, not a #jt("crimp"). Get as much hand behind it as you can and point your thumb out #src("C4").
+    + Get your waist level with the hold. The higher you are, the easier it gets #src("C4", "C34"). Keep the arm straight, so your biceps can rest #src("C4", "C36").
+    + Lean back, push your feet into the wall and stand up into the hold #src("C4").
     + To reach, stand up on one foot and turn that hip to the wall #src("C4").
   ],
   when: [
@@ -220,15 +206,14 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - an undercling at chest or waist height with the next hold far above. It lets you reach a long way #src("C34").
 
     *Symptoms*
-    - Your biceps burn. Your arm is bent #src("C4").
-    - You feel you are tipping backwards. The hold is too high for your body. Step your feet up #src("C4", "C52").
-    - Your feet skate. They aren't pushing hard enough into the wall #src("C4").
+    - Your biceps burn because your arm is bent #src("C4").
+    - You feel you are tipping backwards, because the hold is too high for your body. Step your feet up #src("C4", "C52").
+    - Your feet skate, because they aren't pushing hard enough into the wall #src("C4").
   ],
   errors: [
-    - Pulling with the arms instead of standing up with the legs #src("C4").
     - Bending the wrist hard towards the little finger. Schweizer#ix("Schweizer, Andreas") links this to fractures of a small wrist bone#ix("Injuries!wrist") #src("C25").
   ],
-  tall: [Your waist sits high above your feet, so the hold reaches waist height with your feet lower than a shorter climber's. Higher feet still help, but you get bunched sooner: in a tight position a tall climber's knees end up in the chest #src("H15"). If your knees jam, turn one hip to the wall as in step 6.],
+  tall: [Your waist sits high above your feet, so the hold reaches waist height with your feet lower than a shorter climber's. Higher feet still help, but you get bunched sooner: in a tight position a tall climber's knees end up in the chest #src("H15"). If your knees jam, turn one hip to the wall as in step 5.],
   related: ("gaston", "sidepull", "high-step", "straight-arms"),
   sources: ("C4", "C25", "C34", "C36", "C52"),
 )
@@ -245,12 +230,9 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [The right palm presses down and right on a volume. That frees the right foot to step up.],
   how: [
     + Find a surface you can push into: a volume face, the wall beside you or a dimple.
-    + Chalk your whole hand. Put it flat with the fingers spread #src("C11").
-    + Press through the heel of the hand #src("C56").
-    + Point the fingers so your wrist stays in line with the push. For a push down, point them sideways.
-    + Keep your elbow behind your hand. Straighten the arm as you move.
-    + Push away from where you are going. To move up and left, press down and right #src("C11").
-    + Use the push to take weight off a foot. Then move that foot #src("C37", "C56").
+    + Chalk your whole hand and put it flat with the fingers spread #src("C11"). Point the fingers so your wrist stays in line with the push: sideways for a push down.
+    + Press through the heel of the hand #src("C56"), away from where you are going. To move up and left, press down and right #src("C11"). Keep your elbow behind your hand and straighten the arm as you move.
+    + Use the push to take weight off a foot, then move that foot #src("C37", "C56").
   ],
   when: [
     *Look for*
@@ -259,7 +241,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - a good foothold with no handhold above it #src("C37").
 
     *Symptoms*
-    - Your palm skids. You are pushing along the surface instead of into it. Press more squarely.
+    - Your palm skids, because you are pushing along the surface instead of into it. Press more squarely.
     - A foot won't come up because both hands are busy. Add a palm press so it can.
   ],
   errors: [
@@ -280,13 +262,11 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "mantle.svg",
   caption: [(1) Pull, with the right foot high. (2) Flip the right hand flat with the elbow up. Press. (3) Straighten both arms. Step onto the top without a knee.],
   how: [
-    + Chalk your palms first.#ix("Chalk") A mantle needs palm contact #src("C5").
+    + Chalk your palms first,#ix("Chalk") because a mantle needs palm contact #src("C5").
     + Get a foot high: "Your feet lead your hips" #src("C5"). Aim for a foothold high enough that your waist reaches your hands when you stand #src("C6"). On a steep or rounded top, #tref("heel-hook", body: [heel-hook]) the lip instead #src("C5", "C6").
-    + Pull your shoulders up to the lip and stand on the high foot #src("C6").
-    + As your shoulders pass the lip, flip one hand flat onto the top. Point the fingers towards the other hand and the elbow up #src("C6"). This gives the most push at the start #src("C39").
-    + Press down until that arm is straight. Flip the second hand and press with both #src("C6").
-    + Bring a foot onto the top. Lean forward over it and stand up #src("C6").
-    + Do steps 3–6 as one motion. Don't stop at the tipping point #src("C5", "C6").
+    + Pull your shoulders up to the lip and stand on the high foot #src("C6"). As your shoulders pass the lip, flip one hand flat onto the top, fingers towards the other hand and elbow up #src("C6"). This gives the most push at the start #src("C39").
+    + Press down until that arm is straight, then flip the second hand and press with both #src("C6"). Bring a foot onto the top, lean forward over it and stand up #src("C6").
+    + Do steps 3 and 4 as one motion. Don't stop at the tipping point #src("C5", "C6"): commit, or climb down and try again #src("C39").
   ],
   parts: (
     (
@@ -295,10 +275,8 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
         Indoors, most mid-problem mantles are onto #jt("volume", body: [volumes]). You usually can't get on top and rest there, so you press, rock over and keep moving.
 
         + Get a foot high on the side of the volume, or #tref("heel-hook", body: [heel-hook]) its edge #src("C5", "C39").
-        + Pull on the volume's edge until you are balanced. Only then flip a hand onto the top #src("C39").
-        + Press the heel of your palm on the top, away from the way you are going #src("C11").
-        + Move your hips over the high foot and stand up on it, as in a #tref("rockover", body: [rockover]) #src("C6").
-        + Keep pressing with the palm while the other hand goes to the next hold.
+        + Pull on the volume's edge until you are balanced. Only then flip a hand onto the top #src("C39") and press the heel of your palm on it, away from the way you are going #src("C11").
+        + Move your hips over the high foot and stand up on it, as in a #tref("rockover", body: [rockover]) #src("C6"). Keep pressing with the palm while the other hand goes to the next hold.
       ],
       figure: "volume-mantle.svg",
       caption: [(a) Pull on the volume's edge with the right foot high. (b) Press the top with the left palm, rock over and reach.],
@@ -306,11 +284,9 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   ),
   when: [
     *Look for*
-    - a flat top or ledge with no holds beyond it.
-    - a ledge mid-wall with nothing above within reach.
+    - a flat top with no holds beyond it, or a ledge mid-wall with nothing above within reach.
     - a big chalked volume top, flat or gently sloping, at chest height with no hold you can reach above it.
-    - footholds set on the volume itself.
-    - a grippy patch on top of a #jt("dual texture") volume. The #jt("setter") wants your palm there #src("C49").
+    - footholds set on the volume itself, or a grippy patch on top of a #jt("dual texture") volume, where the #jt("setter") wants your palm #src("C49").
 
     *Symptoms*
     - You are stuck at chest height with bent elbows. You have no high foot #src("C39").
@@ -319,8 +295,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Your palm slides on a volume. You are pressing with the fingers, or pushing along the face instead of into it.
   ],
   errors: [
-    - Putting a knee on the top. A knee has little grip. It also turns your foot the wrong way #src("C5").
-    - Hesitating halfway. Commit, or climb down and try again #src("C39").
+    - Putting a knee on the top. A knee has little grip and turns your foot the wrong way #src("C5").
     - Always mantling on your favourite side. Practise both hands, 2–3 grades below your limit #src("C6").
     - Pulling on a sloping volume edge that you should press.
   ],
@@ -350,19 +325,15 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [(a) Both feet high push the hips out. The hand rolls off. (b) The hips hang low under the hold. One foot stays low and the arm is straight. (c) Palm and finger pads drape over the hold, with the wrist below it.],
   how: [
     + From the ground, find the best part of the hold for where your body will be #src("C2").
-    + On a big sloper, spread your fingers and press with palm and fingertips. On a flat ledge, keep the fingers together #src("C3").
-    + Drag the finger pads over the hold. Drag the palm over it too if you can #src("C2").
-    + Look for a thumb spot below or beside the hold #src("C2").
-    + Keep your wrist stiff #src("C2").
-    + Hang low on a straight arm. Keep your hips under the hold #src("C3", "C11").
-    + Keep one foot low. Both feet high push your hips out and off the hold #src("C2").
-    + Move slowly. Keep your hips steady between the handholds #src("C2", "C11").
+    + On a big sloper, spread your fingers and press with palm and fingertips. On a flat ledge, keep the fingers together #src("C3"). Drag the finger pads over the hold, and the palm too if you can #src("C2").
+    + Look for a thumb spot below or beside the hold, and keep your wrist stiff #src("C2").
+    + Hang low on a straight arm, with your hips under the hold #src("C3", "C11") and one foot low #src("C2").
+    + Move slowly and keep your hips steady between the handholds #src("C2", "C11").
   ],
   when: [
     *Look for*
     - rounded holds, ledges with no front edge to hook and flat-topped #jt("volume", body: [volumes]).
-    - where your hips will be when you need the hold. The more it slopes, the more they must be under it #src("C2", "C29").
-    - a sloper angled to one side. Lean the other way #src("C3").
+    - where your hips will be when you need the hold. The more it slopes, the more they must be under it #src("C2", "C29"). If it is angled to one side, lean the other way #src("C3").
 
     *Symptoms*
     - Your hand slides off as your hips rise or as you bring both feet up #src("C2", "C3").
@@ -391,13 +362,10 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "pinch.svg",
   caption: [Seen from above, with the wall at the top. The thumb and fingers squeeze across each hold.],
   how: [
-    + Find two opposite faces. Put your thumb on one and your fingers on the other, so you squeeze straight across.
-    + On a narrow pinch, squeeze between the thumb pad and the side of the index finger #src("C35"). Bend the fingers as in a #tref("half-crimp", body: [half crimp]) #src("C38").
-    + On a wide pinch, lay your fingers flat and open #src("C38").
-    + On a #jt("volume") edge, put the thumb on one face and the fingers on the other #src("C11").
-    + Put your thumb where the chalk marks show #src("C38").
-    + Place your body by the pinch's direction. Lean off it, twist, or squeeze two pinches together #src("C38").
-    + Grip as lightly as you can. Squeezing too hard makes you stiff #src("C38").
+    + Find two opposite faces, such as those of a #jt("volume") edge #src("C11"). Put your thumb on one and your fingers on the other, so you squeeze straight across. The chalk marks show where the thumb goes #src("C38").
+    + On a narrow pinch, squeeze between the thumb pad and the side of the index finger #src("C35"), with the fingers bent as in a #tref("half-crimp", body: [half crimp]) #src("C38"). On a wide pinch, lay your fingers flat and open #src("C38").
+    + Place your body by the pinch's direction: lean off it, twist, or squeeze two pinches together #src("C38").
+    + Grip as lightly as you can, because squeezing too hard makes you stiff #src("C38").
   ],
   when: [
     *Look for*
@@ -431,20 +399,14 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "wrap.svg",
   caption: [The arête's two faces opened out flat. Palm and thumb press on one face. The fingers wrap round the edge onto the other. Both squeeze towards it.],
   how: [
-    + Put your palm on the near face. Wrap your fingers round onto the far face #src("C11", "C34").
-    + On horns (holds that stick out like a spike) and edges, press with the heel of the hand to spare the fingers #src("C37").
-    + On a round hold, wrap round it rather than gripping straight on. Turn the wrist a little left or right until it feels secure #src("C3").
-    + On a peaked volume, hook your hand over the peak. Put the palm on one side and the fingers on the other #src("C11").
-    + Squeeze towards the edge. Push a foot or the other hand the opposite way #src("C11").
+    + Put your palm on the near face and wrap your fingers round onto the far face #src("C11", "C34"). On a peaked volume, hook your hand over the peak in the same way #src("C11").
+    + On horns (holds that stick out like a spike) and edges, press with the heel of the hand to spare the fingers #src("C37"). On a round hold, wrap round it rather than gripping straight on. Turn the wrist a little left or right until it feels secure #src("C3").
+    + Squeeze towards the edge and push a foot or the other hand the opposite way #src("C11").
   ],
   when: [
-    *Look for*
-    - arêtes on gym features.
-    - peaked volumes and big round holds #src("C11").
-    - a guppy: a hold you grip sideways, mainly across the palm #src("C34").
+    *Look for* peaked volumes and big round holds #src("C11"), arêtes on gym features, or a guppy: a hold you grip sideways, mainly across the palm #src("C34").
 
-    *Symptoms*
-    - Your hand slides round the feature. You are pulling across it instead of along it, or nothing pushes back.
+    *Symptom:* your hand slides round the feature. You are pulling across it instead of along it, or nothing pushes back.
   ],
   errors: [
     - Using only the fingertips where the palm should touch.
@@ -467,10 +429,8 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [The same left-facing hold. (a) With the body to its right, it is a left-hand~sidepull. (b) With the body to its left, it is a right-hand gaston, thumb down and elbow out.],
   how: [
     + Put your fingers on the face of the hold that faces your middle. Turn your thumb down and your elbow out #src("C41", "C57").
-    + Push the hold away from your middle. Your shoulder does most of the work #src("C34").
-    + Keep your elbow up, about level with your hand.
-    + Keep the hold close to your shoulder. A gaston at full reach is weak.
-    + Your body sits on the side the hold faces. The hold pushes your hand towards your middle, so your feet must push you back. Press the opposite foot outward, or #tref("flag", body: [flag]) #src("B14").
+    + Push the hold away from your middle with your elbow up, about level with your hand. Your shoulder does most of the work #src("C34"). Keep the hold close to your shoulder, because a gaston at full reach is weak.
+    + Keep your body on the side the hold faces. The hold pushes your hand towards your middle, so your feet must push you back: press the opposite foot outward, or #tref("flag", body: [flag]) #src("B14").
   ],
   when: [
     *Look for*
@@ -479,12 +439,11 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
     *Symptoms*
     - Your elbow drops and the hand peels off.
-    - Your shoulder burns fast. The hold is too far from your body.
-    - You fall towards the hold's side when the other hand lets go. No foot pushes back.
+    - Your shoulder burns fast, because the hold is too far from your body. Step your feet up.
+    - You fall towards the hold's side when the other hand lets go, because no foot pushes back.
   ],
   errors: [
     - Turning the thumb up and pulling it like a sidepull.
-    - Reaching for a gaston at arm's length. Step your feet up first.
   ],
   related: ("sidepull", "undercling", "flag", "opposition"),
   watch: (("OnBouldering", "Climbing technique - Gaston", "https://www.youtube.com/watch?v=W3wk1w5IPso"),),
@@ -504,10 +463,8 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   how: [
     + From the ground, plan how you will catch the hold and how you will use it. The best place to catch it is often not the best place to pull #src("C2").
     + #ix("Sweet spot") Find the #jt("sweet spot") (the best part of the hold). Chalk marks, #jt("incut", body: [incuts]), ridges and thumb dimples show it #src("C11", "C38"). On a #jt("dual texture") hold, aim for the grippy patch #src("C49").
-    + Aim at a small mark, such as a screw hole: "aim small, miss small" #src("C18").
-    + Aim with your head. Put your nose where your balanced body needs to be. A fumbled hand then has time to correct #src("C18").
-    + Move your fingers one at a time while your weight is on your feet or the other hand.
-    + On a long run of edges, switch between #tref("half-crimp", body: [half crimp]) and #tref("open-hand", body: [open hand]). The change rests your fingers #src("C51").
+    + Aim at a small mark, such as a screw hole: "aim small, miss small" #src("C18"). Aim with your head too. Put your nose where your balanced body needs to be, so a fumbled hand has time to correct #src("C18").
+    + Move your fingers one at a time while your weight is on your feet or the other hand. On a long run of edges, switch between #tref("half-crimp", body: [half crimp]) and #tref("open-hand", body: [open hand]) to rest your fingers #src("C51").
     + To make room for a #tref("matching", body: [match]), take the hold with fewer fingers, on one side, or pinch it #src("C58"). Swap fingers across one at a time.
   ],
   when: [
@@ -543,17 +500,15 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "pocket.svg",
   caption: [Two-finger pocket, middle and ring fingers in the hole. (a) Little finger kept parallel: safer. (b) Little finger curled into the palm: stronger, but it shears the muscle between it and the ring finger.],
   how: [
-    + Count the fingers that fit. Feel the depth: to the first joint or the second.
-    + Three fingers: put them together in the hole #src("C42").
-    + Two fingers: use middle and ring, or index and middle #src("C42"). Choose by feel #src("C37").
-    + One finger: use the middle finger #src("C35").
-    + Keep the fingers outside the pocket loose and roughly parallel to the pocket fingers. Don't curl them hard into the palm #src("C12", "C16").
+    + Count the fingers that fit and feel the depth: to the first joint or the second.
+    + With three fingers, put them together in the hole #src("C42"). With two, use middle and ring, or index and middle #src("C42"), whichever feels better #src("C37"). With one, use the middle finger #src("C35").
+    + Keep the fingers outside the pocket loose and roughly parallel to those inside. Don't curl them hard into the palm #src("C12", "C16").
     + Use an open hand or a #jt("crimp") inside, depending on depth. Don't crimp hard over a sharp rim #src("C35").
     + Load the pocket smoothly. Watch your feet: a foot slip jolts the fingers #src("C16").
   ],
   when: [
     *Look for*
-    - holes in holds and #jt("volume", body: [volumes]). Some holds have two holes.
+    - holes in holds and #jt("volume", body: [volumes]). Some holds have two.
     - how deep the pocket is before you trust one finger to it.
 
     *Symptoms*
@@ -582,10 +537,8 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   caption: [(a) Fingers over a rounded edge, thumb in a dimple below. (b) Thumb pad pressing up on a volume face, fingers over the ridge.],
   how: [
     + Feel the hold with your thumb for bumps, dips or a second face. Give up a little of the main hold if that gets the thumb on #src("C7").
-    + *Thumb catch:* press the thumb into a dimple below or beside the fingers.
-    + *Thumb press:* lay the thumb pad flat on a face and push. It takes load off the fingers #src("C7").
-    + *On a* #tref("sloper", body: [*sloper*])*:* try the thumb below the hold and to one side #src("C2").
-    + *On a #jt("volume") edge:* put the thumb on one face and the fingers on the other #src("C11").
+    + *Thumb catch:* press the thumb into a dimple below or beside the fingers. On a #tref("sloper", body: [sloper]), try it below the hold and to one side #src("C2").
+    + *Thumb press:* lay the thumb pad flat on a face and push, which takes load off the fingers #src("C7"). On a #jt("volume") edge, put the thumb on one face and the fingers on the other #src("C11").
     + *Thumb wrap:* on a big jug or a #jt("rail"), wrap the thumb round the front #src("C1").
     + *Thumbercling:* on an overhead hold that faces down, press up with the thumb pad. Keep the wrist and fingers straight #src("C7").
   ],
@@ -594,11 +547,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - dimples, ridges or a second face just below the main hold.
     - long, tiring sequences. Pressing with the thumb rests the fingers #src("C7").
 
-    *Symptoms*
-    - Your fingers slide forward off a hold although your body is below it. A thumb under the hold stops the hand rolling out.
-  ],
-  errors: [
-    - Never looking for the thumb #src("C1").
+    *Symptom:* your fingers slide forward off a hold although your body is below it. A thumb under the hold stops the hand rolling out.
   ],
   related: ("pinch", "sloper", "full-crimp", "volume"),
   sources: ("C1", "C2", "C7", "C11"),
@@ -617,15 +566,13 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   figure: "full-crimp.svg",
   caption: [Full crimp from the side, the thumb locked over the index fingernail. The middle joint bends past 90° and the end joint bends back. The load on the A2 pulley is particularly high.],
   how: [
-    + Put your fingertips on the edge. Lift your knuckles until the middle joints bend past 90°. The end joints bend back.
-    + Lock your thumb over the index fingernail #src("C1", "C9"). It adds force without loading the other fingers more #src("C24").
-    + Bring your palm close to the wall. It gets you further behind an #jt("incut") edge #src("C10").
+    + Put your fingertips on the edge. Lift your knuckles until the middle joints bend past 90° and the end joints bend back.
+    + Lock your thumb over the index fingernail #src("C1", "C9"), which adds force without loading the other fingers more #src("C24"). Bring your palm close to the wall to get further behind an #jt("incut") edge #src("C10").
     + Use it for the hard move only. Go back to a half crimp or open hand on the next hold.
     + Keep your feet solid. A foot slip jolts the fingers hard #src("C14", "C26").
   ],
   when: [
-    *Look for*
-    - very small edges, especially ones that tilt back into the wall #src("C10").
+    *Look for* very small edges, especially ones that tilt back into the wall #src("C10").
 
     *Symptoms*
     - The half crimp opens every time on a tiny edge, even with good body position. This move needs the full crimp.

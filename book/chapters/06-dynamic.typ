@@ -30,16 +30,13 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
 
 + *Start with straight arms.* A bent arm at launch has already spent its power #src("D13", "D16"). See #tref("straight-arms").
 + *Load.* Let your hips sag out from the wall and down. Move them away from where you will go #src("D10"). See #tref("pre-loading").
-+ *Drive.* Push with your legs. Swing your hips back into the wall towards the target. Your body turns upward around your hands #src("D10", "D16").
-+ *Pull last.* Your arms join in once your hips are moving #src("D10").
-+ *Turn the hip in.* Turn the hip on the throwing side to the wall. That raises the same shoulder. It also keeps you close on steep walls #src("D6", "D7"). See #tref("hip-turn").
-+ *Keep the hips close.* If they drift off the wall, you fall short however hard you push #src("D10", "D17").
++ *Drive, and pull last.* Push with your legs and swing your hips back into the wall towards the target. Your body turns upward around your hands #src("D10", "D16"). Your arms join in once your hips are moving #src("D10").
++ *Keep the hips close.* Turn the hip on the throwing side to the wall. That raises the same shoulder and keeps you close on steep walls #src("D6", "D7"). See #tref("hip-turn"). If your hips drift off the wall, you fall short however hard you push #src("D10", "D17").
 
 == Momentum and timing
 
 #ix("Momentum")
-- *Don't pause.* Once you start, any stop kills your speed #src("D13", "D15").
-- *Pump once at most.* See #tref("hip-pump").
+- *Pump once at most, then don't pause.* Once you start, any stop kills your speed #src("D13", "D15"). See #tref("hip-pump").
 - *Let go late.* Keep pushing on the start holds until the movement pulls them from your hands #src("D17", "D21").
 - *Use only the speed you need.* Extra speed gives you a bigger swing to hold #src("D20").
 - *Keep your eyes on the target* through the whole move #src("D21").
@@ -75,24 +72,22 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "deadpoint.svg",
   caption: [(a) Load: keep your arms straight and let your hips sag out. (b) Drive your hips in and up. Grab at the top of the arc.],
   how: [
-    + Stand on the push foot, on the big-toe edge of the shoe. Put it below the target and a little to one side. #tref("flag", body: [Flag]) the other leg or put it on a foothold on the other side #src("D13").
-    + Straighten both arms. Let your hips sag out from the wall and slightly down #src("D10").
-    + In one movement, push off and drive up through the standing leg as if jumping. Arch your back to bring your hips to the wall. A pause anywhere kills the move #src("D13").
-    + Keep the holding arm straight while your hips rise. Bend it only to let your body pass.
-    + As the rise slows, turn the reaching shoulder to the wall. Send your hand 2–3 cm above the hold, not at its edge #src("D16").
-    + Close your hand at the top. Then push down through your foot so it stays on #src("D21").
+    + Stand on the big-toe edge of the push foot, below the target and a little to one side. #tref("flag", body: [Flag]) the other leg or put it on a foothold on the other side #src("D13").
+    + Straighten both arms and let your hips sag out from the wall and slightly down #src("D10").
+    + In one movement, drive up through the standing leg as if jumping and arch your back to bring your hips to the wall. A pause anywhere kills the move #src("D13"). Keep the holding arm straight while your hips rise, and bend it only to let your body pass.
+    + As the rise slows, turn the reaching shoulder to the wall and send your hand 2–3 cm above the hold, not at its edge #src("D16"). Close your hand at the top, then push down through your foot so it stays on #src("D21").
   ],
   parts: (
     (
       name: [Hip pop],
       how: [
         A hip pop is a deadpoint thrown from a #tref("backstep", body: [backstep]) or a #tref("drop-knee", body: [drop knee]). The hip turned to the wall rotates in and up, which throws the hand on that side much farther than square hips can #src("B41").
-        + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee. The hip on that side turns to the wall #src("D10"). Don't throw from a deep drop knee. The authors of a knee-injury study suspect that the injury comes at the moment a hand lets go, which adds load to the legs #src("G9"). The coach Dave MacLeod#ix("MacLeod, Dave") warns against dropping the knee and moving the hand in one rapid motion #src("D61"). See the knee box in @cons-injuries.
-        + Keep the holding arm straight. Let your hips sag away from the wall #src("D10").
-        + Push off the foot. Rotate the hip into the wall and up in one snap #src("D10").
-        + Turn towards the reaching arm as you go: right hip in, right shoulder up #src("D7").
-        + Throw the hand at the top of the rise, with the arm at full length #src("D7", "D13").
+        + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee, so that the hip on that side turns to the wall #src("D10").
+        + Keep the holding arm straight and let your hips sag away from the wall #src("D10").
+        + Push off the foot and rotate the hip into the wall and up in one snap #src("D10"). Turn towards the reaching arm as you go: right hip in, right shoulder up #src("D7"). Throw the hand at the top of the rise, with the arm at full length #src("D7", "D13").
         + On steep walls, avoid a foot that sits "behind the line" of your body. Turn it into a drop knee instead #src("D19").
+
+        *Don't throw from a deep drop knee.* The authors of a knee-injury study suspect that the injury comes at the moment a hand lets go, which adds load to the legs #src("G9"). The coach Dave MacLeod#ix("MacLeod, Dave") warns against dropping the knee and moving the hand in one rapid motion #src("D61"). See the knee box in @cons-injuries.
       ],
       figure: "hip-pop.svg",
       caption: [(a) Set a drop knee and let your hips sag. (b) Snap the right hip into the wall and up. The right hand throws.],
@@ -107,14 +102,12 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
 
     *Symptoms*
     - You reach the hold slowly but can't hold the #tref("lock-off", body: [lock-off]) long enough to grip it.
-    - Your fingers touch the hold and slide off. You arrived after the top and were already falling.
-    - Your holding arm is tired after every try. You pulled instead of pushing.
+    - Your fingers touch the hold and slide off, because you arrived after the top and were already falling.
     - You spin away from the wall as you reach #src("D19"), or you are square on and can't hold the lock-off. Try a hip pop.
   ],
   errors: [
-    - Pulling with the arm before the hips move. Move the hips first #src("D10").
-    - Locking off out of habit where a deadpoint might save energy #src("D13").
-    - In a hip pop, a short hip swing or too little arch. Your hips stay away from the wall #src("D19").
+    - Pulling with the arm before the hips move, which tires the holding arm on every try. Move the hips first #src("D10").
+    - In a hip pop, a short hip swing or too little arch, which leaves your hips away from the wall #src("D19").
     - Snatching at a small hold. A very fast grab in a dynamic move can rupture a #jt("pulley") #src("C25").
   ],
   tall: [You will reach many of these holds with a slow lock-off. Deadpoint them anyway on easy problems: it may save energy #src("D13"), and the steeper the wall, the more work a lock-off costs your arm #src("D62"). In cramped sequences tall climbers get bunched up #src("E46"), and a hip pop's drop knee may not fit. Tall climbers quoted by one training site take a foot off and sink onto one leg instead #src("E76").],
@@ -135,12 +128,11 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "hip-pump.svg",
   caption: [(a) Dip your hips onto the push foot. (b) Rise out of the dip in one arc towards the next hold.],
   how: [
-    + Pick the push foot, under or beside the target. One coach calls it the motion point #src("D18").
-    + Swing your hips over that foot. Let them dip as the knee bends.
-    + Rise out of the dip towards the hold in one arc. Reach near the top of the arc.
-    + If the footholds are far apart, push off the other foot with a small hop. Your hips then cross faster #src("D18").
-    + Before a #tref("dyno", body: [dyno]), swing once towards the target. Sink to the bottom with straight arms. Go on the next upswing #src("D22").
-    + On steep walls, exaggerate. Get your hips right over the heel. Arch your back so they stay close to the wall #src("D19").
+    + Pick the push foot, under or beside the target. One coach calls it the motion point #src("D18"). Swing your hips over it and let them dip as the knee bends.
+    + Rise out of the dip towards the hold in one arc and reach near its top.
+    + If the footholds are far apart, push off the other foot with a small hop, so your hips cross faster #src("D18").
+    + Before a #tref("dyno", body: [dyno]), swing once towards the target, sink to the bottom with straight arms and go on the next upswing #src("D22").
+    + On steep walls, exaggerate: get your hips right over the heel and arch your back so they stay close to the wall #src("D19").
   ],
   when: [
     *Look for*
@@ -171,20 +163,15 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "jump-start.svg",
   caption: [(a) Crouch under the holds with your arms back. (b) Jump straight up and catch with bent arms. Then bring your feet in.],
   how: [
-    + Stand under the holds, feet hip-width apart. Keep your hips slightly behind your feet.
-    + Sink into a quarter squat. Swing your arms down and back.
-    + Jump straight up with your arms swinging up. Aim just above the holds.
-    + Catch with slightly bent arms. Pull your shoulder blades down #src("D26").
-    + Use the swing to bring your feet onto the marked footholds #src("D11").
-    + On a four-point start, get each hand and foot on its start hold. Keep still before the first move #src("D35").
+    + Stand under the holds, feet hip-width apart and hips slightly behind them. Sink into a quarter squat and swing your arms down and back.
+    + Jump straight up with your arms swinging up, and aim just above the holds.
+    + Catch with slightly bent arms and pull your shoulder blades down #src("D26"). Use the swing to bring your feet onto the marked footholds #src("D11").
+    + On a four-point start, get each hand and foot on its start hold and keep still before the first move #src("D35").
   ],
   when: [
-    *Look for*
-    - start holds out of reach from the floor, with no start footholds you can reach from the mat.
-    - big start holds you can wrap your fingers round. Setters rarely make you jump to tiny edges.
+    *Look for* start holds out of reach from the floor, with no start footholds you can reach from the mat. They are big enough to wrap your fingers round: setters rarely make you jump to tiny edges.
 
-    *Symptoms*
-    - You reach the holds but swing off at once. You caught them with straight, loose arms.
+    *Symptom:* you reach the holds but swing off at once, because you caught them with straight, loose arms.
   ],
   errors: [
     - Jumping towards the wall instead of straight up. You hit the wall and bounce off.
@@ -208,21 +195,16 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "lunge.svg",
   caption: [(a) Sink with your eyes on the target. (b) Turn the right hip in and throw the right arm long. The left hand stays on.],
   how: [
-    + Set up as for a #tref("deadpoint", body: [deadpoint]), but sink lower. Keep your eyes on the target.
-    + Swing the throwing arm slightly back as you sink #src("D7").
-    + Drive with your legs. Turn the hip on the throwing side to the wall. This raises that shoulder #src("D7").
-    + Keep your other hand on. Push down on its hold as long as you can #src("D21").
-    + Throw with your arm at full stretch. Catch at the top #src("D7").
-    + Stop the swing. Press the remaining foot hard, use a #tref("counter-kick", body: [counter-kick]) or hook a foot. See #tref("foot-catch").
+    + Set up as for a #tref("deadpoint", body: [deadpoint]), but sink lower, with your eyes on the target. Swing the throwing arm slightly back as you sink #src("D7").
+    + Drive with your legs and turn the hip on the throwing side to the wall, which raises that shoulder #src("D7"). Keep your other hand on and push down on its hold as long as you can #src("D21").
+    + Throw with your arm at full stretch and catch at the top #src("D7").
+    + Stop the swing: press the remaining foot hard, use a #tref("counter-kick", body: [counter-kick]) or hook a foot. See #tref("foot-catch").
   ],
   when: [
-    *Look for*
-    - a single good hold far above or out to the side, with no second target near it.
-    - a good hold for the hand that stays on. A big hold or a #jt("rail") (a long horizontal edge) lets you push down #src("D21").
+    *Look for* a single good hold far above or out to the side, with no second target near it. The hand that stays on needs a good hold: a big hold or a #jt("rail") (a long horizontal edge) lets you push down #src("D21").
 
     *Symptoms*
-    - You reach the hold and spin away like a door. Your hips were square.
-    - You fall a few centimetres short. Square hips kept your throwing shoulder low.
+    - You reach the hold and spin away like a door, or you fall a few centimetres short. Your hips were square, which kept your throwing shoulder low.
     - Your remaining foot pings off as you catch #src("D21").
   ],
   errors: [
@@ -247,20 +229,16 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "dyno.svg",
   caption: [(a) Sink with straight arms and low hips. (b) Drive with your legs. Your body swings up around your hands. (c) Catch at the top of the flight.],
   how: [
-    + Put both hands on good start holds. Put your feet on the biggest footholds, 60–90 cm below. The foot on the leading-hand side goes slightly higher #src("D22").
-    + The farther the target, the lower you sink and the higher your feet go. Stop before you feel cramped #src("D6", "D21").
-    + Straighten your arms. Bend your knees and drop your hips. Lock your eyes on the target #src("D21").
-    + If you like, pump once first. See #tref("hip-pump").
-    + Push through your feet. Keep your arms nearly straight, so your body swings up around your hands #src("D6", "D16"). One coach starts with the arms and adds the legs at chest height #src("D22").
-    + Arch your back to keep your hips close to the wall #src("D17").
+    + Put both hands on good start holds and your feet on the biggest footholds, 60–90 cm below. The foot on the leading-hand side goes slightly higher #src("D22"). The farther the target, the lower you sink and the higher your feet go. Stop before you feel cramped #src("D6", "D21").
+    + Straighten your arms, bend your knees, drop your hips and lock your eyes on the target #src("D21"). If you like, pump once first. See #tref("hip-pump").
+    + Push through your feet with your arms nearly straight, so your body swings up around your hands #src("D6", "D16"). One coach starts with the arms and adds the legs at chest height #src("D22"). Arch your back to keep your hips close to the wall #src("D17").
     + Hold the start holds until the movement pulls them from your hands, about when your hips pass them. Let go early and your hips fall away from the wall #src("D17").
-    + Reach at the top of the flight. Aim just above the hold. Catch with slightly bent arms #src("D16", "D26"). Then see #tref("latching").
+    + Reach at the top of the flight, aim just above the hold and catch with slightly bent arms #src("D16", "D26"). Then see #tref("latching").
   ],
   when: [
     *Look for*
-    - a gap bigger than a deadpoint from your best foot can cover, with no holds or footholds in between.
+    - a gap bigger than a deadpoint from your best foot can cover, with no holds or footholds in between. Good launch footholds sit low down, centred under the target.
     - a big target that a moving body can stop on, such as a deep #tref("jug", body: [jug]), a flat-topped edge or two holds side by side.
-    - good launch footholds low down and centred under the target.
 
     *Symptoms*
     - You run out of upward speed halfway. Your arms were bent at launch, or your hips were off the wall.
@@ -289,18 +267,15 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "latching.svg",
   caption: [(a) Arrive with an open hand just above the hold. (b) Drop your fingers over the top edge. (c) Bend the elbow, pull the shoulder down and press with the feet.],
   how: [
-    + Arrive at the top of the movement, as you stop rising #src("D20").
-    + Lead with an open hand. Aim 2–3 cm above the hold. Drop onto its best part #src("D6", "D16").
-    + Shape your hand before contact: open for big and rounded holds, a #tref("half-crimp", body: [half crimp]) for edges. Don't catch finger holds or small edges at speed in a #tref("full-crimp", body: [full crimp])\; it risks your fingers#ix("Injuries!finger") #src("D21").
-    + Catch with your arm slightly bent. Pull your shoulder blade down.#ix("Shoulders!setting the shoulder blades") Don't drop into a straight-arm hang #src("D20", "D26").
-    + Push down through your feet as your weight arrives, so they stay on #src("D21").
-    + Commit. Once you touch the hold, grip it fully #src("D21").
-    + If the hold is poor or the swing big, bring your second hand quickly. Put it on a second hold or next to the first #src("D21", "D22").
+    + Arrive at the top of the movement, as you stop rising #src("D20"). Lead with an open hand, aim 2–3 cm above the hold and drop onto its best part #src("D6", "D16").
+    + Shape your hand before contact: open for big and rounded holds, a #tref("half-crimp", body: [half crimp]) for edges. Don't catch finger holds or small edges at speed in a #tref("full-crimp", body: [full crimp]), which risks your fingers#ix("Injuries!finger") #src("D21").
+    + Catch with your arm slightly bent and pull your shoulder blade down.#ix("Shoulders!setting the shoulder blades") Don't drop into a straight-arm hang #src("D20", "D26"). Push down through your feet as your weight arrives, so they stay on #src("D21").
+    + Commit: once you touch the hold, grip it fully #src("D21"). If the hold is poor or the swing big, bring your second hand quickly to a second hold or next to the first #src("D21", "D22").
   ],
   when: [
     *Look for*
-    - a target that is only good in one spot. You must hit that spot.
-    - a steep wall. The swing after the catch will be big #src("D6").
+    - a target that is only good in one spot, which you must hit.
+    - a steep wall, where the swing after the catch will be big #src("D6").
 
     *Symptoms*
     - Your fingers touch the hold and slide off.
@@ -326,23 +301,19 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "cutting-loose.svg",
   caption: [(a) Your feet cut and your legs swing out. (b) At the peak, tuck your knees. (c) Swing back in. Catch the foothold with your toes.],
   how: [
-    + Expect the swing. Vertical walls swing little. Steep walls swing your legs out after the catch #src("D6").
-    + Keep your arms slightly bent while your feet are off. Pull your shoulder blades down #src("D27").
+    + Expect the swing: vertical walls swing little, but steep walls swing your legs out after the catch #src("D6"). Keep your arms slightly bent while your feet are off, and pull your shoulder blades down #src("D27").
     + Don't fight the swing on the way out. Arch your back and let your legs travel #src("D6").
     + At the peak, snap your stomach and legs back towards the wall #src("D6"). Tucking your knees also shortens the swing #src("D21").
-    + Bend your knees on the way back in. Aim your toes at one particular foothold. Tense your lower stomach as the toes touch #src("D11").
-    + Missed the foot? Use the next swing. Add a little more each time until it sticks #src("D11").
+    + Bend your knees on the way back in and aim your toes at one particular foothold. Tense your lower stomach as the toes touch #src("D11"). If you miss the foot, use the next swing and add a little more each time until it sticks #src("D11").
   ],
   parts: (
     (
       name: [Counter-kick],
       how: [
-        This is a different swing, with one foot still on and your body turning around your arm like a door. When that starts after a one-handed catch, kick your free leg across against it. Then let it settle into a #tref("back-flag", body: [back flag]).
+        This is a different swing, with one foot still on and your body turning around your arm like a door. When that starts after a one-handed catch, kick your free leg across against it.
         + Before you throw, work out which way you will swing. After a right-hand catch out to the right, you usually swing open to the left.
-        + As your hand closes, kick your free leg across behind your standing leg.
-        + Keep that leg straight and close to the wall. A leg that drifts out pulls your hips off #src("D19").
-        + Relax the hip, not the knee. Let the leg settle into a back flag #src("D19").
-        + Tense your stomach as the swing peaks #src("D6"). If a hold for a #tref("toe-hook", body: [toe hook]) is in reach, catch it with your foot #src("D7").
+        + As your hand closes, kick your free leg across behind your standing leg. Keep it straight and close to the wall, because a leg that drifts out pulls your hips off #src("D19").
+        + Relax the hip, not the knee, and let the leg settle into a #tref("back-flag", body: [back flag]) #src("D19"). Tense your stomach as the swing peaks #src("D6"). If a hold for a #tref("toe-hook", body: [toe hook]) is in reach, catch it with your foot #src("D7").
       ],
       figure: "counter-kick.svg",
       caption: [(a) After a right-hand catch, the body swings open around the right arm like a door. (b) Kicking the left leg across stops the swing and turns the body back to the wall. The insets show the body from above.],
@@ -362,7 +333,6 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   errors: [
     - Slow, straight legs (the "limp noodle") that never reach the wall #src("D11").
     - Jumping off as soon as a foot slips. Foot slips are normal, and often you can ride them out #src("D25").
-    - In a counter-kick, holding your free leg still instead of using it as a counterweight.
   ],
   tall: [Long legs swing harder. That helps you get your feet back on, but it makes the swing harder to stop, so tuck your knees early. A long leg is also a heavy counterweight, so small, quick counter-kicks are enough. Under a low #tref("roof", body: [roof]), check that your feet won't hit the mats.],
   related: ("latching", "campus-move", "foot-catch", "barn-door", "back-flag", "lunge", "body-tension", "overhang"),
@@ -381,21 +351,17 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "run-and-jump.svg",
   caption: [Take three steps across the mat. Push off the volume. Catch the hold.],
   how: [
-    + Walk it first. Mark the take-off spot and the take-off foothold. Count your steps back, usually two or three. Decide which foot hits the wall.
-    + Wear softer shoes.#ix("Climbing shoes!stiff or soft") They make short sprints and jumps easier #src("D25").
-    + Run lightly #src("D12"). Speed up into the last step.
-    + Push the wall foot up and along the line you want to travel. Don't kick into the wall #src("D48").
-    + Keep your eyes on the target. Then reach for it.
+    + Walk it first to mark the take-off spot and foothold. Count your steps back, usually two or three, and decide which foot hits the wall. Wear softer shoes#ix("Climbing shoes!stiff or soft"), which make short sprints and jumps easier #src("D25").
+    + Run lightly #src("D12") and speed up into the last step.
+    + Push the wall foot up and along the line you want to travel, without kicking into the wall #src("D48"). Keep your eyes on the target and reach for it.
     + As you catch, tense your stomach. It keeps you on when your feet cut after a big sideways move #src("D12"). Get a foot on as soon as you can.
   ],
   when: [
     *Look for*
-    - a start hold high above the mats, with clear floor in front of it or beside it.
+    - a start hold high above the mats, with clear floor in front of it or beside it. #jt("setter", body: [Setters]) leave a wide, empty patch of wall around competition-style problems, which can span 2.5–4.5 m #src("D8").
     - a volume or foothold at about waist height that only works as a step.
-    - a wide, empty patch of wall around the problem. Competition-style problems can span 2.5–4.5 m. #jt("setter", body: [Setters]) leave space around them #src("D8").
 
-    *Symptoms*
-    - From a standing jump you touch the hold but can't hold it.
+    *Symptom:* from a standing jump you touch the hold but can't hold it.
   ],
   errors: [
     - Running into other climbers. Check the runway before every go. These problems get in the way when the gym is busy #src("D8").
@@ -419,16 +385,14 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "double-dyno.svg",
   caption: [(a) Sink with straight arms and your toes on the wall. (b) Both hands leave together and catch the pair of holds.],
   how: [
-    + Put both hands on two holds with straight arms. Point your toes at the wall #src("D14").
-    + Bend your knees. Arch your back so your hips come to the wall near the higher foot #src("D14").
-    + Press up with your legs and swing around your arms. Bend your arms only when your hips reach the start holds #src("D14").
-    + Keep your shoulders back. Let go as late as you can, about when the holds reach your waist #src("D14", "D17").
-    + As your legs straighten, bring your shoulders forward. Catch both holds, one hand leading slightly towards the better one #src("D7", "D14").
-    + Catch with your arms slightly bent to check the swing #src("D7").
+    + Put both hands on two holds with straight arms and point your toes at the wall. Bend your knees and arch your back so your hips come to the wall near the higher foot #src("D14").
+    + Press up with your legs and swing around your arms. Bend them only when your hips reach the start holds #src("D14").
+    + Keep your shoulders back and let go as late as you can, about when the holds reach your waist #src("D14", "D17").
+    + As your legs straighten, bring your shoulders forward and catch both holds, one hand leading slightly towards the better one #src("D7", "D14"). Keep your arms slightly bent to check the swing #src("D7").
   ],
   when: [
     *Look for*
-    - two holds side by side straight above you, or a #jt("rail"). They are too far for a one-handed throw. Nothing lets one hand stay on.
+    - two holds side by side straight above you, or a #jt("rail"), too far for a one-handed throw. Nothing lets one hand stay on.
     - a target too poor to hold one-handed through a swing #src("D21").
 
     *Symptoms*
@@ -455,11 +419,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "campus-move.svg",
   caption: [(a) Hang with your arms slightly bent and your knees tucked. (b) Pop your hips up a little. The right hand moves on at the top.],
   how: [
-    + Keep your arms slightly bent. Pull your shoulder blades down #src("D27").
-    + Tuck your knees #src("D21"). Hold your legs still so they don't swing.
-    + Pull a little while you pop your hips up towards the wall. Don't crank on one arm.
-    + Let go at the top of that small rise. Catch the next hold with a bent arm #src("D26").
-    + Put your feet back on as soon as a foothold is in reach. Use the swing #src("D11").
+    + Keep your arms slightly bent and pull your shoulder blades down #src("D27"). Tuck your knees #src("D21") and hold your legs still.
+    + Pull a little while you pop your hips up towards the wall, without cranking on one arm. Let go at the top of that small rise and catch the next hold with a bent arm #src("D26").
+    + Use the swing to put your feet back on as soon as a foothold is in reach #src("D11").
   ],
   when: [
     *Look for*
@@ -488,19 +450,14 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "foot-catch.svg",
   caption: [(a) The right hand has caught the hold and the body swings right. The left toe hooks the far side of the volume and stops the swing. (b) Close-up from behind: the top of the toes presses on the far side of the volume, and the leg pulls towards the body.],
   how: [
-    + Plan the foot before you move. Decide which foot, which hold and whether to hook or stand.
+    + Plan the foot before you move: which foot, which hold and whether to hook or stand. Wear shoes with rubber on top of the toes, which hold toe hooks better #src("D25").
     + As your hand catches, throw the foot along the line of the swing towards its target.
-    + For a #tref("toe-hook", body: [toe hook]), pull your toes up towards your shin #src("A14"). Pull the toe into the hold to check the swing #src("D7").
-    + Tense your lower stomach as the toe touches #src("D11").
-    + Wear shoes with rubber on top of the toes. They hold toe hooks better #src("D25").
+    + For a #tref("toe-hook", body: [toe hook]), pull your toes up towards your shin #src("A14") and pull the toe into the hold to check the swing #src("D7"). Tense your lower stomach as the toe touches #src("D11").
   ],
   when: [
-    *Look for*
-    - a foothold or #tref("volume", body: [volume]) edge at or above hip height after the move, often far to one side.
-    - a big sideways move whose swing would pull you off that side.
+    *Look for* a big sideways move whose swing would pull you off that side. After the move, a foothold or #tref("volume", body: [volume]) edge sits at or above hip height, often far to one side.
 
-    *Symptoms*
-    - Your hand catches every time, but the swing peels you off.
+    *Symptom:* your hand catches every time, but the swing peels you off.
   ],
   errors: [
     - Throwing the foot late, after the swing has started.
@@ -521,20 +478,16 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "pogo.svg",
   caption: [(a) Sink on straight arms and swing the right leg back. (b) Swing it forward and up while the left foot pushes. The right hand goes for the hold.],
   how: [
-    + Put both hands on the start holds and one foot on a low foothold. Here it is the left. Your right leg hangs free #src("D23").
-    + For the back-swing, straighten your arms. Sink as low as you can while the free leg swings back #src("D23").
-    + Swing the free leg forward and up towards the target. Keep it as straight as you can. A long lever builds more speed #src("D23").
-    + Lead with your hips. Aim your #jt("centre of gravity") (your body's balance point) at the target #src("D7", "D23").
-    + Halfway through the leg swing, push off the standing foot. Pull with your arms at the same time #src("D23").
-    + Catch with the hand on the same side as the swinging leg. The arc lifts your legs. Hold your shoulders firm and stay tight #src("D23").
+    + Put both hands on the start holds and one foot, here the left, on a low foothold. Your right leg hangs free #src("D23").
+    + For the back-swing, straighten your arms and sink as low as you can while the free leg swings back #src("D23").
+    + Swing the free leg forward and up towards the target, as straight as you can: a long lever builds more speed #src("D23"). Lead with your hips and aim your #jt("centre of gravity") (your body's balance point) at the target #src("D7", "D23").
+    + Halfway through the leg swing, push off the standing foot and pull with your arms at the same time #src("D23").
+    + Catch with the hand on the same side as the swinging leg. The arc lifts your legs, so hold your shoulders firm and stay tight #src("D23").
   ],
   when: [
-    *Look for*
-    - a single low foothold on the side away from the next hold, e.g. a hold up and left with the only foothold low on the right #src("D24").
-    - a slightly overhanging wall with wide start holds #src("D23"). The free leg has nowhere to go.
+    *Look for* a single low foothold on the side away from the next hold, e.g. a hold up and left with the only foothold low on the right #src("D24"). The wall overhangs slightly, the start holds are wide #src("D23") and the free leg has nowhere to go.
 
-    *Symptoms*
-    - You push off the single low foot and stall halfway.
+    *Symptom:* you push off the single low foot and stall halfway.
   ],
   errors: [
     - Jumping hard as you would for a dyno. A pogo is quick but less violent #src("D23").
@@ -561,10 +514,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
       name: [Lache],
       how: [
         A lache is a move from #jt("parkour") (running, jumping and swinging over obstacles). You swing from your hands with your feet off, then let go and fly to the next hold #src("D9"). It is often the set-up for the hardest move, not the hardest move itself #src("D32").
-        + Hang with your arms slightly bent. Pull your shoulder blades down #src("D27").
-        + Swing your legs back and forth in the direction you want to travel, usually sideways #src("D9").
+        + Hang with your arms slightly bent and your shoulder blades pulled down #src("D27"). Swing your legs back and forth in the direction you want to travel, usually sideways #src("D9").
         + Let go at the end of the swing towards the target, just as your body is about to stop.
-        + Catch with the leading hand. Then bring the other hand to a second hold, or next to the first. That stops the sideways swing #src("D21").
+        + Catch with the leading hand, then bring the other to a second hold or next to the first. That stops the sideways swing #src("D21").
       ],
       figure: "lache.svg",
       caption: [Swing, then let go at the end of the swing. Catch the far hold.],
@@ -573,10 +525,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
       name: [Paddle dyno],
       how: [
         You jump, then tap your hands along a row of holds without stopping. Each touch steers your speed until you can hold the last one #src("D9", "D31").
-        + Read the line of holds. Work out which way your body must travel between them #src("D7", "D9").
-        + Launch as for a #tref("dyno", body: [dyno]). Aim at the first #jt("intermediate") (a small hold in between) #src("D7").
-        + Hit each intermediate with a bent arm, so you can leave it at once #src("D7"). Tap it. Don't try to hold it.
-        + Glance at each target. Then use memory and the edge of your vision for the next one #src("D7").
+        + Read the line of holds and work out which way your body must travel between them #src("D7", "D9").
+        + Launch as for a #tref("dyno", body: [dyno]) and aim at the first #jt("intermediate") (a small hold in between) #src("D7").
+        + Tap each intermediate with a bent arm, so you can leave it at once #src("D7"). Don't try to hold it. Glance at each target, then use memory and the edge of your vision for the next one #src("D7").
         + Catch the last hold and absorb the swing.
       ],
       figure: "paddle-dyno.svg",
@@ -586,9 +537,8 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
       name: [Tic-tac],
       how: [
         You step a foot onto a wall, an #jt("arête") (an outside corner of the wall) or a volume, then push off it to send your body up or sideways to a hold. The name comes from parkour #src("D48"), though climbing writers describe "wall runs" and other parkour-style moves in competition boulders #src("D7").
-        + Approach at an angle to the surface you will step on #src("D48").
-        + Put your foot on it and push off. Don't kick #src("D48").
-        + Turn your body out and up towards the target. Throw your arms at it #src("D48").
+        + Approach at an angle to the surface you will step on. Put your foot on it and push off without kicking #src("D48").
+        + Turn your body out and up towards the target and throw your arms at it #src("D48").
         + As you catch, get a foot on at once.
       ],
       figure: "tic-tac.svg",
@@ -598,10 +548,8 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
       name: [Double clutch],
       how: [
         Your hands land on two different holds in quick succession. The first catch steers you to the second. A gym blog has both hands start on one hold and land on two new holds, one hand each #src("D35"). A forum post describes a dyno to one hold whose speed carries you on to another #src("D46").
-        + Launch as for a #tref("dyno", body: [dyno]).
-        + Hit the first hold with the leading hand. Keep that arm slightly bent and firm #src("D7").
-        + Use that hand to steer your body towards the second hold.
-        + Catch the second hold with the other hand before the swing reverses. Pull both shoulder blades down.
+        + Launch as for a #tref("dyno", body: [dyno]) and hit the first hold with the leading hand. Keep that arm slightly bent and firm #src("D7").
+        + Steer your body with that hand towards the second hold, and catch it with the other hand before the swing reverses. Pull both shoulder blades down.
       ],
     ),
   ),
@@ -613,7 +561,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - two separate targets a hand-width or more apart, reached in one leap, often with both hands starting on one hold (a double clutch) #src("D35").
 
     *Symptoms*
-    - On a lache you swing but can't let go at the right moment. Too early and you fall short. Too late and you swing back.
+    - On a lache you swing but can't let go at the right moment: too early and you fall short, too late and you swing back.
     - On a paddle dyno you stop on a middle hold and can't restart, because you tried to hold it. Or you run out of speed before the last hold.
     - On a tic-tac your foot slips off the wall. Lean further away from it and step quickly #src("D48").
     - On a double clutch you catch the first hold and spin off it before your second hand arrives.

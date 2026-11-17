@@ -29,10 +29,10 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ))
   #v(gap(0.5))
 
-+ *Name the hinge.* Pick the hand that will stay on and the foot you will stand on. The line between them is the #jt("hinge"): your body can rotate around it. #ix("Hinge") Opposite hand and foot#ix("Opposite hand and foot") are stable #src("B11"). On the same side, expect a #tref("barn-door", body: [barn door]) and plan a flag or a foot swap #src("B35").
++ *Name the hinge.* Pick the hand that stays on and the foot you stand on. The line between them is the #jt("hinge"): your body can rotate around it. #ix("Hinge") Opposite hand and foot#ix("Opposite hand and foot") are stable #src("B11"). On the same side, expect a #tref("barn-door", body: [barn door]) and plan a flag or a foot swap #src("B35").
 
 + *Read the holding hold.* Its direction tells you which hip goes to the wall.
-  - A #tref("sidepull", body: [sidepull]) faces away from your body. A right-hand sidepull on your right faces right; you hang to its left. Turn in your left hip, backstep your left foot and reach with your left hand #src("B14", "B38").
+  - A #tref("sidepull", body: [sidepull]) faces away from your body. A right-hand sidepull on your right faces right, so you hang to its left. Turn in your left hip, backstep your left foot and reach with your left hand #src("B14", "B38").
   - A #tref("gaston", body: [gaston]) faces your midline. You pull it outward, elbow out. Stay squarer and use the inside edge of the opposite foot #src("B14"). Don't backstep off it #src("B38").
   - An #tref("undercling", body: [undercling]) faces down. Put your feet high and keep the arm straight #src("B30").
   - A #tref("sloper", body: [sloper]): sit your hips low, keep your arms straight and your #jt("trunk") tight#ix("Sloper!body position") #src("B31").
@@ -64,17 +64,12 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [The UK's coach training lists weight transfer as a movement skill #src("B2"). Gresham#ix("Gresham, Neil") names a centred, unshifted body as the first habit of off-balance climbers #src("B22").],
   summary: [Before you stand on a foot, move your hips sideways until they sit over it, then stand up on that leg alone. Your hips zig-zag up the wall #src("B22"), as the balance figure in Chapter 1 shows.],
   how: [
-    + Place the foot exactly. Press a little weight into it first, so the rubber bites #src("B17").
-    + Slide your hips sideways until your belly button is over that foot.
-    + On a #tref("slab", body: [slab]), also push your hips out from the wall so they sit above the foot #src("B17").
-    + Stand up on that leg. Let the other foot go light.
-    + Reach only once you are standing. Feet first, then hands #src("B22").
-    + On the next move, shift your hips the other way.
+    + Place the foot exactly and press a little weight into it first, so the rubber bites #src("B17").
+    + Slide your hips sideways until your belly button is over that foot. On a #tref("slab", body: [slab]), also push them out from the wall so they sit above the foot #src("B17").
+    + Stand up on that leg and let the other foot go light. Reach only once you are standing: feet first, then hands #src("B22").
   ],
   when: [
-    *Look for*
-    - a foothold out to one side of your body.
-    - a slab or a vertical wall. Nearly every move there starts with a shift.
+    *Look for* a foothold out to one side of your body. On a slab or a vertical wall, nearly every move starts with a shift.
 
     *Symptoms*
     - Your foot skates or bangs onto the hold as you stand on it #src("B22").
@@ -82,7 +77,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - You reach and your heels lift off the footholds #src("B22").
   ],
   errors: [
-    - Hauling with an arm while the foot only follows. Push with the leg. Let the arm only steady you #src("B11").
+    - Hauling with an arm while the foot only follows. Push with the leg and let the arm only steady you #src("B11").
   ],
   related: ("barn-door", "frog", "straight-arms", "precise-footwork", "slab"),
   sources: ("B2", "B9", "B11", "B17", "B22"),
@@ -97,11 +92,9 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Learn it from your first session: when you pause on a steep wall, hang on nearly straight arms with your shoulders set, and on a vertical wall stand tall instead. It matters more the steeper the wall, because your arms then carry more of your weight (Chapter 1). The UK's coach training lists it as a way to find a rest #src("B1"). The UK's bouldering-instructor award counts it among the basics for novices #src("F62").],
   summary: [You hang with your elbows straight or nearly straight, so your arm muscles work less #src("B50"). You move by pushing with your legs and turning your hips, not by pulling #src("B12", "B22"). Chapter 1 shows the difference in a figure.],
   how: [
-    + Between moves, let your elbows straighten. Keep a slight bend of a few degrees #src("B23").
-    + Set your shoulders. Draw your shoulder blades a little down, away from your ears#ix("Shoulders!setting the shoulder blades") #src("B28", "B50").
-    + On steep ground, lower your hips until your arms are nearly straight #src("B22"). Keep the hips close to the wall #src("B36").
-    + Start every move with your legs. Push with your feet first. Bend your arms only after the legs have started #src("B27").
-    + Later, to gain height, turn the hip on the reaching side to the wall instead of bending the arm #src("B43", "B54"). See #tref("hip-turn").
+    + Between moves, let your elbows straighten, but keep a bend of a few degrees #src("B23"). Set your shoulders: draw your shoulder blades a little down, away from your ears#ix("Shoulders!setting the shoulder blades") #src("B28", "B50").
+    + On steep ground, lower your hips until your arms are nearly straight #src("B22"), and keep them close to the wall #src("B36").
+    + Start every move by pushing with your feet, and bend your arms only after the legs have started #src("B27"). Later, to gain height, turn the reaching-side hip to the wall instead of bending the arm #src("B43", "B54"). See #tref("hip-turn").
     + Rest and shake out one arm at a time from a straight-arm stance #src("B12").
     + Bend your arms for the end of a move, a precise catch or a #tref("lock-off", body: [lock-off]). When you catch, tense your shoulders #src("B50").
   ],
@@ -112,8 +105,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - an #tref("undercling", body: [undercling]) near your waist #src("B30").
 
     *Symptoms*
-    - Your biceps burn on easy overhangs.
-    - Your forearms #jt("pump", body: [pump up]) (swell and weaken) before the #jt("crux") (the hardest move). Coaches put this down to bent arms #src("B22", "B36").
+    - Your biceps burn on easy overhangs, or your forearms #jt("pump", body: [pump up]) (swell and weaken) before the #jt("crux") (the hardest move). Coaches put the pump down to bent arms #src("B22", "B36").
     - Your elbows point out sideways #src("B28").
   ],
   errors: [
@@ -139,26 +131,23 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "frog.svg",
   caption: [(a) Knees out, both feet on their inside edges, hips between the feet. (b) Side view. Knees pointed at the wall keep the hips out. (c) Knees out let the hips come in.],
   how: [
-    + Stand on two footholds at about the same height, shoulder width or wider.
-    + Use the #tref("edging", body: [inside edge]) of each shoe: the big-toe side #src("B55").
-    + Turn each foot so it lies along the wall, heel turned in. This keeps your hips square and close #src("B38").
-    + Turn your knees out to the sides, as in a yoga squat.
+    + Stand on two footholds at about the same height, shoulder width or wider. Use the #tref("edging", body: [inside edge]) of each shoe, the big-toe side #src("B55").
+    + Turn each foot so it lies along the wall, heel turned in, which keeps your hips square and close #src("B38"). Turn your knees out to the sides, as in a yoga squat.
     + On a vertical or steeper wall, bring your hips in between your knees. On a slab, keep them over your feet #src("B17").
-    + To step up, lift one foot to a hold near hip height, knee out. Move your hips over it and stand up #src("B65"). See #tref("rockover").
+    + To step up, lift one foot to a hold near hip height, knee out, then move your hips over it and stand up #src("B65"). See #tref("rockover").
   ],
   when: [
     *Look for*
-    - a slab or a vertical wall #src("B44").
-    - footholds side by side at about the same height.
+    - footholds side by side at about the same height, on a slab or a vertical wall #src("B44").
     - handholds straight above you that you pull down: edges, #jt("crimp", body: [crimps]) (small edges you hold on your fingertips) and #tref("jug", body: [jugs]).
     - a high foothold right in front of your hip.
 
     *Symptoms*
-    - On an overhang your hips drag you off and your feet won't stay loaded. Frogging is one fix #src("B61"). Turning a hip in usually works better there #src("B22").
+    - On an overhang your hips drag you off and your feet won't stay loaded. Frogging is one fix #src("B61").
     - Your knees bump the wall and push your hips out.
   ],
   errors: [
-    - Staying square on steep ground. Parallel hips push you off there. Turn a hip in instead #src("B22").
+    - Staying square on steep ground, where parallel hips push you off. Turning a hip in usually works better there #src("B22").
     - Frogging when you need to move fast or far. Two inside edges limit how far you can move #src("B55").
   ],
   tall: [Long thighs need a lot of hip turn-out#ix("Tall climbers!frog position")#ix("Mobility!hips") to bring your pelvis close. If your hips won't come in, widen your feet before you force your knees.],
@@ -176,19 +165,17 @@ Run through these checks on the ground, before you pull on. Each one points to a
   grade-note: [Hörst#ix("Hörst, Eric") teaches the cure, opposite hand and foot, as a basic #src("B11"). Rowland#ix("Rowland, Dave") teaches it on a slab first #src("B35"). At V1, start with fixes 1 and 4.#note[The other fixes use techniques with later badges: a foot swap, a flag or a deadpoint.] Stopping a door on steep V3s needs the flags in this chapter.],
   summary: [Your body swings open like a door when one hand lets go. It happens when the hand and foot holding you are on the same side. Your weight hangs beside the #jt("hinge") between them, so you rotate around it #src("B8", "B11"). Chapter 1 explains the mechanics.],
   how: [
-    + Before the move, name the hand that stays on and the foot you stand on. If they are on the same side, expect a door.
-    + *Fix 1.* Stand on the other foot. Stepping up with your right foot? Keep your left hand on and reach with the right #src("B35").
+    + Before the move, name the hand that stays on and the foot you stand on. If they are on the same side, expect a door. Holding it shut with arm strength works on good holds but costs a lot of energy #src("B62").
+    + *Fix 1.* Stand on the other foot. If you step up with your right foot, keep your left hand on and reach with the right #src("B35").
     + *Fix 2.* Swap feet or step through, so the opposite foot carries you #src("B62"). See #tref("foot-swap").
-    + *Fix 3.* Flag. Put the free foot on the wall on the far side of the hinge from your body #src("B13", "B26"). See #tref("flag"), then #tref("back-flag") at V3 and #tref("inside-flag") at V4.
+    + *Fix 3.* Flag: put the free foot on the wall on the far side of the hinge from your body #src("B13", "B26"). See #tref("flag"), then #tref("back-flag") at V3 and #tref("inside-flag") at V4.
     + *Fix 4.* Press your #jt("off foot") (the foot not carrying you) into the wall, about at right angles to the hinge #src("B45").
-    + *Fix 5, once you can deadpoint.* Move fast. A quick #tref("deadpoint", body: [deadpoint]) beats the swing #src("B62").
-    + Holding the door shut with arm strength works on good holds. It costs a lot of energy #src("B62").
-    + Practise on a slab. Let yourself swing open on purpose, then try fix 1 #src("B35").
+    + *Fix 5, once you can deadpoint.* Move fast: a quick #tref("deadpoint", body: [deadpoint]) beats the swing #src("B62").
+    + Practise on a slab: let yourself swing open on purpose, then try fix 1 #src("B35").
   ],
   when: [
     *Look for*
-    - good holds on one side only: hand and foothold stacked on the left, say.
-    - holds and feet in a diagonal line up one side.
+    - good holds on one side only: hand and foothold stacked on the left, say, or in a diagonal line up one side.
     - an #tref("arete", body: [arête]) you have to #tref("layback", body: [layback]) #src("B54").
 
     *Symptoms*
@@ -199,7 +186,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   errors: [
     - Reaching before the flag is set. Place the foot first.
     - A loose flag leg. Straighten it and press it into the wall #src("B26").
-    - Trying to stop a door that has started. It is hard to correct once it begins #src("B13"). Set up so it never starts.
+    - Trying to stop a door once it has started, which is hard #src("B13"). Set up so it never starts.
   ],
   related: ("flag", "back-flag", "inside-flag", "weight-shift", "foot-swap", "backstep", "drop-knee"),
   watch: (("Hooper’s Beta","The “Off Foot” is Climbing Technique #1 – Coaching w/ Dan #1", "https://www.youtube.com/watch?v=TAjHSueeOkw"),),
@@ -217,11 +204,10 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "matching.svg",
   caption: [(a) The left hand in the middle of the edge leaves no room. (b) The left hand on the left half leaves room for the right.],
   how: [
-    + Decide before you reach a hold whether you will match it.
-    + If you will, catch it on the half away from the incoming hand. A left hand that the right will join takes the left half.
-    + On a small hold, catch it with two or three fingers. Or slide the first hand off as the second slides on.
-    + Set a foot under the hold first if you can. Then the match needs no big shift of your hips.
-    + After matching, move your weight to the hand that stays. Then let the other go.
+    + Decide before you reach a hold whether you will match it. If you will, catch it on the half away from the incoming hand.
+    + On a small hold, catch it with two or three fingers, or slide the first hand off as the second slides on.
+    + Set a foot under the hold first if you can, so the match needs no big shift of your hips.
+    + After matching, move your weight to the hand that stays, then let the other go.
   ],
   when: [
     *Look for*
@@ -252,23 +238,18 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "stemming.svg",
   caption: [Back view between two volumes. Each foot pushes into its own volume. The left palm presses the left one.],
   how: [
-    + Put one foot on each surface: the two walls of a corner, two #tref("volume", body: [volumes]), or a volume and the wall.
-    + Place your feet higher and wider than feels natural #src("B29").
-    + Push each foot into its surface, roughly at right angles to it.
-    + Keep your heels low. More rubber touches and your calves tire less #src("B29").
-    + Use your hands for balance. Press a palm flat on a wall, fingers pointing down or away from the corner #src("B29"). See #tref("palming").
-    + Move one limb at a time. Shift your weight onto one foot, then lift and place the other #src("B29").
+    + Put one foot on each surface: the two walls of a corner, two #tref("volume", body: [volumes]), or a volume and the wall. Place them higher and wider than feels natural and keep your heels low, so more rubber touches and your calves tire less #src("B29").
+    + Push each foot into its surface, roughly at right angles to it. Bend your knees and press evenly on both surfaces #src("E24", "E20").
+    + Use your hands for balance: press a palm flat on a wall, fingers pointing down or away from the corner #src("B29"). Where there are no handholds, press a palm on each surface at chest height #src("E20"). See #tref("palming").
+    + Move one limb at a time: shift your weight onto one foot, then lift and place the other #src("B29"). A series of small moves is often better than one long one, because being stretched out upsets your balance #src("C36").
     + To rest, stand fully on any ledge or lean a shoulder on the wall#ix("Resting on the wall") #src("B29").
   ],
   parts: ((
     name: [Corners],
     how: [
       + Face into the corner, or turn a little towards the wall with the better holds.
-      + Bend your knees and press outward and down, evenly on both walls #src("E24", "E20").
-      + Where there are no handholds, press a flat palm on each wall at chest height #src("E20").
-      + Step up a short way at a time. A series of small moves is often better than one long one, because being stretched out upsets your balance #src("C36").
-      + If only one wall has holds, #tref("layback", body: [layback]) the edge of the corner. Walk your feet up the blank wall.
-      + Spread your feet wide to rest. Often you can let go with both hands #src("E17").
+      + If only one wall has holds, #tref("layback", body: [layback]) the edge of the corner and walk your feet up the blank wall.
+      + To rest, spread your feet wide. Often you can let go with both hands #src("E17").
     ],
     figure: "corner.svg",
     caption: [(a) Feet and palms press out into both walls. The centre of gravity sits between the feet. (b) The same position from above.],
@@ -281,8 +262,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - a main face with no footholds next to a side wall that is "in" (part of the problem). Push on the side wall.
 
     *Symptoms*
-    - You pull hard on small holds in a corner while your feet sit on tiny edges.
-    - Your arms tire in a corner although both walls have footholds.
+    - In a corner you pull hard on small holds with your feet on tiny edges, and your arms tire although both walls have footholds.
     - You face one wall with both feet on it, so the corner gives you nothing.
     - Your calves cramp because your heels are too high #src("B29").
     - Your feet slip because they push straight down, not outward.
@@ -309,20 +289,15 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "hip-turn.svg",
   caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the body from above.],
   how: [
-    + Hold with your right hand on a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) you can lean off #src("B38"). A right-hand sidepull faces right. You hang to its left.
-    + Put your left foot on its #tref("edging", body: [outside edge]) (the little-toe side) on a foothold below your right hand #src("B37").
-    + Put your right foot on a foothold out to the right, or press it on the wall #src("B15", "B37").
-    + Turn your pelvis so your left hip goes to the wall. Your chest turns towards your right hand #src("B14").
-    + Keep the right arm straight and lean off it #src("B43").
-    + Look back at your right hand as you reach. It rolls your shoulders and adds up to a shoulder width of reach #src("B46").
-    + Stand up through the left leg and reach high with the left hand.
+    + Hold with your right hand on a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) you can lean off #src("B38"). A right-hand sidepull faces right, so you hang to its left.
+    + Put your left foot on its #tref("edging", body: [outside edge]) (the little-toe side) on a foothold below your right hand #src("B37"). Put your right foot on a foothold out to the right, or press it on the wall #src("B15", "B37").
+    + Turn your pelvis so your left hip goes to the wall and your chest turns towards your right hand #src("B14"). Keep the right arm straight and lean off it #src("B43").
+    + Stand up through the left leg and reach high with the left hand. Look back at your right hand as you reach, which rolls your shoulders and adds up to a shoulder width of reach #src("B46").
   ],
   when: [
     *Look for*
-    - an overhanging wall.
-    - a holding hold you can lean off: a jug, or a sidepull facing away from your body.
-    - a target up and towards your reaching side, near the limit of your reach.
-    - a foothold below or just beyond your holding hand.
+    - a target up and towards your reaching side, near the limit of your reach, on an overhanging wall.
+    - a jug or a sidepull to lean off, with a foothold below or just beyond it.
 
     *Symptoms*
     - You fall a hand's width short of a reach you could make on a vertical wall.
@@ -353,23 +328,16 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "flag.svg",
   caption: [The left hand sits above the right foot. (a) With the left leg dangling, reaching right swings the body open. (b) The left leg stretched out left presses the wall and balances you.],
   how: [
-    + Find your hinge: the line from the hand that stays on to the foot you stand on.
-    + Check that your free foot is already on the far side of that line from your reach. If not, use a #tref("back-flag", body: [back flag]) from V3 or an #tref("inside-flag", body: [inside flag]) from V4.
-    + Stretch that leg straight out to its side #src("B26").
-    + Press the inside edge or the ball of the foot into the wall. Blank wall is fine #src("B26", "B57").
-    + Shift your hips over the standing foot #src("B13").
-    + Reach.
-    + Still swinging? Move the flag foot. A foot too low or too far from your body gives little leverage. On overhangs, push it up and into the wall #src("B58").
+    + Find your hinge: the line from the hand that stays on to the foot you stand on. Your free foot must already be on the far side of that line from your reach. If it isn't, use a #tref("back-flag", body: [back flag]) from V3 or an #tref("inside-flag", body: [inside flag]) from V4.
+    + Stretch the free leg straight out to its side #src("B26") and press the inside edge or the ball of the foot into the wall. Blank wall is fine #src("B26", "B57").
+    + Shift your hips over the standing foot #src("B13"), then reach.
+    + If you still swing, move the flag foot. A foot too low or too far from your body gives little leverage. On overhangs, push it up and into the wall #src("B58").
   ],
   when: [
-    *Look for*
-    - a standing foot roughly below the holding hand #src("B59").
-    - a reach towards the side of your standing foot.
-    - no foothold where your free foot would help.
+    *Look for* a reach towards the side of your standing foot, with that foot roughly below the holding hand #src("B59") and no foothold where your free foot would help.
 
     *Symptoms*
-    - You swing open towards the reaching side as your hand lets go.
-    - Your free leg hangs in the air.
+    - You swing open towards the reaching side as your hand lets go, and your free leg hangs in the air.
     - Your free foot sits on a good hold, but not where your body needs it #src("B45").
   ],
   errors: [
@@ -397,11 +365,9 @@ Run through these checks on the ground, before you pull on. Each one points to a
   caption: [Traversing left. The left hand holds a sidepull. The right hip rolls in. The left leg presses the wall. The right hand crosses over.],
   how: [
     + Hold with a hand you can lean on. A #tref("sidepull", body: [sidepull]) or #tref("undercling", body: [undercling]) beats a flat edge.
-    + Place your #jt("off foot") where it stops the swing.#ix("Off foot") Hooper#ix("Hooper, Jason") puts it at about 90° to the line from holding hand to standing foot #src("B45").
-    + Keep pressing that off foot into the wall through the whole cross #src("B45").
-    + *Roll:* turn your chest side-on to the wall so one hip touches it. This is the default on steep ground #src("B49").
-    + *Swim:* keep your chest flat to the wall and narrow your shoulders. Use it on slabs, for wide hands, or when the feet are too poor to turn #src("B49").
-    + Look back at the holding hand as you move. It rolls your shoulders and adds reach #src("B46").
+    + Place your #jt("off foot") where it stops the swing#ix("Off foot") and keep pressing it into the wall through the whole cross. Hooper#ix("Hooper, Jason") puts it at about 90° to the line from holding hand to standing foot #src("B45").
+    + *Roll* by default on steep ground: turn your chest side-on to the wall so one hip touches it #src("B49"). *Swim* on slabs, for wide hands or when the feet are too poor to turn: keep your chest flat to the wall and narrow your shoulders #src("B49").
+    + Look back at the holding hand as you move, which rolls your shoulders and adds reach #src("B46").
     + For a cross-under, pass the reaching hand under the holding arm. It suits targets level with or below the holding hand.
     + If you add a #tref("drop-knee", body: [drop knee]), drop the knee on the reaching-hand side, even with your arms crossed #src("B20").
   ],
@@ -412,8 +378,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
 
     *Symptoms*
     - Your chest or shoulder blocks the cross #src("B49").
-    - You swing open as the reaching hand lets go.
-    - Your off foot slides off at the moment you cross #src("B45").
+    - You swing open as the reaching hand lets go, or your off foot slides off at the moment you cross #src("B45").
   ],
   errors: [
     - Crossing so far that the next move becomes impossible. Check the hold after the target.
@@ -435,24 +400,20 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "layback.svg",
   caption: [Side view of a flake (a thin blade standing off the wall). Straight arms pull its edge out from the wall. The feet press high on the flake. The hips hang low.],
   how: [
-    + Grip the edge with both hands, or one hand on it and one on the next #tref("sidepull", body: [sidepull]) #src("B54", "B65").
-    + Treat the edge as a sidepull: pull it towards you and hang on the other side.
-    + #tref("straight-arms", body: [Straighten your arms]) and lean away #src("B54").
-    + Put your feet high on the wall. Push them against the pull of your hands #src("B65").
-    + Keep your #jt("core") (the muscles of your stomach, back and hips) tight #src("B65").
-    + Find the point where you neither fall back nor swing round. Lose it and you swing off like a door #src("B54").
-    + Move your hands and feet up in short steps. Keep the push and the pull equal.
+    + Grip the edge with both hands, or one hand on it and one on the next #tref("sidepull", body: [sidepull]) #src("B54", "B65"). Treat the edge as a sidepull: pull it towards you and hang on the other side.
+    + #tref("straight-arms", body: [Straighten your arms]) and lean away #src("B54"). Put your feet high on the wall and push them against the pull of your hands #src("B65").
+    + Keep your #jt("core") (the muscles of your stomach, back and hips) tight #src("B65") and find the point where you neither fall back nor swing round #src("B54").
+    + Move your hands and feet up in short steps, keeping the push and the pull equal.
   ],
   when: [
     *Look for*
-    - an #tref("arete", body: [arête]) with nothing usable on the face.
-    - a vertical edge or #jt("flake") with no footholds near it #src("B65").
+    - an #tref("arete", body: [arête]) with nothing usable on the face, or a vertical edge or #jt("flake") with no footholds near it #src("B65").
     - a vertical line of sidepulls.
     - a vertical #tref("pinch", body: [pinch]). Turning side-on into a layback needs less thumb strength #src("B24").
 
     *Symptoms*
     - You swing off the arête like a door #src("B54").
-    - Your feet skate. They are too low, so they push down instead of in.
+    - Your feet skate because they are too low and push down instead of in.
   ],
   errors: [
     - Staying front-on to a sidepull or pinch with your hips parallel to the wall #src("B24").
@@ -476,23 +437,17 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "backstep.svg",
   caption: [(a) Left foot on its outside edge, on the line under the right hand. The hips settle over the heel. (b) The same foot behind the line: the hips rotate out.],
   how: [
-    + Hold a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) with the right hand. Flat edges lose grip as you turn. #tref("gaston", body: [Gastons]) are the worst #src("B38").
-    + Find #jt("the line") under the hold your right hand pulls #src("B38").
-    + Pick a foothold for the left foot on that line, or a little to its right. Choose one at knee height or higher #src("B38").
-    + Place the left foot's outside edge on it. Point the toe down a little and lift the ankle #src("B32"). Angle the heel away from the wall #src("B38").
-    + Stretch the right leg straight out to the right, or stand it on a second foothold #src("B15", "B37").
-    + Turn your lower body until the left hip is close to the wall. Let the hips settle over the left heel #src("B37").
-    + Press with both feet at once. Pull the right hand down and in towards your body #src("B15").
-    + Stand up through the left leg and reach with the left hand #src("B32").
+    + Hold a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) with the right hand. Flat edges lose grip as you turn, and #tref("gaston", body: [gastons]) are the worst #src("B38").
+    + Find #jt("the line") under the hold your right hand pulls. Pick a foothold for the left foot on that line or a little to its right, at knee height or higher #src("B38").
+    + Place the left foot's outside edge on it, with the toe pointing down a little and the ankle lifted #src("B32"). Angle the heel away from the wall #src("B38").
+    + Stretch the right leg straight out to the right, or stand it on a second foothold #src("B15", "B37"). Turn your lower body until the left hip is close to the wall and the hips settle over the left heel #src("B37").
+    + Press with both feet at once and pull the right hand down and in towards your body #src("B15"). Stand up through the left leg and reach with the left hand #src("B32").
   ],
   when: [
-    *Look for*
-    - an overhang. On vertical walls, try front-on options first #src("B44").
-    - a jug or a sidepull for the holding hand.
-    - a foothold at knee height or higher, under or beyond the holding hand.
+    *Look for* a jug or a sidepull for the holding hand on an overhang, with a foothold at knee height or higher under or beyond that hand. On vertical walls, try front-on options first #src("B44").
 
     *Symptoms*
-    - You twist in, but your body keeps rotating back out and your arm has to hold it. This is a #jt("spin-out"). The foot is behind the line. Use a #tref("drop-knee", body: [drop knee]) instead #src("B39").
+    - You twist in, but your body keeps rotating back out and your arm has to hold it. This is a #jt("spin-out"): the foot is behind the line. Use a #tref("drop-knee", body: [drop knee]) instead #src("B39").
     - The move feels like a hard one-arm #tref("lock-off", body: [lock-off]).
   ],
   errors: [
@@ -517,20 +472,13 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "back-flag.svg",
   caption: [The left hand and left foot hold you. The right leg crosses behind the left and presses the wall. Your centre of gravity sits on the hinge.],
   how: [
-    + Stand on your left foot, under your left hand.
-    + Cross your right leg behind your left calf. Put the right foot on the wall, left of and below the left foot #src("B26").
-    + Keep that leg straight. Press the foot into the wall #src("B26", "B57").
-    + Move your hips over your left foot #src("B26").
-    + Keep your right hip tucked against the wall #src("B59").
-    + Reach with your right hand.
-    + High standing foot? Pull up with your hips square. Swing the free leg under and behind as you rise. Find balance at the top, not before #src("B21").
+    + Stand on your left foot, under your left hand, and cross your right leg behind your left calf. Put the right foot on the wall, left of and below the left foot #src("B26"). Keep that leg straight and press the foot into the wall #src("B26", "B57").
+    + Move your hips over your left foot #src("B26") and keep your right hip tucked against the wall #src("B59"). Then reach with your right hand.
+    + If the standing foot is high, pull up with your hips square and swing the free leg under and behind as you rise. Find balance at the top, not before #src("B21").
     + *Reverse flag:* also turn your hips into the wall as you cross. It costs more arm strength than a #tref("backstep", body: [backstep]). Use it when every foothold is on the holding-hand side and too high or small to backstep #src("B42", "B44").
   ],
   when: [
-    *Look for*
-    - all good holds on one side of your body, with the next hold on the other side #src("B26", "B59").
-    - a handhold and foothold stacked on the same side, with no foothold for the other foot.
-    - an overhang. Back flags are common there #src("B26").
+    *Look for* a handhold and foothold stacked on one side of your body, with the next hold on the other side #src("B26", "B59") and no foothold for the other foot. Back flags are common on overhangs #src("B26").
 
     *Symptoms*
     - You swing open as soon as the reaching hand lets go.
@@ -559,19 +507,16 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "drop-knee.svg",
   caption: [(a) Square on, the right hand falls short. (b) Right knee dropped. The right hip turns in. Both feet push apart. The hand reaches. The insets show the body from above.],
   how: [
-    + Find two footholds, one each side #src("B20"). The high one, for the reaching-side foot, sits between waist and shoulder height. The other sits wide and low #src("B41").
-    + Place the foot that won't pivot first if you can #src("B20").
-    + Put the high foot's toe on the near corner of its hold. That leaves room to pivot #src("B20").
-    + Turn your hip and that knee in towards the wall, then point the knee down. The foot rolls onto its outside edge. In a deep drop knee, the thigh lies against the wall #src("B41").
+    + Find two footholds, one each side #src("B20"). The high one, for the reaching-side foot, sits between waist and shoulder height, and the other sits wide and low #src("B41").
+    + Place the foot that won't pivot first if you can. Put the high foot's toe on the near corner of its hold, which leaves room to pivot without the foot skating off #src("B20").
+    + Turn your hip and that knee in towards the wall, then point the knee down, so the foot rolls onto its outside edge. In a deep drop knee, the thigh lies against the wall #src("B41").
     + For a partial drop knee, stop with the knee part-way down. A study of knee injuries describes the injured position as a fully bent knee #src("G9"). One professional setter tells climbers to be very cautious about how far they drop the knee #src("B80").
-    + Straighten the other leg and push out through its inside edge. Your weight moves back over the dropped foot. Your arms unload #src("B40").
-    + Pull in with the holding hand, ideally on a #tref("sidepull", body: [sidepull]). Turn your chest towards it. Reach with the hand on the dropped-knee side #src("B20", "B43").
-    + Before you stand up out of it, turn the knee back up.
+    + Straighten the other leg and push out through its inside edge, so your weight moves back over the dropped foot and your arms unload #src("B40").
+    + Pull in with the holding hand, ideally on a #tref("sidepull", body: [sidepull]), and turn your chest towards it. Reach with the hand on the dropped-knee side #src("B20", "B43"). Before you stand up out of it, turn the knee back up.
   ],
   when: [
     *Look for*
-    - a wall overhanging 30–75° #src("B20").
-    - two footholds, one each side: wide apart at about the same height #src("B20"), or one between waist and shoulder height and the other wide and low #src("B41").
+    - two footholds, one each side, on a wall overhanging 30–75° #src("B20"). They sit wide apart at about the same height #src("B20"), or one high and the other wide and low #src("B41").
     - the best foothold on the reaching side of #jt("the line"), where a #tref("backstep", body: [backstep]) would spin out #src("B39", "B40").
     - a holding hold you pull sideways: a sidepull, an #tref("undercling", body: [undercling]), a sloper or a diagonal hold #src("B19").
 
@@ -581,7 +526,6 @@ Run through these checks on the ground, before you pull on. Each one points to a
   ],
   errors: [
     - Dropping the wrong knee. Drop the knee on the reaching-hand side, even when your arms cross #src("B20").
-    - Too little room on the foothold. The foot skates off as you pivot #src("B20").
     - A bent push leg. Your hips drift and your arms take over #src("B44").
     - Trying it on an overhanging arête or under a roof lip. There is no room #src("B20").
     - Forcing a deep drop when tired. It loads the inside of the knee#ix("Injuries!knee"): the #jt("MCL") (the ligament on the inside) and the #jt("meniscus") (the cartilage pad in the joint) #src("B33", "G9"). The knee box in @cons-injuries gives the injury figures.
@@ -604,13 +548,10 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "pre-loading.svg",
   caption: [(a) Pulled in tight: knees at the wall, feet barely weighted. (b) Sat back: arms straight, hips and heels low. The hips then drive up and in.],
   how: [
-    + Set your feet with your heels low #src("B47").
-    + Straighten your arms.
-    + Let your hips sit down and slightly out until your feet press firmly into the wall #src("B47").
-    + Hooper's cue: get as far from your bottom hand as you can while staying balanced #src("B48").
-    + Relax the arm that will move next #src("B48").
-    + Drive with your legs. Move your hips up and in. Pull only at the end #src("B47").
-    + On #tref("sloper", body: [slopers]), sit with your hips low and close to the wall. Keep your #jt("trunk") tight #src("B31").
+    + Set your feet, heels low #src("B47"), and straighten your arms.
+    + Sit your hips down and slightly out until your feet press firmly into the wall #src("B47"). Hooper's cue: get as far from your bottom hand as you can while staying balanced #src("B48").
+    + Relax the arm that will move next #src("B48"). Drive with your legs, move your hips up and in, and pull only at the end #src("B47").
+    + On #tref("sloper", body: [slopers]), sit with your hips low and close to the wall and your #jt("trunk") tight #src("B31").
   ],
   when: [
     *Look for*
@@ -648,24 +589,20 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "body-tension.svg",
   caption: [Side view, 40° overhang. (a) Slack: the feet cut and you swing under your hands. (b) Tense: the toes pull into the wall and the hips stay up.],
   how: [
-    + Press your toes into the footholds. Keep the pressure on while you move.
-    + Pull with the backs of your thighs and your inner thighs. These #jt("hamstring", body: [hamstrings]) and inner-thigh muscles hold the feet against the wall #src("B71").
-    + Keep your hips at the balance point. A sagging trunk loses the squeeze #src("B31"). Hips jammed into the wall unload the feet #src("B48").
-    + Set your shoulder blades when you catch a hold #src("B50").
-    + Before a hand moves, check that both feet are loaded. Relax the arm that will move #src("B48").
-    + If a foot cuts, control the swing through your shoulders. Put the foot back quietly #src("B53"). See #tref("cutting-loose").
-    + During foot swaps on overhangs, a quick flick of the hips stops your legs swinging out #src("B58").
+    + Press your toes into the footholds and keep pressing while you move. Pull with your #jt("hamstring", body: [hamstrings]) (the backs of your thighs) and your inner thighs, which hold the feet against the wall #src("B71").
+    + Keep your hips at the balance point. A sagging trunk loses the squeeze #src("B31"), and hips jammed into the wall unload the feet #src("B48").
+    + Before a hand moves, check that both feet are loaded and relax the arm that will move #src("B48"). Set your shoulder blades when you catch a hold #src("B50").
+    + If a foot cuts, control the swing through your shoulders and put the foot back quietly #src("B53"). See #tref("cutting-loose").
+    + During foot swaps on overhangs, flick your hips quickly to stop your legs swinging out #src("B58").
   ],
   when: [
     *Look for*
     - a cave, a roof or an overhang steeper than about 30°.
-    - footholds far below your hands.
-    - small or downward-sloping footholds, or #tref("toe-hook", body: [toe hooks]) and #tref("heel-hook", body: [heel hooks]).
+    - footholds that are small, downward-sloping or far below your hands, or #tref("toe-hook", body: [toe hooks]) and #tref("heel-hook", body: [heel hooks]).
 
     *Symptoms*
-    - Your feet cut when you reach.
+    - Your feet cut when you reach, or one foot keeps popping off.
     - After a foot cut you swing #src("B53").
-    - One foot keeps popping off.
   ],
   errors: [
     - Treating it as a core-strength problem. It is mostly technique and coordination #src("B51").
@@ -692,24 +629,20 @@ Run through these checks on the ground, before you pull on. Each one points to a
   caption: [Side view. The right hand is locked beside the shoulder, with the feet high.],
   how: [
     + First check whether #tref("hip-turn", body: [turning the hip in]) or a #tref("drop-knee", body: [drop knee]) would do the job. Gresham#ix("Gresham, Neil") uses them to avoid locking off #src("B23", "B20").
-    + Set your feet, as high as useful. Let your legs push you up into the lock #src("B27").
-    + Bring the holding hand close to your shoulder. The lock is easier there #src("B62").
-    + Keep that elbow down by your ribs, in line with the hand #src("B28").
-    + Pull your shoulder blade down. Keep your body close to the wall #src("B57").
-    + Reach smoothly and grip.
+    + Set your feet, as high as useful, and push up into the lock with your legs #src("B27").
+    + Bring the holding hand close to your shoulder, where the lock is easier #src("B62"). Keep that elbow down by your ribs, in line with the hand #src("B28").
+    + Pull your shoulder blade down and keep your body close to the wall #src("B57"). Reach smoothly and grip.
   ],
   when: [
     *Look for*
     - a small target you must hit exactly: a #jt("crimp"), a #tref("pocket", body: [pocket]) or a #tref("sloper", body: [sloper]).
-    - front-on feet only: two footholds below you and no sidepull to twist off.
-    - a move between two edges you pull straight down.
+    - front-on holds only: two footholds below you, no sidepull to twist off, and a move between two edges you pull straight down.
 
     *Symptoms*
     - You arrive at a poor hold with #jt("momentum") and swing off.
     - You can't hold the lock long enough to grip. Try a #tref("twist-lock", body: [twist lock]) or a #tref("deadpoint", body: [deadpoint]) instead.
   ],
   errors: [
-    - Letting the elbow flare out #src("B28").
     - Getting stuck in tight, bent-arm positions. They feel secure but cut your reach #src("B47").
   ],
   tall: [You can often reach from a half lock where shorter climbers need a full one.#ix("Tall climbers!lock-offs") Extra reach usually comes from rolling your shoulders, not from locking harder #src("B46").],
@@ -729,19 +662,16 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "opposition.svg",
   caption: [Two sidepulls face away from each other. Pulling them towards each other holds you on.],
   how: [
-    + Read which way each hold faces. Pull the opposite way #src("B70").
-    + Find a partner contact that pushes or pulls the opposite way.
-    + *Hand against hand:* pull two #tref("sidepull", body: [sidepulls]) towards your chest. Or push two #tref("gaston", body: [gastons]) apart, elbows out #src("B14").
-    + *Hand against foot:* pull an #tref("undercling", body: [undercling]) up while your high feet press into the wall #src("B30"). Or pull a sidepull while the opposite foot stands on its outside edge #src("B14").
+    + Read which way each hold faces and pull the opposite way #src("B70"). Find a partner contact that pushes or pulls the other way.
+    + *Hand against hand:* pull two #tref("sidepull", body: [sidepulls]) towards your chest, or push two #tref("gaston", body: [gastons]) apart, elbows out #src("B14").
+    + *Hand against foot:* pull an #tref("undercling", body: [undercling]) up against high feet that press into the wall #src("B30"), or a sidepull against the opposite foot on its outside edge #src("B14").
     + *Foot against foot:* push your feet apart, as in #tref("stemming", body: [stemming]) or a #tref("drop-knee", body: [drop knee]) #src("B20", "B29"). A #tref("bicycle", body: [bicycle]) squeezes one hold between both feet #src("B56").
-    + Load both contacts at once. Then move the limb that isn't part of the pair.
-    + Keep your #jt("trunk") tight. If your #jt("core") sags, the squeeze lets go #src("B31").
+    + Load both contacts at once, then move the limb that isn't part of the pair. Keep your #jt("trunk") tight, because the squeeze lets go if your #jt("core") sags #src("B31").
   ],
   when: [
     *Look for*
     - holds that face sideways or down.
-    - a pair facing away from each other. Squeeze them inward.
-    - a pair facing towards each other. Push them apart.
+    - a pair facing away from each other, to squeeze inward, or towards each other, to push apart.
     - #tref("volume", body: [volumes]), corners and arêtes with no edge to pull down on.
 
     *Symptoms*
@@ -769,20 +699,17 @@ Run through these checks on the ground, before you pull on. Each one points to a
   caption: [The right hand goes to a small intermediate (1), then on to the jug (2).],
   how: [
     + Keep the holding arm straight and your hips set. On steep ground, #tref("hip-turn", body: [turn a hip in]).
-    + Go to the intermediate fast. Weight it only long enough to stay in balance.
-    + Carry straight on to the target. Don't settle on the intermediate.
-    + On one big hold, catch the nearest part first. Then bump to its best part.
+    + Go to the intermediate fast and weight it only long enough to stay in balance. Carry straight on to the target without settling.
+    + On one big hold, catch the nearest part first, then bump to its best part.
     + When you are tired, look again for small footholds lower and closer in. They let you move up in short steps instead of lunging #src("B22").
   ],
   when: [
     *Look for*
     - a target beyond #jt("static") reach, with a small hold on the way.
-    - a target that faces the wrong way for the other hand, so crossing won't work.
-    - a next move that needs a particular hand on the target.
+    - a target that faces the wrong way for a cross, or a next move that needs a particular hand on it.
 
     *Symptoms*
-    - You are fully stretched and can't reach.
-    - You lunge for the biggest hold and arrive off balance.
+    - You are fully stretched and can't reach, or you lunge for the biggest hold and arrive off balance.
     - You reach the target with the wrong hand.
   ],
   errors: [
@@ -808,24 +735,19 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure-first: true,
   caption: [(a) Set: right arm straight, left foot backstepped, hips half turned. (b) Locked. The left hip and shoulder turn in. The right elbow comes to the ribs. The left hand reaches high. (c) The lock from the side. The right forearm points into the wall.],
   how: [
-    + Set your feet. Backstep if the foothold is on #jt("the line"). Drop a knee if it is behind the line #src("B38", "B40").
-    + Put your right foot on a foothold out to the right, or flag it #src("B37").
-    + Start with the right arm straight. Lean out on it while your hips twist in #src("B43").
-    + As your left hip nears the wall, turn your left shoulder in too #src("B43").
-    + Bend the right arm as the shoulder turns. The elbow ends by your ribs. Your chin ends near your right shoulder #src("B43").
-    + Press with both feet at once. Pull the right hand down and in #src("B15").
-    + Reach with the left hand. Do it all as one movement, without a pause #src("B43").
+    + Set your feet: backstep if the foothold is on #jt("the line"), or drop a knee if it is behind it #src("B38", "B40"). Put your right foot on a foothold out to the right, or flag it #src("B37").
+    + Start with the right arm straight and lean out on it while your hips twist in. As your left hip nears the wall, turn your left shoulder in too #src("B43").
+    + Bend the right arm as the shoulder turns, until the elbow is by your ribs and your chin near your right shoulder #src("B43").
+    + Press with both feet at once, pull the right hand down and in #src("B15") and reach with the left hand. Do it all as one movement #src("B43").
     + On flat holds or #tref("gaston", body: [gastons]), pull along the hold's long edge, not across it #src("B43").
   ],
   when: [
     *Look for*
-    - a steep wall and a high target in line with or beyond your holding hand.
+    - a high target on a steep wall, in line with or beyond your holding hand, that you can't reach from front-on feet.
     - a #tref("sidepull", body: [sidepull]) or #tref("undercling", body: [undercling]) for the holding hand.
-    - front-on feet that don't give you the reach.
 
     *Symptoms*
-    - You touch the target but can't hold the position to grip it.
-    - You swing out as you let go.
+    - You touch the target but can't hold the position to grip it, or you swing out as you let go.
     - You can only do the move as a full front-on #tref("lock-off", body: [lock-off]).
   ],
   errors: [
@@ -848,19 +770,14 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "inside-flag.svg",
   caption: [(a) Crouched on one low foothold. (b) Standing up, the right leg passes between the left leg and the wall. Every limb ends straight.],
   how: [
-    + Stand on a single low foothold, below knee height, under your holding hand #src("B21").
-    + Use the inside edge of that foot #src("B21").
-    + As you stand up, pass your free leg in front of the standing leg, close to the wall #src("B21").
-    + Let your hips, chest and shoulders turn together, like a corkscrew. Pull one hip to the wall #src("B21", "B59").
-    + Press the free foot on the wall on the far side.
-    + Finish with every limb straight. Reach with a nearly straight arm #src("B21").
-    + Keep hold of the low handhold until the reach is done #src("B21").
+    + Stand on a single low foothold, below knee height and under your holding hand, on the inside edge of that foot #src("B21").
+    + As you stand up, pass your free leg in front of the standing leg, close to the wall #src("B21"). Let your hips, chest and shoulders turn together, like a corkscrew, and pull one hip to the wall #src("B21", "B59").
+    + Press the free foot on the wall on the far side and finish with every limb straight. Reach with a nearly straight arm, and keep hold of the low handhold until the reach is done #src("B21").
   ],
   when: [
     *Look for*
-    - one low foothold and a long reach up and away from it #src("B21").
+    - one low foothold and a long reach up and away from it #src("B21"). With a high standing foot, a #tref("back-flag", body: [back flag]) is easier #src("B10", "B21").
     - a move where any other flag would need a foot swap first #src("B59").
-    - a low standing foot. With a high one, a #tref("back-flag", body: [back flag]) is easier #src("B10", "B21").
 
     *Symptoms*
     - A back flag leaves you a hand short, because your hips stay low and out.
@@ -886,13 +803,11 @@ Run through these checks on the ground, before you pull on. Each one points to a
   figure: "compression.svg",
   caption: [The two side faces of a big volume face away from each other. The palms squeeze them inward, elbows down. The feet squeeze a lower volume.],
   how: [
-    + Put your hands on opposite sides of the feature, at about chest to head height.
-    + Squeeze inward with slightly bent arms, elbows down. Use your chest and back, as in a hug.
-    + Squeeze with your feet too. Put a toe on one side and a toe or heel on the other. A #tref("bicycle", body: [bicycle]) does this on one hold #src("B56").
-    + Press your free foot against a foothold or the wall. It can turn even a round foothold into a clamp #src("B45").
-    + Keep your hips close to the feature. Keep your #jt("trunk") tight, so the squeeze in your hands and feet connects #src("B31").
-    + Release one contact only when the other three are squeezing. Move it fast.
-    + On a #tref("pinch", body: [pinch], show-page: false)-shaped feature, turning side-on into a #tref("layback", body: [layback]) saves thumb strength #src("B24").
+    + Put your hands on opposite sides of the feature, at about chest to head height. Squeeze inward with slightly bent arms, elbows down, using your chest and back as in a hug.
+    + Squeeze with your feet too, a toe on one side and a toe or heel on the other. A #tref("bicycle", body: [bicycle]) does this on one hold #src("B56"). Press your free foot against a foothold or the wall, which can turn even a round foothold into a clamp #src("B45").
+    + Keep your hips close to the feature and your #jt("trunk") tight, so the squeeze in your hands and feet connects #src("B31").
+    + Release one contact only when the other three squeeze, and move it fast.
+    + On a #tref("pinch", body: [pinch], show-page: false)-shaped feature, turn side-on into a #tref("layback", body: [layback]) to save thumb strength #src("B24").
   ],
   when: [
     *Look for*

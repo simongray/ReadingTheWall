@@ -104,6 +104,14 @@ section as the notes of the GitHub release.
   orange are darker to carry them.
 - Grade conversion: the appendix no longer names a gym as the source of the
   tabs' colours.
+- Lists are shorter in Chapters 3 to 9. Steps, "look for" bullets and mistakes
+  that were aspects of one thing are merged and reworded, so that a list item
+  is one action, one situation or one mistake. A typical entry went from seven
+  steps to four, the entries' steps from 473 to 313 in all, and the list items
+  of these chapters from 1,314 to 1,007. A single "look for" or symptom is a
+  sentence, not a list of one. A few sentences that only repeated a summary, a
+  caption or a step are cut. `research/STYLE.md` has the rules and the style
+  guides and research they follow.
 - "How this book was made" is an appendix, at about half its length. It says
   what Claude was used for, at the editor's direction. The foreword and the
   colophon link to it.

@@ -29,8 +29,7 @@ From about V3–V4 on, expect these problems to feel harder than their grade:#ix
 - *#jt("scrunchy", body: [Scrunchy]) problems,* where the holds are close together and you have to fold up. Your knees hit the wall or your chest, which pushes your hips out. Tall forum climbers name this as their weak style #src("G7", "G8"). See #tref("hip-turn").
 - *Sit starts.* Long thighs put your knees in your chest and your bum far from the wall (@fig-cons-sit a). See #tref("sit-start").
 - *High feet.* A foot at waist height needs your knee fully bent and your hip deeply folded. That position can hurt your knee (see the knee box in @cons-injuries).
-- *Steep walls.* Your hips hang further from the holds than a short climber's. When your feet come off, more weight swings further out.
-- *Big moves where your feet come off.* Forum climbers say tall climbers find the swing harder to hold #src("G7", "G8").
+- *Steep walls and big moves.* Your hips hang further from the holds than a short climber's. When your feet come off, more weight swings further out. Forum climbers say tall climbers find the swing harder to hold on big moves #src("G7", "G8").
 
 ==== How to climb tall
 
@@ -223,9 +222,9 @@ Film from behind, 3–4~m back, or from the side on steep walls. Watch after two
 
 + Were your hips over your feet before each hand moved?
 + How many times did you readjust a foot?
++ Could you hear your feet land?
 + Where did you pause for more than two seconds?
 + Did you swing off like a door (#tref("barn-door", inner: true))?
-+ Could you hear your feet land?
 
 #ix("Flashing")Reading a problem before you climb it can mean fewer and shorter stops #src("E34", "G44"). Repeating a problem makes you smoother; new problems make you explore #src("G43", "G44"). So do both in every session:
 
@@ -277,9 +276,8 @@ To #jt("project") a problem is to work on it over several attempts or sessions. 
 
 Choose a project no more than two or three grades above what you usually climb in a session #src("E41"). Then:
 
-+ Learn the single moves first, in isolation. Get the first contact right before you add the second #src("E5"). Then #jt("link-up", body: [link]) the #jt("crux") (climb its moves without stopping), then longer sections #src("E44", "E45").
-+ Split the problem at the crux, the rests and the changes of style. Work on one link or one move at a time #src("E32", "E43").
-+ Link through the crux and keep going. Big overlapping links show progress better than your high point from the start #src("E44").
++ Split the problem at the #jt("crux"), the rests and the changes of style. Work on one link or one move at a time #src("E32", "E43"). Learn the single moves first, in isolation, and get the first contact right before you add the second #src("E5").
++ Then #jt("link-up", body: [link]) the crux (climb its moves without stopping), then longer sections #src("E44", "E45"). Link through the crux and keep going. Big overlapping links show progress better than your high point from the start #src("E44").
 + Practise the easy parts too, because slapping through them wastes energy you need later #src("E41", "E44").
 + Count good attempts and treat each one as information. Decide how many you can make in a day #src("E43").
 + Keep one or two side projects so you stay fresh #src("E43").
@@ -310,11 +308,9 @@ Coaches who give a number keep it low: three tries per problem in one drill #src
 
 ==== When to change the beta
 
-- When your sessions keep running into dead ends, question the sequence#ix("Beta!when to change") #src("E41").
-- When you are stuck or a move feels impossible, find your own #jt("beta") (sequence of moves) for each move before you ask others, then test new versions #src("E29", "E44").
+- When you are stuck or a move feels impossible, find your own #jt("beta") (sequence of moves) for each move before you ask others, then test new versions #src("E29", "E44"). Try something new on every attempt, even on familiar moves: a different foot or a different grip #src("E44").
 - After each fall, name the cause. If it is the sequence, find an easier one. If it is strength, keep the sequence and train #src("E31", "E41").
-- Try something new on every attempt, even on familiar moves: a different foot or a different grip #src("E44").
-- Change the sequence sooner when you keep failing at the same point in the same way: switching beta can get you out of a rut #src("E44"). Change it too when the move only suits a climber of a very different size #src("E41").
+- When your sessions keep running into dead ends, question the sequence#ix("Beta!when to change") #src("E41"). Change it sooner when you keep failing at the same point in the same way: switching beta can get you out of a rut #src("E44"). Change it too when the move only suits a climber of a very different size #src("E41").
 
 == Breaking a plateau <cons-plateau>
 
@@ -406,7 +402,7 @@ To #jt("bail") is to let go on purpose when a move fails. Jumps cause about a fi
 
 ==== Mats, gaps and the fall zone
 
-- Keep the area you could land in clear.#ix("Mats") No bottles, brushes, chalk bags or people on the mat below a climber. Don't climb right beside or above someone. Judge your landing area generously #src("G11", "G38").
+- Keep the area you could land in clear:#ix("Mats") no bottles, brushes, chalk bags or people on the mat below a climber. Don't climb right beside or above someone. Judge your landing area generously #src("G11", "G38").
 - Watch the mat edges. Landing on an edge or a seam can twist an ankle. Check loose pads after every fall #src("G38"). Still, only 5% of injured boulderers in the fall survey landed in a gap #src("G14").
 - Look for things to hit. 3% of the DAV's reported bouldering accidents were impacts with the wall or a volume #src("G12").
 
@@ -427,7 +423,7 @@ This progression comes from a DAV national instructor #src("G55"):
 + On the mat, from standing: tip backwards into the Babyboxer and roll.
 + Jump up, land on both feet, tip back and roll.
 + With a partner: face each other, hold hands and bend your knees. Lean back against each other's pull. Let go and land in the Babyboxer.
-+ On the wall: drop off from low holds. Go gradually higher. Slightly overhanging walls are fine; roofs are not.
++ On the wall: drop off from low holds, then go gradually higher. Slightly overhanging walls are fine, but roofs are not.
 
 Practise often so the right reflexes become automatic. Make a few landings a regular part of your warm-up #src("G57").
 

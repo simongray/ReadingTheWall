@@ -64,14 +64,13 @@ Three habits carry you through this band and every band after it. Place each foo
 
 ==== Focus
 
-- Look at each foothold until your shoe is on it. Then put your weight on it. Place the inside edge of your big toe on the best part of the hold.
+- Look at each foothold until the inside edge of your big toe is on the best part of it. Then put your weight on it.
 - Climb many different problems each session. One Lattice post advises 6–12 months of climbing before fingerboard training#ix("Fingerboard!when to start") #src("F6"). Coaches differ on gentle hangs (@cons-adult).
 - Learn how your gym marks problems: which holds are the start, how to finish and which colour is which grade #src("F26").
 
 ==== Reading problems at this grade
 
-- Find the start holds (often one marked hold per hand) and the finish hold.
-- Count the hand moves. Say which hand goes to each hold.
+- Find the start holds (often one marked hold per hand) and the finish hold. Then count the hand moves and say which hand goes to each hold.
 - Point out the foothold for each reach. If a foothold sits right under your next handhold, step up onto it before you reach.
 
 ==== Physical side
@@ -110,14 +109,11 @@ Use #tref("edging", body: [edging]) on the outside of the shoe as well as the in
 
 ==== Focus
 
-- Before each reach, shift your hips sideways over the foot you will push from. Then reach.
-- Use the inside edge of the shoe when you face the wall. Switch to the outside edge when your hip turns in.
-- Grip no harder than you need. On easy problems, relax your fingers until they start to slip. Then add a little.
+Before each reach, shift your hips sideways over the foot you will push from. Grip no harder than you need. On easy problems, relax your fingers until they start to slip, then add a little.
 
 ==== Reading problems at this grade
 
-- Read which way each handhold faces. A hold that faces left puts your body to its right (Chapter 1).
-- Look for footholds that bring your hips under the next handhold.
+Read which way each handhold faces. A hold that faces left puts your body to its right (Chapter 1). Then look for footholds that bring your hips under the next handhold.
 
 ==== Physical side
 
@@ -125,7 +121,7 @@ Nothing specific.
 
 ==== Why people stall here
 
-- *Square-on climbing.* You keep your chest to the wall and stand on both toe tips for every move. Sideways reaches then fall short. Fix: square on suits most vertical walls, so on easy problems that lean towards you, practise turning one hip into the wall (#tref("hip-turn", inner: true)).
+- *Square-on climbing.* You keep your chest to the wall and stand on both toe tips for every move, so sideways reaches fall short. Fix: square on suits most vertical walls, so on easy problems that lean towards you, practise turning one hip into the wall (#tref("hip-turn", inner: true)).
 - *Over-gripping.* Fix: the loose-grip habit above.
 
 // ------------------------------------------------------------------ V2
@@ -154,14 +150,12 @@ A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid bu
 
 ==== Focus
 
-- Learn to tell front-on moves from side-on moves. Switch between them on purpose.
-- On an overhang, put the outside edge of your shoe on the foothold and turn that hip into the wall. The shoulder on that side rises, which lengthens your reach.
-- When one hand is about to let go, press the opposite foot into the wall as a flag. Do it *before* you move.
+- Learn to tell front-on moves from side-on moves and to switch between them on purpose. On an overhang, put the outside edge of your shoe on the foothold and turn that hip into the wall. The shoulder on that side rises, which lengthens your reach.
+- Press the opposite foot into the wall as a flag *before* one hand lets go.
 
 ==== Reading problems at this grade
 
-- Two holds facing the same way, such as two sideways holds facing left, mean a layback, or from V3 a backstep.
-- A single foothold far out to one side, with nothing on the other side, means a flag, or from V3 a backstep.
+Two holds facing the same way, such as two sideways holds facing left, mean a layback. A single foothold far out to one side, with nothing on the other side, means a flag. From V3, either may mean a backstep instead.
 
 ==== Physical side
 
@@ -200,13 +194,13 @@ Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a 
 
 - *Toes into the wall on steep ground.* Push through the front of the shoe into the hold, not down along the wall #src("F41").
 - *Create momentum.* Sink your hips a little, then drive up with your legs. Your arms guide the movement rather than haul it #src("F33", "F39").
-- *Flash more.* Read each V3 fully before you touch it. Then try to #jt("flash") it: climb it first go, without falling.
+- *Flash more.* Read each V3 fully before you touch it, then try to #jt("flash") it: climb it first go, without falling.
 
 ==== Reading problems at this grade
 
 - Can you catch the crux hold while moving, or must you arrive static (#tref("lock-off", inner: true))? You can catch a deep hold with a lip. A poor sloper needs a deadpoint or a slow reach.
 - Is there a foothold at hip height on the side you move towards? It may be meant for a heel hook.
-- On slab, find where you can stand. Then find blank wall clean enough to #tref("smearing", body: [smear]) on.
+- On slab, find where you can stand, then blank wall clean enough to #tref("smearing", body: [smear]) on.
 - On a pinch, find the thumb side before you set off.
 
 // these two go over the page together, not the last alone
@@ -217,7 +211,7 @@ Lattice tests a #jt("max hang")#ix("Max hang!averages by grade"): the most extra
 
 ==== Why people stall here
 
-- *Feet cutting on the steep.* Fix: keep both feet pressing into the wall, even the one you are about to move. Keep your hips close #src("F41").
+- *Feet cutting on the steep.* Fix: keep both feet pressing into the wall, even the one you are about to move, and keep your hips close #src("F41").
 - *Climbing one style.*#ix("Plateau!climbing one style") You climb all the steep V3s and avoid the slabs, or the reverse. Lattice's coaches see plateaus#ix("Plateau!when it happens") "somewhere between V3–V6", usually in the first couple of years. They list avoiding weak styles as a main cause #src("F9"). Fix: spend one session in four on the style you avoid.
 ]
 
@@ -245,14 +239,13 @@ The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee 
 
 ==== Focus
 
-- *Choose #jt("static") or #jt("dynamic").* For big moves on overhangs, start with straight arms. Sit your hips back and down, then drive from your feet. Newer climbers tend to #tref("lock-off", body: [lock off]) too much #src("F39").
+- *Choose #jt("static") or #jt("dynamic").* For big moves on overhangs, start with straight arms and your hips back and down, then drive from your feet. Newer climbers tend to #tref("lock-off", body: [lock off]) too much #src("F39").
 - *Body tension.* When your hands are far above you or out to the side, keep pushing through both toes. If your feet go light, pull on the footholds with your toes.
 - *Repeat, then reach up.* Repeat V4s until they feel smooth. Put real attempts into at least one V5 every session. Lattice counts learning chances, not #jt("send", body: [sends]) (clean climbs of a problem) #src("F9").
 
 ==== Reading problems at this grade
 
-- Find the #jt("crux") first, then work backwards. What body position must you be in to start the crux move?
-- Find the move where your feet will swing off. Decide how you will catch the swing before you leave the ground.
+Find the #jt("crux") first, then work backwards. What body position must you be in to start the crux move? Next, find the move where your feet will swing off and decide how you will catch the swing before you leave the ground.
 
 #lead-label[Look for]
 - heel-hook holds: a horizontal edge or volume at hip height, out to the side.
@@ -270,7 +263,7 @@ Many climbers stall between V4 and V5: the plateau is common enough that gyms na
 - *Strength instead of position.* Lattice's#ix("Lattice Training") coaches say strong climbers learn technique more slowly, because they can muscle through moves #src("F9"). After each fall, ask: "If I'm strong enough for this, what am I missing?" #src("F42")
 - *Locking off on the steep.* Newer climbers hold bent-arm #tref("lock-off", body: [lock-offs]) too often. Start big moves from straight arms instead, hips back and down. Press into the foot rather than pulling the knee in tight #src("F39"). See #tref("pre-loading").
 - *Staying tight to the wall when you need to turn.* Pinned to the wall, you can't rotate, so you swing when a hand comes off. Before you let go with the lower hand, relax away from it. Find the point where you balance, then move #src("F40").
-- *Ignoring the off foot.* The #jt("off foot") is the foot not carrying you. It controls rotation. Push it into the wall at roughly right angles to the line from your hand to your foot. Touch it briefly on the wall to stop a swing #src("F41"). #ix("Off foot") See #tref("barn-door").
+- *Ignoring the off foot.* The #jt("off foot"), the foot not carrying you, controls rotation. Push it into the wall at roughly right angles to the line from your hand to your foot. Touch it briefly on the wall to stop a swing #src("F41"). #ix("Off foot") See #tref("barn-door").
 - *Avoiding weak styles and limit attempts.*#ix("Plateau!climbing one style") Lattice lists both among the main causes of plateaus #src("F9").
 - *Missing a few techniques.* Gym clinics for the "V5 plateau" teach a short list: #tref("heel-hook", body: [heel hooks]), toe hooks, #tref("flag", body: [flagging]), #tref("body-tension", body: [body tension]), #tref("compression", body: [compression]), deadpoints and sequencing #src("F35"). A V5–V6 clinic adds #tref("drop-knee", body: [drop knees]), #tref("mantle", body: [mantles]), #tref("rockover", body: [rockovers]) and dynos #src("F34").
 
@@ -315,16 +308,13 @@ Some moves take your feet or both hands off the wall: the #tref("double-dyno", b
 
 ==== Focus
 
-- *Build a V5 base.* Once your first V5s go, climb many V5s in different styles. The grade should stop depending on style.
-- *Flash attempts.* Read a new V5 fully. Give it one real #jt("flash") attempt before you work it.
+- *Build a V5 base.* Once your first V5s go, climb many V5s in different styles until the grade stops depending on style. Read each new one fully, then give it one real #jt("flash") attempt before you work it.
 - *Finish the technique list.* Practise the V5–V6 clinic techniques on V4s first #src("F34").
 
 ==== Reading problems at this grade
 
-- Decide where each foot goes *before* each hand move. At V5 the feet decide whether the hand move works.
-- Find the crux by its holds: the smallest hold, the longest gap or the hold facing the "wrong" way.
-- Ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) needs a body position. A sloper wants low hips and straight arms.
-- Before you start, find the hidden footholds, such as a volume's edge or a hold's side.
+- Decide where each foot goes *before* each hand move, because at V5 the feet decide whether the hand move works. Before you start, find the hidden footholds, such as a volume's edge or a hold's side.
+- Find the crux by its holds: the smallest hold, the longest gap or the hold facing the "wrong" way. Then ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) needs a body position, and a sloper wants low hips and straight arms.
 - Find the swing move, where a hand lets go and the feet are poor. Decide in advance: flag, toe hook, or let the feet swing and catch them.
 - Read in chunks (@reading-method). A Lattice summary ties previews of two to four holds to difficult routes, which doesn't show that they help #src("F11").
 
@@ -405,13 +395,11 @@ This book's catalogue has nothing new for this band. What changes is how exactly
 
 ==== Focus
 
-- Find your weaknesses by testing them, not by guessing #src("F14").
-- Choose #jt("project", body: [projects]) that take weeks.
+Find your weaknesses by testing them, not by guessing #src("F14"). Choose #jt("project", body: [projects]) that take weeks.
 
 ==== Reading problems at this grade
 
-- Work out fine #jt("beta"). Decide which way to turn a hand on a hold and exactly where a toe goes.
-- Try two or three foot options for each hard hand move before you commit to one.
+Work out fine #jt("beta"): decide which way to turn a hand on a hold and exactly where a toe goes. Try two or three foot options for each hard hand move before you commit to one.
 
 ==== Physical side
 
