@@ -18,7 +18,7 @@ Height decides *which* problems feel easy or hard. Its effect on your grade is l
 
 Not every study agrees. Elite Polish boulderers differed from non-climbers in arm span and lean body mass, among other measures #src("G5"). A 2007 study found arm span relative to height a useful predictor #src("G6"). Adam Ondra#ix("Ondra, Adam") puts the average competition climber at about 170~cm for men and 160~cm for women. In his view, tall climbers gain reach but usually lack the body and finger strength of shorter ones #src("G2").
 
-#ix("Ape index", main: true)Your #jt("ape index") is your arm span minus your height. In surveys of American men, arm span averages 3–4% more than height #src("G6"). Measure your span fingertip to fingertip, arms out, back against a wall. Then measure your #ix("Standing reach")standing reach: one arm straight up, feet flat, side to the wall. Your standing reach tells you whether a move is a reach for you.
+#ix("Ape index", main: true)Your #jt("ape index") is your arm span minus your height. In surveys of American men, arm span averages 3–4% more than height #src("G6"). Lattice's client data show little link between ape index and grade#ix("Ape index!and grade") #src("B66"), though the 2007 study above disagrees. Measure your span fingertip to fingertip, arms out, back against a wall. Then measure your #ix("Standing reach")standing reach: one arm straight up, feet flat, side to the wall. Your standing reach tells you whether a move is a reach for you.
 
 ==== Where height helps and where it hurts
 
@@ -37,11 +37,13 @@ Most of this list is the book's own advice, built on the mechanics in Chapter 1.
 
 + *Fold sideways, not forwards.* On a scrunchy move, turn your hip into the wall with a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]). Your long thigh then points along the wall instead of into it.
 + *Skip high footholds.* If the next foothold is at knee height, try a lower one with a straighter leg. When you must step high, see #tref("high-step") and #tref("rockover").
-+ *Sit starts.* Sit as close to the wall as the start holds allow. Place both feet before you take the holds. Then turn side-on with an outside edge on the foothold, as in #tref("sit-start"). Where both footholds sit straight below the holds, open your knees wide in a #tref("frog", body: [frog position]) instead, so your chest drops between them. Or put one foot high and one low, so only one knee comes up (@fig-cons-sit b, c). Pull your hips in with your feet to lift off. Don't heave on straight arms.
++ *Sit starts.* Set up as in #tref("sit-start"). Sit to the side of the start holds and lay your free leg flat along the mat instead of folding your knees under your chest. Where both footholds sit straight below the holds, open your knees wide in a #tref("frog", body: [frog position]) instead. Or put one foot high and one low, so only one knee comes up (@fig-cons-sit b, c). Place your feet before you take the holds. Pull your hips in with your feet to lift off. Don't heave on straight arms.
 + *On vertical walls, use your reach. On steep walls, keep your hips close:* every centimetre they sag puts more weight on your fingers.
 + *Copy positions, not sequences.* Ondra#ix("Ondra, Adam") recommends climbing with people of different heights #src("G2"). Watch where short climbers put their hips and knees on scrunchy problems.
 + *Adapt a shorter climber's #jt("beta") (their sequence of moves).*#ix("Tall climbers!reading a problem") Expect to skip an intermediate handhold: you don't have to use every hold you can reach #src("E76"). Where their footholds fold you up, drop a foot lower and sink onto one leg, with your arms straight #src("E76"). Some setters bunch tall climbers up on purpose #src("H10"), so feeling scrunched doesn't mean you read the problem wrong.
 + *Seek out your weak style.* Sit starts and scrunchy problems are your best practice.
++ *Practise what your reach lets you skip.*#ix("Tall climbers!hidden technique gaps") You reach many holds square on that shorter climbers must twist for, and others that they must jump for #src("D45"). That hides missing technique until the holds get small or far apart, or a setter forces momentum. Practise the V3 and V4 entries in Chapters 4 and 6 on problems you can already climb without them.
++ *Climb down before you drop.* Every drop is bigger for you than for a short climber. "Climb down rather than jump" in @cons-falling says how far to climb down.
 
 #fig("considerations-sit-start.svg", lbl: "fig-cons-sit", caption: [A tall climber on a sit start. (a) Both feet high: the knees jam into the chest and the bum is far from the wall. (b) Knees out wide. (c) One foot high and one low.])
 
@@ -66,16 +68,16 @@ One columnist, writing about an outdoor slab, thinks a short reach hurts most on
 We found no study that tests these points. They come from climbers and coaches of about 150 to 170~cm who work around their own reach. Much of the advice comes from rock. The sources give no shared figure for how short counts as small, so take what fits you.
 
 + *Add moves where the problem lets you.*#ix("Small climbers!reading a problem") Split a long move with a small hold or a high foot #src("H1"). A taller climber's one reach may be your two or three, so look at the holds with little chalk that they skip #src("H1", "H8"). Indoors there aren't always more options, because setters decide which holds a problem has #src("H8"). Some add a small hold for this reason #src("H10").
-+ *Raise your feet.* Read the feet first when you copy a taller climber. Walk your feet up on tiny footholds #src("H3"), smear #src("H8") or use a high #tref("heel-hook", body: [heel hook]) #src("H2"). Someone your own size can show you where #src("H8"). Read the knee box in @cons-injuries first, because heel hooks caused the most injuries in its study.
++ *Raise your feet.* Read the feet first when you copy a taller climber. Walk your feet up on tiny footholds #src("H3") (see the small-climber note in #tref("high-step", inner: true)), smear #src("H8") or use a high #tref("heel-hook", body: [heel hook]) #src("H2"). Someone your own size can show you where #src("H8"). Read the knee box in @cons-injuries first, because heel hooks caused the most injuries in its study.
 + *Turn in.* Where the holds suit it, bring your hip to the wall with a #tref("backstep", body: [backstep]) #src("H1", "H2").
-+ *Learn momentum in small steps* #src("B34"). On easy problems, go for #tref("deadpoint", body: [deadpoints]) to holds just out of reach #src("D45"), low on the wall at first #src("H4"). Build up to big jumps (@dynamic-choice), and don't snatch at small holds, which can injure a finger #src("C25").
++ *Learn momentum in small steps* #src("B34"). The small-climber note in #tref("deadpoint") has the method.
 + *Measure before you believe it's too far.* At the wall, count how many bolt holes your reach covers, then count the holes between the holds #src("H9").
 + *Distrust "you just have to reach",* and read little into the grade. One reachy move can stop you on a V1 even if you climb most V3s #src("E51").
 
-==== Small hands
+==== Hand size
 #ix("Hand size")
 
-One setter says small hands can't use wide #tref("pinch", body: [pinches], show-page: false) and #tref("sloper", body: [slopers], show-page: false) as securely as large ones #src("E46"). The small-climber note in #tref("pinch") says what to try. We found no study of hand size on small holds. The nearest is a test of 48 people hanging from a 4~cm edge, where longer middle fingers went with shorter hangs. But only 10 of them had climbing experience, and a 4~cm edge isn't small #src("H27").
+One setter says small hands can't use wide #tref("pinch", body: [pinches], show-page: false) and #tref("sloper", body: [slopers], show-page: false) as securely as large ones #src("E46"). The small-climber note in #tref("pinch") says what to try. The tall-climber notes there, in #tref("pocket") and in #tref("full-crimp") cover large hands and long fingers. We found no study of hand size on small holds. The nearest is a test of 48 people hanging from a 4~cm edge, where longer middle fingers went with shorter hangs. But only 10 of them had climbing experience, and a 4~cm edge isn't small #src("H27").
 
 == Climbing heavier <cons-heavy>
 
@@ -91,11 +93,11 @@ So your best way to save your fingers is to keep your weight on your feet. Every
 
 + Stand on the best part of the foothold with the front of your shoe, not the middle of your foot #src("G58"). Place each foot silently and don't adjust it once it's down. See #tref("precise-footwork") and the drills in @cons-learning.
 + Move your hips over your feet *before* you move a hand.
-+ Climb with control while your fingers are still adapting. Small deadpoints are fine, but build up to big jumps and don't snatch at small holds (@dynamic-choice).
++ Climb with control while your fingers are still adapting. Small deadpoints are fine, but build up to big jumps and don't snatch at small holds (@dynamic-choice). Where both work, choose a deadpoint over a full dyno: the heavier you are, the more force goes through your fingers and shoulders at the catch#ix("Body weight!catching holds") #src("D20") (#tref("latching", inner: true)).
 + On steep ground, use #tref("toe-hook", body: [toe hooks]) and #tref("heel-hook", body: [heel hooks]) so a leg takes some weight.
 + Climb down instead of dropping from the top: a heavier body hits the mat harder (@cons-falling).
 
-On step 3: no study shows that a dynamic style hurts fingers or shoulders. One small survey hints at a link with unstable shoulders#ix("Injuries!shoulder"), but it can't show cause #src("G19"). @dynamic-choice has the case for small deadpoints.
+On step 3: no study shows that a dynamic style hurts fingers or shoulders. The small bouldering study in @cons-injuries hints at a link with unstable shoulders#ix("Injuries!shoulder"), but it can't show cause #src("G19"). @dynamic-choice has the case for small deadpoints.
 
 ==== Does weight cost you grades?
 
@@ -138,7 +140,7 @@ In a randomised trial with advanced climbers, hangs at 60% of maximum built less
 *Where they agree:* nobody suggests heavy hangs with added weight, or campus boarding, one year in.
 
 #keypoint[
-  *What fits you:* two or three short sessions a week. The dose is our own caution: the gentle group in the app study logged at least three a week #src("G28"). Hang from a 20~mm edge with your feet on the floor, at "small strain" effort. Use a #tref("half-crimp", body: [half crimp]) or #tref("open-hand", body: [open hand]) grip, never a full crimp. No added weight and no campus board. Stop if finger pain lasts into the next day. The aim is stronger fingers at low risk. Don't count on gentle hangs to toughen your tendons: in leg tendons it takes heavy loading to do that #src("G93"). It isn't a shortcut to V5: Lattice's beginner guide still puts skill first #src("G26").
+  *What fits you:* two or three short sessions a week. The dose is our own caution: the gentle group in the app study logged at least three a week #src("G28"). Hang from a 20~mm edge with your feet on the floor, at "small strain" effort. Use a #tref("half-crimp", body: [half crimp]) or #tref("open-hand", body: [open hand]) grip, never a #tref("full-crimp", body: [full crimp]). No added weight and no campus board. Stop if finger pain lasts into the next day. The aim is stronger fingers at low risk. Don't count on gentle hangs to toughen your tendons: in leg tendons it takes heavy loading to do that #src("G93"). It isn't a shortcut to V5: Lattice's beginner guide still puts skill first #src("G26").
 ]
 
 ==== Recovery and rest
@@ -163,7 +165,7 @@ The picture depends on where the data come from: finger and shoulder problems us
   [Protect your pulleys from sudden overload. Your first finger injury matters most: it makes the next one more likely.],
   [*Shoulders*],
   [Two shoulder problems#ix("Injuries!shoulder") are in the top five diagnoses for over-35s. In #jt("shoulder impingement"), a tendon gets pinched under the shoulder blade. A #jt("SLAP tear") is a tear in the rim of the shoulder socket #src("G18"). In a small indoor bouldering study, 26% had a shoulder injury #src("G19").],
-  [Build up big dynamic moves gradually. Keep your shoulders set (pulled down and back) when you catch a hold. In one trial with 84 student climbers, a strength programme for the shoulders cut shoulder injuries to about a sixth #src("G95").],
+  [Build up big dynamic moves gradually. Keep your shoulders set (pulled down and back) when you catch a hold, as in #tref("latching"). In one trial with 84 student climbers, a strength programme for the shoulders cut shoulder injuries to about a sixth #src("G95").],
   [*Ankles and knees*],
   [Most gym bouldering accidents are falls onto the mat, often with a twisted ankle or leg #src("G12"). In one hospital's emergency department, the ankle was hurt in 37% of bouldering injuries#ix("Injuries!ankle") and the knee in 17% #src("G15"). Older climbers who reach an emergency department are admitted more often #src("G22").],
   [Learn to fall (@cons-falling). In laboratory tests, squatting and rolling cut the force of a landing #src("G80"). No study yet shows that practising falls lowers bouldering injuries: one followed 507 indoor boulderers for a year and found no measure that protected them #src("G81").],
@@ -255,6 +257,8 @@ The Level column is the book's estimate of the grade where each drill starts to 
   [New beta], [#badge-plain(2)], [Climb a problem you've done with three different #jt("beta", body: [betas]) (sequences of moves): square on, side on, then with different feet #src("G44", "G45").], [#tref("frog"), #tref("hip-turn"), #tref("backstep"), #tref("drop-knee")],
 )
 
+More drills are in the entries: quiet feet in #tref("precise-footwork"), swaps in #tref("foot-swap"), keeping your feet on in #tref("toe-pull"), swinging open on a slab in #tref("barn-door") and catching a bar in #tref("latching"). @contact-strength-and-grip-endurance has one for gripping lightly.
+
 ==== A ladder for any technique
 #ix("Drills!ladder for any technique")
 
@@ -264,12 +268,12 @@ Here is one way to learn any technique, with a test for when you have it. Neithe
 + *On easy problems.* Use it on problems about two grades below your best (the gym's easiest, if you haven't got that far), where you can get it wrong and still stay on.
 + *At your limit.* Try it on problems near your best grade, where you have to choose it while the climbing is hard.
 
-You have it once you can say yes to three questions. Can you spot from the ground where it's needed? Does it work first go on a problem you haven't tried? Does it still come to you late in a session, on an easy problem? Don't test a deep drop knee, a full crimp or a big jump when you're tired, because they are riskier then.
+You have it once you can say yes to three questions. Can you spot from the ground where it's needed? Does it work first go on a problem you haven't tried? Does it still come to you late in a session, on an easy problem? Don't test a deep #tref("drop-knee", body: [drop knee]), a #tref("full-crimp", body: [full crimp]) or a #tref("dyno", body: [big jump]) when you're tired, because they are riskier then.
 
 == Working on a hard problem <cons-projecting>
 
 #ix("Projecting", main: true)
-To #jt("project") a problem is to work on it over several attempts or sessions. Chapter 2 gets you a plan for the first try. This section covers the tries after it.
+To #jt("project") a problem is to work on it over several attempts or sessions. The method in @reading-method gets you a plan for the first try. This section covers the tries after it.
 
 ==== How to project
 #ix("Projecting!method")
@@ -348,7 +352,7 @@ The table follows Lattice's logic: compare what your fingers can hold with what 
 + After each fall, check three things. Where were your hips? Where was your #jt("off foot") (the foot not carrying you)? Were your arms straight before the move? #src("F39", "F41", "F42")
 + Take the techniques that the next grade's guide lists and practise them on problems a grade or two easier. There you have attention to spare for the movement #src("F34", "F35"). To find techniques you skipped at earlier grades, tick the #link(<technique-map>)[technique map].
 + For V5, spend about two-thirds of your hard sessions on steeper walls, on problems of four to eight moves at your limit #src("F43", "F46"). Give the rest to your other styles. Keep one session a week easy, for drills (@cons-learning).
-+ Copy #jt("beta") (a sequence of moves) from climbers close to your height. Beta from someone much shorter or taller often won't fit your body (@cons-tall, @cons-small).
++ Copy #jt("beta") (a sequence of moves) from climbers close to your height. Beta from someone much shorter or taller often won't fit your body (@reading-size).
 
 == Falling and landing safely <cons-falling>
 #ix("Falling", main: true)
@@ -394,7 +398,6 @@ If you're tall, your body starts higher than a short climber's from the same foo
 To #jt("bail") is to let go on purpose when a move fails. Jumps cause about a fifth of the falls that injure boulderers #src("G14"). They also cause twisting falls that are hard to control #src("G38"). The DAV recorded climbers landing on or hitting #jt("volume", body: [volumes]) (big hollow shapes bolted to the wall) during jumps #src("G12"). It asks #jt("setter", body: [setters]) not to put the hardest move at full height, especially a jump to the side#ix("Setting!dangerous jumps") #src("G13"). Before you try a #tref("dyno", body: [dyno]), #tref("double-dyno", body: [double dyno]) or #tref("run-and-jump", body: [run-and-jump]):
 
 + *Plan the miss before the go.* Is the landing clear of people, bags and brushes? Is there a volume or big hold below the move that you could hit #src("G12")?
-+ *Know how to get out of every hook.* Before a #tref("heel-hook", body: [heel hook]) above your head, ask yourself: would it release if a hand slipped #src("G38")? If not, set the heel lightly or choose another sequence.
 + *Commit fully or don't go.* A half-hearted jump often ends with one hand on and your body swinging.#note[This point and the two after it are our own advice, drawn from how the sources above describe these falls.]
 + *If you miss, let go with both hands together.* Bring your arms in. Hanging on with one hand swings you round, so you land twisted. Twisting featured in 62% of falls that caused injury #src("G14").
 + *If your feet swing off and you can't hold the swing,* let go as your body swings back under the holds. You then drop straight down instead of flying out backwards. See #tref("cutting-loose").

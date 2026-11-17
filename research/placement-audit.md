@@ -4,7 +4,16 @@ Repetition, misplaced information and weak references, judged against the rule "
 
 **Basis.** The working tree on 2026-11-17, while the "(judgement)" pass was still editing it. Every `file:line` was resolved from the quoted text at that moment, so if a line has moved, search for the quote. Files are in `book/chapters/`.
 
-**Fixed since.** Repetition: 1 (the section has a label and Chapter 9 points to it), 3, 12, 13 and 14. Misplaced: 1, 2, 3 (in part), 4 (the link), 5 and 14. References: 1 (in part), 2, 3 (in part), 5, 6, 8, 9 (most of the `related:` lists) and 10 (the `related:` entry). The rest is open.
+**Fixed since.** In the same week as the audit: Repetition 1, 3, 12, 13 and 14; Misplaced 1, 2, 5 and 14; References 2, 5, 6 and 8. In a second pass on 2026-11-17, everything else except what is listed here as open.
+
+**Still open, on purpose.**
+- Misplaced 15 (the hop onto the high foot) was low priority and would mean moving a step between two entries.
+- Misplaced 13: Slab's error about shoes too tight to bend and Run-and-jump's "softer shoes" stay, because the Shoes section says neither.
+- References 3 and 4: Straight arms still says "Chapter 1" twice, for a figure and a section that have no label. Sub-subsections and boxes got no labels. The text names them in quotes with their numbered section, as in "Mobility" in `@cons-injuries`.
+- References 9: the "meat hook" in Chapter 2's table isn't linked to Wrapping. The link added a line to Wrapping's "Referenced from" list, which pushed the end of that entry onto a page of its own.
+- Repetition 20 was judged and left alone in the audit itself.
+
+Six sections got labels in that pass, named after their web anchors: `@hips-and-the-wall`, `@holds-have-a-direction`, `@rotation-and-the-barn-door`, `@hold-direction-and-body-position`, `@shoes` and `@contact-strength-and-grip-endurance`.
 
 **Changed under the audit, so not reported.** Chapter 2's projecting, rest and change-the-beta sections moved to `@cons-projecting`. Indoor grades moved to `@grades-indoor`. "Reading for your size" moved into `@cons-tall` and `@cons-small`. The World Cup attempt statistics were cut. "How this book was made" became an appendix. Two troubleshooting rows now use labels. Grade notes were being rewritten in chapters 3–7, so findings about grade notes may already be out of date.
 

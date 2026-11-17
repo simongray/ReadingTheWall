@@ -103,13 +103,13 @@ Walls are mostly vertical or slightly overhanging. Jugs give way to #jt("incut")
 
 ==== Techniques that start to matter
 
-Use #tref("edging", body: [edging]) on the outside of the shoe as well as the inside. Use #tref("smearing", body: [smearing]) where there is no foothold. Pull a #tref("sidepull", body: [sidepull]) towards you. A #tref("high-step", body: [high step]) needs a #tref("rockover", body: [rockover]) to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching", inner: true)). Others ask you to turn both knees out so your hips come in (#tref("frog", inner: true)). In a corner or between two #tref("volume", body: [volumes]) (big bolted-on shapes), push your feet out against both sides (#tref("stemming", inner: true)).
+Use #tref("edging", body: [edging]) on the outside of the shoe as well as the inside. Use #tref("smearing", body: [smearing]) where there is no foothold. Pull a #tref("sidepull", body: [sidepull]) towards you. A #tref("high-step", body: [high step]) needs a #tref("rockover", body: [rockover]) to finish it: move your hips across the high foot, then stand up. Many V1s ask you to bring both hands onto one hold (#tref("matching", inner: true)). Others ask you to turn both knees out so your hips come in (#tref("frog", inner: true)). You start to stand on #tref("volume", body: [volumes]) (big hollow shapes bolted to the wall). In a corner or between two volumes, push your feet out against both sides (#tref("stemming", inner: true)).
 
 #grade-techniques(1)
 
 ==== Focus
 
-Before each reach, shift your hips sideways over the foot you will push from. Grip no harder than you need. On easy problems, relax your fingers until they start to slip, then add a little.
+Before each reach, shift your hips sideways over the foot you will push from. Grip no harder than you need. On easy problems, relax your fingers until they start to slip, then add a little (@contact-strength-and-grip-endurance).
 
 ==== Reading problems at this grade
 
@@ -142,7 +142,7 @@ Gentle overhangs of about 10–25° become common. Holds include ones you pull s
 
 ==== Techniques that start to matter
 
-On the steep, learn to turn a hip in (#tref("hip-turn", inner: true)); the #tref("backstep", body: [backstep]) builds on this from V3. The #tref("flag", body: [side flag]) stops the #tref("barn-door", body: [barn door]) swing when one hand lets go. Two sideways holds facing the same way ask for a #tref("layback", body: [layback]). An #tref("undercling", body: [undercling]) at chest height asks you to bring your feet high. Some moves, especially on #tref("traverse", body: [traverses]), ask you to swap feet on one hold (#tref("foot-swap", inner: true)). On #jt("crimp", body: [crimps]) (small edges held on the fingertips), make the #tref("half-crimp", body: [half crimp]) your default from the start, so you don't fall into the habit of full crimping. As footholds shrink, #tref("slab") starts to matter. Problems that finish on top ask for a #tref("mantle", body: [mantle]) and a #tref("top-out", body: [top-out]).
+On the steep, learn to turn a hip in (#tref("hip-turn", inner: true)); the #tref("backstep", body: [backstep]) builds on this from V3. The #tref("flag", body: [side flag]) stops the #tref("barn-door", body: [barn door]) swing when one hand lets go. Two sideways holds facing the same way ask for a #tref("layback", body: [layback]). An #tref("undercling", body: [undercling]) at chest height asks you to bring your feet high. Some moves, especially on #tref("traverse", body: [traverses]), ask you to swap feet on one hold (#tref("foot-swap", inner: true)). On #jt("crimp", body: [crimps]) (small edges held on the fingertips), start with the #tref("half-crimp", body: [half crimp]). As footholds shrink, #tref("slab") starts to matter. Problems that finish on top ask for a #tref("mantle", body: [mantle]) and a #tref("top-out", body: [top-out]).
 
 A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid building that habit. On big holds low on the wall, start practising a partial #tref("drop-knee", body: [drop knee]), small #tref("deadpoint", body: [deadpoints]) and the #tref("dyno", body: [dyno]).
 
@@ -186,15 +186,15 @@ V3s come in two families. *Steep* problems sit on 20–40° overhangs with mid-s
 
 ==== Techniques that start to matter
 
-Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook", body: [heel hook]) on a good hold to pull your hips in. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]) turns a hip to the wall. Where you can't turn in, a #tref("lock-off", body: [lock-off]) holds you for a slow reach. Your hands meet the #tref("sloper", body: [sloper]), the #tref("pinch", body: [pinch]) and the #tref("gaston", body: [gaston]), a hold you push outwards with your elbow out. On big holds, start practising the #tref("lunge", body: [one-handed dyno]), the #tref("double-dyno", body: [double dyno]) and the #tref("run-and-jump", body: [run-and-jump]).
+Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook", body: [heel hook]) on a good hold to pull your hips in, and a #tref("toe-hook", body: [toe hook]) to stop a swing when a hand lets go. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]) turns a hip to the wall. Where you can't turn in, a #tref("lock-off", body: [lock-off]) holds you for a slow reach. Your hands meet the #tref("sloper", body: [sloper]), the #tref("pinch", body: [pinch]) and the #tref("gaston", body: [gaston]), a hold you push outwards with your elbow out. The #tref("run-and-jump", body: [run-and-jump]) appears on problems set in a competition style. On big holds, start practising the #tref("lunge", body: [one-handed dyno]) and the #tref("double-dyno", body: [double dyno]).
 
 #grade-techniques(3)
 
 ==== Focus
 
-- *Toes into the wall on steep ground.* Push through the front of the shoe into the hold, not down along the wall #src("F41").
-- *Create momentum.* Sink your hips a little, then drive up with your legs. Your arms guide the movement rather than haul it #src("F33", "F39").
-- *Flash more.* Read each V3 fully before you touch it, then try to #jt("flash") it: climb it first go, without falling.
+- *Toes into the wall on steep ground.* Push through the front of the shoe into the hold, not down along the wall (#tref("toe-pull", inner: true)) #src("F41").
+- *Create momentum.* Sink your hips a little, then drive up with your legs (#tref("pre-loading", inner: true)). Your arms guide the movement rather than haul it #src("F33", "F39").
+- *Flash more.* Read each V3 fully before you touch it (@reading-method), then try to #jt("flash") it: climb it first go, without falling.
 
 ==== Reading problems at this grade
 
@@ -233,14 +233,14 @@ Expect overhangs of 30–45°, or vertical walls with poor feet. #jt("crimp", bo
 
 ==== Techniques that start to matter
 
-The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. Add the #tref("toe-hook", body: [toe hook]) to stop a swing and to keep your feet on a #tref("roof", body: [roof]). Squeezing between two holds becomes a technique of its own (#tref("compression", inner: true)). Gyms start to set the #tref("lunge", body: [one-handed dyno]) and the #tref("dyno", body: [dyno]) here, so you need #tref("latching", body: [latching]) to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. The #tref("run-and-jump", body: [run-and-jump]) appears on problems set in a competition style. Your hands meet the #tref("pocket", body: [pocket]). On rounded holds the thumb starts to help (#tref("thumb-catch", inner: true)). By now, momentum is a normal tool, not a last resort.
+The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee and pull with the #jt("hamstring") (the muscle at the back of the thigh) to draw your hips in. The #tref("toe-hook", body: [toe hook]) now keeps your feet on a #tref("roof", body: [roof]), where a #tref("bicycle", body: [bicycle]) clamps one hold between both feet. Squeezing between two holds becomes a technique of its own (#tref("compression", inner: true)). Gyms start to set the #tref("lunge", body: [one-handed dyno]) and the #tref("dyno", body: [dyno]) here, so you need #tref("latching", body: [latching]) to hold the catch and #tref("cutting-loose", body: [cutting loose]) to control the swing. Your hands meet the #tref("pocket", body: [pocket]). On rounded holds the thumb starts to help (#tref("thumb-catch", inner: true)). By now, momentum is a normal tool, not a last resort.
 
 #grade-techniques(4)
 
 ==== Focus
 
-- *Choose #jt("static") or #jt("dynamic").* For big moves on overhangs, start with straight arms and your hips back and down, then drive from your feet. Newer climbers tend to #tref("lock-off", body: [lock off]) too much #src("F39").
-- *Body tension.* When your hands are far above you or out to the side, keep pushing through both toes. If your feet go light, pull on the footholds with your toes.
+- *Choose #jt("static") or #jt("dynamic").* For big moves on overhangs, start with straight arms and your hips back and down, then drive from your feet (#tref("pre-loading", inner: true)). Newer climbers tend to #tref("lock-off", body: [lock off]) too much #src("F39").
+- *Body tension.* When your hands are far above you or out to the side, keep pushing through both toes. If your feet go light, #tref("toe-pull", body: [pull on the footholds with your toes]).
 - *Repeat, then reach up.* Repeat V4s until they feel smooth. Put real attempts into at least one V5 every session. Lattice counts learning chances, not #jt("send", body: [sends]) (clean climbs of a problem) #src("F9").
 
 ==== Reading problems at this grade
@@ -261,11 +261,11 @@ Find the #jt("crux") first, then work backwards. What body position must you be 
 Many climbers stall between V4 and V5: the plateau is common enough that gyms name clinics after it #src("F33", "F35").
 
 - *Strength instead of position.* Lattice's#ix("Lattice Training") coaches say strong climbers learn technique more slowly, because they can muscle through moves #src("F9"). After each fall, ask: "If I'm strong enough for this, what am I missing?" #src("F42")
-- *Locking off on the steep.* Newer climbers hold bent-arm #tref("lock-off", body: [lock-offs]) too often. Start big moves from straight arms instead, hips back and down. Press into the foot rather than pulling the knee in tight #src("F39"). See #tref("pre-loading").
-- *Staying tight to the wall when you need to turn.* Pinned to the wall, you can't rotate, so you swing when a hand comes off. Before you let go with the lower hand, relax away from it. Find the point where you balance, then move #src("F40").
-- *Ignoring the off foot.* The #jt("off foot"), the foot not carrying you, controls rotation. Push it into the wall at roughly right angles to the line from your hand to your foot. Touch it briefly on the wall to stop a swing #src("F41"). #ix("Off foot") See #tref("barn-door").
+- *Locking off on the steep.* Newer climbers hold bent-arm #tref("lock-off", body: [lock-offs]) too often #src("F39"). #tref("pre-loading") shows the straight-armed start to use instead.
+- *Staying tight to the wall when you need to turn.* Pinned to the wall, you can't rotate, so you swing when a hand comes off #src("F40"). @hips-and-the-wall explains why, and #tref("body-tension") has the fix.
+- *Ignoring the off foot.* The #jt("off foot"), the foot not carrying you, controls rotation #src("F41"). #ix("Off foot") Fix 4 in #tref("barn-door") says where to press it.
 - *Avoiding weak styles and limit attempts.*#ix("Plateau!climbing one style") Lattice lists both among the main causes of plateaus #src("F9").
-- *Missing a few techniques.* Gym clinics for the "V5 plateau" teach a short list: #tref("heel-hook", body: [heel hooks]), toe hooks, #tref("flag", body: [flagging]), #tref("body-tension", body: [body tension]), #tref("compression", body: [compression]), deadpoints and sequencing #src("F35"). A V5–V6 clinic adds #tref("drop-knee", body: [drop knees]), #tref("mantle", body: [mantles]), #tref("rockover", body: [rockovers]) and dynos #src("F34").
+- *Missing a few techniques.* Gym clinics for the "V5 plateau" teach a short list: #tref("heel-hook", body: [heel hooks]), #tref("toe-hook", body: [toe hooks]), #tref("flag", body: [flagging]), #tref("body-tension", body: [body tension]), #tref("compression", body: [compression]), #tref("deadpoint", body: [deadpoints]) and sequencing #src("F35"). A V5–V6 clinic adds #tref("drop-knee", body: [drop knees]), #tref("mantle", body: [mantles]), #tref("rockover", body: [rockovers]) and #tref("dyno", body: [dynos]) #src("F34").
 
 @cons-plateau helps you find out which of these stops you.
 
@@ -302,13 +302,13 @@ Expect steep walls with small #jt("crimp", body: [crimps]), poor rounded holds a
 
 ==== Techniques that start to matter
 
-Some moves take your feet or both hands off the wall: the #tref("double-dyno", body: [double dyno]), the #tref("campus-move", body: [campus move]) and #tref("foot-catch", body: [jumping to a foothold]). Steep hooking extends to the #tref("bicycle", body: [bicycle]), the #tref("heel-toe-cam", body: [heel–toe cam]) and, where a volume or corner allows it, the #tref("knee-bar", body: [knee bar]). The tiniest edges may need a #tref("full-crimp", body: [full crimp]), so keep it for those moves. Some slabs turn dynamic (#tref("dynamic-slab", inner: true)). #jt("comp style", body: [Comp-style]) problems (set like competition problems) add the #tref("pogo", body: [pogo]) and #tref("comp-moves", body: [competition set pieces]) such as the tic-tac, the paddle dyno and the double clutch.
+Some moves take your feet or both hands off the wall: the #tref("double-dyno", body: [double dyno]), the #tref("campus-move", body: [campus move]) and #tref("foot-catch", body: [jumping to a foothold]). Steep hooking extends to the #tref("heel-toe-cam", body: [heel–toe cam]) and, where a volume or corner allows it, the #tref("knee-bar", body: [knee bar]). The tiniest edges may need a #tref("full-crimp", body: [full crimp]), so keep it for those moves. Some slabs turn dynamic (#tref("dynamic-slab", inner: true)). #jt("comp style", body: [Comp-style]) problems (set like competition problems) add the #tref("pogo", body: [pogo]) and #tref("comp-moves", body: [competition set pieces]) such as the tic-tac, the paddle dyno and the double clutch.
 
 #grade-techniques(5)
 
 ==== Focus
 
-- *Build a V5 base.* Once your first V5s go, climb many V5s in different styles until the grade stops depending on style. Read each new one fully, then give it one real #jt("flash") attempt before you work it.
+- *Build a V5 base.* Once your first V5s go, climb many V5s in different styles until the grade stops depending on style. Read each new one fully (@reading-method), then give it one real #jt("flash") attempt before you work it.
 - *Finish the technique list.* Practise the V5–V6 clinic techniques on V4s first #src("F34").
 
 ==== Reading problems at this grade
@@ -363,7 +363,7 @@ This book's catalogue has nothing new for this band, so the work is on the techn
 
 ==== Physical side
 
-One head setter says a gym's problems start to test finger strength from V6 #src("E52"). Forum climbers recommend finger training to break into V6 #src("F46"). One coaching company puts the change later: up to V7 or V8, it says, most problems need only moderate finger strength #src("F64").
+One head setter says a gym's problems start to test finger strength from V6 #src("E52"). Forum climbers recommend finger training to break into V6 #src("F46") (see "When finger training makes sense" in @cons-adult). One coaching company puts the change later: up to V7 or V8, it says, most problems need only moderate finger strength #src("F64").
 
 ==== Why people stall here
 
@@ -461,12 +461,12 @@ Each row lists key techniques badged at that grade in Part II, and what to focus
   columns: (auto, 1.6fr, 1fr),
   table.header(th[Band], th[Key techniques], th[Focus]),
   [*VB–V0*], [#tref("precise-footwork"), #tref("edging"), #tref("weight-shift"), #tref("straight-arms"), #tref("jug")], [Place feet by eye; push with the legs; learn to fall],
-  [*V1*], [#tref("smearing"), #tref("rockover"), #tref("frog"), #tref("matching"), #tref("stemming"), #tref("sidepull")], [Hips over the foot before you reach],
+  [*V1*], [#tref("smearing"), #tref("rockover"), #tref("frog"), #tref("matching"), #tref("stemming"), #tref("sidepull"), #tref("volume")], [Hips over the foot before you reach],
   [*V2*], [#tref("foot-swap"), #tref("hip-turn"), #tref("flag"), #tref("layback"), #tref("half-crimp"), #tref("undercling"), #tref("mantle"), #tref("slab")], [Climb side-on; stop the swing],
-  [*V3*], [#tref("toe-pull"), #tref("heel-hook"), #tref("backstep"), #tref("drop-knee"), #tref("body-tension"), #tref("lock-off"), #tref("sloper"), #tref("pinch"), #tref("gaston"), #tref("deadpoint"), #tref("overhang")], [Toes into the wall; first momentum; climb V3s first go],
-  [*V4*], [#tref("toe-hook"), #tref("compression"), #tref("dyno"), #tref("latching"), #tref("cutting-loose"), #tref("run-and-jump"), #tref("roof")], [Straight-arm starts; plan the swing; try a V5 every session],
+  [*V3*], [#tref("toe-pull"), #tref("heel-hook"), #tref("toe-hook"), #tref("backstep"), #tref("drop-knee"), #tref("body-tension"), #tref("lock-off"), #tref("sloper"), #tref("pinch"), #tref("gaston"), #tref("deadpoint"), #tref("run-and-jump"), #tref("overhang")], [Toes into the wall; first momentum; climb V3s first go],
+  [*V4*], [#tref("bicycle"), #tref("compression"), #tref("dyno"), #tref("latching"), #tref("cutting-loose"), #tref("roof")], [Straight-arm starts; plan the swing; try a V5 every session],
   [*V4→V5*], [Those of V3 and V4, done precisely and linked], [Find your limiter; work three to five V5s over sessions],
-  [*V5*], [#tref("bicycle"), #tref("heel-toe-cam"), #tref("knee-bar"), #tref("full-crimp"), #tref("double-dyno"), #tref("campus-move"), #tref("foot-catch"), #tref("pogo"), #tref("comp-moves")], [A broad V5 base across styles],
+  [*V5*], [#tref("heel-toe-cam"), #tref("knee-bar"), #tref("full-crimp"), #tref("double-dyno"), #tref("campus-move"), #tref("foot-catch"), #tref("pogo"), #tref("comp-moves")], [A broad V5 base across styles],
   [*V6*], [No new techniques; hooks as main holds, #tref("compression") and #tref("cutting-loose")], [Weak styles; small holds; precision],
   [*V7*], [No new techniques; precise #tref("latching", body: [latching]), hooks and compression], [Test for weaknesses; projects over weeks],
   [*V8+*], [No new techniques; grip-specific strength], [Moves worked out for your body; specialist strength],

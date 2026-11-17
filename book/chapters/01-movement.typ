@@ -23,7 +23,7 @@ Good climbers share a rhythm: *shift the hips first, then move the limb*#ix("Hip
 
 == Straight arms: hang on your skeleton
 
-Muscle holds a bent arm bent. Lock your elbow at ninety degrees and your biceps and shoulder muscles work all the time #src("G71"). Straighten the arm and your elbow muscles can rest #src("B12", "B30"). Coaches talk about hanging on your skeleton #src("B12", "B22"), but as a physiotherapist points out, you always are: the saving comes from using fewer muscles and using them less hard #src("B50"). Your shoulder#ix("Shoulders!on straight arms") muscles must still hold the joint in place #src("B50"). So learn #tref("straight-arms", body: [straight arms]) early. The UK's coach training lists them as a way to find a rest #src("B1").
+Muscle holds a bent arm bent. Lock your elbow at ninety degrees and your biceps and shoulder muscles work all the time #src("G71"). Straighten the arm and your elbow muscles can rest #src("B12", "B30"). Coaches talk about hanging on your skeleton #src("B12", "B22"), but as a physiotherapist points out, you always are: the saving comes from using fewer muscles and using them less hard #src("B50"). Your shoulder#ix("Shoulders!on straight arms") muscles must still hold the joint in place #src("B50"). So learn #tref("straight-arms", body: [straight arms]) early.
 
 On long problems your forearms #jt("pump")#ix("Pump!reducing"): they swell, ache and weaken. Coaches recommend hanging on straight arms whenever you aren't pulling, to ease the pump #src("B22", "B36"). No study we found has measured that: the closest one tested short hangs and saw no change in the forearm #src("G71"). Straight arms also force you to move with your legs, because a straight arm can't pull.
 
@@ -31,7 +31,7 @@ On long problems your forearms #jt("pump")#ix("Pump!reducing"): they swell, ache
 
 Straight arms are not a rule for every moment. You bend your arms to pull through a move or to #tref("lock-off", body: [lock off]). On steep ground the skill is to straighten them again as soon as the move is done. Then set up the next move with straight arms: move the feet, turn the hips.
 
-== Hips and the wall
+== Hips and the wall <hips-and-the-wall>
 
 How far your hips#ix("Hips!distance from the wall") are from the wall decides how much weight goes through your feet. The right distance depends on the wall angle.
 
@@ -46,7 +46,7 @@ How far your hips#ix("Hips!distance from the wall") are from the wall decides ho
 // a new page, as the section is too short to split: its last lines would sit
 // alone above the next section's page break
 #pagebreak(weak: true)
-== Holds have a direction
+== Holds have a direction <holds-have-a-direction>
 
 A hold is not just "good" or "bad". It has a surface you can pull on, which only works when you pull away from the way it faces. A #tref("jug", body: [jug]) works from below. An #tref("undercling", body: [undercling]) works from above, pulling upward. A #tref("sidepull", body: [sidepull]) whose gripping edge faces left works when your body is to its right, leaning away from it. Used with your body on its left, the same hold becomes a #tref("gaston", body: [gaston]). A #tref("sloper", body: [sloper]) works only when your body hangs below it, arm straight #src("B31"). So the holds dictate where your body goes. #ix("Direction of pull", main: true)
 
@@ -60,7 +60,7 @@ Three kinds of force come out of this:
 
 // a new page, so that the section and its figure are read together
 #pagebreak(weak: true)
-== Rotation and the barn door
+== Rotation and the barn door <rotation-and-the-barn-door>
 
 Hang from two points, say your left hand and your left foot. Your body can rotate#ix("Rotation") around the line between them, like a door on its hinges. If your centre of gravity sits to the side of that #jt("hinge")#ix("Hinge"), gravity swings your body open #src("B8"). This is the #tref("barn-door", body: [barn door]), which explains many falls that seem to have no cause.
 

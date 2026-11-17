@@ -16,7 +16,7 @@ No public syllabus ties footwork to V-grades #src("A46"), so each badge in this 
 Most climbers plan the hands and let the feet follow. Turn that round. These rules come from~coaches:
 
 - *Let the legs do the work.* Overhangs are the exception, where the arms do more. Push with one foot at a time, as on a ladder #src("A36").
-- *Your hands decide your feet.* When your left hand lets go, your right hand holds you: stand on your left foot, and the other way round. That is the diagonal from Chapter 1: the hand that stays on and the foot you stand on are on opposite sides#ix("Opposite hand and foot") #src("A32").
+- *Your hands decide your feet.* When your left hand lets go, your right hand holds you: stand on your left foot, and the other way round. That is the diagonal from @rotation-and-the-barn-door: the hand that stays on and the foot you stand on are on opposite sides#ix("Opposite hand and foot") #src("A32").
 - *Choose foot height by the next reach.*#ix("Footwork!foot height") Look for a foothold that puts the next handhold just within reach, usually no higher than your knee as you stand. High footholds feel secure but cost energy #src("A32").
 - *Move your feet often.*#ix("Footwork!how often to move the feet") Use small in-between footholds instead of one big step #src("A28", "A29"). To notice lazy feet, try a drill from one how-to article: make three foot placements for every hand move, using any footholds you need #src("A3"). Try it on an easy climb first. It's a practice drill, not a target for your hard problems.
 - *Read the feet before you start and remember them.* Trace a path for your feet to the #jt("crux") (the hardest move), not just for your hands. Step 5 of @reading-method shows how. On a problem you work over several goes, the commonest error is changing your feet #src("A32").
@@ -53,15 +53,15 @@ Most climbers plan the hands and let the feet follow. Turn that round. These rul
   [The next foothold is far away; a roof with no footholds past its edge], [Let the feet go, under control], [#tref("cutting-loose")],
 )
 
-== Shoes
+== Shoes <shoes>
 
 #ix("Climbing shoes")
 Only the shoe points that change technique are here. They come from coaches, not from tests.
 
-- *Downturned shoes*#ix("Climbing shoes!downturned") curl the toe down like a claw. They help you pull with the toes on steep walls and in pockets #src("A6", "A7", "A37").
-- *Stiff shoes*#ix("Climbing shoes!stiff or soft") hold you up on small edges for longer but give less feel. *Soft shoes* smear better and let you feel the hold #src("A1", "A6"). Gresham#ix("Gresham, Neil") says a softer shoe may be enough for bouldering #src("A6").
-- *For toe hooks*#ix("Climbing shoes!for toe hooks"), choose shoes with rubber over the top of the toes #src("A25", "A37"). Velcro shoes and slippers hold toe hooks better than lace-ups #src("A14").
-- *Fit:*#ix("Climbing shoes!fit") a shoe should be snug, with no air pockets, but not painful #src("A4"). *For heel hooks*#ix("Climbing shoes!for heel hooks"), the heel must fit with no empty space. Tighten the straps fully #src("A8", "A9").
+- *Downturned shoes*#ix("Climbing shoes!downturned") curl the toe down like a claw. They help you #tref("toe-pull", body: [pull with the toes]) on steep walls and in pockets #src("A6", "A7", "A37").
+- *Stiff shoes*#ix("Climbing shoes!stiff or soft") hold you up on small edges for longer but give less feel. *Soft shoes* #tref("smearing", body: [smear]) better and let you feel the hold #src("A1", "A6"). Gresham#ix("Gresham, Neil") says a softer shoe may be enough for bouldering #src("A6").
+- *For* #tref("toe-hook", body: [*toe hooks*])#ix("Climbing shoes!for toe hooks"), choose shoes with rubber over the top of the toes #src("A25", "A37"). Velcro shoes and slippers hold toe hooks better than lace-ups #src("A14").
+- *Fit:*#ix("Climbing shoes!fit") a shoe should be snug, with no air pockets, but not painful #src("A4"). *For* #tref("heel-hook", body: [*heel hooks*])#ix("Climbing shoes!for heel hooks"), the heel must fit with no empty space. Tighten the straps fully #src("A8", "A9").
 
 #figure(image("../figures/foot-atlas.svg"), caption: [Foot positions at a glance. Each one has its own entry in this chapter.], kind: image, supplement: [Figure])
 
@@ -135,14 +135,14 @@ Only the shoe points that change technique are here. They come from coaches, not
     - a foothold on the far side of your body's centre line, a steep wall or a #tref("sidepull", body: [sidepull]) for the hand. Turn the hip in and use the outside edge #src("A7", "A50").
 
     *Symptoms*
-    - On an #tref("overhang", body: [overhang]) you hang square on with bent arms, pulling hard #src("A7"). That is the #tref("frog", body: [frog position]). Turn a hip in.
+    - On an #tref("overhang", body: [overhang]) you hang square on with bent arms, pulling hard #src("A7"). That is the #tref("frog", body: [frog position]). #tref("hip-turn", body: [Turn a hip in]).
     - You keep swapping feet to reach holds on the other side #src("A50").
   ],
   errors: [
     - Standing on the middle of the shoe, near the arch. Move the foot until the front of the edge is on the hold #src("A6").
     - Heel at the wrong height: too high and the foot pops, too low and the toe loses grip #src("A2").
   ],
-  tall: [On #tref("sit-start", body: [sit starts])#ix("Tall climbers!sit starts"), sit side-on with the outside edge on the foothold #src("A7"). That avoids the deep frog squat that long thighs find awkward.],
+  tall: [On #tref("sit-start", body: [sit starts])#ix("Tall climbers!sit starts"), put the outside edge on the foothold #src("A7"). @cons-tall has the sequence and a figure.],
   small: [When a hold is just out of reach#ix("Small climbers!edging"), stand on the highest usable part of the foothold #src("H9") and drive up through your big toe with your calf #src("H3"). One climber reckons that rising on your toes gains a few centimetres #src("H8"), but a heel that goes too high can pop the foot #src("A2").],
   related: ("pivoting", "precise-footwork", "backstep", "hip-turn", "frog"),
   sources: ("A2", "A3", "A4", "A5", "A6", "A7", "A33", "A50", "H3", "H8", "H9"),
@@ -274,7 +274,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Move your weight *across* towards that foot first, not up #src("A21"), until your hips and chest are over it #src("A20"). Standing up is then easy #src("A21").
     + Straighten that leg to stand #src("A20", "A34"). Don't kneel on the hold, because kneeling makes standing up harder #src("A34").
 
-    *Over a heel:* learn the #tref("heel-hook", body: [heel hook]) first and read its warnings. Then pull with the heel and push with the lower leg, while you press down with one or both hands #src("A8").
+    *Over a heel:* learn the #tref("heel-hook", body: [heel hook]) first and read its warnings. Then pull with the heel and push with the lower leg, while you press down with one or both hands #src("A8"). #tref("top-out") has the full sequence.
   ],
   when: [
     *Look for*
@@ -412,7 +412,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     + Place the toe precisely on the best part of the hold, without slapping the wall with the ball of the foot #src("A38").
     + Tighten your #jt("hamstring", body: [hamstrings]) (the muscles at the back of the thigh), buttocks, belly and lower back together. Drive the toe onto the hold as if drilling it in #src("A6").
     + Grip with the toes, as if your feet could hold on like hands #src("A38"), and press hard through them #src("A37").
-    + Keep your hips close to the wall #src("A38"). Turn a hip in and use the outside edge, or drop a knee: both put more weight on your legs #src("A7", "A37").
+    + Keep your hips close to the wall #src("A38"). #tref("hip-turn", body: [Turn a hip in]) and use the outside edge, or #tref("drop-knee", body: [drop a knee]): both put more weight on your legs #src("A7", "A37").
     + Move your hips before you reach #src("A38"), and keep the feet loaded as a hand lets go #src("A7").
 
     *Paddling:* when a big foothold sits out to the side, put the whole sole on it. Pull with the hamstring to draw your body in or to steer it #src("A6").
@@ -430,7 +430,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   ],
   errors: [
     - Jumping and cutting loose by habit. Gym setting often rewards it #src("A40").
-    - Trying to fix it with more sit-ups and other #jt("core") exercises#ix("Core!training"). Practise tension on the wall instead #src("A40").
+    - Trying to fix it with more sit-ups and other #jt("core") exercises#ix("Core!training") #src("A40"). #tref("body-tension") says why that fails.
   ],
   related: ("toe-hook", "edging", "body-tension", "overhang", "cutting-loose", "hip-turn", "drop-knee"),
   watch: (("Paradigm Climbing", "The Secret to NEVER Cutting Feet - Toe Screwing", "https://www.youtube.com/watch?v=GPKXFotN5lc"),),
@@ -476,29 +476,27 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Wearing loose shoes, or shoes with empty space in the heel #src("A8", "A9").
     - Overstretching on a roof, so you have to #tref("cutting-loose", body: [cut loose]) #src("A8").
     - Skipping the warm-up. Heel hooks use muscles that climbing rarely trains, so hamstring injuries#ix("Injuries!hamstring")#ix("Warm-up!before heel hooks") are common #src("A11"). Without one, turning the foot out hard on a heel close to the hip can tear the #jt("LCL") (the ligament on the outside of the knee)#ix("Injuries!knee") #src("A10").
-    - Hooking above your head with no plan for a fall. A hooked heel can hold your foot up as you come off (@cons-falling). Heel hooks also caused the most knee injuries in one study (the knee box in @cons-injuries).
+    - Hooking above your head with no plan for a fall. A hooked heel can hold your foot up as you come off (@cons-falling). Ask yourself first: would it release if a hand slipped #src("G38")? If not, set the heel lightly or choose another sequence. Heel hooks also caused the most knee injuries in one study (the knee box in @cons-injuries).
   ],
-  tall: [You may use heel hooks less to gain reach than to keep your hips in and to stop swings.#ix("Tall climbers!heel hooks") The hardest heels for you are the folded-up ones close to your hip, which need knee and hip mobility #src("A10").],
+  tall: [You may use heel hooks less to gain reach than to keep your hips in and to stop swings.#ix("Tall climbers!heel hooks") The hardest heels for you are the folded-up ones close to your hip, which need knee and hip mobility #src("A10"). "Mobility" in @cons-injuries has stretches.],
   small: [Short climbers use heel hooks mainly to gain reach#ix("Small climbers!heel hooks") #src("A9", "A15"). @cons-small says where a high heel helps.],
   related: ("toe-hook", "heel-toe-cam", "rockover", "arete", "roof", "barn-door"),
   watch: (("Joe Kinder for Eastern Mountain Sports", "Essentials of Climbing: Heel and Toe Hooks", "https://www.youtube.com/watch?v=YxGpiR0KCms"),),
-  sources: ("A8", "A9", "A10", "A11", "A15", "A19", "A21", "A42", "A43", "A44", "A45"),
+  sources: ("A8", "A9", "A10", "A11", "A15", "A19", "A21", "A42", "A43", "A44", "A45", "G38"),
 )
-
-== V4–V5: hooks, clamps and~locks
 
 #technique(
   key: "toe-hook",
   name: "Toe hook",
   aliases: ("toehook", "toe scum"),
   category: "feet",
-  grade: 4,
+  grade: 3,
   grade-note: [One forum poster lists it with heel hooks from V3 #src("A44"). A London gym teaches both in a course for V2–V4 climbers #src("F70"). Gym clinics aimed at V5–V6 climbers still teach it #src("A42", "A43").],
   summary: [You hook the top of your foot under or behind a hold so the leg can keep your body in place. That mostly gives stability, not pull #src("A13").],
   figure: "toe-hook.svg",
   caption: [(a) The left toes hook behind a hold out to the side. They keep the left side in while the left hand moves. The right foot pushes. (b) Close-up from behind: the ankle is flexed and the top of the toes presses on the far side of the hold. The leg pulls towards the body.],
   how: [
-    + Fit the top of the foot, not the tip, into the hold like a puzzle piece. On deep holds, hook higher up, on the laces #src("A13").
+    + Fit the top of the foot, not the tip, into the hold like a puzzle piece (@shoes says which shoes to choose for this). On deep holds, hook higher up, on the laces #src("A13").
     + Set the hook with the ankle bent up towards the shin #src("A14", "A21"). Straighten the hooking leg if you can and lower your hips so your weight hangs on the toe #src("A13").
     + Hold the hook with a firm leg #src("A14"), not by curling the toes. The coach Kris Hampton#ix("Hampton, Kris") says curling and pulling is why toe hooks feel so hard to keep on #src("A13").
     + Push the other foot against a hold below your #jt("centre of gravity") (your balance point, near your navel) #src("A14", "A15"). Or pull the hooked foot and the opposite hand towards each other #src("A13").
@@ -522,7 +520,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     - Missing hooks you can't see, round the sides of features #src("A12").
   ],
   tall: [Long legs reach toe hooks far out to the side with a straight leg,#ix("Tall climbers!toe hooks") the set-up Hampton#ix("Hampton, Kris") recommends #src("A13"). Brace your #jt("core") before you let go of a hook #src("A15"). Tall climbers on one training site say a long body needs more core strength to hold its span on steep walls #src("E76").],
-  related: ("bicycle", "heel-hook", "toe-pull", "barn-door", "roof", "undercling"),
+  related: ("bicycle", "heel-hook", "toe-pull", "barn-door", "roof", "undercling", "body-tension", "arete"),
   watch: (
     ("Joe Kinder for Eastern Mountain Sports", "Essentials of Climbing: Heel and Toe Hooks", "https://www.youtube.com/watch?v=YxGpiR0KCms"),
     ("Power Company Climbing", "Toe Hook Secrets: The Most Misunderstood Climbing Technique", "https://www.youtube.com/watch?v=gtlT3rzs0AM"),
@@ -530,12 +528,14 @@ Only the shoe points that change technique are here. They come from coaches, not
   sources: ("A4", "A12", "A13", "A14", "A15", "A20", "A21", "A44"),
 )
 
+== V4–V5: clamps and~locks
+
 #technique(
   key: "bicycle",
   name: "Bicycle",
   aliases: ("bicycle clamp", "reverse bicycle"),
   category: "feet",
-  grade: 5,
+  grade: 4,
   grade-note: [You need it only where a steep wall has one big hold or volume that both feet can clamp. The Sportrock gym calls it advanced #src("A25"), though a London gym teaches it in a course for V2–V4 climbers #src("F71").],
   summary: [You clamp one hold between both feet: one foot pushes down on top of the hold while the other pulls up under it with the top of the foot #src("A19", "A41").],
   figure: "bicycle.svg",
@@ -582,7 +582,7 @@ Only the shoe points that change technique are here. They come from coaches, not
     *Symptom:* at the same spot, a heel alone slides off and a toe hook alone pops.
   ],
   errors: [
-    - Falling with the foot locked.#ix("Falling!with a foot or leg locked") Some cams stay locked in a fall and can damage joints #src("A1"). You can break an ankle#ix("Injuries!ankle") this way #src("A33").
+    - Falling with the foot locked (@cons-falling).#ix("Falling!with a foot or leg locked") Some cams stay locked in a fall and can damage joints #src("A1"). You can break an ankle#ix("Injuries!ankle") this way #src("A33").
     - Trying it without a #jt("spotter")#ix("Spotting") (a friend who guides your fall onto the mat) #src("A8").
   ],
   related: ("heel-hook", "toe-hook", "knee-bar", "volume"),
@@ -618,7 +618,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   ],
   errors: [
     - Letting the pad slip. A slip of a few millimetres makes a tight bar fail #src("A16").
-    - Wedging the leg where it could stay stuck in a fall#ix("Falling!with a foot or leg locked") #src("A17").
+    - Wedging the leg where it could stay stuck in a fall#ix("Falling!with a foot or leg locked") (@cons-falling) #src("A17").
   ],
   related: ("heel-toe-cam", "drop-knee", "volume", "roof", "overhang"),
   watch: (("Adam Ondra", "Kneebar Mastery: Nail Your First Kneebar", "https://www.youtube.com/watch?v=N0Dn6NJ7jCI"),),

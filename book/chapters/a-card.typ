@@ -21,7 +21,7 @@
 
 #remember[When it doesn't go][
   + Name why you fell: a misjudged hold, a lost sequence or a surprise.
-  + Ask the three questions again. Look the symptom up in #link(<troubleshooting>)[the troubleshooting table].
+  + Ask the three questions again (@three-questions). Look the symptom up in #link(<troubleshooting>)[the troubleshooting table].
   + When your attempts stop getting further, change something: rest longer, change the sequence or stop for the day.
 ]
 

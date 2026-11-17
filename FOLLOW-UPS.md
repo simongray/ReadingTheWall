@@ -16,20 +16,20 @@ streamlining), which have the details.
 - **Grade placements** are the book's estimates. Only the French federation's
   syllabus ties techniques to boulder grades, for three of its levels
   (`research/grade-syllabi.md`). Courses and setters put four groups of
-  techniques earlier than their badges: standing on volumes at about V0–V1
-  (badge V2), bicycles at V2–V4 (V5), toe hooks at V2–V4 (V4) and
-  competition-style moves from V2–V4 (V4 and V5). No badge was changed
-  (`research/judgement-pass.md`). Revisit them as you climb more problems in
-  your gyms.
+  techniques earlier than the third edition's badges: standing on volumes at
+  about V0–V1, bicycles at V2–V4, toe hooks at V2–V4 and competition-style
+  moves from V2–V4 (`research/judgement-pass.md`). On 2026-11-17 four badges
+  moved for that reason: Volumes to V1, Toe hook and Run-and-jump to V3, and
+  Bicycle to V4. The other competition-style moves kept V5, since setters
+  disagree about them. Revisit them as you climb more problems in your gyms.
 - **Sources added after the third edition.** Most of the 22 studies were read
   as abstracts only, and the page quotes were checked for eight of the web
   pages. A London gym whose course page is cited (F71) says it is closed for
   now, so the page may go.
-- **Repeated and misplaced passages.** `research/placement-audit.md` lists 55.
-  About a third are fixed. Still open, among others: the tall sit-start advice
-  in three places, the slab entry restating smearing, the roof steps restating
-  the toe hook, shoe advice spread over four entries, and drills that the
-  Drills section doesn't point to.
+- **Repeated and misplaced passages.** `research/placement-audit.md` lists 55,
+  and its head says which few are still open and why. New links add lines to
+  the "Referenced from" lists, which can push the end of an entry onto a new
+  page: check the page count after adding any.
 - **Links:** every Watch link (and so every QR code) was checked through
   YouTube's oEmbed when it was added (`research/linkcheck-2.md`,
   `research/videos-2.md`).

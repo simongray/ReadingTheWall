@@ -39,7 +39,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("comp style", see: ("comp-moves",))[Setting inspired by competitions: big volumes, jumps, run-and-jump starts and coordination moves on modern holds.]
 
-#gloss("contact strength")[How hard you can grab a hold in the first split second, e.g. as you catch it at the end of a dynamic move.]
+#gloss("contact strength", see: ("latching",))[How hard you can grab a hold in the first split second, e.g. as you catch it at the end of a dynamic move.]
 
 #gloss("coordination move", see: ("run-and-jump", "comp-moves"))[A move that needs several limbs timed together, often with a jump or a run. Also called a coordination dyno.]
 
@@ -85,7 +85,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("flag", see: ("flag",))[Pressing a free leg against the wall, without a hold, to balance and stop yourself rotating.]
 
-#gloss("flake")[A thin blade of rock, or a hold shaped like one, standing off the wall so you can pull sideways on its edge.]
+#gloss("flake", see: ("layback",))[A thin blade of rock, or a hold shaped like one, standing off the wall so you can pull sideways on its edge.]
 
 #gloss("flash")[Sending a problem on your first attempt, after watching others or getting beta. Doing it with no information at all is an onsight.]
 
@@ -95,7 +95,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("forerun")[The setters' test climb of a new problem before it opens, to check the moves and set the grade.]
 
-#gloss("four-point start")[A start where each hand and each foot has its own marked start hold.]
+#gloss("four-point start", see: ("jump-start",))[A start where each hand and each foot has its own marked start hold.]
 
 #gloss("friction")[The grip between your skin or shoe rubber and a surface. Slopers, smears and volumes rely on it; cool, dry conditions increase it.]
 
@@ -127,7 +127,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("link-up")[Climbing a section, or the whole problem, in one go after practising its moves separately. "Linking" a problem means climbing it in one attempt.]
 
-#gloss("lip")[The top edge of a wall, roof or volume, where you move from steep ground onto easier ground. Also the front edge of a hold.]
+#gloss("lip", see: ("top-out", "mantle"))[The top edge of a wall, roof or volume, where you move from steep ground onto easier ground. Also the front edge of a hold.]
 
 #gloss("lock-off", see: ("lock-off",))[Holding a hold with your arm bent and still, so the other hand can reach.]
 
@@ -147,11 +147,11 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("micro beta")[Small personal adjustments to a sequence: exactly where a finger or toe goes, or which way a hand is turned.]
 
-#gloss("momentum")[The speed and direction your body carries. A swing or a jump builds it; you use it to reach a hold you couldn't reach statically.]
+#gloss("momentum", see: ("hip-pump",))[The speed and direction your body carries. A swing or a jump builds it; you use it to reach a hold you couldn't reach statically.]
 
 #gloss("negative hold")[A hold whose surface slopes away from you, so it pushes your fingers off. The opposite of incut.]
 
-#gloss("off foot")[The foot that is not carrying you. You can flag it or press it on the wall to stop rotation.]
+#gloss("off foot", see: ("barn-door",))[The foot that is not carrying you. You can flag it or press it on the wall to stop rotation.]
 
 #gloss("onsight")[Sending a problem on your first attempt without watching anyone or getting any beta.]
 
@@ -179,7 +179,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("pulley")[One of the bands of tissue that hold the finger tendons against the bones. Pulley strains and tears are the most common overuse injury in climbing.]
 
-#gloss("pump")[The tight, burning feeling in your forearms when the muscles tire faster than blood can clear the waste.]
+#gloss("pump", see: ("straight-arms",))[The tight, burning feeling in your forearms when the muscles tire faster than blood can clear the waste.]
 
 #gloss("pumped")[Tired and swollen in the forearms, with a fading grip. See pump.]
 
@@ -197,7 +197,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("setter")[The person who designs and bolts the problems in a gym. Also called a route setter.]
 
-#gloss("shake out")[Resting one arm by letting it hang and shaking it loose while you hold on with the other.]
+#gloss("shake out", see: ("jug",))[Resting one arm by letting it hang and shaking it loose while you hold on with the other.]
 
 #gloss("shoulder impingement")[Pain when a tendon in the shoulder gets pinched under the bony roof of the shoulder blade, often from overhead pulling.]
 
@@ -215,7 +215,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("soft")[Easier than its grade suggests. The opposite of sandbagged.]
 
-#gloss("spin-out")[Rotating out of a backstep because the foot is behind the line. A drop knee is often the fix.]
+#gloss("spin-out", see: ("backstep",))[Rotating out of a backstep because the foot is behind the line. A drop knee is often the fix.]
 
 #gloss("spot")[Another name for spotting.]
 
@@ -227,13 +227,13 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("static")[A move done slowly enough that you could stop and hold any position along the way. The opposite of dynamic.]
 
-#gloss("sweet spot")[The best part of a hold: the deepest, most incut or best-textured spot. Find it before you weight the hold.]
+#gloss("sweet spot", see: ("regrip",))[The best part of a hold: the deepest, most incut or best-textured spot. Find it before you weight the hold.]
 
 #gloss("tendon")[A cord of tissue that joins a muscle to a bone.]
 
 #gloss("tendon glides")[A sequence of finger positions that slides the finger tendons through their full range; a common warm-up.]
 
-#gloss("the line")[The vertical line straight down from the hold your holding hand pulls on. Feet placed on it, or just past it away from your reach, keep you from rotating.]
+#gloss("the line", see: ("backstep",))[The vertical line straight down from the hold your holding hand pulls on. Feet placed on it, or just past it away from your reach, keep you from rotating.]
 
 #gloss("tic-tac", see: ("comp-moves",))[A parkour name for stepping a foot onto a wall, an arête or a volume and pushing off it towards a hold.]
 

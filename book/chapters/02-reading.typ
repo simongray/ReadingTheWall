@@ -35,7 +35,7 @@ Run these steps at the bottom of every problem you want to climb first try. On a
 
 #step(3)[Read each hold's direction]
 
-Work out which way each hold faces and where that puts your body (the next section explains how). Chalk on a hold shows where people grip it,#ix("Chalk marks") but watch out for false marks from people who used it wrongly #src("E30", "E31").
+Work out which way each hold faces and where that puts your body (@hold-direction-and-body-position explains how). Chalk on a hold shows where people grip it,#ix("Chalk marks") but watch out for false marks from people who used it wrongly #src("E30", "E31").
 
 #step(4)[Count the hands]
 
@@ -89,10 +89,10 @@ Work out which way each hold faces and where that puts your body (the next secti
 // a new page: the sentence that announces the table, the table and the figure are read
 // together. The paragraph and the key point that close the section may go over together.
 #pagebreak(weak: true)
-== Hold direction and body position
+== Hold direction and body position <hold-direction-and-body-position>
 
 #ix("Direction of pull")
-This table applies the rule from Chapter 1 to each kind of hold. Use it on every hold of a new~problem.
+This table applies the rule from @holds-have-a-direction to each kind of hold. Use it on every hold of a new~problem.
 
 #{
   set par(justify: false)

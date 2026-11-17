@@ -114,7 +114,7 @@ keys = ["jump-start", "run-and-jump", "comp-moves"]
 [[path]]
 category = "terrain"
 name = "Slabs and volumes"
-keys = ["slab", "volume", "dynamic-slab"]
+keys = ["volume", "slab", "dynamic-slab"]
 
 [[path]]
 category = "terrain"

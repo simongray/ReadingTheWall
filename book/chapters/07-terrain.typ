@@ -10,7 +10,7 @@ The entries here don't repeat how to do a heel hook or a drop knee. They say whe
 
 == How the wall angle changes your body
 
-The steeper the wall, the more of your weight your arms carry (Chapter 1 explains why). A #tref("volume", body: [volume], show-page: false) (a big hollow shape bolted to the wall) can turn a vertical wall into a slab for one move.#ix("Volumes!as a slab") A study of World Cup problems counted a wall as "slab-like" when climbers mostly pushed on holds rather than pulled #src("E6"). Use the same test: if a problem mostly asks you to push, climb it like a slab.
+The steeper the wall, the more of your weight your arms carry (@hips-and-the-wall explains why). A #tref("volume", body: [volume], show-page: false) (a big hollow shape bolted to the wall) can turn a vertical wall into a slab for one move.#ix("Volumes!as a slab") A study of World Cup problems counted a wall as "slab-like" when climbers mostly pushed on holds rather than pulled #src("E6"). Use the same test: if a problem mostly asks you to push, climb it like a slab.
 
 #ix("Wall angle", main: true)
 #{
@@ -18,11 +18,11 @@ The steeper the wall, the more of your weight your arms carry (Chapter 1 explain
   table(
     columns: (auto, 1.25fr, 1fr, 1fr),
     table.header(th[Wall], th[Your weight and hips], th[Your hands], th[What goes wrong]),
-    [Slab], [Almost all your weight is on your feet. Your hips are over your toes, slightly away from the wall.], [Press, palm and steer.], [Feet skate off. Pulling on the hands levers the feet off #src("E1", "E3", "E4").],
+    [#tref("slab", body: [Slab], show-page: false)], [Almost all your weight is on your feet. Your hips are over your toes, slightly away from the wall.], [Press, palm and steer.], [Feet skate off. Pulling on the hands levers the feet off #src("E1", "E3", "E4").],
     [Vertical], [Most of your weight stays on your feet if your hips stay close to the wall.], [Stand tall. A slightly bent arm is fine.], [Your hips drift out, so you over-grip #src("E10").],
-    [Overhang], [Your arms carry more as the angle grows. Turn your hips sideways into the wall.], [Keep your arms straight. Let your feet pull as well as push.], [You stay square and bend your arms. Your feet come off #src("E8", "E9", "E11").],
-    [Roof], [Your body is nearly horizontal. Your feet must hook to stay on.], [Keep your arms straight. Foot hooks act as a third arm.], [Your feet swing off #src("E7", "E15").],
-    [Arête], [Your weight is split between the edge and the face beside it.], [Pull the edge and push with your feet.], [Your body swings open like a door #src("E2").],
+    [#tref("overhang", body: [Overhang], show-page: false)], [Your arms carry more as the angle grows. Turn your hips sideways into the wall.], [Keep your arms straight. Let your feet pull as well as push.], [You stay square and bend your arms. Your feet come off #src("E8", "E9", "E11").],
+    [#tref("roof", body: [Roof], show-page: false)], [Your body is nearly horizontal. Your feet must hook to stay on.], [Keep your arms straight. Foot hooks act as a third arm.], [Your feet swing off #src("E7", "E15").],
+    [#tref("arete", body: [Arête], show-page: false)], [Your weight is split between the edge and the face beside it.], [Pull the edge and push with your feet.], [Your body swings open like a door #src("E2").],
     [Corner], [You press out into both walls. See #tref("stemming").], [Press or rest.], [You put both feet on one wall, so your arms do the work #src("E20", "E24").],
   )
 }
@@ -37,7 +37,47 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
 - Stand on the inside edge of the shoe with your hips more or less square. Switch to the outside edge (the little-toe side) with crossed legs when the holds line up. When they don't, #tref("flag", body: [flag]) instead of swapping feet #src("E12"). See #tref("edging").
 - On a volume, stand on the far side, away from the wall. See #tref("volume").
 
-== V2: slabs, traverses and top-outs
+== V1–V2: volumes, slabs, traverses and~top-outs
+
+#technique(
+  key: "volume",
+  name: "Volumes",
+  aliases: ("volume climbing",),
+  category: "terrain",
+  grade: 1,
+  grade-note: [Standing on a volume comes early. France's climbing federation teaches balance moves on volumes at the third of its eight levels #src("F60"). A German gym chain teaches standing on volumes for the step up to Font 4C–5A, about V0–V1 #src("F68", "F69"). One setter recommends volumes on easier problems #src("F72"). Some gyms set problems on volumes alone #src("E19"). The squeezes, hooks and knee bars in steps 4 and 5 have later badges of their own.],
+  summary: [Volumes are big hollow shapes bolted to the wall. They act as holds, footholds and pieces of wall, but most have nothing to pull down on. You stand on their faces, press them, pinch their edges or squeeze them between your hands or feet #src("E18", "E19", "E11").],
+  figure: "volume.svg",
+  caption: [(a) Standing near the wall on the volume's sloping top. The slope pushes the foot out. (b) Standing on the far edge, hips over the foot, heel lower than the toe.],
+  how: [
+    + Stand on the far side of the volume, away from the wall, so your hips are over your foot.#ix("Volumes!standing on") Smear with the front half of the shoe and keep the heel lower than the toes #src("E5", "E18").
+    + Put as much rubber on the face as you can, use palms rather than fingertips and chalk the whole hand #src("E18"). Push hands and feet against the direction you're moving. With a flexed foot, push down and pull in with the heel #src("E18").
+    + Look for an edge to grab as a #tref("pinch", body: [pinch], show-page: false), or as a "#tref("wrap", body: [meat hook], show-page: false)": palm on one face, fingers over the other #src("E18").
+    + On steep ground, squeeze the volume between your feet or your hands. See #tref("compression") #src("E18", "E11").
+    + Step back and look at the sides and underside. You may find hidden holds, spots for heel and toe hooks, or room for a #tref("knee-bar", body: [knee bar], show-page: false) between close volumes #src("E11").
+
+    *By shape:* on a rounded volume, find the bulge or the scoop. Chalk marks#ix("Chalk marks") show where others found grip #src("E18"). On a sloping volume, get underneath it and hang low on straight arms so gravity pulls you onto it #src("E18"). See #tref("sloper").
+  ],
+  when: [
+    *Look for*
+    - faces with no holds. You are meant to stand on them or press them.
+    - a sharp volume edge. It is a hold, often a small #tref("arete", body: [arête], show-page: false).
+    - two volumes close together. Squeeze them or bridge between them, and from about V5 try a knee bar.
+    - your gym's rule on volumes (@reading-method, step 1).
+
+    *Symptoms*
+    - Your foot slides off as you stand up on a volume.
+    - You rush, slap and slide off a volume with nothing to hold. On holds without an obvious grip, speed works against you #src("E18").
+  ],
+  errors: [
+    - Sloppy placements that scrape your skin #src("E18").
+    - Half-committing. If you don't expect to stay on, you won't#ix("Commitment") #src("E18").
+  ],
+  tall: [Tall climbers get bunched up where holds sit close together #src("E46"), and volumes are no exception. Try dropping a foot lower and sinking onto one leg #src("E76").],
+  small: [One head #jt("setter") (the person who designs the problems) angles some volumes so that climbers can smear along the whole face, which evens out height differences #src("H10"). So before you decide a step is too high, look along the face for a spot you can reach, on the far side if you can.],
+  related: ("compression", "palming", "pinch", "sloper", "smearing", "knee-bar", "slab", "dynamic-slab", "arete", "stemming", "heel-hook", "toe-hook", "wrap"),
+  sources: ("E5", "E11", "E18", "E19", "H10"),
+)
 
 #technique(
   key: "slab",
@@ -51,7 +91,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   caption: [(a) Leaning the chest in pushes the foot out and off the smear. (b) Hips stacked over the foot, heel low. The weight goes straight down through the rubber.],
   how: [
     + Before each step, shift your hips over the foot you will stand on #src("E3"). See #tref("weight-shift"). Keep your hips back over your toes and your chest off the wall #src("E3", "E24").
-    + On a #tref("smearing", body: [smear], show-page: false) (a foot pressed flat on blank wall), drop the heel. On small edges, stand on the big toe, not the side of the foot #src("E1", "E3").
+    + On a smear (a foot pressed flat on blank wall), drop the heel, as in #tref("smearing"). On small edges, stand on the big toe, not the side of the foot #src("E1", "E3").
     + Commit all your weight to the foot at once#ix("Commitment") and keep the pressure steady through the move. A half-weighted shoe skates #src("E1", "E16").
     + Take several small steps rather than one big high step #src("E16", "A34"), slowly enough to feel each balance point #src("E3").
     + Come at the handholds from the side and let them steer you over your foot #src("E4"). Where there are none, press a flat palm on the wall #src("E3"). See #tref("palming").
@@ -71,51 +111,10 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   ],
   errors: [
     - Placing the foot near a hold rather than on its best part #src("E1").
-    - Testing a foothold again and again instead of committing #src("E16", "A6").
     - Shoes so tight they can't bend. A looser pair helps on smears #src("E1").
   ],
   related: ("smearing", "edging", "palming", "rockover", "high-step", "precise-footwork", "dynamic-slab", "volume", "weight-shift", "mantle"),
-  sources: ("E1", "E3", "E4", "E6", "E16", "E24", "E46", "E52", "A6", "A34"),
-)
-
-#technique(
-  key: "volume",
-  name: "Volumes",
-  aliases: ("volume climbing",),
-  category: "terrain",
-  grade: 2,
-  grade-note: [Standing on a volume comes early. France's climbing federation teaches balance moves on volumes at the third of its eight levels #src("F60"). A German gym chain teaches standing on volumes for the step up to Font 4C–5A, about V0–V1 #src("F68", "F69"). One setter recommends volumes on easier problems #src("F72"). Some gyms set problems on volumes alone #src("E19"). The squeezes, hooks and knee bars in steps 4 and 5 have later badges of their own.],
-  summary: [Volumes are big hollow shapes bolted to the wall. They act as holds, footholds and pieces of wall, but most have nothing to pull down on. You stand on their faces, press them, pinch their edges or squeeze them between your hands or feet #src("E18", "E19", "E11").],
-  figure: "volume.svg",
-  caption: [(a) Standing near the wall on the volume's sloping top. The slope pushes the foot out. (b) Standing on the far edge, hips over the foot, heel lower than the toe.],
-  how: [
-    + Stand on the far side of the volume, away from the wall, so your hips are over your foot.#ix("Volumes!standing on") Smear with the front half of the shoe and keep the heel lower than the toes #src("E5", "E18").
-    + Put as much rubber on the face as you can, use palms rather than fingertips and chalk the whole hand #src("E18"). Push hands and feet against the direction you're moving. With a flexed foot, push down and pull in with the heel #src("E18").
-    + Look for an edge to grab as a #tref("pinch", body: [pinch], show-page: false), or as a "meat hook": palm on one face, fingers over the other #src("E18").
-    + On steep ground, squeeze the volume between your feet or your hands. See #tref("compression") #src("E18", "E11").
-    + Step back and look at the sides and underside. You may find hidden holds, spots for heel and toe hooks, or room for a #tref("knee-bar", body: [knee bar], show-page: false) between close volumes #src("E11").
-
-    *By shape:* on a rounded volume, find the bulge or the scoop. Chalk marks#ix("Chalk marks") show where others found grip #src("E18"). On a sloping volume, get underneath it and hang low on straight arms so gravity pulls you onto it #src("E18"). See #tref("sloper").
-  ],
-  when: [
-    *Look for*
-    - faces with no holds. You are meant to stand on them or press them.
-    - a sharp volume edge. It is a hold, often a small #tref("arete", body: [arête], show-page: false).
-    - two volumes close together. Squeeze them or bridge between them, and from about V5 try a knee bar.
-    - your gym's rule. Volumes are usually part of every problem on that wall #src("E19").
-
-    *Symptoms*
-    - Your foot slides off as you stand up on a volume.
-    - You rush, slap and slide off a volume with nothing to hold. On holds without an obvious grip, speed works against you #src("E18").
-  ],
-  errors: [
-    - Sloppy placements that scrape your skin #src("E18").
-    - Half-committing. If you don't expect to stay on, you won't#ix("Commitment") #src("E18").
-  ],
-  tall: [Tall climbers get bunched up where holds sit close together #src("E46"), and volumes are no exception. Try dropping a foot lower and sinking onto one leg #src("E76").],
-  small: [One head #jt("setter") (the person who designs the problems) angles some volumes so that climbers can smear along the whole face, which evens out height differences #src("H10"). So before you decide a step is too high, look along the face for a spot you can reach, on the far side if you can.],
-  related: ("compression", "palming", "pinch", "sloper", "smearing", "knee-bar", "slab", "dynamic-slab", "arete", "stemming", "heel-hook", "toe-hook"),
-  sources: ("E5", "E11", "E18", "E19", "H10"),
+  sources: ("E1", "E3", "E4", "E6", "E16", "E24", "E46", "E52", "A34"),
 )
 
 #technique(
@@ -145,7 +144,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   errors: [
     - Staying square to the wall all the way. On steeper sections, turn the leading hip in. See #tref("hip-turn").
   ],
-  related: ("cross-through", "flag", "back-flag", "foot-swap", "sidepull", "matching"),
+  related: ("cross-through", "flag", "back-flag", "foot-swap", "sidepull", "matching", "hip-turn"),
   sources: ("E11", "E12", "E21", "E25"),
 )
 
@@ -182,7 +181,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   errors: [
     - Hesitating halfway. Once you start, commit#ix("Commitment") #src("E23").
     - Reaching blindly over the top with a hand instead of pressing #src("E22").
-    - Belly-flopping over a steep top. If it isn't working, jump off while you still control the fall#ix("Bailing!from a top-out") #src("E22").
+    - Belly-flopping over a steep top. If it isn't working, jump off while you still control the fall#ix("Bailing!from a top-out") (@cons-falling) #src("E22").
     - Learning on a high wall. Practise low mantles first, then problems that finish with one #src("E22").
   ],
   related: ("mantle", "heel-hook", "rockover", "palming", "high-step"),
@@ -204,7 +203,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   how: [
     + Bring your feet up as the wall steepens, so that your legs keep a share of the weight #src("E8"). Press each toe down and into its hold, as if gripping with it. Don't slap the ball of the foot onto it #src("E8", "E11"). See #tref("toe-pull").
     + Hang on straight arms between moves #src("E7", "E8"). See #tref("straight-arms"). Start each move with your hips, then pull. Don't lead with your head #src("E8").
-    + To reach, turn the hip on the reaching side into the wall. Stand on the outside edge of that foot, on a hold below or behind you, and brace the other foot so you stand on a tripod #src("E9", "E11"). See #tref("backstep") and #tref("twist-lock").
+    + To reach, turn the hip on the reaching side into the wall (#tref("hip-turn", inner: true)). Stand on the outside edge of that foot, on a hold below or behind you, and brace the other foot so you stand on a tripod #src("E9", "E11"). See #tref("backstep") and #tref("twist-lock").
     + For a longer reach without jumping, use a #tref("drop-knee", body: [drop knee]) #src("E7").
     + Where the footholds face sideways or down, hook them. See #tref("heel-hook") and #tref("toe-hook").
   ],
@@ -278,7 +277,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
     + Sit with your bottom close to the wall #src("E11", "E26"). Turn your hips about 90° to it and stand on the outside edge of the working foot #src("E11"). See #tref("edging").
     + If both footholds are straight below the start holds, a wide #tref("frog", body: [frog position], show-page: false) works too: bottom tucked close to the wall, chest dropped between your knees.
     + Lean back on the start holds if they allow it #src("E11"). See #tref("layback"). Rock back a little, then pull and stand in one movement. Or roll one knee onto the mat and push off it #src("E11").
-    + Check the rule at your gym.#ix("Gym rules") Some gyms want you settled on the start holds, off the ground, before you move to the next hold #src("E71", "E72"), as competition rules do #src("E70"). If in doubt, ask the staff #src("E55").
+    + Check your gym's rule on sit starts#ix("Gym rules") (@reading-method, step 1).
   ],
   when: [
     *Look for*
@@ -292,9 +291,9 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   errors: [
     - Bouncing off the mat on a problem whose rules want a controlled start.
   ],
-  tall: [Sit starts feel cramped and strenuous if you are tall or stiff#ix("Tall climbers!sit starts") #src("E11"). Sit to the side of the start holds and lay your free leg flat along the mat instead of folding your knees under your chest.],
+  tall: [Sit starts feel cramped and strenuous if you are tall or stiff#ix("Tall climbers!sit starts") #src("E11"). @cons-tall has the sequence and a figure.],
   related: ("layback", "edging", "hip-turn", "frog", "body-tension", "pre-loading"),
-  sources: ("E11", "E26", "E55"),
+  sources: ("E11", "E26"),
 )
 
 == V4–V5: roofs and dynamic slabs
@@ -310,9 +309,9 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   figure: "roof.svg",
   caption: [(a) Feet pushing on a down-facing hold swing off. (b) Arms straight and toes pulling on the hold: the feet stay on.],
   how: [
-    + Hang on straight arms #src("E7") and keep your feet on by pulling your toes towards you under a hold #src("E7", "E20"). See #tref("toe-hook").
+    + Hang on #tref("straight-arms", body: [straight arms], show-page: false) #src("E7") and keep your feet on by #tref("toe-pull", body: [pulling with your toes], show-page: false) #src("E7", "E20"). #tref("toe-hook") says how to hook them under a hold.
     + For a more solid foot, push one toe on top of a hold, hook the other toe behind it and squeeze the feet together #src("E7", "E15"). See #tref("bicycle"). Use heel hooks along edges and breaks as a third arm #src("E15", "E13"). See #tref("heel-hook").
-    + Look to the sides for toe hooks #src("E15", "A12"). Before you set one, plan how it comes out, so that your feet don't swing off when you release it #src("E15", "A12"). See #tref("cutting-loose").
+    + Look to the sides for #tref("toe-hook", body: [toe hooks], show-page: false), and plan how each one comes out before you set it, so that your feet don't swing off #src("E15", "A12"). See #tref("cutting-loose").
     + On a big roof, consider going feet first. Hook a high toe, then swing your body round after it #src("E15", "A12"). A fall with your feet above your head can turn you upside down #src("G61"), so practise this low down first #src("A12") and decide beforehand whether you want a #jt("spotter") #src("G61"). See @cons-falling.
     + At the lip, heel-hook first, then roll over the heel. See #tref("top-out") #src("E13", "E7").
   ],
@@ -327,7 +326,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
     - You hang with no feet at the lip and can't get over it.
   ],
   errors: [
-    - Flat shoes. Downturned shoes clamp better.#ix("Climbing shoes!downturned") Rubber on top of the toe helps toe hooks #src("E15", "E5").
+    - Flat shoes. Downturned ones clamp better#ix("Climbing shoes!downturned"), and @shoes says what helps a toe hook #src("E15", "E5").
   ],
   tall: [Long legs reach foot hooks further from your hands, but keeping a long body flat costs more tension. Bring your feet in closer when you can.],
   related: ("toe-hook", "bicycle", "heel-hook", "knee-bar", "cutting-loose", "body-tension", "campus-move", "overhang", "top-out", "toe-pull", "straight-arms"),
@@ -346,7 +345,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   figure: "dynamic-slab.svg",
   caption: [Plan from the end. The climber starts on the left volume (dashed). The plan: land the right foot on the far volume (1). Catch the sloper (2). Then place the left foot (3).],
   how: [
-    + Warm up hips, knees and ankles as well as fingers.#ix("Warm-up!for dynamic moves") You will fall a lot, from odd positions, so learn to fall first#ix("Falling!practice") (Chapter 9) #src("E5").
+    + Warm up hips, knees and ankles as well as fingers.#ix("Warm-up!for dynamic moves") You will fall a lot, from odd positions, so learn to fall first#ix("Falling!practice") (@cons-falling) #src("E5").
     + Read the end position first: where each foot and hand must be when the move stops. Plan the steps backwards from there #src("E27", "E5").
     + Decide how far from the wall you take off and land. Aim for an arc that ends balanced, not chest against the wall or overstretched #src("E5", "E27"). On a volume, land on the far side, hips over your feet. See #tref("volume") #src("E5").
     + Stay relaxed until the catch, then tense as you land #src("E5", "E27"). Think "pull my body into the end position", not "grab the hold" #src("E27").

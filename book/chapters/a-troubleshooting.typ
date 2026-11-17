@@ -52,7 +52,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [A toe hook keeps popping~off.],
   [The foot isn't flexed, or your hips drift out.],
-  [Pull the toes towards you and tense the shin and #jt("core"): #tref("toe-hook") #src("E7", "E20"). If it still pops, clamp the hold with both feet: #tref("bicycle").],
+  [Set the hook and tense your #jt("core"): #tref("toe-hook") #src("E7", "E20"). If it still pops, clamp the hold with both feet: #tref("bicycle").],
 
   [A heel hook doesn't take any weight.],
   [The heel is too low or isn't pulling.],
@@ -140,7 +140,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 #ttable(
   [You get #jt("pump", body: [pumped])#ix("Pump!on every problem") (forearms swollen and weak) on every problem.],
   [Coaches blame bent arms and hips away from the wall. You also stop on the wall to re-read.],
-  [Hang on #tref("straight-arms"). Bring the hips in. Read the problem first so you stop less. #jt("shake out", body: [Shake out]) at rests #src("E7", "E8", "E10", "E34").],
+  [Hang on #tref("straight-arms"). Bring the hips in. Read the problem first so you stop less (@reading-method). #jt("shake out", body: [Shake out]) at rests #src("E7", "E8", "E10", "E34").],
 
   [You take many attempts and make no progress.],
   [You are tired. Your rests are too short.],
@@ -156,11 +156,11 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [Your first try fails on the easy top section.],
   [You read only the hardest move.],
-  [Read the top from far back. Check the top-out and the way down #src("E30", "E33").],
+  [Read the top from far back. Check the #tref("top-out", body: [top-out]) and the way down. See @reading-method #src("E30", "E33").],
 
   [You fall at the same move, the same way, every time.],
   [The sequence or the body position is wrong.],
-  [Name the cause of each fall. Try other sequences and small changes to grip and feet. Watch climbers of your size #src("E31", "E41", "E44").],
+  [Name the cause of each fall. Try other sequences and small changes to grip and feet. Watch climbers of your size. See @reading-size and "When to change the beta" in @cons-projecting #src("E31", "E41", "E44").],
 
   [You feel scrunched on a problem others call flowing.],
   [It was set for a shorter~span.],

@@ -101,6 +101,21 @@ section as the notes of the GitHub release.
   repeated and misplaced passages, of which the first were fixed.
 
 ### Changed
+- References replace repeated passages, in about 35 places listed in
+  `research/placement-audit.md`. Where a how-to was repeated outside its entry,
+  the copy is now a short cue with a link: Roofs to Toe hook, Slab technique to
+  Smearing and Weight shift, Body tension to Pulling with the toes, and the
+  grade guides to the entries they summarise. Advice filed under the wrong
+  reader moved to its own: the heavier climber's from Latching's tall note to
+  "Climbing heavier", the shoulder warning for gastons into Gaston, what arm
+  span says about grade into "Climbing tall", and how to get out of a heel hook
+  before a fall into Heel hook. Eleven glossary terms now point to their
+  entries, and six sections have labels so that the text can cite them by
+  number.
+- Four grade badges, which courses and setters place earlier than the third
+  edition did: Volumes V2 → V1, Toe hook V4 → V3, Run-and-jump V4 → V3 and
+  Bicycle V5 → V4. Each entry moved to its new grade's section, and the grade
+  guides, the progression table and the technique map follow.
 - No claim carries the label "(judgement)" any more. Each one now cites a
   source, says what a source does say, or is cut. Grade notes that had no
   source say when you need the technique and leave the grade to the badge, or

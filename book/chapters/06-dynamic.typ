@@ -6,7 +6,7 @@ A dynamic move uses #jt("momentum") (the speed your body carries) to reach a hol
 
 If you climb V4 but not yet V5, start here. Gyms set more competition moves for ordinary climbers than they used to. #jt("setter", body: [Setters]) (the staff who design the problems) call a move "compy" when it is dynamic and coordinated: "usually runs, jumps or dynos" #src("D32"). World Cup holds now turn up on gym V2s #src("D33").
 
-If you're tall, you reach many holds that shorter climbers must jump for#ix("Tall climbers!dynamic moves") #src("D45"). The missing skill shows when a setter forces momentum: a span too far for anyone, or a hold that only works if you arrive moving. Practise the V3 and V4 entries on problems you can already climb slowly. Whatever your height, read @cons-falling before your first dyno or running jump.
+If you're tall, you reach many holds that shorter climbers must jump for#ix("Tall climbers!dynamic moves") #src("D45"), and the missing skill shows when a setter forces momentum (@cons-tall). Whatever your height, read @cons-falling before your first dyno or running jump.
 
 #category-table("dynamic")
 
@@ -85,7 +85,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
         + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee, so that the hip on that side turns to the wall #src("D10").
         + Keep the holding arm straight and let your hips sag away from the wall #src("D10").
         + Push off the foot and rotate the hip into the wall and up in one snap #src("D10"). Turn towards the reaching arm as you go: right hip in, right shoulder up #src("D7"). Throw the hand at the top of the rise, with the arm at full length #src("D7", "D13").
-        + On steep walls, avoid a foot that sits "behind the line" of your body. Turn it into a drop knee instead #src("D19").
+        + On steep walls, avoid a foot that sits "behind #jt("the line")" of your body. Turn it into a drop knee instead #src("D19").
 
         *Don't throw from a deep drop knee.* The authors of a knee-injury study suspect that the injury comes at the moment a hand lets go, which adds load to the legs #src("G9"). The coach Dave MacLeod#ix("MacLeod, Dave") warns against dropping the knee and moving the hand in one rapid motion #src("D61"). See the knee box in @cons-injuries.
       ],
@@ -103,14 +103,14 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     *Symptoms*
     - You reach the hold slowly but can't hold the #tref("lock-off", body: [lock-off]) long enough to grip it.
     - Your fingers touch the hold and slide off, because you arrived after the top and were already falling.
-    - You spin away from the wall as you reach #src("D19"), or you are square on and can't hold the lock-off. Try a hip pop.
+    - You spin away from the wall as you reach #src("D19"), which #tref("backstep") explains, or you are square on and can't hold the lock-off. Try a hip pop.
   ],
   errors: [
     - Pulling with the arm before the hips move, which tires the holding arm on every try. Move the hips first #src("D10").
     - In a hip pop, a short hip swing or too little arch, which leaves your hips away from the wall #src("D19").
     - Snatching at a small hold. A very fast grab in a dynamic move can rupture a #jt("pulley") #src("C25").
   ],
-  tall: [You will reach many of these holds with a slow lock-off. Deadpoint them anyway on easy problems: it may save energy #src("D13"), and the steeper the wall, the more work a lock-off costs your arm #src("D62"). In cramped sequences tall climbers get bunched up #src("E46"), and a hip pop's drop knee may not fit. Tall climbers quoted by one training site take a foot off and sink onto one leg instead #src("E76").],
+  tall: [You will reach many of these holds with a slow lock-off. Deadpoint them anyway on easy problems: the steeper the wall, the more work a lock-off costs your arm #src("D62"). In cramped sequences tall climbers get bunched up #src("E46"), and a hip pop's drop knee may not fit. Tall climbers quoted by one training site take a foot off and sink onto one leg instead #src("E76").],
   small: [Short climbers often name this as their way to far holds #src("B34", "H6", "H8"). To build it, go for holds just out of reach on easy problems #src("D45"), stay low on the wall at first #src("H4"), and repeat a long move after you stick it so you learn your aim #src("H6"). Build up to big jumps from small moves #src("D60"), and don't snatch at small holds #src("C25").],
   related: ("hip-pump", "latching", "lunge", "dyno", "lock-off", "straight-arms", "backstep", "drop-knee", "twist-lock", "hip-turn", "pre-loading"),
   watch: (("Lattice Training", "Will Bosi Coaching His Top 3 Techniques", "https://www.youtube.com/watch?v=XGzLL5rvUaU"),),
@@ -182,6 +182,38 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   sources: ("D11", "D26", "D35", "D45"),
 )
 
+#technique(
+  key: "run-and-jump",
+  name: "Run-and-jump",
+  aliases: ("running start", "parkour start"),
+  category: "dynamic",
+  grade: 3,
+  grade-note: [France's climbing federation teaches it at this grade #src("F60", "F61"). It is a competition move that gyms now set for ordinary climbers, often at lower grades #src("D32").],
+  summary: [You run a few steps across the mats and jump to catch a hold you couldn't reach from standing, often with one foot pushing off the wall or a #tref("volume", body: [volume]) on the way.],
+  figure: "run-and-jump.svg",
+  caption: [Take three steps across the mat. Push off the volume. Catch the hold.],
+  how: [
+    + Walk it first to mark the take-off spot and foothold. Count your steps back, usually two or three, and decide which foot hits the wall. Wear softer shoes#ix("Climbing shoes!stiff or soft"), which make short sprints and jumps easier #src("D25").
+    + Run lightly #src("D12") and speed up into the last step.
+    + Push the wall foot up and along the line you want to travel, without kicking into the wall #src("D48"). Keep your eyes on the target and reach for it.
+    + As you catch, tense your stomach. It keeps you on when your feet cut after a big sideways move #src("D12"). Get a foot on as soon as you can.
+  ],
+  when: [
+    *Look for*
+    - a start hold high above the mats, with clear floor in front of it or beside it. #jt("setter", body: [Setters]) leave a wide, empty patch of wall around competition-style problems, which can span 2.5–4.5 m #src("D8").
+    - a volume or foothold at about waist height that only works as a step.
+
+    *Symptom:* from a standing jump you touch the hold but can't hold it.
+  ],
+  errors: [
+    - Running into other climbers. Check the runway before every go. These problems get in the way when the gym is busy #src("D8").
+    - Skipping the warm-up for hips, knees and ankles #src("D25").
+  ],
+  tall: [You may reach the start with a standing jump. If the rules allow, do that. A run adds speed you then have to land with. If you do run, treat the whole runway as your landing zone (@cons-falling).],
+  related: ("jump-start", "comp-moves", "dyno", "latching", "volume"),
+  sources: ("D8", "D12", "D25", "D32", "D48"),
+)
+
 == V4: leaving the wall
 
 #technique(
@@ -210,10 +242,10 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   errors: [
     - Lunging for small pockets. It is a common cause of finger injuries#ix("Injuries!finger") #src("D21").
   ],
-  tall: [You can often reach a single hold slowly with a drop knee or a #tref("flag", body: [side flag]). If that means a hard lock-off on a steep wall, throw instead. A physiotherapist points out that a static move needs intense muscle work from start to finish #src("D60"). One gym owner finds dynamic moves generally more efficient #src("D13").],
-  related: ("deadpoint", "dyno", "cutting-loose", "latching", "foot-catch"),
+  tall: [You can often reach a single hold slowly with a drop knee or a #tref("flag", body: [side flag]). If that means a hard lock-off on a steep wall, throw instead. A physiotherapist points out that a static move needs intense muscle work from start to finish #src("D60").],
+  related: ("deadpoint", "dyno", "cutting-loose", "latching", "foot-catch", "pre-loading"),
   watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
-  sources: ("D4", "D5", "D7", "D13", "D15", "D21"),
+  sources: ("D4", "D5", "D7", "D15", "D21"),
 )
 
 #filmstrip("filmstrip-dyno.svg", [The dyno], [Watch the hips sink low and out, then drive up to the wall before the hands let go.])
@@ -285,7 +317,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   errors: [
     - Catching with a straight arm and a loose shoulder. Drill: jump to a bar, catch with bent arms and hold for two seconds#ix("Drills!catching a bar") #src("D26").
   ],
-  tall: [A tall body weighs more, so more force goes through your fingers and shoulders at the catch#ix("Body weight!catching holds") #src("D20"). Where both work, choose a deadpoint over a full dyno. Practise the bar drill first.],
+  tall: [A tall body weighs more, so more force goes through your fingers and shoulders at the catch#ix("Body weight!catching holds") (@cons-heavy) #src("D20"). Practise the bar drill first.],
   related: ("deadpoint", "dyno", "cutting-loose", "open-hand", "half-crimp", "pocket", "matching"),
   sources: ("D6", "D16", "D20", "D21", "D22", "D26"),
 )
@@ -340,38 +372,6 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   sources: ("D6", "D7", "D11", "D19", "D21", "D25", "D27", "D40"),
 )
 
-#technique(
-  key: "run-and-jump",
-  name: "Run-and-jump",
-  aliases: ("running start", "parkour start"),
-  category: "dynamic",
-  grade: 4,
-  grade-note: [Learn it from V3 on big holds: France's climbing federation teaches it at that grade #src("F60", "F61"). It is a competition move that gyms now set for ordinary climbers, often at lower grades #src("D32").],
-  summary: [You run a few steps across the mats and jump to catch a hold you couldn't reach from standing, often with one foot pushing off the wall or a #tref("volume", body: [volume]) on the way.],
-  figure: "run-and-jump.svg",
-  caption: [Take three steps across the mat. Push off the volume. Catch the hold.],
-  how: [
-    + Walk it first to mark the take-off spot and foothold. Count your steps back, usually two or three, and decide which foot hits the wall. Wear softer shoes#ix("Climbing shoes!stiff or soft"), which make short sprints and jumps easier #src("D25").
-    + Run lightly #src("D12") and speed up into the last step.
-    + Push the wall foot up and along the line you want to travel, without kicking into the wall #src("D48"). Keep your eyes on the target and reach for it.
-    + As you catch, tense your stomach. It keeps you on when your feet cut after a big sideways move #src("D12"). Get a foot on as soon as you can.
-  ],
-  when: [
-    *Look for*
-    - a start hold high above the mats, with clear floor in front of it or beside it. #jt("setter", body: [Setters]) leave a wide, empty patch of wall around competition-style problems, which can span 2.5–4.5 m #src("D8").
-    - a volume or foothold at about waist height that only works as a step.
-
-    *Symptom:* from a standing jump you touch the hold but can't hold it.
-  ],
-  errors: [
-    - Running into other climbers. Check the runway before every go. These problems get in the way when the gym is busy #src("D8").
-    - Skipping the warm-up for hips, knees and ankles #src("D25").
-  ],
-  tall: [You may reach the start with a standing jump. If the rules allow, do that. A run adds speed you then have to land with. If you do run, treat the whole runway as your landing zone.],
-  related: ("jump-start", "comp-moves", "dyno", "latching", "volume"),
-  sources: ("D8", "D12", "D25", "D32", "D48"),
-)
-
 == V5: comp-style coordination
 
 #technique(
@@ -380,7 +380,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("two-handed dyno",),
   category: "dynamic",
   grade: 5,
-  grade-note: [Learn it from V2 on big holds, low on the wall, as your first dyno. It is the easiest dyno to teach #src("D14"). Ordinary problems rarely need it; a deadpoint or a one-handed dyno usually works #src("D17"). It is a competition-style set piece from about V5.],
+  grade-note: [Learn it from V2 on big holds, low on the wall, as your first dyno. It is the easiest dyno to teach #src("D14"). Ordinary problems rarely need it: a #tref("deadpoint", body: [deadpoint]) or a #tref("lunge", body: [one-handed dyno]) usually works #src("D17"). It is a competition-style set piece from about V5.],
   summary: [Both hands leave the start holds at once and both catch the target, while your feet either stay on or leave the wall #src("D14").],
   figure: "double-dyno.svg",
   caption: [(a) Sink with straight arms and your toes on the wall. (b) Both hands leave together and catch the pair of holds.],
@@ -401,7 +401,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   errors: [
     - Going slack in the air. Keep your stomach and shoulders tight #src("D14").
-    - Not planning the miss. A missed double dyno "will almost always result in a fall" #src("D14").
+    - Not planning the miss ("Bailing from dynos and big moves" in @cons-falling). A missed double dyno "will almost always result in a fall" #src("D14").
   ],
   related: ("dyno", "comp-moves", "latching", "lunge", "deadpoint"),
   watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
@@ -450,9 +450,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   figure: "foot-catch.svg",
   caption: [(a) The right hand has caught the hold and the body swings right. The left toe hooks the far side of the volume and stops the swing. (b) Close-up from behind: the top of the toes presses on the far side of the volume, and the leg pulls towards the body.],
   how: [
-    + Plan the foot before you move: which foot, which hold and whether to hook or stand. Wear shoes with rubber on top of the toes, which hold toe hooks better #src("D25").
+    + Plan the foot before you move: which foot, which hold and whether to hook or stand. Wear shoes with rubber on top of the toes (@shoes) #src("D25").
     + As your hand catches, throw the foot along the line of the swing towards its target.
-    + For a #tref("toe-hook", body: [toe hook]), pull your toes up towards your shin #src("A14") and pull the toe into the hold to check the swing #src("D7"). Tense your lower stomach as the toe touches #src("D11").
+    + For a toe hook, set the hook as in #tref("toe-hook") and pull the toe into the hold to check the swing #src("D7"). Tense your lower stomach as the toe touches #src("D11").
   ],
   when: [
     *Look for* a big sideways move whose swing would pull you off that side. After the move, a foothold or #tref("volume", body: [volume]) edge sits at or above hip height, often far to one side.
@@ -464,7 +464,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   related: ("toe-hook", "cutting-loose", "latching", "volume"),
   watch: (("Bouldering Bobat", "How to Dyno || Intermediate Climbing Techniques || ToeHook catch", "https://www.youtube.com/watch?v=66m8HVOBqdo"),),
-  sources: ("A14", "D7", "D11", "D25", "D35"),
+  sources: ("D7", "D11", "D25", "D35"),
 )
 
 #technique(
