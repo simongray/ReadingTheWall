@@ -22,6 +22,9 @@ streamlining), which have the details.
   moved for that reason: Volumes to V1, Toe hook and Run-and-jump to V3, and
   Bicycle to V4. The other competition-style moves kept V5, since setters
   disagree about them. Revisit them as you climb more problems in your gyms.
+- **Steps that point up a grade.** `check_order` lists 33. All were read on
+  2026-11-17 and are meant: a pointer that says "later" or names the grade, a
+  link for a term used in passing, a warning, or one of Barn door's fixes.
 - **Sources added after the third edition.** Most of the 22 studies were read
   as abstracts only, and the page quotes were checked for eight of the web
   pages. A London gym whose course page is cited (F71) says it is closed for
@@ -102,8 +105,6 @@ streamlining), which have the details.
   - The print map has no drawings in its nodes. A small pose for each technique
     would need every figure's code to draw one climber on its own. The web map
     shows an entry's drawing when you hover over its name.
-  - The "Progression map" table in Chapter 8 lists key techniques by grade, which
-    the map now shows in full. Its "Focus" column is what the map doesn't have.
   - The paths have no links between them, such as from the heel hook to the
     top-out. The entries' "Related" lists hold those.
 - The third edition is 306 pages. The eight worked problems

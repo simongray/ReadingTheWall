@@ -1747,7 +1747,7 @@
     let lbl = it.at("label", default: none)
     let lbl = if lbl == none { "" } else { str(lbl) }
     let g = grade-head(it)
-    // (the progression map closes the run of guides, so it looks like them)
+    // ("Focus by grade" closes the run of guides, so it looks like them)
     let guide = lbl.starts-with("grade") or lbl == "progression-map"
     let size = if guide { fs.guide } else { fs.section }
     let head = context {

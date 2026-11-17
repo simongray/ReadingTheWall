@@ -47,7 +47,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   aliases: ("volume climbing",),
   category: "terrain",
   grade: 1,
-  grade-note: [Standing on a volume comes early. France's climbing federation teaches balance moves on volumes at the third of its eight levels #src("F60"). A German gym chain teaches standing on volumes for the step up to Font 4C–5A, about V0–V1 #src("F68", "F69"). One setter recommends volumes on easier problems #src("F72"). Some gyms set problems on volumes alone #src("E19"). The squeezes, hooks and knee bars in steps 4 and 5 have later badges of their own.],
+  grade-note: [Standing on a volume comes early. France's climbing federation teaches balance moves on volumes at the third of its eight levels #src("F60"). A German gym chain teaches standing on volumes for the step up to Font 4C–5A, about V0–V1 #src("F68", "F69"). One setter recommends volumes on easier problems #src("F72"). Some gyms set problems on volumes alone #src("E19"). The grips, squeezes, hooks and knee bars in steps 3 to 5 and under "By shape" have later badges of their own.],
   summary: [Volumes are big hollow shapes bolted to the wall. They act as holds, footholds and pieces of wall, but most have nothing to pull down on. You stand on their faces, press them, pinch their edges or squeeze them between your hands or feet #src("E18", "E19", "E11").],
   figure: "volume.svg",
   caption: [(a) Standing near the wall on the volume's sloping top. The slope pushes the foot out. (b) Standing on the far edge, hips over the foot, heel lower than the toe.],
@@ -132,7 +132,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   how: [
     + Read which way each handhold faces. On traverses many are #tref("sidepull", body: [sidepulls], show-page: false) that face back the way you came. You lean away from them, towards where you are going #src("E21").
     + Cross the trailing hand over the leading arm to the next hold, so that each move covers two holds' distance #src("E25"). See #tref("cross-through").
-    + When the feet don't line up with the hands, flag the trailing leg instead of swapping feet on one foothold. Double foot swaps are a common fault #src("E11"). See #tref("flag") and #tref("back-flag"). Save a #tref("foot-swap", body: [foot swap]) for a stretch with only one good foothold.
+    + When the feet don't line up with the hands, flag the trailing leg instead of swapping feet on one foothold. Double foot swaps are a common fault #src("E11"). See #tref("flag") and, from V3, #tref("back-flag"). Save a #tref("foot-swap", body: [foot swap]) for a stretch with only one good foothold.
     + When the holds line up, cross your legs and stand on the outside edge of the leading foot #src("E12").
     + On steep sections, keep your arms straight and move your hips sideways before the hand. See #tref("straight-arms").
   ],
@@ -205,7 +205,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   how: [
     + Bring your feet up as the wall steepens, so that your legs keep a share of the weight #src("E8"). Press each toe down and into its hold, as if gripping with it. Don't slap the ball of the foot onto it #src("E8", "E11"). See #tref("toe-pull").
     + Hang on straight arms between moves #src("E7", "E8"). See #tref("straight-arms"). Start each move with your hips, then pull. Don't lead with your head #src("E8").
-    + To reach, turn the hip on the reaching side into the wall (#tref("hip-turn", inner: true)). Stand on the outside edge of that foot, on a hold below or behind you, and brace the other foot so you stand on a tripod #src("E9", "E11"). See #tref("backstep") and #tref("twist-lock").
+    + To reach, turn the hip on the reaching side into the wall (#tref("hip-turn", inner: true)). Stand on the outside edge of that foot, on a hold below or behind you, and brace the other foot so you stand on a tripod #src("E9", "E11"). See #tref("backstep") and, from V4, #tref("twist-lock").
     + For a longer reach without jumping, use a #tref("drop-knee", body: [drop knee]) #src("E7").
     + Where the footholds face sideways or down, hook them. See #tref("heel-hook") and #tref("toe-hook").
   ],

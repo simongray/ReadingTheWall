@@ -588,7 +588,7 @@ class Book:
         rows = [p for p in self.entries.values() if (p.meta["grade"] >= 8 if grade >= 8 else p.meta["grade"] == grade)]
         rows.sort(key=lambda p: p.meta["category"])
         if not rows:
-            node.replace_with(el("p", None, el("em", None, "None listed.")))
+            node.detach()   # as in print: a grade with no new techniques has no table
             return
         node.replace_with(self.table(["Technique", "Category"], [[self.tech_link(p), el("em", None, p.meta["category_name"])] for p in rows]))
 

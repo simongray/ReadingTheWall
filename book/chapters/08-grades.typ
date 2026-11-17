@@ -343,7 +343,7 @@ Lattice's V5–V7 band adds about 24~kg on a two-arm #jt("max hang"), against ab
 
 Expect walls of 40–50°, roofs, or very technical vertical faces. Holds are small #jt("crimp", body: [crimps]), poor rounded holds and wide pinches. Some problems make you squeeze between two holds or volumes. Expect one or two big dynamic moves, or long runs of medium-hard moves.
 
-==== Techniques that start to matter
+==== Techniques to refine
 
 This book's catalogue has nothing new for this band, so the work is on the techniques you already know. Hooks become main holds, not just aids. #tref("compression") uses both arms and both feet. #tref("cutting-loose", body: [Cutting loose]) becomes routine: you stop the swing and put your feet back on without losing your hands. #jt("comp style", body: [Comp-style]) problems keep using the #tref("comp-moves", body: [competition set pieces]) from V5.
 
@@ -387,7 +387,7 @@ One head setter says a gym's problems start to test finger strength from V6 #src
 
 The terrain is the same as V6 with less margin. Holds are a size smaller and feet are worse. Moves are longer or more powerful. Many climbers at this level measure themselves on #jt("training board", body: [training boards]) such as the MoonBoard, Kilter and Tension: standard steep walls with a fixed grid of holds.
 
-==== Techniques that start to matter
+==== Techniques to refine
 
 This book's catalogue has nothing new for this band. What changes is how exactly you do the ones you know. Compression must hold for longer. Toe and heel hooks must grip poor features. You must #tref("latching", body: [latch]) holds fast and accurately at the end of a dynamic move. Lattice calls this #jt("contact strength"): catching a hold quickly as you arrive #src("F14"). #ix("Contact strength") Save the fastest catches on small holds for moves that need them, because a very fast grab can rupture a #jt("pulley") (a band that holds a finger tendon against the bone) #src("C25").
 
@@ -425,7 +425,7 @@ Some climbers test strong on a #jt("hangboard") (a board of edges to hang from) 
 
 Expect hard versions of everything above: the steepest walls, and holds that only work in one exact position. One head setter says a gym's hardest circuits test finger strength, complex sequences and risky coordination moves #src("E52"). One coach says harder mostly means bigger moves: to fairly good holds on #jt("training board", body: [training boards]), and to more sloping holds on gym problems #src("F65").
 
-==== Techniques that start to matter
+==== Techniques to refine
 
 This book's catalogue has nothing new for this band. Progress comes from strength on specific grips and from #jt("beta") worked out for your body.
 
@@ -452,22 +452,22 @@ The data doesn't show what holds people here. Climbers at this level report abou
 
 // ------------------------------------------------------------------ map
 
-== Progression map <progression-map>
+== Focus by grade <progression-map>
 
-#ix("Progression map")
-Each row lists key techniques badged at that grade in Part II, and what to focus on. The #link(<technique-map>)[technique map] shows every technique on the path it belongs to.
+#ix("Focus by grade")
+Each row gives the focus for one grade. The #link(<technique-map>)[technique map] shows the techniques that start to matter at each grade up to V5. No entry has a later badge, so the rows from V6 on name what to refine.
 
 #gtable(
-  columns: (auto, 1.6fr, 1fr),
-  table.header(th[Band], th[Key techniques], th[Focus]),
-  [*VB–V0*], [#tref("precise-footwork"), #tref("edging"), #tref("weight-shift"), #tref("straight-arms"), #tref("jug")], [Place feet by eye; push with the legs; learn to fall],
-  [*V1*], [#tref("smearing"), #tref("rockover"), #tref("frog"), #tref("matching"), #tref("stemming"), #tref("sidepull"), #tref("volume")], [Hips over the foot before you reach],
-  [*V2*], [#tref("foot-swap"), #tref("hip-turn"), #tref("flag"), #tref("layback"), #tref("half-crimp"), #tref("undercling"), #tref("mantle"), #tref("slab")], [Climb side-on; stop the swing],
-  [*V3*], [#tref("toe-pull"), #tref("heel-hook"), #tref("toe-hook"), #tref("backstep"), #tref("drop-knee"), #tref("body-tension"), #tref("lock-off"), #tref("sloper"), #tref("pinch"), #tref("gaston"), #tref("deadpoint"), #tref("run-and-jump"), #tref("overhang")], [Toes into the wall; first momentum; climb V3s first go],
-  [*V4*], [#tref("bicycle"), #tref("compression"), #tref("dyno"), #tref("latching"), #tref("cutting-loose"), #tref("roof")], [Straight-arm starts; plan the swing; try a V5 every session],
-  [*V4→V5*], [Those of V3 and V4, done precisely and linked], [Find your limiter; work three to five V5s over sessions],
-  [*V5*], [#tref("heel-toe-cam"), #tref("knee-bar"), #tref("full-crimp"), #tref("double-dyno"), #tref("campus-move"), #tref("foot-catch"), #tref("pogo"), #tref("comp-moves")], [A broad V5 base across styles],
-  [*V6*], [No new techniques; hooks as main holds, #tref("compression") and #tref("cutting-loose")], [Weak styles; small holds; precision],
-  [*V7*], [No new techniques; precise #tref("latching", body: [latching]), hooks and compression], [Test for weaknesses; projects over weeks],
-  [*V8+*], [No new techniques; grip-specific strength], [Moves worked out for your body; specialist strength],
+  columns: (auto, 1fr),
+  table.header(th[Band], th[Focus]),
+  [*VB–V0*], [Place feet by eye; push with the legs; learn to fall],
+  [*V1*], [Hips over the foot before you reach],
+  [*V2*], [Climb side-on; stop the swing],
+  [*V3*], [Toes into the wall; first momentum; climb V3s first go],
+  [*V4*], [Straight-arm starts; plan the swing; try a V5 every session],
+  [*V4→V5*], [The techniques of V3 and V4, done precisely and linked; find your limiter; work three to five V5s over sessions],
+  [*V5*], [A broad V5 base across styles],
+  [*V6*], [Hooks as main holds, #tref("compression", body: [compression]) and #tref("cutting-loose", body: [cutting loose]); weak styles; small holds; precision],
+  [*V7*], [Precise #tref("latching", body: [latching]), hooks and compression; test for weaknesses; projects over weeks],
+  [*V8+*], [Moves worked out for your body; specialist, grip-specific strength],
 )

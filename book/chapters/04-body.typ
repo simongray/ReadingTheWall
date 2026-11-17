@@ -292,7 +292,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the body from above.],
   how: [
     + Hold with your right hand on a #tref("jug", body: [jug]) or a #tref("sidepull", body: [sidepull]) you can lean off #src("B38"). A right-hand sidepull faces right, so you hang to its left.
-    + Put your left foot on its #tref("edging", body: [outside edge]) (the little-toe side) on a foothold below your right hand #src("B37"). That is a #tref("backstep", body: [backstep]). Put your right foot on a foothold out to the right, or press it on the wall #src("B15", "B37").
+    + Put your left foot on its #tref("edging", body: [outside edge]) (the little-toe side) on a foothold below your right hand #src("B37"). From V3, the #tref("backstep", body: [backstep]) builds on this placement. Put your right foot on a foothold out to the right, or press it on the wall #src("B15", "B37").
     + Turn your pelvis so your left hip goes to the wall and your chest turns towards your right hand #src("B14"). #tref("straight-arms", body: [Keep the right arm straight]) and lean off it #src("B43").
     + Stand up through the left leg and reach high with the left hand. Look back at your right hand as you reach, which rolls your shoulders and adds up to a shoulder width of reach #src("B46").
   ],
@@ -371,7 +371,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + *Roll* by default on steep ground: turn your chest side-on to the wall so one hip touches it #src("B49"). *Swim* on slabs, for wide hands or when the feet are too poor to turn: keep your chest flat to the wall and narrow your shoulders #src("B49").
     + Look back at the holding hand as you move, which rolls your shoulders and adds reach #src("B46").
     + For a cross-under, pass the reaching hand under the holding arm. It suits targets level with or below the holding hand.
-    + If you add a #tref("drop-knee", body: [drop knee]), drop the knee on the reaching-hand side, even with your arms crossed #src("B20").
+    + Later, if you add a #tref("drop-knee", body: [drop knee]), drop the knee on the reaching-hand side, even with your arms crossed #src("B20").
   ],
   when: [
     *Look for*

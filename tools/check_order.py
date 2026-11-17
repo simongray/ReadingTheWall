@@ -5,6 +5,14 @@ to a technique badged at a higher grade than the entry:
 
     check_order: V1 Sidepull -> V4 Drop knee
 
+Most of these are meant: a step that says "later", or names the grade, points
+ahead on purpose. So the text may state a technique's grade next to its link,
+as in "#tref("back-flag") at V3" or "from V4, #tref("twist-lock")". Anywhere
+in the chapters, a grade stated like that which isn't the entry's badge gets a
+line too, since a badge can move after the sentence was written:
+
+    check_order: 04-body.typ says V3 for Back flag, whose badge is V4
+
 This is information for the editor and never fails the build. A reference
 resolves as tref() does in book/template.typ: an entry with that very key wins,
 then book/key-alias.typ. A key with no entry either way is left out, since
@@ -16,8 +24,17 @@ import glob
 import re
 
 CHAPTERS = "book/chapters/0[3-7]*.typ"
+ALL_CHAPTERS = "book/chapters/*.typ"
 ALIASES = "book/key-alias.typ"
 TREF = re.compile(r'#tref\(\s*"([^"]+)"')
+# A grade stated for a linked technique: straight after the link ("... at V3",
+# "... from V4"), as its badge ("... has a V3 badge"), or just before the link
+# ("from V3, the ..."). Each gives (key, grade) in the order named.
+STATED = [
+    (re.compile(r'#tref\(\s*"([^"]+)"[^)]*\)\s+(?:at|from)\s+V(\d)\b'), (1, 2)),
+    (re.compile(r'#tref\(\s*"([^"]+)"[^)]*\)[^.\n#]{0,40}?\bhas a V(\d) badge'), (1, 2)),
+    (re.compile(r'\b(?:[Aa]t|[Ff]rom)\s+V(\d),?\s+(?:an?\s+|the\s+)?#tref\(\s*"([^"]+)"'), (2, 1)),
+]
 
 
 def skip_comment(s, i):
@@ -162,6 +179,16 @@ def main():
                       f"{grade_label(target['grade'])} {target['name']}")
     print(f"check_order: {count} step link(s) to a higher grade, "
           f"across {len(found)} entries")
+    for path in sorted(glob.glob(ALL_CHAPTERS)):
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        for pattern, (k, g) in STATED:
+            for m in pattern.finditer(text):
+                key = m.group(k) if m.group(k) in found else aliases.get(m.group(k), m.group(k))
+                target = found.get(key)
+                if target and target["grade"] != int(m.group(g)):
+                    print(f"check_order: {path.rsplit('/', 1)[-1]} says V{m.group(g)} for "
+                          f"{target['name']}, whose badge is {grade_label(target['grade'])}")
 
 
 if __name__ == "__main__":

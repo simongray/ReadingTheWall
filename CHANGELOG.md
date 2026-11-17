@@ -103,6 +103,16 @@ section as the notes of the GitHub release.
   repeated and misplaced passages, of which the first were fixed.
 
 ### Changed
+- The guides for V6, V7 and V8 call their subsection on techniques "Techniques
+  to refine", since no entry has a badge that high. The web edition no longer
+  prints "None listed" there.
+- Steps that send the reader to a technique with a later badge now say so where
+  they didn't: in Turning the hip in, Crossing hands, Traverses and Overhangs,
+  and in the grade note of Volumes. `tools/check_order.py` also reports a grade
+  named beside a link when it isn't that entry's badge.
+- Chapter 8: "Progression map" is now "Focus by grade". Its column of key
+  techniques went, since the technique map shows every technique by grade, so
+  the table gives each grade's focus alone.
 - References replace repeated passages, in about 35 places listed in
   `research/placement-audit.md`. Where a how-to was repeated outside its entry,
   the copy is now a short cue with a link: Roofs to Toe hook, Slab technique to
