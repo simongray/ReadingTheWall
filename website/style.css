@@ -385,6 +385,29 @@
     a { text-decoration-color: transparent; }
   }
 
+  /* A note's number in the text, and the notes at the foot of the page. */
+  .fn-ref {
+    font-size: .72em;
+    font-variant-numeric: lining-nums;
+    line-height: 0;
+    vertical-align: .5em;
+
+    a { padding-inline: .1em; text-decoration: none; }
+  }
+
+  .footnotes {
+    margin-block-start: 2rlh;
+    padding-block-start: .6rlh;
+    border-block-start: var(--rule-light);
+    color: var(--ink-soft);
+    font-size: var(--fs-note);
+
+    ol { margin: 0; padding-inline-start: 1.4em; }
+    li + li { margin-block-start: .35rlh; }
+    li:target { color: var(--ink); }
+    .fn-back { text-decoration: none; }
+  }
+
   /* A narrow column is hyphenated, as print's is. */
   @container main (width < 34rem) {
     p, li, dd { hyphens: auto; hyphenate-limit-chars: 7 3 3; }

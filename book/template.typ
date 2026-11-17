@@ -211,6 +211,12 @@
   if ks.len() <= 4 { box(group) } else { group }
 }
 
+// A note at the foot of the page. It says how the book reached an opinion that no
+// source states: what it was inferred from, here or elsewhere in the book. Its number
+// is a superior figure, so it can't be taken for a source's number in brackets. The
+// numbers start again in each chapter. website/template.typ has its own version.
+#let note(body) = footnote(body)
+
 // The evidence line of an entry, a prototype that is off by default. With
 // `--input evidence=1` each entry's apparatus counts its sources by kind,
 // using book/source-kinds.yaml. A source missing from that file counts as
@@ -459,24 +465,27 @@
 
 #let grade-label(g) = if g == none { "—" } else if g < 0 { "VB" } else if g >= 8 { "V8+" } else { "V" + str(g) }
 
-// Each grade's tab colour, from V0 up, as on the walls at Boulders, the Danish
-// gym chain. It publishes no V grades, so the table comes from Simon, who climbs
-// there. The tabs darken as the grade rises, so on a monochrome screen a tab's
-// tone still says how hard the grade is. Light tabs take black figures and an
-// outline; dark ones take white figures. Each colour holds its panel level like
-// the figures' colours (figtools/paint.py).
-#let tab-green = (fill: rgb("#a2dea2"), figures: ink, stroke: 0.4pt + ink)
+// Each grade's tab colour, from V0 up, like the colours of a gym's circuits. Which
+// colour stands for which grade is the editor's choice, and gyms differ. Every tab
+// takes white figures and no outline, so each colour is dark
+// enough to carry them: white stands at about 4 to 1 against the three lightest
+// and higher against the rest. No tab is lighter than the one before it, so on a
+// monochrome screen a tab's tone still says roughly how hard the grade is. Each colour sits on one of an
+// e-paper panel's 16 greys (the number after it, from 0 for black), where every
+// device shows it alike; `epaper/at-shade` in the colour-coded library moved the
+// three light ones there. website/template.typ reads `figures` and `stroke`.
+#let tab-on(fill) = (fill: fill, figures: white, stroke: none)
 #let grade-tabs = (
-  tab-green,                                                  // V0
-  tab-green,                                                  // V1
-  (fill: rgb("#d7be2e"), figures: ink, stroke: 0.4pt + ink),  // V2, yellow
-  (fill: rgb("#e98421"), figures: ink, stroke: 0.4pt + ink),  // V3, orange
-  (fill: rgb("#3b69ae"), figures: white, stroke: none),       // V4, blue
-  (fill: rgb("#58328a"), figures: white, stroke: none),       // V5, purple
-  (fill: rgb("#6b211b"), figures: white, stroke: none),       // V6, red
-  (fill: ink, figures: white, stroke: none),                  // V7 and up, black
+  tab-on(rgb("#538c57")),  // V0, green, 7
+  tab-on(rgb("#538c57")),  // V1
+  tab-on(rgb("#a07701")),  // V2, yellow, 7
+  tab-on(rgb("#bf6700")),  // V3, orange, 7
+  tab-on(rgb("#3b69ae")),  // V4, blue, 6
+  tab-on(rgb("#58328a")),  // V5, purple, 4
+  tab-on(rgb("#6b211b")),  // V6, red, 3
+  tab-on(ink),             // V7 and up, black
 )
-#let grade-tab-look(g) = if g == none { (fill: ink, figures: white, stroke: none) } else {
+#let grade-tab-look(g) = if g == none { tab-on(ink) } else {
   grade-tabs.at(calc.clamp(g, 0, grade-tabs.len() - 1))
 }
 
@@ -1520,6 +1529,11 @@
   })
   show heading: set text(font: serif, hyphenate: false)
   show heading: set par(justify: false, first-line-indent: 0pt)
+  // Notes: in the apparatus size under a short light rule, ragged, a line clear of
+  // the text above.
+  set footnote.entry(separator: line(length: 18mm, stroke: rule-light), clearance: gap(1), gap: gap(0.4), indent: 0pt)
+  show footnote.entry: set text(size: fs.note)
+  show footnote.entry: set par(justify: false, first-line-indent: 0pt, leading: 0.6em, hanging-indent: 0.9em)
   // Chapter openings: a new page, sunk a little; the chapter number in
   // small caps, the title on the scale's chapter step, the chapter's hold
   // between two short light rules (`ornaments`), and three empty lines
@@ -1532,6 +1546,7 @@
     pagebreak(weak: true)
     entry-top.update(false)
     entries-running.update(false)
+    counter(footnote).update(0)
     v(gap(2))
     block(width: 100%, below: gap(3), align(center, {
       if it.numbering != none {

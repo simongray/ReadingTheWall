@@ -637,6 +637,8 @@ def write_site(book):
 
     home.body = home_content(book)
     colophon.body = colophon_content(book)
+    # The colophon isn't one of the book's pages, so its links into the book are still "#id".
+    book.resolve_links(colophon)
     for page in book.pages:
         write_page(book, page, page_content(book, page))
     write_page(book, contents, contents_content(book))

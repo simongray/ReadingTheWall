@@ -14,7 +14,7 @@ they are. The values live in `paint.py`.
 - **One problem, one colour, and the colour says the grade.** On a real wall a
   problem is one colour and the wall as a whole has many. So a figure's holds
   share one colour. In a technique entry the colour follows the entry's grade, as
-  at Boulders, so it agrees with the entry's tab. A figure with no known grade
+  a gym's circuits do, so it agrees with the entry's tab. A figure with no known grade
   takes teal or raspberry, which claim no grade. The cover and the atlases show
   many holds at once and use several.
 - **The shades on a hold are its own colour.** Chalk and light are white on top
@@ -32,12 +32,16 @@ they are. The values live in `paint.py`.
   is what most readers expect of a muscle (our judgement; we found no source for
   the convention). No red holds the near-black the dots on the left limbs used to
   have, so all the dots now sit on one lighter grey and stay crisp on the panel.
-- **Grade tabs follow the walls at Boulders,** the Danish gym chain, and darken as
-  the grade rises. On a monochrome screen the colour is gone, but the tone still
-  says how hard the grade is. Light tabs take black figures and an outline, and
-  dark ones take white figures. Boulders publishes no V grades, so the table comes
-  from Simon, who climbs there: green up to V1, then yellow, orange, blue, purple
-  and red for V2 to V6, and black from V7.
+- **Grade tabs are coloured like a gym's circuits.** Every tab
+  takes white figures and no outline, so each colour is dark enough to carry
+  them: white stands at about 4 to 1 against green, yellow and orange, and higher
+  against the rest. Green, yellow and orange share one grey and the tabs darken
+  from there, so on a monochrome screen the tone still says roughly how hard the
+  grade is. Each colour sits on one of the panel's 16 greys, and
+  `epaper/at-shade` in Simon's colour-coded library moved the three light ones
+  there. At that darkness yellow is a mustard. Which colour stands for which grade
+  is the editor's choice, and the book names no gym as its source: green up to
+  V1, then yellow, orange, blue, purple and red for V2 to V6, and black from V7.
 - **The climber, the wall and the volumes stay neutral,** apart from the red on
   the muscles. Colour then only ever marks a hold, a muscle at work or the way your
   body moves. A coloured volume would compete with the holds and blur what their
@@ -77,7 +81,7 @@ own demo green lands on level 6, 8 or 9 of the panel's 16, depending on the sum.
 The palette holds its level under all of these.
 
 **Hold colours add a little meaning, and appeal.** They repeat the grade on the
-entry's tab, which only helps a reader who knows Boulders' circuits, and they make
+entry's tab, which only helps a reader whose gym uses the same colours, and they make
 the book look like a gym. Nothing in a figure depends on them. The amber arrows
 are the part with evidence behind them. A meta-analysis found
 colour cues in pictures helped both retention and transfer (g = 0.44 and 0.39),
@@ -150,10 +154,6 @@ Onyx:
 [colour coding](https://shop.boox.com/blogs/news/master-color-coding-with-boox-color-epaper-tablets),
 [Max firmware notes](https://downloads.boox.com/download/max),
 [manual](https://ebookreader.dk/images/upload/Onyx%20BOOX%20Go%2010%203%20User%20Manual.pdf).
-
-Boulders:
-[first visit](https://boulders.dk/frstegang),
-[Aarhus listing](https://www.visitdenmark.com/denmark/plan-your-trip/boulders-aarhus-gdk1147322).
 
 Colour e-paper:
 [E Ink on Kaleido 3](https://www.eink.com/brand/detail/Kaleido3),

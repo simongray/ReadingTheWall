@@ -8,7 +8,7 @@ holds are the one exception, as yellow can't stay yellow at the holds' darkness.
 
 On a real wall one problem is one colour, and the wall as a whole has many.
 So a figure's holds share one colour. In a technique entry the colour follows
-the entry's grade, as on the walls at Boulders, and it's read from the chapters
+the entry's grade, as a gym's circuits do, and it's read from the chapters
 so that it follows any change of grade. The cover and the atlases, which show
 many holds at once, use several.
 
@@ -63,7 +63,7 @@ YELLOW_GREYS = ("#aaaaaa", "#cccccc", "#dddddd", "#eeeeee", "#777777")
 HOLDS = (FOREST, RASPBERRY, DENIM, BRICK, YELLOW, TEAL, VIOLET, RUST)
 
 # A figure in a technique entry takes the hold colour of the entry's grade, from
-# V0 up, as in the circuits at Boulders (see grade-tabs in book/template.typ).
+# V0 up, like a gym's circuits (see grade-tabs in book/template.typ).
 # Its black holds stay as drawn, in grey.
 BY_GRADE = (FOREST, FOREST, YELLOW, RUST, DENIM, VIOLET, BRICK, HOLD_GREYS)
 

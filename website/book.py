@@ -1094,6 +1094,21 @@ class Book:
                                   and target.heading.attrs.get("id") == anchor)
             a.attrs["href"] = target.url if is_head else f"{target.url}#{anchor}"
 
+    def set_footnotes(self):
+        """Move each page's notes (`note` in the template) to a list at its foot. They
+        are numbered from 1 on every page and linked both ways."""
+        for page in self.pages:
+            notes = page.body.select("span", cls="fn")
+            if not notes:
+                continue
+            items = []
+            for n, note in enumerate(notes, 1):
+                back = el("a", {"class": "fn-back", "href": f"#fnref-{n}", "aria-label": "Back to the text"}, "↩")
+                items.append(el("li", {"id": f"fn-{n}"}, *note.children, " ", back))
+                ref = el("a", {"id": f"fnref-{n}", "href": f"#fn-{n}", "aria-label": f"Note {n}"}, str(n))
+                note.replace_with(el("sup", {"class": "fn-ref"}, ref))
+            page.body.append(el("section", {"class": "footnotes", "aria-label": "Notes"}, el("ol", None, *items)))
+
     def fill_descriptions(self):
         for page in self.pages:
             if page.description:
@@ -1234,6 +1249,7 @@ class Book:
         self.register_targets()
         for page in self.pages:
             self.resolve_links(page)
+        self.set_footnotes()
         self.fill_descriptions()
         self.set_reading_order()
         self.collect_previews()
