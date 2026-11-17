@@ -6,7 +6,9 @@ The angle and shape of the wall decide which techniques a #jt("problem") needs. 
 
 The entries here don't repeat how to do a heel hook or a drop knee. They say where the terrain asks for one and why, and link to the full entry.
 
-#category-table("terrain")
+The map shows this chapter's entries by grade. A line joins techniques that build on each other, and #link(<technique-map>)[the technique map] has all five chapters on one page.
+
+#technique-map(only: "terrain")
 
 == How the wall angle changes your body
 

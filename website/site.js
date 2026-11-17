@@ -252,8 +252,11 @@
         const n = done.filter(Boolean).length;
         path.querySelector(".tmap-tally").textContent = n ? `${n}/${items.length}` : "";
       }
-      count.textContent = total ? `${total} of ${boxes.length} ticked.` : "Nothing ticked yet.";
-      clear.hidden = !total;
+      // A chapter's section of the map has the boxes but no count.
+      if (tools) {
+        count.textContent = total ? `${total} of ${boxes.length} ticked.` : "Nothing ticked yet.";
+        clear.hidden = !total;
+      }
     };
     map.addEventListener("change", (e) => {
       if (!e.target.matches("input[data-key]")) return;
@@ -263,7 +266,7 @@
       write(ticked);
       mark();
     });
-    clear.addEventListener("click", () => {
+    clear?.addEventListener("click", () => {
       if (!confirm("Clear all your ticks on the map?")) return;
       write(new Set());
       restore();
@@ -277,7 +280,7 @@
     });
     restore();
     mark();
-    tools.hidden = false;
+    if (tools) tools.hidden = false;
     map.classList.add("tmap-live");
   }
 

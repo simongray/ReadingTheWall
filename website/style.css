@@ -591,17 +591,6 @@
     }
   }
 
-  .two-tables {
-    display: grid;
-    gap: 0 1.8rem;
-    margin-block: 1rlh 1.5rlh;
-
-    table { align-self: start; }
-    + * { margin-block-start: 1.5rlh; }
-
-    @container main (width >= 34rem) { grid-template-columns: 1fr 1fr; }
-  }
-
   .columns { margin-block: 1rlh; }
 
   .columns-2 {

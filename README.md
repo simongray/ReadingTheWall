@@ -95,7 +95,7 @@ A technique you merge into another keeps its address: add its old key to
 | Path | What it is |
 |---|---|
 | `book/main.typ` | The entry point, which sets the order of parts and chapters |
-| `book/template.typ` | Page design and macros: `technique(...)` entries, `tref` cross-references, `ix` index terms, `src` citations, `note` footnotes, the generated tables (A–Z, category tables, techniques per grade), the technique map and the index |
+| `book/template.typ` | Page design and macros: `technique(...)` entries, `tref` cross-references, `ix` index terms, `src` citations, `note` footnotes, the generated tables (A–Z, techniques per grade), the technique map and the index |
 | `book/chapters/` | One file per chapter. `00-front.typ` is the title page and introduction, and `10-appendices.typ` puts together the appendices from the `a-*.typ` files |
 | `book/figures/` | Generated SVG illustrations (don't edit them; regenerate them) |
 | `book/assets/` | Fixed images: the official CC BY-SA 4.0 badge from the Creative Commons press kit |
@@ -136,7 +136,7 @@ A technique you merge into another keeps its address: add its old key to
 ## Common edits
 
 - **Change a technique's text or grade:** edit its `#technique(...)` block
-  in the chapter file. The category tables, the A–Z list, the technique map and the
+  in the chapter file. The A–Z list, the technique map and the
   per-grade lists follow automatically.
 - **Add a technique:** add a `#technique(...)` block with a new `key`, and
   refer to it elsewhere with `#tref("key")`. Put its key on a path in

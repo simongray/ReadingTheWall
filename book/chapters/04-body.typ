@@ -8,7 +8,9 @@ Each entry's badge marks the grade where you start to need the technique indoors
 
 If you're tall, you reach many holds square on that shorter climbers must twist for,#ix("Tall climbers!hidden technique gaps") which hides missing technique until the holds get small or far apart (@cons-tall).
 
-#category-table("body")
+The map shows this chapter's entries by grade. A line joins techniques that build on each other, and #link(<technique-map>)[the technique map] has all five chapters on one page.
+
+#technique-map(only: "body")
 
 == Reading the wall for body position
 

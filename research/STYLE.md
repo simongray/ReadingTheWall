@@ -204,7 +204,7 @@ Rules:
   (alphabetical within a grade), so the chapter reads as a progression.
 - Start your chapter with a level-1 heading (`= Feet and legs`), then a
   short introduction (what the category is about and how to read it), then
-  `#category-table("feet")` (auto-generated ranked table), then any short
+  `#technique-map(only: "feet")` (the chapter's section of the technique map), then any short
   concepts sections (level-2 headings), then the entries. Use level-2
   headings to group entries if that helps (e.g. `== Hooking`).
 

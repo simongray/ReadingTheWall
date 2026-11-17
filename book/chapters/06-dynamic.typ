@@ -8,7 +8,9 @@ If you climb V4 but not yet V5, start here. Gyms set more competition moves for 
 
 If you're tall, you reach many holds that shorter climbers must jump for#ix("Tall climbers!dynamic moves") #src("D45"), and the missing skill shows when a setter forces momentum (@cons-tall). Whatever your height, read @cons-falling before your first dyno or running jump.
 
-#category-table("dynamic")
+The map shows this chapter's entries by grade. A line joins techniques that build on each other, and #link(<technique-map>)[the technique map] has all five chapters on one page.
+
+#technique-map(only: "dynamic")
 
 == Static or dynamic? <dynamic-choice>
 

@@ -8,7 +8,9 @@ The early entries look basic, but you can't skip them. Around V3, climbers find 
 
 No public syllabus ties footwork to V-grades #src("A46"), so each badge in this chapter is the book's own estimate. The grade notes give the evidence for it: gym clinics, coaching syllabuses, coaches' fault lists and climbers' reports #src("A7", "A42", "A43", "A44").
 
-#category-table("feet")
+The map shows this chapter's entries by grade. A line joins techniques that build on each other, and #link(<technique-map>)[the technique map] has all five chapters on one page.
+
+#technique-map(only: "feet")
 
 == Feet first
 

@@ -8,7 +8,9 @@ Each badge marks where indoor problems start to demand the technique. No coachin
 
 The heavier you are, the more load your fingers carry (@cons-heavy).#ix("Body weight!load on the fingers") The force on your finger #jt("pulley", body: [pulleys]) (the bands that hold the tendons against the bone) rises with that load #src("C25", "C26"). The entries on the #jt("crimp") (a grip with the fingers sharply bent) say how to keep it down.
 
-#category-table("hands")
+The map shows this chapter's entries by grade. A line joins techniques that build on each other, and #link(<technique-map>)[the technique map] has all five chapters on one page.
+
+#technique-map(only: "hands")
 
 == Every hold has a direction
 

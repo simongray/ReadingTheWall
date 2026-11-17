@@ -22,7 +22,7 @@ tiny bit of ornamentation".
 - Keep every function in `book/template.typ` working with the same
   signature (chapters call `technique`, `tref`, `jt`, `ix`, `src`,
   `readbox`, `notebox`, `keypoint`, `remember`, `filmstrip`, `badge`,
-  `category-table`, `grade-techniques`, `a-to-z`, `make-index`, `gloss`,
+  `technique-map`, `grade-techniques`, `a-to-z`, `make-index`, `gloss`,
   `part`, `book`). Keep all links, labels, backlinks, the header
   navigation (Contents · A–Z · Troubleshooting · Glossary · Index), QR
   codes and the index. You may restyle all of them.

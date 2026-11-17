@@ -572,30 +572,16 @@ class Book:
         for page in self.pages:
             for node in page.body.select("div"):
                 gen = node.attrs.get("data-gen")
-                if gen == "category-table":
-                    self.category_table(node)
-                elif gen == "grade-techniques":
+                if gen == "grade-techniques":
                     self.grade_techniques(node)
                 elif gen == "a-to-z":
                     node.replace_with(self.a_to_z())
                 elif gen == "technique-map":
-                    node.replace_with(self.technique_map())
+                    node.replace_with(self.technique_map(node.attrs.get("data-only")))
                 elif gen == "index":
                     node.replace_with(self.index())
                 elif gen == "contents":
                     node.detach()
-
-    def category_table(self, node):
-        """Ranked by grade in two columns; within a grade, in the chapter's order."""
-        category = node.attrs.pop("data-category")
-        del node.attrs["data-gen"]
-        rows = sorted((p for p in self.entries.values() if p.meta["category"] == category), key=lambda p: p.meta["grade"])
-        half = (len(rows) + 1) // 2
-        node.attrs["class"] = "two-tables"
-        for chunk in (rows[:half], rows[half:]):
-            if chunk:
-                node.append(self.table(["Grade", "Technique"], [[self.grade_tag(p.meta["grade"]), self.tech_link(p)] for p in chunk],
-                                       f"Techniques by grade: {self.categories.get(category, category)}"))
 
     def grade_techniques(self, node):
         grade = int(node.attrs["data-grade"])
@@ -606,10 +592,12 @@ class Book:
             return
         node.replace_with(self.table(["Technique", "Category"], [[self.tech_link(p), el("em", None, p.meta["category_name"])] for p in rows]))
 
-    def technique_map(self):
+    def technique_map(self, only=None):
         """The technique map, from book/map.toml: as in print, each row is a path and
         each column is a grade, and each category is a section of its own. Each
         technique has a box to tick. site.js keeps the ticks and marks what they show.
+        `only` gives the section of one category, which opens that category's chapter
+        without its name. Entries link to it from their category (#map-<category>).
 
         Everything is placed on one grid of six columns. A section is its name, a
         row for the grade tabs and a row for each path, with the six bands behind
@@ -620,6 +608,8 @@ class Book:
         grid = el("div", {"class": "tmap-grid"})
         row, placed = 0, set()
         for category, name in self.categories.items():
+            if only not in (None, category):
+                continue
             lines = []
             for path in (p for p in data["path"] if p["category"] == category):
                 nodes = defaultdict(list)   # by band
@@ -659,13 +649,16 @@ class Book:
                 label = self.grade_label(g)
                 grid.append(el("div", {"class": f"tmap-band band-g{g}", "style": f"grid-area:{tabs}/{g + 1}/{row + 1}"},
                                el("a", {"class": f"grade-tab g{g}", "href": guide.url}, label) if guide else el("span", {"class": f"grade-tab g{g}"}, label)))
-            grid.append(el("h5", {"class": "tmap-cat", "style": f"grid-row:{head}"},
-                           el("img", {"class": "tmap-orn", "alt": "", "src": f"/figures/ornament-{chapter.ornament}.svg"}) if chapter and chapter.ornament else None,
-                           el("a", {"href": chapter.url}, name) if chapter else name))
+            if only is None:
+                grid.append(el("h5", {"class": "tmap-cat", "style": f"grid-row:{head}"},
+                               el("img", {"class": "tmap-orn", "alt": "", "src": f"/figures/ornament-{chapter.ornament}.svg"}) if chapter and chapter.ornament else None,
+                               el("a", {"href": chapter.url}, name) if chapter else name))
             grid.append(el("span", {"class": "tmap-tabs", "style": f"grid-row:{tabs}"}))
             for n, line in enumerate(lines, start=1):
                 line.attrs["style"] = f"grid-row:{tabs + n}"
                 grid.append(line)
+        if only is not None:
+            return el("div", {"class": "tmap", "id": f"map-{only}"}, grid)
         for key in self.entries:
             if key not in placed:
                 self.errors.append(f"map.toml: {key} is on no path")
@@ -1153,7 +1146,7 @@ class Book:
             anchor = href[1:]
             target = self.targets.get(anchor)
             if target is None:
-                if anchor.startswith(("gl-", "grade-", "cattable-")):
+                if anchor.startswith(("gl-", "grade-", "map-")):
                     # Print leaves these as plain text until their target exists.
                     a.unwrap()
                     continue

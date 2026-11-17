@@ -1137,7 +1137,7 @@
         // other names and category on one line, or the category on a line of its own
         // with no separator left hanging
         let others = if aliases.len() > 0 [_Also called_ #aliases.join(", ")]
-        let cat = if category != none { box(navlink(label("cattable-" + category), sc(categories.at(category), tracking: 0.05em))) }
+        let cat = if category != none { box(navlink(label("map-" + category), sc(categories.at(category), tracking: 0.05em))) }
         let sep = [#h(0.4em)·#h(0.4em)]
         block(above: 0.85em, text(size: fs.caption, context {
           if others == none or cat == none { others; cat }
@@ -1291,29 +1291,6 @@
   columns: columns, stroke: head-rule, inset: (x: cell-inset.x, y: 7pt), align: left + top, ..args,
 )
 
-// Table of the techniques in one category, ranked by grade, in two columns.
-// Within a grade the entries keep the order of the chapter (`sorted` is
-// stable), which follows what depends on what.
-#let category-table(cat) = [#metadata(cat)#label("cattable-" + cat)] + context {
-  let ms = tech-metas().filter(m => m.value.category == cat)
-  let rows = ms.sorted(key: m => m.value.grade)
-  let half = calc.ceil(rows.len() / 2)
-  let tab(rs) = table(
-    columns: (auto, 1fr, auto),
-    stroke: head-rule,
-    inset: (x: 5pt, y: 4.2pt),
-    align: (left + horizon, left + horizon, right + horizon),
-    table.header(th[Grade], th[Technique], th[Page]),
-    ..rs.map(m => (
-      badge-plain(m.value.grade),
-      link(m.location(), m.value.name),
-      link(m.location(), tech-pg(m)),
-    )).flatten(),
-  )
-  block(above: gap(1), below: gap(1.5), breakable: false,
-    grid(columns: (1fr, 1fr), column-gutter: 1.8em, tab(rows.slice(0, half)), tab(rows.slice(half))))
-}
-
 // Techniques that become important at one grade (for the grade guides),
 // grouped by category, in the chapter's order within each category.
 #let grade-techniques(g) = context {
@@ -1416,9 +1393,15 @@
   by-key
 }
 
-#let technique-map() = pad(x: -overhang, context {
+// `only` draws the section of one category, to open its chapter: as wide
+// as the text, and without the section's name, which the chapter's title
+// gives. Entries link to it from their category (`map-<category>`).
+#let technique-map(only: none, ticks: auto) = {
+  let whole = only == none
+  let ticks = if ticks == auto { whole } else { ticks }
+  let drawing = context {
   let by-key = map-entries()
-  let width = page.width - 2 * margin-x + 2 * overhang
+  let width = page.width - 2 * margin-x + if whole { 2 * overhang } else { 0pt }
   let col-w = width / map-grades
   let node-w = col-w - 2mm                 // a node, centred in its column
   let size = 7.2pt
@@ -1446,21 +1429,26 @@
   // (`sizing`): a height that asked for a page number would never settle.
   let pg-size = 0.84 * size
   let pg-w = measure(text(size: pg-size, number-type: "old-style", "000")).width
-  let tick = 2.2mm
+  let tick = if ticks { 2.2mm } else { 0pt }
+  let tick-gap = if ticks { 0.6mm } else { 0pt }
   let inset-x = 0.85mm
-  let name-w = node-w - 2 * inset-x - tick - 0.6mm - 0.5mm - pg-w
+  let name-w = node-w - 2 * inset-x - tick - tick-gap - 0.5mm - pg-w
   let item(k, sizing) = {
     let m = by-key.at(k, default: none)
     // a last word of one or two letters stays with the word before it
     let name = map-data.short.at(k, default: if m == none { k } else { m.value.name })
       .replace(regex(" (\\S{1,2})$"), w => "\u{a0}" + w.captures.first())
     let to(body) = if m == none or sizing { body } else { link(m.location(), body) }
-    grid(
-      columns: (tick, name-w, pg-w), column-gutter: (0.6mm, 0.5mm), align: (left + horizon, left + horizon, right + horizon),
-      box(width: tick, height: 0.7em, place(horizon + left, circle(radius: tick / 2, stroke: 0.5pt + ink, fill: white))),
-      to(name),
-      text(size: pg-size, number-type: "old-style", to(if m == none or sizing { "" } else { tech-pg(m) })),
-    )
+    let page = text(size: pg-size, number-type: "old-style", to(if m == none or sizing { "" } else { tech-pg(m) }))
+    if ticks {
+      grid(
+        columns: (tick, name-w, pg-w), column-gutter: (tick-gap, 0.5mm), align: (left + horizon, left + horizon, right + horizon),
+        box(width: tick, height: 0.7em, place(horizon + left, circle(radius: tick / 2, stroke: 0.5pt + ink, fill: white))),
+        to(name), page,
+      )
+    } else {
+      grid(columns: (name-w, pg-w), column-gutter: 0.5mm, align: (left + horizon, right + horizon), to(name), page)
+    }
   }
   let node(keys, sizing: false) = block(
     width: node-w, fill: white, stroke: 0.5pt + ink, radius: 1.3mm, inset: (x: inset-x, y: 1.05mm),
@@ -1494,12 +1482,12 @@
 
   // lay the sections out from the top: a category's name, its bands and
   // in them its paths. The first section's bands carry the grade tabs.
-  let cats = categories.keys().map(cat => (cat: cat, rows: map-data.path.filter(p => p.category == cat).map(row)))
+  let cats = categories.keys().filter(cat => whole or cat == only).map(cat => (cat: cat, rows: map-data.path.filter(p => p.category == cat).map(row)))
   let placed = ()
   let y = 0pt
   for (i, c) in cats.enumerate() {
     let head-y = y
-    y += cat-h + cat-below + if i == 0 { tab-h / 2 } else { 0pt }
+    y += (if whole { cat-h + cat-below } else { 0pt }) + if i == 0 { tab-h / 2 } else { 0pt }
     let band-y = y
     y += pad-y + if i == 0 { tab-h / 2 } else { 0pt }
     let rows = ()
@@ -1518,7 +1506,7 @@
       // the category, which leads to its chapter, and a rule beside it
       let chapter = query(heading.where(level: 1)).filter(h => h.body == [#categories.at(c.cat)])
       let title = sc(categories.at(c.cat), tracking: 0.08em)
-      place(top + left, dy: c.head-y, box(width: width, height: cat-h, align(horizon, grid(
+      if whole { place(top + left, dy: c.head-y, box(width: width, height: cat-h, align(horizon, grid(
         columns: (auto, 1fr), column-gutter: 0.7em, align: horizon,
         text(size: 8.6pt, {
           box(baseline: 15%, fleuron(size: 3.4mm, name: ornaments.chapters.at(map-chapters.at(c.cat))))
@@ -1526,7 +1514,7 @@
           if chapter.len() == 1 { link(chapter.first().location(), title) } else { title }
         }),
         line(length: 100%, stroke: rule-light),
-      ))))
+      )))) }
       // the columns: a band for each grade
       for g in range(map-grades) {
         place(top + left, dx: g * col-w + 0.6mm, dy: c.band-y, rect(width: col-w - 1.2mm, height: c.band-h, radius: 2.2mm, fill: map-tint(g)))
@@ -1558,7 +1546,11 @@
       }
     }
   })
-})
+  }
+  if whole { pad(x: -overhang, drawing) } else {
+    [#metadata(only)#label("map-" + only)] + block(above: gap(1), below: gap(1.5), drawing)
+  }
+}
 
 // ------------------------------------------------------------ document
 

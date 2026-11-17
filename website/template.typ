@@ -234,7 +234,7 @@
         cls("p", "entry-meta", {
           if aliases.len() > 0 [_Also called_ #aliases.join(", ")]
           if aliases.len() > 0 and category != none [ · ]
-          if category != none { tag("a", attrs: (class: "sc", href: "#cattable-" + category), categories.at(category, default: category)) }
+          if category != none { tag("a", attrs: (class: "sc", href: "#map-" + category), categories.at(category, default: category)) }
         })
       }
     })
@@ -282,10 +282,10 @@
 
 // ------------------------------------------------------------ generated
 
-#let category-table(cat) = tag("div", attrs: ("data-gen": "category-table", "data-category": cat, id: "cattable-" + cat))
 #let grade-techniques(g) = tag("div", attrs: ("data-gen": "grade-techniques", "data-grade": str(g)))
 #let a-to-z() = tag("div", attrs: ("data-gen": "a-to-z"))
-#let technique-map() = tag("div", attrs: ("data-gen": "technique-map"))
+// the whole map, or the section of one category at the head of its chapter
+#let technique-map(only: none) = tag("div", attrs: if only == none { ("data-gen": "technique-map") } else { ("data-gen": "technique-map", "data-only": only) })
 #let make-index() = tag("div", attrs: ("data-gen": "index"))
 
 // ------------------------------------------------------------ the document

@@ -13,6 +13,8 @@ These fail the build:
 - a lead-in line ending in ":" or a head as the last thing on a page
 - a source cited in the text but missing from Sources, which sits in a block of a set
   height (`sources-columns` in chapters/10-appendices.typ) that can drop what doesn't fit
+- the technique map's introduction on a right-hand page, so that the map, which fills
+  the next page, wouldn't face it
 
 These are printed for the editor to read and don't fail it:
 - a page with fewer than 8 lines
@@ -140,6 +142,11 @@ def main():
 
     def folio(p):
         return str(p - offset) if p > offset else f"physical {p}"
+
+    # The technique map faces its introduction, so that appendix opens on a left-hand page.
+    opening = next((h for h in heads if h["label"] == "technique-map"), None)
+    if opening is not None and opening["page"] % 2 == 1:
+        fails.append(f"p. {folio(opening['page'])}: the technique map's introduction is on a right-hand page, so the map doesn't face it")
 
     # What starts a new text: a chapter, an entry, a grade guide or grade section (they
     # start pages), a part, a film strip that opens an entry's page. A plain section head doesn't.

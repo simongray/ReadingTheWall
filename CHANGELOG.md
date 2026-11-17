@@ -79,7 +79,9 @@ section as the notes of the GitHub release.
   paths you are far along and where you have gaps. In print it fills one page.
   The web edition keeps your ticks in the browser, marks the gaps and the next
   step on each path you have started, and shows a technique's drawing when you
-  hover over it. The paths are in `book/map.toml`.
+  hover over it. The paths are in `book/map.toml`. Chapters 3 to 7 each open
+  with their own section of the map, in place of the table of techniques by
+  grade.
 - Footnotes. Where the book draws a conclusion that no source states, a note at
   the foot of the page says how it got there (`note` in the template). The web
   edition lists a page's notes at its foot.
