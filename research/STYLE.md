@@ -110,6 +110,20 @@ Rules:
 - Inline citations: `#src("B3")` or `#src("B3", "B9")` after the claim.
   Cite safety claims, numbers and anything contestable. Use your own
   dossier's IDs; the editor maps duplicates later.
+- Don't label a claim in parentheses: no "(judgement)", "(this book's
+  suggestion)" or "(this book's reading)". Cite a source for a claim, say what
+  a source does say, or cut it. Advice with no citation is understood to be the
+  book's own. Where it isn't plain how the book reached a conclusion, add
+  `#note[...]` after the sentence with a line on how. Keep footnotes rare. A
+  grade note with no source says when you need the technique and names no
+  grade.
+- Say a thing once, in the section where a reader would look for it, and
+  point to it from elsewhere with `#tref` or `@label`. Repeat it only where a
+  reader has to act on it there, such as a safety warning in a step. Name the
+  section in a pointer, not "Chapter 9".
+- Cite a study only where it says something about an adult who boulders
+  indoors. One or two sentences are enough, and a study from outside climbing
+  is welcome when it fits the question better.
 - Index terms in prose: `#ix("Centre of gravity")`, sub-entries with `!`:
   `#ix("Heel hook!on volumes")`. Each entry's name and aliases are indexed
   automatically; index other key terms the first time they are explained.

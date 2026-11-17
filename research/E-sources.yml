@@ -636,3 +636,233 @@ E65:
   url:
     value: "https://www.99boulders.com/what-is-bouldering"
     date: 2026-10-30
+
+E70:
+  type: web
+  title: "Competition Rules, version 2.0"
+  author: "International Federation of Sport Climbing"
+  date: 2025-03
+  parent:
+    title: "IFSC (copy hosted by Climbing Escalade Canada)"
+  url:
+    value: "https://climbingcanada.ca/wp-content/uploads/2026/02/2025-IFSC-Rules.pdf"
+    date: 2026-11-17
+  note: "Rule book: rules 7.5 (starting position) and 8.5 (finishing hold)"
+
+E71:
+  type: web
+  title: "Routesetting Approach"
+  author: "Touchstone Climbing"
+  parent:
+    title: "Touchstone Climbing"
+  url:
+    value: "https://touchstoneclimbing.com/routesetting-approach/"
+    date: 2026-11-17
+  note: "Gym page"
+
+E72:
+  type: web
+  title: "Gear, fear, strength + community: Everything you need to know to start bouldering"
+  author: "City Bloc"
+  date: 2026-05-29
+  parent:
+    title: "City Bloc (Leeds)"
+  url:
+    value: "https://citybloc.co.uk/everything-you-need-to-know-to-start-bouldering/"
+    date: 2026-11-17
+  note: "Gym blog"
+
+E73:
+  type: web
+  title: "Bouldering for Beginners"
+  author: ["Nova, Charlie"]
+  parent:
+    title: "Warwick Sport, University of Warwick"
+  url:
+    value: "https://warwick.ac.uk/services/sport/blog/feed/bouldering-for-beginners/"
+    date: 2026-11-17
+  note: "University climbing wall's blog"
+
+E74:
+  type: web
+  title: "A Beginner's Guide to Climbing at BoulderBox"
+  author: "BoulderBox"
+  date: 2020-04-07
+  parent:
+    title: "BoulderBox"
+  url:
+    value: "https://www.boulderbox.in/blog/a-beginners-guide-to-climbing-at-boulderbox"
+    date: 2026-11-17
+  note: "Gym blog"
+
+E75:
+  type: web
+  title: "Increase Your Onsight Grade By Reading Routes From the Ground"
+  author: ["Gresham, Neil"]
+  date: 2022-04-20
+  parent:
+    title: "La Fabrique Verticale"
+  url:
+    value: "https://lafabriqueverticale.com/en/increase-your-onsight-grade-by-reading-routes-from-the-ground/"
+    date: 2026-11-17
+  note: "First published in Rock and Ice 203; about roped routes"
+
+E76:
+  type: web
+  title: "Tall Beta: Hacks for Tall Climbers to Make the Most of Their Height"
+  author: ["Hanes, Lucie"]
+  date: 2023-08-30
+  parent:
+    title: "TrainingForClimbing.com"
+  url:
+    value: "https://trainingforclimbing.com/tall-beta-hacks-for-tall-climbers-to-make-the-most-of-their-height/"
+    date: 2026-11-17
+  note: "Advice collected from tall climbers"
+
+E77:
+  type: web
+  title: "Develop Your 'Try Hard' Mindset With This Workout"
+  author: ["Pardy, Aaron"]
+  date: 2025-12-07
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/sections/training/develop-your-try-hard-mindset-with-this-workout/"
+    date: 2026-11-17
+
+E78:
+  type: web
+  title: "A Beginner's Guide to Flashing Climbs"
+  author: ["Walker, Noah"]
+  date: 2020-08-17
+  parent:
+    title: "Gripped"
+  url:
+    value: "https://gripped.com/profiles/a-beginners-guide-to-flashing-climbs/"
+    date: 2026-11-17
+
+E79:
+  type: web
+  title: "Tips & Tricks Episode 2: How to climb boulders on your peak level"
+  author: ["Ondra, Adam"]
+  date: 2023-11-28
+  parent:
+    title: "adamondra.com"
+  url:
+    value: "https://www.adamondra.com/tips-tricks-episode-2-climb-better-how-to-climb-boulders-on-your-peak-level/"
+    date: 2026-11-17
+
+E80:
+  type: web
+  title: "Limit Bouldering for Building Max Climbing Strength and Power"
+  author: ["Hanes, Lucie"]
+  date: 2025-02-17
+  parent:
+    title: "TrainingForClimbing.com"
+  url:
+    value: "https://trainingforclimbing.com/limit-bouldering-for-building-max-climbing-strength-and-power/"
+    date: 2026-11-17
+
+E81:
+  type: web
+  title: "The Projecting Strategy Most Climbers Never Learn"
+  author: ["Hampton, Kris"]
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://powercompanyclimbing.squarespace.com/blog/strategy-most-never-learn"
+    date: 2026-11-17
+  note: "About the author's own route projects"
+
+E82:
+  type: article
+  title: "Fatigue induces long-lasting detrimental changes in motor-skill learning"
+  author: ["Branscheidt, Meret", "Kassavetis, Panagiotis", "Anaya, Manuel", "Rogers, Davis", "Huang, Han Debra", "Lindquist, Martin A.", "Celnik, Pablo"]
+  date: 2019
+  serial-number:
+    doi: "10.7554/eLife.40578"
+  parent:
+    type: periodical
+    title: "eLife"
+    volume: 8
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6443347"
+    date: 2026-11-17
+  note: "Laboratory study of a pinching task in 121 healthy adults; not about climbing"
+
+E83:
+  type: web
+  title: "Taped Tips: When Beta Isn't Better"
+  author: ["Hampton, Kris"]
+  date: 2022-10-19
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://powercompanyclimbing.squarespace.com/blog/tt-when-beta-isnt-better"
+    date: 2026-11-17
+
+E84:
+  type: web
+  title: "Flashing Boulders"
+  author: "Lattice Training"
+  parent:
+    title: "Lattice Training"
+  url:
+    value: "https://latticetraining.com/workout/e743fca6-16fe-4fac-9a91-c568971926a6/flashing-boulders"
+    date: 2026-11-17
+  note: "Workout page"
+
+
+E85:
+  type: article
+  title: "Effects of decision-making on indoor bouldering performances: A multi-experimental study approach"
+  author: ["Medernach, Jerry Prosper", "Memmert, Daniel"]
+  date: 2021
+  page-range: "e0250701"
+  serial-number:
+    doi: "10.1371/journal.pone.0250701"
+  parent:
+    type: periodical
+    title: "PLOS ONE"
+    volume: 16
+    issue: "5"
+  url:
+    value: "https://doi.org/10.1371/journal.pone.0250701"
+    date: 2026-11-17
+  note: "Full text read. 77 male indoor boulderers, from novice to advanced"
+
+E86:
+  type: article
+  title: "Rest Interval between Sets in Strength Training"
+  author: ["de Salles, Belmiro Freitas", "Simão, Roberto", "Miranda, Fabrício", "da Silva Novaes, Jefferson", "Lemos, Adriana", "Willardson, Jeffrey M."]
+  date: 2009
+  page-range: "765-777"
+  serial-number:
+    doi: "10.2165/11315230-000000000-00000"
+  parent:
+    type: periodical
+    title: "Sports Medicine"
+    volume: 39
+    issue: "9"
+  url:
+    value: "https://doi.org/10.2165/11315230-000000000-00000"
+    date: 2026-11-17
+  note: "Review of strength-training studies, not of climbing; abstract only"
+
+E87:
+  type: article
+  title: "Recovery of power output and muscle metabolites following 30 s of maximal sprint cycling in man"
+  author: ["Bogdanis, G C", "Nevill, M E", "Boobis, L H", "Lakomy, H K", "Nevill, A M"]
+  date: 1995
+  page-range: "467-480"
+  serial-number:
+    doi: "10.1113/jphysiol.1995.sp020533"
+  parent:
+    type: periodical
+    title: "The Journal of Physiology"
+    volume: 482
+    issue: "2"
+  url:
+    value: "https://doi.org/10.1113/jphysiol.1995.sp020533"
+    date: 2026-11-17
+  note: "14 men sprinting on bicycles, not climbing; abstract only"

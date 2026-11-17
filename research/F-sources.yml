@@ -471,3 +471,162 @@ F48:
     value: "https://boulderingboss.com/how-long-does-it-take-to-move-up-through-bouldering-grades/"
     date: 2026-10-30
   note: "Blog post based on personal observation"
+
+F60:
+  type: web
+  title: "Passeports escalade"
+  author: "Fédération française de la montagne et de l'escalade"
+  parent:
+    title: "FFME"
+  url:
+    value: "https://www.ffme.fr/escalade/formation-escalade/passeports/"
+    date: 2026-11-17
+  note: "Coaching syllabus, in French: the skills taught at each of eight levels, with a grade band for each level"
+
+F61:
+  type: web
+  title: "Tableau comparatif CQP – TFP – DEJEPS (V02)"
+  author: "Fédération française de la montagne et de l'escalade"
+  date: 2022-07
+  parent:
+    title: "FFME"
+  url:
+    value: "https://www.ffme.fr/wp-content/uploads/2022/07/tableau_comparatif_formation_V02.pdf"
+    date: 2026-11-17
+  note: "Course comparison, in French: the boulder grade that stands in for the bleu (5c), violet (6a) and rouge (6b) passeports"
+
+F62:
+  type: web
+  title: "Bouldering Wall Instructor: skills checklist"
+  author: "Mountain Training"
+  date: 2025-06
+  parent:
+    title: "Mountain Training"
+  url:
+    value: "https://www.mountain-training.org/media/i1pl5mby/bouldering-wall-instructor-skills-checklist-june-25.docx"
+    date: 2026-11-17
+  note: "Qualification checklist: candidates boulder at V2 or above and teach novices six basic movement skills"
+
+
+F66:
+  type: article
+  title: "Effects of climbing- and resistance-training on climbing-specific performance: a systematic review and meta-analysis"
+  author: ["Stien, Nicolay", "Riiser, Amund", "Shaw, Matthew P.", "Saeterbakken, Atle H.", "Andersen, Vidar"]
+  date: 2023
+  page-range: "179-191"
+  serial-number:
+    doi: "10.5114/biolsport.2023.113295"
+  parent:
+    type: periodical
+    title: "Biology of Sport"
+    volume: 40
+    issue: "1"
+  url:
+    value: "https://doi.org/10.5114/biolsport.2023.113295"
+    date: 2026-11-17
+  note: "Systematic review of 11 randomised trials in active climbers; abstract only"
+
+F64:
+  type: web
+  title: "The Two Things You Need for Climbing Harder"
+  author: "Power Company Climbing"
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://powercompanyclimbing.squarespace.com/blog/heatmaps"
+    date: 2026-11-17
+  note: "A coaching company's analysis of its own strength-test data; no sample size given"
+
+F65:
+  type: web
+  title: "Body Tension Techniques for Boulderers"
+  author: ["Hampton, Kris"]
+  parent:
+    title: "Power Company Climbing"
+  url:
+    value: "https://powercompanyclimbing.squarespace.com/blog/body-tension-techniques-bouldering"
+    date: 2026-11-17
+
+F67:
+  type: article
+  title: "Effects of Rock Climbing Exercise on Physical Fitness among College Students: A Review Article and Meta-analysis"
+  author: ["Li, L.", "Ru, A.", "Liao, T.", "Zou, S.", "Niu, X. H.", "Wang, Y. T."]
+  date: 2018
+  page-range: "1440-1452"
+  parent:
+    type: periodical
+    title: "Iranian Journal of Public Health"
+    volume: 47
+    issue: "10"
+  url:
+    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6277736/"
+    date: 2026-11-17
+  note: "Meta-analysis of nine climbing programmes for college students; abstract only"
+
+F68:
+  type: web
+  title: "Next Level Workshop Bouldern"
+  author: "Boulderwelt München West"
+  parent:
+    title: "Boulderwelt"
+  url:
+    value: "https://www.boulderwelt-muenchen-west.de/boulderkurse-und-training/boulderworkshops/"
+    date: 2026-11-17
+  note: "A German gym chain's course page, in German: what it teaches for the step into each of its levels"
+
+F69:
+  type: web
+  title: "Routenbau: Die Schwierigkeitslevel in der Boulderwelt 1–9"
+  author: "Boulderwelt München Ost"
+  date: 2022
+  parent:
+    title: "Boulderwelt"
+  url:
+    value: "https://www.boulderwelt-muenchen-ost.de/routenbau/"
+    date: 2026-11-17
+  note: "The chain's table of its levels in Font grades, in German"
+
+F70:
+  type: web
+  title: "Bouldering Fundamentals 2"
+  author: "The Castle Climbing Centre"
+  parent:
+    title: "The Castle Climbing Centre"
+  url:
+    value: "https://www.castle-climbing.co.uk/courses/bouldering-fundamentals-2-4-week-course"
+    date: 2026-11-17
+  note: "A London gym's course page for climbers at V2–V4"
+
+F71:
+  type: web
+  title: "Continue Bouldering (V2–V4)"
+  author: "Rise Climbing"
+  parent:
+    title: "Rise Climbing"
+  url:
+    value: "https://www.rise-climbing.com/continuebouldering"
+    date: 2026-11-17
+  note: "A London gym's course page with a week-by-week syllabus; the site said the gym was temporarily closed"
+
+F72:
+  type: web
+  title: "Ask a Setter: Tricks to Keep Easier Climbs Interesting"
+  author: ["Anderson, Louie"]
+  date: 2022-03-18
+  parent:
+    title: "Climbing Business Journal"
+  url:
+    value: "https://www.climbingbusinessjournal.com/ask-a-setter-tricks-to-keep-easier-climbs-interesting"
+    date: 2026-11-17
+  note: "Setting advice; names no grades"
+
+F73:
+  type: web
+  title: "The RIC Scale Is Only Half of the Story: 3 Missing Keys to Masterful Routesetting"
+  author: ["Foose, Ty"]
+  date: 2026-05-07
+  parent:
+    title: "Climbing Business Journal"
+  url:
+    value: "https://climbingbusinessjournal.com/?p=82533"
+    date: 2026-11-17

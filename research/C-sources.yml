@@ -623,3 +623,15 @@ C58:
   url:
     value: "https://www.ukclimbing.com/articles/page.php?id=12008"
     date: 2026-10-31
+
+C60:
+  type: web
+  title: "How to use common climbing holds"
+  author: "Movement"
+  date: 2021-08-18
+  parent:
+    title: "Movement Gyms blog"
+  url:
+    value: "https://movementgyms.com/blog/how-to-use-common-climbing-holds/"
+    date: 2026-11-17
+  note: "Gym blog, updated 9 November 2026"

@@ -5,7 +5,7 @@
 
 #heading(level: 1, numbering: none)[Eight problems to read]
 
-These eight problems go with _Reading the Wall_, a technique handbook for indoor bouldering. They are invented. No gym has set them and nobody has climbed them, so the grades are rough and the #jt("beta") is the book's judgement. They run from about V2 to about V6 in different styles. The harder ones are worth reading even if you can't climb that grade yet.
+These eight problems go with _Reading the Wall_, a technique handbook for indoor bouldering. They are invented. No gym has set them and nobody has climbed them, so the grades are rough. The #jt("beta") is the book's own reasoning from the drawings, and it is untested on a wall. They run from about V2 to about V6 in different styles. The harder ones are worth reading even if you can't climb that grade yet.
 
 Read each drawing with the method in the book's #bref("reading-method"). Answer the prompts and make your plan, then turn the page and compare. Your beta may be as good as this one, especially if you are much taller or smaller than the climber in the drawings. That climber stands about 1.75 m and reaches about 2.1 m from toes to fingers (about ten and a half bolt holes).
 
@@ -13,7 +13,7 @@ Page numbers in brackets, as in #tref("backstep"), are the book's.
 
 #heading(level: 2, numbering: none, outlined: false)[Reading the drawings]
 
-Letters mark holds big enough for a hand. Numbers mark holds only a foot can use, though a lettered hold can still take a foot. Letters and numbers run up the wall (or along it on the traverse), so their order says nothing about the sequence. Tape marks the start, and volumes count. The dots are bolt holes 20 cm apart, so you can count distances as #bref("reading-size", body: ["Reading for your size"]) suggests. Short streaks on a hold are shoe rubber. A smudge just below its lip is chalk.
+Letters mark holds big enough for a hand. Numbers mark holds only a foot can use, though a lettered hold can still take a foot. Letters and numbers run up the wall (or along it on the traverse), so their order says nothing about the sequence. Tape marks the start, and volumes count. The dots are bolt holes 20 cm apart, so you can count distances as #bref("cons-small", body: ["How to climb small"]) suggests. Short streaks on a hold are shoe rubber. A smudge just below its lip is chalk.
 
 On the answer drawings, D R3 means hold D, taken by the right hand as the third hand move. The numbered moves also count the feet, so the two numbers don't match.
 
@@ -84,7 +84,7 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Left hand to E.
   ],
   crux: [The #tref("cross-through", body: [cross], show-page: false) in move 4. Then letting go of C. C is a flat edge, which loses grip as you turn #src("B38"). D holds nothing yet, so C holds you. D becomes a sidepull only once your shoulder passes it. Your right arm stops that. For a moment no hand holds you in: keep moving right.],
-  wrong: [The mistake is arriving at D with the wrong hand. C is too small to match and D is too thin to share (judgement). So your right hand goes on to D with your left still on B. With your body on D's left, D is a thin #tref("gaston", body: [gaston], show-page: false). You then let go of B with only that to pull on. Your shoulder does most of the work #src("C34"). It can go, but you pay twice: this gaston, then E with your left hand on C pulled sideways (judgement). Swapping hands on C leads to the same catch, after a moment on two or three fingers of a flat edge. A hold that faces back the way you came only works as a sidepull once your shoulder is past it.],
+  wrong: [The mistake is arriving at D with the wrong hand. C is too small to match and D is too thin to share. So your right hand goes on to D with your left still on B. With your body on D's left, D is a thin #tref("gaston", body: [gaston], show-page: false). You then let go of B with only that to pull on. Your shoulder does most of the work #src("C34"). It can go, but you pay twice: this gaston, then E with your left hand on C pulled sideways. Swapping hands on C leads to the same catch, after a moment on two or three fingers of a flat edge. A hold that faces back the way you came only works as a sidepull once your shoulder is past it.],
   next: [If your chest blocks the cross, roll further onto your left hip #src("B49"). If you can't let go of C, cross your left hand from B to C instead. Then take your right hand past D to E. You pull C about 30° sideways at the catch. If you are small, E is out of reach from C.],
   entries: ("traverse", "cross-through", "sidepull", "backstep", "gaston"),
 )
@@ -114,8 +114,8 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Stand up on your left foot until your hips are higher than A. Then roll onto your whole foot on A. Right hand to E, leaving D as your hips rise.
     + Left hand to E.
   ],
-  crux: [Moves 3 to 5. You leave the start for a small edge and a sloper. Only the #tref("heel-hook", body: [heel], show-page: false) keeps your hips in. At move 5 both feet come high, so the sloper can roll off (judgement).],
-  wrong: [You take A with your right hand: it is the biggest hold in reach. Then you stand on 4 and take your right foot off. D is now in reach. But your left hand and foot make a #jt("hinge") (the line you swing around) far left of D. You swing open as your right hand lets go. A #tref("back-flag", body: [back flag], show-page: false) stops the swing, but your hips stay far left. A sloper only holds with your body below it #src("C3", "C34"). A toe or #tref("toe-pull", body: [flat sole], show-page: false) on A can only drag on friction. Press hard and it shoves your hips left and out. A heel sits in A's bowl, so it has something to pull against and draws you in (judgement). Rubber marks and no chalk suggest a foothold #src("E30", "E31").],
+  crux: [Moves 3 to 5. You leave the start for a small edge and a sloper. Only the #tref("heel-hook", body: [heel], show-page: false) keeps your hips in. At move 5 both feet come high, so the sloper can roll off.],
+  wrong: [You take A with your right hand: it is the biggest hold in reach. Then you stand on 4 and take your right foot off. D is now in reach. But your left hand and foot make a #jt("hinge") (the line you swing around) far left of D. You swing open as your right hand lets go. A #tref("back-flag", body: [back flag], show-page: false) stops the swing, but your hips stay far left. A sloper only holds with your body below it #src("C3", "C34"). A toe or #tref("toe-pull", body: [flat sole], show-page: false) on A can only drag on friction. Press hard and it shoves your hips left and out. A heel sits in A's bowl, so it has something to pull against and draws you in. Rubber marks and no chalk suggest a foothold #src("E30", "E31").],
   next: [If the heel won't go on with both hands on B, take A with your right hand first. Set the heel beside your hand and carry on from move 3. If the heel slips, change the foot's angle by a few degrees #src("A8") and keep your hips close #src("A9"). Warm up first #src("A11"). Turning the foot out hard on a heel close to your hip can tear a knee ligament #src("A10").],
   tall: [C and D are in reach from feet 4 and 3. The heel still keeps your hips in.],
   small: [Don't skip foot 4. From foot 3, D is out of reach even with the heel.],
@@ -148,8 +148,8 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Deadpoint to E: rise with your right hand on D and let go as the rise slows. Then left hand to E.
   ],
   crux: [Moves 5 to 7. C is a flat edge, which loses grip as you turn #src("B38"). Your toe is on a thin edge while your hand goes to the worst hold. Then both feet come up: D rolls and C drops to your waist. So go for E in one movement.],
-  wrong: [You stay on the big foothold and reach for D. From feet 2 and 3, D is about 30 cm out of reach. From both feet on 3 you reach it only with both legs straight. Your feet tend to come off #src("E8") and you land on a sloper with no tension (judgement). With your left foot on 3, a higher right foot adds no reach. It keeps one leg bent to pull and drive with.],
-  next: [If the toe pops, place it again and press it down and in #src("A6", "A38"). If your hand rolls off D, your hips swung out: pull them in. Both toes on A give about 45 cm more reach, but you catch D with your hips out and it rolls sooner #src("C2", "C3", "C11"). From both toes on A you could skip D, but nothing is above you as you rise to E (judgement).],
+  wrong: [You stay on the big foothold and reach for D. From feet 2 and 3, D is about 30 cm out of reach. From both feet on 3 you reach it only with both legs straight. Your feet tend to come off #src("E8") and you land on a sloper with no tension. With your left foot on 3, a higher right foot adds no reach. It keeps one leg bent to pull and drive with.],
+  next: [If the toe pops, place it again and press it down and in #src("A6", "A38"). If your hand rolls off D, your hips swung out: pull them in. Both toes on A give about 45 cm more reach, but you catch D with your hips out and it rolls sooner #src("C2", "C3", "C11"). From both toes on A you could skip D, but nothing is above you as you rise to E.],
   tall: [You can reach D from both feet on 3, so A can wait until you hold D.],
   small: [Left foot to 3 before your left hand goes to C. From 3 and A you are 15 cm short of D, so put both toes on A or deadpoint off A. Finish: right foot to 4, left foot to B.],
   entries: ("toe-pull", "body-tension", "sloper", "deadpoint"),
@@ -181,10 +181,10 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Right foot to 6. Stand up and catch F with your right hand. Then left hand to F.
   ],
   crux: [Moves 2 and 3. You pull off the mat on two flat edges. A flat edge loses grip as you turn #src("B38"). At the catch A is at your waist, so your hand must arrive at the top of your rise.],
-  wrong: [You pull straight for C from feet 1 and 2. You can touch it, but only at full stretch with your left leg long. Your left hand is locked at your chest on a thin edge, with no rise left to help it (judgement). Feet 4 and 3 give you about 30 cm to spare. But set both of them before you lift and you fold up square with your bottom away from the wall. The first pull is then all arms #src("E11").],
-  next: [Roll your right knee onto the mat and push off it #src("E11"). Don't bounce off the mat if your gym wants a still start (judgement).],
+  wrong: [You pull straight for C from feet 1 and 2. You can touch it, but only at full stretch with your left leg long. Your left hand is locked at your chest on a thin edge, with no rise left to help it. Feet 4 and 3 give you about 30 cm to spare. But set both of them before you lift and you fold up square with your bottom away from the wall. The first pull is then all arms #src("E11").],
+  next: [Roll your right knee onto the mat and push off it #src("E11"). Don't bounce off the mat if your gym wants a still start.],
   tall: [You can go hand first: C is in reach from feet 1 and 2, so long legs can skip the high step. Bring your left foot to 4 once your hand is on C. You can still go foot first: see the one high foot in the book's #bref("fig-cons-sit", sub: "\u{a0}c").],
-  small: [A and B are a full stretch from the mat, so you can't rock back. C is out of reach from feet 1 and 2, so you must step up first. Finish with a small deadpoint to F. Your left foot comes off A, so press it on the wall and match (judgement).],
+  small: [A and B are a full stretch from the mat, so you can't rock back. C is out of reach from feet 1 and 2, so you must step up first. Finish with a small deadpoint to F. Your left foot comes off A, so press it on the wall and match.],
   entries: ("sit-start", "hip-turn", "edging", "deadpoint"),
 )
 
@@ -209,17 +209,17 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Right foot on 1, left on 2. Left foot to 3, right foot to 4.
     + Left hand to the left end of C.
     + Right foot to 6 under E, on the #tref("edging", body: [inside edge], show-page: false) of your shoe. Left foot to 5.
-    + Right hand up to C, beside your left. From B it can't hold you in while your left hand moves (judgement).
+    + Right hand up to C, beside your left. From B it can't hold you in while your left hand moves.
     + Lock off on C with your right arm and take your left hand up to D. Your left arm can hang straight there. At the catch of E, D is above your shoulder. C would be below.
     + Let your hips sag out on that straight arm #src("D10"). Drive through your right leg in one movement, hips in and up #src("D13"). Send your right hand from C to 2–3 cm above E #src("D16"). Close it in a #tref("half-crimp", body: [half crimp], show-page: false) at the top: a full crimp at speed risks your fingers #src("C25"). Then push down through your right foot #src("D21").
     + Left foot up to A. Right foot up to B and stand.
     + Left hand to F, then right hand to F.
   ],
-  crux: [Move 6. The question is whether you choose a #tref("deadpoint", body: [deadpoint], show-page: false). E takes one hand and has a foothold under it, so you want a foot on as you catch it. A slow #jt("lock-off") may just reach E. But it keeps you on one bent arm on D for the whole reach #src("D13"). Stepping a foot up to A or B shortens the rise, but it folds you up with your hips out (judgement). With both feet on A and B you can skip E for F. But D is then no higher than your shoulder as you throw, so nothing holds you in (judgement). A dyno would suit a jug at E with no foot 6.],
-  wrong: [It looks like a #tref("dyno", body: [dyno], show-page: false): no hold above B on that side until E, and two big footholds low down. So with your left hand on C you stand on 3 and 4, sink and jump. That is about twice the rise. Even if you stick E, your feet are off. Small edges must then stop the swing, which may pull you off (judgement).],
+  crux: [Move 6. The question is whether you choose a #tref("deadpoint", body: [deadpoint], show-page: false). E takes one hand and has a foothold under it, so you want a foot on as you catch it. A slow #jt("lock-off") may just reach E. But it keeps you on one bent arm on D for the whole reach #src("D13"). Stepping a foot up to A or B shortens the rise, but it folds you up with your hips out. With both feet on A and B you can skip E for F. But D is then no higher than your shoulder as you throw, so nothing holds you in. A dyno would suit a jug at E with no foot 6.],
+  wrong: [It looks like a #tref("dyno", body: [dyno], show-page: false): no hold above B on that side until E, and two big footholds low down. So with your left hand on C you stand on 3 and 4, sink and jump. That is about twice the rise. Even if you stick E, your feet are off. Small edges must then stop the swing, which may pull you off.],
   next: [If you fall short, drive your hips in and up #src("D10", "D17"). Or use your outside edge on 6 for a #jt("hip pop", body: [hip~pop]) #src("D7", "D10"). If your fingers touch and slide, send your hand sooner.],
   tall: [E is well within reach from feet 5 and 6, so your deadpoint can be small.],
-  small: [E is out of reach from 5 and 6. From A and 6 you are still short. Step both feet up to A and B #src("H2", "H3"): your hips fold out, but E is in reach (judgement).],
+  small: [E is out of reach from 5 and 6. From A and 6 you are still short. Step both feet up to A and B #src("H2", "H3"): your hips fold out, but E is in reach.],
   entries: ("deadpoint", "dyno", "latching"),
 )
 
@@ -247,8 +247,8 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Left hand to B.
   ],
   crux: [Moves 2 to 4, from the moment your right hand leaves A until it catches B. This is #tref("compression", body: [compression], show-page: false). On X your feet can only push you out, so only the squeeze holds you in. Once your right hand leaves Y, nothing does. So don't pause.],
-  wrong: [You stand up on X and reach for the top of Y with one hand, the other still on A. To reach it your hips must pass A, so you can only press down on A. On an overhang a press can't hold you in, so you fall away from the wall (judgement). Feet 3 and 4 don't save it: with your hands on A, your hips can't rise over them. Y's side faces point sideways and out, so pulling down on them only slides your hands off. A #tref("knee-bar", body: [knee bar], show-page: false) under Y won't hold either: the underside slopes out, so your knee slides off (judgement). When a volume has no edge, squeeze it instead of pulling down.],
-  next: [Squeeze from your chest and back as in a hug. Keep your hips close and trunk tight #src("B31"). If a foot pops, press your free foot on a foothold or the wall #src("B45"). Left or right first doesn't matter: you can climb the mirror image. A foot on A before your second hand does: it is easier on the palms. So if the squeeze won't last, take Y with your right hand first, hips low and well left of A. Left foot to A, then left hand to Y. Chalk your whole hand #src("E18").],
+  wrong: [You stand up on X and reach for the top of Y with one hand, the other still on A. To reach it your hips must pass A, so you can only press down on A. On an overhang a press can't hold you in, so you fall away from the wall. Feet 3 and 4 don't save it: with your hands on A, your hips can't rise over them. Y's side faces point sideways and out, so pulling down on them only slides your hands off. A #tref("knee-bar", body: [knee bar], show-page: false) under Y won't hold either: the underside slopes out, so your knee slides off. When a volume has no edge, squeeze it instead of pulling down.],
+  next: [Squeeze from your chest and back as in a hug. Keep your hips close and your body tight #src("B31"). If a foot pops, press your free foot on a foothold or the wall #src("B45"). Left or right first doesn't matter: you can climb the mirror image. A foot on A before your second hand does: it is easier on the palms. So if the squeeze won't last, take Y with your right hand first, hips low and well left of A. Left foot to A, then left hand to Y. Chalk your whole hand #src("E18").],
   small: [B is out of reach with both feet on. Let your left foot leave A as you drive.],
   entries: ("compression", "volume", "palming", "body-tension"),
 )
@@ -278,9 +278,9 @@ Most drawings show the climber from behind, facing the wall, as you would see a 
     + Right hand to F, then left hand to F.
   ],
   crux: [Move 3. When your left hand lets go of B, your right hand and right foot hold you on one side. You swing open like a door unless something stops it. C faces up and right, so it takes the hook's pull. D faces up and left, so it holds as you catch it.],
-  wrong: [Your right hand and foot call for a #tref("back-flag", body: [back flag], show-page: false), so you try one. A flag wants your hips over your right foot #src("B26"). To reach D from there, C must come down to your chest. There it can only press, so it can't hold you in (judgement). Stay low with your hips towards D and the door opens. A #tref("toe-hook", body: [toe hook], show-page: false) on the left holds you in with C at your shoulder #src("A15"). With all the footholds on one side, try a backstep or a hook on the other.],
-  next: [If the toe creeps out, pull it and your right hand towards each other #src("A13"). A heel behind A also holds you in and brings D closer, but your hips sit further from the hinge (judgement). A #tref("backstep", body: [backstep], show-page: false) with your left foot on 3 and your right leg out is another option. It puts your outside edge on a small foothold #src("B44") and costs a little more lock. A fast throw from feet 2 and 3 can beat the door #src("B62"), but you land on D at full stretch and swinging.],
-  tall: [Your longer lever makes the hook harder to hold (judgement). Try the backstep.],
+  wrong: [Your right hand and foot call for a #tref("back-flag", body: [back flag], show-page: false), so you try one. A flag wants your hips over your right foot #src("B26"). To reach D from there, C must come down to your chest. There it can only press, so it can't hold you in. Stay low with your hips towards D and the door opens. A #tref("toe-hook", body: [toe hook], show-page: false) on the left holds you in with C at your shoulder #src("A15"). With all the footholds on one side, try a backstep or a hook on the other.],
+  next: [If the toe creeps out, pull it and your right hand towards each other #src("A13"). A heel behind A also holds you in and brings D closer, but your hips sit further from the hinge. A #tref("backstep", body: [backstep], show-page: false) with your left foot on 3 and your right leg out is another option. It puts your outside edge on a small foothold #src("B44") and costs a little more lock. A fast throw from feet 2 and 3 can beat the door #src("B62"), but you land on D at full stretch and swinging.],
+  tall: [Your longer lever makes the hook harder to hold. Try the backstep.],
   small: [From the hook, D is out of reach. Use a bigger deadpoint or the backstep.],
   entries: ("toe-hook", "barn-door", "back-flag", "backstep"),
 )

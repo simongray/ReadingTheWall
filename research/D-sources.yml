@@ -518,3 +518,38 @@ D53:
   url:
     value: "https://www.nbcolympics.com/news/sport-climbing-101-olympic-terminology-and-glossary"
     date: 2026-10-30
+
+D60:
+  type: web
+  title: "Debunking the 5 Most Malignant Myths in Climbing (Full Crimp Included)"
+  author: ["Hooper, Jason"]
+  date: 2023-01-09
+  parent:
+    title: "Hooper's Beta"
+  url:
+    value: "https://www.hoopersbeta.com/library/debunking-the-5-most-malignant-myths-in-climbing-full-crimp-included"
+    date: 2026-11-17
+  note: "Show notes of episode 122, by a physiotherapist; opinion, not a study"
+
+D61:
+  type: web
+  title: "Injury case study: Knee ligament tear from drop knee"
+  author: ["MacLeod, Dave"]
+  date: 2013-05-08
+  parent:
+    title: "Online Climbing Coach"
+  url:
+    value: "https://onlineclimbingcoach.blogspot.com/2013/05/injury-case-study-knee-ligament-tear.html"
+    date: 2026-11-17
+  note: "Coach's blog, about the author's own injury"
+
+D62:
+  type: web
+  title: "What Most Climbers Get Wrong About the Locking Off Technique"
+  author: ["Rowland, Dave"]
+  date: 2023-04-13
+  parent:
+    title: "Philadelphia Rock Gyms blog"
+  url:
+    value: "https://philarockgym.com/what-most-climbers-get-wrong-about-the-locking-off-technique/"
+    date: 2026-11-17

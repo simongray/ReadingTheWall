@@ -43,7 +43,7 @@ Plain definitions of the slang and technical words used in this book. Technique 
 
 #gloss("coordination move", see: ("run-and-jump", "comp-moves"))[A move that needs several limbs timed together, often with a jump or a run. Also called a coordination dyno.]
 
-#gloss("core", see: ("body-tension",))[The muscles around your trunk (abdominals, back and hips) that connect your hands to your feet.]
+#gloss("core", see: ("body-tension",))[The muscles of your stomach, back and hips, which connect your hands to your feet.]
 
 #gloss("corner", see: ("stemming",))[Two wall panels that meet at an inside angle, like the corner of a room. Also called a dihedral or an open book.]
 
@@ -240,6 +240,8 @@ Plain definitions of the slang and technical words used in this book. Technique 
 #gloss("top out", see: ("top-out",))[Finishing a problem by climbing onto the top of the wall or boulder instead of holding a finishing hold.]
 
 #gloss("training board")[A standard steep wall with a fixed grid of holds, such as the MoonBoard, Kilter Board or Tension Board, with problems shared through an app.]
+
+#gloss("trunk", see: ("body-tension",))[Your body between your shoulders and your hips: chest, stomach and back, without the head, arms and legs.]
 
 #gloss("undercling", see: ("undercling",))[A hold that faces down, so you pull it upward from below.]
 

@@ -95,7 +95,7 @@ A technique you merge into another keeps its address: add its old key to
 | Path | What it is |
 |---|---|
 | `book/main.typ` | The entry point, which sets the order of parts and chapters |
-| `book/template.typ` | Page design and macros: `technique(...)` entries, `tref` cross-references, `ix` index terms, `src` citations, the generated tables (A–Z, category tables, techniques per grade) and the index |
+| `book/template.typ` | Page design and macros: `technique(...)` entries, `tref` cross-references, `ix` index terms, `src` citations, `note` footnotes, the generated tables (A–Z, category tables, techniques per grade) and the index |
 | `book/chapters/` | One file per chapter. `00-front.typ` is the title page and introduction, and `10-appendices.typ` puts together the appendices from the `a-*.typ` files |
 | `book/figures/` | Generated SVG illustrations (don't edit them; regenerate them) |
 | `book/assets/` | Fixed images: the official CC BY-SA 4.0 badge from the Creative Commons press kit |
@@ -125,6 +125,7 @@ A technique you merge into another keeps its address: add its old key to
 | `research/ILLUSTRATION.md`, `STREAMLINE.md`, `TYPOGRAPHY.md` | The guides for figure editing, the streamlining pass and the typography pass |
 | `research/hand-proportions.md` | The proportions the hand close-ups are drawn to, as ratios with their sources |
 | `research/factcheck-*.md`, `figreview-*.md`, `figcritic-*.md`, `streamline-*.md`, … | Logs of what each editing pass checked and changed |
+| `research/judgement-pass.md`, `placement-audit.md`, `clojure-port.md` | After the third edition: every claim that was labelled "(judgement)" with its new wording, an audit of repeated and misplaced passages, and an analysis of porting the Python to Clojure |
 | `FOLLOW-UPS.md` | Open questions and ideas for a later revision |
 | `CHANGELOG.md` | Errata and changes between editions |
 | `release.sh` | Publishes an edition: tags it, stamps the PDF and publishes it as a GitHub release |

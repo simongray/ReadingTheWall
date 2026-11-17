@@ -6,11 +6,11 @@ A dynamic move uses #jt("momentum") (the speed your body carries) to reach a hol
 
 If you climb V4 but not yet V5, start here. Gyms set more competition moves for ordinary climbers than they used to. #jt("setter", body: [Setters]) (the staff who design the problems) call a move "compy" when it is dynamic and coordinated: "usually runs, jumps or dynos" #src("D32"). World Cup holds now turn up on gym V2s #src("D33").
 
-If you're tall, you reach many holds that shorter climbers must jump for#ix("Tall climbers!dynamic moves") #src("D45"). The missing skill shows when a setter forces momentum: a span too far for anyone, or a hold that only works if you arrive moving. Practise the V3 and V4 entries on problems you can already climb slowly. Whatever your height, read the falling section in Chapter 9 before your first dyno or running jump.
+If you're tall, you reach many holds that shorter climbers must jump for#ix("Tall climbers!dynamic moves") #src("D45"). The missing skill shows when a setter forces momentum: a span too far for anyone, or a hold that only works if you arrive moving. Practise the V3 and V4 entries on problems you can already climb slowly. Whatever your height, read @cons-falling before your first dyno or running jump.
 
 #category-table("dynamic")
 
-== Static or dynamic?
+== Static or dynamic? <dynamic-choice>
 
 You can stop a #ix("Static movement")static move, such as a #tref("lock-off", body: [lock-off]), halfway and go back. Once a #ix("Dynamic movement")dynamic move starts, you catch the hold or come off #src("D18"). In return, one coach's training-plan page calls momentum a big energy-saver #src("D38"), and moving faster can mean less time on the wall #src("D13"). Lattice Training's#ix("Lattice Training") advice is to match your speed to the problem: some want control, others fast moves #src("D41").
 
@@ -20,20 +20,16 @@ Choose a static move, or a very small deadpoint, when:
 - a fall would be dangerous, for example onto an awkward landing#ix("Falling!judging the landing") or into a #tref("volume", body: [volume], show-page: false) (a big hollow shape bolted to the wall) #src("D20").
 - your body must end in an exact position, as on a #tref("slab", body: [slab], show-page: false) (a wall that leans back) #src("D13").
 
-Otherwise, try the move dynamically first, with the smallest deadpoint that reaches. Small deadpoints are fine (judgement), and one gym owner's article says dynamic moves are generally more efficient than lock-offs #src("D13"). Apart from a few practice goes low on big holds, keep big jumps for the moves that need them (judgement; see Chapter 9), and don't snatch at small holds, because grabbing a hold very quickly in a dynamic move can rupture a #jt("pulley") (a band that holds a finger tendon against the bone) #src("C25"). Strictly, a move like this is a deadpoint while a foot stays on and a dyno once both feet leave #src("D2", "D9"). In the gym the names blur: many climbers call a one-handed dyno with a foot still on a deadpoint #src("D15").
+Otherwise, try the move dynamically first, with the smallest deadpoint that reaches. A physiotherapist who treats climbers says that dynamic climbing, done well, can be more efficient than static climbing without adding injury risk. The deadpoint is that article's example #src("D60"). One gym owner's article agrees that dynamic moves are generally more efficient than lock-offs #src("D13"). Build up to big jumps. The same physiotherapist says to start with small dynamic moves and move on to bigger ones over time #src("D60"). Another warns that too much dynamic climbing can shock-load the body #src("G66"). Don't snatch at small holds, because grabbing a hold very quickly in a dynamic move can rupture a #jt("pulley") (a band that holds a finger tendon against the bone) #src("C25"). Strictly, a move like this is a #tref("deadpoint", body: [deadpoint]) while a foot stays on and a #tref("dyno", body: [dyno]) once both feet leave #src("D2", "D9"). In the gym the names blur: many climbers call a #tref("lunge", body: [one-handed dyno]) with a foot still on a deadpoint #src("D15").
 
-== Where "deadpoint" comes from
-
-Throw a ball straight up. At the top it stops for an instant before it falls. Your hips do much the same when you throw them up the wall. Near the top your legs have finished pushing and you are coasting, so little presses on your hands or feet and you feel light. You are also barely moving, so the hold starts to take your weight gently as you begin to sink (this book's reading). Grabbing at that instant is the deadpoint #src("D1", "D13").
-
-By 1987, Wolfgang Güllich#ix("Güllich, Wolfgang") was studying how to use the deadpoint #src("D3"). But John Gill#ix("Gill, John") used the word in print in 1969, for a hand reaching a hold "at the high deadpoint of the swing" #src("D4"). #ix("Deadpoint!origin of the term")
+#ix("Deadpoint!origin of the term")The name describes the moment. Throw a ball straight up, and at the top it stops for an instant before it falls. Your hips do the same when you throw them up the wall: near the top you are barely moving and feel light, so the hold takes your weight gently.#note[The sources name this moment. The account of why the catch is gentle there is our own.] Grabbing at that instant is the deadpoint #src("D1", "D13"), a word John Gill#ix("Gill, John") used in print in 1969 #src("D4").
 
 == Power comes from the legs and hips
 
 Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D21", "D30").
 
 + *Start with straight arms.* A bent arm at launch has already spent its power #src("D13", "D16"). See #tref("straight-arms").
-+ *Load.* Let your hips sag out from the wall and down. Move them away from where you will go #src("D10").
++ *Load.* Let your hips sag out from the wall and down. Move them away from where you will go #src("D10"). See #tref("pre-loading").
 + *Drive.* Push with your legs. Swing your hips back into the wall towards the target. Your body turns upward around your hands #src("D10", "D16").
 + *Pull last.* Your arms join in once your hips are moving #src("D10").
 + *Turn the hip in.* Turn the hip on the throwing side to the wall. That raises the same shoulder. It also keeps you close on steep walls #src("D6", "D7"). See #tref("hip-turn").
@@ -74,8 +70,8 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("dead point", "slap", "dynamic layback", "toter Punkt", "hip pop"),
   category: "dynamic",
   grade: 3,
-  grade-note: [Try small ones from V2 on big holds (this book's suggestion). Gyms teach it in intermediate classes, after about two months of climbing #src("D39"). Many V3s need it, and from V4–V5 most moves between small holds on steep walls do (judgement).],
-  summary: [You throw your hips up the wall and grab the next hold at the top of that movement, when you are barely moving and feel light (this book's reading). At least one foot stays on #src("D1", "D9", "D13").],
+  grade-note: [Try small ones from V2 on big holds. France's climbing federation teaches controlled dynamic moves at about that grade #src("F60", "F61"). A German gym chain teaches dynamic moves to climbers stepping up to Font 6A, which is V3 #src("F68", "F69"). Other gyms teach the deadpoint in intermediate classes, after about two months of climbing #src("D39"). One still teaches it to climbers stuck at V5 #src("F35").],
+  summary: [You throw your hips up the wall and grab the next hold at the top of that movement, when you are barely moving and feel light. At least one foot stays on #src("D1", "D9", "D13").],
   figure: "deadpoint.svg",
   caption: [(a) Load: keep your arms straight and let your hips sag out. (b) Drive your hips in and up. Grab at the top of the arc.],
   how: [
@@ -90,8 +86,8 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     (
       name: [Hip pop],
       how: [
-        A hip pop is a deadpoint thrown from a #tref("backstep", body: [backstep]) or a #tref("drop-knee", body: [drop knee]). The hip turned to the wall rotates in and up, which throws the hand on that side much farther than square hips can. On steep gym walls, many V4 moves are thrown this way (judgement).
-        + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee. The hip on that side turns to the wall #src("D10"). Don't snap off a deep drop knee, because the knee can take a sudden load as your hand lets go (judgement; see the knee box in @cons-tall).
+        A hip pop is a deadpoint thrown from a #tref("backstep", body: [backstep]) or a #tref("drop-knee", body: [drop knee]). The hip turned to the wall rotates in and up, which throws the hand on that side much farther than square hips can #src("B41").
+        + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee. The hip on that side turns to the wall #src("D10"). Don't throw from a deep drop knee. The authors of a knee-injury study suspect that the injury comes at the moment a hand lets go, which adds load to the legs #src("G9"). The coach Dave MacLeod#ix("MacLeod, Dave") warns against dropping the knee and moving the hand in one rapid motion #src("D61"). See the knee box in @cons-injuries.
         + Keep the holding arm straight. Let your hips sag away from the wall #src("D10").
         + Push off the foot. Rotate the hip into the wall and up in one snap #src("D10").
         + Turn towards the reaching arm as you go: right hip in, right shoulder up #src("D7").
@@ -121,9 +117,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - In a hip pop, a short hip swing or too little arch. Your hips stay away from the wall #src("D19").
     - Snatching at a small hold. A very fast grab in a dynamic move can rupture a #jt("pulley") #src("C25").
   ],
-  tall: [You will reach many of these holds with a slow lock-off. Deadpoint them anyway on easy problems: it may save energy #src("D13"), and on harder problems the lock-off often stops working (judgement). On short walls and in cramped sequences, a hip pop's drop knee jams long legs, so take a higher foothold and a shorter throw (judgement).],
-  small: [Short climbers often name this as their way to far holds #src("B34", "H6", "H8"). To build it, go for holds just out of reach on easy problems #src("D45"), stay low on the wall at first #src("H4"), and repeat a long move after you stick it so you learn your aim #src("H6"). Keep big jumps for the moves that need them, and don't snatch at small holds (judgement; see @cons-heavy).],
-  related: ("hip-pump", "latching", "lunge", "dyno", "lock-off", "straight-arms", "backstep", "drop-knee", "twist-lock", "hip-turn"),
+  tall: [You will reach many of these holds with a slow lock-off. Deadpoint them anyway on easy problems: it may save energy #src("D13"), and the steeper the wall, the more work a lock-off costs your arm #src("D62"). In cramped sequences tall climbers get bunched up #src("E46"), and a hip pop's drop knee may not fit. Tall climbers quoted by one training site take a foot off and sink onto one leg instead #src("E76").],
+  small: [Short climbers often name this as their way to far holds #src("B34", "H6", "H8"). To build it, go for holds just out of reach on easy problems #src("D45"), stay low on the wall at first #src("H4"), and repeat a long move after you stick it so you learn your aim #src("H6"). Build up to big jumps from small moves #src("D60"), and don't snatch at small holds #src("C25").],
+  related: ("hip-pump", "latching", "lunge", "dyno", "lock-off", "straight-arms", "backstep", "drop-knee", "twist-lock", "hip-turn", "pre-loading"),
   watch: (("Lattice Training", "Will Bosi Coaching His Top 3 Techniques", "https://www.youtube.com/watch?v=XGzLL5rvUaU"),),
   sources: ("D1", "D2", "D4", "D7", "D9", "D10", "D13", "D14", "D16", "D19", "D20", "D21", "D39", "D42", "D45", "B34", "C25", "H4", "H6", "H8"),
 )
@@ -134,7 +130,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("generating momentum", "dynamic weight shift", "pumping"),
   category: "dynamic",
   grade: 3,
-  grade-note: [Wide footholds need a small hop to move your hips across #src("D18"). That starts at about V2–V3 (judgement). Timing a single pump before a dyno matters from V4–V5.],
+  grade-note: [Wide footholds need a small hop to move your hips across #src("D18"). A German gym chain teaches starting a move from the hips to climbers stepping up to Font 6A, which is V3 #src("F68", "F69"). Timing a single pump matters once you #tref("dyno", body: [dyno]), which has a V4 badge.],
   summary: [Before a move, you shift your hips across or in and out. Your legs then build speed towards the hold, so your arms don't have to.],
   figure: "hip-pump.svg",
   caption: [(a) Dip your hips onto the push foot. (b) Rise out of the dip in one arc towards the next hold.],
@@ -170,7 +166,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("jumping start",),
   category: "dynamic",
   grade: 3,
-  grade-note: [Shorter climbers meet it from V2–V3: "where tall people can reach, short people often have to jump"#ix("Small climbers!jump starts") #src("D45"). #jt("four-point start", body: [Four-point starts]) can force one at V4–V5 #src("D35"). The placement is judgement.],
+  grade-note: [A #jt("four-point start") can force one whatever your height #src("D35"). Shorter climbers meet it more often (see the note for small climbers).],
   summary: [You start with a standing jump from the mat to the start holds, then bring your feet onto the wall.],
   figure: "jump-start.svg",
   caption: [(a) Crouch under the holds with your arms back. (b) Jump straight up and catch with bent arms. Then bring your feet in.],
@@ -192,8 +188,9 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   ],
   errors: [
     - Jumping towards the wall instead of straight up. You hit the wall and bounce off.
-    - Landing stiff-legged from a missed start.#ix("Falling!how to land") Bend your knees and roll back (Chapter 9).
+    - Landing stiff-legged from a missed start.#ix("Falling!how to land") Bend your knees and roll back (@cons-falling).
   ],
+  small: [You will meet jump starts more often than taller climbers: "where tall people can reach, short people often have to jump"#ix("Small climbers!jump starts") #src("D45").],
   related: ("run-and-jump", "latching", "dyno"),
   sources: ("D11", "D26", "D35", "D45"),
 )
@@ -206,7 +203,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("lunge", "single dyno", "throw"),
   category: "dynamic",
   grade: 4,
-  grade-note: [Learn it from V3 on good holds, low on the wall (this book's suggestion). Gyms force this dyno most often, as one big move to a single good hold. Expect it from V4 (judgement). One coach calls it a "deadpoint on overdrive" #src("D15").],
+  grade-note: [Learn it from V3 on good holds, low on the wall. Gyms force this dyno most often, as one big move to a single good hold. One head setter brings "a variety of dynamic movements" into a gym's V4–V6 circuit #src("E52"). France's climbing federation teaches thrown moves from about V2 #src("F60", "F61"), while a US clinic for V5–V6 climbers still lists dynos #src("D36"). One coach calls it a "deadpoint on overdrive" #src("D15").],
   summary: [You throw dynamically to a single hold. In the basic form one foot or one hand stays on. In the full form both feet leave, but only one hand catches #src("D15", "D21"). John Gill#ix("Gill, John") called the all-out version a lunge #src("D4", "D5").],
   figure: "lunge.svg",
   caption: [(a) Sink with your eyes on the target. (b) Turn the right hip in and throw the right arm long. The left hand stays on.],
@@ -231,8 +228,8 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   errors: [
     - Lunging for small pockets. It is a common cause of finger injuries#ix("Injuries!finger") #src("D21").
   ],
-  tall: [You can often reach a single hold slowly with a drop knee or a #tref("flag", body: [side flag]). If that means a hard lock-off on a steep wall, throw instead. The throw probably costs less energy (judgement) #src("D13").],
-  related: ("deadpoint", "dyno", "cutting-loose", "latching"),
+  tall: [You can often reach a single hold slowly with a drop knee or a #tref("flag", body: [side flag]). If that means a hard lock-off on a steep wall, throw instead. A physiotherapist points out that a static move needs intense muscle work from start to finish #src("D60"). One gym owner finds dynamic moves generally more efficient #src("D13").],
+  related: ("deadpoint", "dyno", "cutting-loose", "latching", "foot-catch"),
   watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
   sources: ("D4", "D5", "D7", "D13", "D15", "D21"),
 )
@@ -245,7 +242,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("mo", "jump", "all points off"),
   category: "dynamic",
   grade: 4,
-  grade-note: [Learn it from V2 on big holds, low on the wall, starting with a #tref("double-dyno", body: [double dyno], show-page: false) (this book's suggestion). Gyms set dynos from about V4. A clinic for V5–V6 climbers lists them among skills "commonly found in V5–V6 boulders" #src("D36"). Climbers at V1–V5 often lack confidence with them #src("D38").],
+  grade-note: [Learn it from V2 on big holds, low on the wall, starting with a #tref("double-dyno", body: [double dyno], show-page: false). Gyms set dynos from about V4. A clinic for V5–V6 climbers lists them among skills "commonly found in V5–V6 boulders" #src("D36"). Climbers at V1–V5 often lack confidence with them #src("D38").],
   summary: [Your legs and hips launch you so that both feet leave the wall, while your arms act as a pivot. You catch the target with one or both hands #src("D2", "D21").],
   figure: "dyno.svg",
   caption: [(a) Sink with straight arms and low hips. (b) Drive with your legs. Your body swings up around your hands. (c) Catch at the top of the flight.],
@@ -273,10 +270,10 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - Facing the wall square on. Turn your hips in #src("D6").
     - Learning on a #tref("slab", body: [slab]), where knee and elbow injuries#ix("Injuries!knee")#ix("Injuries!elbow") are likely. Use a gently overhanging wall #src("D22").
     - Jumping without checking the landing. In one survey of boulderers hurt in falls, 22% of the falls happened on dynos#ix("Falling!on dynos")#ix("Studies!injuries from falls") #src("D44"). Clear the mats before every go.
-    - Reaching back with a straight arm when you miss.#ix("Falling!how to land") Cross your arms in front and land as Chapter 9 describes #src("D44").
+    - Reaching back with a straight arm when you miss.#ix("Falling!how to land") Cross your arms in front and land as @cons-falling describes #src("D44").
   ],
   tall: [Your long body swings through a big arc around your hands.#ix("Tall climbers!dynos") Sink as far as the gap needs, because extra speed only gives you a bigger swing to hold #src("D20"). On low or cramped starts, don't jam your feet high. Take lower feet and a longer arc.],
-  related: ("deadpoint", "lunge", "double-dyno", "hip-pump", "latching", "cutting-loose", "straight-arms"),
+  related: ("deadpoint", "lunge", "double-dyno", "hip-pump", "latching", "cutting-loose", "straight-arms", "pre-loading"),
   watch: (("Gripped Climbing Magazine", "Indoor Climbing Skills Series: Dynamic Moves, THE DYNO", "https://www.youtube.com/watch?v=894e4scuiNM"),),
   sources: ("D2", "D5", "D6", "D16", "D17", "D20", "D21", "D22", "D26", "D36", "D38", "D44"),
 )
@@ -287,7 +284,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("catching", "sticking the move"),
   category: "dynamic",
   grade: 4,
-  grade-note: [Learn it with your first deadpoints and dynos, on big holds (this book's suggestion). Once dynos and long deadpoints appear at V4–V5, the catch is often harder than the jump. Holding the swing is sometimes "the most difficult part" #src("D6").],
+  grade-note: [Learn it with your first deadpoints and dynos, on big holds. Once dynos and long deadpoints appear at V4–V5, the catch is often harder than the jump. Holding the swing is sometimes "the most difficult part" #src("D6").],
   summary: [You close your hand on a hold while still moving. Then your shoulder and stomach stop your body, so you stay on.],
   figure: "latching.svg",
   caption: [(a) Arrive with an open hand just above the hold. (b) Drop your fingers over the top edge. (c) Bend the elbow, pull the shoulder down and press with the feet.],
@@ -324,7 +321,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("cutting feet", "cut loose", "feet off", "counter-kick"),
   category: "dynamic",
   grade: 4,
-  grade-note: [On steep gym walls, many big moves at V4–V5 end with your feet off. Lattice Training#ix("Lattice Training") notes that climbers who struggle with big moves rarely cut loose #src("D40"). The counter-kick arrives with one-handed throws and #tref("sidepull", body: [sidepull]) catches at V4–V5 (judgement). The sources describe swing control but not this name.],
+  grade-note: [On steep gym walls, many big moves at V4–V5 end with your feet off. Lattice Training#ix("Lattice Training") notes that climbers who struggle with big moves rarely cut loose #src("D40"). The counter-kick goes with one-handed throws (#tref("lunge", inner: true)) and #tref("sidepull", body: [sidepull]) catches. The sources describe swing control but not this name.],
   summary: [Your feet leave the wall during or after a move, either because you cut them on purpose or because they slip. You hold the swing with your shoulders and stomach, then use it to put your feet back on.],
   figure: "cutting-loose.svg",
   caption: [(a) Your feet cut and your legs swing out. (b) At the peak, tuck your knees. (c) Swing back in. Catch the foothold with your toes.],
@@ -379,7 +376,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("running start", "parkour start"),
   category: "dynamic",
   grade: 4,
-  grade-note: [Learn it from V3 on big holds (this book's suggestion). It is a competition move that gyms now set for ordinary climbers, often at lower grades #src("D32"), so expect it on competition-style problems from about V4 (judgement).],
+  grade-note: [Learn it from V3 on big holds: France's climbing federation teaches it at that grade #src("F60", "F61"). It is a competition move that gyms now set for ordinary climbers, often at lower grades #src("D32").],
   summary: [You run a few steps across the mats and jump to catch a hold you couldn't reach from standing, often with one foot pushing off the wall or a #tref("volume", body: [volume]) on the way.],
   figure: "run-and-jump.svg",
   caption: [Take three steps across the mat. Push off the volume. Catch the hold.],
@@ -417,7 +414,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("two-handed dyno",),
   category: "dynamic",
   grade: 5,
-  grade-note: [Learn it from V2 on big holds, low on the wall, as your first dyno (this book's suggestion). It is the easiest dyno to teach #src("D14"). Ordinary problems rarely need it; a deadpoint or a one-handed dyno usually works #src("D17"). It is a competition-style set piece from about V5.],
+  grade-note: [Learn it from V2 on big holds, low on the wall, as your first dyno. It is the easiest dyno to teach #src("D14"). Ordinary problems rarely need it; a deadpoint or a one-handed dyno usually works #src("D17"). It is a competition-style set piece from about V5.],
   summary: [Both hands leave the start holds at once and both catch the target, while your feet either stay on or leave the wall #src("D14").],
   figure: "double-dyno.svg",
   caption: [(a) Sink with straight arms and your toes on the wall. (b) Both hands leave together and catch the pair of holds.],
@@ -442,7 +439,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
     - Going slack in the air. Keep your stomach and shoulders tight #src("D14").
     - Not planning the miss. A missed double dyno "will almost always result in a fall" #src("D14").
   ],
-  related: ("dyno", "comp-moves", "latching"),
+  related: ("dyno", "comp-moves", "latching", "lunge", "deadpoint"),
   watch: (("Mani the Monkey", "One-Hand or Double Dyno? Analytic Bouldering", "https://www.youtube.com/watch?v=VSF6gUhP4WM"),),
   sources: ("D7", "D14", "D17", "D21"),
 )
@@ -453,7 +450,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("campusing", "footless move"),
   category: "dynamic",
   grade: 5,
-  grade-note: [Low-grade gym problems rarely force moves without feet. Steep V5+ problems sometimes leave no usable feet for a move or two (judgement; no coaching source places it).],
+  grade-note: [You need it only where a steep problem leaves no usable foothold for a move or two. No coaching source we found ties it to a grade.],
   summary: [You move a hand with no feet on the wall, while your arms and #tref("body-tension", body: [body tension]) hold you. Each move is a footless dyno #src("D46").],
   figure: "campus-move.svg",
   caption: [(a) Hang with your arms slightly bent and your knees tucked. (b) Pop your hips up a little. The right hand moves on at the top.],
@@ -486,7 +483,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("dynamic toe catch", "toe-hook catch", "foot catch"),
   category: "dynamic",
   grade: 5,
-  grade-note: [It is common on competition-style problems from about V5 (judgement), often as the first move #src("D25", "D35").],
+  grade-note: [On competition-style problems it is often the first move #src("D25", "D35").],
   summary: [During or after a dynamic move, you throw a foot out so your toe hooks or stands on a hold or a volume's edge. That stops the swing or sets up the next move #src("D7", "D35").],
   figure: "foot-catch.svg",
   caption: [(a) The right hand has caught the hold and the body swings right. The left toe hooks the far side of the volume and stops the swing. (b) Close-up from behind: the top of the toes presses on the far side of the volume, and the leg pulls towards the body.],
@@ -557,7 +554,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
   aliases: ("lache", "paddle dyno", "tic-tac", "double clutch"),
   category: "dynamic",
   grade: 5,
-  grade-note: [These moves depend more on a gym's setting style than on its grades (judgement). Where a gym sets them, expect them on competition-style problems from about V5. Competitions use the paddle dyno to separate the best athletes #src("D7"), but in gyms it is a set piece rather than a common need (judgement).],
+  grade-note: [Whether you meet these moves depends on how your gym sets: one setter writes that the same leap between two volumes can be set at V1 or at V6 #src("F73"). One head setter keeps risky coordination moves for a gym's V6–V10 circuits #src("E52"), while others say gyms now put competition moves on ordinary problems, often at lower grades #src("D32"). Competitions use the paddle dyno to separate the best athletes #src("D7").],
   summary: [These are four moves from competition setting that you may meet in a gym: a swing and release, a row of taps, a push off a wall and a catch on two holds. The names "tic-tac" and "double clutch" are loose. We found no climbing source that uses the first, and the sources disagree on the second.],
   parts: (
     (

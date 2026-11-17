@@ -800,3 +800,15 @@ B71:
     value: "https://www.hoopersbeta.com/library/so-many-climbers-refuse-to-climb-this-way-and-it-kills-their-progress"
     date: 2026-10-30
   note: "Article and video"
+
+B80:
+  type: web
+  title: "Connor's World: How to Dropknee"
+  author: ["Griffith, Connor"]
+  date: 2016-09-28
+  parent:
+    title: "Friction Labs blog"
+  url:
+    value: "https://frictionlabs.com/blogs/climb-your-impossible/connors-world-how-to-dropknee"
+    date: 2026-11-17
+  note: "A professional setter writing on a chalk maker's blog"

@@ -4,9 +4,9 @@
 
 This chapter is about where you put your hips, shoulders and free limbs. A good position puts your weight on your feet, lets each hold work in the direction it faces and stops you swinging off the wall. Chapter 1 explains the mechanics behind this, such as your #jt("centre of gravity") (the point your weight acts through).
 
-Each entry starts at the grade where you start to need the technique indoors. No syllabus fixes these grades, so they are judgement. Each grade note gives the evidence.
+Each entry's badge marks the grade where you start to need the technique indoors. No syllabus fixes these grades, so each badge is the book's own estimate. The grade note gives the evidence for it.
 
-If you're tall, you reach many holds square on that shorter climbers must twist for.#ix("Tall climbers!hidden technique gaps") That hides missing technique until the holds get small or far apart (see Chapter 9). Practise the V3 and V4 entries on problems you can already climb square on.
+If you're tall, you reach many holds square on that shorter climbers must twist for.#ix("Tall climbers!hidden technique gaps") That hides missing technique until the holds get small or far apart (@cons-tall). Practise the V3 and V4 entries on problems you can already climb square on.
 
 #category-table("body")
 
@@ -35,7 +35,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   - A #tref("sidepull", body: [sidepull]) faces away from your body. A right-hand sidepull on your right faces right; you hang to its left. Turn in your left hip, backstep your left foot and reach with your left hand #src("B14", "B38").
   - A #tref("gaston", body: [gaston]) faces your midline. You pull it outward, elbow out. Stay squarer and use the inside edge of the opposite foot #src("B14"). Don't backstep off it #src("B38").
   - An #tref("undercling", body: [undercling]) faces down. Put your feet high and keep the arm straight #src("B30").
-  - A #tref("sloper", body: [sloper]): sit your hips low, keep your arms straight and your trunk tight#ix("Sloper!body position") #src("B31").
+  - A #tref("sloper", body: [sloper]): sit your hips low, keep your arms straight and your #jt("trunk") tight#ix("Sloper!body position") #src("B31").
   - Two holds that face away from each other: squeeze them. See #tref("compression").
   - Two surfaces that face each other: push them apart. See #tref("stemming").
   - A vertical edge or #tref("arete", body: [arête]): see #tref("layback").
@@ -51,7 +51,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   - Beyond #jt("static") reach (reach without a jump), with a small hold on the way: #tref("bumping").
   - A hold too small to share: cross instead of #tref("matching", body: [matching]).
 
-+ *After a failed attempt, read the symptom.* Each entry lists its symptoms. The troubleshooting appendix collects them.
++ *After a failed attempt, read the symptom.* Each entry lists its symptoms. #link(<troubleshooting>)[The troubleshooting table] collects them.
 
 == V0–V1: weight, straight arms and~the~basic~stance
 
@@ -84,7 +84,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   errors: [
     - Hauling with an arm while the foot only follows. Push with the leg. Let the arm only steady you #src("B11").
   ],
-  related: ("barn-door", "frog", "straight-arms", "precise-footwork"),
+  related: ("barn-door", "frog", "straight-arms", "precise-footwork", "slab"),
   sources: ("B2", "B9", "B11", "B17", "B22"),
 )
 
@@ -94,7 +94,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("straight-arming", "hanging on your skeleton"),
   category: "body",
   grade: 0,
-  grade-note: [Learn it from your first session (this book's suggestion): when you pause on a steep wall, hang on nearly straight arms with your shoulders set, and on a vertical wall stand tall instead. It matters more on your first overhangs, and on V3–V4 overhangs it can decide whether you run out of strength (judgement). The UK's coach training lists it as a way to find a rest #src("B1").],
+  grade-note: [Learn it from your first session: when you pause on a steep wall, hang on nearly straight arms with your shoulders set, and on a vertical wall stand tall instead. It matters more the steeper the wall, because your arms then carry more of your weight (Chapter 1). The UK's coach training lists it as a way to find a rest #src("B1"). The UK's bouldering-instructor award counts it among the basics for novices #src("F62").],
   summary: [You hang with your elbows straight or nearly straight, so your arm muscles work less #src("B50"). You move by pushing with your legs and turning your hips, not by pulling #src("B12", "B22"). Chapter 1 shows the difference in a figure.],
   how: [
     + Between moves, let your elbows straighten. Keep a slight bend of a few degrees #src("B23").
@@ -173,7 +173,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("barn-dooring", "swinging open"),
   category: "body",
   grade: 1,
-  grade-note: [Hörst#ix("Hörst, Eric") teaches the cure, opposite hand and foot, as a basic #src("B11"). Rowland#ix("Rowland, Dave") teaches it on a slab first #src("B35"). At V1, start with fixes 1 and 4 (this book's suggestion). Stopping a door on steep V3s needs the flags in this chapter.],
+  grade-note: [Hörst#ix("Hörst, Eric") teaches the cure, opposite hand and foot, as a basic #src("B11"). Rowland#ix("Rowland, Dave") teaches it on a slab first #src("B35"). At V1, start with fixes 1 and 4.#note[The other fixes use techniques with later badges: a foot swap, a flag or a deadpoint.] Stopping a door on steep V3s needs the flags in this chapter.],
   summary: [Your body swings open like a door when one hand lets go. It happens when the hand and foot holding you are on the same side. Your weight hangs beside the #jt("hinge") between them, so you rotate around it #src("B8", "B11"). Chapter 1 explains the mechanics.],
   how: [
     + Before the move, name the hand that stays on and the foot you stand on. If they are on the same side, expect a door.
@@ -201,7 +201,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - A loose flag leg. Straighten it and press it into the wall #src("B26").
     - Trying to stop a door that has started. It is hard to correct once it begins #src("B13"). Set up so it never starts.
   ],
-  related: ("flag", "back-flag", "inside-flag", "weight-shift", "foot-swap"),
+  related: ("flag", "back-flag", "inside-flag", "weight-shift", "foot-swap", "backstep", "drop-knee"),
   watch: (("Hooper’s Beta","The “Off Foot” is Climbing Technique #1 – Coaching w/ Dan #1", "https://www.youtube.com/watch?v=TAjHSueeOkw"),),
   sources: ("B8", "B11", "B13", "B26", "B35", "B39", "B45", "B54", "B62"),
 )
@@ -247,7 +247,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("bridging", "stem", "corners", "dihedral", "open book", "inside corner"),
   category: "body",
   grade: 1,
-  grade-note: [Corners and pairs of volumes appear on easy problems, where they mostly help you rest and save effort (judgement). The UK's coach training lists bridging as an opposition technique #src("B1").],
+  grade-note: [You can stem wherever two surfaces face each other, such as a corner or a pair of volumes. One setter advises putting easy problems in corners so that new climbers learn to stem #src("F72"). The UK's coach training lists bridging as an opposition technique #src("B1").],
   summary: [You push your feet outward against two surfaces that face each other, such as the walls of a corner. The push presses your shoes onto them, so friction holds you without good holds #src("B29"). Your legs carry the weight, so your arms can rest.],
   figure: "stemming.svg",
   caption: [Back view between two volumes. Each foot pushes into its own volume. The left palm presses the left one.],
@@ -266,7 +266,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
       + Face into the corner, or turn a little towards the wall with the better holds.
       + Bend your knees and press outward and down, evenly on both walls #src("E24", "E20").
       + Where there are no handholds, press a flat palm on each wall at chest height #src("E20").
-      + Step up a short way at a time. Big steps collapse the position (judgement).
+      + Step up a short way at a time. A series of small moves is often better than one long one, because being stretched out upsets your balance #src("C36").
       + If only one wall has holds, #tref("layback", body: [layback]) the edge of the corner. Walk your feet up the blank wall.
       + Spread your feet wide to rest. Often you can let go with both hands #src("E17").
     ],
@@ -304,7 +304,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("hip in", "hip to the wall", "twisting in", "side-on", "getting long"),
   category: "body",
   grade: 2,
-  grade-note: [Try it from V1, on easy problems that lean towards you (this book's suggestion). You need it on your first overhangs. Gresham#ix("Gresham, Neil") says low- to intermediate-level climbers struggle there because they keep their hips square#ix("Overhangs!hip position") #src("B22"). Rowland#ix("Rowland, Dave") twists on walls overhanging 10° or more #src("B44").],
+  grade-note: [Try it from V1, on easy problems that lean towards you. You need it on your first overhangs. Gresham#ix("Gresham, Neil") says low- to intermediate-level climbers struggle there because they keep their hips square#ix("Overhangs!hip position") #src("B22"). Rowland#ix("Rowland, Dave") twists on walls overhanging 10° or more #src("B44").],
   summary: [You turn your pelvis so the hip on your reaching side touches or nearly touches the wall, while your chest turns towards the holding hand. The turn lifts your reaching shoulder, so your hand goes higher on a straight arm #src("B19", "B43").],
   figure: "hip-turn.svg",
   caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the body from above.],
@@ -334,7 +334,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Twisting on a slab with small footholds. The twist can pop your foot off #src("B44").
     - Twisting on every move. Rowland#ix("Rowland, Dave") reads that as a possible weakness #src("B44").
   ],
-  related: ("backstep", "drop-knee", "twist-lock", "frog", "edging"),
+  related: ("backstep", "drop-knee", "twist-lock", "frog", "edging", "sidepull", "straight-arms"),
   watch: (
     ("Hooper’s Beta","Fix Your Shoulder Orientation – Coaching w/ Dan #2", "https://www.youtube.com/watch?v=3uKDpIUJ_8o"),
     ("Hooper’s Beta","Don’t Blame Wingspan! These Mistakes Limit Your Reach", "https://www.youtube.com/watch?v=bj25GdNX5B8"),
@@ -348,7 +348,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("flag", "flagging", "outside flag (US)"),
   category: "body",
   grade: 2,
-  grade-note: [From about V2, reaches start to swing you open where your free foot has no hold (judgement). The UK's coach training lists flagging as a steep-wall skill #src("B1"). A US gym still teaches it to climbers stuck at V5 #src("B63").],
+  grade-note: [You need it when a reach would swing you open and your free foot has no hold. The UK's coach training lists flagging as a steep-wall skill #src("B1"). A London gym drills flags in a course for V2–V4 climbers #src("F71"). A US gym still teaches them to climbers stuck at V5 #src("B63").],
   summary: [You stretch your free leg straight out to its own side and press the foot on the wall. The leg balances your weight on the far side of the #jt("hinge"), so you don't swing open #src("B13", "B26"). US sources call this an outside flag #src("B59"). Gresham#ix("Gresham, Neil") seems to use that name for a #tref("back-flag", body: [back flag]) #src("B21"), so this book avoids it.],
   figure: "flag.svg",
   caption: [The left hand sits above the right foot. (a) With the left leg dangling, reaching right swings the body open. (b) The left leg stretched out left presses the wall and balances you.],
@@ -439,7 +439,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + Treat the edge as a sidepull: pull it towards you and hang on the other side.
     + #tref("straight-arms", body: [Straighten your arms]) and lean away #src("B54").
     + Put your feet high on the wall. Push them against the pull of your hands #src("B65").
-    + Keep your #jt("core") (the muscles around your trunk) tight #src("B65").
+    + Keep your #jt("core") (the muscles of your stomach, back and hips) tight #src("B65").
     + Find the point where you neither fall back nor swing round. Lose it and you swing off like a door #src("B54").
     + Move your hands and feet up in short steps. Keep the push and the pull equal.
   ],
@@ -500,8 +500,8 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Letting the flag leg bend, so your hips drift #src("B44").
   ],
   tall: [Rowland's#ix("Rowland, Dave") "knee height or higher" means your own knee.#ix("Tall climbers!backsteps") Footholds that look high to others may be perfect backsteps for you #src("B38").],
-  small: [Turning your hip in brings you closer to the wall.#ix("Small climbers!backsteps") Climbers' own estimates of the extra reach run from an inch or so #src("H1") to a few inches #src("H2"), and we found no measurement. So when the holds suit a backstep, try it before you decide a move is too far (judgement). A #tref("drop-knee", body: [drop knee]) does a similar job if your knees are mobile enough #src("H4"), but read the knee box in @cons-tall first.],
-  related: ("hip-turn", "drop-knee", "twist-lock", "back-flag", "edging"),
+  small: [Turning your hip in brings you closer to the wall.#ix("Small climbers!backsteps") Climbers' own estimates of the extra reach run from an inch or so #src("H1") to a few inches #src("H2"), and we found no measurement. So when the holds suit a backstep, try it before you decide a move is too far. For a short climber, one training site puts the moves that bring you close to the wall first #src("H2"). A #tref("drop-knee", body: [drop knee]) does a similar job if your knees are mobile enough #src("H4"), but read the knee box in @cons-injuries first.],
+  related: ("hip-turn", "drop-knee", "twist-lock", "back-flag", "edging", "sidepull"),
   watch: (("Mani the Monkey", "Technique Training for Beginners: Back Step VS Flag", "https://www.youtube.com/watch?v=F5g9YtcnDqw"),),
   sources: ("B15", "B32", "B37", "B38", "B39", "B44", "H1", "H2", "H4"),
 )
@@ -554,7 +554,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("Egyptian", "knee drop"),
   category: "body",
   grade: 3,
-  grade-note: [Learn a partial drop knee from V2 on big holds, but leave deep ones until a move needs them (this book's suggestion). Deep drop knees are rare below elite level #src("B33"). Steep V3s use a partial one. On steep V4s a drop knee is often the intended move. The UK's coach training lists the drop knee #src("B1"), while a US gym teaches it at V5–V6 #src("B64").],
+  grade-note: [Learn a partial drop knee from V2 on big holds, but leave deep ones until a move needs them. Deep drop knees are rare below elite level #src("B33"). Steep V3s use a partial one. On steep V4s a drop knee is often the intended move. The UK's coach training lists the drop knee #src("B1"), while a US gym teaches it at V5–V6 #src("B64").],
   summary: [You turn the knee of your reaching-side leg down and inward, so the thigh turns towards the wall. Both feet push apart against two footholds. That pins your hips to the wall and lifts the reaching shoulder #src("B19", "B41").],
   figure: "drop-knee.svg",
   caption: [(a) Square on, the right hand falls short. (b) Right knee dropped. The right hip turns in. Both feet push apart. The hand reaches. The insets show the body from above.],
@@ -563,7 +563,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + Place the foot that won't pivot first if you can #src("B20").
     + Put the high foot's toe on the near corner of its hold. That leaves room to pivot #src("B20").
     + Turn your hip and that knee in towards the wall, then point the knee down. The foot rolls onto its outside edge. In a deep drop knee, the thigh lies against the wall #src("B41").
-    + For a partial drop knee, stop with the knee part-way down. It gives most of the lock with less load on the knee (judgement).
+    + For a partial drop knee, stop with the knee part-way down. A study of knee injuries describes the injured position as a fully bent knee #src("G9"). One professional setter tells climbers to be very cautious about how far they drop the knee #src("B80").
     + Straighten the other leg and push out through its inside edge. Your weight moves back over the dropped foot. Your arms unload #src("B40").
     + Pull in with the holding hand, ideally on a #tref("sidepull", body: [sidepull]). Turn your chest towards it. Reach with the hand on the dropped-knee side #src("B20", "B43").
     + Before you stand up out of it, turn the knee back up.
@@ -584,11 +584,11 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Too little room on the foothold. The foot skates off as you pivot #src("B20").
     - A bent push leg. Your hips drift and your arms take over #src("B44").
     - Trying it on an overhanging arête or under a roof lip. There is no room #src("B20").
-    - Forcing a deep drop when tired. It loads the inside of the knee#ix("Injuries!knee"): the #jt("MCL") (the ligament on the inside) and the #jt("meniscus") (the cartilage pad in the joint) #src("B33", "G9"). Chapter 9 gives the injury figures.
+    - Forcing a deep drop when tired. It loads the inside of the knee#ix("Injuries!knee"): the #jt("MCL") (the ligament on the inside) and the #jt("meniscus") (the cartilage pad in the joint) #src("B33", "G9"). The knee box in @cons-injuries gives the injury figures.
     - Ignoring pain on the inside of the knee. Stop. Rest longer if you are older#ix("Age!knee injuries") or have hurt the knee before #src("B33").
   ],
   tall: [On a wide drop knee, let your knee pass inside your elbow #src("B20"). Long thighs make deep drops awkward in tight spaces,#ix("Tall climbers!drop knee") so use a partial one there.],
-  related: ("backstep", "twist-lock", "hip-turn", "stemming", "barn-door"),
+  related: ("backstep", "twist-lock", "hip-turn", "stemming", "barn-door", "pivoting", "sidepull"),
   watch: (("Movement for Climbers", "What the Heck is a Drop Knee?", "https://www.youtube.com/watch?v=U0v9xxqEjfY"),),
   sources: ("B1", "B19", "B20", "B33", "B39", "B40", "B41", "B43", "B44", "B64", "G9"),
 )
@@ -610,7 +610,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + Hooper's cue: get as far from your bottom hand as you can while staying balanced #src("B48").
     + Relax the arm that will move next #src("B48").
     + Drive with your legs. Move your hips up and in. Pull only at the end #src("B47").
-    + On #tref("sloper", body: [slopers]), sit with your hips low and close to the wall. Keep your trunk tight #src("B31").
+    + On #tref("sloper", body: [slopers]), sit with your hips low and close to the wall. Keep your #jt("trunk") tight #src("B31").
   ],
   when: [
     *Look for*
@@ -644,7 +644,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Hooper's Beta#ix("Hooper, Jason") stresses it on a steep V3 #src("B52"). On caves and #tref("roof", body: [roofs]) it matters earlier. A US gym still teaches it in its course for climbers stuck at V5 #src("B63").],
-  summary: [Tension runs from your toes through your legs and trunk to your fingers. It keeps your feet loaded on a steep wall while a hand moves #src("B51").],
+  summary: [Tension runs from your toes through your legs and your #jt("trunk") (your body between your shoulders and your hips) to your fingers. It keeps your feet loaded on a steep wall while a hand moves #src("B51").],
   figure: "body-tension.svg",
   caption: [Side view, 40° overhang. (a) Slack: the feet cut and you swing under your hands. (b) Tense: the toes pull into the wall and the hips stay up.],
   how: [
@@ -672,7 +672,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - A loose free leg #src("B26").
   ],
   tall: [A long body is a long lever between your hands and your feet,#ix("Tall climbers!body tension") so you need more tension to keep your feet on in a roof.#ix("Roofs!body tension") Bringing your feet higher shortens the lever.],
-  related: ("pre-loading", "toe-pull", "opposition", "compression", "cutting-loose"),
+  related: ("pre-loading", "toe-pull", "opposition", "compression", "cutting-loose", "toe-hook", "heel-hook", "roof"),
   watch: (
     ("Hooper’s Beta","Why Do Climbers that “Stay Tight” Have Poor Body Tension? – Coaching w/ Dan #4", "https://www.youtube.com/watch?v=EGdusH97XcY"),
     ("Hooper’s Beta","Why Climbers Should Rethink Core Strength Training", "https://www.youtube.com/watch?v=jwyd40EBnlI"),
@@ -713,7 +713,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Getting stuck in tight, bent-arm positions. They feel secure but cut your reach #src("B47").
   ],
   tall: [You can often reach from a half lock where shorter climbers need a full one.#ix("Tall climbers!lock-offs") Extra reach usually comes from rolling your shoulders, not from locking harder #src("B46").],
-  small: [On a big reach you may need your holding hand below your shoulder, at or even below your chest, which is harder than a lock beside your shoulder.#ix("Small climbers!lock-offs") One coach under 5~ft suggests trying these deeper locks on climbs at your warm-up grade #src("H9"). Add a few at a time, because they load your elbow and shoulder (judgement).],
+  small: [On a big reach you may need your holding hand below your shoulder, at or even below your chest, which is harder than a lock beside your shoulder.#ix("Small climbers!lock-offs") One coach under 5~ft suggests trying these deeper locks on climbs at your warm-up grade #src("H9"). Add a few at a time: in a laboratory study of fingerboard hangs, the load on the elbows and shoulders rose the more the elbows were bent #src("G71").],
   related: ("twist-lock", "straight-arms", "deadpoint", "hip-turn"),
   sources: ("B20", "B23", "B27", "B28", "B46", "B47", "B57", "B62", "H9"),
 )
@@ -735,7 +735,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + *Hand against foot:* pull an #tref("undercling", body: [undercling]) up while your high feet press into the wall #src("B30"). Or pull a sidepull while the opposite foot stands on its outside edge #src("B14").
     + *Foot against foot:* push your feet apart, as in #tref("stemming", body: [stemming]) or a #tref("drop-knee", body: [drop knee]) #src("B20", "B29"). A #tref("bicycle", body: [bicycle]) squeezes one hold between both feet #src("B56").
     + Load both contacts at once. Then move the limb that isn't part of the pair.
-    + Keep your trunk tight. If your #jt("core") sags, the squeeze lets go #src("B31").
+    + Keep your #jt("trunk") tight. If your #jt("core") sags, the squeeze lets go #src("B31").
   ],
   when: [
     *Look for*
@@ -832,7 +832,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     - Not finding the exact locked position. Shuffle until it feels solid.
     - Twist-locking every move #src("B44").
   ],
-  related: ("backstep", "drop-knee", "hip-turn", "lock-off"),
+  related: ("backstep", "drop-knee", "hip-turn", "lock-off", "sidepull"),
   watch: (("Neil Gresham Climbing Masterclass - Crux Films", "Neil Greshams Masterclass - Twistlock", "https://www.youtube.com/watch?v=v4TnitXGxkM"),),
   sources: ("B15", "B16", "B37", "B38", "B40", "B43", "B44"),
 )
@@ -890,7 +890,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
     + Squeeze inward with slightly bent arms, elbows down. Use your chest and back, as in a hug.
     + Squeeze with your feet too. Put a toe on one side and a toe or heel on the other. A #tref("bicycle", body: [bicycle]) does this on one hold #src("B56").
     + Press your free foot against a foothold or the wall. It can turn even a round foothold into a clamp #src("B45").
-    + Keep your hips close to the feature. Keep your trunk tight, so the squeeze in your hands and feet connects #src("B31").
+    + Keep your hips close to the feature. Keep your #jt("trunk") tight, so the squeeze in your hands and feet connects #src("B31").
     + Release one contact only when the other three are squeezing. Move it fast.
     + On a #tref("pinch", body: [pinch], show-page: false)-shaped feature, turning side-on into a #tref("layback", body: [layback]) saves thumb strength #src("B24").
   ],

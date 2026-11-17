@@ -13,12 +13,126 @@ section as the notes of the GitHub release.
 ## Unreleased
 
 ### Errata
+- p. 7, Tension: "your trunk connects your hands to your feet" used "trunk"
+  without saying what it means → the word is explained where it first appears
+  and has a glossary entry.
+- p. 8, Why read first: "Good climbers take time over it" rested on one World
+  Cup. In studies of boulderers, the better climbers looked for less time →
+  cut.
+- p. 9, The method, step 1: "Most gyms expect both hands on the top hold, under
+  control" gave a competition rule as a gym rule → gyms ask for both hands on
+  the top hold, and competitions also want you in control there.
+- p. 17, Flash or project?: "After four to six full attempts without progress,
+  change something" took its number from World Cup finals. Coaches who give a
+  number say three or four → "When your full attempts stop getting further,
+  change something", now in "Working on a hard problem".
+- p. 23, Feet first: "You arrive at a hold at full stretch with your feet below
+  your knees" described every position, since your feet are always below your
+  knees → "with your legs straight and your feet still where they were before
+  the move". The rule above it now says the foothold "is usually no higher than
+  your knee as you stand".
+- p. 73, Stemming: "Big steps collapse the position" had no source → a series
+  of small moves is often better than one long one, because being stretched out
+  upsets your balance.
+- p. 90, Drop knee: a partial drop knee "gives most of the lock with less load
+  on the knee" had no source and nobody has measured it → the knee-injury study
+  describes the injured position as a fully bent knee.
+- p. 121, Undercling, tall climbers: "Stop raising your feet once it does"
+  contradicted step 3, which says the higher you are, the easier it gets →
+  higher feet still help, but you get bunched sooner.
+- p. 132, Pinch, tall climbers: "Big hands help on wide pinches" cited a source
+  that says only that hand size matters → one setter says large hands hold wide
+  pinches more securely.
+- p. 152, Deadpoint, tall climbers: "on harder problems the lock-off often
+  stops working" was too broad, since some hard moves need a lock-off → the
+  steeper the wall, the more work a lock-off costs your arm.
+- p. 188, Volumes, tall climbers: "Long arms and legs make squeezing and
+  far-side standing easier" had no source → cut.
+- p. 212, V2: "one gym runs a movement clinic for climbers stuck there"
+  misread the source. The clinic is for climbers who struggle to reach V2 →
+  "Many climbers stall around here".
+- p. 226, V7: "Gym setting borrows their style" (of training boards) had no
+  source → cut.
+- p. 228, V8 and above: "Many problems copy the style of training boards" had
+  no source, and a coach says boards and gym problems get harder in different
+  ways → one head setter says a gym's hardest circuits test finger strength,
+  complex sequences and risky coordination moves.
+- p. 241, When finger training makes sense: "The aim is to condition your
+  tendons" expected too much of gentle hangs. In leg tendons, only heavy
+  loading makes a tendon stiffer → "The aim is stronger fingers at low risk."
+- p. 242, Learning technique: "Beginners who only climbed square to the wall
+  improved suddenly" described two or three of the study's seven beginners →
+  "a few beginners".
+- p. 242, Learning technique: "Varied practice can make sessions feel worse
+  while you keep more of what you learn" holds in laboratories. In real sports
+  practice the benefit is close to nil → vary your practice because problems
+  vary.
+- p. 242, Learning technique: "Too much feedback during practice can make you
+  depend on it" is a common warning, but 61 studies taken together show no
+  such effect → "Get feedback."
 
 ### Added
+- Footnotes. Where the book draws a conclusion that no source states, a note at
+  the foot of the page says how it got there (`note` in the template). The web
+  edition lists a page's notes at its foot.
+- Chapter 8: "How gyms grade", which holds what Chapter 2 said about indoor
+  grades.
+- Chapter 9: "Injuries and warming up", a section of its own. It holds the
+  injury table, the knee box, the warm-up routine and the stretches, which sat
+  under "Climbing tall" and "Starting as an adult".
+- Chapter 9: "Working on a hard problem" (projecting, rest between attempts and
+  when to change the beta, from Chapter 2) and "Breaking a plateau" (technique
+  or strength, finding your limiter and a plan, from "From V4 to V5").
+- Glossary: trunk.
+- 52 sources. Among them are the French climbing federation's syllabus, which
+  names a boulder grade for three of its levels, the IFSC's competition rules,
+  gym course pages that name grade bands, and reviews from sport science on
+  warming up, rest, practice and falling.
+- `research/judgement-pass.md` lists every claim the third edition labelled
+  "(judgement)" with its new wording, and `research/placement-audit.md` lists
+  repeated and misplaced passages, of which the first were fixed.
 
 ### Changed
+- No claim carries the label "(judgement)" any more. Each one now cites a
+  source, says what a source does say, or is cut. Grade notes that had no
+  source say when you need the technique and leave the grade to the badge, or
+  say which entry the badge follows.
+- The labels "(this book's suggestion)" and "(this book's reading)" are gone
+  too. Advice that cites no source is the book's own, as "How this book was
+  made" says, and seven footnotes say how the book reached a conclusion.
+- Grade tabs: every tab has white figures and no outline. Green, yellow and
+  orange are darker to carry them.
+- Grade conversion: the appendix no longer names a gym as the source of the
+  tabs' colours.
+- "How this book was made" is an appendix, at about half its length. It says
+  what Claude was used for, at the editor's direction. The foreword and the
+  colophon link to it.
+- "How to use this book" is shorter: one line for each part, three ways to find
+  your way around.
+- Chapter 2 is about two fifths shorter. It keeps the reading method and the
+  flash routine. The summaries of studies that opened it are two sentences, and
+  the first study cited is now of indoor boulderers.
+- "From V4 to V5" is no longer a section between the V4 and V5 guides. Its
+  comparison table is in the V5 guide, its list of what holds people back is in
+  the V4 guide, and the rest is "Breaking a plateau" in Chapter 9.
+- Passages that leaned on a poorly fitting study are shorter or cite a better
+  one: warming up, finger training, recovery with age, height and grade, eating
+  too little, learning by watching, and the slope of small edges.
+- Chapter 6: "Where 'deadpoint' comes from" is two sentences in "Static or
+  dynamic?".
+- Chapter 1: the barn door's fixes are a plain list, so that "fix 1" means the
+  entry's first fix and nothing else.
+- Heel hook and Jump start have a note for small climbers, moved out of a tall
+  note and a grade note.
+- Pointers such as "see Chapter 9" name the section, and 19 entries list more
+  related techniques.
 
 ### Removed
+- The World Cup statistics on success by attempt, the competitors' row of the
+  rest table and the fifteen-minute test for a new gym.
+- A forum reconstruction of finger strength at V4 and V5.
+- The exercises booklet's 19 "(judgement)" labels. Its opening says once that
+  the beta is the book's own reasoning.
 
 ## Third edition (edition-3)
 

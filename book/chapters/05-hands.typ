@@ -4,9 +4,9 @@
 
 This chapter covers what your hands do on each kind of hold and where each hold puts your body. That second part matters more, because at V3–V4 a fall from a decent hold often means your body was in the wrong place #src("C42", "C47").
 
-Each grade marks where indoor problems start to demand the technique. No coaching scheme ties grips to V-grades; the UK's NICAS award teaches hold types at its third level #src("C44"). So the grades here are judgement calls. Each grade note says why.
+Each badge marks where indoor problems start to demand the technique. No coaching scheme ties grips to V-grades; the UK's NICAS award teaches hold types at its third level #src("C44"). So the badges here are the book's own estimates. Each grade note gives the evidence.
 
-The heavier you are, the more load your fingers carry.#ix("Body weight!load on the fingers") The force on your finger #jt("pulley", body: [pulleys]) (the bands that hold the tendons against the bone) rises with that load #src("C25", "C26"). The entries on the #jt("crimp") (a grip with the fingers sharply bent) say how to keep it down.
+The heavier you are, the more load your fingers carry (@cons-heavy).#ix("Body weight!load on the fingers") The force on your finger #jt("pulley", body: [pulleys]) (the bands that hold the tendons against the bone) rises with that load #src("C25", "C26"). The entries on the #jt("crimp") (a grip with the fingers sharply bent) say how to keep it down.
 
 #category-table("hands")
 
@@ -33,13 +33,7 @@ A #jt("positive hold") has a gripping surface that faces up or tilts back into t
 
 #fig("hands-hold-angle.svg", caption-width: 125mm, caption: [A fingertip on three edges, pulled straight down. The incut locks it. The flat edge needs curl and friction. On the sloping edge, part of the pull drags the finger off.])
 
-Lab tests show how fast small sloping holds get worse#ix("Studies!edge depth and slope")#ix("Edge!depth and slope") #src("C29"). Eight strong climbers pulled as hard as they could on #jt("edge", body: [edges]) (narrow ledges) 1–4 cm deep, tilted from flat to 40°.
-
-- On 3–4 cm edges, a 30° slope made no real difference. Only 40° cut their force.
-- On 1–2 cm edges, their force dropped once the slope passed 20°.
-- They chose a half crimp on the 1–2 cm edges and an open hand on the deeper ones.
-
-So a small hold that slopes is worse than a small flat one or a big sloping one.
+A small hold that slopes is worse than a small flat one or a big sloping one. In a lab test,#ix("Studies!edge depth and slope")#ix("Edge!depth and slope") eight strong climbers lost force on #jt("edge", body: [edges]) (narrow ledges) 1–2~cm deep once the slope passed 20°, while on edges 3–4~cm deep it took 40° #src("C29").
 
 #ix("Dual texture") The same hold can be positive or negative, depending on how the #jt("setter") (the person who designs the problems) bolted it on. Some modern holds and #jt("volume", body: [volumes]) (big hollow shapes bolted to the wall) have two finishes: a grippy texture marks where you should hold, and a smooth finish marks where you shouldn't. This is called #jt("dual texture") #src("C49"). Read the grippy patch as an instruction, because the smooth part can turn a big, easy hold into one that needs precise movement #src("C50").
 
@@ -60,7 +54,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   aliases: ("bucket", "handle"),
   category: "hands",
   grade: 0,
-  grade-note: [You use jugs from your first session. When you pause on one on a steep wall, hang on a straight arm, and on a vertical wall stand tall (this book's suggestion). Resting that way before the hard moves starts to matter around V2–V3.],
+  grade-note: [You use jugs from your first session. When you pause on one on a steep wall, hang on a straight arm, and on a vertical wall stand tall. Resting that way before the hard moves starts to matter around V2–V3.],
   summary: [A jug is a big, deep hold you can wrap your whole hand around #src("C34"). The skill is to hang on it cheaply.],
   figure: "jug.svg",
   caption: [(a) Bent arms: your biceps and shoulder muscles work to hold you there. (b) One straight arm holds you while the other hand shakes out.],
@@ -134,7 +128,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   aliases: ("half-crimp", "open crimp", "halb aufgestellt"),
   category: "hands",
   grade: 2,
-  grade-note: [Edges small enough to crimp turn up from about V2 (judgement). They keep shrinking as you near V5 #src("C48"). Make the half crimp your default on these edges from the start, so you don't fall into the habit of full crimping (this book's suggestion).],
+  grade-note: [A London gym teaches crimps, with a first look at finger strength, in a course for V2–V4 climbers #src("F70"). Holds keep getting smaller as you near V5 #src("C48"). Make the half crimp your default on small edges from the start, so you don't fall into the habit of full crimping.],
   summary: [Your fingertips sit on a small #jt("edge") with the middle joints bent to about 90°. The end joints stay straight and the thumb stays free. It suits most edges #src("C1", "C21").],
   figure: "half-crimp.svg",
   caption: [(a) Half crimp: the middle joint bends about 90° and the end joint stays straight. (b) Full crimp for comparison: the end joint bends back.],
@@ -153,7 +147,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
     *Symptoms*
     - Your fingertips roll off the front of the edge. Your body is too high above it, or the edge slopes.
-    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now, because a #tref("full-crimp", body: [full crimp]) is for the tiny edges of about V5 (judgement).
+    - Your hand peels open on every try. Move your body or add #tref("thumb-catch", body: [your thumb]). If it still opens, leave the move for now. A #tref("full-crimp", body: [full crimp]) is for very small edges #src("C1", "C10"). Holds get smaller and crimpier at about V5 #src("C48").
     - You feel a sharp pain at the base of a finger. Stop for the day.
   ],
   errors: [
@@ -234,7 +228,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Pulling with the arms instead of standing up with the legs #src("C4").
     - Bending the wrist hard towards the little finger. Schweizer#ix("Schweizer, Andreas") links this to fractures of a small wrist bone#ix("Injuries!wrist") #src("C25").
   ],
-  tall: [Your waist sits high above your feet, so the hold reaches waist height with your feet lower than a shorter climber's. Stop raising your feet once it does, because higher still folds your long legs against your chest (judgement).],
+  tall: [Your waist sits high above your feet, so the hold reaches waist height with your feet lower than a shorter climber's. Higher feet still help, but you get bunched sooner: in a tight position a tall climber's knees end up in the chest #src("H15"). If your knees jam, turn one hip to the wall as in step 6.],
   related: ("gaston", "sidepull", "high-step", "straight-arms"),
   sources: ("C4", "C25", "C34", "C36", "C52"),
 )
@@ -281,7 +275,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   aliases: ("mantel", "mantelshelf", "press-out", "volume mantle"),
   category: "hands",
   grade: 2,
-  grade-note: [Gyms with top-out walls can ask for an easy one from V0, and it starts to matter at V2 (judgement). The heel hook in step 2 comes at V3, so try it low on the wall first (this book's suggestion). Hard mantles, with a poor high foot, a rounded top or a volume in the middle of a problem, are a V5–V6 skill: a coaching clinic at that level lists them #src("C46").],
+  grade-note: [Where a gym has walls you top out on, you need an easy one from the start. The UK's bouldering-instructor award lists safe topping out among the basics for novices #src("F62"). The heel hook in step 2 has a V3 badge, so try it low on the wall first. Hard mantles, with a poor high foot, a rounded top or a volume in the middle of a problem, are a V5–V6 skill: a coaching clinic at that level lists them #src("C46").],
   summary: [A mantle turns a pull on a ledge into a push down on it. Then you stand up on it. It gets you over a #jt("lip") (the edge where the wall ends) and onto a flat top #src("C39"). For the whole finish of a problem, see #tref("top-out").],
   figure: "mantle.svg",
   caption: [(1) Pull, with the right foot high. (2) Flip the right hand flat with the elbow up. Press. (3) Straighten both arms. Step onto the top without a knee.],
@@ -331,7 +325,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Pulling on a sloping volume edge that you should press.
   ],
   tall: [You reach the lip and a high foot easily. Folding a long body over that foot is the hard part.#ix("Tall climbers!mantles") Get weight onto the foot early, so your arms don't press your whole weight #src("C5").],
-  related: ("top-out", "rockover", "high-step", "palming", "volume"),
+  related: ("top-out", "rockover", "high-step", "palming", "volume", "heel-hook"),
   watch: (("Friction Labs", "The Art of the Mantle - Chris Schulte’s Guide to Topping Out in Fontainebleau", "https://www.youtube.com/watch?v=oKrATkvFOck"),),
   sources: ("C5", "C6", "C11", "C39", "C46", "C49"),
 )
@@ -381,7 +375,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Slapping the same sloper over and over. It strains the wrist#ix("Injuries!wrist") #src("C2").
     - Pinning yourself flat to the wall. Pull the hips in #src("C3"), but hugging the wall can stop you turning when a hand lets go #src("C19"). Low and under the hold matters more than tight.
   ],
-  related: ("open-hand", "palming", "straight-arms", "body-tension", "heel-hook"),
+  related: ("open-hand", "palming", "straight-arms", "body-tension", "heel-hook", "thumb-catch"),
   watch: (("Lattice Training", "Slopers: Technique, Training, and Cheat Codes", "https://www.youtube.com/watch?v=KjE7R-tmYGE"), ("Send Edition", "4 Sloper Mistakes Beginner Boulderers Make", "https://www.youtube.com/watch?v=lxQtAHNiqFs")),
   sources: ("C2", "C3", "C11", "C19", "C29", "C34", "C47"),
 )
@@ -419,8 +413,8 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Squeezing harder instead of moving your body into line #src("C42").
     - Taking a narrow pinch on a hold that offers a wide one. Compared with a jug, climbers' pull dropped 6–19% on a wide pinch but 31–46% on a narrow one #src("C31").
   ],
-  tall: [Big hands help on wide pinches#ix("Hand size") #src("C37"), less so on narrow ones (judgement).],
-  small: [If your thumb can't press back on a wide pinch, you may be able to hold it like an edge #src("C37"), or pull it as a #tref("sidepull", body: [sidepull]), leaning away from it (judgement).],
+  tall: [One setter says large hands hold wide pinches more securely than small ones#ix("Hand size") #src("E46"). One blogger finds that thin pinches feel better with small hands #src("H15").],
+  small: [If your thumb can't press back on a wide pinch, look for a narrower part of the hold to pinch #src("C60"). Failing that, you may be able to hold it like an edge #src("C37"). It then works in one direction only, so lean away from it as on a #tref("sidepull", body: [sidepull]).#note[Our inference from the rule in Chapter 1: a hold used as an edge works only when you pull away from the way it faces.]],
   related: ("sidepull", "compression", "wrap", "thumb-catch"),
   watch: (("Lattice Training", "A Deep Dive into EVERY Climbing Grip Type", "https://www.youtube.com/watch?v=HBa-ilEp4Os&t=1317s"),),
   sources: ("C11", "C31", "C34", "C35", "C36", "C37", "C38", "C42", "C43"),
@@ -571,7 +565,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
     - Pulling hard on pockets your fingers haven't trained for #src("C17").
   ],
   tall: [Large fingers fit fewer fingers into a pocket#ix("Hand size") #src("C37"). That pushes you into two-finger pockets and monos. Keep the outside fingers parallel there.],
-  related: ("open-hand", "half-crimp", "regrip"),
+  related: ("open-hand", "half-crimp", "regrip", "latching"),
   watch: (("Hooper’s Beta","What No One Tells You About Climbing On Pockets (Pocket Injury)", "https://www.youtube.com/watch?v=3dd_STU3ps8"),),
   sources: ("C12", "C16", "C17", "C25", "C32", "C33", "C34", "C35", "C37", "C42"),
 )
@@ -582,7 +576,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   aliases: ("thumb catch", "thumb press", "thumb wrap", "thumbercling", "inverse crimp"),
   category: "hands",
   grade: 4,
-  grade-note: [Look for the thumb spot from your first crimps (this book's suggestion). Climbers often miss the one that goes with an edge #src("C1"). It matters most on rounded holds on steep problems #src("C2"), which mostly means V4–V5.],
+  grade-note: [Look for the thumb spot from your first crimps. Climbers often miss the one that goes with an edge #src("C1"). It matters most on rounded holds on steep problems #src("C2"), which mostly means V4–V5.],
   summary: [You use your thumb as a separate contact that hooks a dimple, presses a face or pinches an edge. That can turn a hold that is too small or too sloping into a usable one #src("C7").],
   figure: "thumb-catch.svg",
   caption: [(a) Fingers over a rounded edge, thumb in a dimple below. (b) Thumb pad pressing up on a volume face, fingers over the ridge.],
@@ -653,11 +647,11 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
 
   - Pulley injuries are climbing's most common overuse injury. A 2021 review names the crimp grip as the cause #src("C27").
   - In one model,#ix("Studies!pulley loads") 96 N at the fingertip put about 255 N on the A2 pulley in a crimp. The open "slope" grip put about 8 N on it #src("C14", "C23").
-  - Schweizer#ix("Schweizer, Andreas") puts pulley forces in a crimp at 3–4 times the fingertip force. They become particularly high once the middle joint bends past about 80°, and he advises against bending it past 80–90° #src("C25"). The half crimp in this book, at 85–90°, sits at the top of that range (this book's reading).
+  - Schweizer#ix("Schweizer, Andreas") puts pulley forces in a crimp at 3–4 times the fingertip force. They become particularly high once the middle joint bends past about 80°, and he advises against bending it past 80–90° #src("C25"). The half crimp in this book, at 85–90°, sits at the top of that range.
   - A sudden jolt on one finger, as from a foot slip, can put about 450 N on A2. Its cited breaking force is about 400 N #src("C26").
   - The model above compares a crimp, with the end joint bent back, with an open grip. We found no pulley load figure for the half crimp, measured or modelled, so the model can't say whether a half crimp saves anything, or how much #src("C23"). The research found for this book does not compare injury rates between full and half~crimping.
 
   Coaches disagree about what follows. A physio-based guide says use the full crimp only when needed #src("C9"). Ned Feehally#ix("Feehally, Ned") calls controlled full-crimp training on a #jt("fingerboard")#ix("Fingerboard!full-crimp training") (a board of small edges to hang from) "relatively safe", though "not 100 per cent risk free" #src("C8"). Hooper's Beta#ix("Hooper, Jason") says pulleys get stronger with load #src("C14") and links tears to a hand forced open under full load #src("C15").
 
-  *What to do* (this book's suggestion): use the half crimp or open hand by default. Keep the full crimp for the move that needs it. Warm up on 8–12 easy problems first#ix("Warm-up!before crimping") #src("C25"). A warm-up lets the pulleys stretch a little, which is thought to protect them #src("C27").
+  *What to do:* use the half crimp or open hand by default. Keep the full crimp for the move that needs it. Warm up on 8–12 easy problems first#ix("Warm-up!before crimping") #src("C25"). A warm-up lets the pulleys stretch a little, which is thought to protect them #src("C27").
 ]

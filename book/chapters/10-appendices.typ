@@ -14,13 +14,15 @@ Every technique in this book, with the names you may hear for it. Aliases point 
 
 #include "a-grades.typ"
 
+#include "a-made.typ"
+
 #include "a-errata.typ"
 
 #heading(level: 1, numbering: none)[Sources] <sources>
 
 Sources are numbered in the order they are first cited. Web pages were accessed in October and November 2026. Where a claim rests on a coach's or a gym's advice rather than on a study, the text says so.
 
-#sources-columns(pages: 12, last: 470pt, bibliography(
+#sources-columns(pages: 14, last: 235pt, bibliography(
   source-files,
   title: none,
   style: "springer-lecture-notes-in-computer-science",

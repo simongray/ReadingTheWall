@@ -5,13 +5,13 @@
 
 = Grade by grade
 
-Each grade band from VB to V8+ gets a guide in the same six parts, from what problems look like to why people stall. Read the guide for your grade and the one above it. If you climb most V4s, read the V4 guide, the step to V5 (@grades-v4-v5) and the V5 guide.
+Each grade band from VB to V8+ gets a guide in the same six parts, from what problems look like to why people stall. Read the guide for your grade and the one above it. If you climb most V4s, read the V4 and V5 guides. If you are stuck between two grades, @cons-plateau helps you find out why.
 
-*Indoor grades are local.* #ix("Grades!indoor variation") A #jt("setter") (the person who designs a problem) grades it against the other problems in the same gym, so the same grade can feel different elsewhere #src("F27"). Many walls grade by #jt("circuit") (a colour that spans two or three grades) #src("F26"). #ix("Circuits") Treat the guides as a picture of what is typical, not as a test. Chapter 2 explains how gym grades vary. The appendix converts V-grades to #jt("Font grade", body: [Font grades]) (the European scale).
+*Indoor grades are local.* #ix("Grades!indoor variation") The same grade can feel different in another gym, and many walls grade by #jt("circuit") (a colour that spans two or three grades) #src("F26"). #ix("Circuits") @grades-indoor explains why. So treat the guides as a picture of what is typical, not as a test. #link(<grade-conversion>)[The grade conversion appendix] converts V-grades to #jt("Font grade", body: [Font grades]) (the European scale).
 
-*The badges.* Each band lists every technique whose Part II badge, such as #badge(4), falls at that grade. The badges are judgement. No coaching scheme, such as the UK's NICAS, ties named techniques to V-grades #src("F28", "F32"). The nearest thing is the technique clinics gyms run for named grade bands, and this chapter leans on those #src("F33", "F34", "F35").
+*The badges.* Each band lists every technique whose Part II badge, such as #badge(4), falls at that grade. A badge is this book's estimate of where a technique starts to matter, because no coaching scheme ties named techniques to V-grades #src("F28", "F32"). Two kinds of source come close. Gyms run technique clinics for named grade bands #src("F33", "F34", "F35"). France's climbing federation lists the skills it teaches at each of eight levels. It names a boulder grade for its fifth, sixth and seventh levels: Font 5c, 6A and 6B, or about V2, V3 and V4 #src("F60", "F61"). It lists what climbers learn at a level, which is often earlier than the grade where a technique starts to matter.
 
-*The physical side.* The max-hang numbers are averages across men and women, from a large database of tested climbers #src("F1"). Climbers at the same grade differ widely. The descriptions under "What problems look like" are judgement, not measurement.
+*The physical side.* The max-hang numbers are averages across men and women, from a large database of tested climbers #src("F1"). Climbers at the same grade differ widely. The descriptions under "What problems look like" are this book's picture of a typical gym, not measurements.
 
 #notebox[How long climbers have been climbing][
 #ix("Progression!years climbing")
@@ -21,6 +21,24 @@ Older climbers at a grade report more years of climbing.#ix("Age!years climbing"
 
 Haven't climbed a V5 after a year? These figures give you no reason to think that's slow. All of them are self-reported. Lattice, a training company, reports how long climbers at a grade have been climbing, not how long the grade took. One forum thread does ask what grade people reached after a year. Its answers range from about V4 outdoors to V8 indoors, but the posters are self-selected #src("F47").
 ]
+
+== How gyms grade <grades-indoor>
+
+#ix("Grades!indoor", main: true)
+A grade tells you how hard a problem is meant to be. Indoors it is a useful guide but a poor measure.#ix("Grades!how gyms grade") The #jt("setter") (the person who designs a problem) usually suggests a grade after a try or two and may adjust it after asking other setters or climbers #src("E58"). In some gyms the setters #jt("forerun") (test-climb) each other's problems and agree a grade #src("E50"). Either way, setters grade a problem against the others in the same gym #src("F27"). One setter says what matters most is consistency: a gym can grade hard or easy, as long as its grades stay the same as problems come and go. Regulars then adapt to that gym #src("E46").
+
+#lead-label[Why grades differ between gyms.]
+
+- *The spread is large.* An analysis of 40 US gyms#ix("Studies!grades in 40 US gyms") found grades differing by two to four V-grades between gyms. Its author, the founder of a gym-listing website, reckons a solid V4 climber could expect anything from V2 to V6 #src("E53"). We found no peer-reviewed study of indoor grades.
+- *Gym type and walls.* Large commercial chains graded about one V-grade #jt("soft", body: [softer]) (easier for the number) than gyms focused on training. Steep gyms graded harder, while gyms with lots of slab or competition-style setting graded softer #src("E53"). Gyms with many beginners tend to soften the lower grades instead of splitting them #src("E57").
+- *Style and your body.* Slab, overhang and dynamic problems test different skills, and one awkward move can make a whole problem feel harder #src("E54"). Height, reach, finger size and style all change how a grade feels #src("E57", "E51", "E46").
+
+#lead-label[Calibrating yourself in a new gym.#ix("Grades!in a new gym")]
+
++ Ask the staff how their system works and how it compares with standard grades #src("E55", "E56"). #link(<grade-conversion>)[The grade conversion appendix] covers colours and circuits.
++ Warm up three or four grades below your maximum. Start below your limit while you learn the gym's style #src("E53", "E56").
++ Pick one reference problem at your home gym for each style: steep overhang, small edges, slab, jumps and squeezing. After three or four sessions, compare the new gym's problems with them #src("E53").
++ Keep track of which problems you climb reliably and which feel harder or easier for your body #src("E51").
 
 // ------------------------------------------------------------------ VB–V0
 
@@ -130,7 +148,7 @@ Gentle overhangs of about 10–25° become common. Holds include ones you pull s
 
 On the steep, learn to turn a hip in (#tref("hip-turn", inner: true)); the #tref("backstep", body: [backstep]) builds on this from V3. The #tref("flag", body: [side flag]) stops the #tref("barn-door", body: [barn door]) swing when one hand lets go. Two sideways holds facing the same way ask for a #tref("layback", body: [layback]). An #tref("undercling", body: [undercling]) at chest height asks you to bring your feet high. Some moves, especially on #tref("traverse", body: [traverses]), ask you to swap feet on one hold (#tref("foot-swap", inner: true)). On #jt("crimp", body: [crimps]) (small edges held on the fingertips), make the #tref("half-crimp", body: [half crimp]) your default from the start, so you don't fall into the habit of full crimping. As footholds shrink, #tref("slab") starts to matter. Problems that finish on top ask for a #tref("mantle", body: [mantle]) and a #tref("top-out", body: [top-out]).
 
-A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid building that habit. On big holds low on the wall, start practising a partial #tref("drop-knee", body: [drop knee]), small #tref("deadpoint", body: [deadpoints]) and the #tref("dyno", body: [dyno]) (this book's suggestion).
+A forum poster says some V2s can still be pulled on muscle #src("F44"). Avoid building that habit. On big holds low on the wall, start practising a partial #tref("drop-knee", body: [drop knee]), small #tref("deadpoint", body: [deadpoints]) and the #tref("dyno", body: [dyno]).
 
 #grade-techniques(2)
 
@@ -154,7 +172,7 @@ Nothing specific.
 - *Barn-dooring.* You swing off when one hand releases. Fix: the flag above, *before* the hand moves.
 - *Arms tire on the steep.* Fix: straighten your arms and turn a hip in, so your biceps can rest.
 
-#ix("Plateau!at V2") V2 is a known plateau: one gym runs a movement clinic for climbers stuck there #src("F36"). The way out is probably learning to climb side-on (judgement).
+#ix("Plateau!at V2") Many climbers stall here: one gym runs a clinic for those who struggle to reach V2 #src("F36"). In one small study, a few beginners improved suddenly once they found side-on positions #src("G45").
 
 // ------------------------------------------------------------------ V3
 
@@ -174,7 +192,7 @@ V3s come in two families. *Steep* problems sit on 20–40° overhangs with mid-s
 
 ==== Techniques that start to matter
 
-Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook", body: [heel hook]) on a good hold to pull your hips in. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]) turns a hip to the wall. Where you can't turn in, a #tref("lock-off", body: [lock-off]) holds you for a slow reach. Your hands meet the #tref("sloper", body: [sloper]), the #tref("pinch", body: [pinch]) and the #tref("gaston", body: [gaston]), a hold you push outwards with your elbow out. On big holds, start practising the #tref("lunge", body: [one-handed dyno]), the #tref("double-dyno", body: [double dyno]) and the #tref("run-and-jump", body: [run-and-jump]) (this book's suggestion).
+Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a small upward movement, when you have stopped rising and feel lighter. Use your first #tref("heel-hook", body: [heel hook]) on a good hold to pull your hips in. Learn #tref("overhang", body: [overhang]) basics: #tref("toe-pull") and #tref("body-tension") keep your feet on, while a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]) turns a hip to the wall. Where you can't turn in, a #tref("lock-off", body: [lock-off]) holds you for a slow reach. Your hands meet the #tref("sloper", body: [sloper]), the #tref("pinch", body: [pinch]) and the #tref("gaston", body: [gaston]), a hold you push outwards with your elbow out. On big holds, start practising the #tref("lunge", body: [one-handed dyno]), the #tref("double-dyno", body: [double dyno]) and the #tref("run-and-jump", body: [run-and-jump]).
 
 #grade-techniques(3)
 
@@ -195,7 +213,7 @@ Learn the #tref("deadpoint", body: [deadpoint]): catch the hold at the top of a 
 #keep-together[
 ==== Physical side
 
-Lattice tests a #jt("max hang")#ix("Max hang!averages by grade"): the most extra weight you can hang for a few seconds. In its lowest band, V1–V4, climbers add about 19~kg on two arms #src("F1"). That figure mixes men and women over four grades, so many V3 climbers climb well on less (judgement).
+Lattice tests a #jt("max hang")#ix("Max hang!averages by grade"): the most extra weight you can hang for a few seconds. In its lowest band, V1–V4, climbers add about 19~kg on two arms #src("F1"). That figure mixes men and women. The women in the band average about 7~kg #src("F1"), so many V3 climbers climb well on far less than 19~kg.
 
 ==== Why people stall here
 
@@ -246,96 +264,17 @@ The #tref("heel-hook", body: [heel hook]) becomes an active pull: bend the knee 
 
 ==== Why people stall here
 
-- *Muscling through.* You can pull hard, so you never learn the position that makes the move easy.
-- *Never trying V5s.* You repeat what you can already climb.
-
-The next section covers both.
-
-// ------------------------------------------------------------------ V4 to V5
-
-== From V4 to V5 <grades-v4-v5>
-
-#remember[Five things that get you from V4 to V5][
-  + Assume technique, not strength, stops you until a symptom says otherwise (judgement, from the coaches' advice in "Technique or strength?").
-  + Work three to five V5s, in different styles, over several sessions.
-  + After each fall, check your hips, your #jt("off foot") and your arms.
-  + Start steep moves on straight arms and drive from your feet; #tref("lock-off", body: [lock off], show-page: false) less.
-  + Drill partial #tref("drop-knee", body: [drop knees], show-page: false), toe hooks and #tref("compression", body: [compression], show-page: false) on V3s and V4s first.
-]
-
 #ix("Plateau!V4 to V5", main: true)
-This section is for you if you climb most V4s but haven't #jt("send", body: [sent]) a V5. The V5 plateau is common enough that gyms name clinics after it #src("F33", "F35").
+Many climbers stall between V4 and V5: the plateau is common enough that gyms name clinics after it #src("F33", "F35").
 
-==== What changes between V4 and V5
+- *Strength instead of position.* Lattice's#ix("Lattice Training") coaches say strong climbers learn technique more slowly, because they can muscle through moves #src("F9"). After each fall, ask: "If I'm strong enough for this, what am I missing?" #src("F42")
+- *Locking off on the steep.* Newer climbers hold bent-arm #tref("lock-off", body: [lock-offs]) too often. Start big moves from straight arms instead, hips back and down. Press into the foot rather than pulling the knee in tight #src("F39"). See #tref("pre-loading").
+- *Staying tight to the wall when you need to turn.* Pinned to the wall, you can't rotate, so you swing when a hand comes off. Before you let go with the lower hand, relax away from it. Find the point where you balance, then move #src("F40").
+- *Ignoring the off foot.* The #jt("off foot") is the foot not carrying you. It controls rotation. Push it into the wall at roughly right angles to the line from your hand to your foot. Touch it briefly on the wall to stop a swing #src("F41"). #ix("Off foot") See #tref("barn-door").
+- *Avoiding weak styles and limit attempts.*#ix("Plateau!climbing one style") Lattice lists both among the main causes of plateaus #src("F9").
+- *Missing a few techniques.* Gym clinics for the "V5 plateau" teach a short list: #tref("heel-hook", body: [heel hooks]), toe hooks, #tref("flag", body: [flagging]), #tref("body-tension", body: [body tension]), #tref("compression", body: [compression]), deadpoints and sequencing #src("F35"). A V5–V6 clinic adds #tref("drop-knee", body: [drop knees]), #tref("mantle", body: [mantles]), #tref("rockover", body: [rockovers]) and dynos #src("F34").
 
-#lead-in[In the table, #jt("beta") is the sequence of moves that works. Most rows come from gym clinics and forum reports, not measurement. The forum reports are about the step to V6, which shows where V5 is heading.]
-
-#gtable(
-  columns: (28mm, 1fr, 1fr),
-  table.header(th[], th[Typical V4], th[Typical V5]),
-  [*Holds*], [Edges and rounded holds with some lip; a jug to rest on], [Smaller #jt("crimp", body: [crimps]), rounder holds, pinches; few rests #src("F48", "F46")],
-  [*Wall angle*], [30–45°, or vertical with poor feet], [More problems on the steepest walls, 40–50° (judgement)],
-  [*Footholds*], [Small edges, volumes], [Smaller edges or none; tension holds the feet on #src("F48")\; feet often swing off],
-  [*The #jt("crux")*], [Several solutions work], [Usually one technique done precisely, such as a #tref("toe-hook", body: [toe hook]) to stop a swing (judgement)],
-  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move (judgement)], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump", body: [run-and-jump]) #src("F34")],
-  [*Body tension*], [Needed on steep moves (judgement)], [Needed to keep the feet on through hand moves #src("F35", "F48")],
-  [*Techniques per problem*], [Two or three], [Three to five, linked without rests (judgement)],
-  [*How it goes*], [First go, or in one session], [Often several sessions; you work out the beta move by move (judgement)],
-)
-
-==== What holds people at V4
-
-+ *Strength instead of position.* Lattice's#ix("Lattice Training") coaches say strong climbers learn technique more slowly, because they can muscle through moves #src("F9"). After each fall, ask: "If I'm strong enough for this, what am I missing?" #src("F42")
-+ *Locking off on the steep.* Newer climbers hold bent-arm #tref("lock-off", body: [lock-offs]) too often. Start big moves from straight arms instead, hips back and down. Press into the foot rather than pulling the knee in tight #src("F39").
-+ *Staying tight to the wall when you need to turn.* Pinned to the wall, you can't rotate, so you swing when a hand comes off. Before you let go with the lower hand, relax away from it. Find the point where you balance, then move #src("F40").
-+ *Ignoring the off foot.* The #jt("off foot") is the foot not carrying you. It controls rotation. Push it into the wall at roughly right angles to the line from your hand to your foot. Touch it briefly on the wall to stop a swing #src("F41"). #ix("Off foot")
-+ *Avoiding weak styles and limit attempts.*#ix("Plateau!climbing one style") Lattice lists both among the main causes of plateaus #src("F9").
-+ *Missing a few techniques.* Gym clinics for the "V5 plateau" teach a short list: #tref("heel-hook", body: [heel hooks]), toe hooks, #tref("flag", body: [flagging]), #tref("body-tension", body: [body tension]), #tref("compression", body: [compression]), deadpoints and sequencing #src("F35"). A V5–V6 clinic adds #tref("drop-knee", body: [drop knees]), #tref("mantle", body: [mantles]), #tref("rockover", body: [rockovers]) and dynos #src("F34").
-
-==== Technique or strength?
-
-Lattice's published bands, V1–V4 and V5–V7, are too wide to show the step from V4 to V5. On a two-arm #jt("max hang"), the averages across men and women rise from about 19~kg in the V1–V4 band to about 24~kg at V5–V7 #src("F1"). A forum reconstruction for men fills in V5 between figures from a Lattice video for V4 and V7, then moves the result onto a one-arm scale on a 20~mm edge: about 49% of bodyweight at V4 and 55% at V5. That's an estimate and not a measurement #src("F15").
-
-Lattice's coaches say they are likely to advise climbers with under five years of experience to focus on technique or on applying the strength they have #src("F14"). One study of 55 advanced and elite women#ix("Studies!finger strength and grade")#ix("Women climbers") found that finger strength explained about half the variation in their bouldering grades #src("F16"). Upper-body power explained a similar share. The study didn't measure technique.
-
-These figures can't say where the extra strength for V5 comes from. Trying V5s is this book's first suggestion (judgement), but Lattice's author says of the men's figures that technique alone can't carry you up the whole grade scale #src("F1"). For when finger training makes sense, see @cons-adult.
-
-==== Find your limiter
-
-#ix("Limiter, finding your")
-Try three or four V5s in different styles. Note *how* you fail on each.
-
-#gtable(
-  columns: (1.1fr, 1fr, 1.1fr),
-  table.header(th[Symptom on a V5], th[Most likely limiter], th[Where to look]),
-  [You can't hold the start or crux holds, even with good feet], [Finger strength for that kind of hold], [#tref("half-crimp"), #tref("sloper"), #tref("pinch")],
-  [You can do every move alone but can't link them], [Efficiency and pacing. Some climbers can't string several near-limit moves together #src("F14")], [#tref("straight-arms")\; re-read the problem and look for rests],
-  [Your feet swing off and won't go back on], [Body tension, toe hook, flag, off foot #src("F35", "F41")], [#tref("body-tension"), #tref("toe-hook"), #tref("cutting-loose")],
-  [You fall the moment a hand lets go], [Rotation and body position #src("F40")], [#tref("drop-knee"), #tref("backstep"), #tref("barn-door")],
-  [You stall in a lock-off just short of the hold], [Static or dynamic? #src("F39")], [#tref("deadpoint"), #tref("hip-pump")],
-  [A climber your height does it easily with other beta], [Beta and technique], [Copy their sequence. Then learn the technique behind it],
-  [You rarely try V5s, or stop after two goes], [Tactics and mindset #src("F9")], [The plan below],
-)
-
-The table follows Lattice's logic: compare what your fingers can hold with what you can climb #src("F14"). The categories are judgement.
-
-==== A plan for the next months
-
-+ Choose three to five V5s: one steep, one slab or vertical, one dynamic, one compression. Work them over several sessions.
-+ Break each one into single moves. Once every move goes, link pairs, then threes, then the whole problem.
-+ After each fall, check three things. Where were your hips? Where was your off foot? Were your arms straight before the move? #src("F39", "F41", "F42")
-+ Practise the clinic techniques listed above on V3s and V4s. There you have attention to spare for the movement #src("F34", "F35").
-+ In your hard sessions, spend about two-thirds of the time on steeper walls, on problems of four to eight moves at your limit #src("F43", "F46"). Give the rest to your other styles. Keep one session a week easy, for drills (this book's suggestion, @cons-learning).
-+ Copy beta from climbers close to your height. Beta from someone much shorter or taller often won't fit your body.
-
-==== Reading V5 problems
-
-- Find the crux by its holds: the smallest hold, the longest gap or the hold facing the "wrong" way.
-- Ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) needs a body position. A sloper wants low hips and straight arms.
-- Before you start, find the hidden footholds, such as a volume's edge or a hold's side.
-- Find the swing move, where a hand lets go and the feet are poor. Decide in advance: flag, toe hook, or let the feet swing and catch them.
-- Read in chunks (Chapter 2). A Lattice summary ties previews of two to four holds to difficult routes, which doesn't show that they help #src("F11").
-
+@cons-plateau helps you find out which of these stops you.
 
 // ------------------------------------------------------------------ V5
 
@@ -351,7 +290,22 @@ The table follows Lattice's logic: compare what your fingers can hold with what 
 
 ==== What problems look like
 
-Expect steep walls with small #jt("crimp", body: [crimps]), poor rounded holds and pinches. Footholds are poor or missing and rests are few. The table in @grades-v4-v5 compares V5 with V4 in detail.
+Expect steep walls with small #jt("crimp", body: [crimps]), poor rounded holds and pinches. Footholds are poor or missing and rests are few.
+
+#lead-in[The table compares a typical V5 with a typical V4. In it, #jt("beta") is the sequence of moves that works. The rows come from gym clinics, one head setter's account of a gym's circuits and forum reports, not from measurement. The forum reports are about the step to V6, which shows where V5 is heading.]
+
+#gtable(
+  columns: (28mm, 1fr, 1fr),
+  table.header(th[], th[Typical V4], th[Typical V5]),
+  [*Holds*], [Edges and rounded holds with some lip; a jug to rest on], [Smaller #jt("crimp", body: [crimps]), rounder holds, pinches; few rests #src("F48", "F46")],
+  [*Wall angle*], [30–45°, or vertical with poor feet], [Often steeper: forum climbers find the harder problems more overhung #src("F46")],
+  [*Footholds*], [Small edges, volumes], [Smaller edges or none; tension holds the feet on #src("F48")\; feet often swing off],
+  [*The #jt("crux")*], [Several solutions work], [More often a test of one skill, such as a #tref("toe-hook", body: [toe hook]) to stop a swing. One head setter says a gym's problems switch from teaching skills to testing them in its V4–V6 circuit #src("E52")],
+  [*Dynamic moves*], [Deadpoints, lunges, the odd dyno or coordination move #src("F60", "E52")], [Committed #tref("deadpoint", body: [deadpoints]), #tref("dyno", body: [dynos]) and coordination moves such as #tref("run-and-jump", body: [run-and-jump]) #src("F34")],
+  [*Body tension*], [Needed on steep moves #src("F60")], [Held for longer, through slow moves #src("F65"), to keep the feet on while a hand moves #src("F35", "F48")],
+  [*Complexity*], [More than at V2–V3: the same setter starts "surprising" climbers with complexity and risk in the V2–V4 circuit #src("E52")], [More again, and sustained: the V4–V6 circuit adds sustained intensity #src("E52")],
+  [*How it goes*], [First go, or in one session], [Several sessions, since it is your next grade. You work out the beta move by move],
+)
 
 ==== Techniques that start to matter
 
@@ -368,11 +322,15 @@ Some moves take your feet or both hands off the wall: the #tref("double-dyno", b
 ==== Reading problems at this grade
 
 - Decide where each foot goes *before* each hand move. At V5 the feet decide whether the hand move works.
-- The fuller list for your first V5s is in @grades-v4-v5.
+- Find the crux by its holds: the smallest hold, the longest gap or the hold facing the "wrong" way.
+- Ask what the crux hold wants. If you pull it from below, you can do it statically. A #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) needs a body position. A sloper wants low hips and straight arms.
+- Before you start, find the hidden footholds, such as a volume's edge or a hold's side.
+- Find the swing move, where a hand lets go and the feet are poor. Decide in advance: flag, toe hook, or let the feet swing and catch them.
+- Read in chunks (@reading-method). A Lattice summary ties previews of two to four holds to difficult routes, which doesn't show that they help #src("F11").
 
 ==== Physical side
 
-Lattice's V5–V7 band adds about 24~kg on a two-arm #jt("max hang") #src("F1").
+Lattice's V5–V7 band adds about 24~kg on a two-arm #jt("max hang"), against about 19~kg in its V1–V4 band #src("F1"). The bands are too wide to show the step from V4 to V5. @cons-plateau covers the choice between technique and strength.
 
 ==== Why people stall here
 
@@ -415,7 +373,7 @@ This book's catalogue has nothing new for this band, so the work is on the techn
 
 ==== Physical side
 
-Finger strength becomes a more common limiter (judgement). Forum climbers recommend finger training to break into V6 #src("F46").
+One head setter says a gym's problems start to test finger strength from V6 #src("E52"). Forum climbers recommend finger training to break into V6 #src("F46"). One coaching company puts the change later: up to V7 or V8, it says, most problems need only moderate finger strength #src("F64").
 
 ==== Why people stall here
 
@@ -432,12 +390,12 @@ Finger strength becomes a more common limiter (judgement). Forum climbers recomm
   + Where a move needs it, catch the hold fast and exactly as you arrive (#tref("latching", body: [latching], show-page: false)).
   + Try two or three foot options for each hard move.
   + Decide which way to turn your hand on every poor hold.
-  + Expect a hard problem to take weeks, not sessions (judgement).
+  + Expect your hardest problems to take many sessions: one coach writes of climbers spending season after season on theirs #src("E81").
 ]
 
 ==== What problems look like
 
-The terrain is the same as V6 with less margin. Holds are a size smaller and feet are worse. Moves are longer or more powerful. Many climbers at this level measure themselves on #jt("training board", body: [training boards]) such as the MoonBoard, Kilter and Tension: standard steep walls with a fixed grid of holds. Gym setting borrows their style.
+The terrain is the same as V6 with less margin. Holds are a size smaller and feet are worse. Moves are longer or more powerful. Many climbers at this level measure themselves on #jt("training board", body: [training boards]) such as the MoonBoard, Kilter and Tension: standard steep walls with a fixed grid of holds.
 
 ==== Techniques that start to matter
 
@@ -471,13 +429,13 @@ Some climbers test strong on a #jt("hangboard") (a board of edges to hang from) 
   + Work out sequences for your own body, not an average one.
   + Build strength on the exact grips your hardest problems use.
   + Plan rests and attempts for every session on a hard problem.
-  + Expect each new grade to take seasons, not weeks (judgement).
+  + Expect each new grade to take longer than the last: in Lattice's data each grade band goes with more years of climbing #src("F2").
   + Keep placing your feet as precisely as you did at V0.
 ]
 
 ==== What problems look like
 
-Expect hard versions of everything above: the steepest walls, and holds that only work in one exact position. Many problems copy the style of #jt("training board", body: [training boards]). Sequences are long and powerful (judgement).
+Expect hard versions of everything above: the steepest walls, and holds that only work in one exact position. One head setter says a gym's hardest circuits test finger strength, complex sequences and risky coordination moves #src("E52"). One coach says harder mostly means bigger moves: to fairly good holds on #jt("training board", body: [training boards]), and to more sloping holds on gym problems #src("F65").
 
 ==== Techniques that start to matter
 

@@ -954,3 +954,282 @@ G74:
     value: "https://pubmed.ncbi.nlm.nih.gov/19508652/"
     date: 2026-11-06
   note: "Abstract read via Europe PMC. Self-reported survey of Swedish Climbing Association members"
+
+
+G80:
+  type: article
+  title: "Safe Landing Strategies During a Fall: Systematic Review and Meta-Analysis"
+  author: ["Moon, Yaejin", "Sosnoff, Jacob J."]
+  date: 2017
+  page-range: "783-794"
+  serial-number:
+    doi: "10.1016/j.apmr.2016.08.460"
+  parent:
+    type: periodical
+    title: "Archives of Physical Medicine and Rehabilitation"
+    volume: 98
+    issue: "4"
+  url:
+    value: "https://doi.org/10.1016/j.apmr.2016.08.460"
+    date: 2026-11-17
+  note: "Review of 13 laboratory studies of falling, mostly in young adults; not about climbing; abstract only"
+
+G81:
+  type: article
+  title: "Indoor Bouldering—A Prospective Injury Evaluation"
+  author: ["Auer, Jonas", "Schöffl, Volker R.", "Achenbach, Leonard", "Meffert, Rainer H.", "Fehske, Kai"]
+  date: 2021
+  page-range: "160-167"
+  serial-number:
+    doi: "10.1016/j.wem.2021.02.002"
+  parent:
+    type: periodical
+    title: "Wilderness & Environmental Medicine"
+    volume: 32
+    issue: "2"
+  url:
+    value: "https://doi.org/10.1016/j.wem.2021.02.002"
+    date: 2026-11-17
+  note: "507 indoor boulderers followed for 12 months; abstract only"
+
+G82:
+  type: article
+  title: "Risk factors and injury prevention strategies for overuse injuries in adult climbers: a systematic review"
+  author: ["Quarmby, Andrew", "Zhang, Martin", "Geisler, Moritz", "Javorsky, Tomas", "Mugele, Hendrik", "Cassel, Michael", "Lawley, Justin"]
+  date: 2023
+  serial-number:
+    doi: "10.3389/fspor.2023.1269870"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 5
+  url:
+    value: "https://doi.org/10.3389/fspor.2023.1269870"
+    date: 2026-11-17
+  note: "Systematic review of 34 studies; abstract only"
+
+G85:
+  type: article
+  title: "Comparing The Effectiveness of 10-Minute Dynamic Stretching, Vibration Rolling, and Climbing-Specific Warm-Ups on Exercise Performances in Rock Climbers"
+  author: ["Han, Hsueh-Ping", "Yang, Pei-Shan", "Lee, Chia-Lun", "Chang, Nai-Jen"]
+  date: 2025
+  page-range: "84-92"
+  serial-number:
+    doi: "10.52082/jssm.2025.84"
+  parent:
+    type: periodical
+    title: "Journal of Sports Science and Medicine"
+  url:
+    value: "https://doi.org/10.52082/jssm.2025.84"
+    date: 2026-11-17
+  note: "Randomised crossover trial, 22 recreational climbers; abstract only"
+
+G84:
+  type: article
+  title: "Effects of Warming-up on Physical Performance: A Systematic Review With Meta-analysis"
+  author: ["Fradkin, Andrea J", "Zazryn, Tsharni R", "Smoliga, James M"]
+  date: 2010
+  page-range: "140-148"
+  serial-number:
+    doi: "10.1519/JSC.0b013e3181c643a0"
+  parent:
+    type: periodical
+    title: "Journal of Strength and Conditioning Research"
+    volume: 24
+    issue: "1"
+  url:
+    value: "https://doi.org/10.1519/JSC.0b013e3181c643a0"
+    date: 2026-11-17
+  note: "Meta-analysis of 32 studies in sport generally; abstract only"
+
+G83:
+  type: article
+  title: "A systematic review of the effects of upper body warm-up on performance and injury"
+  author: ["McCrary, J Matt", "Ackermann, Bronwen J", "Halaki, Mark"]
+  date: 2015
+  page-range: "935-942"
+  serial-number:
+    doi: "10.1136/bjsports-2014-094228"
+  parent:
+    type: periodical
+    title: "British Journal of Sports Medicine"
+    volume: 49
+    issue: "14"
+  url:
+    value: "https://doi.org/10.1136/bjsports-2014-094228"
+    date: 2026-11-17
+  note: "Systematic review of 31 trials in sport generally; abstract only"
+
+G86:
+  type: article
+  title: "Acute effects of muscle stretching on physical performance, range of motion, and injury incidence in healthy active individuals: a systematic review"
+  author: ["Behm, David G.", "Blazevich, Anthony J.", "Kay, Anthony D.", "McHugh, Malachy"]
+  date: 2016
+  page-range: "1-11"
+  serial-number:
+    doi: "10.1139/apnm-2015-0235"
+  parent:
+    type: periodical
+    title: "Applied Physiology, Nutrition, and Metabolism"
+    volume: 41
+    issue: "1"
+  url:
+    value: "https://doi.org/10.1139/apnm-2015-0235"
+    date: 2026-11-17
+  note: "Systematic review, sport generally; abstract only"
+
+G87:
+  type: article
+  title: "Aging and Recovery After Resistance-Exercise-Induced Muscle Damage: Current Evidence and Implications for Future Research"
+  author: ["Fernandes, John F.T.", "Lamb, Kevin L.", "Norris, Jonathan P.", "Moran, Jason", "Drury, Benjamin", "Borges, Nattai R.", "Twist, Craig"]
+  date: 2021
+  page-range: "544-551"
+  serial-number:
+    doi: "10.1123/japa.2020-0201"
+  parent:
+    type: periodical
+    title: "Journal of Aging and Physical Activity"
+    volume: 29
+    issue: "3"
+  url:
+    value: "https://doi.org/10.1123/japa.2020-0201"
+    date: 2026-11-17
+  note: "Review of 11 studies in older men; not about climbing; abstract only"
+
+G88:
+  type: article
+  title: "High contextual interference improves retention in motor learning: systematic review and meta-analysis"
+  author: ["Czyż, Stanisław H.", "Wójcik, Aleksandra M.", "Solarská, Petra", "Kiper, Paweł"]
+  date: 2024
+  serial-number:
+    doi: "10.1038/s41598-024-65753-3"
+  parent:
+    type: periodical
+    title: "Scientific Reports"
+    volume: 14
+    issue: "1"
+  url:
+    value: "https://doi.org/10.1038/s41598-024-65753-3"
+    date: 2026-11-17
+  note: "Meta-analysis of 54 studies of motor learning; not about climbing; abstract only"
+
+G89:
+  type: article
+  title: "Meta-analysis of the reduced relative feedback frequency effect on motor learning and performance"
+  author: ["McKay, Brad", "Hussien, Julia", "Vinh, Mary-Anne", "Mir-Orefice, Alexandre", "Brooks, Hugh", "Ste-Marie, Diane M."]
+  date: 2022
+  page-range: "102165"
+  serial-number:
+    doi: "10.1016/j.psychsport.2022.102165"
+  parent:
+    type: periodical
+    title: "Psychology of Sport and Exercise"
+    volume: 61
+  url:
+    value: "https://doi.org/10.1016/j.psychsport.2022.102165"
+    date: 2026-11-17
+  note: "Meta-analysis of 61 papers on motor learning; not about climbing; abstract read on the preprint"
+
+G90:
+  type: article
+  title: "The Relationship Between Deliberate Practice and Performance in Sports"
+  author: ["Macnamara, Brooke N.", "Moreau, David", "Hambrick, David Z."]
+  date: 2016
+  page-range: "333-350"
+  serial-number:
+    doi: "10.1177/1745691616635591"
+  parent:
+    type: periodical
+    title: "Perspectives on Psychological Science"
+    volume: 11
+    issue: "3"
+  url:
+    value: "https://doi.org/10.1177/1745691616635591"
+    date: 2026-11-17
+  note: "Meta-analysis of deliberate practice in sport; abstract only"
+
+G91:
+  type: article
+  title: "Influence of On-Sight and Flash Climbing Styles on Advanced Climbers’ Route Completion for Bouldering"
+  author: ["Morenas, Jesús", "Luis del Campo, Vicente", "López-García, Sergio", "Flores, Lucía"]
+  date: 2021
+  page-range: "12594"
+  serial-number:
+    doi: "10.3390/ijerph182312594"
+  parent:
+    type: periodical
+    title: "International Journal of Environmental Research and Public Health"
+    volume: 18
+    issue: "23"
+  url:
+    value: "https://doi.org/10.3390/ijerph182312594"
+    date: 2026-11-17
+  note: "21 advanced climbers on 18 boulder problems; abstract and parts of the full text"
+
+G92:
+  type: article
+  title: "Observational Modeling Effects for Movement Dynamics and Movement Outcome Measures Across Differing Task Constraints: A Meta-Analysis"
+  author: ["Ashford, Derek", "Bennett, Simon J.", "Davids, Keith"]
+  date: 2006
+  page-range: "185-205"
+  serial-number:
+    doi: "10.3200/JMBR.38.3.185-205"
+  parent:
+    type: periodical
+    title: "Journal of Motor Behavior"
+    volume: 38
+    issue: "3"
+  url:
+    value: "https://doi.org/10.3200/JMBR.38.3.185-205"
+    date: 2026-11-17
+  note: "Meta-analysis of learning by watching a model; not about climbing; abstract only"
+
+G93:
+  type: article
+  title: "Human tendon adaptation in response to mechanical loading: a systematic review and meta-analysis of exercise intervention studies on healthy adults"
+  author: ["Bohm, Sebastian", "Mersmann, Falk", "Arampatzis, Adamantios"]
+  date: 2015
+  serial-number:
+    doi: "10.1186/s40798-015-0009-9"
+  parent:
+    type: periodical
+    title: "Sports Medicine - Open"
+    volume: 1
+    issue: "1"
+  url:
+    value: "https://doi.org/10.1186/s40798-015-0009-9"
+    date: 2026-11-17
+  note: "Meta-analysis of 27 studies of leg tendons in healthy adults; not about climbing; abstract only"
+
+G94:
+  type: article
+  title: "Prevalence of Disordered Eating Among International Sport Lead Rock Climbers"
+  author: ["Joubert, Lanae M.", "Gonzalez, Gina Blunt", "Larson, Abigail J."]
+  date: 2020
+  serial-number:
+    doi: "10.3389/fspor.2020.00086"
+  parent:
+    type: periodical
+    title: "Frontiers in Sports and Active Living"
+    volume: 2
+  url:
+    value: "https://doi.org/10.3389/fspor.2020.00086"
+    date: 2026-11-17
+  note: "Web survey of 498 rope climbers; abstract only"
+
+G95:
+  type: article
+  title: "Application of closed kinematic chain exercises with eccentric and strength exercises for the shoulder injuries prevention in student rock climbers: a randomized controlled trial"
+  author: ["Kozin, Serhii", "Cretu, Marian", "Kozina, Zhanneta", "Chernozub, Andrii", "Ryepko, Olena", "Shepelenko, Tetiana", "Sobko, Iryna", "Oleksiuk, Mariia"]
+  date: 2021
+  serial-number:
+    doi: "10.37190/abb-01828-2021-01"
+  parent:
+    type: periodical
+    title: "Acta of Bioengineering and Biomechanics"
+    volume: 23
+    issue: "2"
+  url:
+    value: "https://doi.org/10.37190/abb-01828-2021-01"
+    date: 2026-11-17
+  note: "Randomised trial, 84 male student climbers aged 18–19; abstract only"

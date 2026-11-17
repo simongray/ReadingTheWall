@@ -7,14 +7,14 @@
 
 The technique chapters describe moves for an average body. This chapter is about yours, if you are tall, small or heavier than the average climber, or if you started as an adult. Each of these changes which problems feel hard and how much load your fingers can take. It also changes how you should warm up, practise and fall.
 
-Some advice here rests on studies, some on coaches and climbing federations, and some is judgement. The text says which. "This book's suggestion" marks our own judgement.
+Some advice here rests on studies and some on coaches and climbing federations. The text says which. Advice that cites no source is the book's own.
 
 == Climbing tall <cons-tall>
 
 ==== What height does and doesn't predict
 #ix("Height", main: true)
 
-Height decides *which* problems feel easy or hard. Its effect on your grade is less clear. One study scored 44 climbers on two indoor routes of 11 and 30~m, not on boulder problems.#ix("Studies!body shape and ability") A factor the authors labelled training explained 58.9% of the differences in their scores. Body measurements, such as height, arm span and weight, explained 0.3%. Self-rated grade and years of climbing also went into the analysis, so the training factor may partly measure experience #src("G3"). In a study of 41 climbers, from novice to elite, what the authors call trainable variables explained 46%, and body shape and muscle together under 4% #src("G4").
+Height decides *which* problems feel easy or hard. Its effect on your grade is less clear. In a gym competition with problems from V0 to V8, height and body mass didn't help predict 67 boulderers' scores, while finger strength, experience and how often they bouldered did#ix("Studies!body shape and ability") #src("H13"). Studies of roped climbers point the same way: in two of them, training explained about half the differences in performance, and body measurements between 0.3% and 4% #src("G3", "G4").
 
 Not every study agrees. Elite Polish boulderers differed from non-climbers in arm span and lean body mass, among other measures #src("G5"). A 2007 study found arm span relative to height a useful predictor #src("G6"). Adam Ondra#ix("Ondra, Adam") puts the average competition climber at about 170~cm for men and 160~cm for women. In his view, tall climbers gain reach but usually lack the body and finger strength of shorter ones #src("G2").
 
@@ -28,63 +28,55 @@ From about V3–V4 on, expect these problems to feel harder than their grade:#ix
 
 - *#jt("scrunchy", body: [Scrunchy]) problems,* where the holds are close together and you have to fold up. Your knees hit the wall or your chest, which pushes your hips out. Tall forum climbers name this as their weak style #src("G7", "G8"). See #tref("hip-turn").
 - *Sit starts.* Long thighs put your knees in your chest and your bum far from the wall (@fig-cons-sit a). See #tref("sit-start").
-- *High feet.* A foot at waist height needs your knee fully bent and your hip deeply folded. That position can hurt your knee (see the box below).
+- *High feet.* A foot at waist height needs your knee fully bent and your hip deeply folded. That position can hurt your knee (see the knee box in @cons-injuries).
 - *Steep walls.* Your hips hang further from the holds than a short climber's. When your feet come off, more weight swings further out.
 - *Big moves where your feet come off.* Forum climbers say tall climbers find the swing harder to hold #src("G7", "G8").
 
 ==== How to climb tall
 
-Most of this list is this book's suggestion, built on the mechanics in Chapter 1. No study has tested it.
+Most of this list is the book's own advice, built on the mechanics in Chapter 1. No study has tested it.
 
 + *Fold sideways, not forwards.* On a scrunchy move, turn your hip into the wall with a #tref("backstep", body: [backstep]) or a partial #tref("drop-knee", body: [drop knee]). Your long thigh then points along the wall instead of into it.
 + *Skip high footholds.* If the next foothold is at knee height, try a lower one with a straighter leg. When you must step high, see #tref("high-step") and #tref("rockover").
 + *Sit starts.* Sit as close to the wall as the start holds allow. Place both feet before you take the holds. Then turn side-on with an outside edge on the foothold, as in #tref("sit-start"). Where both footholds sit straight below the holds, open your knees wide in a #tref("frog", body: [frog position]) instead, so your chest drops between them. Or put one foot high and one low, so only one knee comes up (@fig-cons-sit b, c). Pull your hips in with your feet to lift off. Don't heave on straight arms.
 + *On vertical walls, use your reach. On steep walls, keep your hips close:* every centimetre they sag puts more weight on your fingers.
 + *Copy positions, not sequences.* Ondra#ix("Ondra, Adam") recommends climbing with people of different heights #src("G2"). Watch where short climbers put their hips and knees on scrunchy problems.
++ *Adapt a shorter climber's #jt("beta") (their sequence of moves).*#ix("Tall climbers!reading a problem") Expect to skip an intermediate handhold: you don't have to use every hold you can reach #src("E76"). Where their footholds fold you up, drop a foot lower and sink onto one leg, with your arms straight #src("E76"). Some setters bunch tall climbers up on purpose #src("H10"), so feeling scrunched doesn't mean you read the problem wrong.
 + *Seek out your weak style.* Sit starts and scrunchy problems are your best practice.
 
 #fig("considerations-sit-start.svg", lbl: "fig-cons-sit", caption: [A tall climber on a sit start. (a) Both feet high: the knees jam into the chest and the bum is far from the wall. (b) Knees out wide. (c) One foot high and one low.])
-
-#notebox[Your knees on high steps and drop knees][
-#ix("Injuries!knee", main: true)
-One study looked at 77 acute knee injuries in climbers.#ix("Studies!knee injuries") #tref("heel-hook", body: [Heel hooks]) caused 40.3%, falls 22.1%, high steps 20.8% and drop knees 16.9%. Almost half happened while bouldering indoors. These are injuries seen in two specialist clinics, with the cause as the climbers described it. So they show what hurts people, not how risky each move is: the study didn't count how often climbers use each move without getting hurt #src("G9"). High steps and drop knees load the #jt("meniscus") (the cartilage pad inside the knee) while the knee is deeply bent. The authors suspect the injury comes when a hand lets go or the other foot slips, so the knee takes a sudden extra load #src("G9").
-
-So in a deep drop knee or high step, keep the other foot solid. Turn your whole hip rather than twisting the knee. Turn a drop knee back up before you stand up on it. On a high step, get your hips over the foot before you stand. See #tref("rockover").
-]
-
-==== Mobility
-
-#ix("Mobility", main: true)You need three hip movements: knees turned out for frogs and high steps, knee to chest for high feet, and knee turned in for drop knees. Heel hooks also need flexible #jt("hamstring", body: [hamstrings]) (the muscles at the back of the thigh). Lattice tells beginners that hip flexibility improves their movement #src("G26"). Try a wide squat with hip circles and a kneeling stretch for the front of the hip. A frog stretch on forearms and knees and the yoga pigeon pose also help #src("G63"). But flexibility explained only 1.8% of the differences in score in the study of 44 climbers #src("G3"). It opens positions, but this study gives no sign that it adds grades.
 
 == Climbing small <cons-small>
 
 ==== What height does and doesn't predict
 #ix("Small climbers", main: true)
 
-Being small changes which problems feel hard. Its effect on your grade is less clear, because studies of height point both ways #src("G68"). In a V0–V8 competition, height and body mass didn't help predict 67 boulderers' scores, while ring-finger strength, experience and how often they bouldered did #src("H13").
+Being small changes which problems feel hard. Its effect on your grade is less clear, because studies of height point both ways #src("G68"). In the gym competition described in @cons-tall, height didn't help predict scores #src("H13").
 
 What height may change is how strong your fingers are at a given grade. In a 2017 podcast, Lattice#ix("Lattice Training") reported that among over 500 clients, shorter climbers at the same grade had stronger fingers, by about 2.5% per 10~cm. Its coaches say these climbers need that strength, whatever they weigh #src("H7"). One blogger argues instead that strength relative to bodyweight comes more easily to a shorter body, though he has no test of this #src("H15"). We found no published version of the 2.5%. Lattice's written post on height, about a different test, calls its own correlation not strong #src("H28").
 
-Lattice says its result holds whatever the grade #src("H7"), while forum climbers (@cons-tall) say height's advantage fades by about V6. The two may not clash (judgement): the forums mean reach on the wall and Lattice means how strong your fingers test, though its coaches think reach explains part of that gap #src("H7"). Both are weak evidence, so don't plan your training around either (this book's suggestion).
+Lattice says its result holds whatever the grade #src("H7"), while forum climbers (@cons-tall) say height's advantage fades by about V6. The two measure different things: the forums mean reach on the wall and Lattice means how strong your fingers test, though its coaches think reach explains part of that gap #src("H7"). Both are weak evidence, so don't plan your training around either.
 
 ==== Where being small helps and hurts
 
-One columnist, writing about an outdoor slab, thinks a short reach hurts most on vertical walls with big moves between good holds #src("H11"). Indoors, one head #jt("setter") (a person who designs gym problems) admits that a lot of setting is built for the average man's body #src("H10"). By climbers' own accounts, being small helps on #tref("sit-start", body: [sit starts], show-page: false) #src("H11"), high feet #src("H8") and tight #tref("knee-bar", body: [knee bars], show-page: false) #src("H2", "H6"), and perhaps on steep walls #src("H6"). If you are also light, each finger carries less load (judgement), but don't chase a lower weight (@cons-heavy).
+One columnist, writing about an outdoor slab, thinks a short reach hurts most on vertical walls with big moves between good holds #src("H11"). Indoors, one head #jt("setter") (a person who designs gym problems) admits that a lot of setting is built for the average man's body #src("H10"). By climbers' own accounts, being small helps on #tref("sit-start", body: [sit starts], show-page: false) #src("H11"), high feet #src("H8") and tight #tref("knee-bar", body: [knee bars], show-page: false) #src("H2", "H6"), and perhaps on steep walls #src("H6"). If you are also light, each finger carries less load. That is plain mechanics, but don't chase a lower weight (@cons-heavy).
 
 ==== How to climb small
 #ix("Small climbers!how to climb")
 
 We found no study that tests these points. They come from climbers and coaches of about 150 to 170~cm who work around their own reach. Much of the advice comes from rock. The sources give no shared figure for how short counts as small, so take what fits you.
 
-+ *Add moves where the problem lets you.* Split a long move with a small hold or a high foot #src("H1"). Indoors there aren't always more options #src("H8"), though some setters add a small hold for this reason #src("H10").
-+ *Raise your feet.* Walk them up on tiny footholds #src("H3") or use a high #tref("heel-hook", body: [heel hook]) #src("H2"). Read the knee box in @cons-tall first, because heel hooks caused the most injuries in its study.
++ *Add moves where the problem lets you.*#ix("Small climbers!reading a problem") Split a long move with a small hold or a high foot #src("H1"). A taller climber's one reach may be your two or three, so look at the holds with little chalk that they skip #src("H1", "H8"). Indoors there aren't always more options, because setters decide which holds a problem has #src("H8"). Some add a small hold for this reason #src("H10").
++ *Raise your feet.* Read the feet first when you copy a taller climber. Walk your feet up on tiny footholds #src("H3"), smear #src("H8") or use a high #tref("heel-hook", body: [heel hook]) #src("H2"). Someone your own size can show you where #src("H8"). Read the knee box in @cons-injuries first, because heel hooks caused the most injuries in its study.
 + *Turn in.* Where the holds suit it, bring your hip to the wall with a #tref("backstep", body: [backstep]) #src("H1", "H2").
-+ *Learn momentum in small steps* #src("B34"). On easy problems, go for #tref("deadpoint", body: [deadpoints]) to holds just out of reach #src("D45"), low on the wall at first #src("H4"). Keep big jumps for the moves that need them (this book's suggestion), and don't snatch at small holds, which can injure a finger #src("C25").
++ *Learn momentum in small steps* #src("B34"). On easy problems, go for #tref("deadpoint", body: [deadpoints]) to holds just out of reach #src("D45"), low on the wall at first #src("H4"). Build up to big jumps (@dynamic-choice), and don't snatch at small holds, which can injure a finger #src("C25").
++ *Measure before you believe it's too far.* At the wall, count how many bolt holes your reach covers, then count the holes between the holds #src("H9").
++ *Distrust "you just have to reach",* and read little into the grade. One reachy move can stop you on a V1 even if you climb most V3s #src("E51").
 
 ==== Small hands
 #ix("Hand size")
 
-One setter says small hands can't use wide #tref("pinch", body: [pinches], show-page: false) and #tref("sloper", body: [slopers], show-page: false) as securely as large ones #src("E46"). You may be able to hold a wide pinch like an edge #src("C37"), or pull it as a #tref("sidepull", body: [sidepull], show-page: false) (this book's suggestion). We found no study of hand size on small holds. The nearest is a test of 48 people hanging from a 4~cm edge, where longer middle fingers went with shorter hangs. But only 10 of them had climbing experience, and a 4~cm edge isn't small #src("H27").
+One setter says small hands can't use wide #tref("pinch", body: [pinches], show-page: false) and #tref("sloper", body: [slopers], show-page: false) as securely as large ones #src("E46"). The small-climber note in #tref("pinch") says what to try. We found no study of hand size on small holds. The nearest is a test of 48 people hanging from a 4~cm edge, where longer middle fingers went with shorter hangs. But only 10 of them had climbing experience, and a 4~cm edge isn't small #src("H27").
 
 == Climbing heavier <cons-heavy>
 
@@ -100,11 +92,11 @@ So your best way to save your fingers is to keep your weight on your feet. Every
 
 + Stand on the best part of the foothold with the front of your shoe, not the middle of your foot #src("G58"). Place each foot silently and don't adjust it once it's down. See #tref("precise-footwork") and the drills in @cons-learning.
 + Move your hips over your feet *before* you move a hand.
-+ Climb with control while your fingers are still adapting. Small deadpoints are fine, but keep big jumps for the moves that need them and don't snatch at small holds (this book's suggestion).
++ Climb with control while your fingers are still adapting. Small deadpoints are fine, but build up to big jumps and don't snatch at small holds (@dynamic-choice).
 + On steep ground, use #tref("toe-hook", body: [toe hooks]) and #tref("heel-hook", body: [heel hooks]) so a leg takes some weight.
 + Climb down instead of dropping from the top: a heavier body hits the mat harder (@cons-falling).
 
-On step 3: one gym owner's article says dynamic moves save energy compared with locking off (Chapter 6), but that says nothing about the load on your fingers. In a small indoor study of 35 climbers, six reported a shoulder that felt it might slip out, badly enough to need at least two weeks off. Those climbers more often preferred a dynamic style#ix("Injuries!shoulder"), but they also had less experience. The study didn't separate small deadpoints from big jumps. The result is uncertain, and one snapshot can't show that the style caused it #src("G19").
+On step 3: no study shows that a dynamic style hurts fingers or shoulders. One small survey hints at a link with unstable shoulders#ix("Injuries!shoulder"), but it can't show cause #src("G19"). @dynamic-choice has the case for small deadpoints.
 
 ==== Does weight cost you grades?
 
@@ -112,7 +104,7 @@ On step 3: one gym owner's article says dynamic moves save energy compared with 
 
 *The reviews differ.* One found the evidence on body mass and body fat conflicting. It concluded that body measurements seem to count less than strength and endurance #src("G68"). Another says heavier climbers tend to climb lower grades on routes and that successful climbers carry less body fat. But its own pooled figures show no significant difference in body fat, and it finds no clear link with body mass index #src("G69"). The paper on competition climbers says research shows no clear link between body composition and performance and doesn't support the belief that a lower weight helps climbers already at an appropriate weight #src("G70"). One small study compared ten elite Polish boulderers with untrained students and found them light, meaning low in body fat #src("G5").
 
-*Some climbers still diet:* in a survey of elite women, 45% said they try to change their competition weight #src("G40"). The competition paper says climbers generally believe dieting will raise their strength for their weight, and so their performance #src("G70"). The arithmetic is simple: if your strength holds, a lower weight raises your strength relative to bodyweight. Across climbers, that ratio tracks grade in many studies #src("G68"). But the ratio has body mass built into it, and these studies too compare different climbers (this book's reading). We found no test in climbers of whether strength holds while you diet, or whether a better ratio then brings grades.
+*Some climbers still diet:* in a survey of elite women, 45% said they try to change their competition weight #src("G40"). The competition paper says climbers generally believe dieting will raise their strength for their weight, and so their performance #src("G70"). The arithmetic is simple: if your strength holds, a lower weight raises your strength relative to bodyweight. Across climbers, that ratio tracks grade in many studies #src("G68"). But the ratio has body mass built into it, and these studies too compare different climbers. We found no test in climbers of whether strength holds while you diet, or whether a better ratio then brings grades.
 
 *The evidence on injury is mixed.* In a survey of Swedish climbers, being overweight and bouldering both went with a higher risk of a first injury. The authors asked for more study #src("G74"). A survey of 389 Czech and Slovak climbers found no effect of weight on how many injuries they had or how bad they were, and no link with a last injury in bouldering. Heavier climbers more often had their last injury while lead climbing on a rope, and less often on indoor walls. The authors connect the rope injuries to falls onto rock #src("G21"). A survey of 667 climbers found no link between body mass index and long-term injury or level #src("G73"). One knee-injury study wonders, without testing it, whether age and weight help explain why some climbers needed surgery #src("G9").
 
@@ -120,7 +112,7 @@ On step 3: one gym owner's article says dynamic moves save energy compared with 
 
 #notebox[Don't diet for grades][
 #ix("RED-S", main: true)#ix("Eating disorders")
-#jt("RED-S") (relative energy deficiency in sport) is what happens when you eat too little for the training you do. In women, one sign is missed periods#ix("Women climbers") #src("G40"). In a survey of 114 elite female competition climbers, 15.8% (18 women) had lost their periods. 17 of the 114 said they currently had an eating disorder. About half of the women who had lost their periods had cut their food. Their #jt("BMI")#ix("BMI") (weight divided by height squared) did not show it: only 4 of those 18 had a BMI under 18 #src("G40"). The authors describe a climbing culture that values thinness #src("G40"). Even among teenage gym climbers, 82% ate less than their estimated needs #src("G41").
+#jt("RED-S") (relative energy deficiency in sport) is what happens when you eat too little for the training you do. In women, one sign is missed periods#ix("Women climbers") #src("G40"). It isn't only an elite problem. In a survey of 498 rope climbers, most of them below advanced level, 8.6% scored in the range for disordered eating. Among the women the rate rose with grade #src("G94"). In a survey of 114 elite female competition climbers, 18 had lost their periods. Their #jt("BMI")#ix("BMI") (weight divided by height squared) did not show it: only 4 of the 18 had a BMI under 18 #src("G40"). The authors describe a climbing culture that values thinness #src("G40"). Even among teenage gym climbers, 82% ate less than their estimated needs #src("G41").
 
 If you want to lose fat for your health, do it slowly. Don't cut food on climbing days. Eat carbohydrate and protein around your sessions. Ask a doctor or a registered dietitian, not a forum. See a doctor if food fills your thoughts, if you feel guilty eating, or if your energy drops. Frequent illness, injuries that don't heal and a mood that follows the scales are warning signs too. RED-S affects men as well as women #src("G65").
 ]
@@ -132,6 +124,32 @@ If you want to lose fat for your health, do it slowly. Don't cut food on climbin
 Muscles adapt to training within weeks, but #jt("tendon", body: [tendons])#ix("Tendon!adaptation", main: true) (the cords that join muscles to bones) take longer #src("G23"). Human tendon renews only about 0.2–1% of its #jt("collagen") (the protein it is made of) each day. The core of an adult tendon, laid down by your late teens, hardly changes at all #src("G24"). Climbing studies agree: when researchers scanned the fingers of 31 high-level climbers twice, ten years apart, their #jt("pulley", body: [pulleys]) (the bands that hold the finger tendons against the bone) and tendons had kept getting thicker #src("G25"). Lattice's rule of thumb, a coaching figure rather than a measurement, is that tendons may take five times as long as muscle to get stronger #src("G26").
 
 Age itself matters less than you might fear.#ix("Age!tendons") Tendon cells lose little of their ability to build new tissue as you age. In animal studies, training reverses several effects of ageing #src("G24"). The real issue is timing. After a year, your muscles and skill can ask more of your fingers than your pulleys can take. The danger is a sudden jump in finger load, e.g. from #tref("full-crimp", body: [full crimps]) on small edges, catching holds at speed, hard sessions on back-to-back days or a #jt("campus board") (wooden rungs you climb with your hands only).
+
+==== When finger training makes sense
+#ix("Fingerboard!when to start", main: true)
+
+A #jt("fingerboard") is a board of edges you hang from to train your fingers. After a year of climbing, you will hear advice from "start now" to "wait another year". Both camps have a case.
+
+*The traditional view: build up first.* Eric Hörst#ix("Hörst, Eric") (2011) says the fingerboard is not for true novices. Start only after six months of climbing, with no finger, elbow or shoulder pain, and not while more than about 9~kg overweight #src("G34"). Climbing.com suggests climbing for a year or two first. Novices can hang at low loads, but beginners should not add weight #src("G30"). Lattice puts skill first. It suggests testing a 7-second hang on a 20~mm edge after six months, and prefers long, light hangs to maximal ones #src("G26").
+
+*The newer view: some coaches start gentle loading earlier.* Trials agree that finger training works: across 11 of them, climbers who trained their fingers gained more finger strength than climbers who only climbed #src("F66"). One study of a training app's logs#ix("Studies!fingerboard training") suggests that gentle hangs give gains close to those of near-maximal ones. The gentle hangs last 10 seconds, with the feet on the floor and only "a small strain" in the forearms. But the study has limits. The climbers chose their own training and nobody measured the load. None of them was a novice. The paper's authors include the method's inventor, Emil Abrahamsson#ix("Abrahamsson, Emil"), and the app's designer. The authors warn that maximal hangs may overload novices #src("G28").
+
+In a randomised trial with advanced climbers, hangs at 60% of maximum built less strength than heavier ones, but the authors suggest them for climbers worried about injury #src("G29"). Dave MacLeod#ix("MacLeod, Dave") says circumstances matter more than grade: fingerboarding can suit novices who can't climb often #src("G31"). Lattice coach Ollie Torr#ix("Torr, Ollie") uses gentle hangs even with complete beginners, and keeps one day a week free of finger training #src("G27").
+
+*Where they agree:* nobody suggests heavy hangs with added weight, or campus boarding, one year in.
+
+#keypoint[
+  *What fits you:* two or three short sessions a week. The dose is our own caution: the gentle group in the app study logged at least three a week #src("G28"). Hang from a 20~mm edge with your feet on the floor, at "small strain" effort. Use a #tref("half-crimp", body: [half crimp]) or #tref("open-hand", body: [open hand]) grip, never a full crimp. No added weight and no campus board. Stop if finger pain lasts into the next day. The aim is stronger fingers at low risk. Don't count on gentle hangs to toughen your tendons: in leg tendons it takes heavy loading to do that #src("G93"). It isn't a shortcut to V5: Lattice's beginner guide still puts skill first #src("G26").
+]
+
+==== Recovery and rest
+#ix("Recovery")
+
+Lattice coach Tom Randall#ix("Randall, Tom") finds that past 40 he needs more recovery,#ix("Age!recovery") so he has cut back on days with two sessions #src("G35"). A Climbing.com plan for over-40s has two rest days a week #src("G36"). Research is less sure: in a review of 11 studies of strength training, four found slower recovery in older men, two found faster and the rest no difference #src("G87"). So judge by how you feel the next day, not by your age. Tendons respond slowly, so treat finger pain the *day after* a session as the signal to back off. After a week or two off, restart easier: tendons lose stiffness within one or two weeks without load #src("G24").
+
+That points to three bouldering sessions a week, never more than two days in a row.#note[Our own rule of thumb. It follows from the rest days above and from treating finger pain the day after a session as the signal to back off.] Make one of them an easy session of drills (@cons-learning).
+
+== Injuries and warming up <cons-injuries>
 
 ==== The injuries that actually happen
 #ix("Injuries!epidemiology")
@@ -146,53 +164,40 @@ The picture depends on where the data come from: finger and shoulder problems us
   [Protect your pulleys from sudden overload. Your first finger injury matters most: it makes the next one more likely.],
   [*Shoulders*],
   [Two shoulder problems#ix("Injuries!shoulder") are in the top five diagnoses for over-35s. In #jt("shoulder impingement"), a tendon gets pinched under the shoulder blade. A #jt("SLAP tear") is a tear in the rim of the shoulder socket #src("G18"). In a small indoor bouldering study, 26% had a shoulder injury #src("G19").],
-  [Build up big dynamic moves gradually. Keep your shoulders set (pulled down and back) when you catch a hold (this book's suggestion).],
+  [Build up big dynamic moves gradually. Keep your shoulders set (pulled down and back) when you catch a hold. In one trial with 84 student climbers, a strength programme for the shoulders cut shoulder injuries to about a sixth #src("G95").],
   [*Ankles and knees*],
   [Most gym bouldering accidents are falls onto the mat, often with a twisted ankle or leg #src("G12"). In one hospital's emergency department, the ankle was hurt in 37% of bouldering injuries#ix("Injuries!ankle") and the knee in 17% #src("G15"). Older climbers who reach an emergency department are admitted more often #src("G22").],
-  [Learn to fall (@cons-falling). This may be the injury you can most easily prevent (judgement).],
+  [Learn to fall (@cons-falling). In laboratory tests, squatting and rolling cut the force of a landing #src("G80"). No study yet shows that practising falls lowers bouldering injuries: one followed 507 indoor boulderers for a year and found no measure that protected them #src("G81").],
 )
 
 #par(justify: false)[Studies of boulderers agree that fingers and ankles are among the most common injuries #src("G20", "G21").]
 
+#notebox[Your knees on high steps and drop knees][
+#ix("Injuries!knee", main: true)
+One study looked at 77 acute knee injuries in climbers.#ix("Studies!knee injuries") #tref("heel-hook", body: [Heel hooks]) caused 40.3%, falls 22.1%, #tref("high-step", body: [high steps]) 20.8% and #tref("drop-knee", body: [drop knees]) 16.9%. Almost half happened while bouldering indoors. These are injuries seen in two specialist clinics, with the cause as the climbers described it. So they show what hurts people, not how risky each move is: the study didn't count how often climbers use each move without getting hurt #src("G9"). High steps and drop knees load the #jt("meniscus") (the cartilage pad inside the knee) while the knee is deeply bent. The authors suspect the injury comes when a hand lets go or the other foot slips, so the knee takes a sudden extra load #src("G9").
+
+So in a deep drop knee or high step, keep the other foot solid. Turn your whole hip rather than twisting the knee. Turn a drop knee back up before you stand up on it. On a high step, get your hips over the foot before you stand. See #tref("rockover").
+]
+
 ==== Warming up
 #ix("Warm-up", main: true)
 
-No study shows that warming up prevents bouldering injuries. In the knee-injury study, four in five of the injured climbers already had a warm-up routine #src("G9"). With no uninjured climbers to compare, that can't show whether warming up helps (this book's reading). In a small study, foam rolling and static stretching#ix("Stretching") didn't change climbing performance#ix("Studies!warm-up and stretching") #src("G39"). Warm-up advice comes from coaches and federations: the German Alpine Club makes a thorough warm-up its first bouldering rule #src("G11"). The routine below is this book's suggestion, built from that advice.
+No study shows that warming up prevents climbing injuries. A review of 34 studies found no link with overuse injuries #src("G82"), and nobody has tested warm-ups against arm and shoulder injuries in any sport #src("G83"). Warming up does help performance. Across 32 studies in other sports it improved four in five of the measures tested #src("G84"). In 22 recreational climbers, ten minutes of warm-up raised shoulder mobility and arm strength, though not finger strength#ix("Studies!warm-up and stretching") #src("G85"). Coaches and federations advise it too: the German Alpine Club makes a thorough warm-up its first bouldering rule #src("G11"). The routine below is built from that advice.
 
 #ctable(
   columns: (auto, auto, 1fr),
   table.header(th[Step], th[Time], th[What to do]),
   [1.~Pulse], [5 min], [Easy cardio: rowing, skipping or brisk stairs #src("G37").],
-  [2.~Mobility], [5 min], [Swing through your range; don't hold stretches. Do arm circles, hip circles, deep squats and leg swings. Held stretches before climbing reduce strength #src("G37"). Over 40, try #jt("tendon glides") (finger positions that slide the tendons through their full range) #src("G36").],
+  [2.~Mobility], [5 min], [Swing through your range; don't hold stretches. Do arm circles, hip circles, deep squats and leg swings. Stretches held for a minute or more cut strength by about 5% #src("G86"). Over 40, try #jt("tendon glides") (finger positions that slide the tendons through their full range) #src("G36").],
   [3.~Landings], [2 min], [Jump 3–5 times from standing onto the mat. Land, sit back and roll. It wakes your ankles #src("G57") and rehearses @cons-falling.],
   [4.~Easy climbing], [10–15 min], [Problems 3–4 grades below your best. Big holds first, then smaller ones; steep walls last #src("G37", "G38"). Silent feet on every problem.],
   [5.~Rehearsal], [5 min], [2–3 problems one grade below today's target, with the same kinds of move.],
   [6.~Re-warm], [—], [Warm up again after any break of more than 15 minutes #src("G38").],
 )
 
-==== When finger training makes sense
-#ix("Fingerboard!when to start", main: true)
+==== Mobility
 
-A #jt("fingerboard") is a board of edges you hang from to train your fingers. After a year of climbing, you will hear advice from "start now" to "wait another year". Both camps have a case.
-
-*The traditional view: build up first.* Eric Hörst#ix("Hörst, Eric") (2011) says the fingerboard is not for true novices. Start only after six months of climbing, with no finger, elbow or shoulder pain, and not while more than about 9~kg overweight #src("G34"). Climbing.com suggests climbing for a year or two first. Novices can hang at low loads, but beginners should not add weight #src("G30"). Lattice puts skill first. It suggests testing a 7-second hang on a 20~mm edge after six months, and prefers long, light hangs to maximal ones #src("G26").
-
-*The newer view: some coaches start gentle loading earlier.* One retrospective study used the logs of 526 users of the Crimpd training app.#ix("Studies!fingerboard training") The gentle protocol, which the paper calls "Abrahangs", takes about 10 minutes: 10-second hangs with the feet on the floor and only "a small strain" in the forearms. The paper declares that its co-author Emil Abrahamsson#ix("Abrahamsson, Emil") created the protocol and that another co-author designed the app. Climbers chose their own training and ran it unsupervised, and nobody measured the load on the gentle hangs, so it isn't proof. The study also started from climbers who had logged at least 30 gentle workouts. Strength relative to bodyweight rose by 2.5% on average with gentle hangs and by 3.2% with near-maximal hangs, and those gains didn't differ significantly. The gentle gain also wasn't significantly bigger than the result for climbers below the study's cut-offs (under 3 gentle or 0.5 maximal sessions a week). Those climbers showed no change over the 4–16 weeks, though nobody tracked their climbing or their other finger training. Doing both protocols added up (5.8%). The users were intermediate to elite, so the study says nothing direct about novices. The authors warn that maximal hangs may overload novices #src("G28").
-
-In a randomised trial with advanced climbers, hangs at 60% of maximum built less strength than heavier ones, but the authors suggest them for climbers worried about injury #src("G29"). Dave MacLeod#ix("MacLeod, Dave") says circumstances matter more than grade: fingerboarding can suit novices who can't climb often #src("G31"). Lattice coach Ollie Torr#ix("Torr, Ollie") uses gentle hangs even with complete beginners, and keeps one day a week free of finger training #src("G27").
-
-*Where they agree:* nobody suggests heavy hangs with added weight, or campus boarding, one year in.
-
-#keypoint[
-  *What fits you* (this book's suggestion): two or three short sessions a week. The dose is our own caution: the gentle group in the app study logged at least three a week #src("G28"). Hang from a 20~mm edge with your feet on the floor, at "small strain" effort. Use a #tref("half-crimp", body: [half crimp]) or #tref("open-hand", body: [open hand]) grip, never a full crimp. No added weight and no campus board. Stop if finger pain lasts into the next day. The aim is to condition your tendons, though the app study measured only strength. It isn't a shortcut to V5: Lattice's beginner guide still puts skill first #src("G26").
-]
-
-==== Recovery and rest
-#ix("Recovery")
-
-Lattice coach Tom Randall#ix("Randall, Tom") finds that past 40 he needs more recovery,#ix("Age!recovery") so he has cut back on days with two sessions. On climbing trips he has swapped "two days on, one off" for "one on, one off" or "two on, two off" #src("G35"). A Climbing.com plan for over-40s has two rest days a week #src("G36"). Tendons respond slowly, so treat finger pain the *day after* a session as the signal to back off. After a week or two off, restart easier: tendons lose stiffness within one or two weeks without load #src("G24").
-
-This book's suggestion: three bouldering sessions a week, never more than two days in a row. Make one of them an easy session of drills (@cons-learning).
+#ix("Mobility", main: true)Climbing asks for three hip movements: knees turned out for frogs and high steps, knee to chest for high feet, and knee turned in for drop knees. Heel hooks also need flexible #jt("hamstring", body: [hamstrings]) (the muscles at the back of the thigh). Lattice tells beginners that hip flexibility improves their movement #src("G26"). Try a wide squat with hip circles and a kneeling stretch for the front of the hip. A frog stretch on forearms and knees and the yoga pigeon pose also help #src("G63"). But flexibility explained only 1.8% of the differences in score in one study of roped climbers #src("G3"). It opens positions, but this study gives no sign that it adds grades.
 
 == Learning technique <cons-learning>
 
@@ -205,11 +210,11 @@ You can check the same things on video. Do your hips jerk or stall? Is their pat
 ==== Principles to try
 #ix("Motor learning")
 
-- *Practise with a goal.* #jt("deliberate practice", body: [Deliberate practice]) means a clear goal, quick feedback and tasks you can repeat at a slowly rising level. In sport it explains a real but modest share of skill, about 18% #src("G50"). Give each session one or two named goals, such as #tref("backstep", body: [backsteps]) on the steep wall, then choose problems that need them. How much you learn depends on how hard a problem is for you, not on its grade #src("G43").
-- *Vary what you practise.* #jt("variable practice", body: [Variable practice]) means changing the task a little each time. In one study, climbers on routes with holds that could be gripped two ways explored more, then settled into smooth movement. A new route made them explore again #src("G44"). Beginners who only climbed square to the wall improved suddenly once they found side-on positions #src("G45"). Varied practice can make sessions feel worse while you keep more of what you learn #src("G51"). So re-climb problems you've done with a new body position, new feet or a hold banned.
+- *Practise with a goal.* #jt("deliberate practice", body: [Deliberate practice]) means a clear goal, quick feedback and tasks you can repeat at a slowly rising level. In sport it explains a real but modest share of skill, about 18% #src("G90"). Give each session one or two named goals, such as #tref("backstep", body: [backsteps]) on the steep wall, then choose problems that need them. How much you learn depends on how hard a problem is for you, not on its grade #src("G43").
+- *Vary what you practise.* #jt("variable practice", body: [Variable practice]) means changing the task a little each time. In one study, climbers on routes with holds that could be gripped two ways explored more, then settled into smooth movement. A new route made them explore again #src("G44"). In another small study, a few beginners who had only climbed square to the wall improved suddenly once they found side-on positions #src("G45"). In laboratory tasks, people who mix up what they practise remember it better, but in real sports practice the benefit is close to nil #src("G88"). So vary your practice because problems vary, not because variety is proven to stick. Re-climb problems you've done with a new body position, new feet or a hold banned.
 - *Learn where you feel safe.* Fear#ix("Fear") narrows what you notice and try #src("G49"). Try new positions low down on easy problems, not at the top of your hardest one.
-- *Try thinking about the hold, not your body.* In research on how people learn movements, a 2013 review found that an #jt("external focus"), a cue about the effect of a move, beats a cue about the body #src("G52"). In climbing that might mean "push the foothold down into the wall" instead of "straighten your knee" (this book's examples). A~2024 re-analysis of this research allowed for studies with no effect going unpublished, and found the average advantage small to nil. The effect varied between studies for reasons nobody can yet explain #src("G67"). We found no climbing study of it. So treat a hold-focused cue as something to try: use the body-part steps in this book to set up a position on the ground, then climb with one cue in mind and keep it if it helps (this book's suggestion).
-- *Get feedback, but not after every go.*#ix("Feedback") Learners in one study got feedback on their movement after each session #src("G45"). Too much feedback during practice can make you depend on it #src("G51"). Film a few attempts, then watch them.
+- *Try thinking about the hold, not your body.* In research on how people learn movements, a 2013 review found that an #jt("external focus"), a cue about the effect of a move, beats a cue about the body #src("G52"). In climbing that might mean "push the foothold down into the wall" instead of "straighten your knee". A~2024 re-analysis of this research allowed for studies with no effect going unpublished, and found the average advantage small to nil. The effect varied between studies for reasons nobody can yet explain #src("G67"). We found no climbing study of it. So treat a hold-focused cue as something to try: use the body-part steps in this book to set up a position on the ground, then climb with one cue in mind and keep it if it helps.
+- *Get feedback.*#ix("Feedback") Learners in one climbing study got feedback on their movement after each session #src("G45"). A common warning is that feedback after every go makes you depend on it #src("G51"), but 61 studies taken together show no such effect #src("G89"). Film a few attempts, then watch them.
 
 ==== Video, flashing and repeating
 #ix("Video analysis")
@@ -222,19 +227,19 @@ Film from behind, 3–4~m back, or from the side on steep walls. Watch after two
 + Did you swing off like a door (#tref("barn-door", inner: true))?
 + Could you hear your feet land?
 
-#ix("Flashing")Reading a problem before you climb it can mean fewer and shorter stops #src("E34", "G44"). Repeating a problem makes you smoother; new problems make you explore #src("G43", "G44"). So do both in every session (this book's suggestion):
+#ix("Flashing")Reading a problem before you climb it can mean fewer and shorter stops #src("E34", "G44"). Repeating a problem makes you smoother; new problems make you explore #src("G43", "G44"). So do both in every session:
 
-- *Flash block.* Try 3–5 new problems you might #jt("flash") (climb first try). Read each one for a minute or two with the method in Chapter 2. Then climb and compare. A German Alpine Club gym uses this "discuss, climb, compare" exercise in its beginner course #src("G56").
+- *Flash block.* Try 3–5 new problems you might #jt("flash") (climb first try). Read each one for a minute or two with the method in @reading-method. Then climb and compare. A German Alpine Club gym uses this "discuss, climb, compare" exercise in its beginner course #src("G56").
 - *Repeat block.* Repeat 2–3 problems you've recently done. Aim for fewer pauses, no foot readjustments and silent feet.
 
-*Watch others.* #ix("Watching others") Novice climbers can pick up new ways to use holds just by watching a video of a skilled climber #src("G47"). Watch where their hips go and which way they face before each move.
+*Watch others.* #ix("Watching others") In one study, climbers topped more boulder problems after watching someone climb them than after only looking #src("G91"). Across sports, watching a model improves how people move more than it improves their results #src("G92"). Watch where a climber's hips go and which way they face before each move.
 
 ==== Drills
 #ix("Drills")
 
-Do drills on problems two or three grades below your best #src("G53"), or on the gym's easiest if you haven't got that far. Try one session a week of 25–40 easy problems (this book's suggestion). Lattice argues that easy, continuous climbing teaches relaxed movement #src("G54"). The evidence it cites is about forearm fitness, though, not technique.
+Do drills on problems two or three grades below your best #src("G53"), or on the gym's easiest if you haven't got that far. Try one session a week of 25–40 easy problems. Lattice argues that easy, continuous climbing teaches relaxed movement #src("G54"). The evidence it cites is about forearm fitness, though, not technique.
 
-The Level column gives the grade where each drill starts to pay off (this book's suggestion). A drill can also train a technique whose badge comes later.
+The Level column is the book's estimate of the grade where each drill starts to pay off. A drill can also train a technique whose badge comes later.
 
 #ctable(
   columns: (auto, auto, 1fr, 33%),
@@ -245,7 +250,7 @@ The Level column gives the grade where each drill starts to pay off (this book's
   [Climb down], [#badge-plain(0)], [Climb each warm-up problem back down. It trains hand and foot coordination in reverse #src("G55", "G53").], [#tref("precise-footwork"), #tref("foot-swap"), #tref("lock-off")],
   [Leg traverse], [#badge-plain(0)], [Traverse 9–12~m. Push with your legs and use your arms as little as you can #src("G53"). Keep them straight on a steep wall and stand tall on a vertical one.], [#tref("straight-arms"), #tref("traverse")],
   [Toe stab], [#badge-plain(1)], [Stand on one leg off the wall. Tap your big toe precisely onto holds, 20~per~foot #src("G53").], [#tref("front-pointing")],
-  [No-hands slab], [#badge-plain(1)], [Climb an easy slab holding tennis balls, or with no hands #src("G53"). Stay low on the wall (this book's suggestion).], [#tref("smearing"), #tref("slab")],
+  [No-hands slab], [#badge-plain(1)], [Climb an easy slab holding tennis balls, or with no hands #src("G53"). Stay low on the wall.], [#tref("smearing"), #tref("slab")],
   [Hover hands], [#badge-plain(2)], [Before you grab the next hold, hold your hand still in front of it for about 3 seconds. If you can't, your hips are wrong. Fix your feet or hips first #src("G66").], [#tref("hip-turn"), #tref("flag")],
   [Banned hold], [#badge-plain(2)], [Repeat a problem you've done with one key foothold banned.], [#tref("smearing"), #tref("flag")],
   [New beta], [#badge-plain(2)], [Climb a problem you've done with three different #jt("beta", body: [betas]) (sequences of moves): square on, side on, then with different feet #src("G44", "G45").], [#tref("frog"), #tref("hip-turn"), #tref("backstep"), #tref("drop-knee")],
@@ -254,13 +259,100 @@ The Level column gives the grade where each drill starts to pay off (this book's
 ==== A ladder for any technique
 #ix("Drills!ladder for any technique")
 
-Here is one way to learn any technique, with a test for when you have it. Both are this book's suggestion, not a tested method. Each entry's warnings still apply at every step, so warm up first and stop if something hurts. A full crimp isn't something to repeat until it feels normal. Build up jumps slowly instead: a few goes at a time, low on the wall and on big holds.
+Here is one way to learn any technique, with a test for when you have it. Neither is a tested method. Each entry's warnings still apply at every step, so warm up first and stop if something hurts. A full crimp isn't something to repeat until it feels normal. Build up jumps slowly instead: a few goes at a time, low on the wall and on big holds.
 
 + *On its own.* Find one move that needs the technique, low on an easy wall. Repeat it on both sides until it stops feeling strange.
 + *On easy problems.* Use it on problems about two grades below your best (the gym's easiest, if you haven't got that far), where you can get it wrong and still stay on.
 + *At your limit.* Try it on problems near your best grade, where you have to choose it while the climbing is hard.
 
 You have it once you can say yes to three questions. Can you spot from the ground where it's needed? Does it work first go on a problem you haven't tried? Does it still come to you late in a session, on an easy problem? Don't test a deep drop knee, a full crimp or a big jump when you're tired, because they are riskier then.
+
+== Working on a hard problem <cons-projecting>
+
+#ix("Projecting", main: true)
+To #jt("project") a problem is to work on it over several attempts or sessions. Chapter 2 gets you a plan for the first try. This section covers the tries after it.
+
+==== How to project
+#ix("Projecting!method")
+
+Choose a project no more than two or three grades above what you usually climb in a session #src("E41"). Then:
+
++ Learn the single moves first, in isolation. Get the first contact right before you add the second #src("E5"). Then #jt("link-up", body: [link]) the #jt("crux") (climb its moves without stopping), then longer sections #src("E44", "E45").
++ Split the problem at the crux, the rests and the changes of style. Work on one link or one move at a time #src("E32", "E43").
++ Link through the crux and keep going. Big overlapping links show progress better than your high point from the start #src("E44").
++ Practise the easy parts too, because slapping through them wastes energy you need later #src("E41", "E44").
++ Count good attempts and treat each one as information. Decide how many you can make in a day #src("E43").
++ Keep one or two side projects so you stay fresh #src("E43").
+
+==== Rest between attempts
+#ix("Rest between attempts", main: true)
+
+How long to rest depends on how hard the attempt is. Problems below your limit need a minute or so. The long rests are for attempts at your limit, on a project or a move you can only just do. If you rest too little before them, you train a different energy system #src("E42"). Research on strength training agrees on long rests. People did more work when they rested three to five minutes between heavy sets than when they rested one #src("E86"). After 30 seconds of all-out cycling, a muscle's fast fuel was still short six minutes later #src("E87"). The 10–15 minutes in the table is a coach's figure.
+
+#{
+  set par(justify: false)
+  table(
+    columns: (1.3fr, 1fr, auto),
+    table.header(th[Situation], th[Rest], th[Source]),
+    [Easier problems, climbed for endurance], [30–60 seconds between sets], [#src("E42")],
+    [A hard problem climbed several times in a row], [1–3 times the climbing time, e.g. about a minute after 30 seconds], [#src("E42")],
+    [One move at your limit, tried on its own (a few seconds)], [About 2½ minutes after a 3-second try. The rule is 20–50 times the effort time.], [#src("E42")],
+    [A full attempt at your limit (about 30 seconds)], [10–15 minutes], [#src("E42")],
+    [Projecting any physically hard problem], [At least 5 minutes, and 10–25 minutes for a long one], [#src("E41")],
+  )
+}
+
+So an hour at your limit holds only about four to six full attempts, each made at full strength. Most sessions mix the two: a few limit attempts while you're fresh, then easier problems with short rests. While you rest, watch others try your problem.
+
+#keypoint[When your full attempts#ix("Projecting!how many attempts") stop getting further, change something. \ Rest longer, change the sequence or stop for the day.]
+
+Coaches who give a number keep it low: three tries per problem in one drill #src("E77"), or three or four honest efforts at a move that rarely works #src("E81"). One coaching site says to end a limit session as soon as your output drops #src("E80"). Stopping protects what you learn too. In a laboratory study, people who practised a pinching task while tired learned it worse, and the loss lasted into the following days#ix("Studies!practising while tired") #src("E82"). It wasn't a climbing study.
+
+==== When to change the beta
+
+- When your sessions keep running into dead ends, question the sequence#ix("Beta!when to change") #src("E41").
+- When you are stuck or a move feels impossible, find your own #jt("beta") (sequence of moves) for each move before you ask others, then test new versions #src("E29", "E44").
+- After each fall, name the cause. If it is the sequence, find an easier one. If it is strength, keep the sequence and train #src("E31", "E41").
+- Try something new on every attempt, even on familiar moves: a different foot or a different grip #src("E44").
+- Change the sequence sooner when you keep failing at the same point in the same way: switching beta can get you out of a rut #src("E44"). Change it too when the move only suits a climber of a very different size #src("E41").
+
+== Breaking a plateau <cons-plateau>
+
+#ix("Plateau", main: true)
+This section is for you if you climb most problems at one grade but none at the next. Its examples come from the step from V4 to V5, the plateau that gyms name clinics after #src("F33", "F35"), but the method fits other grades too.
+
+==== Technique or strength?
+
+Lattice's#ix("Lattice Training") coaches say they are likely to advise climbers with under five years of experience to focus on technique or on applying the strength they have #src("F14"). Another coaching company finds that most problems up to V7 or V8 need only moderate finger and pulling strength and depend more on movement, position and tactics #src("F64"). In a gym competition with problems from V0 to V8,#ix("Studies!finger strength and grade") the strength of 67 boulderers' ring fingers, their experience and how often they bouldered together explained over a third of the differences in their scores #src("H13"). The study didn't measure technique. So assume technique, not strength, stops you until a symptom in the table below says otherwise.
+
+Strength still counts: Lattice's author says of its figures for men that technique alone can't carry you up the whole grade scale #src("F1"). To build it, start by trying problems at the next grade. Climbing alone makes beginners' grip stronger #src("F67"), though finger training on top adds more #src("F66"). For when finger training makes sense, see @cons-adult.
+
+==== Find your limiter
+
+#ix("Limiter, finding your")
+Try three or four problems at the next grade, in different styles. Note *how* you fail on each.
+
+#ctable(
+  columns: (1.1fr, 1fr, 1.1fr),
+  table.header(th[Symptom], th[Most likely limiter], th[Where to look]),
+  [You can't hold the start or crux holds, even with good feet], [Finger strength for that kind of hold], [#tref("half-crimp"), #tref("sloper"), #tref("pinch")],
+  [You can do every move alone but can't link them], [Efficiency and pacing. Some climbers can't string several near-limit moves together #src("F14")], [#tref("straight-arms")\; re-read the problem and look for rests],
+  [Your feet swing off and won't go back on], [Body tension, toe hook, flag, off foot #src("F35", "F41")], [#tref("body-tension"), #tref("toe-hook"), #tref("cutting-loose")],
+  [You fall the moment a hand lets go], [Rotation and body position #src("F40")], [#tref("drop-knee"), #tref("backstep"), #tref("barn-door")],
+  [You stall in a lock-off just short of the hold], [Static or dynamic? #src("F39")], [#tref("deadpoint"), #tref("hip-pump")],
+  [A climber your height does it easily with other beta], [Beta and technique], [Copy their sequence. Then learn the technique behind it],
+  [You rarely try the next grade, or stop after two goes], [Tactics and mindset #src("F9")], [The plan below],
+)
+
+The table follows Lattice's logic: compare what your fingers can hold with what you can climb #src("F14"). Its split into strength, movement and tactics follows two coaching companies #src("F14", "F64"). The symptoms are this book's own.
+
+==== A plan for the next months
+
++ Choose three to five problems at the next grade: one steep, one slab or vertical, one dynamic, one #tref("compression", body: [compression], show-page: false) problem. Work on them over several sessions, as @cons-projecting describes.
++ After each fall, check three things. Where were your hips? Where was your #jt("off foot") (the foot not carrying you)? Were your arms straight before the move? #src("F39", "F41", "F42")
++ Take the techniques that the next grade's guide lists and practise them on problems a grade or two easier. There you have attention to spare for the movement #src("F34", "F35").
++ For V5, spend about two-thirds of your hard sessions on steeper walls, on problems of four to eight moves at your limit #src("F43", "F46"). Give the rest to your other styles. Keep one session a week easy, for drills (@cons-learning).
++ Copy #jt("beta") (a sequence of moves) from climbers close to your height. Beta from someone much shorter or taller often won't fit your body (@cons-tall, @cons-small).
 
 == Falling and landing safely <cons-falling>
 #ix("Falling", main: true)
@@ -298,7 +390,7 @@ Not every source agrees about the arms. One guide says to let your bent arms soa
 
 The DAV's rule is to climb down before you jump, using the holds marked for climbing down, and to roll if you need to #src("G11"). Every jump loads your tendons, ligaments and joints. Where your gym marks no descent holds, any holds will do for climbing down #src("G55"). Before you start a problem, check that you can climb down or jump safely. Climb only as high as you are ready to fall #src("G55").
 
-If you're tall, your body starts higher than a short climber's from the same foothold, so every drop is bigger.#ix("Tall climbers!falling") This book's suggestion: climb down until your feet are about 1~m above the mat. Then drop and land as above.
+If you're tall, your body starts higher than a short climber's from the same foothold, so every drop is bigger.#ix("Tall climbers!falling") So climb down until your feet are about 1~m above the mat, then drop and land as above.#note[The height is our own rule of thumb. The sources say to climb down but give no figure.]
 
 ==== Bailing from dynos and big moves
 #ix("Bailing!from dynos")
@@ -307,9 +399,9 @@ To #jt("bail") is to let go on purpose when a move fails. Jumps cause about a fi
 
 + *Plan the miss before the go.* Is the landing clear of people, bags and brushes? Is there a volume or big hold below the move that you could hit #src("G12")?
 + *Know how to get out of every hook.* Before a #tref("heel-hook", body: [heel hook]) above your head, ask yourself: would it release if a hand slipped #src("G38")? If not, set the heel lightly or choose another sequence.
-+ *Commit fully or don't go.* A half-hearted jump often ends with one hand on and your body swinging. (This book's suggestion.)
-+ *If you miss, let go with both hands together.* Bring your arms in. Hanging on with one hand swings you round, so you land twisted. (This book's suggestion. Twisting featured in 62% of falls that caused injury #src("G14").)
-+ *If your feet swing off and you can't hold the swing,* let go as your body swings back under the holds. You then drop straight down instead of flying out backwards. See #tref("cutting-loose"). (This book's suggestion.)
++ *Commit fully or don't go.* A half-hearted jump often ends with one hand on and your body swinging.#note[This point and the two after it are our own advice, drawn from how the sources above describe these falls.]
++ *If you miss, let go with both hands together.* Bring your arms in. Hanging on with one hand swings you round, so you land twisted. Twisting featured in 62% of falls that caused injury #src("G14").
++ *If your feet swing off and you can't hold the swing,* let go as your body swings back under the holds. You then drop straight down instead of flying out backwards. See #tref("cutting-loose").
 + *Don't flail.* Turning round or spreading your arms in the air makes the landing harder to control #src("G10"). Look down, get your legs under you and land as above.
 
 ==== Mats, gaps and the fall zone

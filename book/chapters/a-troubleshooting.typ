@@ -1,5 +1,7 @@
 #import "../template.typ": *
 
+// The table's parts are left out of the contents, which names the table once, and
+// kept in the PDF's bookmarks.
 #heading(level: 1, numbering: none)[Troubleshooting: from symptom to technique] <troubleshooting>
 
 #ix("Troubleshooting", main: true)
@@ -17,7 +19,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   )
 }
 
-#heading(level: 2, numbering: none)[Balance and swinging]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Balance and swinging]
 
 #ttable(
   [You swing off like a door when you let go with one hand.],
@@ -33,7 +35,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Turn to about 45° to the edge. Hook a heel round it: #tref("arete"), #tref("heel-hook") #src("E2").],
 )
 
-#heading(level: 2, numbering: none)[Feet]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Feet]
 
 #ttable(
   [Your feet come off when you reach on steep ground.#ix("Feet popping off")],
@@ -57,7 +59,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Place the heel at or above hip height. Pull with the back of your thigh: #tref("heel-hook") #src("E21").],
 )
 
-#heading(level: 2, numbering: none)[Reach and steep ground]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Reach and steep ground]
 
 #ttable(
   [The next hold on steep ground is a few centimetres too far.],
@@ -81,7 +83,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Turn the hips 90°, outside edge on the foothold, bottom close to the wall: #tref("sit-start") #src("E11").],
 )
 
-#heading(level: 2, numbering: none)[Holds]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Holds]
 
 #ttable(
   [You can't hold slopers.],
@@ -97,7 +99,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Use the other hand or cross: #tref("cross-through"). Try it as a #tref("sidepull", body: [sidepull]) or #tref("gaston", body: [gaston]) #src("E21", "E29").],
 )
 
-#heading(level: 2, numbering: none)[Slab and volumes]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Slab and volumes]
 
 #ttable(
   [Your foot skates off blank wall on a slab.],
@@ -121,7 +123,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Plan the end position first. Stay relaxed until the catch: #tref("dynamic-slab"), #tref("run-and-jump") #src("E5", "E27").],
 )
 
-#heading(level: 2, numbering: none)[Corners and traverses]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Corners and traverses]
 
 #ttable(
   [Your arms tire in a corner with footholds on both~walls.],
@@ -133,7 +135,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Cross through. Flag instead of swapping feet: #tref("traverse"), #tref("cross-through"), #tref("flag"), #tref("back-flag") #src("E11", "E25").],
 )
 
-#heading(level: 2, numbering: none)[Endurance]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Endurance]
 
 #ttable(
   [You get #jt("pump", body: [pumped])#ix("Pump!on every problem") (forearms swollen and weak) on every problem.],
@@ -142,15 +144,15 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [You take many attempts and make no progress.],
   [You are tired. Your rests are too short.],
-  [Rest 10–15 minutes between full attempts at your limit. After four to six failed tries, change the sequence or stop (judgement). See Chapter 2 #src("E41", "E42").],
+  [Rest 10–15 minutes between full attempts at your limit. When your attempts stop getting further, change the sequence or stop. See @cons-projecting #src("E41", "E42").],
 )
 
-#heading(level: 2, numbering: none)[Reading and tactics]
+#heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Reading and tactics]
 
 #ttable(
   [You get lost mid-problem, or end up with the wrong hand on a hold.],
   [You didn't read the sequence.],
-  [Number the holds. Give each an L or R. Find the matches and crosses: #tref("matching"), #tref("cross-through"). See Chapter 2 #src("E30", "E32").],
+  [Number the holds. Give each an L or R. Find the matches and crosses: #tref("matching"), #tref("cross-through"). See @reading-method #src("E30", "E32").],
 
   [Your first try fails on the easy top section.],
   [You read only the hardest move.],
@@ -162,9 +164,9 @@ Find what goes wrong on the wall in the left column. The middle column gives the
 
   [You feel scrunched on a problem others call flowing.],
   [It was set for a shorter~span.],
-  [Use lower or wider footholds. Skip #jt("intermediate", body: [intermediate holds]). Keep your arms straight (judgement).#ix("Tall climbers!scrunchy problems") See @cons-tall #src("E46", "E47").],
+  [Drop a foot lower and sink onto one leg. Skip #jt("intermediate", body: [intermediate holds]). Keep your arms straight #src("E76").#ix("Tall climbers!scrunchy problems") See @cons-tall #src("E46", "E47").],
 
   [A problem feels two grades harder than its tag.],
   [The style doesn't suit you, or the gym grades~hard.],
-  [Judge the gym by style, not number. Compare with your own reference problems. See Chapter 2 #src("E51", "E53", "E54").],
+  [Judge the gym by style, not number. Compare with your own reference problems. See @grades-indoor #src("E51", "E53", "E54").],
 )
