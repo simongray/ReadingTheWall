@@ -25,10 +25,11 @@ streamlining), which have the details.
 - **Steps that point up a grade.** `check_order` lists 33. All were read on
   2026-11-17 and are meant: a pointer that says "later" or names the grade, a
   link for a term used in passing, a warning, or one of Barn door's fixes.
-- **Sources added after the third edition.** Most of the 22 studies were read
-  as abstracts only, and the page quotes were checked for eight of the web
-  pages. A London gym whose course page is cited (F71) says it is closed for
-  now, so the page may go.
+- **Sources added after the third edition.** The 22 studies were read again on
+  2026-11-17, 19 of them in full, and 13 sentences changed
+  (`research/factcheck-4.md`). G80, G84 and G86 are still abstracts only. The
+  page quotes were checked for eight of the web pages. A London gym whose
+  course page is cited (F71) says it is closed for now, so the page may go.
 - **Repeated and misplaced passages.** `research/placement-audit.md` lists 55,
   and its head says which few are still open and why. New links add lines to
   the "Referenced from" lists, which can push the end of an entry onto a new
