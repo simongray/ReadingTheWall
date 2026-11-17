@@ -91,8 +91,8 @@ Run through these checks on the ground, before you pull on. Each one points to a
   aliases: ("straight-arming", "hanging on your skeleton"),
   category: "body",
   grade: 0,
-  grade-note: [Learn it from your first session. It matters more the steeper the wall, because your arms then carry more of your weight (Chapter 1). The UK's coach training lists it as a way to find a rest #src("B1"). The UK's bouldering-instructor award counts it among the basics for novices #src("F62").],
-  summary: [You hang with your #cue[elbows straight] or nearly straight, so your arm muscles work less #src("B50"). You move by #cue[pushing with your legs] and turning your hips, not by pulling #src("B12", "B22"). Chapter 1 shows the difference in a figure.],
+  grade-note: [Learn it from your first session. It matters more the steeper the wall, because your arms then carry more of your weight (@hips-and-the-wall). The UK's coach training lists it as a way to find a rest #src("B1"). The UK's bouldering-instructor award counts it among the basics for novices #src("F62").],
+  summary: [You hang with your #cue[elbows straight] or nearly straight, so your arm muscles work less #src("B50"). You move by #cue[pushing with your legs] and turning your hips, not by pulling #src("B12", "B22"). @fig-straight-arms shows the difference.],
   how: [
     + Between moves, let your elbows straighten, but keep a bend of a few degrees #src("B23"). Set your shoulders: draw your shoulder blades a little down, away from your ears#ix("Shoulders!setting the shoulder blades") #src("B28", "B50").
     + On steep ground, lower your hips until your arms are nearly straight #src("B22"), and keep them close to the wall #src("B36").

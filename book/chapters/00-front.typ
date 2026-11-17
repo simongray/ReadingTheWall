@@ -120,6 +120,7 @@ It is written for indoor bouldering. Rock, ropes and lead climbing come up only 
 
 - *Name and grade badge.* The badge, such as #badge(3), marks the grade where the technique starts to *matter* on indoor problems. Below it you can usually get away without the technique. Above it, more and more problems need it. No source fixes these grades, so each badge is this book's estimate, and gyms vary. #link(<how-this-book-was-made>)["How this book was made"] says how the estimates were reached. The #sc(tracking: 0.08em)[Grade] note gives the evidence. It also says when to start learning the technique, if that is earlier. That advice is the book's own unless it cites a source.
 - *Also called.* Other names you will hear.
+- *Description.* What the move is, in a few sentences. Its #cue[key words] are marked: keep those in mind on the wall.
 - *How to do it.* Numbered steps: which limb goes where, and why.
 - *When to use it — reading the wall.* "Look for" lists what you can see on the wall before you climb. "Symptoms" lists what goes wrong when you needed the technique and didn't use it.
 - *Common mistakes*, notes for *tall* and *small climbers*, *related* techniques, videos to *watch*, and *sources*.

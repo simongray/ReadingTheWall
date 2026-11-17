@@ -51,7 +51,7 @@ Find what goes wrong on the wall in the left column. The middle column gives the
   [Let one foot go before the other. Don't fight the swing on the way out. At its peak, tense your stomach and use the backswing to lift your feet: #tref("cutting-loose") #src("E11").],
 
   [A toe hook keeps popping~off.],
-  [The foot isn't flexed, or your hips drift out.],
+  [The hook isn't set, or your hips drift out.],
   [Set the hook and tense your #jt("core"): #tref("toe-hook") #src("E7", "E20"). If it still pops, clamp the hold with both feet: #tref("bicycle").],
 
   [A heel hook doesn't take any weight.],

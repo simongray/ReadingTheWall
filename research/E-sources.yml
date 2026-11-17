@@ -788,7 +788,7 @@ E82:
   url:
     value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6443347"
     date: 2026-11-17
-  note: "Laboratory study of a pinching task in 121 healthy adults; not about climbing"
+  note: "Laboratory study of a pinching task in 121 healthy adults; not about climbing; full text read 2026-11-17"
 
 E83:
   type: web
@@ -847,7 +847,7 @@ E86:
   url:
     value: "https://doi.org/10.2165/11315230-000000000-00000"
     date: 2026-11-17
-  note: "Review of strength-training studies, not of climbing; abstract only"
+  note: "Narrative review of 35 strength-training studies, not of climbing; full text read 2026-11-17"
 
 E87:
   type: article
@@ -865,4 +865,4 @@ E87:
   url:
     value: "https://doi.org/10.1113/jphysiol.1995.sp020533"
     date: 2026-11-17
-  note: "14 men sprinting on bicycles, not climbing; abstract only"
+  note: "14 men sprinting on bicycles, not climbing; full text read 2026-11-17 from page scans"

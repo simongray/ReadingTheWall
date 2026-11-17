@@ -524,7 +524,7 @@ F66:
   url:
     value: "https://doi.org/10.5114/biolsport.2023.113295"
     date: 2026-11-17
-  note: "Systematic review of 11 randomised trials in active climbers; abstract only"
+  note: "Systematic review of 11 randomised trials in active climbers, four of them pooled for finger strength; full text read 2026-11-17"
 
 F64:
   type: web
@@ -561,7 +561,7 @@ F67:
   url:
     value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6277736/"
     date: 2026-11-17
-  note: "Meta-analysis of nine climbing programmes for college students; abstract only"
+  note: "Meta-analysis of nine climbing programmes, 149 participants aged 18 to 38, before and after with no controls; full text read 2026-11-17"
 
 F68:
   type: web

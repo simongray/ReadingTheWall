@@ -74,7 +74,8 @@ section as the notes of the GitHub release.
 ### Added
 - Each entry's description now marks, in bold with an underline, the key words
   to take onto the wall, in one place or in two where the move has two parts.
-  The web edition's previews of an entry mark them too.
+  The web edition's previews of an entry mark them too. "Anatomy of a
+  technique entry" says what the marks mean.
 - Technique map, a new appendix after "On the mat". It puts every technique of
   Part II on one of 20 paths: families of techniques that build on each other,
   such as the side flag, the back flag and the inside flag. A path runs through
@@ -109,6 +110,11 @@ section as the notes of the GitHub release.
   Chapter 9 that it changed.
 
 ### Changed
+- The web edition's black tabs for V7 and V8 take the page's ink and paper in
+  dark mode, where they barely showed.
+- Straight arms cites its figure and section in Chapter 1 by number. The
+  troubleshooting row for a toe hook that pops gives "the hook isn't set" as the
+  cause, in line with the entry.
 - The guides for V6, V7 and V8 call their subsection on techniques "Techniques
   to refine", since no entry has a badge that high. The web edition no longer
   prints "None listed" there.

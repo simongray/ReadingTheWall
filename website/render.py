@@ -553,12 +553,19 @@ def write_llms_txt(book, home):
 
 def tab_rules(book):
     """The grade tabs' colours, when this edition has them. A tab keeps its colours in
-    dark mode, as a hold does. The rules stay outside the stylesheet's layers, so they win."""
-    rules = []
+    dark mode, as a hold does, except a tab too dark to see on the dark paper: that one
+    takes the ink and paper of the page, like a tab with no colour. The rules stay
+    outside the stylesheet's layers, so they win."""
+    rules, dark = [], []
     for g, look in enumerate(book.tab_looks):
         outline = "border:1px solid #111;" if look["outlined"] else ""
         rules.append(f'.g{g}{{background:{look["fill"]};color:{look["figures"]};{outline}}}')
         rules.append(f'.band-g{g}{{--band:{look["fill"]}}}')   # the technique map's bands, tinted from it
+        red, green, blue = (int(look["fill"][i:i + 2], 16) for i in (1, 3, 5))
+        if max(red, green, blue) < 0x30:
+            dark.append(f'.g{g}{{background:var(--ink);color:var(--paper)}}')
+    if dark:
+        rules.append("@media screen and (prefers-color-scheme: dark){" + "".join(dark) + "}")
     return "\n".join(rules) + "\n" if rules else ""
 
 

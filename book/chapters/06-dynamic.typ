@@ -87,7 +87,7 @@ Coaches agree: think of your "arms as a pivot and your legs as a spring" #src("D
         + Set a backstep, with the outside edge of the shoe on the hold, or a partial drop knee, so that the hip on that side turns to the wall #src("D10").
         + Keep the holding arm straight and let your hips sag away from the wall #src("D10").
         + Push off the foot and rotate the hip into the wall and up in one snap #src("D10"). Turn towards the reaching arm as you go: right hip in, right shoulder up #src("D7"). Throw the hand at the top of the rise, with the arm at full length #src("D7", "D13").
-        + On steep walls, avoid a foot that sits "behind #jt("the line")" of your body. Turn it into a drop knee instead #src("D19").
+        + On steep walls, avoid a foot that sits "behind #jt("the line")". Turn it into a drop knee instead #src("D19").
 
         *Don't throw from a deep drop knee.* The authors of a knee-injury study suspect that the injury comes at the moment a hand lets go, which adds load to the legs #src("G9"). The coach Dave MacLeod#ix("MacLeod, Dave") warns against dropping the knee and moving the hand in one rapid motion #src("D61"). See the knee box in @cons-injuries.
       ],

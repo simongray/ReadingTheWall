@@ -972,7 +972,7 @@ G80:
   url:
     value: "https://doi.org/10.1016/j.apmr.2016.08.460"
     date: 2026-11-17
-  note: "Review of 13 laboratory studies of falling, mostly in young adults; not about climbing; abstract only"
+  note: "Review of 13 laboratory studies of falling, in young adults who fell on purpose; not about climbing; abstract only"
 
 G81:
   type: article
@@ -990,7 +990,7 @@ G81:
   url:
     value: "https://doi.org/10.1016/j.wem.2021.02.002"
     date: 2026-11-17
-  note: "507 indoor boulderers followed for 12 months; abstract only"
+  note: "507 indoor boulderers followed for 12 months; abstract, and the first author's thesis on the same cohort read in full 2026-11-17"
 
 G82:
   type: article
@@ -1006,7 +1006,7 @@ G82:
   url:
     value: "https://doi.org/10.3389/fspor.2023.1269870"
     date: 2026-11-17
-  note: "Systematic review of 34 studies; abstract only"
+  note: "Systematic review of 34 studies, four of them on warming up; full text read 2026-11-17"
 
 G85:
   type: article
@@ -1022,7 +1022,7 @@ G85:
   url:
     value: "https://doi.org/10.52082/jssm.2025.84"
     date: 2026-11-17
-  note: "Randomised crossover trial, 22 recreational climbers; abstract only"
+  note: "Randomised crossover trial, 22 recreational climbers, no condition without a warm-up; full text read 2026-11-17"
 
 G84:
   type: article
@@ -1058,7 +1058,7 @@ G83:
   url:
     value: "https://doi.org/10.1136/bjsports-2014-094228"
     date: 2026-11-17
-  note: "Systematic review of 31 trials in sport generally; abstract only"
+  note: "Systematic review of 31 randomised trials in sport generally, none of which measured injury; full text read 2026-11-17"
 
 G86:
   type: article
@@ -1076,7 +1076,7 @@ G86:
   url:
     value: "https://doi.org/10.1139/apnm-2015-0235"
     date: 2026-11-17
-  note: "Systematic review, sport generally; abstract only"
+  note: "Systematic review, sport generally; abstract and the paper's one-page position stand only"
 
 G87:
   type: article
@@ -1094,7 +1094,7 @@ G87:
   url:
     value: "https://doi.org/10.1123/japa.2020-0201"
     date: 2026-11-17
-  note: "Review of 11 studies in older men; not about climbing; abstract only"
+  note: "Review of 11 studies in older men; not about climbing; accepted manuscript read in full 2026-11-17"
 
 G88:
   type: article
@@ -1111,7 +1111,7 @@ G88:
   url:
     value: "https://doi.org/10.1038/s41598-024-65753-3"
     date: 2026-11-17
-  note: "Meta-analysis of 54 studies of motor learning; not about climbing; abstract only"
+  note: "Meta-analysis of 54 studies of motor learning; not about climbing; full text read 2026-11-17"
 
 G89:
   type: article
@@ -1128,7 +1128,7 @@ G89:
   url:
     value: "https://doi.org/10.1016/j.psychsport.2022.102165"
     date: 2026-11-17
-  note: "Meta-analysis of 61 papers on motor learning; not about climbing; abstract read on the preprint"
+  note: "Meta-analysis of 61 papers on motor learning; not about climbing; preprint read in full 2026-11-17"
 
 G90:
   type: article
@@ -1146,7 +1146,7 @@ G90:
   url:
     value: "https://doi.org/10.1177/1745691616635591"
     date: 2026-11-17
-  note: "Meta-analysis of deliberate practice in sport; abstract only"
+  note: "Meta-analysis of deliberate practice in sport; full text read 2026-11-17"
 
 G91:
   type: article
@@ -1164,7 +1164,7 @@ G91:
   url:
     value: "https://doi.org/10.3390/ijerph182312594"
     date: 2026-11-17
-  note: "21 advanced climbers on 18 boulder problems; abstract and parts of the full text"
+  note: "21 advanced climbers on 18 boulder problems; full text read 2026-11-17"
 
 G92:
   type: article
@@ -1182,7 +1182,7 @@ G92:
   url:
     value: "https://doi.org/10.3200/JMBR.38.3.185-205"
     date: 2026-11-17
-  note: "Meta-analysis of learning by watching a model; not about climbing; abstract only"
+  note: "Meta-analysis of learning by watching a model; not about climbing; authors' manuscript read in full 2026-11-17"
 
 G93:
   type: article
@@ -1199,7 +1199,7 @@ G93:
   url:
     value: "https://doi.org/10.1186/s40798-015-0009-9"
     date: 2026-11-17
-  note: "Meta-analysis of 27 studies of leg tendons in healthy adults; not about climbing; abstract only"
+  note: "Meta-analysis of 27 studies of leg tendons in healthy adults; not about climbing; full text read 2026-11-17"
 
 G94:
   type: article
@@ -1215,7 +1215,7 @@ G94:
   url:
     value: "https://doi.org/10.3389/fspor.2020.00086"
     date: 2026-11-17
-  note: "Web survey of 498 rope climbers; abstract only"
+  note: "Web survey of 498 rope climbers; full text read 2026-11-17"
 
 G95:
   type: article
@@ -1232,4 +1232,4 @@ G95:
   url:
     value: "https://doi.org/10.37190/abb-01828-2021-01"
     date: 2026-11-17
-  note: "Randomised trial, 84 male student climbers aged 18–19; abstract only"
+  note: "Randomised trial, 84 male student climbers aged 18–19; full text read 2026-11-17"

@@ -27,7 +27,7 @@ Muscle holds a bent arm bent. Lock your elbow at ninety degrees and your biceps 
 
 On long problems your forearms #jt("pump")#ix("Pump!reducing"): they swell, ache and weaken. Coaches recommend hanging on straight arms whenever you aren't pulling, to ease the pump #src("B22", "B36"). No study we found has measured that: the closest one tested short hangs and saw no change in the forearm #src("G71"). Straight arms also force you to move with your legs, because a straight arm can't pull.
 
-#figure(image("../figures/concept-straight-arms.svg"), caption: [(a) Bent arms on an overhang: the arm muscles hold the body up. (b) Straight arms, bent legs: the elbow muscles rest while the legs push.], kind: image, supplement: [Figure])
+#figure(image("../figures/concept-straight-arms.svg"), caption: [(a) Bent arms on an overhang: the arm muscles hold the body up. (b) Straight arms, bent legs: the elbow muscles rest while the legs push.], kind: image, supplement: [Figure]) <fig-straight-arms>
 
 Straight arms are not a rule for every moment. You bend your arms to pull through a move or to #tref("lock-off", body: [lock off]). On steep ground the skill is to straighten them again as soon as the move is done. Then set up the next move with straight arms: move the feet, turn the hips.
 
