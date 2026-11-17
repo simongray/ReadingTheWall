@@ -154,6 +154,11 @@
     }
   }
 
+  // An entry's summary with its key words marked as in the entry.
+  const marked = (data) => (data.k || []).reduce(
+    (html, words) => html.replace(esc(words), `<strong class="cue">${esc(words)}</strong>`),
+    esc(data.h));
+
   async function reveal(a, withLink) {
     const previews = await load("previews.json");
     const data = previews[targetOf(a)];
@@ -162,7 +167,7 @@
     const drawing = data.f && a.closest(".tmap")
       ? `<picture>${data.d ? `<source media="screen and (prefers-color-scheme: dark) and (forced-colors: none)" srcset="${root}${esc(data.d)}">` : ""}<img class="preview-figure" src="${root}${esc(data.f)}" width="${esc(data.w)}" height="${esc(data.v)}" alt=""></picture>`
       : "";
-    box.innerHTML = `<div class="preview-title"><span>${esc(data.t)}</span>${data.g ? `<span class="grade-tab ${esc(data.c || "")}">${esc(data.g)}</span>` : ""}</div>${drawing}<div>${esc(data.h)}</div>${withLink ? `<a class="preview-go" href="${esc(a.href)}">Go there</a>` : ""}`;
+    box.innerHTML = `<div class="preview-title"><span>${esc(data.t)}</span>${data.g ? `<span class="grade-tab ${esc(data.c || "")}">${esc(data.g)}</span>` : ""}</div>${drawing}<div>${marked(data)}</div>${withLink ? `<a class="preview-go" href="${esc(a.href)}">Go there</a>` : ""}`;
     if (tethered) place(a);
     if (!isOpen()) box.showPopover();
     if (!tethered) place(a);

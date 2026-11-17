@@ -1190,6 +1190,11 @@ class Book:
         source. Kept apart from the pages, and loaded only when first needed."""
         for key, page in self.entries.items():
             self.previews[page.path] = dict(t=page.title, g=self.grade_label(page.meta["grade"]) + "+", c=self.grade_class(page), h=self.plain_summary(page))
+            # the summary's key words, which a preview marks as the entry does
+            summary = page.body.first("p", cls="summary")
+            marks = [clean(m.text()) for m in summary.select("strong", cls="cue")] if summary is not None else []
+            if marks:
+                self.previews[page.path]["k"] = marks
             # the entry's drawing, which the technique map shows with the summary
             figure = page.body.first("figure")
             img = figure.first("img") if figure is not None else None
