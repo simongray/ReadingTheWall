@@ -48,7 +48,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 1,
   grade-note: [Standing on a volume comes early. France's climbing federation teaches balance moves on volumes at the third of its eight levels #src("F60"). A German gym chain teaches standing on volumes for the step up to Font 4C–5A, about V0–V1 #src("F68", "F69"). One setter recommends volumes on easier problems #src("F72"). Some gyms set problems on volumes alone #src("E19"). The grips, squeezes, hooks and knee bars in steps 3 to 5 and under "By shape" have later badges of their own.],
-  summary: [Volumes are big hollow shapes bolted to the wall. They act as holds, footholds and pieces of wall, but most have nothing to pull down on. You stand on their faces, press them, pinch their edges or squeeze them between your hands or feet #src("E18", "E19", "E11").],
+  summary: [Volumes are big hollow shapes bolted to the wall. They act as holds, footholds and pieces of wall, but most have #cue[nothing to pull down on]. You stand on their faces, press them, pinch their edges or squeeze them between your hands or feet #src("E18", "E19", "E11").],
   figure: "volume.svg",
   caption: [(a) Standing near the wall on the volume's sloping top. The slope pushes the foot out. (b) Standing on the far edge, hips over the foot, heel lower than the toe.],
   how: [
@@ -88,7 +88,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 2,
   grade-note: [Slab basics matter from V2–V3, as footholds shrink to small edges and blank wall. Gyms set slab and tricky footwork on purpose, to teach footwork and to make easy problems interesting #src("E46", "E52").],
-  summary: [On a wall that leans back, almost all your weight can sit on your feet. Slab technique keeps it there: your hips stay over your feet, and your hands press and balance rather than pull #src("E1", "E3", "E24").],
+  summary: [On a wall that leans back, almost all your weight can sit on your feet. Slab technique keeps it there: your hips stay #cue[over your feet], and your hands #cue[press and balance] rather than pull #src("E1", "E3", "E24").],
   figure: "slab.svg",
   caption: [(a) Leaning the chest in pushes the foot out and off the smear. (b) Hips stacked over the foot, heel low. The weight goes straight down through the rubber.],
   how: [
@@ -126,7 +126,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 2,
   grade-note: [Traverses appear at every grade: France's climbing federation has climbers traverse at its first level #src("F60"). Moving efficiently along one takes a #tref("cross-through", body: [cross-through]) and a #tref("flag", body: [side flag]), which both have a V2 badge. The back flag in the figure has a V3 badge, so until then use a side flag where you can.],
-  summary: [A traverse moves sideways rather than up and rewards fewer, longer moves. Cross your hands through instead of shuffling them, and #tref("flag", body: [flag], show-page: false) a leg instead of swapping feet #src("E25", "E11").],
+  summary: [A traverse moves sideways rather than up and rewards #cue[fewer, longer moves]. Cross your hands through instead of shuffling them, and #tref("flag", body: [flag], show-page: false) a leg instead of swapping feet #src("E25", "E11").],
   figure: "traverse.svg",
   caption: [Moving right. The left hand crosses over the right arm to the next hold. The left leg flags behind, so the right foot can stay where it is.],
   how: [
@@ -159,7 +159,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 2,
   grade-note: [Topping out matters wherever your gym has boulders you can stand on top of, from your first session there. The UK's bouldering-instructor award lists safe topping out among the basics for novices #src("F62"). The #tref("heel-hook", body: [heel hook]) for a rounded lip has a V3 badge, so try it low on the wall first.],
-  summary: [A top-out takes you from hanging on the #jt("lip") (the top edge of the wall) to standing on top. On a flat top you press down on your palms, which is a #tref("mantle", body: [mantle]). On a rounded or steep lip you first hook a heel over it, then roll over the heel.],
+  summary: [A top-out takes you from hanging on the #jt("lip") (the top edge of the wall) to standing on top. On a flat top you #cue[press down] on your palms, which is a #tref("mantle", body: [mantle]). On a rounded or steep lip you first #cue[hook a heel] over it, then roll over the heel.],
   figure: "top-out.svg",
   caption: [(a) From behind: left foot high, right heel hooked on the lip beside the hands. (b) From the side: the climber has rolled from heel to toe. The chest leans over the top and the palms press down.],
   how: [
@@ -199,7 +199,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 3,
   grade-note: [Start on the gentle overhangs that become common from V2. Hörst#ix("Hörst, Eric") suggests learning the steep-ground moves on problems about 20° past vertical #src("E9"). Gresham#ix("Gresham, Neil") lists bent arms with square hips on steep ground as a beginner-to-intermediate fault#ix("Beginners!common faults") #src("E11").],
-  summary: [Past vertical, gravity pulls your hips away and your arms take more weight. Overhang technique fights that with high feet that pull, hips turned into the wall and straight arms #src("E7", "E8", "E9", "E11").],
+  summary: [Past vertical, gravity pulls your hips away and your arms take more weight. Overhang technique fights that with high #cue[feet that pull], #cue[hips turned] into the wall and #cue[straight arms] #src("E7", "E8", "E9", "E11").],
   figure: "overhang.svg",
   caption: [(a) Low feet and high hands. The body hangs in a straight line and the feet come off. (b) Feet up, toes pulling in, arms straight, hips close.],
   how: [
@@ -237,7 +237,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 3,
   grade-note: [Arêtes appear on easy problems: one setter advises setting them there so that new climbers learn heel hooks and stemming #src("F72"). Controlling the swing they cause takes a #tref("layback", body: [layback]) (badge V2) and often a #tref("heel-hook", body: [heel hook]) (badge V3).],
-  summary: [An arête is an outside edge of the wall. Climb it by laybacking: your hands pull the edge one way and your feet push the other. Or mix the edge with holds on the face. Keep your body at an angle to the edge so it doesn't swing you open #src("E2", "E17").],
+  summary: [An arête is an outside edge of the wall. Climb it by #cue[laybacking]: your hands pull the edge one way and your feet push the other. Or mix the edge with holds on the face. Keep your body #cue[at an angle] to the edge so it doesn't swing you open #src("E2", "E17").],
   figure: "arete.svg",
   caption: [(a) Layback. The hands pull the edge to the left. The feet push on the side face to the right. (b) A heel hooked round the arête stops the body swinging open.],
   how: [
@@ -272,7 +272,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 3,
   grade-note: [Forum climbers say the first move off the mat often needs a burst of power #src("E26").],
-  summary: [The problem starts with you sitting on the mat, hands on the start holds. The first move lifts your bottom off the floor. Turn sideways and use the outside edge of your shoe instead of folding up square #src("E11").],
+  summary: [The problem starts with you sitting on the mat, hands on the start holds. The first move lifts your bottom off the floor. #cue[Turn sideways] and use the outside edge of your shoe instead of folding up square #src("E11").],
   figure: "sit-start.svg",
   caption: [(a) Square on, knees splayed, bottom away from the wall: the first pull is all arms. (b) Hips turned, outside edge on the foothold, bottom close to the wall.],
   how: [
@@ -307,7 +307,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 4,
   grade-note: [Roofs on low grades usually have big holds and big footholds. Once the footholds face down or sideways, your feet must hook to stay on. France's climbing federation teaches positions with the body horizontal at about V4 #src("F60", "F61").],
-  summary: [On a roof you hang underneath it and the footholds face down, so feet that push swing off. Keep them on by pulling with your toes and heels. To get over the #jt("lip") where the roof ends, hook a heel over it #src("E7", "E15", "E13").],
+  summary: [On a roof you hang underneath it and the footholds face down, so feet that push swing off. Keep them on by pulling with your #cue[toes and heels]. To get over the #jt("lip") where the roof ends, #cue[hook a heel] over it #src("E7", "E15", "E13").],
   figure: "roof.svg",
   caption: [(a) Feet pushing on a down-facing hold swing off. (b) Arms straight and toes pulling on the hold: the feet stay on.],
   how: [
@@ -343,7 +343,7 @@ A vertical wall needs no technique of its own, but it breaks one slab habit.#ix(
   category: "terrain",
   grade: 5,
   grade-note: [One gym's #jt("circuit", body: [circuits]) (colour groups of problems) move from teaching skills to testing them with dynamic moves around V4–V6 #src("E52"). In the 2019 World Cup#ix("World Cup!coordination moves") finals, 18% of problems had a #jt("coordination move") (at least three hand or foot placements within two seconds) #src("E6").],
-  summary: [Modern gym slab often isn't slow balance: you jump or run between #tref("volume", body: [volumes], show-page: false) and catch holds and footholds while moving. The skill is planning where your body must end up, so you arrive balanced #src("E5", "E27").],
+  summary: [Modern gym slab often isn't slow balance: you jump or run between #tref("volume", body: [volumes], show-page: false) and catch holds and footholds while moving. The skill is planning where your body must end up, so you #cue[arrive balanced] #src("E5", "E27").],
   figure: "dynamic-slab.svg",
   caption: [Plan from the end. The climber starts on the left volume (dashed). The plan: land the right foot on the far volume (1). Catch the sloper (2). Then place the left foot (3).],
   how: [

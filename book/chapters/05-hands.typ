@@ -57,7 +57,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 0,
   grade-note: [You use jugs from your first session. Resting on them before the hard moves starts to matter around V2–V3.],
-  summary: [A jug is a big, deep hold you can wrap your whole hand around #src("C34"). The skill is to hang on it cheaply.],
+  summary: [A jug is a big, deep hold you can wrap your whole hand around #src("C34"). The skill is to hang on it #cue[cheaply].],
   figure: "jug.svg",
   caption: [(a) Bent arms: your biceps and shoulder muscles work to hold you there. (b) One straight arm holds you while the other hand shakes out.],
   how: [
@@ -90,7 +90,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 1,
   grade-note: [Directional holds appear on easy problems. Movement gyms list them first among five essential techniques #src("C40"). From V2, most problems need them.],
-  summary: [A sidepull is a hold that faces sideways, away from your body. You pull it towards your middle and lean your body away from it #src("C34", "C36").],
+  summary: [A sidepull is a hold that faces sideways, away from your body. You pull it towards your middle and #cue[lean your body away] from it #src("C34", "C36").],
   figure: "sidepull.svg",
   caption: [(a) Under a left-hand sidepull, the body swings open. (b) Body to the right of it, leaning away. The left foot pushes left.],
   how: [
@@ -126,7 +126,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [A London gym teaches crimps, with a first look at finger strength, in a course for V2–V4 climbers #src("F70"). Holds keep getting smaller as you near V5 #src("C48"). Make the half crimp your default on small edges from the start, so you don't fall into the habit of full crimping.],
-  summary: [Your fingertips sit on a small #jt("edge") with the middle joints bent to about 90°. The end joints stay straight and the thumb stays free. It suits most edges #src("C1", "C21").],
+  summary: [Your fingertips sit on a small #jt("edge") with the middle joints #cue[bent to about 90°]. The end joints stay straight and the thumb stays free. It suits most edges #src("C1", "C21").],
   figure: "half-crimp.svg",
   caption: [(a) Half crimp: the middle joint bends about 90° and the end joint stays straight. (b) Full crimp for comparison: the end joint bends back.],
   how: [
@@ -159,7 +159,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [It matters from V2, when edges get rounded. In Lattice's#ix("Lattice Training") tests at V1–V4, climbers added 22.5 kg in open hand and 14.5 kg in half crimp.#ix("Finger strength!open hand and half crimp") They were different climbers, so this only hints at a natural strength #src("C21").],
-  summary: [You hang your finger pads over the hold with the joints only slightly bent. Skin friction and the long finger tendons do the work. It is the cheapest grip and puts far less load on your finger #jt("pulley", body: [pulleys]) than a crimp #src("C1", "C14").],
+  summary: [You hang your finger pads over the hold with the joints only #cue[slightly bent]. Skin friction and the long finger tendons do the work. It is the cheapest grip and puts far less load on your finger #jt("pulley", body: [pulleys]) than a crimp #src("C1", "C14").],
   figure: "open-hand.svg",
   caption: [(a) Drag on a rounded edge: the pad drapes over and the middle joint bends about 40°. (b) Three-finger drag seen from behind, with the little finger off.],
   how: [
@@ -192,7 +192,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [Underclings appear early. Using them well means getting your feet high, which most V2 climbers resist #src("C4").],
-  summary: [An undercling faces down. You grip it palm up and pull up and out. Your feet do the work: they push you up until the hold sits at your waist #src("C4", "C34").],
+  summary: [An undercling faces down. You grip it palm up and pull up and out. Your #cue[feet do the work]: they push you up until the hold sits at your waist #src("C4", "C34").],
   figure: "undercling.svg",
   caption: [(a) With the hold above the head and the feet low, the arms bend and you tip backwards. (b) With the feet up, the hold sits at the waist. The arm is straight and the free hand reaches.],
   how: [
@@ -227,7 +227,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [It helps on easy slabs and volume problems from V2. In corners and on steep volumes it becomes necessary around V4.],
-  summary: [You press an open palm against the wall or a #jt("volume") instead of gripping. The push and skin friction hold you. It is the hand version of #tref("smearing", body: [smearing]) #src("C41").],
+  summary: [You press an #cue[open palm] against the wall or a #jt("volume") instead of gripping. The push and skin friction hold you. It is the hand version of #tref("smearing", body: [smearing]) #src("C41").],
   figure: "palming.svg",
   caption: [The right palm presses down and right on a volume. That frees the right foot to step up.],
   how: [
@@ -260,7 +260,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 2,
   grade-note: [Where a gym has walls you top out on, you need an easy one from the start. The UK's bouldering-instructor award lists safe topping out among the basics for novices #src("F62"). The heel hook in step 2 has a V3 badge, so try it low on the wall first. Hard mantles, with a poor high foot, a rounded top or a volume in the middle of a problem, are a V5–V6 skill: a coaching clinic at that level lists them #src("C46").],
-  summary: [A mantle turns a pull on a ledge into a push down on it. Then you stand up on it. It gets you over a #jt("lip") (the edge where the wall ends) and onto a flat top #src("C39"). For the whole finish of a problem, see #tref("top-out").],
+  summary: [A mantle turns a pull on a ledge into a #cue[push down] on it. Then you #cue[stand up] on it. It gets you over a #jt("lip") (the edge where the wall ends) and onto a flat top #src("C39"). For the whole finish of a problem, see #tref("top-out").],
   figure: "mantle.svg",
   caption: [(1) Pull, with the right foot high. (2) Flip the right hand flat with the elbow up. Press. (3) Straighten both arms. Step onto the top without a knee.],
   how: [
@@ -322,7 +322,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 3,
   grade-note: [Slopers stop many climbers between V3 and V4. Forum advice points to body position and footwork #src("C47").],
-  summary: [A sloper is a rounded hold with no edge to hook, so #jt("friction") holds you on. It works only while your body hangs below the hold #src("C3", "C34").],
+  summary: [A sloper is a rounded hold with no edge to hook, so #jt("friction") holds you on. It works only while your body hangs #cue[below the hold] #src("C3", "C34").],
   figure: "sloper.svg",
   caption: [(a) Both feet high push the hips out. The hand rolls off. (b) The hips hang low under the hold. One foot stays low and the arm is straight. (c) Palm and finger pads drape over the hold, with the wrist below it.],
   how: [
@@ -360,7 +360,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 3,
   grade-note: [Wide pinches appear around V2–V3. Narrow pinches matter from V4–V5.],
-  summary: [You squeeze a hold between your thumb and fingers on two opposite faces #src("C34", "C43"). Most pinches are vertical. A horizontal one is easier to use as a crimp or sloper #src("C34").],
+  summary: [You squeeze a hold between your #cue[thumb and fingers] on two opposite faces #src("C34", "C43"). Most pinches are vertical. A horizontal one is easier to use as a crimp or sloper #src("C34").],
   figure: "pinch.svg",
   caption: [Seen from above, with the wall at the top. The thumb and fingers squeeze across each hold.],
   how: [
@@ -397,7 +397,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 3,
   grade-note: [Arêtes and big round holds become common on gym problems around V3.],
-  summary: [You wrap your whole hand, palm included, round a rounded feature, such as an #tref("arete", body: [arête]), the ridge of a #jt("volume") or a big round hold. Palm and thumb press against the fingers, so skin grips over a large area.],
+  summary: [You wrap your #cue[whole hand], palm included, round a rounded feature, such as an #tref("arete", body: [arête]), the ridge of a #jt("volume") or a big round hold. Palm and thumb press against the fingers, so skin grips over a large area.],
   figure: "wrap.svg",
   caption: [The arête's two faces opened out flat. Palm and thumb press on one face. The fingers wrap round the edge onto the other. Both squeeze towards it.],
   how: [
@@ -426,7 +426,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 3,
   grade-note: [It takes a lot of shoulder power #src("C34"). Many climbers avoid it until problems force it, which starts around V3.],
-  summary: [A gaston faces towards your middle, usually in front of your face or chest. You grip it thumb down and elbow out. Then you push it away from you, like prising open lift doors #src("C41", "C57").],
+  summary: [A gaston faces towards your middle, usually in front of your face or chest. You grip it thumb down and #cue[elbow out]. Then you #cue[push it away] from you, like prising open lift doors #src("C41", "C57").],
   figure: "gaston.svg",
   caption: [The same left-facing hold. (a) With the body to its right, it is a left-hand~sidepull. (b) With the body to its left, it is a right-hand gaston, thumb down and elbow out.],
   how: [
@@ -460,7 +460,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 3,
   grade-note: [Around V3–V4, problems start to have holds you catch one way and use another.],
-  summary: [You change your grip on a hold after you first grab it. You might walk your fingers to the best spot, adjust as your body moves or make room for the other hand.],
+  summary: [You #cue[change your grip] on a hold after you first grab it. You might walk your fingers to the best spot, adjust as your body moves or make room for the other hand.],
   figure: "regrip.svg",
   caption: [(1) Catch the hold where you can, aiming at the screw hole. (2) Walk the fingers into the incut and settle into a half crimp.],
   how: [
@@ -499,7 +499,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 4,
   grade-note: [Gyms set fewer pockets than outdoor limestone has, so indoors they matter around V4–V5. Injuries to the #jt("lumbrical", body: [lumbricals]) (small muscles in the palm) are rising among climbers#ix("Injuries!lumbrical") #src("C33").],
-  summary: [A pocket is a hole for one or more fingers #src("C34"). A one-finger pocket is a mono. The risk lies in the fingers you leave out, because curling them hard into the palm strains the small muscles between the fingers #src("C12", "C16").],
+  summary: [A pocket is a hole for one or more fingers #src("C34"). A one-finger pocket is a mono. The risk lies in the #cue[fingers you leave out], because curling them hard into the palm strains the small muscles between the fingers #src("C12", "C16").],
   figure: "pocket.svg",
   caption: [Two-finger pocket, middle and ring fingers in the hole. (a) Little finger kept parallel: safer. (b) Little finger curled into the palm: stronger, but it shears the muscle between it and the ring finger.],
   how: [
@@ -536,7 +536,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 4,
   grade-note: [Look for the thumb spot from your first crimps. Climbers often miss the one that goes with an edge #src("C1"). It matters most on rounded holds on steep problems #src("C2"), which mostly means V4–V5.],
-  summary: [You use your thumb as a separate contact that hooks a dimple, presses a face or pinches an edge. That can turn a hold that is too small or too sloping into a usable one #src("C7").],
+  summary: [You use your thumb as a #cue[separate contact] that hooks a dimple, presses a face or pinches an edge. That can turn a hold that is too small or too sloping into a usable one #src("C7").],
   figure: "thumb-catch.svg",
   caption: [(a) Fingers over a rounded edge, thumb in a dimple below. (b) Thumb pad pressing up on a volume face, fingers over the ridge.],
   how: [
@@ -566,7 +566,7 @@ Technique cuts both demands, because a hold loaded in its own direction needs le
   category: "hands",
   grade: 5,
   grade-note: [From V5, holds get "smaller and crimpier" #src("C48"). Some tiny edges then work only with a full crimp.],
-  summary: [The middle joints bend past 90° and the end joints bend backwards. The thumb often locks over the index fingernail. It is the most secure grip on tiny edges, but it puts very high loads on the finger #jt("pulley", body: [pulleys]) #src("C1", "C9", "C25").],
+  summary: [The middle joints bend past 90° and the end joints bend backwards. The thumb often locks over the index fingernail. It is the #cue[most secure] grip on tiny edges, but it puts #cue[very high loads] on the finger #jt("pulley", body: [pulleys]) #src("C1", "C9", "C25").],
   figure: "full-crimp.svg",
   caption: [Full crimp from the side, the thumb locked over the index fingernail. The middle joint bends past 90° and the end joint bends back. The load on the A2 pulley is particularly high.],
   how: [

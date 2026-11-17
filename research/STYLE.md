@@ -101,6 +101,14 @@ below.
   to do (steps) and what goes wrong (mistakes).
 - **On the wall a climber can hold one cue.** The steps describe the move, so
   they can be complete. Don't expect the reader to carry them all up the wall.
+- **Mark what to take onto the wall.** In an entry's `summary`, `#cue[…]` sets
+  the key words in bold with an underline. Pick the word or words that carry
+  the action ("hips sideways", "elbow out", "pivot"), and add neighbours only
+  if the mark makes no sense without them. Two or three words is usual. Leave
+  out articles, minor details and anything the sentence around it already
+  says. Mark one place, or two where the move has two parts. Never mark a
+  link or a citation, and mark nothing outside the summary. Emphasis only
+  works while it is rare.
 
 Where the sources disagree, the book takes the stricter number for steps and
 the looser one for bullets with a bold lead-in, which are labelled paragraphs.

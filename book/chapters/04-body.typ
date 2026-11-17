@@ -64,7 +64,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 0,
   grade-note: [The UK's coach training lists weight transfer as a movement skill #src("B2"). Gresham#ix("Gresham, Neil") names a centred, unshifted body as the first habit of off-balance climbers #src("B22").],
-  summary: [Before you stand on a foot, move your hips sideways until they sit over it, then stand up on that leg alone. Your hips zig-zag up the wall #src("B22"), as @fig-balance shows.],
+  summary: [Before you stand on a foot, move your #cue[hips sideways] until they sit over it, then stand up on that leg alone. Your hips zig-zag up the wall #src("B22"), as @fig-balance shows.],
   how: [
     + Place the foot exactly and press a little weight into it first, so the rubber bites #src("B17").
     + Slide your hips sideways until your belly button is over that foot. On a #tref("slab", body: [slab]), also push them out from the wall so they sit above the foot #src("B17").
@@ -92,7 +92,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 0,
   grade-note: [Learn it from your first session. It matters more the steeper the wall, because your arms then carry more of your weight (Chapter 1). The UK's coach training lists it as a way to find a rest #src("B1"). The UK's bouldering-instructor award counts it among the basics for novices #src("F62").],
-  summary: [You hang with your elbows straight or nearly straight, so your arm muscles work less #src("B50"). You move by pushing with your legs and turning your hips, not by pulling #src("B12", "B22"). Chapter 1 shows the difference in a figure.],
+  summary: [You hang with your #cue[elbows straight] or nearly straight, so your arm muscles work less #src("B50"). You move by #cue[pushing with your legs] and turning your hips, not by pulling #src("B12", "B22"). Chapter 1 shows the difference in a figure.],
   how: [
     + Between moves, let your elbows straighten, but keep a bend of a few degrees #src("B23"). Set your shoulders: draw your shoulder blades a little down, away from your ears#ix("Shoulders!setting the shoulder blades") #src("B28", "B50").
     + On steep ground, lower your hips until your arms are nearly straight #src("B22"), and keep them close to the wall #src("B36").
@@ -129,7 +129,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 1,
   grade-note: [Square on is the default from your first climb. A deliberate frog, knees turned out, matters on V1–V2 high steps.],
-  summary: [You face the wall with both hips parallel to it and stand on the inside edges of both feet. Your knees turn out to the sides, so your hips can come close to the wall between them.],
+  summary: [You face the wall with both hips parallel to it and stand on the inside edges of both feet. Your #cue[knees turn out] to the sides, so your hips can come close to the wall between them.],
   figure: "frog.svg",
   caption: [(a) Knees out, both feet on their inside edges, hips between the feet. (b) Side view. Knees pointed at the wall keep the hips out. (c) Knees out let the hips come in.],
   how: [
@@ -165,7 +165,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 1,
   grade-note: [Hörst#ix("Hörst, Eric") teaches the cure, opposite hand and foot, as a basic #src("B11"). Rowland#ix("Rowland, Dave") teaches it on a slab first #src("B35"). At V1, start with fixes 1 and 4.#note[The other fixes use techniques with later badges: a foot swap, a flag or a deadpoint.] Stopping a door on steep V3s needs the flags in this chapter.],
-  summary: [Your body swings open like a door when one hand lets go. It happens when the hand and foot holding you are on the same side. Your weight hangs beside the #jt("hinge") between them, so you rotate around it #src("B8", "B11"). @rotation-and-the-barn-door explains the mechanics.],
+  summary: [Your body #cue[swings open] like a door when one hand lets go. It happens when the hand and foot holding you are on the #cue[same side]. Your weight hangs beside the #jt("hinge") between them, so you rotate around it #src("B8", "B11"). @rotation-and-the-barn-door explains the mechanics.],
   how: [
     + Before the move, name the hand that stays on and the foot you stand on. If they are on the same side, expect a door. Holding it shut with arm strength works on good holds but costs a lot of energy #src("B62").
     + *Fix 1.* Stand on the other foot. If you step up with your right foot, keep your left hand on and reach with the right #src("B35").
@@ -202,7 +202,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 1,
   grade-note: [Matching a #tref("jug", body: [jug]) is a first-session skill. Leaving room on small holds matters from about V3. The UK's coach training lists hand swapping as a movement skill #src("B2").],
-  summary: [You bring your second hand onto the hold your first hand is on. That frees the first hand for the next move or gives you a rest #src("B54").],
+  summary: [You bring your #cue[second hand] onto the hold your first hand is on. That frees the first hand for the next move or gives you a rest #src("B54").],
   figure: "matching.svg",
   caption: [(a) The left hand in the middle of the edge leaves no room. (b) The left hand on the left half leaves room for the right.],
   how: [
@@ -236,7 +236,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 1,
   grade-note: [You can stem wherever two surfaces face each other, such as a corner or a pair of volumes. One setter advises putting easy problems in corners so that new climbers learn to stem #src("F72"). The UK's coach training lists bridging as an opposition technique #src("B1").],
-  summary: [You push your feet outward against two surfaces that face each other, such as the walls of a corner. The push presses your shoes onto them, so friction holds you without good holds #src("B29"). Your legs carry the weight, so your arms can rest.],
+  summary: [You push your #cue[feet outward] against two surfaces that face each other, such as the walls of a corner. The push presses your shoes onto them, so friction holds you without good holds #src("B29"). Your legs carry the weight, so your arms can rest.],
   figure: "stemming.svg",
   caption: [Back view between two volumes. Each foot pushes into its own volume. The left palm presses the left one.],
   how: [
@@ -287,7 +287,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 2,
   grade-note: [Try it from V1, on easy problems that lean towards you. You need it on your first overhangs. Gresham#ix("Gresham, Neil") says low- to intermediate-level climbers struggle there because they keep their hips square#ix("Overhangs!hip position") #src("B22"). Rowland#ix("Rowland, Dave") twists on walls overhanging 10° or more #src("B44").],
-  summary: [You turn your pelvis so the hip on your reaching side touches or nearly touches the wall, while your chest turns towards the holding hand. The turn lifts your reaching shoulder, so your hand goes higher on a straight arm #src("B19", "B43").],
+  summary: [You turn your pelvis so the hip on your reaching side touches or #cue[nearly touches the wall], while your chest turns towards the holding hand. The turn lifts your reaching shoulder, so your hand goes higher on a straight arm #src("B19", "B43").],
   figure: "hip-turn.svg",
   caption: [(a) Square on between the feet, the left hand falls short. (b) With the left foot on its outside edge and the left hip at the wall, the hand reaches. The insets show the body from above.],
   how: [
@@ -326,7 +326,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 2,
   grade-note: [You need it when a reach would swing you open and your free foot has no hold. The UK's coach training lists flagging as a steep-wall skill #src("B1"). A London gym drills flags in a course for V2–V4 climbers #src("F71"). A US gym still teaches them to climbers stuck at V5 #src("B63").],
-  summary: [You stretch your free leg straight out to its own side and press the foot on the wall. The leg balances your weight on the far side of the #jt("hinge"), so you don't swing open #src("B13", "B26"). US sources call this an outside flag #src("B59"). Gresham#ix("Gresham, Neil") seems to use that name for a #tref("back-flag", body: [back flag]) #src("B21"), so this book avoids it.],
+  summary: [You stretch your free leg straight out to its own side and #cue[press the foot] on the wall. The leg balances your weight on the far side of the #jt("hinge"), so you don't swing open #src("B13", "B26"). US sources call this an outside flag #src("B59"). Gresham#ix("Gresham, Neil") seems to use that name for a #tref("back-flag", body: [back flag]) #src("B21"), so this book avoids it.],
   figure: "flag.svg",
   caption: [The left hand sits above the right foot. (a) With the left leg dangling, reaching right swings the body open. (b) The left leg stretched out left presses the wall and balances you.],
   how: [
@@ -362,7 +362,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 2,
   grade-note: [Cross-throughs on #tref("traverse", body: [traverses]) start around V2. Big crosses and cross-unders on steep walls matter from V4.],
-  summary: [You move one hand past the other to a hold beyond it. A crossover passes over the holding arm and a cross-under passes under it. The hard part is getting your chest out of the way #src("B49").],
+  summary: [You move one hand #cue[past the other] to a hold beyond it. A crossover passes over the holding arm and a cross-under passes under it. The hard part is getting your #cue[chest out of the way] #src("B49").],
   figure: "cross-through.svg",
   caption: [Traversing left. The left hand holds a sidepull. The right hip rolls in. The left leg presses the wall. The right hand crosses over.],
   how: [
@@ -398,7 +398,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 2,
   grade-note: [Arêtes and lines of sidepulls appear at V2–V3. The UK's coach training lists laybacking as an opposition technique #src("B1").],
-  summary: [You pull sideways on a vertical edge and lean away from it while your feet push the other way against the wall. Your arms and body make the shape of a "7" #src("B54").],
+  summary: [You pull sideways on a vertical edge and #cue[lean away] from it while your #cue[feet push] the other way against the wall. Your arms and body make the shape of a "7" #src("B54").],
   figure: "layback.svg",
   caption: [Side view of a flake (a thin blade standing off the wall). Straight arms pull its edge out from the wall. The feet press high on the flake. The hips hang low.],
   how: [
@@ -435,7 +435,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Hörst#ix("Hörst, Eric") starts it on boulders about 20° overhanging #src("B15"). Rowland#ix("Rowland, Dave") uses it on overhangs of about 10° or more #src("B44"). Gym V3s on 20–30° walls start to need it.],
-  summary: [You stand on the outside edge of the reaching-side foot, on a hold below the holding hand, while the other leg flags or stands wide. Your reaching-side hip turns to the wall and your weight settles over that heel #src("B37").],
+  summary: [You stand on the #cue[outside edge] of the reaching-side foot, on a hold below the holding hand, while the other leg flags or stands wide. Your reaching-side hip turns to the wall and your weight settles over that heel #src("B37").],
   figure: "backstep.svg",
   caption: [(a) Left foot on its outside edge, on the line under the right hand. The hips settle over the heel. (b) The same foot behind the line: the hips rotate out.],
   how: [
@@ -470,7 +470,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Same-side moves on steep V3s need it. Rowland#ix("Rowland, Dave") says his hip-turned version, the reverse flag, is "almost never necessary (or useful) at grades below 5.9 or V4" #src("B44").],
-  summary: [Your holding hand and standing foot are on the same side, so you cross your free leg behind the standing leg. The foot presses the wall on the far side of the #jt("hinge"), so your weight balances over it #src("B26", "B59").],
+  summary: [Your holding hand and standing foot are on the same side, so you cross your free leg #cue[behind the standing leg]. The foot presses the wall on the far side of the #jt("hinge"), so your weight balances over it #src("B26", "B59").],
   figure: "back-flag.svg",
   caption: [The left hand and left foot hold you. The right leg crosses behind the left and presses the wall. Your centre of gravity sits on the hinge.],
   how: [
@@ -505,7 +505,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Learn a partial drop knee from V2 on big holds, but leave deep ones until a move needs them. Deep drop knees are rare below elite level #src("B33"). Steep V3s use a partial one. On steep V4s a drop knee is often the intended move. The UK's coach training lists the drop knee #src("B1"), while a US gym teaches it at V5–V6 #src("B64").],
-  summary: [You turn the knee of your reaching-side leg down and inward, so the thigh turns towards the wall. Both feet push apart against two footholds. That pins your hips to the wall and lifts the reaching shoulder #src("B19", "B41").],
+  summary: [You turn the knee of your reaching-side leg #cue[down and inward], so the thigh turns towards the wall. Both feet #cue[push apart] against two footholds. That pins your hips to the wall and lifts the reaching shoulder #src("B19", "B41").],
   figure: "drop-knee.svg",
   caption: [(a) Square on, the right hand falls short. (b) Right knee dropped. The right hip turns in. Both feet push apart. The hand reaches. The insets show the body from above.],
   how: [
@@ -546,7 +546,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [From about V3, overhanging moves need leg power from a loaded start. Hooper#ix("Hooper, Jason") calls straight-armed starts the essential tool for overhangs #src("B47").],
-  summary: [Before a move, you lower your hips onto bent legs with your arms straight, so your feet press hard into the wall. You drive the move from there #src("B47").],
+  summary: [Before a move, you #cue[lower your hips] onto bent legs with your arms straight, so your feet press hard into the wall. You drive the move from there #src("B47").],
   figure: "pre-loading.svg",
   caption: [(a) Pulled in tight: knees at the wall, feet barely weighted. (b) Sat back: arms straight, hips and heels low. The hips then drive up and in.],
   how: [
@@ -587,7 +587,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Hooper's Beta#ix("Hooper, Jason") stresses it on a steep V3 #src("B52"). On caves and #tref("roof", body: [roofs]) it matters earlier. A US gym still teaches it in its course for climbers stuck at V5 #src("B63").],
-  summary: [Tension runs from your toes through your legs and your #jt("trunk") (your body between your shoulders and your hips) to your fingers. It keeps your feet loaded on a steep wall while a hand moves #src("B51").],
+  summary: [Tension runs from your toes through your legs and your #jt("trunk") (your body between your shoulders and your hips) to your fingers. It keeps your #cue[feet loaded] on a steep wall while a hand moves #src("B51").],
   figure: "body-tension.svg",
   caption: [Side view, 40° overhang. (a) Slack: the feet cut and you swing under your hands. (b) Tense: the toes pull into the wall and the hips stay up.],
   how: [
@@ -626,7 +626,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [From about V3, slow reaches to small holds need it where you can't turn in. Baker#ix("Baker, John") says lock-off strength matters more on steeper, harder climbs #src("B62").],
-  summary: [You hold one arm bent with the shoulder pulled down while the other hand lets go and reaches slowly to the next hold. You catch it without a swing.],
+  summary: [You hold #cue[one arm bent] with the shoulder pulled down while the other hand lets go and reaches slowly to the next hold. You catch it without a swing.],
   figure: "lock-off.svg",
   caption: [Side view. The right hand is locked beside the shoulder, with the feet high.],
   how: [
@@ -660,7 +660,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [Hand-against-foot opposition, as in a #tref("layback", body: [layback]), appears from V2. Squeezing with two hands appears from V3–V4.],
-  summary: [Two contacts push or pull against each other, so holds that are useless alone start to work #src("B14"). The sideways forces cancel out. The squeeze presses skin and rubber onto the holds, so friction holds you up.],
+  summary: [Two contacts push or pull #cue[against each other], so holds that are useless alone start to work #src("B14"). The sideways forces cancel out. The squeeze presses skin and rubber onto the holds, so friction holds you up.],
   figure: "opposition.svg",
   caption: [Two sidepulls face away from each other. Pulling them towards each other holds you on.],
   how: [
@@ -696,7 +696,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 3,
   grade-note: [From about V3, #jt("setter", body: [setters]) (the people who design the problems) put targets past arm's reach with small holds on the way.],
-  summary: [You move the same hand twice in a row: first to a small hold on the way, an #jt("intermediate"), then on to the target. The other hand and your feet stay put.],
+  summary: [You move the #cue[same hand twice] in a row: first to a small hold on the way, an #jt("intermediate"), then on to the target. The other hand and your feet stay put.],
   figure: "bumping.svg",
   caption: [The right hand goes to a small intermediate (1), then on to the jug (2).],
   how: [
@@ -732,7 +732,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 4,
   grade-note: [Hörst#ix("Hörst, Eric") starts it on boulders about 20° overhanging, then moves steeper #src("B15"). The full twist of hips and shoulders pays from about V4.],
-  summary: [You add a turn of the shoulders to a #tref("backstep", body: [backstep]) or #tref("drop-knee", body: [drop knee]). The reaching-side hip and shoulder turn to the wall while the holding arm pulls down to your ribs. Your body locks, so the free hand reaches with little effort #src("B15", "B43").],
+  summary: [You add a #cue[turn of the shoulders] to a #tref("backstep", body: [backstep]) or #tref("drop-knee", body: [drop knee]). The reaching-side hip and shoulder turn to the wall while the holding arm pulls #cue[down to your ribs]. Your body locks, so the free hand reaches with little effort #src("B15", "B43").],
   figure: "twist-lock.svg",
   figure-first: true,
   caption: [(a) Set: right arm straight, left foot backstepped, hips half turned. (b) Locked. The left hip and shoulder turn in. The right elbow comes to the ribs. The left hand reaches high. (c) The lock from the side. The right forearm points into the wall.],
@@ -768,7 +768,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 4,
   grade-note: [Gripped magazine calls it rarely efficient but occasionally ideal #src("B57"). It starts to pay at about V4.],
-  summary: [Your free leg crosses in front of the standing leg, between it and the wall. The foot presses the wall on the far side. As you stand, your hips and chest corkscrew until every limb is straight #src("B21").],
+  summary: [Your free leg crosses #cue[in front of the standing leg], between it and the wall. The foot presses the wall on the far side. As you stand, your hips and chest corkscrew until every limb is straight #src("B21").],
   figure: "inside-flag.svg",
   caption: [(a) Crouched on one low foothold. (b) Standing up, the right leg passes between the left leg and the wall. Every limb ends straight.],
   how: [
@@ -801,7 +801,7 @@ Run through these checks on the ground, before you pull on. Each one points to a
   category: "body",
   grade: 4,
   grade-note: [Wide #tref("volume", body: [volume]) problems ask for it from V3–V4. A US gym still teaches it in its course for climbers stuck at V5 #src("B63").],
-  summary: [You hold yourself between two holds that face away from each other by squeezing them together with your hands and feet. The squeeze creates the friction that holds you up.],
+  summary: [You hold yourself between two holds that face away from each other by #cue[squeezing] them together with your hands and feet. The squeeze creates the friction that holds you up.],
   figure: "compression.svg",
   caption: [The two side faces of a big volume face away from each other. The palms squeeze them inward, elbows down. The feet squeeze a lower volume.],
   how: [

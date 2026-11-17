@@ -76,7 +76,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 0,
   grade-note: [Learn it from your first session. The UK's bouldering-instructor award lists accurate use of the feet among the basics to teach novices #src("F62"). Forum climbers say footwork starts to decide problems at about V3 #src("A44"). A London gym drills footwork on small footholds in a course for V2–V4 climbers #src("F71").],
-  summary: [You choose one spot on the foothold, watch your foot onto it and put weight on it before you move. Done well, the foot lands without a sound and stays put. Every other entry in this chapter rests on it.],
+  summary: [You choose one spot on the foothold, #cue[watch your foot] onto it and put weight on it before you move. Done well, the foot lands #cue[without a sound] and stays put. Every other entry in this chapter rests on it.],
   figure: "precise-footwork.svg",
   caption: [(a) The eyes are already on the next handhold. The foot lands short, scuffs and slips. (b) The eyes stay on the foothold until the foot is set.],
   how: [
@@ -117,7 +117,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 0,
   grade-note: [The inside edge is the first footwork most climbers learn #src("A4"). You use the outside edge when you turn a hip to the wall, so it starts to matter with #tref("hip-turn").],
-  summary: [You stand on a foothold with the edge of the shoe near the toe: the inside edge is the big-toe side and the outside edge is the little-toe side. The edge you choose decides which way your hips face.],
+  summary: [You stand on a foothold with the #cue[edge of the shoe] near the toe: the inside edge is the big-toe side and the outside edge is the little-toe side. The edge you choose decides which way your hips face.],
   figure: "edging.svg",
   caption: [Right foot seen from above. (a) Inside edge: the big-toe side on the hold. (b) Outside edge: the little-toe side on the hold. (c) Don't stand on the middle of the foot with the ankle against the wall.],
   how: [
@@ -159,7 +159,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 1,
   grade-note: [You need it wherever a foothold is a pocket or a small hold that faces straight out.],
-  summary: [You stand on the very tip of the shoe, with the foot pointing straight at the wall. It is how you use pockets and small holds that face straight out.],
+  summary: [You stand on the very #cue[tip of the shoe], with the foot pointing straight at the wall. It is how you use pockets and small holds that face straight out.],
   figure: "front-pointing.svg",
   caption: [The pocket is drawn cut in half. (a) The toe rests on the front edge of the pocket at the easiest angle. It levers out. (b) The toe points into the back of the pocket. The heel is slightly raised.],
   how: [
@@ -190,7 +190,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 1,
   grade-note: [You need it wherever a #tref("slab", body: [slab]) or a #tref("volume", body: [volume]) gives you no foothold. Gyms set slabs and tricky footwork on easy problems on purpose #src("E46", "E52"): one US gym uses its slab walls to teach climbers to smear and trust their feet #src("E52").],
-  summary: [You press the sole against blank wall, the face of a #tref("volume", body: [volume]) or a rounded foothold, so friction#ix("Friction!smearing") holds you instead of an edge. Dropping the heel puts more rubber on the wall.],
+  summary: [You #cue[press the sole] against blank wall, the face of a #tref("volume", body: [volume]) or a rounded foothold, so friction#ix("Friction!smearing") holds you instead of an edge. #cue[Dropping the heel] puts more rubber on the wall.],
   figure: "smearing.svg",
   caption: [Side view of a slab, with a close-up of the foot beside each climber. (a) Leaning in, heel high: only the tip touches, and the foot skates down the wall. (b) Hips over the feet, heel low: more rubber presses into the wall.],
   how: [
@@ -231,7 +231,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 1,
   grade-note: [You need it when the only foothold is at hip height or above. Often the better answer is *not* to high-step: Gresham#ix("Gresham, Neil") calls a big high step a beginner fault#ix("Beginners!common faults") where smaller steps would do #src("A7").],
-  summary: [You put a foot on a hold well above the other foot, roughly mid-thigh to waist height measured from the lower foot #src("A31"). It turns leg strength into height when the next handhold is out of reach.],
+  summary: [You put a foot on a hold #cue[well above] the other foot, roughly mid-thigh to waist height measured from the lower foot #src("A31"). It turns leg strength into height when the next handhold is out of reach.],
   figure: "high-step.svg",
   caption: [(a) Feet low: the right hand falls short. (b) The right foot is high on a hold beside the hip, knee up and out. A rockover comes next.],
   how: [
@@ -268,7 +268,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 1,
   grade-note: [It finishes a #tref("high-step", body: [high step]), so it shares that entry's badge. Hard ones come later, on small footholds with poor handholds: a gym clinic lists rockovers and mantles among skills common on V5–V6 #src("A42").],
-  summary: [You move your weight onto a high foot and stand up on it. The leg lifts you, not the arms.],
+  summary: [You move your #cue[weight onto a high foot] and stand up on it. The leg lifts you, not the arms.],
   figure: "rockover.svg",
   caption: [(1) Move the hips across until they are over the high foot. (2) Only then stand up on that leg. In each panel, the dashed figure is the position before.],
   how: [
@@ -299,7 +299,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 2,
   grade-note: [You pivot whenever you turn a hip to the wall, so the badge is the same as for #tref("hip-turn").],
-  summary: [You turn the shoe on the foothold without lifting it. The big toe stays put while the heel swings. This lets your hips turn, for example from facing the wall into a #tref("backstep", body: [backstep]).],
+  summary: [You turn the shoe on the foothold without lifting it. The #cue[big toe stays put] while the heel swings. This lets your hips turn, for example from facing the wall into a #tref("backstep", body: [backstep]).],
   figure: "pivoting.svg",
   caption: [Right foot seen from above. The front of the shoe stays on the hold while the heel swings round. The inside edge (dashed) becomes the outside edge.],
   how: [
@@ -329,7 +329,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 2,
   grade-note: [Needed on V2–V3 #tref("traverse", body: [traverses]) and sideways moves. Clean swaps with no swing matter from V4.],
-  summary: [You replace one foot with the other on the same foothold. A good swap keeps your hips still and your weight on the hold.],
+  summary: [You replace one foot with the other on the same foothold. A good swap keeps your #cue[hips still] and your weight on the hold.],
   figure: "foot-swap.svg",
   caption: [The slide method, side view. (1) The right toe rests lightly over the left toe. (2) The left knee kicks the left foot back. (3) The right toe drops onto the same spot.],
   how: [
@@ -374,7 +374,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 2,
   grade-note: [It is the heart of a #tref("mantle", body: [mantle]), so it shares that entry's badge. France's climbing federation teaches it at about V2 #src("F60", "F61"). It is common on V3–V4 problems with ledges and volume tops.],
-  summary: [You put a foot on the hold your hand is on, then rock over onto it. It gets you onto a ledge when there is nothing higher to pull on.],
+  summary: [You put a foot on the #cue[hold your hand is on], then rock over onto it. It gets you onto a ledge when there is nothing higher to pull on.],
   figure: "hand-foot-match.svg",
   caption: [(a) The left hand presses down on the ledge. The left foot comes up beside it. (b) The hips move over the foot. Now rock over and stand.],
   how: [
@@ -407,7 +407,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 3,
   grade-note: [Needed once problems move onto steep walls with small footholds, around V3–V4. Gresham's rule is that on steep walls you pull with your feet rather than push #src("A7").],
-  summary: [On a steep wall you drive the toe onto the foothold and pull back on it, with your whole body tight. Your feet then stay on and keep carrying weight.],
+  summary: [On a steep wall you drive the toe onto the foothold and #cue[pull back] on it, with your whole body tight. Your feet then stay on and keep carrying weight.],
   figure: "toe-pull.svg",
   caption: [Side view of a 35° overhang. (a) Standing passively with the hips out: the foot pops off. (b) Hips in, body tight from toe to hands, toe drilled onto the hold.],
   how: [
@@ -448,7 +448,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 3,
   grade-note: [Climbers on one forum report that heel hooks become necessary around V3 #src("A44", "A45"). France's climbing federation teaches pulling on a heel at that grade #src("F60", "F61"). Gym clinics aimed at V5–V6 climbers still teach them #src("A42", "A43").],
-  summary: [You hook the back of your heel on a hold and pull with the leg, mainly with the #jt("hamstring"). The leg works like a third arm, pulling your hips in or up.],
+  summary: [You hook the back of your heel on a hold and #cue[pull with the leg], mainly with the #jt("hamstring"). The leg works like a third arm, pulling your hips in or up.],
   figure: "heel-hook.svg",
   caption: [(a) Feet low: the right hand can't reach. (b) The right heel hooks the hold out to the side. Pulling the heel towards the bum lifts the hips. Now the hand reaches. (c) Close-up: the heel sits on top of the hold and the toes point away.],
   how: [
@@ -494,7 +494,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 3,
   grade-note: [One forum poster lists it with heel hooks from V3 #src("A44"). A London gym teaches both in a course for V2–V4 climbers #src("F70"). Gym clinics aimed at V5–V6 climbers still teach it #src("A42", "A43").],
-  summary: [You hook the top of your foot under or behind a hold so the leg can keep your body in place. That mostly gives stability, not pull #src("A13").],
+  summary: [You hook the #cue[top of your foot] under or behind a hold so the leg can keep your body in place. That mostly gives #cue[stability, not pull] #src("A13").],
   figure: "toe-hook.svg",
   caption: [(a) The left toes hook behind a hold out to the side. They keep the left side in while the left hand moves. The right foot pushes. (b) Close-up from behind: the ankle is flexed and the top of the toes presses on the far side of the hold. The leg pulls towards the body.],
   how: [
@@ -539,7 +539,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 4,
   grade-note: [You need it only where a steep wall has one big hold or volume that both feet can clamp. The Sportrock gym calls it advanced #src("A25"), though a London gym teaches it in a course for V2–V4 climbers #src("F71").],
-  summary: [You clamp one hold between both feet: one foot pushes down on top of the hold while the other pulls up under it with the top of the foot #src("A19", "A41").],
+  summary: [You clamp one hold #cue[between both feet]: one foot pushes down on top of the hold while the other pulls up under it with the top of the foot #src("A19", "A41").],
   figure: "bicycle.svg",
   caption: [Side view. The right toe pushes down on the hold. The top of the left foot pulls up under it. The feet squeeze the hold between them.],
   how: [
@@ -570,7 +570,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 5,
   grade-note: [Uncommon indoors, because it needs a gap of the right size. No source we found ties it to a grade.],
-  summary: [You lock your foot between two surfaces, with the heel pressing down on one and the toe pressing up against the other. A good cam takes much of your weight off your hands #src("A1").],
+  summary: [You lock your foot #cue[between two surfaces], with the heel pressing down on one and the toe pressing up against the other. A good cam takes much of your weight off your hands #src("A1").],
   figure: "heel-toe-cam.svg",
   caption: [Seen from behind. The heel presses down on the big hold. The top of the toe presses up under the volume. The foot is locked between them.],
   how: [
@@ -599,7 +599,7 @@ Only the shoe points that change technique are here. They come from coaches, not
   category: "feet",
   grade: 5,
   grade-note: [Rare, because it needs exactly the right gap #src("A18"). Learn the #tref("drop-knee", body: [drop knee]) first #src("A17").],
-  summary: [You wedge your leg between a foothold and a surface above the knee, with the toe pushing one way and the thigh the other. Your hands can then rest or move. A _knee scum_ is the light version: the knee presses lightly and takes a little weight #src("A16").],
+  summary: [You #cue[wedge your leg] between a foothold and a surface above the knee, with the toe pushing one way and the thigh the other. Your hands can then rest or move. A _knee scum_ is the light version: the knee presses lightly and takes a little weight #src("A16").],
   figure: "knee-bar.svg",
   caption: [Side view of a 40° overhang. The right toe digs into the foothold. The thigh just above the knee presses up under the volume. The left foot presses on the wall below. The right hand is free.],
   how: [

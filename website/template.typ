@@ -40,6 +40,7 @@
 #let src(..keys) = for k in keys.pos() { cite(label(src-map.at(k, default: k))) }
 // A note. book.py numbers the notes of each page and lists them at its foot.
 #let note(body) = cls("span", "fn", body)
+#let cue(body) = cls("strong", "cue", body)
 
 // ------------------------------------------------------------ type
 

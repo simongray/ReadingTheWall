@@ -373,6 +373,8 @@
   .tref { font-style: italic; }
   :is(em, .keypoint, figcaption) .tref { font-style: normal; }
   .jt, .dotted { text-decoration: underline dotted 1px; text-underline-offset: .2em; }
+  /* the words of an entry's description to take onto the wall */
+  .cue { text-decoration: underline 1px; text-underline-offset: .2em; }
   a.jt:hover { text-decoration: underline dotted 2px; }
   .xref, td a.tref-plain { text-decoration-color: var(--ink-faint); }
 

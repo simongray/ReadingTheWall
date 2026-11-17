@@ -72,6 +72,8 @@ section as the notes of the GitHub release.
   such effect → "Get feedback."
 
 ### Added
+- Each entry's description now marks, in bold with an underline, the key words
+  to take onto the wall, in one place or in two where the move has two parts.
 - Technique map, a new appendix after "On the mat". It puts every technique of
   Part II on one of 20 paths: families of techniques that build on each other,
   such as the side flag, the back flag and the inside flag. A path runs through

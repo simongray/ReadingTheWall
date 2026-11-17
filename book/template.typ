@@ -610,6 +610,10 @@
 
 #let gloss-key(term) = "gl-" + lower(term).replace(" ", "-").replace("’", "").replace("'", "")
 
+// The key words of an entry's description, the ones to take onto the wall,
+// in bold with an underline: in one place, or two where the move has two parts.
+#let cue(body) = underline(stroke: 0.5pt, offset: 2pt, strong(body))
+
 // Jargon in running text, linked to its glossary entry: #jt("beta"),
 // or #jt("crimp", body: [crimping]) to show different words.
 #let jt(term, body: none) = {
